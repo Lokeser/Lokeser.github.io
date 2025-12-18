@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Regras - Luxsandoria</title>
+    <style>
+        .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .rules-section { background: rgba(20, 20, 20, 0.9); border: 1px solid #333; padding: 20px; border-radius: 5px; }
+        .rules-section h2 { color: #c5a059; border-bottom: 1px solid #c5a059; padding-bottom: 10px; margin-top: 0; }
+        .sub-group { margin-top: 15px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 4px; }
+        .sub-group h3 { font-size: 0.9rem; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+        .link-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .rule-link { 
+            background: #2a2a2a; color: #ccc; padding: 6px 12px; 
+            text-decoration: none; border-radius: 3px; font-size: 0.85rem; border: 1px solid transparent;
+            transition: 0.2s;
+        }
+        .rule-link:hover { border-color: #c5a059; color: #fff; background: #333; }
+        .arsenal-link { color: #ff9900; }
+    </style>
+</head>
+<body class="grimoire-bg">
+    <div id="navbar-placeholder"></div> 
+    <script src="../../../js/menu.js"></script>
+
+    <header class="menu-header">
+        <h1>Códice de Leis</h1>
+        <p>A estrutura que rege a realidade e o conflito.</p>
+    </header>
+
+    <main class="menu-container">
+        <div class="rules-grid">
+
+            <section class="rules-section">
+                <h2>Regras Gerais</h2>
+                <div class="link-list">
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Critico.md" class="rule-link">Crítico</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/EficienciaRank.md" class="rule-link">Eficiência de Rank</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/EstagioDistancia.md" class="rule-link">Distância</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Magiculas.md" class="rule-link">Magiculas</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" class="rule-link">Perícias</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/PontosAfeicaoPA.md" class="rule-link">Pontos de Afeição (PA)</a>
+                </div>
+
+                <div class="sub-group">
+                    <h3>Atributos</h3>
+                    <div class="link-list">
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Forca.md" class="rule-link">Força</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Destreza.md" class="rule-link">Destreza</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Constituicao.md" class="rule-link">Const.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Inteligencia.md" class="rule-link">Int.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md" class="rule-link">Sab.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md" class="rule-link">Carisma</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md" class="rule-link">Mana</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/TestesDefesa.md" class="rule-link">Defesas</a>
+                    </div>
+                </div>
+
+                <div class="sub-group">
+                    <h3>Domínios</h3>
+                    <div class="link-list">
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md" class="rule-link" style="color:#c5a059">Introdução</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Forca.md" class="rule-link">D. Força</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Destreza.md" class="rule-link">D. Destreza</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Constituicao.md" class="rule-link">D. Const.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Inteligencia.md" class="rule-link">D. Int.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Sabedoria.md" class="rule-link">D. Sab.</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Carisma.md" class="rule-link">D. Carisma</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Mana.md" class="rule-link">D. Mana</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rules-section">
+                <h2>Combate & Arsenal</h2>
+                <div class="link-list">
+                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md" class="rule-link">Condições</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md" class="rule-link">Tipos de Dano</a>
+                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Resistencia.md" class="rule-link">Resistências</a>
+                </div>
+
+                <div class="sub-group">
+                    <h3>Arsenal (Equipamentos)</h3>
+                    <div class="link-list">
+                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Leve.md" class="rule-link arsenal-link">Armas Leves</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Marcial.md" class="rule-link arsenal-link">Armas Marciais</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Exotico.md" class="rule-link arsenal-link">Armas Exóticas</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md" class="rule-link arsenal-link">Itens Mágicos</a>
+                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md" class="rule-link arsenal-link">Armaduras</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rules-section">
+                <h2>Sistemas Adicionais</h2>
+                <p style="color: #666; font-style: italic; font-size: 0.9rem;">Regras opcionais e variantes de jogo.</p>
+                <div class="link-list">
+                    <span class="rule-link" style="opacity: 0.5;">Em breve...</span>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <button onclick="location.href='../../index.html'" class="btn-back">Retornar ao Início</button>
+    </footer>
+
+</body>
+</html>

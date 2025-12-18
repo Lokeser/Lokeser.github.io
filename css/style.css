@@ -265,3 +265,81 @@ html, body {
 .nav-links a:hover::after {
     width: 100%;
 }
+
+/* --- Estética do Grimório de Classes --- */
+.tier-header {
+    text-align: center;
+    font-family: 'Cinzel', serif; /* Certifique-se de importar ou usar uma serifada elegante */
+    color: #c5a059;
+    font-size: 2.2rem;
+    margin: 50px 0 20px;
+    text-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+}
+
+.tier-header::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c5a059, transparent);
+    margin: 10px auto;
+}
+
+.grimoire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Design dos Botões (Cards) */
+.class-btn {
+    background: linear-gradient(145deg, #1a1510, #251d15);
+    border: 1px solid #4a3b22;
+    border-radius: 8px;
+    color: #d0c0a0;
+    padding: 25px 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.class-btn:hover {
+    transform: translateY(-5px);
+    border-color: #c5a059;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
+}
+
+/* Variações de Raridade */
+.btn-absolute { 
+    border-color: #ffd700; 
+    background: linear-gradient(145deg, #2b2200, #3d3000);
+}
+.btn-absolute:hover { 
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.btn-secret { 
+    border-color: #8a2be2; 
+    background: linear-gradient(145deg, #1a0033, #26004d);
+}
+.btn-secret:hover { 
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+    text-shadow: 0 0 8px #8a2be2;
+}
+
+.extra-info {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}

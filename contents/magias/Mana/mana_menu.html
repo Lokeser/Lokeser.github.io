@@ -2,45 +2,141 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artes da Mana - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        :root { --p-color: #001a33; --s-color: #00d4ff; }
-        body { background: radial-gradient(circle at top, #002b4d, #000); }
-        .card { border: 1px solid var(--s-color); background: rgba(0, 43, 77, 0.5); color: #e0f7ff; }
-        .card:hover { background: var(--s-color); color: #000; box-shadow: 0 0 15px var(--s-color); }
-        h1, h2 { color: var(--s-color); text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+        /* Estética Elemental: Preto, Azul e Dourado */
+        body { background-color: #000 !important; color: #FDF5AA; }
+        
+        .mana-container { padding-top: 50px; padding-bottom: 80px; }
+
+        .mana-card {
+            background-color: #113F67;
+            border: 2px solid #58A0C8; /* Azul secundário */
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            text-decoration: none;
+            display: block;
+            aspect-ratio: 1024 / 1536; /* Proporção 2:3 vertical */
+            box-shadow: 0 0 15px rgba(52, 105, 154, 0.3);
+        }
+
+        .mana-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(0.8);
+            transition: all 0.6s ease;
+        }
+
+        .mana-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 25px 15px;
+            background: linear-gradient(to top, #000 20%, transparent);
+            text-align: center;
+        }
+
+        .mana-title {
+            color: #FDF5AA;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(253, 245, 170, 0.5);
+        }
+
+        /* Efeito de Ativação Arcana */
+        .mana-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #FDF5AA;
+            box-shadow: 0 0 30px rgba(88, 160, 200, 0.4), 0 0 15px rgba(253, 245, 170, 0.2);
+        }
+
+        .mana-card:hover .mana-img {
+            filter: grayscale(0%) brightness(1.1);
+            transform: scale(1.05);
+        }
+
+        .section-header {
+            color: #FDF5AA;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            border-bottom: 2px solid #113F67;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            text-shadow: 0 0 15px rgba(253, 245, 170, 0.3);
+        }
     </style>
 </head>
-<body class="grimoire-bg">
-    <div id="navbar-placeholder"></div>
+<body>
     
+    <div id="navbar-placeholder"></div>
+
+    <div class="container mana-container">
+        <header class="mb-5">
+            <h1 class="display-3 text-center" style="font-family: 'Cinzel', serif;">Artes da Mana</h1>
+            <p class="text-center lead" style="color: #58A0C8;">A manipulação das fórmulas que tecem a realidade.</p>
+        </header>
+
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elmental_Fogo.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_fogo.png" class="mana-img" alt="Magia de Fogo">
+                    <div class="mana-overlay"><h3 class="mana-title">Chamas Primordiais</h3></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Agua.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_agua.png" class="mana-img" alt="Magia de Água">
+                    <div class="mana-overlay"><h3 class="mana-title">Fluxo das Marés</h3></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Terra.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_terra.png" class="mana-img" alt="Magia de Terra">
+                    <div class="mana-overlay"><h3 class="mana-title">Bastião Telúrico</h3></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Vento.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_vento.png" class="mana-img" alt="Magia de Vento">
+                    <div class="mana-overlay"><h3 class="mana-title">Sopro do Éter</h3></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Raio.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_raio.png" class="mana-img" alt="Magia de Raio">
+                    <div class="mana-overlay"><h3 class="mana-title">Fulgor Celeste</h3></div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="../../../viewer.html?file=contents/magias/Mana/Anomalia.md" class="mana-card">
+                    <img src="../../../assets/images/m_m_anomalia.png" class="mana-img" alt="Anomalia Arcana">
+                    <div class="mana-overlay"><h3 class="mana-title">Vazio & Anomalia</h3></div>
+                </a>
+            </div>
+
+        </div>
+
+        <footer class="mt-5 text-center py-4">
+            <button onclick="history.back()" class="btn btn-outline-warning mb-3">Retroceder</button>
+            <p style="color: #58A0C8;">Luxsandoria — Sistema de autoria de <strong style="color: #FDF5AA;">Lokeser</strong></p>
+        </footer>
+    </div>
+
     <script src="../../../js/menu.js"></script>
-    <header class="menu-header">
-        <h1>A Mana</h1>
-        <p>A ciência da manipulação elemental</p>
-    </header>
-    <main class="menu-container">
-        <section class="magic-tier">
-            <h2>Magias Elementais & Anomalias</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Anomalia.md" class="card">Anomalia Arcana</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elmental_Fogo.md" class="card">Chamas Elementais</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Agua.md" class="card">Vagas Elementais</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Terra.md" class="card">Rochas Elementais</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Vento.md" class="card">Brisas Elementais</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Raio.md" class="card">Trovões Elementais</a>
-            </div>
-        </section>
-        <section class="magic-tier">
-            <h2>Formulações Elementais</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Formulacao_Fogo.md" class="card">Artes do Fogo</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Formulacao_Agua.md" class="card">Artes do Água</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Formulacao_Terra.md" class="card">Artes da Terra</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Formulacao_Vento.md" class="card">Artes do Vento</a>
-                <a href="../../../viewer.html?file=contents/magias/Mana/Formulacao_Raio.md" class="card">Artes do Raio</a>
-            </div>
-        </section>
-    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

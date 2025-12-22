@@ -343,3 +343,98 @@ html, body {
     font-style: italic;
     margin-top: 10px;
 }
+
+/* =========================================
+   ESTILO DO VISUALIZADOR (GRIMÓRIO)
+   ========================================= */
+
+/* Container Principal do Texto */
+.markdown-body {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 50px;
+    background-color: #34699A; /* Cor 2 */
+    color: #FDF5AA; /* Cor 4 (Texto Principal) */
+    border: 3px double #FDF5AA; /* Borda Solar Dupla */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7), inset 0 0 50px rgba(17, 63, 103, 0.5);
+    line-height: 1.8;
+    font-family: 'Segoe UI', serif;
+}
+
+/* Títulos Interiores */
+.markdown-body h1 {
+    color: #FDF5AA;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    border-bottom: 2px solid #FDF5AA;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(253, 245, 170, 0.5);
+}
+
+.markdown-body h2, .markdown-body h3 {
+    color: #00263e; /* Cor 3 */
+    font-family: 'Cinzel', serif;
+    margin-top: 40px;
+    border-left: 5px solid #FDF5AA;
+    padding-left: 15px;
+}
+
+/* Links dentro do texto */
+.markdown-body a {
+    color: #0b425f;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.markdown-body a:hover {
+    color: #FDF5AA;
+    text-shadow: 0 0 5px #FDF5AA;
+}
+
+/* Tabelas (Essencial para Atributos e Ranks) */
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background: rgba(17, 63, 103, 0.4); /* Cor 1 com opacidade */
+}
+
+.markdown-body th {
+    background-color: #113F67;
+    color: #FDF5AA;
+    border: 1px solid #58A0C8;
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+.markdown-body td {
+    border: 1px solid #58A0C8;
+    padding: 10px;
+}
+
+.markdown-body tr:nth-child(even) {
+    background: rgba(52, 105, 154, 0.3);
+}
+
+/* Citações e Notas de Lore */
+.markdown-body blockquote {
+    background: rgba(253, 245, 170, 0.05);
+    border-left: 4px solid #FDF5AA;
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #d0e8f5;
+}
+
+/* Imagens dentro do Markdown */
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #58A0C8;
+    display: block;
+    margin: 20px auto;
+}

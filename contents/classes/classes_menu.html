@@ -11,7 +11,7 @@
         
         /* Proporção 3:2 para os Cards de Classe */
         .class-card-visual {
-            background-color: #5d4c18;
+            background-color: #34699A;
             border: 2px solid #58A0C8;
             border-radius: 10px;
             overflow: hidden;
@@ -20,7 +20,7 @@
             cursor: pointer;
             text-decoration: none;
             display: block;
-            aspect-ratio: 3 / 2; /* Proporção Horizontal */
+            aspect-ratio: 3 / 2;
             box-shadow: 0 6px 15px rgba(0,0,0,0.4);
         }
 
@@ -36,7 +36,7 @@
             bottom: 0;
             width: 100%;
             padding: 15px;
-            background: linear-gradient(to top, #113F67 30%, transparent);
+            background: linear-gradient(to top, #113F67 40%, transparent);
             text-align: left;
         }
 
@@ -44,7 +44,7 @@
             color: #FDF5AA;
             font-family: 'Cinzel', serif;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin: 0;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
         }
@@ -68,6 +68,7 @@
             margin: 60px 0 30px;
             padding-bottom: 10px;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .btn-back-custom {
@@ -89,155 +90,71 @@
     <div class="container class-container">
         <header class="text-center mb-5">
             <h1 class="display-3" style="color: #FDF5AA; font-family: 'Cinzel', serif;">Grimório de Classes</h1>
-            <p class="lead" style="color: #58A0C8;">Evolua sua essência e alcance a maestria absoluta.</p>
+            <p class="lead" style="color: #58A0C8;">O registro de todas as linhagens de poder em Luxsandoria.</p>
         </header>
 
         <h2 class="tier-header">Classes Iniciais</h2>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Academico.md" class="class-card-visual">
-                    <img src="../../assets/images/c_academico.jpg" class="class-img" alt="Acadêmico">
-                    <div class="class-overlay"><h3 class="class-title">Acadêmico</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md" class="class-card-visual">
-                    <img src="../../assets/images/c_aventureiro.png" class="class-img" alt="Aventureiro">
-                    <div class="class-overlay"><h3 class="class-title">Aventureiro</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Combativo.md" class="class-card-visual">
-                    <img src="../../assets/images/c_combativo.png" class="class-img" alt="Combativo">
-                    <div class="class-overlay"><h3 class="class-title">Combativo</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Ladino.md" class="class-card-visual">
-                    <img src="../../assets/images/c_ladino.png" class="class-img" alt="Ladino">
-                    <div class="class-overlay"><h3 class="class-title">Ladino</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Malandro.md" class="class-card-visual">
-                    <img src="../../assets/images/c_malandro.jpg" class="class-img" alt="Malandro">
-                    <div class="class-overlay"><h3 class="class-title">Malandro</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Prodigio.md" class="class-card-visual">
-                    <img src="../../assets/images/c_prodigio.png" class="class-img" alt="Prodígio">
-                    <div class="class-overlay"><h3 class="class-title">Prodígio</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md" class="class-card-visual">
-                    <img src="../../assets/images/c_trabalhador.png" class="class-img" alt="Trabalhador">
-                    <div class="class-overlay"><h3 class="class-title">Trabalhador</h3></div>
-                </a>
-            </div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Academico.md" class="class-card-visual"><img src="../../assets/images/c_academico.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Acadêmico</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md" class="class-card-visual"><img src="../../assets/images/c_aventureiro.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Aventureiro</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Combativo.md" class="class-card-visual"><img src="../../assets/images/c_combativo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Ladino.md" class="class-card-visual"><img src="../../assets/images/c_ladino.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Ladino</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Malandro.md" class="class-card-visual"><img src="../../assets/images/c_malandro.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Malandro</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Prodigio.md" class="class-card-visual"><img src="../../assets/images/c_prodigio.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Prodígio</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md" class="class-card-visual"><img src="../../assets/images/c_trabalhador.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Trabalhador</h3></div></a></div>
         </div>
 
-        
+        <h2 class="tier-header" style="font-size: 1.5rem; opacity: 0.8;">Trilhas e Manas Extras</h2>
+        <div class="row g-3">
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" class="class-card-visual"><img src="../../assets/images/c_caminho_astral.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Astral</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" class="class-card-visual"><img src="../../assets/images/c_caminho_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Lunar</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" class="class-card-visual"><img src="../../assets/images/c_caminhosolar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Solar</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" class="class-card-visual"><img src="../../assets/images/c_caminho_vidente.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Visionário</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Draconica.md" class="class-card-visual"><img src="../../assets/images/c_mana_draconica.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mana Dracônica</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Purificada.md" class="class-card-visual"><img src="../../assets/images/c_mana_purificada.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mana Purificada</h3></div></a></div>
+            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/NotasMagicas.md" class="class-card-visual"><img src="../../assets/images/c_notas_magicas.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Notas Mágicas</h3></div></a></div>
+        </div>
+
         <h2 class="tier-header">Classes Avançadas</h2>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/ArtistaMarcial.md" class="class-card-visual">
-                    <img src="../../assets/images/c_artista_marcial.png" class="class-img" alt="Artista Marcial">
-                    <div class="class-overlay"><h3 class="class-title">Artista Marcial</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/Assassino.md" class="class-card-visual">
-                    <img src="../../assets/images/c_assassino.png" class="class-img" alt="Assassino">
-                    <div class="class-overlay"><h3 class="class-title">Assassino</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/Mago.md" class="class-card-visual">
-                    <img src="../../assets/images/c_mago.png" class="class-img" alt="Mago">
-                    <div class="class-overlay"><h3 class="class-title">Mago</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/Berserker.md" class="class-card-visual">
-                    <img src="../../assets/images/c_berserker.jpg" class="class-img" alt="Berserker">
-                    <div class="class-overlay"><h3 class="class-title">Berserker</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/Comandante.md" class="class-card-visual">
-                    <img src="../../assets/images/c_comandante.png" class="class-img" alt="Comandante">
-                    <div class="class-overlay"><h3 class="class-title">Comandante</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_avancadas/Guardiao.md" class="class-card-visual">
-                    <img src="../../assets/images/c_guardiao.png" class="class-img" alt="Guardião">
-                    <div class="class-overlay"><h3 class="class-title">Guardião</h3></div>
-                </a>
-            </div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/ArtistaMarcial.md" class="class-card-visual"><img src="../../assets/images/c_artista_marcial.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Artista Marcial</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Assassino.md" class="class-card-visual"><img src="../../assets/images/c_assassino.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Assassino</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Instintivo.md" class="class-card-visual"><img src="../../assets/images/c_atirador_instintivo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Atirador Inst.</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Mágico.md" class="class-card-visual"><img src="../../assets/images/c_atirador_magico.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Atirador Mágico</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Berserker.md" class="class-card-visual"><img src="../../assets/images/c_berserker.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Berserker</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Comandante.md" class="class-card-visual"><img src="../../assets/images/c_comandante.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Comandante</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Instintivo.md" class="class-card-visual"><img src="../../assets/images/c_combativo_instintivo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Inst.</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Mágico.md" class="class-card-visual"><img src="../../assets/images/c_combativo_magico.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Mágico</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Domador.md" class="class-card-visual"><img src="../../assets/images/c_domador.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Domador</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Estrategista.md" class="class-card-visual"><img src="../../assets/images/c_estrategista.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Estrategista</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Guardiao.md" class="class-card-visual"><img src="../../assets/images/c_guardiao.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Guardião</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Mago.md" class="class-card-visual"><img src="../../assets/images/c_mago.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mago</h3></div></a></div>
         </div>
 
-        <h2 class="tier-header">Linhagens Iniciais Secretas</h2>
+        <h2 class="tier-header" style="color: #ffd700;">Linhagens Absolutas</h2>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" class="class-card-visual">
-                    <img src="../../assets/images/c_caminho_astral.png" class="class-img" alt="Caminho Astral">
-                    <div class="class-overlay"><h3 class="class-title">Caminho Astral</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" class="class-card-visual">
-                    <img src="../../assets/images/c_caminho_lunar.png" class="class-img" alt="Caminho Lunar">
-                    <div class="class-overlay"><h3 class="class-title">Caminho Lunar</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" class="class-card-visual">
-                    <img src="../../assets/images/c_caminhosolar.png" class="class-img" alt="Caminho Solar">
-                    <div class="class-overlay"><h3 class="class-title">Caminho Solar</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" class="class-card-visual">
-                    <img src="../../assets/images/c_caminho_vidente.png" class="class-img" alt="Caminho Visionário">
-                    <div class="class-overlay"><h3 class="class-title">Caminho Visionário</h3></div>
-                </a>
-            </div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Avatar_doEclipse.md" class="class-card-visual"><img src="../../assets/images/c_avatar_eclipse.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Avatar do Eclipse</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Combativo_Supremo.md" class="class-card-visual"><img src="../../assets/images/c_combativo_absoluto.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Supremo</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Lunar.md" class="class-card-visual"><img src="../../assets/images/c_lorde_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Lorde Lunar</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Solar.md" class="class-card-visual"><img src="../../assets/images/c_lorde_solar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Lorde Solar</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/MartirLunar.md" class="class-card-visual"><img src="../../assets/images/c_martir_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mártir Lunar</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Oraculo.md" class="class-card-visual"><img src="../../assets/images/c_oraculo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Oráculo</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Akatsuki.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_akatsuki.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Akatsuki</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Kaminotsuki.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_kaminotsuki.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Kami.</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Yunnuen_TrueKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_yunnuen_true.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Yunnuen True</h3></div></a></div>
         </div>
-        <h2 class="tier-header" style="color: #bf00ff;">Registros Proibidos</h2>
+
+        <h2 class="tier-header" style="color: #bf00ff;">Registros Proibidos (Secretas)</h2>
         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_secretas/Combativo_Imaginario.md" class="class-card-visual">
-                    <img src="../../assets/images/c_combativo_imaginario.png" class="class-img" alt="Combativo Imaginário">
-                    <div class="class-overlay"><h3 class="class-title">Combativo Imaginário</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_secretas/Ecomago.md" class="class-card-visual">
-                    <img src="../../assets/images/c_ecomago.png" class="class-img" alt="Ecomago">
-                    <div class="class-overlay"><h3 class="class-title">Ecomago</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_secretas/HikariKen.md" class="class-card-visual">
-                    <img src="../../assets/images/c_hikari_ken.jpg" class="class-img" alt="HikariKen">
-                    <div class="class-overlay"><h3 class="class-title">HikariKen</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_secretas/MestreDasMarionetes.md" class="class-card-visual">
-                    <img src="../../assets/images/c_mestre_marionetes.jpg" class="class-img" alt="Marionetista">
-                    <div class="class-overlay"><h3 class="class-title">Mestre das Marionetes</h3></div>
-                </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../viewer.html?file=contents/classes/classes_secretas/Shiki_NoKenjutsu.md" class="class-card-visual">
-                    <img src="../../assets/images/c_shiki_kenjutsu.jpg" class="class-img" alt="Shiki Kenjutsu">
-                    <div class="class-overlay"><h3 class="class-title">Shiki no Kenjutsu</h3></div>
-                </a>
-            </div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Combativo_Imaginario.md" class="class-card-visual"><img src="../../assets/images/c_combativo_imaginario.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Imag.</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Ecomago.md" class="class-card-visual"><img src="../../assets/images/c_ecomago.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Ecomago</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Explorador.md" class="class-card-visual"><img src="../../assets/images/c_explorador.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Explorador</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/HikariKen.md" class="class-card-visual"><img src="../../assets/images/c_hikari_ken.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">HikariKen</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/MestreDasMarionetes.md" class="class-card-visual"><img src="../../assets/images/c_mestre_marionetes.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Marionetista</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Musicista.md" class="class-card-visual"><img src="../../assets/images/c_musicista.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Musicista</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Shiki_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_shiki_kenjutsu.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Shiki no Kenjutsu</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_kenjutsu.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Kenjutsu</h3></div></a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Yunnuen_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_yunnuen_no_kenjutsu.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Yunnuen Kenjutsu</h3></div></a></div>
         </div>
 
         <footer class="mt-5 text-center py-4" style="border-top: 1px solid #58A0C8;">

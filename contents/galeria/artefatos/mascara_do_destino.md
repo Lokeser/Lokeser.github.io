@@ -35,7 +35,7 @@ Ao vestir a máscara, a "Persona" assume. Uma aura de terror cósmico e masculin
     * *Custo:* 2 Magículas.
     * *Ação:* Padrão.
     * *Efeito:* O usuário corre e atinge o pescoço do inimigo. Realize um Ataque Desarmado com +1DR.
-    * *Dano:* `ERd17 + Força` (Tipo: Magi-Contundente).
+    * *Dano:* ERd17 + Força (Tipo: Magi-Contundente).
     * *Hit:* O alvo deve passar num teste de Constituição (CD: Força do Usuário + ER) ou fica **Caído** e **Sem Ar** (Asfixiado por 1 turno).
 
 * **Habilidade - Tag Team Abissal (R9, 5☆):**
@@ -48,9 +48,9 @@ Ao vestir a máscara, a "Persona" assume. Uma aura de terror cósmico e masculin
         * **Vida:** Igual à sua Constituição (Modo Ativo).
         * **CA:** Igual à sua CA atual - 2.
         * **Dano:** O tentáculo tem um alcance de 1,5m. Sempre que você realizar a ação de **Ataque**, todos os seus tentáculos ativos podem realizar um ataque contra um inimigo ao alcance deles.
-        * **Fórmula de Dano do Tentáculo:** `1d4 per 2 Força` (Dano Magi-Contundente).
+        * **Fórmula de Dano do Tentáculo:** 1d4 per 2 Força (Dano Magi-Contundente).
     * **Passiva de Crítico (O Hype):** Sempre que o usuário acertar um **Crítico** com qualquer ataque corpo a corpo, o abismo se agita. Um Tentáculo Espectral surge gratuitamente em um espaço adjacente ao inimigo atingido, sem gastar ação ou magículas.
-    * **Limite:** Você pode controlar um número de tentáculos simultâneos igual à sua `Eficiência de Rank + 1`. (No Rank 9, limite de 3). Se criar um além do limite, o mais antigo desaparece.
+    * **Limite:** Você pode controlar um número de tentáculos simultâneos igual à sua Eficiência de Rank + 1. (No Rank 9, limite de 3). Se criar um além do limite, o mais antigo desaparece.
 
 
 ### The Abyss Voice

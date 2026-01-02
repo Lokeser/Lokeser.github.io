@@ -3,159 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria Real - Luxsandoria</title>
+    <title>Galeria - Luxsandoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
         :root {
             --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
         }
-        body { background-color: var(--c1) !important; color: var(--c4); }
 
-        .gallery-header { 
-            padding: 80px 0; 
-            background: linear-gradient(180deg, rgba(17, 63, 103, 0.5) 0%, var(--c1) 100%);
-            border-bottom: 2px solid var(--c4);
-            text-align: center;
+        /* Transição Suave de Background */
+        body.grimoire-bg {
+            background-color: var(--c1);
+            transition: background 0.7s ease-in-out;
+            background-blend-mode: overlay;
+            min-height: 100vh;
         }
 
-        .category-title {
-            font-family: 'Cinzel', serif;
-            color: var(--c4);
-            border-bottom: 2px solid var(--c3);
-            margin: 60px 0 30px;
-            padding-bottom: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+        /* Atmosferas da Galeria */
+        body.bg-itens { background-image: radial-gradient(circle, #34699A 0%, #113F67 100%); background-color: #1a1a1a; }
+        body.bg-personagens { background-image: radial-gradient(circle, #1a002a 0%, #113F67 100%); background-color: #000; }
+        body.bg-monstros { background-image: radial-gradient(circle, #330000 0%, #113F67 100%); background-color: #111; }
 
-        /* Card de Galeria 3:2 */
-        .gallery-card {
+        .gallery-portal-container { padding: 80px 0; }
+
+        /* Cards 9:16 */
+        .portal-card {
             position: relative;
             display: block;
-            aspect-ratio: 3 / 2;
-            background-color: var(--c2);
-            border: 1px solid var(--c3);
-            border-radius: 12px;
+            aspect-ratio: 9 / 16;
+            background-color: var(--c1);
+            border: 2px solid var(--c3);
+            border-radius: 20px;
             overflow: hidden;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .gallery-img {
+        .portal-img {
             width: 100%; height: 100%;
             object-fit: cover;
-            filter: sepia(0.3) brightness(0.8);
+            opacity: 0.5;
+            filter: grayscale(100%);
             transition: 0.6s;
         }
 
-        .gallery-overlay {
+        .portal-overlay {
             position: absolute;
             bottom: 0; width: 100%;
-            padding: 20px;
-            background: linear-gradient(to top, var(--c1) 20%, transparent);
+            padding: 40px 20px;
+            background: linear-gradient(to top, var(--c1) 30%, transparent);
             text-align: center;
-            transform: translateY(10px);
-            transition: 0.4s;
+            z-index: 2;
         }
 
-        .gallery-label {
-            color: var(--c4);
+        .portal-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            color: var(--c4);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(253, 245, 170, 0.4);
         }
+
+        .portal-desc { color: #fff; font-size: 0.9rem; opacity: 0.8; }
 
         /* Hover Effects */
-        .gallery-card:hover {
-            transform: scale(1.05);
+        .portal-card:hover {
+            transform: translateY(-15px) scale(1.02);
             border-color: var(--c4);
-            box-shadow: 0 0 30px rgba(253, 245, 170, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        .gallery-card:hover .gallery-img {
-            filter: sepia(0) brightness(1.1);
+        .portal-card:hover .portal-img {
+            opacity: 1;
+            filter: grayscale(0%);
             transform: scale(1.1);
         }
 
-        .gallery-card:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        /* Placeholder para itens vazios */
-        .empty-slot {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--c3);
-            color: var(--c3);
-            font-style: italic;
-            font-size: 0.9rem;
-            border-radius: 12px;
-            aspect-ratio: 3 / 2;
+        .section-header {
+            font-family: 'Cinzel', serif;
+            color: var(--c4);
+            letter-spacing: 5px;
+            margin-bottom: 50px;
         }
     </style>
 </head>
-<body>
+<body class="grimoire-bg">
+
     <div id="navbar-placeholder"></div>
 
-    <header class="gallery-header">
-        <div class="container">
-            <h1 class="display-3" style="font-family: 'Cinzel', serif;">Câmara de Registros</h1>
-            <p class="lead" style="color: var(--c3);">Relíquias, Heróis, Monstros e os Vastos Domínios de Luxsandoria.</p>
-        </div>
-    </header>
+    <div class="container gallery-portal-container text-center">
+        <header class="mb-5">
+            <h1 class="section-header">ÁTRIO DAS MEMÓRIAS</h1>
+            <p style="color: var(--c3);">Consulte os registros históricos e biológicos de Luxsandoria.</p>
+        </header>
 
-    <div class="container py-5">
-
-        <h2 class="category-title">🏺 Artefatos</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/Mascara_Abissal.md" class="gallery-card">
-                    <img src="../../assets/images/mascara_abissal.png" class="gallery-img" alt="Máscara Abissal">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-label">Máscara Abissal</h3>
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="galeria_artefatos.html" class="portal-card" data-bg="bg-itens">
+                    <img src="../../assets/images/g_itens.png" class="portal-img">
+                    <div class="portal-overlay">
+                        <h2 class="portal-title">Artefatos</h2>
+                        <p class="portal-desc">Relíquias, armas lendárias e itens de imenso poder arcano.</p>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/Cosmonauta_Prime.md" class="gallery-card">
-                    <img src="../../assets/images/cosmonauta_prime.png" class="gallery-img" alt="Cosmonauta Prime">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-label">Cosmonauta Prime</h3>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="galeria_personagens.html" class="portal-card" data-bg="bg-personagens">
+                    <img src="../../assets/images/g_personagens.png" class="portal-img">
+                    <div class="portal-overlay">
+                        <h2 class="portal-title">Heróis</h2>
+                        <p class="portal-desc">Figuras notórias que moldaram a história dos quatro continentes.</p>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4"><div class="empty-slot">Registro Pendente...</div></div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="galeria_monstros.html" class="portal-card" data-bg="bg-monstros">
+                    <img src="../../assets/images/g_monstros.png" class="portal-img">
+                    <div class="portal-overlay">
+                        <h2 class="portal-title">Bestiário</h2>
+                        <p class="portal-desc">O registro das criaturas e ameaças que habitam as Terras Mortas.</p>
+                    </div>
+                </a>
+            </div>
+
         </div>
 
-        <h2 class="category-title">👥 Personagens</h2>
-        <div class="row g-4">
-            <div class="col-md-4"><div class="empty-slot">Aguardando Encontro com Heróis...</div></div>
-            <div class="col-md-4"><div class="empty-slot">Aguardando Encontro com Heróis...</div></div>
-            <div class="col-md-4"><div class="empty-slot">Aguardando Encontro com Heróis...</div></div>
-        </div>
-
-        <h2 class="category-title">🗺️ Locais</h2>
-        <div class="row g-4">
-            <div class="col-md-4"><div class="empty-slot">Explorando Novos Continentes...</div></div>
-            <div class="col-md-4"><div class="empty-slot">Explorando Novos Continentes...</div></div>
-        </div>
-
-        <h2 class="category-title">🐉 Bestiário</h2>
-        <div class="row g-4">
-            <div class="col-md-4"><div class="empty-slot">Criatura não Catalogada...</div></div>
-            <div class="col-md-4"><div class="empty-slot">Criatura não Catalogada...</div></div>
-        </div>
-
+        <footer class="mt-5 pt-5">
+            <button onclick="location.href='../../index.html'" class="btn btn-outline-warning px-5" style="border-radius: 0;">Voltar ao Início</button>
+        </footer>
     </div>
 
-    <footer class="text-center py-5 border-top border-secondary mt-5">
-        <button onclick="history.back()" class="btn btn-outline-warning px-5 mb-4">Retroceder</button>
-        <p style="color: var(--c3);">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
-    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.portal-card');
+            const body = document.body;
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const bgClass = card.getAttribute('data-bg');
+                    body.classList.add(bgClass);
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    body.classList.remove('bg-itens', 'bg-personagens', 'bg-monstros');
+                });
+            });
+        });
+    </script>
 
     <script src="../../js/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

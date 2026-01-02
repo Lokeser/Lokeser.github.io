@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artefatos - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
+        }
+        body { background-color: var(--c1) !important; color: var(--c4); }
+
+        .filter-section {
+            background: rgba(52, 105, 154, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--c3);
+            margin-bottom: 40px;
+        }
+
+        .filter-group { margin-bottom: 15px; }
+        .filter-group label { display: block; font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--c3); text-transform: uppercase; margin-bottom: 8px; }
+
+        .btn-filter {
+            background: transparent;
+            border: 1px solid var(--c3);
+            color: var(--c3);
+            margin: 2px;
+            font-size: 0.8rem;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .btn-filter.active { background: var(--c4); color: var(--c1); border-color: var(--c4); }
+        .btn-filter:hover { border-color: var(--c4); color: var(--c4); }
+
+        /* Card 3:2 */
+        .artifact-card {
+            aspect-ratio: 3 / 2;
+            background: var(--c2);
+            border: 1px solid var(--c3);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            display: block;
+            transition: 0.4s;
+        }
+        .artifact-card:hover { transform: translateY(-5px); border-color: var(--c4); box-shadow: 0 0 20px rgba(253, 245, 170, 0.2); }
+
+        .artifact-info {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, var(--c1) 40%, transparent);
+            text-align: center;
+        }
+        .artifact-name { color: var(--c4); font-family: 'Cinzel', serif; font-size: 1rem; margin: 0; }
+        .artifact-tag { font-size: 0.65rem; color: var(--c3); text-transform: uppercase; }
+
+        /* Esconder cards filtrados */
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4" style="font-family: 'Cinzel', serif;">Arsenal de Relíquias</h1>
+            <p style="color: var(--c3);">Filtre os tesouros de Luxsandoria por tipo ou raridade.</p>
+        </header>
+
+        <section class="filter-section">
+            <div class="filter-group">
+                <label>Tipo de Item</label>
+                <button class="btn-filter active" onclick="filterItems('all', this, 'type')">Tudo</button>
+                <button class="btn-filter" onclick="filterItems('arma', this, 'type')">Armas</button>
+                <button class="btn-filter" onclick="filterItems('acessorio', this, 'type')">Acessórios</button>
+                <button class="btn-filter" onclick="filterItems('armadura', this, 'type')">Armaduras</button>
+                <button class="btn-filter" onclick="filterItems('consumivel', this, 'type')">Consumíveis</button>
+            </div>
+            <div class="filter-group">
+                <label>Raridade</label>
+                <button class="btn-filter active" onclick="filterItems('all', this, 'rarity')">Tudo</button>
+                <button class="btn-filter" onclick="filterItems('bizarro', this, 'rarity')">Bizarro</button>
+                <button class="btn-filter" onclick="filterItems('mitica', this, 'rarity')">Mítica</button>
+                <button class="btn-filter" onclick="filterItems('lendaria', this, 'rarity')">Lendária</button>
+                <button class="btn-filter" onclick="filterItems('fabula', this, 'rarity')">Fábula</button>
+                <button class="btn-filter" onclick="filterItems('epica', this, 'rarity')">Épica</button>
+            </div>
+        </section>
+
+        <div class="row g-4" id="artifact-grid">
+            
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/moonripple_vk04.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Moonripple VK04</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/transmachado.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Transmachado</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/cosmonauta_prime.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">COSMONAUTA PRIME</h3><span class="artifact-tag">Armadura | Bizarro</span></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="mitica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/verdadeiro_cajado_da_deusa_da_magia.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Cajado da Deusa</h3><span class="artifact-tag">Arma | Mítica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/lamina_superior_cryonna.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Lâmina Cryonna</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/azuxia.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Azuxia</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/solis-umbra.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Solis-Umbra</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="fabula">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/atramentum.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Atramentum</h3><span class="artifact-tag">Varinha | Fábula</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/cajado_do_alto_conselheiro.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Cajado Alto Cons.</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/yagorai.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Yagorai</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/foice_de_lunanite.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Foice de Lunanite</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/elxeer.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Elxeer</h3><span class="artifact-tag">Arma | Épica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="mitica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/mascara_da_morte.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Máscara da Morte</h3><span class="artifact-tag">Acessório | Mítica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/grevas_do_horizonte_puro.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Grevas Hor. Puro</h3><span class="artifact-tag">Acessório | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="epica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/cachecol_da_nevasca_subita.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Cachecol Nevasca</h3><span class="artifact-tag">Acessório | Épica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="epica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/manto_do_vento_congelante.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Manto do Vento</h3><span class="artifact-tag">Acessório | Épica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/seika_no_yaiba.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Seika no Yaiba</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/uragiri.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Uragiri</h3><span class="artifact-tag">Arma | Épica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/armadura_do_general_epstein.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Armadura Epstein</h3><span class="artifact-tag">Armadura | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/oshwaltz.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Oshwaltz</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/ringorai.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Ringorai</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="mitica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/sagittarius-b.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Sagittarius-B</h3><span class="artifact-tag">Arma | Mítica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="fabula">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/joia_das_estacoes.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Jóia Estações</h3><span class="artifact-tag">Acessório | Fábula</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="consumivel" data-rarity="mitica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/molteris.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Molteris</h3><span class="artifact-tag">Consumível | Mítica</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/anel_astral.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Anel Astral</h3><span class="artifact-tag">Acessório | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/fallen_moon.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Fallen Moon</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/greenery_moon.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Greenery Moon</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/arconde_purpuro-crocodilo-ex.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Arconde Púrpuro</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/morganspell_set_iii_voltk_92.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Morganspell SET III</h3><span class="artifact-tag">Arma | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="bizarro">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/anel_de_jade_santa_-_au_deskenzio.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Anel Jade Santa</h3><span class="artifact-tag">Acessório | Bizarro</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="fabula">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/mascara_do_destino.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">MÁSCARA DESTINO</h3><span class="artifact-tag">Acessório | Fábula</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/cerberus_sombrio.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Cérberus Sombrio</h3><span class="artifact-tag">Arma | Lendária</span></div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
+                <a href="../../viewer.html?file=contents/galeria/artefatos/vork.md" class="artifact-card">
+                    <div class="artifact-info"><h3 class="artifact-name">Vork</h3><span class="artifact-tag">Arma | Épica</span></div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentType = 'all';
+        let currentRarity = 'all';
+
+        function filterItems(value, btn, category) {
+            // Atualiza o estado dos botões
+            const buttons = btn.parentElement.querySelectorAll('.btn-filter');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Atualiza os filtros globais
+            if (category === 'type') currentType = value;
+            if (category === 'rarity') currentRarity = value;
+
+            const items = document.querySelectorAll('.artifact-item');
+
+            items.forEach(item => {
+                const typeMatch = (currentType === 'all' || item.getAttribute('data-type') === currentType);
+                const rarityMatch = (currentRarity === 'all' || item.getAttribute('data-rarity') === currentRarity);
+
+                if (typeMatch && rarityMatch) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+    <script src="../../js/menu.js"></script>
+</body>
+</html>

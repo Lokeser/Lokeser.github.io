@@ -15,7 +15,7 @@ Enquanto pilotar a Cosmonauta Prime, ignore sua Ficha de Personagem original par
 * **CA (Classe de Armadura):** 40 Base (Escala com Cargas Azura).
 * **Deslocamento:** 28m (Voo/Terrestre).
 
-> **Protocolo de Sincronização:** A cada rodada que Loke mantém o combate (realiza pelo menos 1 ataque), a **Força** da armadura aumenta em **+3** e a **VT Atual** regenera **50 PV** (Auto-reparo da Tinta).
+> **Protocolo de Sincronização:** A cada rodada que Loke mantém o combate (realiza pelo menos 1 ataque), a **Força** da armadura aumenta em **+1* e a **VT Atual** regenera **50 PV** (Auto-reparo da Tinta).
 
 ---
 

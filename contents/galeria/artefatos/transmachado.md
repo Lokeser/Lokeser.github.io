@@ -1,8 +1,8 @@
 # ⚔️ Artefato: Transmachado (Switch Axe)
 
-**Tipo:** Arma Complexa de Duas Mãos
-**Requisito:** Força 4+, Destreza 2+, Inteligência 2+ (Para manuseio do mecanismo)
-**Escalamento Principal:** Força (Dano Físico) e Mana (Explosões de Frasco)
+**Tipo:** Arma de Duas Mãos
+**Requisito:** Força 12+, Destreza 2+, Inteligência 2+ (Para manuseio do mecanismo)
+**Escalamento Principal:** Força (Dano Físico) e Mana (Explosões de Núcleo Artificial)
 
 ![Transmachado](assets/images/transmachado.png)
 
@@ -14,12 +14,12 @@
 
 Para operar esta arma com eficiência máxima, o usuário deve gerenciar três pilares principais:
 
-### 1. 🧪 O Frasco (Phial)
-O coração do Transmachado. O tipo de Frasco define o efeito extra no **Modo Espada**.
-* **Frasco do Poder:** Aumenta o dano físico do Modo Espada em +1 estágio de dado (ex: d10 vira d12).
-* **Frasco Elemental:** Adiciona dano mágico á arma. **Dano:** ERd6+ER (Anômalo).
-* **Frasco de Status:** Aplica acúmulo de status (Veneno/Paralisia). Se causar dano, o alvo faz um Teste de Defesa (Con). Falha aplica 1 acúmulo.
-* **Frasco de Exaustão:** Dano *Magi-Contundente*. Rouba Magículas do alvo e pode causar a condição **Fatigado**.
+### 1. 🧪 O Núcleo Artificial (Phial)
+O coração do Transmachado. O tipo de Núcleo Artificial define o efeito extra no **Modo Espada**.
+* **Núcleo Artificial do Poder:** Aumenta o dano físico do Modo Espada em +1 estágio de dado (ex: d10 vira d12).
+* **Núcleo Artificial Elemental:** Adiciona dano mágico á arma. **Dano:** ERd6+ER (Anômalo).
+* **Núcleo Artificial de Status:** Aplica acúmulo de status (Veneno/Paralisia). Se causar dano, o alvo faz um Teste de Defesa (Con). Falha aplica 1 acúmulo.
+* **Núcleo Artificial de Exaustão:** Dano *Magi-Contundente*. Rouba Magículas do alvo e pode causar a condição **Fatigado**.
 
 ### 2. 🔋 Barra de Transição (Energia)
 O Transmachado possui uma bateria interna.
@@ -31,7 +31,7 @@ O Transmachado possui uma bateria interna.
 Quando a arma atinge o pico de ressonância no Modo Espada.
 * **Ativação:** Preencher a "Barra de Amp" (invisível, considere acertar 3 ataques pesados de Espada ou 1 Combo Celestial).
 * **Duração:** ER + 2 Rodadas.
-* **Efeito:** Enquanto Amplificado, **TODO** ataque (seja Machado ou Espada) causa uma micro-explosão adicional de Frasco no impacto.
+* **Efeito:** Enquanto Amplificado, **TODO** ataque (seja Machado ou Espada) causa uma micro-explosão adicional de Núcleo Artificial no impacto.
     * **Dano da Micro-explosão:** ERd4.
 
 ---
@@ -68,7 +68,7 @@ Um golpe vertical descendente que utiliza a força centrífuga.
 *Foco: DPS Massivo, Precisão e Consumo.*
 
 * **Dano Base:** ERd14+FOR+MANA
-* **Dano Extra:** Aplica o efeito do Frasco em todo acerto.
+* **Dano Extra:** Aplica o efeito do Núcleo Artificial em todo acerto.
 * **Deslocamento:** Reduzido em -3m.
 * **Custo:** Todo ataque consome **-1 Ponto de Energia**.
 
@@ -76,7 +76,7 @@ Um golpe vertical descendente que utiliza a força centrífuga.
 
 **🔸 Corte Vertical (Ação Padrão)**
 Golpes precisos que não ricocheteiam facilmente.
-* **Dano:** Dano Base + Dano do Frasco (+ERd6).
+* **Dano:** Dano Base + Dano do Núcleo Artificial (+ERd6).
 
 **🔸 Sequência Celestial (Ação Completa)**
 Um combo de dois cortes seguidos de um gancho giratório. Custa **-3 Energia**.
@@ -118,6 +118,6 @@ A qualquer momento, durante uma Ação de Ataque, você pode declarar uma Transf
 | :--- | :--- | :--- |
 | **Machado Básico** | ERd12+FOR | 🟢 +2 |
 | **Machado Pancada** | ERd16+FOR+ER | 🟢 Buff Machado |
-| **Espada Básico** | ERd14+FOR+MANA++ Frasco | 🔴 -1 |
-| **Dano do Frasco** | ERd6+ER | N/A |
+| **Espada Básico** | ERd14+FOR+MANA++ Núcleo Artificial | 🔴 -1 |
+| **Dano do Núcleo Artificial** | ERd6+ER | N/A |
 | **ZSD (Final)** | Explosão de ER x (1ERd14+ER) | 🔴 Zera Tudo |

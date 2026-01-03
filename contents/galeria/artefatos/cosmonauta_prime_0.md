@@ -1,7 +1,22 @@
-# ⚙️ HABILIDADE ESPECIAL: O COSMONAUTA (MK-0)
+# ⚙️ COSMONAUTA PRIME (MK-0)
 
 **Tipo:** Transformação / Invocação de Artefato
 **Requisito:** Rank Nulo ou "Protocolo de Emergência" ativado.
+
+![CosmonautaP](assets/images/cosmonauta_prime.png)
+
+> *"Se o universo não me deu Mana, eu roubarei a física para esmagar a realidade. Onde falta dom, sobra engenharia."* — Loke.
+
+---
+
+## 📖 0. LORE E CONCEITO
+A **Cosmonauta Prime** não é apenas uma armadura; é um **Sarcófago de Guerra**. Projetada para permitir que um humano de Rank Nulo sobreviva a batalhas contra Entidades de Tinta e Generais de Rank 3+.
+
+* **O Conceito:** Substituir a Mana pela Física Extrema. Gravidade para voo, Eletricidade para reflexos, Calor para propulsão.
+* **A Ameaça:** O endosqueleto é feito de **Tinta Negra Biomecânica** (carne viva de monstros). Ela age como músculos, mas deseja consumir o piloto. Os núcleos de energia mantêm a Tinta subjugada.
+* **Material:** Liga **Cobaltron-Ômega**. Metal forjado a frio via compressão gravitacional, capaz de aterrar eletricidade e dispersar magia.
+
+---
 
 Ao ativar o MK-0, o usuário (Loke) tem seus atributos físicos e status vitais completamente substituídos pelos da máquina. A carne se torna irrelevante; apenas o desempenho do motor importa.
 

@@ -62,6 +62,9 @@ Um golpe vertical descendente que utiliza a força centrífuga.
 * **Buff:** Ativa o **Modo Machado Potente** por 2 rodadas.
     * *Machado Potente:* Aumenta a geração de Energia em +1 por ataque e causa dano extra em alvos com a condição Machucados.
 
+**🔹 Contra-golpe de Machado**
+* Recebe a Habilidade Ataque Injutso, somente para ser usada com esta arma. Caso você utilize Ataque Injusto e seu resultado no dado seja **Exatamente o mesmo** que o do alvo; Você reduz o dano do atacante em um valor igual ao Dano que seu ataque causar. Você pode escolher **Diminuir o valor do seu ataque** em um valor igual sua ER, isso só se aplica para o Ataque do Ataque Injusto.
+
 ---
 
 ## 🗡️ Modo Espada (Sword Mode)
@@ -88,6 +91,9 @@ Você perfura o alvo e canaliza energia pura.
 1.  **Perfurar:** Ataque corpo a corpo. Dano ERd4. O inimigo fica *Agarrado* (Teste de Força oposto).
 2.  **Canalizar (Pulsos):** Você gasta seus turnos ou ações bônus subsequentes pulsando dano (1d6 per 2 Mana por pulso).
 3.  **Finalizador:** Uma explosão massiva. Dano ERd22+MANA. A arma volta para Modo Machado e você é empurrado para trás.
+
+**🔸 Contra-golpe de Espada**
+* Caso você utilize Ataque Injusto e seu resultado no dado seja **Exatamente o mesmo** que o do alvo; Você reduz o dano do atacante em um valor igual ao Dano que seu ataque causar, além de causar dano extra igual sua Mana. Você pode escolher **Diminuir o valor do seu ataque** em um valor igual sua Mana, isso só se aplica para o Ataque do Ataque Injusto. Alternativamente, você pode consumir Pontos de Energia para aumentar o resultado no Dado de Ataque deste ataque, até seus Pontos se esgotarem.
 
 ---
 
@@ -120,4 +126,4 @@ A qualquer momento, durante uma Ação de Ataque, você pode declarar uma Transf
 | **Machado Pancada** | ERd16+FOR+ER | 🟢 Buff Machado |
 | **Espada Básico** | ERd14+FOR+MANA++ Núcleo Artificial | 🔴 -1 |
 | **Dano do Núcleo Artificial** | ERd6+ER | N/A |
-| **ZSD (Final)** | Explosão de ER x (1ERd14+ER) | 🔴 Zera Tudo |
+| **ZSD (Final)** | Explosão de ER x (d22+MANA) | 🔴 Zera Tudo |

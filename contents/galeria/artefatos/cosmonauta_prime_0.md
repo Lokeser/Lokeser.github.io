@@ -27,7 +27,7 @@ Enquanto pilotar a Cosmonauta Prime, ignore sua Ficha de Personagem original par
 * **Constituição:** 20
 * **Destreza:** 12 (+1 a cada 5 Cargas Yura acumuladas)
 * **Vida Temporária (Blindagem):** 5000 PV (A armadura não cura; ela precisa ser reparada).
-* **CA (Classe de Armadura):** 40 Base (Escala com Cargas Azura).
+* **CA (Classe de Armadura):** 35 Base (Escala com Cargas Azura).
 * **Deslocamento:** 28m (Voo/Terrestre).
 
 > **Protocolo de Sincronização:** A cada rodada que Loke mantém o combate (realiza pelo menos 1 ataque), a **Força** da armadura aumenta em **+1* e a **VT Atual** regenera **50 PV** (Auto-reparo da Tinta).
@@ -63,7 +63,7 @@ A Cosmonauta Prime é pesada demais para o fluxo de tempo normal. Ela não usa A
 * **10+ Cargas:** Aumenta a **CA Base** da Armadura em **+2**.
 
 ### **Passiva: Reator Hidroelétrico**
-* Sempre que acertar um ataque em um alvo com VT; Recebe **1 Carga Yura**.
+* Sempre que acertar um ataque em um alvo com VT; Pode consumir 2 Ações Prime extras para receber **1 Carga Yura**.
 
 ---
 
@@ -82,8 +82,7 @@ A Cosmonauta Prime é pesada demais para o fluxo de tempo normal. Ela não usa A
 * **6+ Cargas:** Aumenta a **CA Base** da Armadura em **+2** (Acumula com o bônus de Yura).
 * **10+ Cargas:** **Otimização de Peso.** O custo do *Punho Gravitacional* reduz para **2 Ações Prime**. (No nível 20 cargas, reduz para 1).
 
-### **Passiva: Absorver Gravidade**
-* Sempre que um alvo errar um ataque contra O Cosmonauta Prime; Recebe **1 Carga Azura**.
+* Sempre que um alvo errar um ataque contra O Cosmonauta Prime; Pode consumir 2 Ações Prime do seu proximo turno para receber **1 Carga Azura**.
 
 ---
 
@@ -97,7 +96,6 @@ Como o piloto é um gênio tático sem mana, ele usa o combate para calcular pro
     * **Previsão de Movimento:** Recebe **+5 na CA** contra este inimigo específico.
     * **Ponto Cego:** Seus ataques contra este inimigo ignoram **Resistência** e margem de Crítico reduz em 1.
     * **Eficiência Energética:** Sua próxima habilidade que gaste Cargas custa metade (arredondado para baixo).
-
 ---
 
 ### 🔄 6. COMBOS DE CONVERGÊNCIA (Synergy Arts)
@@ -124,25 +122,14 @@ O verdadeiro poder da Cosmonauta Prime surge ao misturar as cargas vermelhas e r
 ---
 
 ### 🛡️ 7. REAÇÕES DEFENSIVAS (Gastam Ações Prime)
-A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno seguinte ou gasta as atuais se preparada.
+A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno seguinte.
 
 * **Barreira de Eventos (Defesa):**
-    * **Custo:** 2 Ações Prime (Deduzidas do próximo turno se usado como Reação).
+    * **Custo:** 9 Ações Prime (Deduzidas do próximo turno se usado como Reação).
     * **Efeito:** Adiciona **+10 na CA** contra um ataque ou anula um efeito de Magia de Rank 7 ou inferior.
 * **Propulsão de Evasão:**
     * **Custo:** 1 Ação Prime.
     * **Efeito:** Se move metade do deslocamento sem gerar ataques de oportunidade.
-
-# ⚙️ ARQUIVO DE PROJETO: MK-0 "COSMONAUTA PRIME"
-
-**Classificação:** Nível Catástrofe (Uso Proibido - Protocolo Ômega)  
-**Criador:** Lokeliel "Loke" Saphstar (O Engenheiro do Vazio)  
-**Tipo:** Sarcófago de Guerra Biomecânico (Armadura de Corpo Inteiro)  
-**Status:** Protótipo Operacional / Instável
-
-> *"Se o universo não me deu Mana, eu roubarei a física para esmagar a realidade. Onde falta dom, sobra engenharia."* — Loke.
-
----
 
 ## ⚔️ 8. ARSENAL E HABILIDADES ATIVAS
 
@@ -194,10 +181,10 @@ A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno s
 
 #### **A Mão do Titã (Controle)**
 *Telecinese tática.*
-* **Custo:** **2 🟣 Cargas Azura**.
-* **Alcance:** 18m.
+* **Custo:** **3 🟣 Cargas Azura**.
+* **Alcance:** 54m.
 * **Efeito:** Puxa o alvo violentamente para 0m (Corpo a corpo).
-* **Dano:** **4d10** (Esmagamento) e deixa o alvo **Caído**.
+* **Dano:** **10d10** (Esmagamento) e deixa o alvo **Caído**. Além disso, seu deslocamento é reduzido pela metade por 10 turnos.
 
 ---
 
@@ -220,12 +207,3 @@ A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno s
 * **Dano:** **100d10** (Dano de Anomalia/Vazio).
 * **Aniquilação:** Se o alvo morrer, é apagado da existência (sem corpo para reviver). Área de 3m destruída.
 * **Consequência:** **Shutdown**. A armadura desliga por 1d4 horas. Piloto fica Indefeso.
-
----
-
-## 🛡️ ESTATÍSTICAS DE DEFESA
-* **CA Base:** 25 (Fixo - Blindagem Pesada).
-* **Vida Extra (Blindagem):** 100 PV (Antes de atingir o piloto).
-* **Imunidades:** Elétrico, Veneno.
-* **Resistência IV:** Contra Magia.
-* **Voo:** Deslocamento 18m (Requer min. 1 🟣 Azura).

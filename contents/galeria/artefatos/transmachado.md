@@ -60,7 +60,7 @@ Você utiliza a inércia para girar o machado continuamente ao redor do corpo.
 Um golpe vertical descendente que utiliza a força centrífuga.
 * **Dano:** ERd16 + Força + ER.
 * **Buff:** Ativa o **Modo Machado Potente** por 2 rodadas.
-    * *Machado Potente:* Aumenta a geração de Energia em +1 por ataque e causa dano extra em partes feridas/quebradas do monstro.
+    * *Machado Potente:* Aumenta a geração de Energia em +1 por ataque e causa dano extra em alvos com a condição Machucados.
 
 ---
 
@@ -104,10 +104,10 @@ A qualquer momento, durante uma Ação de Ataque, você pode declarar uma Transf
 ### 💥 Descarga de Soma Zero (ZSD)
 *O ataque assinatura do Transmachado.*
 * **Requisito:** Estar no **Modo Espada** E no **Estado Amplificado**.
-* **Mecânica:** Substitui a *Descarga Elemental*. Você crava a lâmina e **sobe no monstro** (imune a derrubadas, mas recebe dano se o monstro atacar a área onde você está).
+* **Mecânica:** Substitui a *Descarga Elemental. 
 * **Dano:** Você descarrega toda a Energia restante violentamente.
     * Realize ataques automáticos igual à sua **Eficiência de Rank (ER)**.
-    * **Dano por Hit:** ERd14+ER.
+    * **Dano por Hit:** d22+MANA.
     * **Consequência:** Ao final, sua Energia zera, o Estado Amplificado acaba e você cai no chão em um local seguro próximo.
 
 ---

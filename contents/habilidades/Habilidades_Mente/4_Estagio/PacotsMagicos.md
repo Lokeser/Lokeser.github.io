@@ -88,7 +88,7 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Recuperação Acelerada (4 PP):** Uma vez por combate, você pode recuperar Magículas igual ao seu atributo de Mana como uma Ação Bônus.
 * **Golpe Certeiro (4 PP):** Uma vez por combate, você pode adicionar +1DR a um único teste de acerto mágico.
 * **Pele de Mana (3 PP):** Você pode somar seu atributo de **Mana** em vez de Destreza para calcular sua CA (Armadura de Combate).
-* **Infusão de Impacto (4 PP):** Ao acertar um ataque físico, você pode gastar 1 Magícula como reação para adicionar sua **Força** ou **Constituição** ao dano novamente.
+* **Infusão de Impacto (4 PP):** Ao acertar um ataque físico, você pode gastar 2 Magícula como reação para adicionar sua **Força** ou **Constituição** ao dano novamente.
 * **Reflexo Arcano (4 PP):** Você usa seu atributo de **Mana** em vez de Destreza para Testes de Defesa de Reflexos.
 * **Golpe Drenante (5 PP):** Seus acertos críticos com ataques físicos recuperam Magículas igual à sua Eficiência de Rank.
 
@@ -121,4 +121,4 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Eco Arcano (22 PP):** Após conjurar uma magia que custa uma Ação Padrão, você pode conjurá-la novamente como uma Ação Bônus no mesmo turno, mirando no mesmo ou em outro alvo (as Magículas são gastas para ambas as conjurações).
 * **Titã Arcano (12 PP):** Seu tamanho aumenta em uma categoria (ex: Médio para Grande). Você ganha +2 em Força e Constituição e suas armas causam um dado de dano extra devido ao tamanho.
 * **Convergência Marcial (15 PP):** Quando você usa a ação Conjurar Magia, você pode realizar um ataque corpo a corpo como uma Ação Bônus. Se o ataque acertar, a magia conjurada tem sua CD aumentada em +2 contra aquele alvo.
-* **Avatar da Guerra (18 PP):** Seus atributos de Força, Destreza e Constituição tornam-se temporariamente iguais ao seu atributo de **Mana** (caso sejam menores). Além disso, você soma sua Mana ao seu Dano Físico passivamente.
+* **Avatar da Guerra (55 PP):** Seus atributos de Força, Destreza e Constituição tornam-se temporariamente iguais ao seu atributo de **Mana** (caso sejam menores). Além disso, você soma sua Mana ao seu Dano Físico passivamente.

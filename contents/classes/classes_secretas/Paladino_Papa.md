@@ -17,51 +17,6 @@ Ao atingir os primeiros 100 PA e ser aceito na ordem, você recebe os benefício
 
 ---
 
-
-
-## Progressão de PA e Giros
-Cada avanço de 50 pontos de PA representa um novo nível de confiança. A cada nível, você ganha giros na roleta.
-
-| PA Alcançado | Quantidade de Giros na Roleta |
-| :--- | :--- |
-| **150 PA** | 1 Giro |
-| **200 PA** | 1 Giro |
-| **250 PA** | 1 Giros |
-| **300 PA** | **2 Giros (Marco de Fé)** |
-| **350 PA** | 2 Giros |
-| **400 PA** | 2 Giros |
-| **450 PA** | 2 Giros |
-| **500 PA** | 2 Giros |
-| **550 PA** | 2 Giros |
-| **600 PA** | **3 Giros (Marco de Fé)** |
-| **650 PA** | 3 Giros |
-| **700 PA** | 3 Giros |
-| **750 PA** | 3 Giros |
-| **800 PA** | 3 Giros |
-| **850 PA** | 3 Giros |
-| **900 PA** | 3 Giros |
-| **950 PA** | 3 Giros |
-| **1000 PA** | **4 Giros (Zênite da Fé)** |
-
----
-
-# 🕊️ Classe Especial: Paladino Santo
-**"Minha fé é minha armadura, e o amor do Papa é minha espada."**
-
-O Paladino Santo é uma extensão da vontade papal. Sua progressão é ditada pelos **Pontos de Afeição (PA)**, um medidor de relacionamento social e político com a figura máxima da igreja.
-
----
-
-## 🎖️ Nível Inicial: 100 PA
-Ao atingir os primeiros 100 PA, o personagem é batizado e recebe os seguintes benefícios base:
-
-* **Bênção Vital:** +1 em Todos os Atributos.
-* **Conexão Divina:** Habilidade *Cavaleiro Sagrado do Papa* (Efeito de *Conectar Núcleo de Mana* 100% do tempo com o Papa).
-* **Energia Santa:** +1DR em Testes de Resistência de Carisma e **Resistência Adaptativa (Mana)** contra Dano de Caos.
-* **Giro de Iniciação:** Você recebe **1 Giro** na Roleta do Amor imediatamente.
-
----
-
 ## 📈 Tabela de Progressão de PA
 O Paladino ganha giros na roleta conforme sua afeição aumenta.
 

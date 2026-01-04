@@ -1,5 +1,5 @@
 # Classe Especial: Inquisitor
-**“Quando o céu se calar, nossa Fé ainda responderá. Quando o Inferno subir á Terra, ele vai descer pela Lâmina dos Inquisitores.”**
+> *“Quando o céu se calar, nossa Fé ainda responderá. Quando o Inferno subir á Terra, ele vai descer pela Lâmina dos Inquisitores.”*
 
 ![Inquisitor](assets/images/c_calaveiro_papa.png)
 
@@ -33,7 +33,7 @@ Cada avanço de 50 pontos de PA representa um novo nível de confiança. A cada 
 | **450 PA** | 2 Giros |
 | **500 PA** | 2 Giros |
 | **550 PA** | 2 Giros |
-| **600 PA** **3 Giros (Marco de Fé)** |
+| **600 PA** | **3 Giros (Marco de Fé)** |
 | **650 PA** | 3 Giros |
 | **700 PA** | 3 Giros |
 | **750 PA** | 3 Giros |

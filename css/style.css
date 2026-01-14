@@ -438,3 +438,112 @@ html, body {
     display: block;
     margin: 20px auto;
 }
+
+/* --- VARIÁVEIS DE COR (Para facilitar ajustes) --- */
+:root {
+    --cor-dourada: #e6c68b; /* Tom aproximado do seu dourado */
+    --cor-fundo: #0b0b0b;   /* Fundo quase preto */
+    --cor-hover: #ffffff;   /* Cor ao passar o mouse (branco brilhante) */
+}
+
+/* --- ESTILOS GERAIS DA NAVBAR --- */
+.main-navbar {
+    background-color: var(--cor-fundo);
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    /* Adiciona a linha dourada na parte de baixo igual à imagem */
+    border-bottom: 2px solid var(--cor-dourada); 
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px; /* Aumentei um pouco para caber os itens */
+    margin: 0 auto;
+}
+
+/* --- LOGO (LUXSANDORIA) --- */
+.nav-logo-link {
+    font-family: "Cinzel", "Times New Roman", serif; /* Fonte serifada para o logo */
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none; 
+    color: var(--cor-dourada); /* DOURADO */
+    letter-spacing: 2px; /* Espaçamento entre letras do logo */
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* --- LINKS DO MENU (Desktop) --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Espaço entre os links */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--cor-dourada); /* DOURADO */
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase; /* Deixa tudo maiúsculo (HOME, REGRAS...) */
+    font-family: sans-serif;   /* Fonte normal para os links */
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.nav-links li a:hover {
+    color: var(--cor-hover); /* Fica branco/brilhante ao passar o mouse */
+    text-shadow: 0 0 5px rgba(230, 198, 139, 0.5); /* Efeito de brilho */
+}
+
+/* --- ÍCONE DO MENU MOBILE (Hambúrguer) --- */
+.mobile-menu-icon {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-dourada); /* Listras douradas */
+    transition: 0.3s;
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media screen and (max-width: 900px) { /* Ajustei para 900px para evitar quebra em tablets */
+    
+    .mobile-menu-icon {
+        display: flex; 
+        z-index: 1001; 
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%; 
+        top: 0;
+        height: 100vh; 
+        width: 250px; 
+        background-color: var(--cor-fundo); /* Fundo preto no menu lateral */
+        border-left: 2px solid var(--cor-dourada); /* Borda decorativa lateral */
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease-in-out; 
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0; 
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+}

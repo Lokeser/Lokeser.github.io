@@ -1,26 +1,27 @@
-// js/menu.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
     if (!navbarPlaceholder) return;
 
-    // 1. Detecta a profundidade do arquivo atual para ajustar os links relativos
-    // Se estiver na raiz, pathPrefix é ""
-    // Se estiver em contents/classes, pathPrefix é "../../"
-    const pathPrefix = window.location.pathname.includes('contents') 
-        ? (window.location.pathname.split('contents')[1].split('/').length > 1 ? "../../" : "../")
-        : "";
-    
-    // Se o arquivo estiver em subpastas de 3 níveis (ex: magias/Mana/arquivo.html), ajusta para ../../../
+    // --- LÓGICA DE CAMINHOS (Mantida do original) ---
     const depth = (window.location.pathname.split('contents/')[1] || "").split('/').length;
+    // Se não tiver 'contents' no path, depth pode dar erro na logica original, 
+    // mas mantendo a logica de finalPrefix que você já usava:
     const finalPrefix = window.location.pathname.includes('contents') ? "../".repeat(depth + 1) : "";
 
+    // --- HTML DA BARRA DE NAVEGAÇÃO ---
     const navHTML = `
         <nav class="main-navbar">
             <div class="nav-container">
-                <div class="nav-logo">LUXSANDORIA</div>
-                <ul class="nav-links">
-                    <li><a href="${finalPrefix}index.html">Home</a></li>
+                
+                <a href="${finalPrefix}index.html" class="nav-logo nav-logo-link">LUXSANDORIA</a>
+
+                <div class="mobile-menu-icon" id="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links-list">
                     <li><a href="${finalPrefix}contents/regras/regras_menu.html">Regras</a></li>
                     <li><a href="${finalPrefix}contents/ranks/ranks_menu.html">Ranks</a></li>
                     <li><a href="${finalPrefix}contents/racas/racas_menu.html">Raças</a></li>
@@ -34,4 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     navbarPlaceholder.innerHTML = navHTML;
+
+    // --- LÓGICA DO MENU MOBILE ---
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links-list');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            // Alterna a classe 'active' para mostrar/esconder o menu lateral
+            navLinks.classList.toggle('active');
+            // Animação do ícone (opcional)
+            menuBtn.classList.toggle('is-active');
+        });
+    }
 });

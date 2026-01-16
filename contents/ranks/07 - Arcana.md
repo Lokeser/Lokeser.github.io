@@ -9,9 +9,9 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d26`
-* **Margem de Crítico:** `25–26`
-* **Eficiência de Rank (ER):** `4`
+* **Dado de Rank (DR):** **d26**
+* **Margem de Crítico:** **25–26**
+* **Eficiência de Rank (ER):** **4**
 
 ---
 
@@ -30,10 +30,10 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `2d4 + 2`
+  **2d4 + 2**
 
 * Seu **Deslocamento Base** aumenta em **+5m**.
 
@@ -48,7 +48,7 @@ Para atingir esta estrela, é necessário **iniciar uma Arcana** com uma criatur
 Ao completar o vínculo:
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Aumenta **+2** em:
   * Força
@@ -64,10 +64,10 @@ Ao completar o vínculo:
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `2d4 + 2`
+  **2d4 + 2**
 
 * Seu atributo **Mana** aumenta em **+3**.
 
@@ -76,7 +76,7 @@ Ao completar o vínculo:
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Seu **Deslocamento Base** aumenta em **+5m**.
 

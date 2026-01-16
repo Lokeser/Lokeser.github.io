@@ -10,10 +10,10 @@ Ao iniciar a criação de personagem, **todo personagem começa neste Rank**.
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d20`  
+* **Dado de Rank (DR):** **d20**  
   O DR é utilizado em **qualquer teste** do personagem.
 
-* **Eficiência de Rank (ER):** `1`
+* **Eficiência de Rank (ER):** **1**
 
 ---
 
@@ -58,9 +58,9 @@ Graças à Mana, seu corpo se regenera durante o descanso.
 
 Enquanto estiver **dormindo**, você cura:
 
-* `1d12 a cada 2 pontos de Mana`
-* `1d12 por Eficiência de Rank`
-* `1d12 a cada 2 pontos de Constituição`
+* **1d12 a cada 2 pontos de Mana**
+* **1d12 por Eficiência de Rank**
+* **1d12 a cada 2 pontos de Constituição**
 
 Metade do valor total curado é convertida em **Magículas**.
 

@@ -1,4 +1,4 @@
-# ⚔️ Artefato: Transmachado (Switch Axe)
+# Transmachado
 
 **Tipo:** Arma de Duas Mãos
 **Requisito:** Força 12+, Destreza 2+, Inteligência 2+ (Para manuseio do mecanismo)

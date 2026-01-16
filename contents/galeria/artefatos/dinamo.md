@@ -1,4 +1,4 @@
-# 🛡️ Artefato: Lâmina Dínamo (Charge Blade)
+# Lâmina Dínamo
 
 **Tipo:** Arma Tecnológica Transformável (Complexa)
 **Requisito:** Força 3+, Destreza 2+, Mana 2+

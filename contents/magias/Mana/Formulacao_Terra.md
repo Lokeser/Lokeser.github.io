@@ -14,7 +14,7 @@ Cria uma área de pedras soltas com tamanho igual à sua **Mana (em metros)**.
 - Inimigos dentro da área **perdem deslocamento** no mesmo valor.
 - A área é considerada um **Foco de Terra**.
 - Sempre que você realizar um **Acerto Crítico** dentro da Área Pedreira, recebe **Vida Temporária** igual a:  
-  `Eficiência de Rank × Turnos restantes da área`.
+  **Eficiência de Rank × Turnos restantes da área**.
 
 **Readquirir:**
 - Ao ativar a Área Pedreira:
@@ -67,7 +67,7 @@ Sempre que dormir, seu corpo absorve Mana do ambiente para reforçar sua estrutu
 **Uso:** Vezes por dia igual à sua **Mana**
 
 Realiza um **Teste de Mana**:
-- **CD:** `8 + Furtividade do Alvo` (se estiver escondido)
+- **CD:** **8 + Furtividade do Alvo** (se estiver escondido)
 
 **Efeitos:**
 - Em sucesso, identifica **todos os seres vivos escondidos** em um raio de **50m**.
@@ -100,7 +100,7 @@ Cria um **Golem de Terra**.
 
 Cria um tremor violento no solo.
 
-- **Raio:** `Mana + Eficiência de Rank` (em metros)
+- **Raio:** **Mana + Eficiência de Rank** (em metros)
 - Inimigos realizam um **Teste de Destreza**.
 
 **Falha:**
@@ -146,7 +146,7 @@ Ao utilizar **Manipulação Livre**:
 
 Manipula uma quantidade massiva de terra:
 
-- Volume máximo: `Mana × 10 toneladas`
+- Volume máximo: **Mana × 10 toneladas**
 
 Permite:
 - Remodelar terrenos

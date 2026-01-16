@@ -7,8 +7,8 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d32`
-* **Eficiência de Rank (ER):** `7`
+* **Dado de Rank (DR):** **d32**
+* **Eficiência de Rank (ER):** **7**
 
 ---
 
@@ -19,10 +19,10 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 * Sua **CA Base** aumenta em **+2**.
 
 * Sua **Vida Máxima** aumenta em:  
-  `2d4 + (ER × 2) + Valor de Vida da Raça`
+  **2d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `4d4 + 1`
+  **4d4 + 1**
 
 * Recebe **+10 pontos** para distribuir entre **Perícias**.
 
@@ -40,7 +40,7 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 * Recebe **+5 em Arcana**.
 
 * Sua **Vida Máxima** aumenta em:  
-  `2d4 + (ER × 2) + Valor de Vida da Raça`
+  **2d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Aprende **1 Habilidade de Alma**.
 
@@ -57,10 +57,10 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 * Aumenta o **estágio de 1 Habilidade**.
 
 * Sua **Vida Máxima** aumenta em:  
-  `2d4 + (ER × 2) + Valor de Vida da Raça`
+  **2d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `4d4 + 1`
+  **4d4 + 1**
 
 * **Verus Primi:**  
   Duas vezes por dia, no início do combate:

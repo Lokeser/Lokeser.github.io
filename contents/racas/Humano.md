@@ -20,8 +20,8 @@
 
 ## Vida
 
-* **Vida Base:** `20 + 6 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `6`
+* **Vida Base:** **20 + 6 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **6**
 
 ---
 
@@ -51,7 +51,7 @@ Receba **uma característica**, baseada em seu **maior atributo**:
 
 * **Força**
   Recebe um bônus igual à sua **Eficiência de Rank (ER)** em testes de Atletismo.
-  Além disso, sua capacidade de carga aumenta em `2 × ER` (em kg).
+  Além disso, sua capacidade de carga aumenta em **2 × ER** (em kg).
 
 * **Destreza**
   Recebe um bônus igual à sua **Eficiência de Rank (ER)** em Deslocamento.
@@ -83,7 +83,7 @@ Pode aprofundar relações com maior facilidade. Pessoas que já são favorávei
 
 ### Rank 5 — Falibilidade
 
-**1 vez por dia**, ao girar `1DR`, você pode receber **+1DR** nesse teste.
+**1 vez por dia**, ao girar **1DR**, você pode receber **+1DR** nesse teste.
 Essa decisão deve ser tomada **antes de saber se o teste foi bem-sucedido ou não**.
 
 ---

@@ -39,7 +39,7 @@ A cada **2 pontos de Força**, escolha **um** dos caminhos abaixo:
 
 A cada **8 pontos em Força**, o estágio de dano de ataques desarmados aumenta em 1:
 
-`1 → 1d4 → 1d6 → 1d8 → 1d10 → 1d12 → 1d14 → etc`
+**1 → 1d4 → 1d6 → 1d8 → 1d10 → 1d12 → 1d14 → etc**
 
 ## Pegador de Armas
 

@@ -1,7 +1,7 @@
 # Caminho Elemental — Vento
 > *O vento não apenas empurra — ele dita o ritmo da batalha. Invisível, veloz e implacável, este caminho transforma o campo de guerra em um tabuleiro em constante movimento.*
 
-**Dano do Vento:** `1d6 para cada 2 de Mana`  
+**Dano do Vento:** **1d6 para cada 2 de Mana**  
 **Tipo:** Mobilidade, reposicionamento e controle de campo  
 **Custo Inicial:** 3 MD  
 **Afinidade:** Sangue Élfico  
@@ -14,7 +14,7 @@
 Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.
 
 - Recebe **Resistência Adaptativa (Mana + ER)** contra **Dano de Vento** (Mágico e Natural).
-- Recebe **Bônus de Velocidade de Movimento** igual a `ER x 2`.
+- Recebe **Bônus de Velocidade de Movimento** igual a **ER x 2**.
 - Sua **Distância de Pulo** aumenta em um valor igual à sua **ER (em metros)**.
 
 ---
@@ -25,7 +25,7 @@ Você se torna capaz de externar sua Mana em vento puro, moldando correntes, imp
 ### Peso Mágico
 Representa o quanto você consegue mover com sua Magia.
 
-- **Valor Base:** `Mana x 2` (em Kg)
+- **Valor Base:** **Mana x 2** (em Kg)
 - A cada **Rank acima**, o valor **dobra sobre si mesmo**.
 
 **Exemplo:**  
@@ -41,8 +41,8 @@ Mana 5
 ### Atacar
 - **Ação:** Ataque  
 - **Alcance:** Médio  
-- **Acerto:** `DR + Mana`  
-- **Dano:** `1d6 para cada 2 de Mana`
+- **Acerto:** **DR + Mana**  
+- **Dano:** **1d6 para cada 2 de Mana**
 
 **Crítico:**  
 - Pode mover o inimigo em até **5 metros**, em qualquer direção.
@@ -100,7 +100,7 @@ Desbloqueia novos estágios da Manipulação Livre.
 #### Mover Alvos
 - Pode mover alvos com peso até **2x o Peso Mágico**.
 - Inimigos podem resistir com um **Teste de Mana** contra sua **CD Mágica**:
-  - `CD = 10 + Mana + ER`
+  - **CD = 10 + Mana + ER**
 
 **Efeitos ao mover:**
 - O alvo tem **Deslocamento reduzido pela metade** até o final do próximo turno.
@@ -123,8 +123,8 @@ Aprenda mais uma **Técnica da Magia de Vento**
 - Exploda um **Foco de Mana de Vento** dentro do alcance da Manipulação Livre.
 
 **Efeitos:**
-- Dano: `Mana x 1 por Rank do Foco`
-- Repulsão: `Mana + 1 por Rank do Foco` (em metros)
+- Dano: **Mana x 1 por Rank do Foco**
+- Repulsão: **Mana + 1 por Rank do Foco** (em metros)
 
 **Restrições:**
 - Focos de Rank inferior: explosão automática.

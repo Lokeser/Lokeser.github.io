@@ -1,7 +1,7 @@
 # Caminho Elemental — Raio ⚡
 > *O raio não apenas destrói: ele interrompe, paralisa e enfraquece. Esta magia é a personificação da interrupção absoluta, reduzindo inimigos a alvos instáveis e vulneráveis.*
 
-**Dano do Raio:** `1d6 para cada 2 de Mana`  
+**Dano do Raio:** **1d6 para cada 2 de Mana**  
 **Custo Inicial:** 4 MD  
 **Requisito:** 8+ de Mana  
 **Tipo:** Debuffer (redução temporária de capacidades inimigas)
@@ -26,8 +26,8 @@ Como uma ação, desfira um ataque elétrico contra um inimigo.
 
 ### Eletrocutar
 - **Ação:** Ataque  
-- **Acerto:** `DR + Mana`  
-- **Dano:** `1d6 para cada 2 de Mana + Mana`
+- **Acerto:** **DR + Mana**  
+- **Dano:** **1d6 para cada 2 de Mana + Mana**
 
 **Efeito:**
 - Em **Crítico**, aplica **Paralisia**.
@@ -40,7 +40,7 @@ Você descarrega eletricidade em área.
 
 - **Área:** Cone com alcance igual à sua **Mana (em metros)**  
 - Inimigos realizam um **Teste de Mana** contra sua **CD Mágica**:
-  - `CD = 10 + Mana + ER`
+  - **CD = 10 + Mana + ER**
 
 **Resultado:**
 - **Sucesso:** Sofre dano igual à sua **Mana**.
@@ -115,7 +115,7 @@ Você invoca um raio descendente do céu.
 - **Falha:** Sofre o dano total.
 
 **Dano:**  
-`1d12 para cada 2 de Mana + Mana`
+**1d12 para cada 2 de Mana + Mana**
 
 ---
 

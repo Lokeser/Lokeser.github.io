@@ -1,7 +1,7 @@
 # Classe Inicial — Acadêmico
 
-**Magia Inicial (MD):** `2`  
-**Rank Inicial:** `Rank 10`
+**Magia Inicial (MD):** **2**  
+**Rank Inicial:** **Rank 10**
 
 ---
 
@@ -39,9 +39,9 @@
 ### Fruto do Esforço
 
 * Escolha **um**:
-  * `+1 Inteligência`
-  * `+1 Sabedoria`
-  * `+1 Carisma`
+  * **+1 Inteligência**
+  * **+1 Sabedoria**
+  * **+1 Carisma**
 
 ---
 

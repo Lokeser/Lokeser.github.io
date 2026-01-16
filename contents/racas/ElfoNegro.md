@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `18 + 6 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `6`
+* **Vida Base:** **18 + 6 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **6**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `2`
+* **Magia Inicial (MD):** **2**
 
 ---
 
@@ -67,7 +67,7 @@ Escolha **uma** das características abaixo:
   Esse movimento **não gera contra‑ataques**.
 
 * **Bestificação**
-  Suas presas causam dano igual a `1d8 a cada 2 Força + Força`.
+  Suas presas causam dano igual a **1d8 a cada 2 Força + Força**.
   Recebe bônus em **Intimidação** igual à sua **ER**.
 
 ---

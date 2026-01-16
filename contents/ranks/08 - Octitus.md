@@ -9,9 +9,9 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d24`
-* **Margem de Crítico:** `23–24`
-* **Eficiência de Rank (ER):** `3`
+* **Dado de Rank (DR):** **d24**
+* **Margem de Crítico:** **23–24**
+* **Eficiência de Rank (ER):** **3**
 
 ---
 
@@ -20,7 +20,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ### ✭ 1ª Estrela
 
 * Suas **Magículas** aumentam em:  
-  `1d4 + 2`  
+  **1d4 + 2**  
   *(A cada 2 pontos de Mana, o dado evolui: d4 → d6 → d8 → d10 → d12 → d13)*
 
 * Aprende **1 Habilidade de Alma**.
@@ -32,7 +32,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Recebe **+2** em **Força, Destreza ou Constituição**.
 
@@ -41,10 +41,10 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ### ✭✭✭ 3ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `1d4 + 2`  
+  **1d4 + 2**  
   *(A cada 2 pontos de Mana, o dado evolui: d4 → d6 → d8 → d10 → d12 → d13)*
 
 * Recebe:
@@ -56,7 +56,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Seu atributo **Mana** aumenta em **+2**.
 
@@ -65,7 +65,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d4 + (ER × 2) + Valor de Vida da Raça`
+  **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Suas **Magículas** aumentam em:  
-  `1d4 + 2`
+  **1d4 + 2**

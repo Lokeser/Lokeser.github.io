@@ -5,8 +5,8 @@ Você treinou por anos para aprender técnicas de luta, mesclando combate físic
 **Exemplos:**  
 Nichole Cali (Espadachim) · Luna Bennet (Lutador) · Adela Selwin (Ninja)
 
-**Magia Inicial (MD):** `2`  
-**Rank Inicial:** `Rank 10`
+**Magia Inicial (MD):** **2**  
+**Rank Inicial:** **Rank 10**
 
 ---
 

@@ -26,14 +26,14 @@ Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, pe
 - **Custo:** 1 Magícula (ignorado em acerto crítico)
 
 **Teste de Ataque:**  
-- Acerto: `DR + Mana`  
+- Acerto: **DR + Mana**  
 - Alcance: Médio (6m)  
-- Dano: `1d6 por 2 Mana + Mana`
+- Dano: **1d6 por 2 Mana + Mana**
 
 **Efeito Especial:**  
 - Em **Crítico**, o dano é totalmente dobrado contra seres vivos.  
 - Além disso, no próximo turno, como **ação bônus**, a água pode retornar a você, absorvendo Magículas do inimigo:  
-  - Valor absorvido: `1d3 + ER`
+  - Valor absorvido: **1d3 + ER**
 
 ---
 
@@ -41,7 +41,7 @@ Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, pe
 Nem sempre é necessário gerar magia do próprio corpo. Fontes naturais potencializam a magia elemental.
 
 - Se estiver próximo a um **Lago**  
-  - Distância máxima: `Mana + Sabedoria + 5m`
+  - Distância máxima: **Mana + Sabedoria + 5m**
 - Pode atacar a partir da fonte natural.
 
 **Modificações na Manipulação Livre:**
@@ -100,7 +100,7 @@ Aprenda **mais uma Formulação Elemental**.
 
 ### Interação Mágica
 - Teste de **Percepção Mágica** contra um animal marítimo  
-  - CD: `20 + ER da Criatura`
+  - CD: **20 + ER da Criatura**
 - Em sucesso:
   - Pode se comunicar com o animal
   - Pode aplicar efeitos de **PA**

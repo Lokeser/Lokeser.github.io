@@ -26,7 +26,7 @@ O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo 
 ### ⭐⭐⭐⭐ 4 Estrelas — Meta Vision
 Como **ação bônus**, realize um teste de **Percepção Híbrida** contra um alvo.  
 
-**CD:** `10 + Sabedoria do Alvo + (ER × 2)`
+**CD:** **10 + Sabedoria do Alvo + (ER × 2)**
 
 Se passar, escolha **um** dos efeitos abaixo:
 
@@ -128,7 +128,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ### ⭐⭐ 2 Estrelas — Star Buff
 - Force um alvo visível a realizar um teste de **Inteligência**.  
-- **CD:** `10 + ER + sua Inteligência`
+- **CD:** **10 + ER + sua Inteligência**
 - Se falhar:
   - No próximo turno, o alvo gasta **todo o deslocamento** para ir até você e atacar, se possível.
 - Se for atacado por esse efeito:
@@ -138,7 +138,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ### ⭐⭐⭐ 3 Estrelas — Análise de Moralidade
 - Realize um teste de **Intuição** em um alvo.  
-- **CD:** `10 + Sabedoria + ER`
+- **CD:** **10 + Sabedoria + ER**
 - Se passar, descobre a **Tendência** do alvo.
 
 ---

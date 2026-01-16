@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `20 + 7 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `7`
+* **Vida Base:** **20 + 7 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **7**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `0`
+* **Magia Inicial (MD):** **0**
 
 ---
 

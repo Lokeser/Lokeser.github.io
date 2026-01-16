@@ -7,8 +7,8 @@ Você passa a existir em **dois estados simultâneos**, e a morte deixa de ser u
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d35`
-* **Eficiência de Rank (ER):** `7`
+* **Dado de Rank (DR):** **d35**
+* **Eficiência de Rank (ER):** **7**
 
 ---
 

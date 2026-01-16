@@ -22,16 +22,16 @@ Quando desferir um **ataque leve** contra um alvo:
 * Pode consumir **Magículas (Mgc)** para aumentar o **Acerto** do ataque em escala **1:1**.
 * Limite de Mgc por ataque:
 
-```
+******
 ER + Sabedoria
-```
+******
 
 **Dano Extra:**
 Se você estiver **Furtivo** **ou** o alvo estiver sob uma **Condição Adversa Evoluída**, o ataque causa:
 
-```
+******
 1d7 por Mgc consumida
-```
+******
 
 **Execução:**
 
@@ -54,9 +54,9 @@ Se você estiver **Furtivo** **ou** o alvo estiver sob uma **Condição Adversa 
 
 * Durante a **noite**, recebe **Furtividade** igual a:
 
-```
+******
 Sabedoria + ER
-```
+******
 
 * **1 vez por dia**, também durante a noite, pode utilizar **Aura Intimidadora** mesmo sem tê-la aprendida.
 
@@ -103,9 +103,9 @@ Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:
 * Essas Magículas duram **4 turnos**.
 * Ataques usando Assassinato recebem:
 
-```
+******
 +1 Margem Crítica a cada 3 Magículas gastas
-```
+******
 
 ---
 
@@ -124,9 +124,9 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 * Pode gastar **7m do Deslocamento** para realizar um teste de Destreza.
 * **CD:**
 
-```
+******
 17 + ER do alvo
-```
+******
 
 * Sucesso: esconde o corpo (morto ou inconsciente) na escuridão.
 

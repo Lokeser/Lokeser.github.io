@@ -11,8 +11,8 @@ Ao alcançar este Rank, você **inicia automaticamente na 1ª Estrela**.
 
 ## Dados do Rank
 
-* **Dado de Rank (DR):** `d22`
-* **Eficiência de Rank (ER):** `2`
+* **Dado de Rank (DR):** **d22**
+* **Eficiência de Rank (ER):** **2**
 
 ---
 
@@ -47,7 +47,7 @@ O **Dado de Vida** evolui conforme sua **Constituição**:
 ### ✭ 1ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  `1d[Dado de Vida] + (ER × 2) + Valor de Vida da Raça`
+  **1d[Dado de Vida] + (ER × 2) + Valor de Vida da Raça**
 * Aprende **1 Habilidade de Alma**, ligada diretamente à progressão do personagem.
 
 ---

@@ -1,7 +1,7 @@
 # Classe Inicial — Malandro
 
-**Magia Inicial (MD):** `2`  
-**Rank Inicial:** `Rank 10`
+**Magia Inicial (MD):** **2**  
+**Rank Inicial:** **Rank 10**
 
 ---
 

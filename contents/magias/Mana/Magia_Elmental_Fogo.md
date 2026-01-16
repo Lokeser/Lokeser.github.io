@@ -22,9 +22,9 @@ Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que
 - **Custo:** 1 Magícula *(ignorado em acerto crítico)*
 
 **Teste de Ataque:**  
-- Acerto: `DR + Mana`  
+- Acerto: **DR + Mana**  
 - Alcance: Médio (6m)  
-- Dano: `1d10 por 2 Mana + Mana`
+- Dano: **1d10 por 2 Mana + Mana**
 
 **Efeito Especial:**  
 - Em **Crítico**, o dano total é **dobrado** contra seres vivos.

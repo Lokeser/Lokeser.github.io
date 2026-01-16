@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `15 + 6 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `6`
+* **Vida Base:** **15 + 6 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **6**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `2`
+* **Magia Inicial (MD):** **2**
 
 ---
 
@@ -38,7 +38,7 @@
 
 Com o passar do tempo, o Meio-Vampiro desenvolve **fome de sangue**.
 
-* Pode se alimentar de **sangue humano**, ficando **saciado** por `1d24 + 1` horas.
+* Pode se alimentar de **sangue humano**, ficando **saciado** por **1d24 + 1** horas.
 * Pode se alimentar de **outras criaturas**, mas isso **não concede cura**.
 
 Enquanto estiver sob **Sede de Sangue**:
@@ -64,7 +64,7 @@ Para anular os efeitos, é necessário permanecer em **sombra** pelo mesmo tempo
 * Fica **Enfraquecido**
 
 **2 horas ou mais:**
-* Sofre **dano de Fogo** igual a `3d4 − Eficiência de Rank` por turno
+* Sofre **dano de Fogo** igual a **3d4 − Eficiência de Rank** por turno
 * Fica sob **Insolação**
 
 ---
@@ -75,7 +75,7 @@ Escolha **uma** característica:
 
 * **Garras Naturais**  
   Ataques naturais leves que causam  
-  `1d6 a cada 2 Destreza + Mana`.  
+  **1d6 a cada 2 Destreza + Mana**.  
   Críticos deixam o alvo **Tonto** e **Sangrando**.
 
 * **Charme Vampírico**  
@@ -111,7 +111,7 @@ Escolha definitivamente um caminho:
 
 #### Caminho Vampiro
 
-* A saciedade dura `1d12 + 1` horas.
+* A saciedade dura **1d12 + 1** horas.
 * Sempre que ver sangue, a saciedade reduz em **30 minutos**.
 * Enquanto sob **Sede de Sangue**:
   * **−2** em Inteligência, Sabedoria e Carisma
@@ -125,7 +125,7 @@ Escolha definitivamente um caminho:
 
 #### Caminho Humano
 
-* Sangue animal cura `Xd4` de Vida  
+* Sangue animal cura **Xd4** de Vida  
   *(X = Eficiência de Rank)*
 * Recebe **+4 pontos** para distribuir entre perícias.
 
@@ -141,7 +141,7 @@ Pode se transformar em **Morcego** um número de vezes por dia igual à **Efici�
 
 Na forma de Morcego:
 
-* Vida se torna `Xd4`
+* Vida se torna **Xd4**
 * Voo igual ao **Deslocamento + Eficiência de Rank**
 * Deslocamento terrestre reduzido para **3m**
 

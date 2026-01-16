@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `21 + 9 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `9`
+* **Vida Base:** **21 + 9 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **9**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `1`
+* **Magia Inicial (MD):** **1**
 
 ---
 
@@ -37,7 +37,7 @@
 ### Rank 10 — Troca de Pele
 
 A cada **4 semanas**, você troca de pele, recebendo **Resistência I** a um tipo de dano diferente.
-Role `1d13` para determinar o tipo:
+Role **1d13** para determinar o tipo:
 
 1. Cortante
 2. Contundente
@@ -74,24 +74,24 @@ Escolha **duas** características raciais:
   No **Rank 7**, o deslocamento em paredes torna‑se total.
 
 * **Chifres**
-  Ataque de perfuração causando `1d10 a cada 2 Força + Força`.
+  Ataque de perfuração causando **1d10 a cada 2 Força + Força**.
   No turno do inimigo, ele pode realizar um **teste de Força** para se soltar.
   Se você errar o ataque, deve andar seu deslocamento em linha reta.
 
 * **Reflexos Instintivos**
   Como uma ação, realize um teste de **Intuição** contra um inimigo.
-  **CD:** `15 + 1 para cada Rank acima do 10`.
+  **CD:** **15 + 1 para cada Rank acima do 10**.
   Em sucesso, recebe **+3 CA** contra esse inimigo.
 
 * **Sangue Humano Inferior**
   Recebe **+2 pontos** para distribuir entre seus atributos.
 
 * **Garras Afiadas**
-  Ataques básicos tornam‑se `1d6 a cada 2 Força + Força` (Corte).
+  Ataques básicos tornam‑se **1d6 a cada 2 Força + Força** (Corte).
   Acertos críticos causam **Sangramento**.
 
 * **Dentes Afiados**
-  Pode morder causando `1d4 a cada 1 Força + Força` (Perfuração).
+  Pode morder causando **1d4 a cada 1 Força + Força** (Perfuração).
 
 * **Cauda**
   Pode tentar **derrubar** inimigos com um teste de Destreza ou utilizá‑la como ataque básico usando Destreza no acerto e no dano.
@@ -101,7 +101,7 @@ Escolha **duas** características raciais:
 
 * **Capacidade Aquática**
   Pode **nadar** igual ao deslocamento.
-  Pode prender a respiração por `1 + Constituição` minutos.
+  Pode prender a respiração por **1 + Constituição** minutos.
   No **Rank 7**, a velocidade de nado dobra.
 
 ---
@@ -140,7 +140,7 @@ Escolha **mais uma** característica de **Anatomia Rekel**.
 ### Rank 4 — Troca de Pele Total
 
 Sua Resistência torna‑se **Resistência IV**.
-O dado de Troca de Pele passa a ser `1d4`:
+O dado de Troca de Pele passa a ser **1d4**:
 
 1. Físico
 2. Elemental

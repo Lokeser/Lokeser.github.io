@@ -46,9 +46,9 @@ Em vez do teste padrão (**DR + Atributo**), você pode optar por **Dados Sagrad
 
 **Cálculo:**
 
-```
+******
 (DR + Fé + Um Atributo à sua escolha) / 2
-```
+******
 
 Arredonde sempre para cima.
 
@@ -58,9 +58,9 @@ Arredonde sempre para cima.
 * Fé: 7
 * Força: 6
 
-```
+******
 (22 + 7 + 6) / 2 = 17,5 → 18
-```
+******
 
 ### Uso
 
@@ -79,17 +79,17 @@ Isso reflete a estabilidade e previsibilidade da Fé.
 
 Diferente das Bruxas do Caos (que utilizam Vida Temporária), os Devotos da Fé possuem **Vida Sagrada (VS)** — uma reserva fixa que reflete resiliência divina.
 
-```
+******
 VS = Fé × 10
-```
+******
 
 ### Regeneração
 
 Durante um **Descanso Longo**, você recupera:
 
-```
+******
 Fé × 5 pontos de VS
-```
+******
 
 ---
 
@@ -111,9 +111,9 @@ Ela representa a soma do impacto de ações heroicas, milagres e liderança sobr
 
 Se você ganha **50 PA** com **10 pessoas**:
 
-```
+******
 Adoração = 500
-```
+******
 
 Os 100 PA iniciais de cada pessoa são ignorados.
 

@@ -1,4 +1,4 @@
-# ⚙️ COSMONAUTA PRIME (MK-0)
+# COSMONAUTA PRIME (MK-0)
 
 **Tipo:** Transformação / Invocação de Artefato
 **Requisito:** Rank Nulo ou "Protocolo de Emergência" ativado.

@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `20 + 4 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `4`
+* **Vida Base:** **20 + 4 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **4**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `2`
+* **Magia Inicial (MD):** **2**
 
 ---
 
@@ -45,7 +45,7 @@ O mestre pode exigir **testes de Acrobacia** para ações que demandem precisão
 
 Suas garras são **ataques naturais**, causando dano igual a:
 
-* `1d6 a cada 2 pontos de Destreza + Destreza`
+* **1d6 a cada 2 pontos de Destreza + Destreza**
 
 ---
 
@@ -82,11 +82,11 @@ Escolha **duas** características raciais:
 
 * **Fé no Grande Pássaro Loom**
   Pode realizar um teste de **Religião (CD 20)**.
-  Em sucesso, recebe **+1 Sabedoria** por `2d20` minutos.
+  Em sucesso, recebe **+1 Sabedoria** por **2d20** minutos.
 
 * **Ataque de Asa**
   Sua asa se torna uma arma natural que causa dano **Contundente** igual a:
-  `1d2 a cada 2 Força + Destreza`.
+  **1d2 a cada 2 Força + Destreza**.
   O inimigo deve passar em um teste de **Constituição** contra sua **CD de Destreza** ou ficará **Tonto**.
 
 ---
@@ -95,7 +95,7 @@ Escolha **duas** características raciais:
 
 Sua **velocidade de voo** aumenta em um valor igual a:
 
-* `Eficiência de Rank × 2`
+* **Eficiência de Rank × 2**
 
 ---
 

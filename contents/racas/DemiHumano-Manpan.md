@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `21 + 9 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `9`
+* **Vida Base:** **21 + 9 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **9**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `1`
+* **Magia Inicial (MD):** **1**
 
 ---
 
@@ -40,7 +40,7 @@ Durante o combate:
 
 * **Sabedoria, Inteligência e Carisma** são reduzidos em **−2**.
 * Recebe **+1DR** em testes de **Força** e **Constituição**.
-* Ataques desarmados causam dano igual a `1d4 a cada 2 Força + Força`.
+* Ataques desarmados causam dano igual a **1d4 a cada 2 Força + Força**.
 
 ---
 
@@ -56,19 +56,19 @@ Escolha **uma** característica racial:
 
 * **Reflexos Instintivos**
   Como uma ação, pode realizar um teste de **Intuição** contra um inimigo.
-  **CD:** `15 + 1 para cada Rank acima do 10`.
+  **CD:** **15 + 1 para cada Rank acima do 10**.
   Em sucesso, recebe **+2 CA** contra esse inimigo.
 
 * **Garras Afiadas**
-  Ataques desarmados tornam‑se `1d6 + Destreza`.
+  Ataques desarmados tornam‑se **1d6 + Destreza**.
   Acertos críticos causam **Sangramento**.
 
 * **Mãos Pesadas**
-  Ataques desarmados tornam‑se `1d8 a cada 2 Força + Força`.
+  Ataques desarmados tornam‑se **1d8 a cada 2 Força + Força**.
   Acertos críticos deixam o alvo **Tonto**.
 
 * **Dentes Afiados**
-  Pode realizar ataques de mordida causando `1d8 + Força`.
+  Pode realizar ataques de mordida causando **1d8 + Força**.
 
 * **Cauda**
   Pode tentar **derrubar** inimigos com um teste de Destreza ou utilizá‑la como ataque desarmado usando Destreza no acerto e no dano.

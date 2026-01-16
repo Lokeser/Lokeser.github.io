@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const finalPrefix = window.location.pathname.includes('contents') ? "../".repeat(depth + 1) : "";
 
     // --- HTML DA BARRA DE NAVEGAÇÃO ---
-    const navHTML = `
+    const navHTML = **
         <nav class="main-navbar">
             <div class="nav-container">
                 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </ul>
             </div>
         </nav>
-    `;
+    **;
 
     navbarPlaceholder.innerHTML = navHTML;
 

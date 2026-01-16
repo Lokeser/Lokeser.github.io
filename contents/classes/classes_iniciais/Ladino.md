@@ -1,7 +1,7 @@
 # Classe Inicial — Ladino
 
-**Magia Inicial (MD):** `2`  
-**Rank Inicial:** `Rank 10`
+**Magia Inicial (MD):** **2**  
+**Rank Inicial:** **Rank 10**
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## Rank 9 — Intermediário (✭✭)
 
-**Pré-Requisito:** `Rank 8`
+**Pré-Requisito:** **Rank 8**
 
 ---
 

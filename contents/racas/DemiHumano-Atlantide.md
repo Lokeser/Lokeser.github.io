@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `20 + 5 a cada 2 pontos de Constituição + 4 a cada 1 ponto de Mana`
-* **Valor de Vida da Raça:** `5`
+* **Vida Base:** **20 + 5 a cada 2 pontos de Constituição + 4 a cada 1 ponto de Mana**
+* **Valor de Vida da Raça:** **5**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `1`
+* **Magia Inicial (MD):** **1**
 
 ---
 
@@ -48,10 +48,10 @@ Escolha **duas** características raciais:
   Aumenta sua velocidade de nado em **+15m**.
 
 * **Pedúnculo Potente**
-  Seu rabo causa dano de **Concussão** igual a `1d6 a cada 2 Força + Mana`.
+  Seu rabo causa dano de **Concussão** igual a **1d6 a cada 2 Força + Mana**.
 
 * **Presas de Tubarão**
-  Seus dentes causam dano **Perfuração** igual a `1d8 a cada 2 Força + Força`.
+  Seus dentes causam dano **Perfuração** igual a **1d8 a cada 2 Força + Força**.
 
 * **Consenso Marítimo**
   Testes de **Adestramento** são inúteis.

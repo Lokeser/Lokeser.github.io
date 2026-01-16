@@ -21,14 +21,14 @@
 
 ## Vida
 
-* **Vida Base:** `20 + 5 a cada 2 pontos de Constituição`
-* **Valor de Vida da Raça:** `5`
+* **Vida Base:** **20 + 5 a cada 2 pontos de Constituição**
+* **Valor de Vida da Raça:** **5**
 
 ---
 
 ## Dados Raciais
 
-* **Magia Inicial (MD):** `2`
+* **Magia Inicial (MD):** **2**
 
 ---
 
@@ -125,8 +125,8 @@ Um número de vezes por dia igual à sua **ER**, consumindo **15 magículas**, v
 
 Um alvo que você possa ver deve realizar um **teste de Mana** contra sua **CD de Mana**:
 
-```
+******
 CD = 10 + Mana + ER
-```
+******
 
-Se falhar, o alvo torna‑se **incapaz de utilizar poderes que causem dano físico** por `1d6` turnos.
+Se falhar, o alvo torna‑se **incapaz de utilizar poderes que causem dano físico** por **1d6** turnos.

@@ -3,7 +3,7 @@
 **Descrição:**  
 Você é um gênio em um ou mais aspectos da vida.
 
-**Rank Inicial:** `Rank 10`
+**Rank Inicial:** **Rank 10**
 
 ---
 

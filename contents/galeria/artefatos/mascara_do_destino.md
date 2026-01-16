@@ -1,4 +1,4 @@
-## ARTEFATO: MÁSCARA ABISSAL (The Abyssal Mask)
+## MÁSCARA ABISSAL (The Abyssal Mask)
 
 ![Máscara Abissal](assets/images/mascara_abissal.png)
 

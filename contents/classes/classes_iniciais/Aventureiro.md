@@ -1,7 +1,7 @@
 # Classe Inicial — Aventureiro
 
-**Magia Inicial (MD):** `3`  
-**Rank Inicial:** `Rank 10`
+**Magia Inicial (MD):** **3**  
+**Rank Inicial:** **Rank 10**
 
 ---
 

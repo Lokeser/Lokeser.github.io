@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(filePath)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(**Erro ao carregar arquivo: ${response.statusText}**);
+                    throw new Error(`Erro ao carregar arquivo: ${response.statusText}`);
                 }
                 return response.text();
             })
@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     contentDiv.innerHTML = marked.parse(markdown);
                 } else {
                     // Fallback caso não tenha biblioteca de renderização ainda
-                    contentDiv.innerHTML = **<pre>${markdown}</pre>**;
+                    contentDiv.innerHTML = `<pre>${markdown}</pre>`;
                 }
             })
             .catch(error => {
-                contentDiv.innerHTML = **<p style="color:red">Erro: O arquivo "${filePath}" não foi encontrado ou não pode ser lido.</p>**;
+                contentDiv.innerHTML = `<p style="color:red">Erro: O arquivo "${filePath}" não foi encontrado ou não pode ser lido.</p>`;
                 console.error(error);
             });
     } else {

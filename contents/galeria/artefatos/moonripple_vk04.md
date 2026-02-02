@@ -1,5 +1,14 @@
+## MOONRIPPLE, O ARGUMENTO FINAL 
+
+![Moonripple, o Argumento Final](assets/images/moonrip.jpg)
+
+**Tipo:** Arma.
+**Raridade:** Bizarro.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # Moonripple, o Argumento Final
-![Moonripple](assets/images/moonrip.jpg)
+
 > *"A magia é caótica, imprecisa e emocional. A balística, por outro lado, é irrefutável."*
 > — Criador Desconhecido (Provavelmente um sem-mana).
 
@@ -11,7 +20,7 @@
 
 ---
 
-## ⚙️ Mecânica Base: Engenharia Sem Mana
+
 Esta arma foi desenhada para anular a desvantagem de quem não possui um núcleo de mana.
 
 * **Motor de Conversão Nula (Passiva):** O revólver não consome NENHUMA Magícula ou Mana do usuário. Toda a energia provém da quebra física dos cristais no tambor.
@@ -70,3 +79,7 @@ Você alinha todos os cristais e dispara o cão do revólver em uma frequência 
 * **Efeito:** Dispara um feixe devastador de 100m de comprimento e 3m de largura.
 * **Dano:** Soma o dano base de todos os 6 cristais + **Inteligência x 10**.
 * **Pós-Uso:** O cano do Moonripple superaquece. A arma fica inutilizável por **1d4** turnos enquanto esfria.
+
+
+---
+*Registro do Grimório Luxsandoria*

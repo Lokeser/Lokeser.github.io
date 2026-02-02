@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artefatos - Luxsandoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
         :root {
@@ -12,6 +13,7 @@
         }
         body { background-color: var(--c1) !important; color: var(--c4); }
 
+        /* Estilos do Filtro (Mantidos) */
         .filter-section {
             background: rgba(52, 105, 154, 0.2);
             padding: 20px;
@@ -19,19 +21,12 @@
             border: 1px solid var(--c3);
             margin-bottom: 40px;
         }
-
         .filter-group { margin-bottom: 15px; }
         .filter-group label { display: block; font-family: 'Cinzel', serif; font-size: 0.8rem; color: var(--c3); text-transform: uppercase; margin-bottom: 8px; }
 
         .btn-filter {
-            background: transparent;
-            border: 1px solid var(--c3);
-            color: var(--c3);
-            margin: 2px;
-            font-size: 0.8rem;
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: 0.3s;
+            background: transparent; border: 1px solid var(--c3); color: var(--c3);
+            margin: 2px; font-size: 0.8rem; padding: 5px 15px; border-radius: 20px; transition: 0.3s;
         }
         .btn-filter.active { background: var(--c4); color: var(--c1); border-color: var(--c4); }
         .btn-filter:hover { border-color: var(--c4); color: var(--c4); }
@@ -39,38 +34,59 @@
         /* Card 3:2 */
         .artifact-card {
             aspect-ratio: 3 / 2;
-            background: var(--c2);
-            border: 1px solid var(--c3);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            text-decoration: none;
-            display: block;
-            transition: 0.4s;
+            background: var(--c2); border: 1px solid var(--c3); border-radius: 10px;
+            overflow: hidden; position: relative; text-decoration: none; display: block; transition: 0.4s;
         }
         .artifact-card:hover { transform: translateY(-5px); border-color: var(--c4); box-shadow: 0 0 20px rgba(253, 245, 170, 0.2); }
-
         .artifact-info {
-            position: absolute;
-            bottom: 0; width: 100%;
-            padding: 15px;
-            background: linear-gradient(to top, var(--c1) 40%, transparent);
-            text-align: center;
+            position: absolute; bottom: 0; width: 100%; padding: 15px;
+            background: linear-gradient(to top, var(--c1) 40%, transparent); text-align: center;
         }
         .artifact-name { color: var(--c4); font-family: 'Cinzel', serif; font-size: 1rem; margin: 0; }
         .artifact-tag { font-size: 0.65rem; color: var(--c3); text-transform: uppercase; }
-
-        /* Esconder cards filtrados */
         .hidden { display: none; }
+
+        /* --- ESTILOS DA FORJA (NOVO) --- */
+        .btn-solar {
+            background-color: var(--c4); color: var(--c1); font-weight: bold; border: none;
+            box-shadow: 0 0 15px rgba(253, 245, 170, 0.4); transition: 0.3s;
+        }
+        .btn-solar:hover { background-color: #FFF; color: var(--c1); box-shadow: 0 0 25px rgba(253, 245, 170, 0.7); }
+
+        .modal-content { background-color: var(--c1); border: 1px solid var(--c3); color: var(--c4); }
+        .modal-header { border-bottom: 1px solid var(--c3); }
+        .modal-footer { border-top: 1px solid var(--c3); }
+        .form-control, .form-select {
+            background-color: var(--c2); border: 1px solid var(--c3); color: white;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: var(--c2); border-color: var(--c4); color: white; box-shadow: 0 0 5px var(--c3);
+        }
+        .form-label { color: var(--c3); font-size: 0.9rem; text-transform: uppercase; }
+        
+        /* Toolbar do Editor RichText */
+        .editor-toolbar {
+            background: var(--c2); border: 1px solid var(--c3); border-bottom: none;
+            padding: 5px; border-radius: 5px 5px 0 0; display: flex; gap: 5px;
+        }
+        .btn-tool {
+            background: transparent; border: none; color: var(--c3); padding: 5px 10px; border-radius: 4px;
+        }
+        .btn-tool:hover { background: rgba(255,255,255,0.1); color: var(--c4); }
+        #effectInput { border-top: none; border-radius: 0 0 5px 5px; min-height: 200px; font-family: monospace;}
     </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
     <div class="container py-5">
-        <header class="text-center mb-5">
+        <header class="text-center mb-5 position-relative">
             <h1 class="display-4" style="font-family: 'Cinzel', serif;">Arsenal de Relíquias</h1>
-            <p style="color: var(--c3);">Filtre os tesouros de Luxsandoria por tipo ou raridade.</p>
+            <p style="color: var(--c3);">Filtre os tesouros de Luxsandoria ou forje novos destinos.</p>
+            
+            <button class="btn btn-solar mt-3 px-4 py-2" data-bs-toggle="modal" data-bs-target="#forgeModal">
+                <i class="bi bi-hammer"></i> Novo Artefato
+            </button>
         </header>
 
         <section class="filter-section">
@@ -94,240 +110,269 @@
         </section>
 
         <div class="row g-4" id="artifact-grid">
-            
             <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
                 <a href="../../viewer.html?file=contents/galeria/artefatos/moonripple_vk04.md" class="artifact-card">
                     <div class="artifact-info"><h3 class="artifact-name">Moonripple VK04</h3><span class="artifact-tag">Arma | Bizarro</span></div>
                 </a>
             </div>
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/transmachado.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Transmachado</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
             </div>
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/dinamo.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Lamina Dínamo</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/cosmonauta_prime_0.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">COSMONAUTA PRIME</h3><span class="artifact-tag">Armadura | Bizarro</span></div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="mitica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/verdadeiro_cajado_da_deusa_da_magia.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Cajado da Deusa</h3><span class="artifact-tag">Arma | Mítica</span></div>
-                </a>
-            </div>
+    </div>
 
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/lamina_superior_cryonna.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Lâmina Cryonna</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
+<div class="modal fade" id="forgeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="font-family: 'Cinzel', serif;">Forjar & Publicar Relíquia</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <ul class="nav nav-tabs mb-3" id="forgeTabs" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-content" type="button">Conteúdo</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-config" type="button">Configuração GitHub</button>
+                        </li>
+                    </ul>
+
+                    <form id="artifactForm">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-content">
+                                <div class="row g-3">
+                                    <div class="col-md-8">
+                                        <label class="form-label">Nome do Artefato</label>
+                                        <input type="text" class="form-control" id="artName" placeholder="Ex: Máscara Abissal" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Subtítulo</label>
+                                        <input type="text" class="form-control" id="artSub" placeholder="Ex: The Abyssal Mask">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Imagem Real (Upload via API)</label>
+                                        <input type="file" class="form-control" id="artImgInput" accept="image/*">
+                                        <small class="text-muted" style="color: var(--c3) !important;">*A imagem será enviada para 'assets/images'. Use imagens leves!</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Raridade</label>
+                                        <select class="form-select" id="artRarity">
+                                            <option value="Bizarro">Bizarro</option>
+                                            <option value="Mítica">Mítica</option>
+                                            <option value="Lendária">Lendária</option>
+                                            <option value="Fábula">Fábula</option>
+                                            <option value="Épica">Épica</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Vinculado a</label>
+                                        <input type="text" class="form-control" id="artBind" placeholder="Ex: Mohmel">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Descrição Visual/Lore</label>
+                                        <textarea class="form-control" id="artDesc" rows="2"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Efeitos (Markdown)</label>
+                                        <div class="editor-toolbar">
+                                            <button type="button" class="btn-tool" onclick="insertMd('**', '**')"><i class="bi bi-type-bold"></i></button>
+                                            <button type="button" class="btn-tool" onclick="insertMd('*', '*')"><i class="bi bi-type-italic"></i></button>
+                                            <button type="button" class="btn-tool" onclick="insertMd('\n### ', '')"><i class="bi bi-type-h3"></i></button>
+                                            <button type="button" class="btn-tool" onclick="insertMd('\n* ', '')"><i class="bi bi-list-ul"></i></button>
+                                        </div>
+                                        <textarea class="form-control" id="effectInput" rows="6"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tab-config">
+                                <div class="alert alert-info" style="background: rgba(17, 63, 103, 0.8); border-color: var(--c3);">
+                                    <small>Esses dados são salvos apenas no seu navegador para facilitar o envio.</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Usuário GitHub</label>
+                                    <input type="text" class="form-control" id="ghUser" placeholder="Ex: SeuUsuario">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Nome do Repositório</label>
+                                    <input type="text" class="form-control" id="ghRepo" placeholder="Ex: luxsandoria-rpg">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Branch (Ramo)</label>
+                                    <input type="text" class="form-control" id="ghBranch" value="main">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Personal Access Token (PAT)</label>
+                                    <input type="password" class="form-control" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
+                                    <small class="text-muted">Precisa de permissão 'repo' ou 'public_repo'.</small>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-light" onclick="saveConfig()">Salvar Configuração</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div id="loadingSpinner" class="spinner-border text-warning me-3" role="status" style="display:none;">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                    
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-solar" onclick="publishToGithub()">
+                        <i class="bi bi-cloud-upload"></i> Publicar no Grimório
+                    </button>
+                </div>
             </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/azuxia.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Azuxia</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/solis-umbra.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Solis-Umbra</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="fabula">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/atramentum.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Atramentum</h3><span class="artifact-tag">Varinha | Fábula</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/cajado_do_alto_conselheiro.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Cajado Alto Cons.</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/yagorai.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Yagorai</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/foice_de_lunanite.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Foice de Lunanite</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/elxeer.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Elxeer</h3><span class="artifact-tag">Arma | Épica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="mitica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/mascara_da_morte.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Máscara da Morte</h3><span class="artifact-tag">Acessório | Mítica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/grevas_do_horizonte_puro.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Grevas Hor. Puro</h3><span class="artifact-tag">Acessório | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="epica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/cachecol_da_nevasca_subita.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Cachecol Nevasca</h3><span class="artifact-tag">Acessório | Épica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="epica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/manto_do_vento_congelante.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Manto do Vento</h3><span class="artifact-tag">Acessório | Épica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/seika_no_yaiba.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Seika no Yaiba</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/uragiri.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Uragiri</h3><span class="artifact-tag">Arma | Épica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="armadura" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/armadura_do_general_epstein.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Armadura Epstein</h3><span class="artifact-tag">Armadura | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/oshwaltz.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Oshwaltz</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/ringorai.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Ringorai</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="mitica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/sagittarius-b.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Sagittarius-B</h3><span class="artifact-tag">Arma | Mítica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="fabula">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/joia_das_estacoes.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Jóia Estações</h3><span class="artifact-tag">Acessório | Fábula</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="consumivel" data-rarity="mitica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/molteris.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Molteris</h3><span class="artifact-tag">Consumível | Mítica</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/anel_astral.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Anel Astral</h3><span class="artifact-tag">Acessório | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/fallen_moon.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Fallen Moon</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/greenery_moon.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Greenery Moon</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/arconde_purpuro-crocodilo-ex.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Arconde Púrpuro</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/morganspell_set_iii_voltk_92.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Morganspell SET III</h3><span class="artifact-tag">Arma | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="bizarro">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/anel_de_jade_santa_-_au_deskenzio.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Anel Jade Santa</h3><span class="artifact-tag">Acessório | Bizarro</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="acessorio" data-rarity="fabula">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/mascara_do_destino.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">MÁSCARA DESTINO</h3><span class="artifact-tag">Acessório | Fábula</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="lendaria">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/cerberus_sombrio.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Cérberus Sombrio</h3><span class="artifact-tag">Arma | Lendária</span></div>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-4 col-lg-3 artifact-item" data-type="arma" data-rarity="epica">
-                <a href="../../viewer.html?file=contents/galeria/artefatos/vork.md" class="artifact-card">
-                    <div class="artifact-info"><h3 class="artifact-name">Vork</h3><span class="artifact-tag">Arma | Épica</span></div>
-                </a>
-            </div>
-
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        let currentType = 'all';
-        let currentRarity = 'all';
+        // --- FUNÇÕES UTILITÁRIAS ---
+        
+        // Carregar configurações salvas ao abrir
+        document.addEventListener('DOMContentLoaded', () => {
+            if(localStorage.getItem('ghUser')) document.getElementById('ghUser').value = localStorage.getItem('ghUser');
+            if(localStorage.getItem('ghRepo')) document.getElementById('ghRepo').value = localStorage.getItem('ghRepo');
+            if(localStorage.getItem('ghToken')) document.getElementById('ghToken').value = localStorage.getItem('ghToken');
+        });
 
-        function filterItems(value, btn, category) {
-            // Atualiza o estado dos botões
-            const buttons = btn.parentElement.querySelectorAll('.btn-filter');
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Atualiza os filtros globais
-            if (category === 'type') currentType = value;
-            if (category === 'rarity') currentRarity = value;
-
-            const items = document.querySelectorAll('.artifact-item');
-
-            items.forEach(item => {
-                const typeMatch = (currentType === 'all' || item.getAttribute('data-type') === currentType);
-                const rarityMatch = (currentRarity === 'all' || item.getAttribute('data-rarity') === currentRarity);
-
-                if (typeMatch && rarityMatch) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
+        function saveConfig() {
+            localStorage.setItem('ghUser', document.getElementById('ghUser').value);
+            localStorage.setItem('ghRepo', document.getElementById('ghRepo').value);
+            localStorage.setItem('ghToken', document.getElementById('ghToken').value);
+            alert("Configurações do Colaborador salvas no navegador!");
         }
-    </script>
 
+        function insertMd(start, end) {
+            const textarea = document.getElementById('effectInput');
+            const startPos = textarea.selectionStart;
+            const endPos = textarea.selectionEnd;
+            const sel = textarea.value.substring(startPos, endPos);
+            textarea.value = textarea.value.substring(0, startPos) + start + sel + end + textarea.value.substring(endPos);
+            textarea.focus();
+        }
+
+        // Função para converter String UTF-8 para Base64 seguro
+        function utf8_to_b64(str) {
+            return window.btoa(unescape(encodeURIComponent(str)));
+        }
+
+        // --- LÓGICA DE PUBLICAÇÃO ---
+
+        async function publishToGithub() {
+            const spinner = document.getElementById('loadingSpinner');
+            const btn = document.querySelector('.btn-solar');
+            
+            // 1. Validar Dados
+            const user = document.getElementById('ghUser').value;
+            const repo = document.getElementById('ghRepo').value;
+            const token = document.getElementById('ghToken').value;
+            const branch = document.getElementById('ghBranch').value || 'main';
+            
+            const name = document.getElementById('artName').value;
+            const imgInput = document.getElementById('artImgInput');
+
+            if(!user || !repo || !token) {
+                alert("Configure seus dados do GitHub na aba 'Configuração GitHub' primeiro!");
+                return;
+            }
+            if(!name) { alert("Nome é obrigatório!"); return; }
+
+            // Bloquear interface
+            spinner.style.display = 'block';
+            btn.disabled = true;
+
+            try {
+                // Preparar Nomes de Arquivo
+                const safeName = name.toLowerCase().replace(/ /g, "_").normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+                let imgFileName = "placeholder.png";
+                
+                // 2. Upload da Imagem (se houver)
+                if (imgInput.files.length > 0) {
+                    const file = imgInput.files[0];
+                    imgFileName = safeName + "_" + file.name; // Renomeia a imagem para combinar com o item
+                    const base64Img = await toBase64(file);
+                    const cleanBase64 = base64Img.split(',')[1]; // Remove o header "data:image..."
+
+                    await uploadFile(user, repo, branch, token, `assets/images/${imgFileName}`, cleanBase64, `Adicionando arte: ${name}`);
+                }
+
+                // 3. Gerar Markdown
+                const sub = document.getElementById('artSub').value;
+                const rarity = document.getElementById('artRarity').value;
+                const bind = document.getElementById('artBind').value;
+                const desc = document.getElementById('artDesc').value;
+                const effects = document.getElementById('effectInput').value;
+
+                let mdContent = `## ${name.toUpperCase()} ${sub ? `(${sub})` : ''}\n\n`;
+                // Caminho relativo da imagem baseado na estrutura de pastas
+                mdContent += `![${name}](../../../../assets/images/${imgFileName})\n\n`; 
+                mdContent += `**Raridade:** ${rarity}.\n`;
+                if(bind) mdContent += `**Vinculado a:** ${bind}.\n`;
+                mdContent += `**Descrição:** ${desc}\n\n`;
+                mdContent += `### MECÂNICA E EFEITOS\n`;
+                mdContent += `${effects}\n\n`;
+                mdContent += `\n---\n*Registro do Grimório Luxsandoria*`;
+
+                // Upload do Markdown
+                const mdBase64 = utf8_to_b64(mdContent);
+                await uploadFile(user, repo, branch, token, `contents/galeria/artefatos/${safeName}.md`, mdBase64, `Forjando artefato: ${name}`);
+
+                alert(`Sucesso! O artefato "${name}" foi forjado e enviado ao repositório.`);
+                location.reload(); // Recarrega para limpar
+                
+            } catch (error) {
+                console.error(error);
+                alert(`Erro na Forja: ${error.message}`);
+            } finally {
+                spinner.style.display = 'none';
+                btn.disabled = false;
+            }
+        }
+
+        // Função auxiliar para upload via API do GitHub
+        async function uploadFile(user, repo, branch, token, path, contentBase64, message) {
+            const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}`;
+            
+            // Verifica se o arquivo já existe para pegar o SHA (necessário para update)
+            let sha = null;
+            try {
+                const check = await fetch(url, { headers: { Authorization: `token ${token}` } });
+                if (check.ok) {
+                    const data = await check.json();
+                    sha = data.sha;
+                }
+            } catch (e) { /* Arquivo novo, sem SHA */ }
+
+            const body = {
+                message: message,
+                content: contentBase64,
+                branch: branch
+            };
+            if (sha) body.sha = sha;
+
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) {
+                const errData = await response.json();
+                throw new Error(errData.message || "Erro no upload");
+            }
+        }
+
+        // Helper para ler arquivo como Base64
+        const toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    </script>
     <script src="../../js/menu.js"></script>
 </body>
 </html>

@@ -3,22 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador Luxsandoria</title>
+    <title>Visualizador - Luxsandoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-</head>
-<body style="background-color: #113F67;"> <div id="navbar-placeholder"></div>
-
-    <div class="container my-5">
-        <main id="content" class="markdown-body">
-            </main>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root { --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA; }
+        body { background-color: var(--c1); color: var(--c4); min-height: 100vh; }
         
-        <div class="text-center mt-4">
-            <button onclick="history.back()" class="btn btn-outline-warning">Voltar ao Grimório</button>
+        /* Área de Conteúdo */
+        .content-container {
+            background: rgba(17, 63, 103, 0.95);
+            border: 1px solid var(--c3);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        /* Imagens no Markdown */
+        .content-container img {
+            max-width: 100%; height: auto; border-radius: 5px; border: 2px solid var(--c3);
+            box-shadow: 0 0 15px rgba(88, 160, 200, 0.2); margin-bottom: 20px;
+        }
+
+        /* Controles do Administrador */
+        #admin-controls {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            display: none; /* Só aparece se tiver Token */
+        }
+        .btn-admin {
+            width: 50px; height: 50px; border-radius: 50%; margin-left: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s;
+        }
+        .btn-edit { background-color: var(--c2); color: white; border: 1px solid var(--c3); }
+        .btn-delete { background-color: #8B0000; color: white; border: 1px solid red; }
+        .btn-admin:hover { transform: scale(1.1); filter: brightness(1.2); }
+
+        /* Estilos do Modal (Herdados da Forja) */
+        .modal-content { background-color: var(--c1); border: 1px solid var(--c3); color: var(--c4); }
+        .form-control, .form-select { background-color: var(--c2); border: 1px solid var(--c3); color: white; }
+        .form-control:focus { background-color: var(--c2); color: white; border-color: var(--c4); }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <a href="javascript:history.back()" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left"></i> Voltar</a>
+    </div>
+
+    <div id="content" class="content-container">
+        <div class="text-center py-5">
+            <div class="spinner-border text-warning" role="status"></div>
         </div>
     </div>
 
+    <div id="admin-controls">
+        <div class="d-flex">
+            <button class="btn btn-admin btn-delete" onclick="confirmDelete()" title="Excluir Arquivo">
+                <i class="bi bi-trash"></i>
+            </button>
+            <button class="btn btn-admin btn-edit" onclick="openEditModal()" title="Editar Arquivo">
+                <i class="bi bi-pencil"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Registro</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="editName">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Subtítulo (Inglês)</label>
+                                <input type="text" class="form-control" id="editSub">
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Caminho da Imagem Atual</label>
+                                <input type="text" class="form-control" id="editImgPath" readonly style="opacity: 0.7">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tipo</label>
+                                <select class="form-select" id="editType">
+                                    <option value="Arma">Arma</option>
+                                    <option value="Acessório">Acessório</option>
+                                    <option value="Armadura">Armadura</option>
+                                    <option value="Consumível">Consumível</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Raridade</label>
+                                <select class="form-select" id="editRarity">
+                                    <option value="Bizarro">Bizarro</option>
+                                    <option value="Mítica">Mítica</option>
+                                    <option value="Lendária">Lendária</option>
+                                    <option value="Fábula">Fábula</option>
+                                    <option value="Épica">Épica</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Vinculado a</label>
+                                <input type="text" class="form-control" id="editBind">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Descrição</label>
+                                <textarea class="form-control" id="editDesc" rows="2"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Efeitos (Markdown)</label>
+                                <textarea class="form-control" id="editEffects" rows="8" style="font-family: monospace;"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveChanges()">
+                        <i class="bi bi-save"></i> Salvar Alterações
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/loader.js"></script>
 </body>

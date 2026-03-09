@@ -1,5 +1,5 @@
 # ⚔️ Eternarian, a Lamina de Anti-Corpos
-![Eternarian](assets/images/eterna.png)
+<img src="assets/images/eterna.png" alt="Eternarian" width="40%">
 > *"A Lamina Ancestral capaz de penetrar em qualquer defesa. Usada para matar dragões anciões."*
 
 **Categoria:** Espadão Colossal

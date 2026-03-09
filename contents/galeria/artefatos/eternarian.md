@@ -1,6 +1,6 @@
 ## ETERNÁRIAN (A Lamina Antí-Corpos)
 
-![Eternárian](assets/images/eterna.png)
+![ETERNÁRIAN](assets/images/eterna.png)
 
 **Tipo:** Arma.
 **Raridade:** Lendária.
@@ -45,7 +45,7 @@ Ao desferir um ataque bem-sucedido, a carapaça absorve o sangue e a energia do 
 
 ### 3. Descarga Proteica (Ataque Devastador)
 Como uma **Ação Padrão**, você consome as 5 cargas para liberar uma corrente de proteínas e energia acumulada.
-* **Ataque:** Realize um ataque contra o alvo; O dado de dano aumenta para $ERd30$ e adiciona bônus de $CONd8$ como dano **Anômalo**.
+* **Ataque:** Realize um ataque contra o alvo; O dado de dano aumenta para $ERd30$ e adiciona bônus de **CONd8** como dano **Anômalo**.
 * **Consequência:** A arma entra imediatamente em **Modo Exausto**.
 
 ### 2. Instabilidade Celular (Explosão)

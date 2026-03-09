@@ -1,15 +1,27 @@
+## ETERNÁRIAN (A Lamina Antí-Corpos)
+
+![ETERNÁRIAN](assets/images/eterna.png)
+
+**Tipo:** Arma.
+**Raridade:** Lendária.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # ⚔️ Eternarian, a Lamina de Anti-Corpos
+<<<<<<< HEAD
 <img src="assets/images/eterna.png" alt="Eternarian" width="40%">
+=======
+
+>>>>>>> 80ad4dd4fc35ba8d88b02f1ebd4afcac8093c69d
 > *"A Lamina Ancestral capaz de penetrar em qualquer defesa. Usada para matar dragões anciões."*
 
 **Categoria:** Espadão Colossal
 **Tipo de Dano:** Magi-Cortante
 **Atributo de Escala:** Mana & Força
-**Raridade:** Épico de Witheria  
 
 ---
 
-## 📜 Descrição
+
 Uma arma colossal e assimétrica, forjada a partir da carapaça de uma serpe primordial. O dorso é composto por uma estrutura óssea negra e porosa que abriga "anticorpos" reativos, enquanto o fio único da lâmina é um cristal translúcido que absorve a mana e a energia vital das feras. Conforme a luta progride, a arma brilha em um **roxo vibrante**, tornando-se mais pesada e adaptável.
 
 ---
@@ -37,7 +49,7 @@ Ao desferir um ataque bem-sucedido, a carapaça absorve o sangue e a energia do 
 
 ### 3. Descarga Proteica (Ataque Devastador)
 Como uma **Ação Padrão**, você consome as 5 cargas para liberar uma corrente de proteínas e energia acumulada.
-* **Ataque:** Realize um ataque contra o alvo; O dado de dano aumenta para $ERd30$ e adiciona bônus de $CONd8$ como dano **Anômalo**.
+* **Ataque:** Realize um ataque contra o alvo; O dado de dano aumenta para $ERd30$ e adiciona bônus de **CONd8** como dano **Anômalo**.
 * **Consequência:** A arma entra imediatamente em **Modo Exausto**.
 
 ### 2. Instabilidade Celular (Explosão)
@@ -63,3 +75,7 @@ Após a descarga de energia, a carapaça sofre fadiga e as juntas se separam, ma
 ---
 
 > **Notas do Diretor:** > Esta arma pune a ganância. Manter as 5 cargas concede uma defesa incrível (+5 CA e +50 Resistência ADP), mas o risco de uma explosão iminente força o caçador a decidir entre a proteção e o ataque devastador.
+
+
+---
+*Registro do Grimório Luxsandoria*

@@ -8,11 +8,6 @@
 
 ### MECÂNICA E EFEITOS
 # ⚔️ Eternarian, a Lamina de Anti-Corpos
-<<<<<<< HEAD
-<img src="assets/images/eterna.png" alt="Eternarian" width="40%">
-=======
-
->>>>>>> 80ad4dd4fc35ba8d88b02f1ebd4afcac8093c69d
 > *"A Lamina Ancestral capaz de penetrar em qualquer defesa. Usada para matar dragões anciões."*
 
 **Categoria:** Espadão Colossal

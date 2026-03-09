@@ -110,11 +110,14 @@ Para evitar repetições, todas as armas abaixo seguem estas fórmulas base, sal
 * **Corte Veloz**
     * *Acerto:* **DR + Des**
     * *Dano:* **ERd6 + Des**
-    * *Efeito:* Recebe **-1 na Margem de Ameaça** (Critica mais fácil).
+    * *Efeito:* Recebe **-1 na Margem de Ameaça**.
 * **Arremesso Pesado**
     * *Acerto:* **DR + Des**
     * *Dano:* **ERd8 + Des**
     * *Recuperação:* Como ação bônus se estiver a 1m.
+* **Momentum**
+    * Como uma ação de movimento, pode se lançar contra um inimigo em Alcance Curto, girando seu corpo para um golpe poderoso. 
+    * Seu próximo Ataque com esta arma tem +2D de Dano.
 
 ### Espada Longa
 * **Tipo:** Cortante

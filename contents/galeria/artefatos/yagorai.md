@@ -1,0 +1,9 @@
+A masterpiece, best quality, amazing quality, very aesthetic, 4k, high resolution, ultra-detailed, fully human boy, biologically human anatomy, soft human skin color #F5D2C0, full-body portrait of a beautiful human trap boy, medium-long layered bob, uneven messy bangs covering one eye, long side-swept fringe, jagged choppy ends, textured layered haircut, deep navy blue hair, vivid golden-yellow dyed tips underneath, hidden yellow inner streaks, subtle teal streak near ends, asymmetrical cut, loose face-framing strands, natural messy flow, NOT blunt cut, NOT straight bangs, soft anime shading, detailed hair strands, volume at crown, striking golden-yellow eyes, boy has youthful and gentle expression with a soft subtle smile,
+highly detailed face, large expressive golden eyes with detailed irises and soft highlights, delicate facial features, small nose, slightly parted lips showing gentle warmth,
+feminine lower body proportions, flared hips swelling dramatically under a very trim waistline, enticing wobbling rump, thick thighs with realistic weight and softness, perfect hourglass curve human body,
+wearing a loose light beige sleeveless hoodie and very loose off-white and cream baggy casual pants with soft folds, simple relaxed loungewear aesthetic,
+standing relaxed with hands clasped gently in front, subtle hip tilt and enticing soft rear shape, natural effortless pose that emphasizes dramatic hip flare and soft lower body, slight fabric drape and gentle creases around wide hips and thick thighs,
+cinematic soft daylight lighting with gentle rim light, highlighting curves, gentle shadows on thighs and rear, intricate fabric textures and loose folds flowing around wider hips, realistic shading,
+beautiful background, blurred mansion buildings and balconies with warm afternoon sunligh
+
+wild long bangs, hair loose forward strands framing the face

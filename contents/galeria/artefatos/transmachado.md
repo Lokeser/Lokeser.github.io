@@ -1,16 +1,24 @@
+## TRANSMACHADO 
+
+![TRANSMACHADO](assets/images/transmachado.png)
+
+**Tipo:** Arma.
+**Raridade:** Bizarro.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # Transmachado
 
-**Tipo:** Arma de Duas Mãos
 **Requisito:** Força 12+, Destreza 2+, Inteligência 2+ (Para manuseio do mecanismo)
 **Escalamento Principal:** Força (Dano Físico) e Mana (Explosões de Núcleo Artificial)
 
-![Transmachado](assets/images/transmachado.png)
+
 
 > *"Uma maravilha da engenharia arcana. O Transmachado não é apenas uma arma, é um sistema de combate vivo que exige gerenciamento de energia e agressividade calculada."*
 
 ---
 
-## ⚙️ Mecânicas Exclusivas
+
 
 Para operar esta arma com eficiência máxima, o usuário deve gerenciar três pilares principais:
 
@@ -127,3 +135,7 @@ A qualquer momento, durante uma Ação de Ataque, você pode declarar uma Transf
 | **Espada Básico** | ERd14+FOR+MANA++ Núcleo Artificial | 🔴 -1 |
 | **Dano do Núcleo Artificial** | ERd6+ER | N/A |
 | **ZSD (Final)** | Explosão de ER x (d22+MANA) | 🔴 Zera Tudo |
+
+
+---
+*Registro do Grimório Luxsandoria*

@@ -1,15 +1,23 @@
+## ETERNÁRIAN (A Lamina Antí-Corpos)
+
+![Eternárian](assets/images/eterna.png)
+
+**Tipo:** Arma.
+**Raridade:** Lendária.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # ⚔️ Eternarian, a Lamina de Anti-Corpos
-![Eternarian](assets/images/eterna.png)
+
 > *"A Lamina Ancestral capaz de penetrar em qualquer defesa. Usada para matar dragões anciões."*
 
 **Categoria:** Espadão Colossal
 **Tipo de Dano:** Magi-Cortante
 **Atributo de Escala:** Mana & Força
-**Raridade:** Épico de Witheria  
 
 ---
 
-## 📜 Descrição
+
 Uma arma colossal e assimétrica, forjada a partir da carapaça de uma serpe primordial. O dorso é composto por uma estrutura óssea negra e porosa que abriga "anticorpos" reativos, enquanto o fio único da lâmina é um cristal translúcido que absorve a mana e a energia vital das feras. Conforme a luta progride, a arma brilha em um **roxo vibrante**, tornando-se mais pesada e adaptável.
 
 ---
@@ -63,3 +71,7 @@ Após a descarga de energia, a carapaça sofre fadiga e as juntas se separam, ma
 ---
 
 > **Notas do Diretor:** > Esta arma pune a ganância. Manter as 5 cargas concede uma defesa incrível (+5 CA e +50 Resistência ADP), mas o risco de uma explosão iminente força o caçador a decidir entre a proteção e o ataque devastador.
+
+
+---
+*Registro do Grimório Luxsandoria*

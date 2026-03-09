@@ -1,8 +1,9 @@
 ## MÁSCARA ABISSAL (The Abyssal Mask)
 
-![Máscara Abissal](assets/images/mascara_abissal.png)
+![MÁSCARA ABISSAL](assets/images/mascara_abissal.png)
 
-**Raridade:** Fábula.
+**Tipo:** Acessório.
+**Raridade:** Mítica.
 **Vinculado a:** Mohmel (O Avatar).
 **Descrição:** Uma máscara antiga, pulsando com a energia de uma divindade esquecida das profundezas (Cthulhu), mas moldada pela brutalidade de um lutador ancestral.
 
@@ -71,3 +72,7 @@ Ao concluir uma missão, Cthulhu presenteia seu Avatar. O Diretor deve escolher 
 **Tipo B: Artefatos Abissais (Raríssima - Artefatos feitos a partir de inimigos ou aliados que fizeram parte dessa aventura)**
 
 **Tipo C: Evolução Permanente (Raríssima - Somente para feitos Épicos)**
+
+
+---
+*Registro do Grimório Luxsandoria*

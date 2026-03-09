@@ -1,15 +1,23 @@
+## COSMONAUTA PRIME (MK-0) 
+
+![COSMONAUTA PRIME (MK-0)](assets/images/cosmonauta_prime.png)
+
+**Tipo:** Arma.
+**Raridade:** Bizarro.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # COSMONAUTA PRIME (MK-0)
 
-**Tipo:** Transformação / Invocação de Artefato
 **Requisito:** Rank Nulo ou "Protocolo de Emergência" ativado.
 
-![CosmonautaP](assets/images/cosmonauta_prime.png)
+
 
 > *"Se o universo não me deu Mana, eu roubarei a física para esmagar a realidade. Onde falta dom, sobra engenharia."* — Loke.
 
 ---
 
-## 📖 0. LORE E CONCEITO
+
 A **Cosmonauta Prime** não é apenas uma armadura; é um **Sarcófago de Guerra**. Projetada para permitir que um humano de Rank Nulo sobreviva a batalhas contra Entidades de Tinta e Generais de Rank 3+.
 
 * **O Conceito:** Substituir a Mana pela Física Extrema. Gravidade para voo, Eletricidade para reflexos, Calor para propulsão.
@@ -207,3 +215,7 @@ A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno s
 * **Dano:** **100d10** (Dano de Anomalia/Vazio).
 * **Aniquilação:** Se o alvo morrer, é apagado da existência (sem corpo para reviver). Área de 3m destruída.
 * **Consequência:** **Shutdown**. A armadura desliga por 1d4 horas. Piloto fica Indefeso.
+
+
+---
+*Registro do Grimório Luxsandoria*

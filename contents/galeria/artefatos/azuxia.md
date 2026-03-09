@@ -1,8 +1,15 @@
+## AZUXIA 
+
+![Azuxia](assets/images/azuxia0.jpg)
+
+**Tipo:** Arma.
+**Raridade:** Bizarro.
+**Descrição:** 
+
+### MECÂNICA E EFEITOS
 # Azuxia, a Tinta Anômala
 
-![Azuxia0](assets/images/azuxia0.jpg)
-
-> *"Ela te protege, mesmo que você não possa protegê-la."*
+> *"Eternamente interligados, uma afronta á Dues, a vida feita por um ser humano."*
 
 **Categoria:** Arma Mítica Viva (Consciente)
 **Tipo de Dano:** Varia por Forma (Magi-Perfurante ou Anômalo)
@@ -11,7 +18,7 @@
 
 ---
 
-## 📊 Status da Arma Viva
+
 Azuxia não é apenas um objeto, é uma entidade com seus próprios atributos e vitalidade.
 
 | Atributo | Valor | Notas |
@@ -120,3 +127,7 @@ Azuxia transcende sua forma de objeto.
 * **Duração:** 5 Turnos.
 * **Efeito:** Azuxia se torna um **Ser Vivo Completo**. (Detalhes da ficha de personagem completa de Azuxia são aplicados, permitindo movimentação independente e uso de habilidades próprias, duplicando a presença de combate no campo).
 * **Pós-Efeito:** Retorna à forma de arma ao final da duração.
+
+
+---
+*Registro do Grimório Luxsandoria*

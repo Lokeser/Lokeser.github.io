@@ -4,165 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxsandoria - O Grimório do Destino</title>
+    <!-- Aplica o tema salvo antes da renderização (evita "flash") -->
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
             --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
         }
-        
-        /* Ajuste solicitado: Parágrafos Brancos apenas nesta página */
-        p { 
-            color: #ffffff !important; 
+
+        body.board-bg {
+            background:
+                radial-gradient(1200px 600px at 50% -10%, rgba(88,160,200,0.20), transparent 60%),
+                linear-gradient(180deg, var(--c2) 0%, var(--c1) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #eaf2fa;
         }
 
-        /* Hero Section */
-        .hero-section {
-            height: 90vh;
-            background: linear-gradient(rgba(17, 63, 103, 0.7), rgba(17, 63, 103, 0.9)), url('assets/images/home_bg.jpg') center/cover;
+        /* ===== Cabeçalho compacto ===== */
+        .board-hero {
+            text-align: center;
+            padding: 55px 20px 15px;
+        }
+        .board-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            color: var(--c4);
+            letter-spacing: 8px;
+            text-shadow: 0 0 25px rgba(253, 245, 170, 0.45);
+            margin: 0;
+        }
+        .board-hero p {
+            color: #d6e6f4 !important;
+            max-width: 620px;
+            margin: 14px auto 0;
+            letter-spacing: 1px;
+            font-size: 0.98rem;
+        }
+        .board-hero .hint {
+            color: #8fb3cf !important;
+            font-size: 0.82rem;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== O Quadro (Trello vertical) ===== */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 20px 90px;
+        }
+
+        .trello-list {
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-top: 3px solid var(--accent, var(--c3));
+            border-radius: 14px;
+            padding: 14px 14px 16px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+            backdrop-filter: blur(3px);
+            animation: fadeUp 0.5s ease both;
+        }
+        .trello-list:nth-child(2) { animation-delay: .05s; }
+        .trello-list:nth-child(3) { animation-delay: .10s; }
+        .trello-list:nth-child(4) { animation-delay: .15s; }
+        .trello-list:nth-child(5) { animation-delay: .20s; }
+        .trello-list:nth-child(6) { animation-delay: .25s; }
+        .trello-list:nth-child(7) { animation-delay: .30s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .list-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-bottom: 3px solid var(--c4);
-        }
-
-        .hero-title {
+            gap: 10px;
             font-family: 'Cinzel', serif;
-            font-size: 5rem;
-            color: var(--c4);
-            text-shadow: 0 0 20px rgba(253, 245, 170, 0.6);
-            letter-spacing: 10px;
-        }
-
-        .lore-card {
-            background: rgba(52, 105, 154, 0.2);
-            border: 1px solid var(--c3);
-            border-radius: 15px;
-            padding: 30px;
-            transition: 0.4s;
-            height: 100%;
-        }
-
-        .lore-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--c4);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-
-        .section-header {
-            font-family: 'Cinzel', serif;
-            color: var(--c4);
-            text-align: center;
-            margin: 80px 0 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--accent, var(--c3));
+            padding: 6px 4px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
+        }
+        .list-header .icon { font-size: 1.3rem; line-height: 1; }
+        .list-header .count {
+            margin-left: auto;
+            background: var(--accent, var(--c3));
+            color: #0b1b2b;
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.72rem;
+            font-family: sans-serif;
+            font-weight: 700;
         }
 
-        .merlin-quote {
-            font-style: italic;
-            border-left: 4px solid var(--c4);
-            padding-left: 20px;
-            margin: 40px 0;
-            color: var(--c3);
+        /* Cartas */
+        .trello-card {
+            display: block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-left: 3px solid var(--accent, var(--c3));
+            border-radius: 8px;
+            padding: 11px 13px;
+            margin-bottom: 9px;
+            color: #eaf2fa;
+            text-decoration: none;
+            font-size: 0.92rem;
+            line-height: 1.3;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+        }
+        .trello-card:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+            border-left-width: 5px;
+            box-shadow: 0 5px 16px rgba(0,0,0,0.4);
+        }
+
+        /* Carta destacada (abrir seção inteira) */
+        .trello-card.pinned {
+            background: var(--accent, var(--c3));
+            color: #08111c;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            border-color: transparent;
+            border-left-color: transparent;
+            margin-bottom: 14px;
+        }
+        .trello-card.pinned:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.12);
+            color: #000;
+        }
+
+        /* Rótulo divisor dentro da lista */
+        .list-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9fc0da;
+            margin: 12px 4px 8px;
+            font-weight: 700;
+        }
+
+        footer.board-footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: #b9d3e6;
         }
     </style>
 </head>
-<body class="grimoire-bg" style="background-color: var(--c1);">
+<body class="board-bg">
 
     <div id="navbar-placeholder"></div>
 
-    <header class="hero-section">
-        <div class="container text-center">
-            <h1 class="hero-title">LUXSANDORIA</h1>
-            <p class="lead mb-5" style="letter-spacing: 2px;">A Mana é a energia vital que permeia tudo, usada em magia, rituais e artefatos.</p>
-            <a href="#lore" class="btn btn-outline-warning btn-lg px-5">Explorar Grimório</a>
-        </div>
+    <header class="board-hero">
+        <h1>LUXSANDORIA</h1>
+        <p>O Grimório do Destino. Navegue pelo mundo como quem organiza um quadro — cada carta leva direto ao seu conteúdo.</p>
+        <p class="hint">✦ Escolha uma carta &nbsp;•&nbsp; chegue lá em um clique ✦</p>
     </header>
 
-    <div class="container py-5" id="lore">
-        
-        <h2 class="section-header">Os Quatro Continentes</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="lore-card">
-                    <p>O Mundo de Luxsandoria é composto por quatro continentes principais que abrigam a vida e o mistério:</p>
-                    <ul class="text-light">
-                        <li><strong>Strongland:</strong> Reinos humanos em conflito, as Terras Mortas e nove reinos primordiais.</li>
-                        <li><strong>Demópoles:</strong> Lar da diversidade de demi-humanos como Manpans, Rekels, Atlantides e Loomians.</li>
-                        <li><strong>Fareverus:</strong> A floresta élfica mística onde a natureza e a magia se fundem.</li>
-                        <li><strong>Tundra:</strong> O deserto gelado e berço da humanidade.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="lore-card">
-                    <h3 class="h4" style="color: var(--c4);">Hierarquia de Ranks</h3>
-                    <p>O poder em Luxsandoria é medido em uma escala que vai do Rank 10 (Informatus), o nível comum, ao Rank 3 (Ark), lendário e atualmente inexistente.</p>
-                    <p>A evolução até o Rank 7 ocorre através de combate e experiência; porém, acima disso, é necessária a Ascensão de Núcleo, fundindo-se com criaturas mágicas sob risco de loucura ou morte.</p>
-                </div>
-            </div>
-        </div>
+    <main class="board">
 
-        <h2 class="section-header">Linhagens e Artes Arcanas</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="lore-card">
-                    <h3 class="h4" style="color: var(--c4);">Diversidade de Raças</h3>
-                    <p>O mundo abriga Humanos (Strongland), Elfos (Fareverus), Meio-Elfos, Meio-Vampiros, Meio-Orcs e Humanos Escarlates da Tundra. Além das linhagens demi-humanas de Demópoles.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="lore-card">
-                    <h3 class="h4" style="color: var(--c4);">As Artes da Mana</h3>
-                    <p>As Magias dividem-se em Naturais (Terra, Água, Fogo, Vento, Raio) e Antinaturais (Anomalia de Mana, Ki).</p>
-                    <p>Cada elemento possui leis próprias: o Fogo é volátil, enquanto o Vento é uma arte exclusiva dos Elfos.</p>
-                </div>
-            </div>
-        </div>
-
-        <section class="mt-5 pt-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h2 class="section-header text-start">Academia Omnus</h2>
-                    <p>Situada entre Scarlet, Ford e Saphstar, a Academia Omnus é um castelo majestoso sobre o rio, conectado por pontes encantadas. Jovens estudam aqui por 5 anos, abrangendo do fundamental ao ensino médio.</p>
-                    <p>A instituição oferece clubes diversos como Teatro, Alquimia e Duelos, possuindo também a filial Nova Omnus, focada estritamente em magia e combate.</p>
-                    <div class="merlin-quote">
-                        "Fundada por Merlin Godspell, a Academia é o coração do aprendizado e dos mistérios de nosso mundo."
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="lore-card" style="background: rgba(253, 245, 170, 0.05);">
-                        <h4 style="color: var(--c4);">Mitos e Mistérios</h4>
-                        <ul class="text-light list-unstyled">
-                            <li>✦ <strong>Fenômenos:</strong> Névoa Misteriosa e Auroras de Mana.</li>
-                            <li>✦ <strong>Entidades:</strong> O Coração do Mundo e Senhores das Sombras.</li>
-                            <li>✦ <strong>Relíquias:</strong> Olho de Serena e Lança do Coração.</li>
-                            <li>✦ <strong>Organizações:</strong> Ordem do Véu e Círculo dos Ladrões.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <!-- ===================== REGRAS ===================== -->
+        <section class="trello-list" style="--accent:#58A0C8;">
+            <div class="list-header"><span class="icon">📖</span> Regras <span class="count">12</span></div>
+            <a class="trello-card pinned" href="contents/regras/regras_menu.html">Abrir todas as Regras</a>
+            <div class="list-label">Atributos</div>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Forca.md">Força</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Destreza.md">Destreza</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Constituicao.md">Constituição</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Inteligencia.md">Inteligência</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md">Sabedoria</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md">Carisma</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md">Mana</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/TestesDefesa.md">Testes de Defesa</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md">Domínios</a>
+            <div class="list-label">Arsenal &amp; Combate</div>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armas.md">Armas &amp; A Arte da Guerra</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md">Armaduras &amp; Escudos</a>
+            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md">Itens Mágicos</a>
         </section>
 
-        <div class="row mt-5 pt-5 text-center">
-            <h2 class="section-header">Explore o Sistema</h2>
-            <div class="d-flex justify-content-center flex-wrap">
-                <a href="contents/racas/racas_menu.html" class="btn btn-warning m-2 px-4">Raças</a>
-                <a href="contents/classes/classes_menu.html" class="btn btn-warning m-2 px-4">Classes</a>
-                <a href="contents/magias/magias_menu.html" class="btn btn-warning m-2 px-4">Magias</a>
-                <a href="contents/habilidades/habilidades_menu.html" class="btn btn-warning m-2 px-4">Habilidades</a>
-                <a href="contents/regras/regras_menu.html" class="btn btn-warning m-2 px-4">Regras</a>
-            </div>
-        </div>
+        <!-- ===================== RANKS ===================== -->
+        <section class="trello-list" style="--accent:#c5a059;">
+            <div class="list-header"><span class="icon">🏅</span> Ranks <span class="count">8</span></div>
+            <a class="trello-card pinned" href="contents/ranks/ranks_menu.html">Ver hierarquia completa</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/10 - Deceri.md">10 · Deceri</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/09 - Novedo.md">09 · Novedo</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/08 - Octitus.md">08 · Octitus</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/07 - Arcana.md">07 · Arcana</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/06 - Coniuncta.md">06 · Coniuncta</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/05 - Unearta.md">05 · Unearta</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/04 - Verus.md">04 · Verus</a>
+            <a class="trello-card" href="viewer.html?file=contents/ranks/03 - Ark.md">03 · Ark <span style="opacity:.6">(lendário)</span></a>
+        </section>
 
-    </div>
+        <!-- ===================== RAÇAS ===================== -->
+        <section class="trello-list" style="--accent:#3aa76d;">
+            <div class="list-header"><span class="icon">🧬</span> Raças <span class="count">12</span></div>
+            <a class="trello-card pinned" href="contents/racas/racas_menu.html">Abrir todas as Raças</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/Humano.md">Humano</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/Humano-Hypnoriano.md">Humano Hypnoriano</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/Humano-Oni.md">Humano Oni</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/MeioVampiro.md">Meio-Vampiro</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/Elfo.md">Elfo</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/MeioElfo.md">Meio-Elfo</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/ElfoNegro.md">Elfo Negro</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Atlantide.md">Atlântide</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Loomian.md">Loomian</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Manpan.md">Manpan</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Rekel.md">Rekel</a>
+            <a class="trello-card" href="viewer.html?file=contents/racas/MeioOrc.md">Meio-Orc</a>
+        </section>
 
-    <footer class="text-center py-5 border-top border-secondary mt-5">
-        <p>Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
+        <!-- ===================== CLASSES ===================== -->
+        <section class="trello-list" style="--accent:#d98c3f;">
+            <div class="list-header"><span class="icon">⚔️</span> Classes <span class="count">9</span></div>
+            <a class="trello-card pinned" href="contents/classes/classes_menu.html">Ver todas as Classes</a>
+            <div class="list-label">Iniciais</div>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Academico.md">Acadêmico</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md">Aventureiro</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Combativo.md">Combativo</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Ladino.md">Ladino</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Malandro.md">Malandro</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Prodigio.md">Prodígio</a>
+            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md">Trabalhador</a>
+            <div class="list-label">Progressão</div>
+            <a class="trello-card" href="contents/classes/classes_menu.html">Avançadas · Absolutas · Secretas →</a>
+        </section>
+
+        <!-- ===================== MAGIAS ===================== -->
+        <section class="trello-list" style="--accent:#8a5cf6;">
+            <div class="list-header"><span class="icon">🔮</span> Magias <span class="count">4</span></div>
+            <a class="trello-card pinned" href="contents/magias/magias_menu.html">Abrir o Portal de Magias</a>
+            <a class="trello-card" href="contents/magias/Mana/mana_menu.html" style="--accent:#0088ff;">🌊 Mana</a>
+            <a class="trello-card" href="contents/magias/Ki/ki_menu.html" style="--accent:#ffcc00;">⚡ Ki</a>
+            <a class="trello-card" href="contents/magias/Fe/fe_menu.html" style="--accent:#f0f0f0;">✨ Fé</a>
+            <a class="trello-card" href="contents/magias/Caos/caos_menu.html" style="--accent:#ff00ff;">🕳️ Caos</a>
+        </section>
+
+        <!-- ===================== HABILIDADES ===================== -->
+        <section class="trello-list" style="--accent:#e05a7d;">
+            <div class="list-header"><span class="icon">🌀</span> Habilidades <span class="count">3</span></div>
+            <a class="trello-card pinned" href="contents/habilidades/habilidades_menu.html">Ver todas as Habilidades</a>
+            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#alma" style="--accent:#00d4ff;">Pilar da Alma</a>
+            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#corpo" style="--accent:#ff4500;">Pilar do Corpo</a>
+            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#mente" style="--accent:#9d00ff;">Pilar da Mente</a>
+        </section>
+
+        <!-- ===================== GALERIA ===================== -->
+        <section class="trello-list" style="--accent:#4fb3bf;">
+            <div class="list-header"><span class="icon">🖼️</span> Galeria <span class="count">3</span></div>
+            <a class="trello-card pinned" href="contents/galeria/galeria_menu.html">Abrir a Galeria</a>
+            <a class="trello-card" href="contents/galeria/galeria_artefatos.html">Artefatos</a>
+            <a class="trello-card" href="contents/galeria/galeria_personagens.html">Personagens</a>
+            <a class="trello-card" href="contents/galeria/galeria_monstros.html">Monstros</a>
+        </section>
+
+    </main>
+
+    <footer class="board-footer">
+        <p style="color:#b9d3e6;">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
     </footer>
 
     <script src="js/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin.js"></script>
 </body>
 </html>

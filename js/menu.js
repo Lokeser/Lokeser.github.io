@@ -1,4 +1,36 @@
+// ==================================================================
+//  TEMA (Azul padrão / Modo Escuro) — persistido via cookie
+// ==================================================================
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+}
+function getCookie(name) {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
+    return m ? decodeURIComponent(m[1]) : null;
+}
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        const dark = theme === 'dark';
+        btn.textContent = dark ? '☀️' : '🌙';
+        btn.title = dark ? 'Mudar para tema Azul' : 'Mudar para Modo Escuro';
+        btn.setAttribute('aria-label', btn.title);
+    }
+}
+function toggleTheme() {
+    const current = getCookie('theme') || 'blue';
+    const next = current === 'dark' ? 'blue' : 'dark';
+    setCookie('theme', next, 365);
+    applyTheme(next);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Aplica o tema salvo (cookie) assim que a página carrega
+    applyTheme(getCookie('theme') || 'blue');
+
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
     if (!navbarPlaceholder) return;
 
@@ -29,12 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/magias/magias_menu.html">Magias</a></li>
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
                     <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
+                    <li><button id="theme-toggle" class="theme-toggle" type="button" title="Alternar tema">🌙</button></li>
                 </ul>
             </div>
         </nav>
     `;
 
     navbarPlaceholder.innerHTML = navHTML;
+
+    // Sincroniza o ícone do botão com o tema atual e liga o clique
+    applyTheme(getCookie('theme') || 'blue');
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
 
     // --- LÓGICA DO MENU MOBILE ---
     const menuBtn = document.getElementById('mobile-menu-btn');

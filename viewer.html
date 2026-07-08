@@ -109,28 +109,6 @@
         /* Links dentro do texto */
         #content a { color: var(--c4); text-decoration: none; border-bottom: 1px dotted var(--c4); transition: 0.3s; }
         #content a:hover { color: #fff; text-shadow: 0 0 5px var(--c4); }
-
-        /* Controles do Administrador (Botões flutuantes) */
-        #admin-controls {
-            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
-            display: none;
-        }
-        .btn-admin {
-            width: 55px; height: 55px; border-radius: 50%; margin-left: 15px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.4rem; box-shadow: 0 4px 15px rgba(0,0,0,0.6); transition: 0.3s;
-            border: 2px solid var(--c3);
-        }
-        .btn-edit { background-color: var(--c1); color: var(--c4); }
-        .btn-delete { background-color: #3e1111; color: #ff6b6b; border-color: #ff6b6b; }
-        .btn-admin:hover { transform: translateY(-5px) scale(1.05); filter: brightness(1.2); }
-
-        /* Modal Styles */
-        .modal-content { background-color: var(--c1); border: 1px solid var(--c3); color: var(--c4); }
-        .form-control, .form-select { 
-            background-color: rgba(0,0,0,0.3); border: 1px solid var(--c2); color: white; 
-        }
-        .form-control:focus { background-color: rgba(0,0,0,0.5); color: white; border-color: var(--c4); box-shadow: 0 0 10px rgba(253, 245, 170, 0.2); }
     </style>
 </head>
 <body>
@@ -147,86 +125,8 @@
         </div>
     </div>
 
-    <div id="admin-controls">
-        <div class="d-flex">
-            <button class="btn btn-admin btn-delete" onclick="confirmDelete()" title="Excluir Arquivo">
-                <i class="bi bi-trash"></i>
-            </button>
-            <button class="btn btn-admin btn-edit" onclick="openEditModal()" title="Editar Arquivo">
-                <i class="bi bi-pencil"></i>
-            </button>
-        </div>
-    </div>
-
-    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Editar Registro</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editForm">
-                        <div class="row g-3">
-                            <div class="col-md-8">
-                                <label class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="editName">
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Subtítulo (Inglês)</label>
-                                <input type="text" class="form-control" id="editSub">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="form-label">Caminho da Imagem Atual</label>
-                                <input type="text" class="form-control" id="editImgPath" readonly style="opacity: 0.7">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Tipo</label>
-                                <select class="form-select" id="editType">
-                                    <option value="Arma">Arma</option>
-                                    <option value="Acessório">Acessório</option>
-                                    <option value="Armadura">Armadura</option>
-                                    <option value="Consumível">Consumível</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Raridade</label>
-                                <select class="form-select" id="editRarity">
-                                    <option value="Bizarro">Bizarro</option>
-                                    <option value="Mítica">Mítica</option>
-                                    <option value="Lendária">Lendária</option>
-                                    <option value="Fábula">Fábula</option>
-                                    <option value="Épica">Épica</option>
-                                </select>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="form-label">Vinculado a</label>
-                                <input type="text" class="form-control" id="editBind">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Descrição</label>
-                                <textarea class="form-control" id="editDesc" rows="2"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Efeitos (Markdown)</label>
-                                <textarea class="form-control" id="editEffects" rows="8" style="font-family: monospace;"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-warning" onclick="saveChanges()">
-                        <i class="bi bi-save"></i> Salvar Alterações
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/loader.js"></script>
-    <script src="js/admin.js"></script>
 </body>
 </html>

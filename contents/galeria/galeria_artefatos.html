@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artefatos - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
@@ -33,7 +34,7 @@
             background-size: cover; background-position: center;
         }
         .artifact-card:hover { transform: translateY(-5px); border-color: var(--c4); box-shadow: 0 0 20px rgba(253, 245, 170, 0.2); }
-        
+
         /* Overlay para o texto ficar legível sobre a imagem de fundo */
         .artifact-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -46,21 +47,6 @@
         .artifact-name { color: var(--c4); font-family: 'Cinzel', serif; font-size: 1rem; margin: 0; text-shadow: 0 2px 4px #000; }
         .artifact-tag { font-size: 0.65rem; color: #fff; text-transform: uppercase; text-shadow: 0 1px 2px #000; }
         .hidden { display: none; }
-
-        /* Estilos da Forja */
-        .btn-solar {
-            background-color: var(--c4); color: var(--c1); font-weight: bold; border: none;
-            box-shadow: 0 0 15px rgba(253, 245, 170, 0.4); transition: 0.3s;
-        }
-        .btn-solar:hover { background-color: #FFF; color: var(--c1); box-shadow: 0 0 25px rgba(253, 245, 170, 0.7); }
-        .modal-content { background-color: var(--c1); border: 1px solid var(--c3); color: var(--c4); }
-        .modal-header, .modal-footer { border-color: var(--c3); }
-        .form-control, .form-select { background-color: var(--c2); border: 1px solid var(--c3); color: white; }
-        .form-control:focus, .form-select:focus { background-color: var(--c2); border-color: var(--c4); color: white; box-shadow: 0 0 5px var(--c3); }
-        .form-label { color: var(--c3); font-size: 0.9rem; text-transform: uppercase; }
-        .editor-toolbar { background: var(--c2); border: 1px solid var(--c3); border-bottom: none; padding: 5px; border-radius: 5px 5px 0 0; display: flex; gap: 5px; }
-        .btn-tool { background: transparent; border: none; color: var(--c3); padding: 5px 10px; }
-        .btn-tool:hover { background: rgba(255,255,255,0.1); color: var(--c4); }
     </style>
 </head>
 <body>
@@ -69,11 +55,7 @@
     <div class="container py-5">
         <header class="text-center mb-5 position-relative">
             <h1 class="display-4" style="font-family: 'Cinzel', serif;">Arsenal de Relíquias</h1>
-            <p style="color: var(--c3);">Filtre os tesouros de Luxsandoria ou forje novos destinos.</p>
-            
-            <button class="btn btn-solar mt-3 px-4 py-2" data-bs-toggle="modal" data-bs-target="#forgeModal">
-                <i class="bi bi-hammer"></i> Novo Artefato
-            </button>
+            <p style="color: var(--c3);">Filtre os tesouros de Luxsandoria.</p>
         </header>
 
         <section class="filter-section">
@@ -104,137 +86,30 @@
         <div class="row g-4" id="artifact-grid"></div>
     </div>
 
-    <div class="modal fade" id="forgeModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="font-family: 'Cinzel', serif;">Forjar & Publicar Relíquia</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs mb-3" id="forgeTabs" role="tablist">
-                        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-content">Conteúdo</button></li>
-                        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-config">Configuração GitHub</button></li>
-                    </ul>
-
-                    <form id="artifactForm">
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="tab-content">
-                                <div class="row g-3">
-                                    <div class="col-md-8">
-                                        <label class="form-label">Nome do Artefato</label>
-                                        <input type="text" class="form-control" id="artName" placeholder="Ex: Máscara Abissal" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">Subtítulo</label>
-                                        <input type="text" class="form-control" id="artSub" placeholder="Ex: The Abyssal Mask">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="form-label">Imagem Real (Upload via API)</label>
-                                        <input type="file" class="form-control" id="artImgInput" accept="image/*">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Tipo</label>
-                                        <select class="form-select" id="artType">
-                                            <option value="Arma">Arma</option>
-                                            <option value="Acessório">Acessório</option>
-                                            <option value="Armadura">Armadura</option>
-                                            <option value="Consumível">Consumível</option>
-                                            <option value="Outro">Outro</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Raridade</label>
-                                        <select class="form-select" id="artRarity">
-                                            <option value="Bizarro">Bizarro</option>
-                                            <option value="Mítica">Mítica</option>
-                                            <option value="Lendária">Lendária</option>
-                                            <option value="Fábula">Fábula</option>
-                                            <option value="Épica">Épica</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="form-label">Vinculado a</label>
-                                        <input type="text" class="form-control" id="artBind" placeholder="Ex: Mohmel">
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label">Descrição Visual/Lore</label>
-                                        <textarea class="form-control" id="artDesc" rows="2"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label">Efeitos (Markdown)</label>
-                                        <div class="editor-toolbar">
-                                            <button type="button" class="btn-tool" onclick="insertMd('**', '**')"><i class="bi bi-type-bold"></i></button>
-                                            <button type="button" class="btn-tool" onclick="insertMd('*', '*')"><i class="bi bi-type-italic"></i></button>
-                                            <button type="button" class="btn-tool" onclick="insertMd('\n### ', '')"><i class="bi bi-type-h3"></i></button>
-                                            <button type="button" class="btn-tool" onclick="insertMd('\n* ', '')"><i class="bi bi-list-ul"></i></button>
-                                        </div>
-                                        <textarea class="form-control" id="effectInput" rows="6"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="tab-config">
-                                <div class="alert alert-info" style="background: rgba(17, 63, 103, 0.8);">
-                                    <small>Esses dados são salvos apenas no seu navegador.</small>
-                                </div>
-                                <div class="mb-3"><label class="form-label">Usuário GitHub</label><input type="text" class="form-control" id="ghUser"></div>
-                                <div class="mb-3"><label class="form-label">Nome do Repositório</label><input type="text" class="form-control" id="ghRepo"></div>
-                                <div class="mb-3"><label class="form-label">Personal Access Token</label><input type="password" class="form-control" id="ghToken"></div>
-                                <button type="button" class="btn btn-sm btn-outline-light" onclick="saveConfig()">Salvar Configuração</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div id="loadingSpinner" class="spinner-border text-warning me-3" role="status" style="display:none;"></div>
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-solar" onclick="publishToGithub()"><i class="bi bi-cloud-upload"></i> Publicar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // --- CONFIGURAÇÃO PÚBLICA (Edite aqui para visualização padrão) ---
-        const PUBLIC_USER = 'SEU_USUARIO_GITHUB'; // <--- Coloque seu usuário aqui
-        const PUBLIC_REPO = 'SEU_REPO_GITHUB';    // <--- Coloque seu repo aqui
-        // ------------------------------------------------------------------
+        // --- REPOSITÓRIO DE ORIGEM DA GALERIA ---
+        const PUBLIC_USER = 'Lokeser';
+        const PUBLIC_REPO = 'lokeser.github.io';
+        // ----------------------------------------
 
         // --- SISTEMA DE LEITURA DA GALERIA (AUTO-GENERATION) ---
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Carregar configurações salvas
-            if(localStorage.getItem('ghUser')) document.getElementById('ghUser').value = localStorage.getItem('ghUser');
-            if(localStorage.getItem('ghRepo')) document.getElementById('ghRepo').value = localStorage.getItem('ghRepo');
-            if(localStorage.getItem('ghToken')) document.getElementById('ghToken').value = localStorage.getItem('ghToken');
-
-            // Carregar Galeria
-            await loadGallery();
-        });
+        document.addEventListener('DOMContentLoaded', loadGallery);
 
         async function loadGallery() {
             const grid = document.getElementById('artifact-grid');
             const loader = document.getElementById('gallery-loader');
-            
-            // Tenta usar config do LocalStorage (Colaborador) ou Padrão (Visitante)
-            const user = localStorage.getItem('ghUser') || PUBLIC_USER;
-            const repo = localStorage.getItem('ghRepo') || PUBLIC_REPO;
-            
-            // Se tiver token, usa para evitar rate-limit
-            const token = localStorage.getItem('ghToken');
-            const headers = token ? { Authorization: `token ${token}` } : {};
 
             try {
                 // 1. Listar arquivos na pasta
-                const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/contents/galeria/artefatos`;
-                const response = await fetch(apiUrl, { headers });
-                
-                if(!response.ok) throw new Error("Falha ao acessar repositório (Verifique Rate Limit ou Configs)");
-                
+                const apiUrl = `https://api.github.com/repos/${PUBLIC_USER}/${PUBLIC_REPO}/contents/contents/galeria/artefatos`;
+                const response = await fetch(apiUrl);
+
+                if(!response.ok) throw new Error("Falha ao acessar repositório (verifique o limite de requisições do GitHub)");
+
                 const files = await response.json();
-                
+
                 // 2. Processar cada arquivo Markdown
-                // Limitamos a processar os últimos 50 para performance se necessário
                 for (const file of files) {
                     if (file.name.endsWith('.md')) {
                         processMarkdownFile(file.download_url, file.path, grid);
@@ -254,29 +129,21 @@
                 const text = await response.text();
 
                 // 3. REGEX PARSING (A Mágica)
-                // Extrai Título (H2)
                 const nameMatch = text.match(/^##\s+(.*)$/m);
                 const name = nameMatch ? nameMatch[1].trim() : "Artefato Desconhecido";
-                
-                // Extrai Tipo
+
                 const typeMatch = text.match(/\*\*Tipo:\*\*\s*(.*?)(\.|$)/i);
                 let type = typeMatch ? typeMatch[1].trim().toLowerCase() : "outro";
-                // Normaliza tipos para as classes CSS
-                type = type.replace(/[\W_]+/g,""); // remove acentos/espaços para data-attr
+                type = type.replace(/[\W_]+/g,"");
 
-                // Extrai Raridade
                 const rarityMatch = text.match(/\*\*Raridade:\*\*\s*(.*?)(\.|$)/i);
                 let rarity = rarityMatch ? rarityMatch[1].trim().toLowerCase() : "bizarro";
                 rarity = rarity.replace(/[\W_]+/g,"");
 
-                // Extrai Imagem
-                // Procura ![alt](../../../../assets/images/nome.png) ou similar
                 const imgMatch = text.match(/!\[.*?\]\((.*?)\)/);
                 let imgPath = "../../assets/images/placeholder.png";
-                
+
                 if (imgMatch) {
-                    // O caminho no MD é relativo profundo (../../../../). 
-                    // Precisamos pegar apenas o nome do arquivo.
                     const rawPath = imgMatch[1];
                     const fileName = rawPath.split('/').pop();
                     imgPath = `../../assets/images/${fileName}`;
@@ -285,10 +152,9 @@
                 // 4. Criar o Card HTML
                 const col = document.createElement('div');
                 col.className = `col-6 col-md-4 col-lg-3 artifact-item`;
-                col.setAttribute('data-type', type); // ex: arma
-                col.setAttribute('data-rarity', rarity); // ex: lendaria
+                col.setAttribute('data-type', type);
+                col.setAttribute('data-rarity', rarity);
 
-                // Link para o viewer
                 const viewerLink = `../../viewer.html?file=${path}`;
 
                 col.innerHTML = `
@@ -307,18 +173,14 @@
             }
         }
 
-        // --- SISTEMA DE FILTRO (Mantido) ---
+        // --- SISTEMA DE FILTRO ---
         function filterItems(value, btn, category) {
-            // Atualiza botões
             btn.parentElement.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Lógica Global de Filtro
             const typeBtn = document.querySelector('.filter-group:nth-child(1) .btn-filter.active');
             const rarityBtn = document.querySelector('.filter-group:nth-child(2) .btn-filter.active');
-            
-            // Pega os valores baseados no texto ou atributo onclick
-            // Truque: vamos pegar o valor direto da função onclick do botão ativo
+
             const currentType = typeBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
             const currentRarity = rarityBtn.getAttribute('onclick').match(/'([^']+)'/)[1];
 
@@ -327,106 +189,12 @@
                 const itemType = item.getAttribute('data-type');
                 const itemRarity = item.getAttribute('data-rarity');
 
-                // Normalização simples para garantir match (arma == arma)
                 const typeMatch = (currentType === 'all' || itemType.includes(currentType));
                 const rarityMatch = (currentRarity === 'all' || itemRarity.includes(currentRarity));
 
                 if (typeMatch && rarityMatch) item.classList.remove('hidden');
                 else item.classList.add('hidden');
             });
-        }
-
-        // --- SISTEMA DA FORJA (PUBLICAÇÃO) ---
-        function saveConfig() {
-            localStorage.setItem('ghUser', document.getElementById('ghUser').value);
-            localStorage.setItem('ghRepo', document.getElementById('ghRepo').value);
-            localStorage.setItem('ghToken', document.getElementById('ghToken').value);
-            alert("Configurações salvas!");
-        }
-
-        function insertMd(start, end) {
-            const textarea = document.getElementById('effectInput');
-            const startPos = textarea.selectionStart;
-            const endPos = textarea.selectionEnd;
-            textarea.value = textarea.value.substring(0, startPos) + start + textarea.value.substring(startPos, endPos) + end + textarea.value.substring(endPos);
-            textarea.focus();
-        }
-
-        function utf8_to_b64(str) { return window.btoa(unescape(encodeURIComponent(str))); }
-        const toBase64 = file => new Promise((res, rej) => {
-            const r = new FileReader(); r.readAsDataURL(file); 
-            r.onload = () => res(r.result); r.onerror = e => rej(e);
-        });
-
-        async function publishToGithub() {
-            const spinner = document.getElementById('loadingSpinner');
-            const btn = document.querySelector('.btn-solar');
-            
-            const user = document.getElementById('ghUser').value;
-            const repo = document.getElementById('ghRepo').value;
-            const token = document.getElementById('ghToken').value;
-            const name = document.getElementById('artName').value;
-            
-            if(!user || !repo || !token || !name) { alert("Preencha todos os dados!"); return; }
-
-            spinner.style.display = 'block'; btn.disabled = true;
-
-            try {
-                const safeName = name.toLowerCase().replace(/ /g, "_").normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-                const type = document.getElementById('artType').value;
-                const rarity = document.getElementById('artRarity').value;
-                const bind = document.getElementById('artBind').value;
-                const sub = document.getElementById('artSub').value;
-                const desc = document.getElementById('artDesc').value;
-                const effects = document.getElementById('effectInput').value;
-                const imgInput = document.getElementById('artImgInput');
-
-                let imgFileName = "placeholder.png";
-                if (imgInput.files.length > 0) {
-                    const file = imgInput.files[0];
-                    imgFileName = safeName + "_" + file.name.replace(/\s+/g, '_');
-                    const base64Img = (await toBase64(file)).split(',')[1];
-                    await uploadFile(user, repo, token, `assets/images/${imgFileName}`, base64Img);
-                }
-
-                let md = `## ${name.toUpperCase()} ${sub ? `(${sub})` : ''}\n\n`;
-                md += `![${name}](../../../../assets/images/${imgFileName})\n\n`;
-                md += `**Tipo:** ${type}.\n`; // Adicionado para o filtro funcionar
-                md += `**Raridade:** ${rarity}.\n`;
-                if(bind) md += `**Vinculado a:** ${bind}.\n`;
-                md += `**Descrição:** ${desc}\n\n`;
-                md += `### MECÂNICA E EFEITOS\n${effects}\n\n---\n*Luxsandoria System*`;
-
-                const mdBase64 = utf8_to_b64(md);
-                await uploadFile(user, repo, token, `contents/galeria/artefatos/${safeName}.md`, mdBase64);
-
-                alert("Artefato Forjado com Sucesso!");
-                location.reload();
-
-            } catch (error) {
-                alert("Erro: " + error.message);
-            } finally {
-                spinner.style.display = 'none'; btn.disabled = false;
-            }
-        }
-
-        async function uploadFile(user, repo, token, path, content) {
-            const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}`;
-            let sha = null;
-            try {
-                const check = await fetch(url, { headers: { Authorization: `token ${token}` } });
-                if(check.ok) sha = (await check.json()).sha;
-            } catch(e) {}
-
-            const body = { message: "Update via Forge", content: content, branch: "main" };
-            if(sha) body.sha = sha;
-
-            const res = await fetch(url, {
-                method: 'PUT',
-                headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
-            if(!res.ok) throw new Error((await res.json()).message);
         }
     </script>
     <script src="../../js/menu.js"></script>

@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <nav class="main-navbar">
             <div class="nav-container">
                 
-                <a href="${finalPrefix}index.html" class="nav-logo nav-logo-link">LUXSANDORIA</a>
+                <a href="/" class="nav-logo nav-logo-link">LUXSANDORIA</a>
 
                 <div class="mobile-menu-icon" id="mobile-menu-btn">
                     <span></span>

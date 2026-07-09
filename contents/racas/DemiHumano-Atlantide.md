@@ -40,12 +40,16 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_demihumano_atlantide_r10_1" fonte="raca" rank="10" estrela="1" nome="Anatomia Atlantide"-->
 ### Rank 10 — Anatomia Atlantide
 
 Pode **nadar** uma distância igual ao **dobro do seu deslocamento**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_atlantide_r10_2" fonte="raca" rank="10" estrela="1" nome="Tipografia Atlantide"-->
 ### Rank 10 — Tipografia Atlantide
 
 Escolha **duas** características raciais:
@@ -79,12 +83,18 @@ Escolha **duas** características raciais:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_atlantide_r8_1" fonte="raca" rank="8" estrela="1" nome="Evolução Marítima"-->
 ### Rank 8 — Evolução Marítima
 
 Suas características raciais evoluem, recebendo bônus de **acerto, dano, redução, tempo ou CD** iguais à sua **Eficiência de Rank (ER)**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_atlantide_r8_2" fonte="raca" rank="8" estrela="1" nome="Água Natal"-->
 ### Rank 8 — Água Natal
 
 Enquanto estiver em contato com **água até pelo menos o peito**:
@@ -94,6 +104,9 @@ Enquanto estiver em contato com **água até pelo menos o peito**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_atlantide_r6_1" fonte="raca" rank="6" estrela="1" nome="Animal Mágico"-->
 ### Rank 6 — Animal Mágico
 
 Seus ataques **desarmados e naturais** passam a causar dano:
@@ -104,6 +117,12 @@ Seus ataques **desarmados e naturais** passam a causar dano:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_atlantide_r4_1" fonte="raca" rank="4" estrela="1" nome="Animal Místico"-->
 ### Rank 4 — Animal Místico
 
 Recebe **+1 Mana**.
+
+
+<!--#fim-->

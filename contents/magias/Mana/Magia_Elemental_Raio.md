@@ -8,7 +8,10 @@
 
 ---
 
+<!--#poder id="mg_magia_elemental_raio_r10e1_1" fonte="magia" rank="10" estrela="1" nome="Rank 10"-->
 ## Rank 10
+
+<!--#fim-->
 
 ## Núcleo de Mana Elétrico
 Ao nascer com este núcleo, sua Mana assume propriedades elétricas instáveis e agressivas.
@@ -62,6 +65,7 @@ Sempre que acertar um alvo:
 
 ## Rank 9
 
+<!--#poder id="mg_magia_elemental_raio_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Você aprende uma nova forma de utilizar sua Manipulação Livre de Raio.
 
@@ -73,14 +77,20 @@ Você aprende uma nova forma de utilizar sua Manipulação Livre de Raio.
 
 ---
 
+<!--#fim-->
+
 ## Rank 8
 
+<!--#poder id="mg_magia_elemental_raio_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**  
 *(requer livro ou ensino direto)*
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
 ### Foco Elemental
 **Custo:** 5 Magículas  
 **Ação:** Bônus
@@ -90,19 +100,28 @@ Aprenda mais uma **Formulação Elemental**
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r8e4_1" fonte="magia" rank="8" estrela="4" nome="Foco de Raio"-->
 ### ★★★★ Foco de Raio
 - Focos de Raio são considerados **Condutores Elétricos**.
 - Inimigos dentro de **4m** do foco sofrem os efeitos de condução.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="mg_magia_elemental_raio_r7e1_1" fonte="magia" rank="7" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r7e2_1" fonte="magia" rank="7" estrela="2" nome="Manipulação Livre de Raio II — Raio"-->
 ### ★★ Manipulação Livre de Raio II — Raio
 Você invoca um raio descendente do céu.
 
@@ -119,26 +138,38 @@ Você invoca um raio descendente do céu.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="mg_magia_elemental_raio_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Evolução Elemental"-->
 ### ★ Evolução Elemental
 Desbloqueia a **Manipulação Evoluída**.  
 Escolha uma **Evolução da Magia de Raio**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r6e1_2" fonte="magia" rank="6" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
+
+<!--#fim-->
 
 ## Rank 5
 
+<!--#poder id="mg_magia_elemental_raio_r5e1_1" fonte="magia" rank="5" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r5e3_1" fonte="magia" rank="5" estrela="3" nome="Reanimação"-->
 ### ★★★ Reanimação
 **Uso:** 1 vez por semana
 
@@ -150,13 +181,19 @@ Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="mg_magia_elemental_raio_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r4e2_1" fonte="magia" rank="4" estrela="2" nome="Eletrocussão Elétrica"-->
 ### ★★ Eletrocussão Elétrica
 Sempre que causar dano elétrico à **Vida Temporária** de um inimigo:
 
@@ -165,7 +202,12 @@ Sempre que causar dano elétrico à **Vida Temporária** de um inimigo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_raio_r3e1_1" fonte="magia" rank="3" estrela="1" nome="Rank 3"-->
 ## Rank 3
+
+<!--#fim-->
 
 ## ARK
 Desbloqueia acesso a poderes de **Ark-Magia** focados em:

@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_humano_oni_r10_1" fonte="raca" rank="10" estrela="1" nome="Vingança Vermelha"-->
 ### Rank 10 — Vingança Vermelha
 
 Ao enfrentar **Monstros da Tundra**:
@@ -49,12 +50,18 @@ Ao enfrentar **Monstros da Tundra**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r10_2" fonte="raca" rank="10" estrela="1" nome="Sangue Humano Inferior"-->
 ### Rank 10 — Sangue Humano Inferior
 
 Recebe **+2 pontos** para distribuir entre seus atributos.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r10_3" fonte="raca" rank="10" estrela="1" nome="Pele de Fogo"-->
 ### Rank 10 — Pele de Fogo
 
 * Recebe **Resistência I** a **Dano de Fogo**.
@@ -63,24 +70,36 @@ Recebe **+2 pontos** para distribuir entre seus atributos.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r8_1" fonte="raca" rank="8" estrela="1" nome="Cultura Oni"-->
 ### Rank 8 — Cultura Oni
 
 Recebe **+2** em **duas perícias de Sabedoria** à sua escolha.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r8_2" fonte="raca" rank="8" estrela="1" nome="Núcleo do Sol Rubro"-->
 ### Rank 8 — Núcleo do Sol Rubro
 
 Recebe **Manipulação Livre (Fogo)** de **Rank 9**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r8_3" fonte="raca" rank="8" estrela="1" nome="Pele Flamejante"-->
 ### Rank 8 — Pele Flamejante
 
 Seus ataques **desarmados** aplicam **Queimação** em **Críticos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r6_1" fonte="raca" rank="6" estrela="1" nome="Pele Extremamente Flamejante"-->
 ### Rank 6 — Pele Extremamente Flamejante
 
 * Ataques **desarmados** causam **Xd6 de Dano de Fogo**.  
@@ -91,13 +110,22 @@ Seus ataques **desarmados** aplicam **Queimação** em **Críticos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r6_2" fonte="raca" rank="6" estrela="1" nome="Maestria do Sol Rubro"-->
 ### Rank 6 — Maestria do Sol Rubro
 
 Sua **Resistência a Dano de Fogo** se torna **III**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_oni_r4_1" fonte="raca" rank="4" estrela="1" nome="Demônio de Fogo"-->
 ### Rank 4 — Demônio de Fogo
 
 * Sua **Manipulação de Fogo** se torna **Rank 6**.
 * Recebe o poder **Fogo Rubro**.
+
+
+<!--#fim-->

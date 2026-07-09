@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_meioelfo_r10_1" fonte="raca" rank="10" estrela="1" nome="Jornada Dupla"-->
 ### Rank 10 — Jornada Dupla
 
 Seu caminho é definido por suas escolhas. Escolha **duas características raciais**, podendo combinar opções de **Elfo** e **Humano**.
@@ -69,6 +70,9 @@ Seu caminho é definido por suas escolhas. Escolha **duas características racia
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioelfo_r8_1" fonte="raca" rank="8" estrela="1" nome="Transformação Sanguínea"-->
 ### Rank 8 — Transformação Sanguínea
 
 Sua aparência começa a se moldar de acordo com o caminho que você escolheu seguir.
@@ -81,6 +85,9 @@ Sua aparência começa a se moldar de acordo com o caminho que você escolheu se
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioelfo_r6_1" fonte="raca" rank="6" estrela="1" nome="Viabilidade Dupla"-->
 ### Rank 6 — Viabilidade Dupla
 
 Recebe a característica élfica **Visão Élfica**.
@@ -89,6 +96,9 @@ Além disso, escolha **uma perícia** para receber **+2**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioelfo_r4_1" fonte="raca" rank="4" estrela="1" nome="Quem Eu Sou"-->
 ### Rank 4 — Quem Eu Sou
 
 Suas dúvidas finalmente são sanadas. Você descobre quem realmente é, de acordo com o caminho seguido:
@@ -97,3 +107,5 @@ Suas dúvidas finalmente são sanadas. Você descobre quem realmente é, de acor
 * **Rota Élfica:** recebe **+1 Mana**.
 * **Rota Meio‑Elfo:** recebe **+1** em qualquer atributo à sua escolha.
 * **Rota Secreta:** recebe **+3 Arcana**.
+
+<!--#fim-->

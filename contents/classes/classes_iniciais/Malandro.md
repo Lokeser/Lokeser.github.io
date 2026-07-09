@@ -7,6 +7,7 @@
 
 ## Rank 10 — Iniciante
 
+<!--#poder id="ci_malandro_r10e1_1" fonte="classe_inicial" rank="10" estrela="1" nome="Serelepe"-->
 ### Serelepe
 
 Escolha uma das opções:
@@ -23,6 +24,9 @@ Escolha uma das opções:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_malandro_r10e1_2" fonte="classe_inicial" rank="10" estrela="1" nome="Cara-a-Cara"-->
 ### Cara-a-Cara
 
 * Um número de vezes por dia igual ao seu **Carisma**:
@@ -33,6 +37,9 @@ Escolha uma das opções:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_malandro_r10e1_3" fonte="classe_inicial" rank="10" estrela="1" nome="Insultar"-->
 ### Insultar
 
 Como **Ação Bônus**, durante o combate:
@@ -52,8 +59,11 @@ Como **Ação Bônus**, durante o combate:
 
 ---
 
+<!--#fim-->
+
 ## Rank 9 — Intermediário (✭✭)
 
+<!--#poder id="ci_malandro_r9e2_1" fonte="classe_inicial" rank="9" estrela="2" nome="Serelepe II"-->
 ### Serelepe II
 
 * Escolha novamente:
@@ -62,6 +72,9 @@ Como **Ação Bônus**, durante o combate:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_malandro_r9e2_2" fonte="classe_inicial" rank="9" estrela="2" nome="Se Explicar"-->
 ### Se Explicar
 
 * Sempre que **falhar** em um teste de **Cara-a-Cara**:
@@ -70,6 +83,9 @@ Como **Ação Bônus**, durante o combate:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_malandro_r9e2_3" fonte="classe_inicial" rank="9" estrela="2" nome="Insultar II"-->
 ### Insultar II
 
 * Recebe **+2** no **Teste de Insultar**.
@@ -77,3 +93,6 @@ Como **Ação Bônus**, durante o combate:
   * Recebe **bônus na CA igual à sua ER** contra aquele alvo.
   * O bônus dura até o fim do efeito.
   * **Não se acumula**.
+
+
+<!--#fim-->

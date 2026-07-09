@@ -1,3 +1,4 @@
+<!--#poder id="hb_misseismagicos" fonte="habilidade" estrela="3" nome="Mísseis Mágicos"-->
 # Mísseis Mágicos
 **Pré-Requisitos:** Mana 3+  
 **Ação:** Padrão  
@@ -7,3 +8,6 @@
 - Após o primeiro tiro: escolha um número e role 1d4  
   - Se coincidir, dispara um segundo tiro  
   - Caso contrário, perde o turno
+
+
+<!--#fim-->

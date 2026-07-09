@@ -40,12 +40,16 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_meioorc_r10_1" fonte="raca" rank="10" estrela="1" nome="Herança Orc"-->
 ### Rank 10 — Herança Orc
 
 Recebe **+2 pontos** para distribuir entre **Corpo** e **Técnica**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioorc_r8_1" fonte="raca" rank="8" estrela="1" nome="Marco de Sangue"-->
 ### Rank 8 — Marco de Sangue
 
 Escolha uma rota:
@@ -55,6 +59,9 @@ Escolha uma rota:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioorc_r6_1" fonte="raca" rank="6" estrela="1" nome="Marco de Sangue"-->
 ### Rank 6 — Marco de Sangue
 
 * **Purificar:** +1 no atributo negativo restante.
@@ -62,7 +69,13 @@ Escolha uma rota:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meioorc_r4_1" fonte="raca" rank="4" estrela="1" nome="Marco de Sangue"-->
 ### Rank 4 — Marco de Sangue
 
 * **Purificar:** +1 no atributo negativo restante.
 * **Despertar — Pele Arcana II:** a Pele Arcana passa a conceder **redução de dano mágico** igual à sua **Eficiência de Rank (ER)**.
+
+
+<!--#fim-->

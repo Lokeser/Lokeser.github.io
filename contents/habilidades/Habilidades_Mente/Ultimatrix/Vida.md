@@ -1,3 +1,4 @@
+<!--#poder id="hb_vida" fonte="habilidade" nome="A Vida"-->
 # A Vida
 *"Existem aqueles que enxergam o que é, e os que sonham com o que poderia ser..."*  
 
@@ -25,3 +26,6 @@ Ao adquirir a Ultimatrix "A Vida", o personagem transcende a percepção mortal,
 - **Defesa:** Próxima habilidade do alvo que exija Teste de Defesa falha automaticamente.  
 
 > Usar "Sentença do Destino" consome a "experiência do futuro", garantindo resultados precisos e inevitáveis.
+
+
+<!--#fim-->

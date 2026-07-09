@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_demihumano_loomian_r10_1" fonte="raca" rank="10" estrela="1" nome="Vida Loomian"-->
 ### Rank 10 — Vida Loomian
 
 Loomians **não possuem mãos**, utilizando pés e garras para tarefas básicas.  
@@ -47,6 +48,9 @@ O mestre pode exigir **testes de Acrobacia** para ações que demandem precisão
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r10_2" fonte="raca" rank="10" estrela="1" nome="Garras Loomian"-->
 ### Rank 10 — Garras Loomian
 
 Suas garras são **ataques naturais**, causando dano igual a:
@@ -55,6 +59,9 @@ Suas garras são **ataques naturais**, causando dano igual a:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r10_3" fonte="raca" rank="10" estrela="1" nome="Asas Loomian"-->
 ### Rank 10 — Asas Loomian
 
 Pode **voar** com deslocamento igual ao seu deslocamento terrestre.
@@ -63,6 +70,9 @@ Pode **voar** com deslocamento igual ao seu deslocamento terrestre.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r10_4" fonte="raca" rank="10" estrela="1" nome="Anatomia Loomian"-->
 ### Rank 10 — Anatomia Loomian
 
 Escolha **duas** características raciais:
@@ -97,6 +107,9 @@ Escolha **duas** características raciais:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r8_1" fonte="raca" rank="8" estrela="1" nome="Voo Ultra-Rápido"-->
 ### Rank 8 — Voo Ultra-Rápido
 
 Sua **velocidade de voo** aumenta em um valor igual a:
@@ -105,18 +118,27 @@ Sua **velocidade de voo** aumenta em um valor igual a:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r8_2" fonte="raca" rank="8" estrela="1" nome="Carga de Garra"-->
 ### Rank 8 — Carga de Garra
 
 A capacidade de **carregar peso com as garras** aumenta como se tivesse **+4 de Corpo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r6_1" fonte="raca" rank="6" estrela="1" nome="Velocidade de Ataque Incrível"-->
 ### Rank 6 — Velocidade de Ataque Incrível
 
 Pode realizar **um ataque natural como ação bônus**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r6_2" fonte="raca" rank="6" estrela="1" nome="Ás Aéreo"-->
 ### Rank 6 — Ás Aéreo
 
 Enquanto estiver **voando**:
@@ -126,8 +148,14 @@ Enquanto estiver **voando**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_loomian_r4_1" fonte="raca" rank="4" estrela="1" nome="Graça Loomian"-->
 ### Rank 4 — Graça Loomian
 
 Recebe **+1 Carisma**.
 
 Além disso, **interações sociais** concedem **o dobro de PA**.
+
+
+<!--#fim-->

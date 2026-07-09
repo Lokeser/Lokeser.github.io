@@ -36,24 +36,34 @@ O Humano é a exceção: **não desperta nada**, só amadurece. Em cada marco (R
 
 ## Progressão Racial
 
+<!--#poder id="rc_humano_r10_1" fonte="raca" rank="10" estrela="1" nome="Sangue Humano Puro"-->
 ### Rank 10 — Sangue Humano Puro
 
 Receba **+3 pontos** para distribuir entre seus atributos.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r9_1" fonte="raca" rank="9" estrela="1" nome="Existencialismo"-->
 ### Rank 9 — Existencialismo
 
 Suas **2 perícias com maior valor**, desde que utilizem **atributos diferentes**, recebem **+2**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r8_1" fonte="raca" rank="8" estrela="1" nome="Aproximação Divina"-->
 ### Rank 8 — Aproximação Divina
 
 Sempre que atingir a **5ª Estrela de qualquer Rank**, incluindo este, você recebe **+1 ponto de atributo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r7_1" fonte="raca" rank="7" estrela="1" nome="Características Raciais do Humano"-->
 ### Rank 7 — Características Raciais do Humano
 
 Receba **uma característica**, baseada em seu **maior atributo**:
@@ -81,12 +91,18 @@ Receba **uma característica**, baseada em seu **maior atributo**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r6_1" fonte="raca" rank="6" estrela="1" nome="Carisma Humano"-->
 ### Rank 6 — Carisma Humano
 
 Pode aprofundar relações com maior facilidade. Pessoas que já são favoráveis a você tornam-se mais confortáveis em sua presença.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r5_1" fonte="raca" rank="5" estrela="1" nome="Falibilidade"-->
 ### Rank 5 — Falibilidade
 
 **1 vez por dia**, ao girar **1DR**, você pode receber **+1DR** nesse teste.
@@ -94,6 +110,12 @@ Essa decisão deve ser tomada **antes de saber se o teste foi bem-sucedido ou n�
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_r4_1" fonte="raca" rank="4" estrela="1" nome="Jornada da Vida"-->
 ### Rank 4 — Jornada da Vida
 
 Recebe **+1 Sabedoria imediatamente** e **+1 Sabedoria adicional ao atingir o Rank 4**.
+
+
+<!--#fim-->

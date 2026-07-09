@@ -9,12 +9,16 @@ O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo 
 
 ## Rank 8
 
+<!--#poder id="ca_estrategista_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Zona Temporal"-->
 ### ⭐ 1 Estrela — Zona Temporal
 - Recebe uma **Ação de Estrategista**.
 - Funciona como uma **Ação Bônus extra**, porém **só pode ser utilizada para Habilidades de Estrategista**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Percepção Híbrida"-->
 ### ⭐⭐⭐ 3 Estrelas — Percepção Híbrida
 - Você pode fundir **Percepção** e **Percepção Mágica** em um único recurso: **Percepção Híbrida**.
 - Some seus pontos de **Percepção + Percepção Mágica** e aloque em **Percepção Híbrida**.
@@ -23,6 +27,9 @@ O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Meta Vision"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Meta Vision
 Como **ação bônus**, realize um teste de **Percepção Híbrida** contra um alvo.  
 
@@ -62,14 +69,20 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Phantom Walk"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Phantom Walk
 - Sua **Ação de Movimento** não provoca **Ataques de Oportunidade** ao entrar ou sair do alcance inimigo.
 - Recebe **+1D** para resistir a efeitos ou ataques ativados como **Reação**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="ca_estrategista_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Compartilhar Informações"-->
 ### ⭐ 1 Estrela — Compartilhar Informações
 - A cada turno, como **ação bônus**, se tiver informações obtidas via **Meta Vision**, pode compartilhar **uma** delas.
 - Número de aliados afetados: **igual à sua Inteligência**.
@@ -77,12 +90,18 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐ 2 Estrelas — Multi-Análise"-->
 ### ⭐⭐ 2 Estrelas — Multi-Análise
 - **Meta Vision** pode ser usada em múltiplos alvos.
 - Número máximo de alvos: **metade da sua Inteligência**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mestre de Terreno"-->
 ### ⭐⭐⭐ 3 Estrelas — Mestre de Terreno
 - Como **ação bônus**, faça um teste de **Percepção Híbrida** em uma área de **4m²** visível.  
 - **CD:** 15.
@@ -91,8 +110,11 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="ca_estrategista_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Especialista em Investigação"-->
 ### ⭐ 1 Estrela — Especialista em Investigação
 - Recebe uma **segunda Ação de Estrategista**.
 - Recebe **+5 em Investigação**.
@@ -100,6 +122,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Outer Meta Vision"-->
 ### ⭐⭐⭐ 3 Estrelas — Outer Meta Vision
 - Ao ativar **Meta Vision**, recebe **+3 CA**.
 - Pode usar **Meta Vision** no **mesmo alvo várias vezes no mesmo turno**.
@@ -107,6 +132,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Phantom Dodge"-->
 ### ⭐⭐⭐ 3 Estrelas — Phantom Dodge
 - Ao ser alvo de um ataque, pode realizar um teste de **Esquivar-se**:
   - Consome **2 usos** de esquiva.
@@ -117,6 +145,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Especialista em Terrenos Mágicos"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Especialista em Terrenos Mágicos
 - Caso revele um terreno mágico:
   - No turno seguinte, pode revelar **dois** como **Ação de Especialista**.
@@ -124,8 +155,11 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="ca_estrategista_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐ 2 Estrelas — Star Buff"-->
 ### ⭐⭐ 2 Estrelas — Star Buff
 - Force um alvo visível a realizar um teste de **Inteligência**.  
 - **CD:** **10 + ER + sua Inteligência**
@@ -136,6 +170,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Análise de Moralidade"-->
 ### ⭐⭐⭐ 3 Estrelas — Análise de Moralidade
 - Realize um teste de **Intuição** em um alvo.  
 - **CD:** **10 + Sabedoria + ER**
@@ -143,6 +180,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Aprimoramento Mental"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Aprimoramento Mental
 - Ao obter um **acerto crítico** em um teste de **Percepção Híbrida**:
   - Recebe **+1 Inteligência** até o fim do combate  
@@ -150,8 +190,11 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="ca_estrategista_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ — Reprodução Absoluta Física"-->
 ### ⭐ — Reprodução Absoluta Física
 - Ao descobrir uma **Habilidade Física** com **Meta Vision**, pode tentar reproduzi-la.
 - Teste de **Inteligência**:
@@ -162,6 +205,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ — Reprodução Absoluta Mágica"-->
 ### ⭐ — Reprodução Absoluta Mágica
 - Se descobrir uma **Habilidade Mágica** que você já possua:
   - Pode utilizá-la contra o alvo **sem gastar usos**.
@@ -169,6 +215,9 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_estrategista_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ — Total Meta Vision"-->
 ### ⭐ — Total Meta Vision
 - Realize um **terceiro teste de Meta Vision** no alvo.
 - **CD aumenta em +5**.
@@ -182,3 +231,6 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
   - Seu **próximo ataque contra o alvo é um Crítico Garantido**.
 
 ---
+
+
+<!--#fim-->

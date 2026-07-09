@@ -14,6 +14,7 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 
 ## Progressão por Estrelas
 
+<!--#poder id="rk_r5_e1" fonte="rank" rank="5" estrela="1" nome="1a Estrela — Rank 5"-->
 ### ✭ 1ª Estrela
 
 * Aprende **1 Habilidade de Alma**.
@@ -21,6 +22,9 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r5_e2" fonte="rank" rank="5" estrela="2" nome="2a Estrela — Rank 5"-->
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -39,6 +43,9 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r5_e3" fonte="rank" rank="5" estrela="3" nome="3a Estrela — Rank 5"-->
 ### ✭✭✭ 3ª Estrela
 
 * A habilidade vinculada evolui para sua versão **Plus**.
@@ -52,6 +59,9 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r5_e4" fonte="rank" rank="5" estrela="4" nome="4a Estrela — Rank 5"-->
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -65,6 +75,9 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r5_e5" fonte="rank" rank="5" estrela="5" nome="5a Estrela — Rank 5"-->
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -78,3 +91,6 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
   * **XdX + 2 por Rank** → **XdX por Rank**
   * **+3 por Rank** → **+6 por Rank**
   * **X vezes por dia igual ao Rank** → **2 × Rank vezes por dia**
+
+
+<!--#fim-->

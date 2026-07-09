@@ -15,6 +15,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ## Rank 8
 
+<!--#poder id="ca_guardiao_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Muralha Viva"-->
 ### ⭐ 1 Estrela — Muralha Viva
 
 #### Bloquear
@@ -36,6 +37,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Escudo Leal"-->
 ### ⭐⭐⭐ 3 Estrelas — Escudo Leal
 
 #### Vida Temporária
@@ -53,6 +57,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Postura de Guardião"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Postura de Guardião
 
 - Como **Ação Bônus**, entre em uma postura defensiva.
@@ -68,8 +75,11 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="ca_guardiao_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Resiliência Arcana"-->
 ### ⭐ 1 Estrela — Resiliência Arcana
 - Sua **Resistência Adaptável** agora inclui **2 tipos de dano mágico**, com **+2** de estágio.
 - Pode trocar resistências mágicas usando a mesma Ação Bônus de **Muralha Viva**.
@@ -80,6 +90,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Sacrifício Tático"-->
 ### ⭐⭐⭐ 3 Estrelas — Sacrifício Tático
 - Como **Reação**, quando um aliado a até **6m** for atacado:
   - Gaste **1 Magícula** para absorver o ataque.
@@ -91,6 +104,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Aura Protetora"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Aura Protetora
 - Aliados a até **6m** recebem:
   - **+1 CA**
@@ -103,8 +119,11 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="ca_guardiao_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Muralha Viva II"-->
 ### ⭐ 1 Estrela — Muralha Viva II
 - **Bloquear** agora reduz o dano em **Constituição** (em vez de Constituição ÷ 2).
 - Se proteger um aliado com menos de **50% de Vida**, não consome Magícula.
@@ -112,6 +131,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Fortaleza Inabalável"-->
 ### ⭐⭐⭐ 3 Estrelas — Fortaleza Inabalável
 - Se você **não se mover** no seu turno:
   - **+3 CA**
@@ -121,6 +143,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Escudo Vivo"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Escudo Vivo
 - Como **Ação**, designe um aliado a até **3m** como protegido.
 - Até o fim do seu próximo turno:
@@ -133,8 +158,11 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="ca_guardiao_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="⭐ 1 Estrela — Determinação Inquebrável"-->
 ### ⭐ 1 Estrela — Determinação Inquebrável
 - Aprenda **Determinação de Combate**.
 - Se já possuir:
@@ -148,6 +176,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mente Fortificada"-->
 ### ⭐⭐⭐ 3 Estrelas — Mente Fortificada
 - Você é **imune** a:
   - Pasmo
@@ -158,6 +189,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Resistência Suprema"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Resistência Suprema
 - Aumente em **+3** o estágio de resistência de **todos os tipos escolhidos** em Resistência Adaptável.
 - Quando sofrer dano que causaria **Sangrando** ou **Tonto**:
@@ -167,8 +201,11 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="ca_guardiao_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ 1 Estrela — Mestre Guardião"-->
 ### ⭐ 1 Estrela — Mestre Guardião
 - Sua Vida aumenta em **1d10 por Constituição**.
 - **Bloquear** agora reduz o dano em:
@@ -179,6 +216,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_guardiao_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Forma Líber (Guardião)"-->
 ### ⭐⭐⭐ 3 Estrelas — Forma Líber (Guardião)
 
 **Uso:** 1 vez por dia  
@@ -197,3 +237,6 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 - Você é **imune a Atordoado e Inconsciente** durante a Forma Líber.
 
 ---
+
+
+<!--#fim-->

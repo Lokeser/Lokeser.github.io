@@ -1,3 +1,4 @@
+<!--#poder id="hb_pacotsmagicos" fonte="habilidade" estrela="4" nome="Sistema de Pactos: Restrições e Benefícios"-->
 # Sistema de Pactos: Restrições e Benefícios
 
 **Pré-Requisitos:** Selos Mágicos e 6+ de Mana.
@@ -122,3 +123,5 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Titã Arcano (12 PP):** Seu tamanho aumenta em uma categoria (ex: Médio para Grande). Você ganha +2 em Força e Constituição e suas armas causam um dado de dano extra devido ao tamanho.
 * **Convergência Marcial (15 PP):** Quando você usa a ação Conjurar Magia, você pode realizar um ataque corpo a corpo como uma Ação Bônus. Se o ataque acertar, a magia conjurada tem sua CD aumentada em +2 contra aquele alvo.
 * **Avatar da Guerra (55 PP):** Seus atributos de Força, Destreza e Constituição tornam-se temporariamente iguais ao seu atributo de **Mana** (caso sejam menores). Além disso, você soma sua Mana ao seu Dano Físico passivamente.
+
+<!--#fim-->

@@ -44,6 +44,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_humano_hypnoriano_r10_1" fonte="raca" rank="10" estrela="1" nome="Conexão Dormente"-->
 ### Rank 10 — Conexão Dormente
 
 Recebe a habilidade **Conectar Núcleo de Mana**.
@@ -52,18 +53,27 @@ Recebe a habilidade **Conectar Núcleo de Mana**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r10_2" fonte="raca" rank="10" estrela="1" nome="Neverland Ticket"-->
 ### Rank 10 — Neverland Ticket
 
 Sempre que dormir no **Plano Físico**, pode escolher **transportar sua consciência para Neverland**, a cidade dos Hypnorianos localizada no **Plano Arcano**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r10_3" fonte="raca" rank="10" estrela="1" nome="Sangue Humano Inferior"-->
 ### Rank 10 — Sangue Humano Inferior
 
 Recebe **+2 pontos** para distribuir entre seus atributos.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r8_1" fonte="raca" rank="8" estrela="1" nome="Conexão Dormente II"-->
 ### Rank 8 — Conexão Dormente II
 
 Recebe a habilidade **Visitar Mundo Interior**.
@@ -72,6 +82,9 @@ Recebe a habilidade **Visitar Mundo Interior**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r8_2" fonte="raca" rank="8" estrela="1" nome="Sonho Mágico"-->
 ### Rank 8 — Sonho Mágico
 
 Vezes por dia iguais à sua **Eficiência de Rank (ER)**:
@@ -84,14 +97,23 @@ Vezes por dia iguais à sua **Eficiência de Rank (ER)**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r6_1" fonte="raca" rank="6" estrela="1" nome="Conexão Dormente III"-->
 ### Rank 6 — Conexão Dormente III
 
 Recebe a habilidade **Dungeon Mágica**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_hypnoriano_r4_1" fonte="raca" rank="4" estrela="1" nome="Viajante Interdimensional"-->
 ### Rank 4 — Viajante Interdimensional
 
 Recebe a habilidade **Mágica Velum**.
 
 * Ao viajar para **Neverland**, o **custo da habilidade se torna 0**.
+
+
+<!--#fim-->

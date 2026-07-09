@@ -18,6 +18,7 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_artistamarcial_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Sistema de Impacto"-->
 ### 1 Estrela — Sistema de Impacto
 
 * Recebe **+1DR no acerto** com ataques desarmados enquanto **não empunhar armas**.
@@ -28,6 +29,9 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Sistema de Impacto II"-->
 ### 1 Estrela — Sistema de Impacto II
 
 * Ataques desarmados contra alvos **Desprevenidos ou Vulneráveis** causam:
@@ -35,6 +39,9 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas — Técnicas Marciais"-->
 ### 3 Estrelas — Técnicas Marciais
 
 * Aprende **2 Técnicas Marciais** da lista.
@@ -47,6 +54,9 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="5 Estrelas — Meditação"-->
 ### 5 Estrelas — Meditação
 
 **Uso:** Vezes por dia iguais a **Sabedoria ÷ 2** *(mín. 1)*  
@@ -71,8 +81,11 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_artistamarcial_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela — Treinamento Físico"-->
 ### 1 Estrela — Treinamento Físico
 
 * Aprende **1 Habilidade Física** que atenda aos pré-requisitos.
@@ -80,6 +93,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="3 Estrelas — Maestria Marcial"-->
 ### 3 Estrelas — Maestria Marcial
 
 * Aprende **1 Técnica Marcial adicional**.
@@ -89,6 +105,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="5 Estrelas — Montante de Golpes"-->
 ### 5 Estrelas — Montante de Golpes
 
 * Recebe **Ataque Evoluído**:
@@ -98,8 +117,11 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_artistamarcial_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela — Resiliência Aprimorada"-->
 ### 1 Estrela — Resiliência Aprimorada
 
 * Aumenta em **+1 Estágio** sua resistência contra **dano físico**.
@@ -108,6 +130,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Maestria Marcial II"-->
 ### 3 Estrelas — Maestria Marcial II
 
 * Aprende **1 Técnica Marcial adicional**.
@@ -115,6 +140,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrelas — Impacto Reforçado"-->
 ### 5 Estrelas — Impacto Reforçado
 
 * Estágio de Dano desarmado aumenta em **+1** *(ex.: d8 → d10)*.
@@ -124,8 +152,11 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Mestre Marcial
 
+<!--#poder id="ca_artistamarcial_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Meditação II"-->
 ### 1 Estrela — Meditação II
 
 **Uso:** Sabedoria ÷ 2 *(mín. 1)*  
@@ -145,6 +176,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="3 Estrelas — Maestria Marcial III"-->
 ### 3 Estrelas — Maestria Marcial III
 
 * Aprende **1 Técnica Marcial adicional**.
@@ -152,6 +186,9 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="4 Estrelas — Mestre do Corpo"-->
 ### 4 Estrelas — Mestre do Corpo
 
 Escolha um benefício conforme o atributo principal:
@@ -169,6 +206,9 @@ Escolha um benefício conforme o atributo principal:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r5e1_4" fonte="classe_avancada" rank="5" estrela="1" nome="5 Estrelas — Resiliência Suprema"-->
 ### 5 Estrelas — Resiliência Suprema
 
 * Recebe **Resistência III** contra dano não mágico.
@@ -178,8 +218,11 @@ Escolha um benefício conforme o atributo principal:
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Lenda Marcial
 
+<!--#poder id="ca_artistamarcial_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Rito de Passagem"-->
 ### 1 Estrela — Rito de Passagem
 
 * Pode **ensinar Técnicas Marciais**.
@@ -189,6 +232,9 @@ Escolha um benefício conforme o atributo principal:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="3 Estrelas — Ultra Sistema de Impacto"-->
 ### 3 Estrelas — Ultra Sistema de Impacto
 
 * Ataques desarmados recebem:
@@ -198,6 +244,9 @@ Escolha um benefício conforme o atributo principal:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_artistamarcial_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Forma Líber (Combate)"-->
 ### Forma Líber (Combate)
 
 **Uso:** 1 vez por dia — **Ação Bônus**  
@@ -231,6 +280,8 @@ As Técnicas Marciais são habilidades desarmadas personalizáveis que definem o
 * Cada técnica possui **pré-requisitos leves**.
 
 *(lista completa de técnicas mantida sem alterações, apenas estruturada)*
+
+<!--#fim-->
 
 ## Golpe Devastador
 **Pré-Requisito:** Força 6+  

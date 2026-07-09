@@ -1,3 +1,4 @@
+<!--#poder id="hb_beastification" fonte="habilidade" estrela="2" nome="Beastification"-->
 # Beastification
 
 **Pré-Requisitos:** Raça Bestial ou Demi-Bestial  
@@ -34,3 +35,6 @@ Você assume uma forma bestial primitiva.
 
 - Dura 12 horas
 - Reduz 1 hora por metade da Mana
+
+
+<!--#fim-->

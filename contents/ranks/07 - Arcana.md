@@ -17,6 +17,7 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 
 ## Progressão por Estrelas
 
+<!--#poder id="rk_r7_e1" fonte="rank" rank="7" estrela="1" nome="1a Estrela — Rank 7"-->
 ### ✭ 1ª Estrela
 
 * Aprende **1 Habilidade de Alma**.
@@ -27,6 +28,9 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r7_e2" fonte="rank" rank="7" estrela="2" nome="2a Estrela — Rank 7"-->
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -41,6 +45,9 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r7_e3" fonte="rank" rank="7" estrela="3" nome="3a Estrela — Rank 7"-->
 ### ✭✭✭ 3ª Estrela — Arcana Vinculada
 
 Para atingir esta estrela, é necessário **iniciar uma Arcana** com uma criatura, monstro ou entidade.
@@ -61,6 +68,9 @@ Ao completar o vínculo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r7_e4" fonte="rank" rank="7" estrela="4" nome="4a Estrela — Rank 7"-->
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -73,6 +83,9 @@ Ao completar o vínculo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r7_e5" fonte="rank" rank="7" estrela="5" nome="5a Estrela — Rank 7"-->
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -86,3 +99,6 @@ Ao completar o vínculo:
 * Sua **Magia evolui**:
   * Escolha **uma Evolução Elemental**, **ou**
   * Crie, junto ao Mestre, a **Evolução de sua Anomalia**.
+
+
+<!--#fim-->

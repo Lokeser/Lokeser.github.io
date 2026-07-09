@@ -1,164 +1,32 @@
-# Perícias
+# Perícias — As Quatro Escalas
 
-As Perícias representam treinamentos, talentos e aptidões específicas dos personagens. Cada perícia está vinculada a um atributo principal, que define sua base de uso em testes e situações narrativas.
+> *Toda perícia distribui exatamente 4 pontos de escala entre um ou dois atributos. Cada ponto no atributo concede o peso correspondente na perícia — sem proficiência, sem treino à parte: a escala é o treino.*
 
----
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin:22px 0"><div style="flex:1 1 200px;background:#58A0C818;border:1px solid #58A0C8;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:#58A0C8">4 / 0</div><div style="font-size:.7rem;letter-spacing:1px;color:#9fc0da;text-transform:uppercase;margin:6px 0 8px">A perícia-assinatura</div><div style="font-size:.86rem;line-height:1.5;color:#dce8f2">Uma por atributo. Pico do especialista: <b>4 × atributo</b> (teto 80).</div></div><div style="flex:1 1 200px;background:#7fd08a18;border:1px solid #7fd08a;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:#7fd08a">3 / 1</div><div style="font-size:.7rem;letter-spacing:1px;color:#9fc0da;text-transform:uppercase;margin:6px 0 8px">Especialista com tempero</div><div style="font-size:.86rem;line-height:1.5;color:#dce8f2">Quando o lado “1” é <b>Sabedoria</b>, é o bônus de veterania que só a jornada dá.</div></div><div style="flex:1 1 200px;background:#e0a13f18;border:1px solid #e0a13f;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Cinzel',serif;font-size:2rem;font-weight:700;color:#e0a13f">2 / 2</div><div style="font-size:.7rem;letter-spacing:1px;color:#9fc0da;text-transform:uppercase;margin:6px 0 8px">Universais e híbridos</div><div style="font-size:.86rem;line-height:1.5;color:#dce8f2">Rendem <b>2 × (A + B)</b> não importa a divisão — o piso de todo mundo.</div></div></div>
 
-## Perícias de Força
+* **Teto universal: 80.** Com os dois atributos em 20, toda escala chega ao mesmo lugar. Nenhuma é melhor que outra — só o caminho muda.
+* **Negativos se propagam pelo peso.** Uma raça com −1 Carisma carrega −4 em Performance, −3 em Charme e Lábia, −2 em Intimidação e Estratégia. A discriminação do lore virou matemática.
+* **Piso de atributo: −3.**
 
-### Atletismo
-Atletismo é a habilidade de realizar atividades físicas que exigem força bruta e resistência corporal.
+## O Mapa das Perícias
 
-Usos comuns incluem:
-- Escalar superfícies naturais ou artificiais
-- Nadar contra correntes fortes
-- Saltar longas distâncias ou grandes alturas
-- Levantar, empurrar ou arrastar objetos pesados
+Sabedoria no centro — ela toca todos. Cada perícia mostra sua **escala** (4/0, 3/1, 2/2); o `· atributo` indica o peso secundário.
 
-Testes de Atletismo são frequentemente utilizados para superar obstáculos físicos ou resistir a esforços extremos.
+<div style="display:flex;flex-wrap:wrap;gap:14px;margin:20px 0"><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #e06a5a;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#e06a5a;letter-spacing:1px;margin-bottom:8px">CORPO</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Atletismo</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Tenacidade <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Deslocamento <span style="color:#8fb3cf">· Téc</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div></div><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #e0a13f;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#e0a13f;letter-spacing:1px;margin-bottom:8px">TÉCNICA</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Acrobacia</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Furtividade <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Iniciativa <span style="color:#8fb3cf">· Corpo</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div></div><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #4fb3bf;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#4fb3bf;letter-spacing:1px;margin-bottom:8px">INTELECTO</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Erudição</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Análise <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Estratégia <span style="color:#8fb3cf">· Car</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Medicina <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div></div><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #c58cf6;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#c58cf6;letter-spacing:1px;margin-bottom:8px">CARISMA</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Performance</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Charme <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Lábia <span style="color:#8fb3cf">· Int</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Intimidação <span style="color:#8fb3cf">· Corpo</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Adestramento <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div></div><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #7fd08a;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#7fd08a;letter-spacing:1px;margin-bottom:8px">SABEDORIA</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Intuição</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Percepção <span style="color:#8fb3cf">· Int</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Sobrevivência <span style="color:#8fb3cf">· Corpo</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">2/2</span></div></div><div style="flex:1 1 230px;background:rgba(255,255,255,.04);border-top:3px solid #58A0C8;border-radius:10px;padding:12px 14px"><div style="font-family:'Cinzel',serif;color:#58A0C8;letter-spacing:1px;margin-bottom:8px">MANA</div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Canalização</span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">4/0</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Arcanismo <span style="color:#8fb3cf">· Int</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Percepção Mágica <span style="color:#8fb3cf">· Sab</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)"><span style="color:#e8f0f8">Aura <span style="color:#8fb3cf">· Car</span></span><span style="font-size:.72rem;font-weight:700;background:rgba(255,255,255,.1);border-radius:12px;padding:2px 9px;color:#fff">3/1</span></div></div></div>
 
----
+## Testes — Dado de Rank + Perícia vs ND
 
-## Perícias de Destreza
+| Rank | Dado | Fácil | Médio | Difícil | Heroico |
+| ---- | ---- | ----- | ----- | ------- | ------- |
+| R10 | d20 | 15 | 25 | 40 | 55 |
+| R9 | d22 | 25 | 35 | 50 | 65 |
+| R8 | d24 | 35 | 45 | 60 | 75 |
+| R7 | d26 | 45 | 55 | 70 | 85 |
+| R6 | d28 | 55 | 65 | 80 | 95 |
+| R5 | d30 | 65 | 75 | 90 | 105 |
+| R4 | d35 | 75 | 85 | 100 | 115 |
+| R3 | d40 | 85 | 95 | 110 | 125 |
 
-### Furtividade
-Furtividade representa a capacidade de se mover silenciosamente e evitar ser percebido.
+> **Regra de bolso:** Médio = 25 + 10 por rank abaixo do 10; Fácil = −10, Difícil = +15, Heroico = +30. Um rank acima de você se vence com sorte; dois ranks são uma parede.
 
-Usos comuns incluem:
-- Esconder-se em sombras ou multidões
-- Movimentar-se sem fazer ruído
-- Infiltrar-se em áreas vigiadas
-- Evitar detecção visual ou sonora
-
-### Acrobacia
-Acrobacia envolve controle corporal, equilíbrio e movimentos ágeis.
-
-Usos comuns incluem:
-- Realizar saltos e piruetas
-- Manter equilíbrio em superfícies estreitas
-- Escapar de agarrões ou espaços confinados
-- Movimentar-se com precisão em ambientes perigosos
-
----
-
-## Perícias de Carisma
-
-### Enganação
-Enganação é a habilidade de ludibriar e manipular outras pessoas através de mentiras, omissões ou encenações convincentes.
-
-Usos comuns incluem:
-- Contar mentiras plausíveis
-- Criar identidades falsas
-- Esconder intenções reais
-- Simular emoções ou comportamentos
-
-### Persuasão
-Persuasão representa a capacidade de influenciar decisões alheias por meio de argumentos, empatia ou carisma.
-
-Usos comuns incluem:
-- Convencer alguém a cooperar
-- Inspirar confiança ou lealdade
-- Negociar acordos
-- Liderar ou motivar grupos
-
-### Intimidação
-Intimidação envolve o uso do medo como ferramenta de controle social.
-
-Usos comuns incluem:
-- Amedrontar adversários
-- Coagir informações ou obediência
-- Impor autoridade através de postura, voz ou presença
-- Desencorajar ações hostis
-
----
-
-## Perícias de Inteligência
-
-### Investigação
-Investigação é a habilidade de coletar, analisar e correlacionar informações.
-
-Usos comuns incluem:
-- Examinar cenas e pistas
-- Reconstruir eventos passados
-- Analisar documentos e registros
-- Identificar padrões ou inconsistências
-
-### Arcanismo
-Arcanismo refere-se ao conhecimento teórico e prático sobre magia e fenômenos arcanos.
-
-Usos comuns incluem:
-- Identificar feitiços e rituais
-- Compreender símbolos mágicos
-- Analisar artefatos arcanos
-- Entender planos, fluxos e leis mágicas
-
-### História
-História envolve o conhecimento sobre eventos passados e civilizações antigas.
-
-Usos comuns incluem:
-- Reconhecer figuras históricas
-- Entender conflitos antigos
-- Identificar culturas, tradições e impérios
-- Contextualizar ruínas, artefatos e lendas
-
----
-
-## Perícias de Sabedoria
-
-### Percepção
-Percepção é a capacidade de notar detalhes sutis no ambiente.
-
-Usos comuns incluem:
-- Detectar armadilhas ou emboscadas
-- Perceber movimentos suspeitos
-- Notar alterações no cenário
-- Identificar sons, cheiros ou presenças ocultas
-
-### Intuição
-Intuição representa sensibilidade emocional e instintos aguçados.
-
-Usos comuns incluem:
-- Pressentir perigos iminentes
-- Detectar mentiras ou intenções ocultas
-- Tomar decisões rápidas baseadas em instinto
-- Captar tensões sociais e emocionais
-
-### Adestramento
-Adestramento é a habilidade de lidar, treinar e controlar animais.
-
-Usos comuns incluem:
-- Treinar montarias e animais de carga
-- Acalmar criaturas agressivas
-- Ensinar comandos e truques
-- Manusear criaturas selvagens ou exóticas
-
-### Sobrevivência
-Sobrevivência representa a capacidade de viver e prosperar em ambientes hostis.
-
-Usos comuns incluem:
-- Caçar e coletar alimentos
-- Rastrear criaturas ou pessoas
-- Construir abrigos improvisados
-- Navegar em ambientes naturais extremos
-
----
-
-## Perícias de Mana
-
-### Percepção Mágica
-Percepção Mágica é a habilidade de sentir, identificar e interpretar energia mágica.
-
-Usos comuns incluem:
-- Detectar presença de magia
-- Identificar fluxos de mana
-- Reconhecer padrões mágicos
-- Analisar efeitos arcanos ativos
-
-### Aura
-Aura representa o controle da manifestação da própria energia mágica.
-
-Usos comuns incluem:
-- Tornar a aura visível, oculta ou difusa
-- Intimidar ou influenciar através da presença mágica
-- Resistir a efeitos que drenam mana
-- Sustentar ou reforçar manifestações mágicas pessoais
+> *O mapa de perícias acima é uma reconstrução do documento V2 (beta) — ajuste as escalas conforme sua mesa.*

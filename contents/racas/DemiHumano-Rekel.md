@@ -5,32 +5,38 @@
 
 ---
 
-## Atributos Base
+## Classificação
 
-| Atributo     | Valor           |
-| ------------ | --------------- |
-| Força        | 1               |
-| Destreza     | 0               |
-| Constituição | 1               |
-| Inteligência | 1               |
-| Sabedoria    | 0 (+1 por Saga) |
-| Carisma      | 0               |
-| Mana         | 0               |
+**Demi-Humano** &nbsp;·&nbsp; Magia Inicial (MD): **1**
+
+---
+
+## Atributos Raciais
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0"><div style="flex:1 1 92px;background:#e06a5a22;border:1px solid #e06a5a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e06a5a">CORPO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+2</div></div><div style="flex:1 1 92px;background:#e0a13f22;border:1px solid #e0a13f;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e0a13f">TÉCNICA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#4fb3bf22;border:1px solid #4fb3bf;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#4fb3bf">INTELECTO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+1</div></div><div style="flex:1 1 92px;background:#c58cf622;border:1px solid #c58cf6;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#c58cf6">CARISMA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div><div style="flex:1 1 92px;background:#7fd08a22;border:1px solid #7fd08a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#7fd08a">SABEDORIA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#58A0C822;border:1px solid #58A0C8;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#58A0C8">MANA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div></div>
+
+**Modificadores raciais:** +2 Corpo, +1 Intelecto, −1 Carisma, −1 Mana
+
+> A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20 por atributo.
 
 ---
 
 ## Vida
 
-* **Vida Base:** **21 + 9 a cada 2 pontos de Constituição**
+* **Vida Base:** **21 + 9 a cada 2 pontos de Corpo**
 * **Valor de Vida da Raça:** **9**
 
 ---
 
-## Dados Raciais
+## Marcos de Sangue — R8 · R6 · R4
 
-* **Magia Inicial (MD):** **1**
+Em cada marco, a raça evolui por uma escolha:
 
----
+- **Purificar** — +1 no atributo negativo da raça (abraçar o lado humano).
+- **Despertar** — receber um poder do lado mágico da raça (ver abaixo).
+
+**Despertar (Evolução Reptiliana):** Troca de Pele evoluída.
+
 
 ## Progressão Racial
 
@@ -74,8 +80,8 @@ Escolha **duas** características raciais:
   No **Rank 7**, o deslocamento em paredes torna‑se total.
 
 * **Chifres**
-  Ataque de perfuração causando **1d10 a cada 2 Força + Força**.
-  No turno do inimigo, ele pode realizar um **teste de Força** para se soltar.
+  Ataque de perfuração causando **1d10 a cada 2 Corpo + Corpo**.
+  No turno do inimigo, ele pode realizar um **teste de Corpo** para se soltar.
   Se você errar o ataque, deve andar seu deslocamento em linha reta.
 
 * **Reflexos Instintivos**
@@ -87,21 +93,21 @@ Escolha **duas** características raciais:
   Recebe **+2 pontos** para distribuir entre seus atributos.
 
 * **Garras Afiadas**
-  Ataques básicos tornam‑se **1d6 a cada 2 Força + Força** (Corte).
+  Ataques básicos tornam‑se **1d6 a cada 2 Corpo + Corpo** (Corte).
   Acertos críticos causam **Sangramento**.
 
 * **Dentes Afiados**
-  Pode morder causando **1d4 a cada 1 Força + Força** (Perfuração).
+  Pode morder causando **1d4 a cada 1 Corpo + Corpo** (Perfuração).
 
 * **Cauda**
-  Pode tentar **derrubar** inimigos com um teste de Destreza ou utilizá‑la como ataque básico usando Destreza no acerto e no dano.
+  Pode tentar **derrubar** inimigos com um teste de Técnica ou utilizá‑la como ataque básico usando Técnica no acerto e no dano.
 
 * **Pele Rígida**
-  Recebe **Resistência Adaptativa (Constituição)** contra dano físico (Corte, Concussão e Perfuração).
+  Recebe **Resistência Adaptativa (Corpo)** contra dano físico (Corte, Concussão e Perfuração).
 
 * **Capacidade Aquática**
   Pode **nadar** igual ao deslocamento.
-  Pode prender a respiração por **1 + Constituição** minutos.
+  Pode prender a respiração por **1 + Corpo** minutos.
   No **Rank 7**, a velocidade de nado dobra.
 
 ---
@@ -151,4 +157,4 @@ O dado de Troca de Pele passa a ser **1d4**:
 
 ### Rank 4 — O Rekel
 
-Sua **Constituição** aumenta em **+1**.
+Sua **Corpo** aumenta em **+1**.

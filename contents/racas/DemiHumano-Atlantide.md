@@ -5,32 +5,38 @@
 
 ---
 
-## Atributos Base
+## Classificação
 
-| Atributo     | Valor           |
-| ------------ | --------------- |
-| Força        | 1               |
-| Destreza     | 0               |
-| Constituição | 0               |
-| Inteligência | 0               |
-| Sabedoria    | 1 (+1 por Saga) |
-| Carisma      | 0               |
-| Mana         | 1               |
+**Demi-Humano** &nbsp;·&nbsp; Magia Inicial (MD): **1**
+
+---
+
+## Atributos Raciais
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0"><div style="flex:1 1 92px;background:#e06a5a22;border:1px solid #e06a5a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e06a5a">CORPO</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#e0a13f22;border:1px solid #e0a13f;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e0a13f">TÉCNICA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div><div style="flex:1 1 92px;background:#4fb3bf22;border:1px solid #4fb3bf;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#4fb3bf">INTELECTO</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#c58cf622;border:1px solid #c58cf6;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#c58cf6">CARISMA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div><div style="flex:1 1 92px;background:#7fd08a22;border:1px solid #7fd08a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#7fd08a">SABEDORIA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+1</div></div><div style="flex:1 1 92px;background:#58A0C822;border:1px solid #58A0C8;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#58A0C8">MANA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+2</div></div></div>
+
+**Modificadores raciais:** +1 Sabedoria, +2 Mana, −1 Técnica, −1 Carisma
+
+> A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20 por atributo.
 
 ---
 
 ## Vida
 
-* **Vida Base:** **20 + 5 a cada 2 pontos de Constituição + 4 a cada 1 ponto de Mana**
+* **Vida Base:** **20 + 5 a cada 2 pontos de Corpo + 4 a cada 1 ponto de Mana**
 * **Valor de Vida da Raça:** **5**
 
 ---
 
-## Dados Raciais
+## Marcos de Sangue — R8 · R6 · R4
 
-* **Magia Inicial (MD):** **1**
+Em cada marco, a raça evolui por uma escolha:
 
----
+- **Purificar** — +1 no atributo negativo da raça (abraçar o lado humano).
+- **Despertar** — receber um poder do lado mágico da raça (ver abaixo).
+
+**Despertar (lado marinho):** Água Natal, Animal Mágico.
+
 
 ## Progressão Racial
 
@@ -48,10 +54,10 @@ Escolha **duas** características raciais:
   Aumenta sua velocidade de nado em **+15m**.
 
 * **Pedúnculo Potente**
-  Seu rabo causa dano de **Concussão** igual a **1d6 a cada 2 Força + Mana**.
+  Seu rabo causa dano de **Concussão** igual a **1d6 a cada 2 Corpo + Mana**.
 
 * **Presas de Tubarão**
-  Seus dentes causam dano **Perfuração** igual a **1d8 a cada 2 Força + Força**.
+  Seus dentes causam dano **Perfuração** igual a **1d8 a cada 2 Corpo + Corpo**.
 
 * **Consenso Marítimo**
   Testes de **Adestramento** são inúteis.

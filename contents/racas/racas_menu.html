@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raças - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        /* Estilos específicos para os Cards 9x16 */
         .race-container { padding-top: 50px; padding-bottom: 50px; }
-        
+
         .race-card {
-            background-color: #34699A; /* Cor 2 */
-            border: 2px solid #58A0C8; /* Cor 3 */
+            background-color: #34699A;
+            border: 2px solid #58A0C8;
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -20,67 +20,51 @@
             cursor: pointer;
             text-decoration: none;
             display: block;
-            aspect-ratio: 9 / 16; /* Proporção Vertical Fixa */
+            aspect-ratio: 9 / 16;
         }
-
-        .race-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
+        .race-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .race-card-body {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(to top, #113F67 20%, transparent); /* Cor 1 */
-            text-align: center;
+            position: absolute; bottom: 0; width: 100%; padding: 20px;
+            background: linear-gradient(to top, #113F67 20%, transparent); text-align: center;
         }
-
         .race-card-title {
-            color: #FDF5AA; /* Cor 4 */
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 1.4rem;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            color: #FDF5AA; font-family: 'Cinzel', serif; font-weight: bold; font-size: 1.4rem;
+            margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
-
-        /* Efeito de Destaque no Hover */
         .race-card:hover {
-            transform: scale(1.08);
-            border-color: #FDF5AA; /* Cor 4 */
-            z-index: 10;
+            transform: scale(1.08); border-color: #FDF5AA; z-index: 10;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(253, 245, 170, 0.3);
         }
-
-        .race-card:hover .race-img {
-            transform: scale(1.1);
-        }
+        .race-card:hover .race-img { transform: scale(1.1); }
 
         .category-header {
-            color: #FDF5AA;
-            font-family: 'Cinzel', serif;
-            border-bottom: 1px solid #58A0C8;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            padding-bottom: 10px;
+            color: #FDF5AA; font-family: 'Cinzel', serif; border-bottom: 1px solid #58A0C8;
+            margin-bottom: 20px; margin-top: 55px; padding-bottom: 10px;
+        }
+        .subgroup-label {
+            color: #58A0C8; font-family: 'Cinzel', serif; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 2px; margin: 28px 0 14px;
+        }
+        .reserved-box {
+            border: 1px dashed #58A0C8; border-radius: 12px; padding: 28px;
+            text-align: center; color: #9fc0da; background: rgba(52,105,154,0.12);
         }
     </style>
 </head>
-<body class="grimoire-bg" style="background-color: #113F67;">
-    
+<body class="grimoire-bg" style="background-color: var(--c1);">
+
     <div id="navbar-placeholder"></div>
 
     <div class="container race-container">
         <header class="text-center mb-5">
             <h1 class="display-4" style="color: #FDF5AA; font-family: 'Cinzel', serif;">Linhagens de Luxsandoria</h1>
-            <p class="lead" style="color: #58A0C8;">Sua raça é o alicerce de sua jornada</p>
+            <p class="lead" style="color: #58A0C8;">Sua raça é o alicerce de sua jornada — <strong style="color:#FDF5AA;">Luxsandoria V2</strong></p>
         </header>
 
-        <h2 class="category-header">Humanos</h2>
+        <!-- ================= RAÇAS HUMANAS ================= -->
+        <h2 class="category-header">Raças Humanas</h2>
+
+        <div class="subgroup-label">Humana Pura</div>
         <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="../../viewer.html?file=contents/racas/Humano.md" class="race-card">
@@ -88,16 +72,30 @@
                     <div class="race-card-body"><h3 class="race-card-title">Humano</h3></div>
                 </a>
             </div>
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/Humano-Hypnoriano.md" class="race-card">
-                    <img src="../../assets/images/raca_hypno.png" class="race-img" alt="Hypnoriano">
-                    <div class="race-card-body"><h3 class="race-card-title">Hypnoriano</h3></div>
-                </a>
-            </div>
+        </div>
+
+        <div class="subgroup-label">Variantes Humanas</div>
+        <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="../../viewer.html?file=contents/racas/Humano-Oni.md" class="race-card">
                     <img src="../../assets/images/raca_oni.png" class="race-img" alt="Oni">
                     <div class="race-card-body"><h3 class="race-card-title">Oni</h3></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/Humano-Amazonico.md" class="race-card">
+                    <img src="../../assets/images/placeholder.png" class="race-img" alt="Amazônico">
+                    <div class="race-card-body"><h3 class="race-card-title">Amazônico</h3></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="subgroup-label">Meio-Raças</div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/MeioElfo.md" class="race-card">
+                    <img src="../../assets/images/raca_meioelfo.jpeg" class="race-img" alt="Meio-Elfo">
+                    <div class="race-card-body"><h3 class="race-card-title">Meio-Elfo</h3></div>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
@@ -106,44 +104,16 @@
                     <div class="race-card-body"><h3 class="race-card-title">Meio-Vampiro</h3></div>
                 </a>
             </div>
-        </div>
-
-        <h2 class="category-header">Elfos</h2>
-        <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/Elfo.md" class="race-card">
-                    <img src="../../assets/images/raca_elfo.jpeg" class="race-img" alt="Elfo">
-                    <div class="race-card-body"><h3 class="race-card-title">Elfo</h3></div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/MeioElfo.md" class="race-card">
-                    <img src="../../assets/images/raca_meioelfo.jpeg" class="race-img" alt="Meio-Elfo">
-                    <div class="race-card-body"><h3 class="race-card-title">Meio-Elfo</h3></div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/ElfoNegro.md" class="race-card">
-                    <img src="../../assets/images/raca_elfonegro.png" class="race-img" alt="Elfo Negro">
-                    <div class="race-card-body"><h3 class="race-card-title">Elfo Negro</h3></div>
+                <a href="../../viewer.html?file=contents/racas/MeioOrc.md" class="race-card">
+                    <img src="../../assets/images/raca_orc.png" class="race-img" alt="Meio-Orc">
+                    <div class="race-card-body"><h3 class="race-card-title">Meio-Orc</h3></div>
                 </a>
             </div>
         </div>
 
-        <h2 class="category-header">Demi-Humanos</h2>
+        <div class="subgroup-label">Demi-Humanos</div>
         <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/DemiHumano-Atlantide.md" class="race-card">
-                    <img src="../../assets/images/raca_atlantide.jpg" class="race-img" alt="Atlântide">
-                    <div class="race-card-body"><h3 class="race-card-title">Atlântide</h3></div>
-                </a>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/DemiHumano-Loomian.md" class="race-card">
-                    <img src="../../assets/images/raca_loomian.png" class="race-img" alt="Loomian">
-                    <div class="race-card-body"><h3 class="race-card-title">Loomian</h3></div>
-                </a>
-            </div>
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="../../viewer.html?file=contents/racas/DemiHumano-Manpan.md" class="race-card">
                     <img src="../../assets/images/raca_manpan.png" class="race-img" alt="Manpan">
@@ -157,11 +127,53 @@
                 </a>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/MeioOrc.md" class="race-card">
-                    <img src="../../assets/images/raca_orc.png" class="race-img" alt="Orc">
-                    <div class="race-card-body"><h3 class="race-card-title">Orc</h3></div>
+                <a href="../../viewer.html?file=contents/racas/DemiHumano-Atlantide.md" class="race-card">
+                    <img src="../../assets/images/raca_atlantide.jpg" class="race-img" alt="Atlântide">
+                    <div class="race-card-body"><h3 class="race-card-title">Atlântide</h3></div>
                 </a>
             </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/DemiHumano-Loomian.md" class="race-card">
+                    <img src="../../assets/images/raca_loomian.png" class="race-img" alt="Loomian">
+                    <div class="race-card-body"><h3 class="race-card-title">Loomian</h3></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= RAÇAS MÁGICAS ================= -->
+        <h2 class="category-header">Raças Mágicas</h2>
+        <p style="color:#9fc0da;margin-top:-8px;">Auto-play: linha fixa de atributos, sem os 5 pontos da criação. Não aprendem Magias — o poder vem do sangue.</p>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/Elfo.md" class="race-card">
+                    <img src="../../assets/images/raca_elfo.jpeg" class="race-img" alt="Elfo">
+                    <div class="race-card-body"><h3 class="race-card-title">Elfo</h3></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/ElfoNegro.md" class="race-card">
+                    <img src="../../assets/images/raca_elfonegro.png" class="race-img" alt="Elfo Negro">
+                    <div class="race-card-body"><h3 class="race-card-title">Elfo Negro</h3></div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <a href="../../viewer.html?file=contents/racas/Humano-Hypnoriano.md" class="race-card">
+                    <img src="../../assets/images/raca_hypno.png" class="race-img" alt="Hypnoriano">
+                    <div class="race-card-body"><h3 class="race-card-title">Hypnoriano</h3></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= RAÇAS ESPECIAIS ================= -->
+        <h2 class="category-header">Raças Especiais</h2>
+        <div class="reserved-box">
+            <p style="margin:0;">✦ Categoria reservada — <strong style="color:#FDF5AA;">conteúdo futuro</strong>.</p>
+        </div>
+
+        <!-- ================= RAÇAS PROIBIDAS ================= -->
+        <h2 class="category-header">Raças Proibidas</h2>
+        <div class="reserved-box">
+            <p style="margin:0;">✦ Categoria reservada — <strong style="color:#FDF5AA;">conteúdo futuro</strong>.</p>
         </div>
 
         <footer class="mt-5 text-center py-4" style="border-top: 1px solid #58A0C8;">

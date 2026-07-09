@@ -1,3 +1,4 @@
+<!--#poder id="hb_mente" fonte="habilidade" nome="A Mente"-->
 # A Mente
 **Pré-requisitos:**  
 - Domínio da Inteligência  
@@ -12,3 +13,6 @@ Técnica milenar perdida, conhecida apenas por poucos mestres. Permite fragmenta
 - Fragmentações são controláveis e podem ser usadas para ataque, defesa ou manipulação de ambiente mágico.  
 
 > Esta técnica exige grande controle mental e cuidado, pois a fragmentação excessiva pode enfraquecer temporariamente o núcleo principal de Mana.
+
+
+<!--#fim-->

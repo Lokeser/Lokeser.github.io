@@ -1,3 +1,4 @@
+<!--#poder id="hb_absorvermana" fonte="habilidade" estrela="2" nome="Absorver Mana"-->
 # Absorver Mana
 
 **Pré-Requisitos:** Mana 12+  
@@ -46,3 +47,6 @@ O primeiro deve superar a CA do alvo.
 - Causa **5d10 + Mana**
 - Copia 1 Habilidade permanentemente
 - Se o alvo desmaiar, ele morre
+
+
+<!--#fim-->

@@ -1,3 +1,4 @@
+<!--#poder id="hb_visitarnucleomana" fonte="habilidade" estrela="2" nome="Visitar Mundo Interior"-->
 # Visitar Mundo Interior
 **Pré-Requisitos:** 4+ Mana, Conectar Núcleo de Mana  
 
@@ -5,3 +6,6 @@ Permite visitar o Mundo Interior de alguém ou invadir uma Dungeon Mágica atrav
 - **CD:** 10 + 4 por Rank acima do 10  
 
 **Nota:** Se o inimigo estiver desmaiado por combate, pode entrar sem girar dado
+
+
+<!--#fim-->

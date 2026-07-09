@@ -15,6 +15,7 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_berserker_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **AVANTE:**
@@ -31,6 +32,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Treino de Resistência +:**
@@ -38,6 +42,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas"-->
 ### 3 Estrelas
 
 **Poder da Ira:**
@@ -48,8 +55,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_berserker_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **AVANÇAR:**
@@ -65,6 +75,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Treino de Resistência ++:**
@@ -72,6 +85,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="5 Estrelas"-->
 ### 5 Estrelas
 
 **Na Força do Ódio:**
@@ -83,8 +99,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_berserker_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Ódio Avassalador:**
@@ -97,6 +116,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="4 Estrelas"-->
 ### 4 Estrelas
 
 **Não Sinto Dor:**
@@ -114,8 +136,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Mestre
 
+<!--#poder id="ca_berserker_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Sempre Raivoso:**
@@ -126,6 +151,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Carrasco:**
@@ -141,6 +169,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="4 Estrelas"-->
 ### 4 Estrelas
 
 **Treino de Resistência +++:**
@@ -148,8 +179,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Avatar da Fúria
 
+<!--#poder id="ca_berserker_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Nada Pode Me Parar"-->
 ### Nada Pode Me Parar
 * Efeitos debilitantes **não afetam mais você**.
 * Sua vontade de avançar contra o alvo:
@@ -157,6 +191,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="Dor é Para Frangotes"-->
 ### Dor é Para Frangotes
 * Recebe **Resistência IV a todos os tipos de dano**.
 * **Modo de Ataque**:
@@ -165,6 +202,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="O Cérebro é um Músculo"-->
 ### O Cérebro é um Músculo
 * Vezes por dia iguais a **Força ÷ 2**:
   * Ao realizar um teste de **Inteligência, Sabedoria ou Carisma**:
@@ -172,5 +212,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_berserker_r4e1_4" fonte="classe_avancada" rank="4" estrela="1" nome="O Ódio"-->
 ### O Ódio
 * Recebe a habilidade **Forma Líber**.
+
+
+<!--#fim-->

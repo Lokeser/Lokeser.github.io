@@ -1,3 +1,4 @@
+<!--#poder id="hb_inarcana" fonte="habilidade" estrela="2" nome="Inarcana"-->
 # Inarcana
 
 **Pré-Requisitos:** R9, ser ensinado por uma pessoa que ja tenha Inarcana
@@ -21,3 +22,5 @@ Seus ataques desarmados recebem os seguintes efeitos:
 . Menos 1 na Margem de Ameaça em ataques desarmados
 
 **Inarcana de Cristal ou Inarcana de Manátio: (Rank 7)**
+
+<!--#fim-->

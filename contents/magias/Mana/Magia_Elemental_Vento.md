@@ -8,7 +8,10 @@
 
 ---
 
+<!--#poder id="mg_magia_elemental_vento_r10e1_1" fonte="magia" rank="10" estrela="1" nome="Rank 10"-->
 ## Rank 10
+
+<!--#fim-->
 
 ## Núcleo de Mana Ventuoso
 Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.
@@ -67,6 +70,7 @@ Sempre que causar dano com a Manipulação Livre:
 
 ## Rank 9
 
+<!--#poder id="mg_magia_elemental_vento_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Você aprende uma **Técnica da Magia de Vento**, alterando sua Manipulação Livre.
 
@@ -78,6 +82,9 @@ Você aprende uma **Técnica da Magia de Vento**, alterando sua Manipulação Li
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r9e3_1" fonte="magia" rank="9" estrela="3" nome="Extensão de Foco"-->
 ### ★★★ Extensão de Foco
 Enquanto estiver a **até 5m** de um **Foco de Vento**:
 
@@ -85,6 +92,9 @@ Enquanto estiver a **até 5m** de um **Foco de Vento**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r9e1_2" fonte="magia" rank="9" estrela="1" nome="Vento a Favor"-->
 ### Vento a Favor
 **Custo:** 5 Magículas  
 **Ação:** Ação
@@ -94,6 +104,9 @@ Enquanto estiver a **até 5m** de um **Foco de Vento**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r9e4_1" fonte="magia" rank="9" estrela="4" nome="Manipulação Livre II"-->
 ### ★★★★ Manipulação Livre II
 Desbloqueia novos estágios da Manipulação Livre.
 
@@ -108,14 +121,20 @@ Desbloqueia novos estágios da Manipulação Livre.
 
 ---
 
+<!--#fim-->
+
 ## Rank 8
 
+<!--#poder id="mg_magia_elemental_vento_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Técnica da Magia de Vento**  
 *(requer livro ou ensino direto)*
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r8e5_1" fonte="magia" rank="8" estrela="5" nome="Explosão de Foco"-->
 ### ★★★★★ Explosão de Foco
 **Custo:** 10 Magículas  
 **Ação:** Bônus
@@ -133,13 +152,19 @@ Aprenda mais uma **Técnica da Magia de Vento**
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="mg_magia_elemental_vento_r7e1_1" fonte="magia" rank="7" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r7e4_1" fonte="magia" rank="7" estrela="4" nome="Criar Foco"-->
 ### ★★★★ Criar Foco
 **Custo:** 5 Magículas  
 **Ação:** Ação
@@ -149,18 +174,27 @@ Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="mg_magia_elemental_vento_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r6e2_1" fonte="magia" rank="6" estrela="2" nome="Ventos Arcanos"-->
 ### ★★ Ventos Arcanos
 Aprenda **1 Habilidade Elemental** baseada em sua **Arcana**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r6e1_2" fonte="magia" rank="6" estrela="1" nome="Impulso de Foco"-->
 ### Impulso de Foco
 - Se terminar seu turno a **1m** de um Foco de Mana de Vento:
   - Recebe **Bônus de Deslocamento igual à sua ER**
@@ -168,33 +202,51 @@ Aprenda **1 Habilidade Elemental** baseada em sua **Arcana**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="mg_magia_elemental_vento_r5e2_1" fonte="magia" rank="5" estrela="2" nome="Barragem de Vento"-->
 ### ★★ Barragem de Vento
 - Pode realizar **duas ações de Manipulação Livre** no mesmo turno.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r5e4_1" fonte="magia" rank="5" estrela="4" nome="Marca da Tontura II"-->
 ### ★★★★ Marca da Tontura II
 - O efeito de **Tonto** passa a durar **1d6 turnos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="mg_magia_elemental_vento_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda mais uma **Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_vento_r4e2_1" fonte="magia" rank="4" estrela="2" nome="Manipulação Livre III — Peso Aumentado"-->
 ### ★★ Manipulação Livre III — Peso Aumentado
 - O **Valor Base do Peso Mágico** aumenta em um valor igual à sua **Arcana**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 3
 
+<!--#poder id="mg_magia_elemental_vento_r3e1_1" fonte="magia" rank="3" estrela="1" nome="ARK"-->
 ### ARK
 Desbloqueia acesso a poderes de **Ark-Magia** relacionados à mobilidade, domínio aéreo e manipulação absoluta do campo de batalha.
 
 ---
+
+
+<!--#fim-->

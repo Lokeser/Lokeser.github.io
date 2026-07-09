@@ -40,12 +40,16 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_humano_amazonico_r10_1" fonte="raca" rank="10" estrela="1" nome="Instinto Amazônico"-->
 ### Rank 10 — Instinto Amazônico
 
 Recebe **+2 pontos** para distribuir entre **Corpo** e **Sabedoria**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_amazonico_r8_1" fonte="raca" rank="8" estrela="1" nome="Marco de Sangue"-->
 ### Rank 8 — Marco de Sangue
 
 Escolha uma rota:
@@ -55,6 +59,9 @@ Escolha uma rota:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_amazonico_r6_1" fonte="raca" rank="6" estrela="1" nome="Marco de Sangue"-->
 ### Rank 6 — Marco de Sangue
 
 * **Purificar:** +1 em **Intelecto** (limitado pelo negativo restante).
@@ -62,7 +69,13 @@ Escolha uma rota:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_humano_amazonico_r4_1" fonte="raca" rank="4" estrela="1" nome="Marco de Sangue"-->
 ### Rank 4 — Marco de Sangue
 
 * **Purificar:** completa a civilização — o −2 de Intelecto é apagado.
 * **Despertar — Fúria Silvestre:** ao ficar abaixo de metade da Vida, seu dano com armas recebe um bônus igual à sua **ER**.
+
+
+<!--#fim-->

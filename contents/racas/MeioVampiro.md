@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_meiovampiro_r10_1" fonte="raca" rank="10" estrela="1" nome="Sede de Sangue"-->
 ### Rank 10 — Sede de Sangue
 
 Com o passar do tempo, o Meio-Vampiro desenvolve **fome de sangue**.
@@ -54,6 +55,9 @@ Enquanto estiver sob **Sede de Sangue**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r10_2" fonte="raca" rank="10" estrela="1" nome="Pele Morta"-->
 ### Rank 10 — Pele Morta
 
 A exposição direta ao **Sol** enfraquece o Meio-Vampiro.  
@@ -75,6 +79,9 @@ Para anular os efeitos, é necessário permanecer em **sombra** pelo mesmo tempo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r10_3" fonte="raca" rank="10" estrela="1" nome="Características de Meio-Vampiro"-->
 ### Rank 10 — Características de Meio-Vampiro
 
 Escolha **uma** característica:
@@ -105,12 +112,18 @@ Escolha **uma** característica:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r8_1" fonte="raca" rank="8" estrela="1" nome="Evolução Inevitável"-->
 ### Rank 8 — Evolução Inevitável
 
 Escolha **mais uma** característica de **Meio-Vampiro**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r8_2" fonte="raca" rank="8" estrela="1" nome="Caminhos Traçados"-->
 ### Rank 8 — Caminhos Traçados
 
 Escolha definitivamente um caminho:
@@ -137,6 +150,9 @@ Escolha definitivamente um caminho:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r6_1" fonte="raca" rank="6" estrela="1" nome="Transformação Sanguínea"-->
 ### Rank 6 — Transformação Sanguínea
 
 Suas escolhas moldam sua forma final.
@@ -166,6 +182,9 @@ Perde **uma característica de Meio-Vampiro**, mas recebe **Carisma Humano**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_meiovampiro_r4_1" fonte="raca" rank="4" estrela="1" nome="Fim da Linha"-->
 ### Rank 4 — Fim da Linha
 
 Sua decisão final define quem você se tornou.
@@ -182,3 +201,6 @@ Sua decisão final define quem você se tornou.
 
 * Recebe **+1 Sabedoria**
 * Durante **Pele Morta**, fica apenas **Enfraquecido**, independentemente do tempo de exposição.
+
+
+<!--#fim-->

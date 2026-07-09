@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_demihumano_manpan_r10_1" fonte="raca" rank="10" estrela="1" nome="Instinto Manpan"-->
 ### Rank 10 — Instinto Manpan
 
 Durante o combate:
@@ -50,6 +51,9 @@ Durante o combate:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r10_2" fonte="raca" rank="10" estrela="1" nome="Anatomia Manpan"-->
 ### Rank 10 — Anatomia Manpan
 
 Escolha **uma** característica racial:
@@ -92,6 +96,9 @@ Escolha **uma** característica racial:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r8_1" fonte="raca" rank="8" estrela="1" nome="Guerreiro Manpan"-->
 ### Rank 8 — Guerreiro Manpan
 
 Escolha **uma** das opções abaixo:
@@ -107,24 +114,39 @@ Escolha **uma** das opções abaixo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r8_2" fonte="raca" rank="8" estrela="1" nome="Corpo Animal"-->
 ### Rank 8 — Corpo Animal
 
 Seu valor para **carregar, levantar e empurrar** é considerado como se tivesse **+1 ponto de Corpo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r6_1" fonte="raca" rank="6" estrela="1" nome="Peso Imenso"-->
 ### Rank 6 — Peso Imenso
 
 Inimigos sofrem **−1DR** em testes para tentar **derrubá‑lo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r6_2" fonte="raca" rank="6" estrela="1" nome="Instinto Manpan Melhorado"-->
 ### Rank 6 — Instinto Manpan Melhorado
 
 Durante o combate, sua **Corpo** e **Técnica** aumentam em **+1**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_manpan_r4_1" fonte="raca" rank="4" estrela="1" nome="Animal Selvagem"-->
 ### Rank 4 — Animal Selvagem
 
 Recebe **+1 Corpo**.
+
+
+<!--#fim-->

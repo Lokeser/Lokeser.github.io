@@ -8,6 +8,7 @@ Técnica? Tudo que manda é o poder. O Caminho da Besta aprimora o corpo sem se 
 
 ## Aprendiz – R9
 
+<!--#poder id="mg_arte_besta_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Bestial"-->
 ### Aceleração Bestial
 
 Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**.
@@ -26,8 +27,11 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**
 
 ---
 
+<!--#fim-->
+
 ## Adepto da Besta – R8
 
+<!--#poder id="mg_arte_besta_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
 * Vida Temporária +**Xd4** (X = Constituição)
@@ -35,6 +39,9 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**
 * Força +2 (total 4, sem Domínio)
 * Deslocamento e Pulo +5m
 
+<!--#fim-->
+
+<!--#poder id="mg_arte_besta_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Filosofia Bestial"-->
 ### Filosofia Bestial
 
 Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
@@ -43,8 +50,11 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 
 ---
 
+<!--#fim-->
+
 ## Mestre do Ki – R7
 
+<!--#poder id="mg_arte_besta_r7e1_1" fonte="magia" rank="7" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
 * Vida Temporária +**Xd7** (X = Eficiência de Rank)
@@ -53,8 +63,11 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 
 ---
 
+<!--#fim-->
+
 ## Fundição Bestial – R6
 
+<!--#poder id="mg_arte_besta_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
 * Vida Temporária +**Xd8** (X = Constituição)
@@ -63,8 +76,11 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 
 ---
 
+<!--#fim-->
+
 ## Elite Bestial – R5
 
+<!--#poder id="mg_arte_besta_r5e1_1" fonte="magia" rank="5" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
 * Resistência IV a todos os danos
@@ -72,11 +88,17 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 
 ---
 
+<!--#fim-->
+
 ## Suprema Besta – R4
 
+<!--#poder id="mg_arte_besta_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
 * Vida Temporária +**Xd10** (X = Constituição)
 * Resistência V a todos os danos
 * Força +2 (total 10, **pode adquirir Domínio**)
 * Deslocamento e Pulo +10m
+
+
+<!--#fim-->

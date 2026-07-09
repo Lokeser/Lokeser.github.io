@@ -1,3 +1,4 @@
+<!--#poder id="hb_construtomana" fonte="habilidade" estrela="2" nome="Construto de Mana"-->
 # Construto de Mana
 **Pré-Requisitos:** Rank 9, Mana 4+, Inteligência 5+ ou estudo de livro específico  
 
@@ -14,3 +15,6 @@ Cria um objeto feito de Mana com as seguintes regras:
 **Recuperação:**  
 - Ação bônus, consome Magículas  
 - Recupera 1d4 HP por Magícula consumida
+
+
+<!--#fim-->

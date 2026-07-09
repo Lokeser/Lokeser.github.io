@@ -1,3 +1,4 @@
+<!--#poder id="hb_faceassustadora" fonte="habilidade" estrela="1" nome="Face Assustadora"-->
 # Face Assustadora
 
 **Pré-Requisitos:** 2+ Mana **ou** Força  
@@ -21,3 +22,6 @@ Se:
 - O alvo tirar **1 Natural**
 
 Então o alvo fica **Amedrontado** até o final do próximo turno dele.
+
+
+<!--#fim-->

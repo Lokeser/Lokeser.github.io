@@ -40,6 +40,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_demihumano_rekel_r10_1" fonte="raca" rank="10" estrela="1" nome="Troca de Pele"-->
 ### Rank 10 — Troca de Pele
 
 A cada **4 semanas**, você troca de pele, recebendo **Resistência I** a um tipo de dano diferente.
@@ -61,6 +62,9 @@ Role **1d13** para determinar o tipo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r10_2" fonte="raca" rank="10" estrela="1" nome="Anatomia Rekel"-->
 ### Rank 10 — Anatomia Rekel
 
 Escolha **duas** características raciais:
@@ -112,24 +116,36 @@ Escolha **duas** características raciais:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_1" fonte="raca" rank="8" estrela="1" nome="Troca de Pele Melhorada"-->
 ### Rank 8 — Troca de Pele Melhorada
 
 Sua **Resistência** proveniente da Troca de Pele torna‑se **Resistência II**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_2" fonte="raca" rank="8" estrela="1" nome="Evolução Reptiliana"-->
 ### Rank 8 — Evolução Reptiliana
 
 Suas características raciais evoluem, recebendo bônus de **acerto, dano, redução, tempo ou CD** iguais à sua **Eficiência de Rank (ER)**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_3" fonte="raca" rank="8" estrela="1" nome="Peso Imenso"-->
 ### Rank 8 — Peso Imenso
 
 Inimigos sofrem **−1DR** em testes para tentar **movê‑lo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r6_1" fonte="raca" rank="6" estrela="1" nome="Troca de Pele Evoluída"-->
 ### Rank 6 — Troca de Pele Evoluída
 
 Sua Resistência torna‑se **Resistência III**.
@@ -137,12 +153,18 @@ Além disso, role **um dado adicional** e escolha qual resistência manter.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r6_2" fonte="raca" rank="6" estrela="1" nome="Mutação Reptiliana"-->
 ### Rank 6 — Mutação Reptiliana
 
 Escolha **mais uma** característica de **Anatomia Rekel**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r4_1" fonte="raca" rank="4" estrela="1" nome="Troca de Pele Total"-->
 ### Rank 4 — Troca de Pele Total
 
 Sua Resistência torna‑se **Resistência IV**.
@@ -155,6 +177,12 @@ O dado de Troca de Pele passa a ser **1d4**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r4_2" fonte="raca" rank="4" estrela="1" nome="O Rekel"-->
 ### Rank 4 — O Rekel
 
 Sua **Corpo** aumenta em **+1**.
+
+
+<!--#fim-->

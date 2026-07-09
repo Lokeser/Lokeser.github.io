@@ -42,6 +42,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_elfo_r10_1" fonte="raca" rank="10" estrela="1" nome="Dieta Mágica"-->
 ### Rank 10 — Dieta Mágica
 
 Um número de vezes por dia igual à sua **Eficiência de Rank (ER)**, você pode consumir **cristais de mana** para ampliar sua reserva.
@@ -50,12 +51,18 @@ Seu **próximo teste que utilize Mana** recebe um bônus igual à sua **ER**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r10_2" fonte="raca" rank="10" estrela="1" nome="Conexão com o Plano Arcano"-->
 ### Rank 10 — Conexão com o Plano Arcano
 
 Recebe a habilidade **Magic Eye**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r10_3" fonte="raca" rank="10" estrela="1" nome="Características Raciais do Elfo"-->
 ### Rank 10 — Características Raciais do Elfo
 
 Escolha **uma** característica racial:
@@ -96,6 +103,9 @@ Escolha **uma** característica racial:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r8_1" fonte="raca" rank="8" estrela="1" nome="Olhos da Mãe‑Natureza"-->
 ### Rank 8 — Olhos da Mãe‑Natureza
 
 Recebe a habilidade **Elven Eye**.
@@ -103,30 +113,45 @@ Esta habilidade **não é considerada uma evolução** de *Magic Eye*.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r8_2" fonte="raca" rank="8" estrela="1" nome="Características Raciais do Elfo II"-->
 ### Rank 8 — Características Raciais do Elfo II
 
 Escolha **uma segunda** característica racial de Elfo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r6_1" fonte="raca" rank="6" estrela="1" nome="Conexão Elemental"-->
 ### Rank 6 — Conexão Elemental
 
 Permite aprender **uma segunda evolução elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r6_2" fonte="raca" rank="6" estrela="1" nome="Características Raciais do Elfo III"-->
 ### Rank 6 — Características Raciais do Elfo III
 
 Escolha **uma terceira** característica racial de Elfo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r5_1" fonte="raca" rank="5" estrela="1" nome="Conexão Total com o Plano Arcano"-->
 ### Rank 5 — Conexão Total com o Plano Arcano
 
 Recebe **+1 Mana imediatamente** e **+1 Mana adicional ao alcançar o Rank 4**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r5_2" fonte="raca" rank="5" estrela="1" nome="Comando Imperial (Elfo)"-->
 ### Rank 5 — Comando Imperial (Elfo)
 
 Um número de vezes por dia igual à sua **ER**, consumindo **15 magículas**, você pode, como uma ação, exalar uma voz imbuída de autoridade arcana.
@@ -138,3 +163,6 @@ CD = 10 + Mana + ER
 ******
 
 Se falhar, o alvo torna‑se **incapaz de utilizar poderes que causem dano físico** por **1d6** turnos.
+
+
+<!--#fim-->

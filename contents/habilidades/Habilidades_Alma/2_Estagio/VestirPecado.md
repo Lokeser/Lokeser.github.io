@@ -1,3 +1,4 @@
+<!--#poder id="hb_vestirpecado" fonte="habilidade" estrela="2" nome="Vestir Pecado"-->
 # Vestir Pecado
 
 **Pré-Requisitos:** Cristal de Sangue Sagrado  
@@ -23,3 +24,6 @@ Você assume uma **Forma Vampírica**.
 Uma vez por ativação, como **Ação Bônus**, escolha um:
 - +2 em um atributo até o fim do próximo turno
 - +10m de Deslocamento
+
+
+<!--#fim-->

@@ -34,6 +34,7 @@ Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que
 
 ## Rank 9
 
+<!--#poder id="mg_magia_elmental_fogo_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Você aprende uma técnica alternativa de Manipulação Livre.
 
@@ -46,6 +47,9 @@ Você aprende uma técnica alternativa de Manipulação Livre.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r9e3_1" fonte="magia" rank="9" estrela="3" nome="Elevar Chama"-->
 ### ★★★ Elevar Chama
 Você amplifica sua Manipulação Livre.
 
@@ -55,8 +59,11 @@ Você amplifica sua Manipulação Livre.
 
 ---
 
+<!--#fim-->
+
 ## Rank 8
 
+<!--#poder id="mg_magia_elmental_fogo_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
 ### ★ Foco Elemental
 Você aprende a criar focos de Mana de Fogo.
 
@@ -66,6 +73,9 @@ Você aprende a criar focos de Mana de Fogo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r8e3_1" fonte="magia" rank="8" estrela="3" nome="Foco de Fogo"-->
 ### ★★★ Foco de Fogo
 - Inimigos a até **5m** de um foco de fogo:
   - Devem realizar um **Teste de Mana** contra sua **CD Mágica**.
@@ -73,14 +83,20 @@ Você aprende a criar focos de Mana de Fogo.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="mg_magia_elmental_fogo_r7e1_1" fonte="magia" rank="7" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**  
 *(requer livro ou ensino direto)*
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r7e4_1" fonte="magia" rank="7" estrela="4" nome="Elevar Chama II"-->
 ### ★★★★ Elevar Chama II
 Ao consumir Magículas em ataques de fogo:
 
@@ -89,20 +105,29 @@ Ao consumir Magículas em ataques de fogo:
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="mg_magia_elmental_fogo_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Evolução Elemental"-->
 ### ★ Evolução Elemental
 - Pode aprender **uma Evolução Elemental** da Magia de Fogo.
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="mg_magia_elmental_fogo_r5e1_1" fonte="magia" rank="5" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r5e3_1" fonte="magia" rank="5" estrela="3" nome="Queimação Infernal"-->
 ### ★★★ Queimação Infernal
 Sempre que aplicar **Em Chamas**:
 
@@ -110,29 +135,44 @@ Sempre que aplicar **Em Chamas**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r5e5_1" fonte="magia" rank="5" estrela="5" nome="Elevar Chama III"-->
 ### ★★★★★ Elevar Chama III
 - Se consumir **5 ou mais Magículas** em um ataque:
   - O ataque atinge **um inimigo adicional** dentro do alcance.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="mg_magia_elmental_fogo_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elmental_fogo_r4e1_2" fonte="magia" rank="4" estrela="1" nome="Verus Magus"-->
 ### Verus Magus
 - Você recebe **Verus Magus**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 3
 
+<!--#poder id="mg_magia_elmental_fogo_r3e1_1" fonte="magia" rank="3" estrela="1" nome="Ark-Mago"-->
 ### Ark-Mago
 - Recebe **Domínio de Mana**.
 - Caso já possua Domínio de Mana:
   - Pode aprender **uma segunda Ark-Magia**.
 
 ---
+
+
+<!--#fim-->

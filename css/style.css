@@ -602,3 +602,17 @@ html[data-theme="dark"] #content blockquote {
     transform: rotate(-20deg) scale(1.08);
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
 }
+
+/* --- Botão "Criar Personagem" na navbar --- */
+.nav-links li a.nav-cta {
+    background: var(--cor-dourada, #c5a059);
+    color: #14100a !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+.nav-links li a.nav-cta:hover {
+    color: #000 !important;
+    box-shadow: 0 0 14px rgba(230, 198, 139, 0.6);
+    text-shadow: none;
+}

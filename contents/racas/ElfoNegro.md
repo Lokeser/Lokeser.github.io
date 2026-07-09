@@ -42,6 +42,7 @@ Em cada marco, a raça evolui por uma escolha:
 
 ## Progressão Racial
 
+<!--#poder id="rc_elfonegro_r10_1" fonte="raca" rank="10" estrela="1" nome="Maldição Arcana"-->
 ### Rank 10 — Maldição Arcana
 
 * Suas **magículas totais são reduzidas pela metade**.
@@ -53,6 +54,9 @@ Em cada marco, a raça evolui por uma escolha:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r10_2" fonte="raca" rank="10" estrela="1" nome="Tipo de Elfo Negro"-->
 ### Rank 10 — Tipo de Elfo Negro
 
 Escolha **uma** das características abaixo:
@@ -80,6 +84,9 @@ Escolha **uma** das características abaixo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r9_1" fonte="raca" rank="9" estrela="1" nome="Despertar da Maldição"-->
 ### Rank 9 — Despertar da Maldição
 
 Seu Núcleo de Mana passa a ser conhecido como **Dupla Frequência**.
@@ -89,12 +96,18 @@ Seu Núcleo de Mana passa a ser conhecido como **Dupla Frequência**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r8_1" fonte="raca" rank="8" estrela="1" nome="Maldito Poder"-->
 ### Rank 8 — Maldito Poder
 
 Um número de vezes por dia igual à sua **Mana**, você pode utilizar um poder que consuma **1 magícula sem gastá‑la**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r6_1" fonte="raca" rank="6" estrela="1" nome="Corpo de Raios"-->
 ### Rank 6 — Corpo de Raios
 
 * Sua **Manipulação Livre de Raio** evolui até o **Rank 7**.
@@ -104,6 +117,9 @@ Se possuir Magia de Raios, pode aprender a **Evolução Elemental: Raios Amaldi�
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r4_1" fonte="raca" rank="4" estrela="1" nome="Benção Arcana"-->
 ### Rank 4 — Benção Arcana
 
 Quando aplicar **Maldição Arcana** através de **dano de Raio** causado por você:
@@ -113,3 +129,6 @@ Quando aplicar **Maldição Arcana** através de **dano de Raio** causado por vo
   * **Deslocamento Extra**
   * **Vida Temporária**
 * O inimigo pode acumular até **+5D de Dano Mágico** enquanto estiver amaldiçoado.
+
+
+<!--#fim-->

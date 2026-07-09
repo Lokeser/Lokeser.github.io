@@ -1,3 +1,4 @@
+<!--#poder id="hb_sextosentido" fonte="habilidade" estrela="1" nome="Sexto Sentido"-->
 # Sexto Sentido
 
 **Pré-Requisitos:** 2+ Sabedoria  
@@ -42,3 +43,6 @@ Ao realizar um teste, você pode consumir **1 Carga de Sexto Sentido** para:
 
 Ao final do dia:
 - Todas as **Cargas de Sexto Sentido** são perdidas
+
+
+<!--#fim-->

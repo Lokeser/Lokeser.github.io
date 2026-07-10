@@ -15,6 +15,7 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
 
 ## Rank 8
 
+<!--#poder id="cs_ecomago_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Bioma Nato"-->
 ### ⭐ 1 Estrela — Bioma Nato
 - Escolha um **Bioma Selvagem**.  
 - Enquanto estiver neste Bioma, recebe **+1D** em testes de:  
@@ -23,15 +24,21 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
   - Sobrevivência  
   - Adestramento  
   - Intuição
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Trilha Espiritual"-->
 ### ⭐ 1 Estrela — Trilha Espiritual
 - Escolha uma trilha:  
   - **Estudante de Fauna**  
   - **Estudante de Flora**  
 - Recebe **+3 em Sobrevivência e Adestramento**
 
+<!--#fim-->
+
 ---
 
+<!--#poder id="cs_ecomago_r8e2_1" fonte="classe_avancada" rank="8" estrela="2" nome="2 Estrelas — Estudante da Fauna"-->
 ### ⭐⭐ 2 Estrelas — Estudante da Fauna
 - Adapte seu **Núcleo de Mana** ao de uma criatura Rank 10 ou 9.  
 - Realize teste de Adestramento:  
@@ -43,8 +50,11 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
   - **Maestria III:** Habilidade Principal da criatura  
 - Cada maestria dá **+2 no próximo teste de Adestramento** com a mesma criatura  
 
+<!--#fim-->
+
 ---
 
+<!--#poder id="cs_ecomago_r8e2_2" fonte="classe_avancada" rank="8" estrela="2" nome="2 Estrelas — Estudante da Flora"-->
 ### ⭐⭐ 2 Estrelas — Estudante da Flora
 - Capacidade de estudar plantas mágicas e utilizar suas habilidades temporariamente.  
 - **Teste de Sobrevivência:**  
@@ -63,44 +73,68 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
   - III: Recebe **1d10 por Rank da planta** como Vida Temporária  
 - Total de plantas necessárias: 60 (10 para I, 20 para II, 30 para III)
 
+<!--#fim-->
+
 ---
 
 ## Rank 7
 
+<!--#poder id="cs_ecomago_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela — Estudante da Fauna II"-->
 ### ⭐ 1 Estrela — Estudante da Fauna II
 - Capaz de estudar criaturas Rank 7
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela — Estudante da Flora II"-->
 ### ⭐ 1 Estrela — Estudante da Flora II
 - Capaz de estudar plantas Rank 7
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r7e3_1" fonte="classe_avancada" rank="7" estrela="3" nome="3 Estrelas — Passos Destinados"-->
 ### ⭐⭐⭐ 3 Estrelas — Passos Destinados
 - Caminha pelo Bioma sem gerar pegadas  
 - Recebe **+10m de Deslocamento**  
 - **+1D** em testes de Defesa de Destreza  
 - Independente da Trilha escolhida
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r7e3_2" fonte="classe_avancada" rank="7" estrela="3" nome="3 Estrelas — Casa de Folhas"-->
 ### ⭐⭐⭐ 3 Estrelas — Casa de Folhas
 - Enquanto dorme no Bioma Nato, efeitos de descanso são **dobrados**  
 - Pode acordar em qualquer horário  
 - Independente da Trilha
 
+<!--#fim-->
+
 ---
 
 ## Rank 6
 
+<!--#poder id="cs_ecomago_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela — Estudante da Fauna III"-->
 ### ⭐ 1 Estrela — Estudante da Fauna III
 - Capaz de estudar criaturas Rank 6
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela — Estudante da Flora III"-->
 ### ⭐ 1 Estrela — Estudante da Flora III
 - Capaz de estudar plantas Rank 6
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r6e3_1" fonte="classe_avancada" rank="6" estrela="3" nome="3 Estrelas — Amizade Natural"-->
 ### ⭐⭐⭐ 3 Estrelas — Amizade Natural
 - Aura calma e natural para todos os seres do Bioma  
 - Criaturas hostis não atacam, não hostis o consideram amigável  
 - **+5 em Adestramento**  
 - Benefícios válidos apenas no Bioma Nato  
 - Independente da Trilha
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r6e5_1" fonte="classe_avancada" rank="6" estrela="5" nome="5 Estrelas — Conhecimento Natural"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Conhecimento Natural
 - Conhece todas as plantas do Bioma  
 - Reduz tempo de busca para **10 minutos**  
@@ -108,10 +142,13 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
 - Benefícios válidos apenas no Bioma Nato  
 - Independente da Trilha
 
+<!--#fim-->
+
 ---
 
 ## Rank 5
 
+<!--#poder id="cs_ecomago_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Estudante da Fauna IV"-->
 ### ⭐ 1 Estrela — Estudante da Fauna IV
 - Capaz de estudar criaturas Rank 6  
 - Adquire **Polimorfía**  
@@ -124,7 +161,10 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
 - **Ação:** usar transformação  
 - Vezes/dia = **Mana**, adicional por cada Maestria V+ com uma criatura  
 - Polimorfía Verdadeira (Rank 4+): mescla até 6 criaturas, selecionando Habilidades I-IV e Atributos
+<!--#fim-->
 
+
+<!--#poder id="cs_ecomago_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Estudante da Flora IV"-->
 ### ⭐ 1 Estrela — Estudante da Flora IV
 - Capaz de estudar plantas Rank 6  
 - Adquire **Corpo Selvagem**
@@ -147,10 +187,13 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
 - **+3 CA**  
 - Duração: 1 minuto
 
+<!--#fim-->
+
 ---
 
 ## Rank 4
 
+<!--#poder id="cs_ecomago_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Universo Vivo"-->
 ### ⭐ 1 Estrela — Universo Vivo
 - Recebe **+3 Sabedoria**  
 - Aura reconfortante para criaturas mágicas  
@@ -169,3 +212,5 @@ O **Ecomago** é um mestre da conexão com a Natureza, capaz de compreender, ada
   - Transformação múltipla até 6 criaturas  
   - Seleção de Habilidades e Atributos individualmente  
   - Uso diário de Polimorfía removido
+<!--#fim-->
+

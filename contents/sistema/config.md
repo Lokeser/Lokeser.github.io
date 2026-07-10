@@ -87,7 +87,10 @@
     { "nome": "Loomian",            "arquivo": "contents/racas/DemiHumano-Loomian.md" },
     { "nome": "Elfo",               "arquivo": "contents/racas/Elfo.md" },
     { "nome": "Elfo Negro",         "arquivo": "contents/racas/ElfoNegro.md" },
-    { "nome": "Hypnoriano",         "arquivo": "contents/racas/Humano-Hypnoriano.md" }
+    { "nome": "Hypnoriano",         "arquivo": "contents/racas/Humano-Hypnoriano.md" },
+    { "nome": "Rekel Ancestral",              "arquivo": "contents/racas/Secreta-RekelAncestral.md",  "secreta": true },
+    { "nome": "Humano Variante — Convertido", "arquivo": "contents/racas/Secreta-HumanoConvertido.md", "secreta": true },
+    { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md",       "secreta": true }
   ],
 
   "classes_iniciais": [
@@ -97,7 +100,11 @@
     { "nome": "Ladino",      "arquivo": "contents/classes/classes_iniciais/Ladino.md" },
     { "nome": "Malandro",    "arquivo": "contents/classes/classes_iniciais/Malandro.md" },
     { "nome": "Prodígio",    "arquivo": "contents/classes/classes_iniciais/Prodigio.md" },
-    { "nome": "Trabalhador", "arquivo": "contents/classes/classes_iniciais/Trabalhador.md" }
+    { "nome": "Trabalhador", "arquivo": "contents/classes/classes_iniciais/Trabalhador.md" },
+    { "nome": "Caminho Vidente",  "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md", "secreta": true },
+    { "nome": "Caminho Astral",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md",     "secreta": true },
+    { "nome": "Caminho Lunar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md",      "secreta": true },
+    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md",      "secreta": true }
   ],
 
   "classes_avancadas": [
@@ -112,7 +119,15 @@
     { "nome": "Domador",              "arquivo": "contents/classes/classes_avancadas/Domador.md" },
     { "nome": "Estrategista",         "arquivo": "contents/classes/classes_avancadas/Estrategista.md" },
     { "nome": "Guardião",             "arquivo": "contents/classes/classes_avancadas/Guardiao.md" },
-    { "nome": "Mago",                 "arquivo": "contents/classes/classes_avancadas/Mago.md" }
+    { "nome": "Mago",                 "arquivo": "contents/classes/classes_avancadas/Mago.md" },
+    { "nome": "Combativo Imaginário",   "arquivo": "contents/classes/classes_secretas/Combativo_Imaginario.md", "secreta": true },
+    { "nome": "Ecomago",                "arquivo": "contents/classes/classes_secretas/Ecomago.md",              "secreta": true },
+    { "nome": "Mestre de Marionetes",   "arquivo": "contents/classes/classes_secretas/MestreDasMarionetes.md",  "secreta": true },
+    { "nome": "Musicista",              "arquivo": "contents/classes/classes_secretas/Musicista.md",            "secreta": true },
+    { "nome": "Hikari Ken",             "arquivo": "contents/classes/classes_secretas/HikariKen.md",            "secreta": true },
+    { "nome": "Tsukihime no Kenjutsu",  "arquivo": "contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md", "secreta": true },
+    { "nome": "Shiki no Kenjutsu",      "arquivo": "contents/classes/classes_secretas/Shiki_NoKenjutsu.md",     "secreta": true },
+    { "nome": "Explorador",             "arquivo": "contents/classes/classes_secretas/Explorador.md",           "secreta": true }
   ],
 
   "magias": [
@@ -154,7 +169,7 @@
 
 ## Notas de edição
 
-* **CA:** `ca_base + atributo` (padrão: 10 + Técnica). Armaduras somam por cima, manualmente ou via inventário.
+* **CA:** `ca_base + atributo + (10 − rank)` (padrão: 10 + Técnica). Toda **primeira estrela de um rank novo** dá **+1 CA** automático (desative com `"ca_por_rank": false`). Armaduras somam por cima, manualmente ou via inventário.
 * **Deslocamento:** `deslocamento_base` em metros. Se quiser que um atributo some, preencha `deslocamento_atributo`.
 * **Arcana:** começa em 0; `arcana_por_rank` diz quanto soma ao **entrar** em cada rank (ex.: +5 no R6, R5 e R4).
 * **Magículas iniciais:** fórmula com `mana` e `er` (Rank 10: Mana + 1, pois ER = 1).

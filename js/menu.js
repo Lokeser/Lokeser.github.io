@@ -87,4 +87,32 @@ document.addEventListener("DOMContentLoaded", () => {
             menuBtn.classList.toggle('is-active');
         });
     }
+
+    // ==================================================================
+    //  BOTÃO FLUTUANTE: "Voltar à criação anterior" (rascunho da ficha)
+    // ==================================================================
+    try {
+        const emFicha = /ficha\.html$/i.test(window.location.pathname);
+        const rascunho = localStorage.getItem('wnj_draft');
+        const oculto = localStorage.getItem('wnj_draft_oculto') === '1';
+        if (rascunho && !oculto && !emFicha) {
+            let nome = '';
+            try { nome = (JSON.parse(rascunho).nome || '').trim(); } catch (e) {}
+            const box = document.createElement('div');
+            box.id = 'draft-flutuante';
+            box.style.cssText = 'position:fixed;left:18px;bottom:18px;z-index:3000;display:flex;align-items:center;gap:8px;' +
+                'background:rgba(12,16,24,.95);border:1px solid #c5a059;border-radius:30px;padding:9px 12px 9px 16px;' +
+                'box-shadow:0 8px 24px rgba(0,0,0,.55);font-family:sans-serif;';
+            box.innerHTML =
+                '<a href="' + finalPrefix + 'ficha.html" style="color:#f0d17a;text-decoration:none;font-size:.86rem;font-weight:700;letter-spacing:.5px">' +
+                '↩ Voltar à criação anterior' + (nome ? ' <span style="opacity:.7">(' + nome + ')</span>' : '') + '</a>' +
+                '<button id="draft-fechar" title="Ignorar" style="background:none;border:1px solid #6b5a35;color:#c5a059;' +
+                'border-radius:50%;width:24px;height:24px;line-height:1;cursor:pointer;font-size:.8rem;padding:0">✕</button>';
+            document.body.appendChild(box);
+            document.getElementById('draft-fechar').addEventListener('click', () => {
+                localStorage.setItem('wnj_draft_oculto', '1');
+                box.remove();
+            });
+        }
+    } catch (e) { /* localStorage indisponível — ignora */ }
 });

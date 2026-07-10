@@ -20,6 +20,13 @@
 
     let char = modoEdicao ? WNJ.obter(editId) : WNJ.novoPersonagem();
     if (modoEdicao && !char) { alert('Personagem não encontrado.'); location.href = 'personagem.html'; return; }
+    // Rascunho: restaura a criação anterior se o usuário saiu no meio
+    if (!modoEdicao) {
+        try {
+            const rasc = localStorage.getItem('wnj_draft');
+            if (rasc) char = Object.assign(WNJ.novoPersonagem(), JSON.parse(rasc), { id: char.id });
+        } catch (e) {}
+    }
     // compatibilidade com fichas antigas
     char.pensamentos = char.pensamentos || [];
     char.titulo = char.titulo || '';
@@ -131,13 +138,13 @@
         const magMax = char.magiculasMax != null ? char.magiculasMax : magAuto;
         if (char.magiculasAtual == null) char.magiculasAtual = magMax;
         const arcana = char.arcanaManual != null ? char.arcanaManual : WNJ.calcArcana(cfg, char.rank);
-        const ca = char.caManual != null ? char.caManual : WNJ.calcCA(cfg, t);
+        const ca = char.caManual != null ? char.caManual : WNJ.calcCA(cfg, t, char.rank);
         const desloc = char.deslocManual != null ? char.deslocManual : WNJ.calcDeslocamento(cfg, t);
 
         $('autos').innerHTML =
             autoCard('Dado de Rank', 'DR 1d' + rankInfo.dr) +
             autoCard('Eficiência de Rank', 'ER ' + rankInfo.er) +
-            '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t) + '</small></div>' +
+            '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · auto: ' + WNJ.calcDeslocamento(cfg, t) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' (' + racaInfo.vidaBase + ' + ' + racaInfo.vidaPasso + ' a cada 2 Corpo)</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
@@ -505,6 +512,176 @@
         abrirOverlay('ov-view');
     };
 
+    // ================= NOVA HABILIDADE =================
+    const HAB_CORES = { corpo: '#ff4500', mente: '#9d00ff', alma: '#00d4ff' };
+    const HAB_ICONES = { corpo: '💪', mente: '🧠', alma: '🔮' };
+    const HAB_NOMES = { corpo: 'Pilar do Corpo', mente: 'Pilar da Mente', alma: 'Pilar da Alma' };
+    let habIndice = null;
+    async function carregarHabIndice() {
+        if (habIndice) return habIndice;
+        const md = await WNJ.fetchMD('contents/sistema/habilidades.md');
+        const m = md.match(/```json\r?\n([\s\S]*?)```/);
+        habIndice = m ? JSON.parse(m[1]) : [];
+        return habIndice;
+    }
+    function renderListaHab() {
+        const tipo = $('hab-tipo').value;
+        const cor = HAB_CORES[tipo];
+        const itens = habIndice.filter(h => h.tipo === tipo)
+            .sort((a, b) => (a.estagio || 99) - (b.estagio || 99) || a.nome.localeCompare(b.nome));
+        let atual = null, html = '';
+        for (const h of itens) {
+            if (h.estagio_rotulo !== atual) {
+                atual = h.estagio_rotulo;
+                html += '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:' + cor + ';margin:12px 2px 6px">' + esc(atual) + '</div>';
+            }
+            html += '<button type="button" class="hab-opcao" data-arquivo="' + esc(h.arquivo) + '" ' +
+                'style="display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);' +
+                'border-left:3px solid ' + cor + ';border-radius:8px;color:#eaf2fa;padding:9px 12px;margin-bottom:6px;cursor:pointer;font-size:.88rem">' +
+                esc(h.nome) + '</button>';
+        }
+        $('hab-lista').innerHTML = html || '<p class="aviso-inline">Nenhuma habilidade encontrada.</p>';
+        document.querySelectorAll('#hab-lista .hab-opcao').forEach(b => {
+            b.onclick = () => escolherHabilidade(habIndice.find(h => h.arquivo === b.dataset.arquivo));
+        });
+    }
+    async function escolherHabilidade(h) {
+        if (!h) return;
+        try {
+            const md = await WNJ.fetchMD(h.arquivo);
+            const corpoMd = md.replace(/^#\s+.*\n?/, '').trim();
+            const cab = '<p style="font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:' + HAB_CORES[h.tipo] + '">' +
+                HAB_ICONES[h.tipo] + ' ' + HAB_NOMES[h.tipo] + ' · ' + esc(h.estagio_rotulo) + '</p>';
+            const html = (typeof marked !== 'undefined') ? marked.parse(corpoMd) : '<pre>' + esc(corpoMd) + '</pre>';
+            char.poderes.push({ nome: h.nome, tag: 'habilidade', efeitoHTML: cab + html, auto: false });
+            fecharOverlay('ov-habilidade');
+            renderPoderes();
+        } catch (e) {
+            alert('Não consegui carregar essa habilidade: ' + e.message);
+        }
+    }
+    $('btn-nova-habilidade').onclick = async () => {
+        await carregarHabIndice();
+        renderListaHab();
+        abrirOverlay('ov-habilidade');
+    };
+    $('hab-tipo').onchange = renderListaHab;
+
+    // ================= BAIXAR CARTA COMO PNG =================
+    function rrect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+    }
+    $('btn-carta-png').onclick = async () => {
+        coletarIdentidade();
+        const pal = WNJ.paletaMagia(char.magia);
+        const a = pal.acentos;
+        const W = 760, H = 1104, B = 14, R = 34;
+        const cv = document.createElement('canvas');
+        cv.width = W; cv.height = H;
+        const ctx = cv.getContext('2d');
+        try { await document.fonts.load('700 46px Cinzel'); await document.fonts.load('700 30px Cinzel'); } catch (e) {}
+
+        // moldura (gradiente animado vira gradiente diagonal)
+        const gb = ctx.createLinearGradient(0, 0, W, H);
+        if (a.length > 1) { gb.addColorStop(0, a[0]); gb.addColorStop(.5, a[1]); gb.addColorStop(1, a[2] || a[0]); }
+        else { gb.addColorStop(0, a[0]); gb.addColorStop(1, a[0]); }
+        rrect(ctx, 0, 0, W, H, R); ctx.fillStyle = gb; ctx.fill();
+
+        // fundo interno
+        const gf = ctx.createLinearGradient(0, 0, 0, H);
+        gf.addColorStop(0, pal.fundo1); gf.addColorStop(1, pal.fundo2);
+        rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.fillStyle = gf; ctx.fill();
+
+        // foto (58% superior, recorte cover)
+        const fotoH = Math.round((H - 2 * B) * 0.58);
+        if (char.img) {
+            const img = await new Promise(res => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = char.img; });
+            if (img) {
+                ctx.save();
+                rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.clip();
+                const dw = W - 2 * B, dh = fotoH;
+                const sc = Math.max(dw / img.width, dh / img.height);
+                const sw = dw / sc, sh = dh / sc;
+                ctx.drawImage(img, (img.width - sw) / 2, 0, sw, sh, B, B, dw, dh);
+                const sombra = ctx.createLinearGradient(0, B + dh - 130, 0, B + dh);
+                sombra.addColorStop(0, 'rgba(0,0,0,0)'); sombra.addColorStop(1, pal.fundo2);
+                ctx.fillStyle = sombra; ctx.fillRect(B, B + dh - 130, dw, 130);
+                ctx.restore();
+            }
+        } else {
+            ctx.font = '120px serif'; ctx.textAlign = 'center';
+            ctx.fillStyle = 'rgba(255,255,255,.25)';
+            ctx.fillText('🎭', W / 2, B + fotoH / 2 + 40);
+        }
+
+        // textos
+        const nomeCompleto = [char.nome, char.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
+        const tit = tituloCompleto();
+        let y = B + fotoH + 74;
+        ctx.textAlign = 'center';
+        if (tit) {
+            ctx.font = '700 40px Cinzel, serif';
+            ctx.fillStyle = a[0];
+            ctx.shadowColor = a[0]; ctx.shadowBlur = 22;
+            ctx.fillText(tit.toUpperCase(), W / 2, y);
+            ctx.shadowBlur = 0;
+            y += 46;
+            ctx.font = '26px Lato, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(nomeCompleto, W / 2, y);
+        } else {
+            ctx.font = '700 46px Cinzel, serif';
+            ctx.fillStyle = a[0];
+            ctx.shadowColor = a[0]; ctx.shadowBlur = 22;
+            ctx.fillText(nomeCompleto.toUpperCase(), W / 2, y);
+            ctx.shadowBlur = 0;
+            y += 46;
+        }
+        y += 40;
+        const estrelas = char.rank < 10 ? ' ' + '★'.repeat(char.estrela) : '';
+        ctx.font = '700 22px Lato, sans-serif';
+        ctx.fillStyle = '#d5dde5';
+        ctx.fillText(('RANK ' + char.rank + estrelas + (pal.nome ? ' · ' + pal.nome.toUpperCase() : '')), W / 2, y);
+
+        // pilulas dos 2 maiores atributos
+        const [p1, p2] = WNJ.atributosPrincipais(cfg, attrsTotais());
+        y += 62;
+        ctx.font = '700 24px Lato, sans-serif';
+        const pilula = (texto, cor, cx) => {
+            const tw = ctx.measureText(texto).width;
+            const pw = tw + 44, ph = 46;
+            rrect(ctx, cx - pw / 2, y - ph / 2 - 8, pw, ph, 23);
+            ctx.fillStyle = 'rgba(0,0,0,.42)'; ctx.fill();
+            ctx.strokeStyle = cor; ctx.lineWidth = 2.5; ctx.stroke();
+            ctx.fillStyle = cor; ctx.fillText(texto, cx, y);
+        };
+        const w1 = ctx.measureText(p1.nome).width + 44, w2 = ctx.measureText(p2.nome).width + 44;
+        const gap = 18, total = w1 + w2 + gap;
+        pilula(p1.nome, p1.cor, W / 2 - total / 2 + w1 / 2);
+        pilula(p2.nome, p2.cor, W / 2 + total / 2 - w2 / 2);
+
+        // rodape discreto
+        ctx.font = '16px Lato, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,.35)';
+        ctx.fillText('LUXSANDORIA · WATASHI NO JINSEI', W / 2, H - 34);
+
+        cv.toBlob(blob => {
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            const nomeArq = (nomeCompleto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '_') || 'personagem');
+            link.download = nomeArq + '_carta.png';
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 800);
+        }, 'image/png');
+    };
+
     // ================= CAMPOS DE IDENTIDADE =================
     $('f-nome').oninput = e => char.nome = e.target.value;
     $('f-sobrenome').oninput = e => char.sobrenome = e.target.value;
@@ -598,8 +775,27 @@
         coletarIdentidade();
         if (!char.nome) { alert('Dê um nome ao seu personagem!'); return; }
         WNJ.salvar(char);
+        localStorage.removeItem('wnj_draft');
+        localStorage.removeItem('wnj_draft_oculto');
         location.href = 'personagem.html#meus';
     };
+
+    // ================= AUTO-SAVE DO RASCUNHO (modo criação) =================
+    if (!modoEdicao) {
+        let draftTimer = null;
+        const salvarRascunho = () => {
+            coletarIdentidade();
+            try {
+                localStorage.setItem('wnj_draft', JSON.stringify(char));
+                localStorage.removeItem('wnj_draft_oculto'); // atividade nova reexibe o botão
+            } catch (e) {}
+        };
+        const agendar = () => { clearTimeout(draftTimer); draftTimer = setTimeout(salvarRascunho, 800); };
+        document.addEventListener('input', agendar, true);
+        document.addEventListener('change', agendar, true);
+        document.addEventListener('click', agendar, true);
+        window.addEventListener('beforeunload', salvarRascunho);
+    }
     $('btn-baixar').onclick = async () => {
         coletarIdentidade();
         WNJ.salvar(char);
@@ -607,15 +803,58 @@
     };
 
     // ================= INIT =================
-    function popularSelect(id, lista) {
+    // Entradas com "secreta": true só aparecem depois do desbloqueio
+    // (7 cliques no rótulo do campo — Raça / Classe Inicial / Classe Avançada).
+    function desbloqueado(chave) { return localStorage.getItem('wnj_unlock_' + chave) === '1'; }
+    function popularSelect(id, lista, chave) {
         const sel = $(id);
+        const atual = sel.value;
+        const visiveis = lista.filter(x => !x.secreta || (chave && desbloqueado(chave)) || x.nome === atual);
         sel.innerHTML = '<option value="">— escolher —</option>' +
-            lista.map(x => '<option value="' + esc(x.nome) + '">' + esc(x.nome) + '</option>').join('');
+            visiveis.map(x => '<option value="' + esc(x.nome) + '">' + (x.secreta ? '🔮 ' : '') + esc(x.nome) + '</option>').join('');
+        if (atual) sel.value = atual;
     }
-    popularSelect('f-raca', cfg.racas);
-    popularSelect('f-classe1', cfg.classes_iniciais);
-    popularSelect('f-classe2', cfg.classes_avancadas);
-    popularSelect('f-magia', cfg.magias);
+    function popularTudo() {
+        popularSelect('f-raca', cfg.racas, 'racas');
+        popularSelect('f-classe1', cfg.classes_iniciais, 'ci');
+        popularSelect('f-classe2', cfg.classes_avancadas, 'ca');
+        popularSelect('f-magia', cfg.magias);
+        // garante que o valor salvo do personagem apareça mesmo sem desbloqueio
+        [['f-raca', char.raca], ['f-classe1', char.classeInicial], ['f-classe2', char.classeAvancada]].forEach(([id, val]) => {
+            const sel = $(id);
+            if (val && ![...sel.options].some(o => o.value === val)) {
+                sel.insertAdjacentHTML('beforeend', '<option value="' + esc(val) + '">🔮 ' + esc(val) + '</option>');
+            }
+            if (val) sel.value = val;
+        });
+    }
+    popularTudo();
+
+    // 7 cliques no rótulo desbloqueiam as entradas secretas
+    const CLIQUES_SECRETOS = [
+        { texto: 'Raça', chave: 'racas', sel: 'f-raca' },
+        { texto: 'Classe Inicial', chave: 'ci', sel: 'f-classe1' },
+        { texto: 'Classe Avançada', chave: 'ca', sel: 'f-classe2' }
+    ];
+    document.querySelectorAll('.campo > label').forEach(lb => {
+        const alvo = CLIQUES_SECRETOS.find(c => lb.textContent.trim().startsWith(c.texto));
+        if (!alvo) return;
+        let cliques = 0, timer = null;
+        lb.style.userSelect = 'none';
+        lb.addEventListener('click', () => {
+            if (desbloqueado(alvo.chave)) return;
+            cliques++;
+            clearTimeout(timer);
+            timer = setTimeout(() => { cliques = 0; }, 1600);
+            if (cliques >= 7) {
+                localStorage.setItem('wnj_unlock_' + alvo.chave, '1');
+                popularTudo();
+                lb.style.textShadow = '0 0 12px #FDF5AA';
+                lb.textContent = '🔮 ' + lb.textContent;
+                alert('✨ Segredos revelados! Novas opções apareceram na lista de ' + alvo.texto + '.');
+            }
+        });
+    });
 
     await carregarRaca();
     await carregarRank();

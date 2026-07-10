@@ -4,314 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habilidades - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        :root {
-            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
-        }
-        body { background-color: var(--c1) !important; color: var(--c4); font-family: 'Segoe UI', sans-serif; }
-        
-        /* Cabeçalho e Regras */
-        .codex-header { padding: 60px 0; background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%); border-bottom: 2px solid var(--c4); }
-        .codex-card { background: rgba(17, 63, 103, 0.8); border: 1px solid var(--c3); border-radius: 12px; padding: 30px; margin-bottom: 40px; }
-        
-        /* Navegação Rápida */
-        .nav-pills .nav-link { color: var(--c4); border: 1px solid var(--c3); margin: 5px; }
-        .nav-pills .nav-link.active { background-color: var(--c4); color: var(--c1); border-color: var(--c4); }
-
-        /* Estrutura de Estágios */
-        .pillar-section { margin-top: 80px; }
-        .pillar-title { font-family: 'Cinzel', serif; font-size: 2.5rem; border-bottom: 3px solid var(--c4); padding-bottom: 10px; margin-bottom: 40px; text-align: center; }
-        
-        .stage-container { background: rgba(52, 105, 154, 0.15); border: 1px solid var(--c2); border-radius: 10px; padding: 25px; margin-bottom: 30px; transition: 0.3s; }
-        .stage-container:hover { border-color: var(--c4); box-shadow: 0 0 20px rgba(253, 245, 170, 0.1); }
-        
-        .stage-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--c3); margin-bottom: 20px; padding-bottom: 10px; }
-        .stage-label { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--c4); }
-        .stage-req { font-size: 0.85rem; color: var(--c3); text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Grid de Habilidades */
-        .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-        .skill-item {
-            background: var(--c1);
-            border: 1px solid var(--c2);
-            color: var(--c4);
-            padding: 12px;
-            text-decoration: none;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .skill-item:hover { background: var(--c4); color: var(--c1); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
-        /* Estilo Ultimatrix */
-        .ultimatrix-section { border: 2px solid var(--c4); background: rgba(253, 245, 170, 0.05); }
-        .ultimatrix-label { color: var(--c4); font-weight: bold; text-shadow: 0 0 10px var(--c4); }
-
-        .btn-back-top { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        body { background: radial-gradient(circle at top, #1d4267, var(--c1, #113F67) 70%); min-height: 100vh; color: #eaf2fa; }
+        .hab-container { max-width: 1200px; margin: 0 auto; padding: 45px 20px 70px; }
+        .hab-hero { text-align: center; margin-bottom: 30px; }
+        .hab-hero h1 { font-family: 'Cinzel', serif; color: #FDF5AA; letter-spacing: 4px; }
+        .hab-hero p { color: #9fc0da; }
+        .pilar-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+        .pilar-nav a { border: 1px solid; border-radius: 20px; padding: 7px 20px; text-decoration: none; font-weight: 700; font-size: .88rem; transition: .25s; }
+        .pilar-nav a:hover { transform: translateY(-2px); filter: brightness(1.3); }
+        .pilar { margin-top: 45px; border-top: 3px solid var(--pilar); border-radius: 14px; background: rgba(0,0,0,.22); padding: 22px 22px 26px; }
+        .pilar-cabecalho { font-family: 'Cinzel', serif; color: var(--pilar); font-size: 1.5rem; display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .pilar-icone { font-size: 1.6rem; }
+        .pilar-total { margin-left: auto; font-family: sans-serif; font-size: .72rem; background: var(--pilar); color: #0d1117; border-radius: 16px; padding: 3px 12px; font-weight: 700; }
+        .estagio-label { color: var(--pilar); font-size: .78rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin: 22px 4px 10px; }
+        .estagio-label .qtd { opacity: .55; }
+        .hab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
+        .hab-card { display: flex; flex-direction: column; gap: 5px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-left: 4px solid var(--pilar); border-radius: 10px; padding: 12px 14px; text-decoration: none; transition: .2s; }
+        .hab-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.11); box-shadow: 0 8px 18px rgba(0,0,0,.4); }
+        .hab-nome { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.25; }
+        .hab-tag { color: var(--pilar); font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; opacity: .85; }
     </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
 
-    <header class="codex-header text-center">
-        <div class="container">
-            <h1 class="display-3" style="font-family: 'Cinzel', serif;">Grimório de Habilidades</h1>
-            <p class="lead">O Registro Universal de Técnicas de Alma, Corpo e Mente.</p>
-        </div>
-    </header>
+    <div class="hab-container">
+        <header class="hab-hero">
+            <h1>GRIMÓRIO DE HABILIDADES</h1>
+            <p>Os três pilares do poder — Corpo, Mente e Alma — divididos por estágio.</p>
+            <div class="pilar-nav">
+                <a href="#corpo" style="color:#ff4500;border-color:#ff4500">💪 Corpo</a>
+                <a href="#mente" style="color:#9d00ff;border-color:#9d00ff">🧠 Mente</a>
+                <a href="#alma" style="color:#00d4ff;border-color:#00d4ff">🔮 Alma</a>
+            </div>
+        </header>
 
-    <div class="container my-5">
-        <section class="codex-card">
-            <h2 class="h4" style="font-family: 'Cinzel', serif;">Fundamentos do Códice</h2>
-            <hr border-color="var(--c3)">
-            <p>Habilidades são poderes aprendidos por estudo ou instrução direta. A quantidade máxima de habilidades que sua base suporta é igual ao seu atributo de <strong>Sabedoria</strong>. Habilidades recebidas por Classes ou Ranks não ocupam este limite base.</p>
-            <div class="alert mt-3" style="background: var(--c2); color: #fff; border: 1px solid var(--c3);">
-                <strong>Nota Técnica:</strong> Para progredir entre estágios, você deve possuir pelo menos 2 técnicas do estágio anterior e o nível de Sabedoria exigido.
+        <section class="pilar" id="corpo" style="--pilar:#ff4500">
+            <h2 class="pilar-cabecalho"><span class="pilar-icone">💪</span> Pilar de Corpo <span class="pilar-total">26 habilidades</span></h2>
+            <div class="estagio-label" style="--pilar:#ff4500">1º Estágio <span class="qtd">7</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ArremessoFukujin.md"><span class="hab-nome">Arremesso Fukujin</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Bloquear.md"><span class="hab-nome">Bloquear</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Esquivar.md"><span class="hab-nome">Esquivar</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ExplosaoMana.md"><span class="hab-nome">Explosao Mana</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/MegaSalto.md"><span class="hab-nome">Mega Salto</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/PassoVeloz.md"><span class="hab-nome">Passo Veloz</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/RespiracaoRegenerativa.md"><span class="hab-nome">Respiracao Regenerativa</span><span class="hab-tag">1º Estágio</span></a>
+            </div>
+            <div class="estagio-label" style="--pilar:#ff4500">2º Estágio <span class="qtd">10</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/ArmaImprovisada.md"><span class="hab-nome">Arma Improvisada</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtaqueInjusto.md"><span class="hab-nome">Ataque Injusto</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtletismoSuperior.md"><span class="hab-nome">Atletismo Superior</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AuraIntimidadora.md"><span class="hab-nome">Aura Intimidadora</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Boomboost.md"><span class="hab-nome">Boomboost</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/CaminhoVeloz.md"><span class="hab-nome">Caminho Veloz</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/DeterminacaoCombate.md"><span class="hab-nome">Determinacao Combate</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Inarcana.md"><span class="hab-nome">Inarcana</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SaltoSuperior.md"><span class="hab-nome">Salto Superior</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SalvaGuarda.md"><span class="hab-nome">Salva Guarda</span><span class="hab-tag">2º Estágio</span></a>
+            </div>
+            <div class="estagio-label" style="--pilar:#ff4500">3º Estágio <span class="qtd">5</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/ArmaduraNatural.md"><span class="hab-nome">Armadura Natural</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/DeterminacaoSuperior.md"><span class="hab-nome">Determinacao Superior</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaLinear.md"><span class="hab-nome">Inarcana Linear</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaManatio.md"><span class="hab-nome">Inarcana Manatio</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/SedeSanguinea.md"><span class="hab-nome">Sede Sanguinea</span><span class="hab-tag">3º Estágio</span></a>
+            </div>
+            <div class="estagio-label" style="--pilar:#ff4500">4º Estágio <span class="qtd">1</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/4_Estagio/Suplex.md"><span class="hab-nome">Suplex</span><span class="hab-tag">4º Estágio</span></a>
+            </div>
+            <div class="estagio-label" style="--pilar:#ff4500">5º Estágio <span class="qtd">3</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AdaptabilidadeTatica.md"><span class="hab-nome">Adaptabilidade Tatica</span><span class="hab-tag">5º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AgarraoCelestial.md"><span class="hab-nome">Agarrao Celestial</span><span class="hab-tag">5º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/TrueParry.md"><span class="hab-nome">True Parry</span><span class="hab-tag">5º Estágio</span></a>
             </div>
         </section>
 
-        <div class="d-flex justify-content-center flex-wrap mb-5">
-            <a href="#alma" class="btn btn-outline-info m-2">Pilar da Alma</a>
-            <a href="#corpo" class="btn btn-outline-info m-2">Pilar do Corpo</a>
-            <a href="#mente" class="btn btn-outline-info m-2">Pilar da Mente</a>
-        </div>
-
-        <section id="alma" class="pillar-section">
-            <h2 class="pillar-title">Habilidades de Alma</h2>
-            
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">1º Estágio</span>
-                    <span class="stage-req">Qualquer pessoa | Pequeno Requisito</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/FaceAssustadora.md" class="skill-item">Face Assustadora</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/MagicEye.md" class="skill-item">Magic Eye</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ManaCharge.md" class="skill-item">Mana Charge</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SextoSentido.md" class="skill-item">Sexto Sentido</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ShadowArts.md" class="skill-item">Shadow Arts</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SpiritBlade.md" class="skill-item">Spirit Blade</a>
-                </div>
+        <section class="pilar" id="mente" style="--pilar:#9d00ff">
+            <h2 class="pilar-cabecalho"><span class="pilar-icone">🧠</span> Pilar de Mente <span class="pilar-total">25 habilidades</span></h2>
+            <div class="estagio-label" style="--pilar:#9d00ff">Ultimatrix <span class="qtd">2</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Mente.md"><span class="hab-nome">A Mente</span><span class="hab-tag">Ultimatrix</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Vida.md"><span class="hab-nome">A Vida</span><span class="hab-tag">Ultimatrix</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">2º Estágio</span>
-                    <span class="stage-req">2x Estágio 1 | 2+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/AbsorverMana.md" class="skill-item">Absorver Mana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ArcaneEye.md" class="skill-item">Arcane Eye</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/Beastification.md" class="skill-item">Beastification</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/DemaginationEye.md" class="skill-item">Demagination Eye</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ElevenEye.md" class="skill-item">Eleven Eye</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/EvolucaoAtaque.md" class="skill-item">Evolução Ataque</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/VestirPecado.md" class="skill-item">Vestir Pecado</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#9d00ff">1º Estágio <span class="qtd">7</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/ConectarNucleoMana.md"><span class="hab-nome">Conectar Nucleo Mana</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/EsconderAparencia.md"><span class="hab-nome">Esconder Aparencia</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Flutuar.md"><span class="hab-nome">Flutuar</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Magifeito.md"><span class="hab-nome">Magifeito</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/SuprimirAlma.md"><span class="hab-nome">Suprimir Alma</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/TiroMana.md"><span class="hab-nome">Tiro Mana</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/VeuMana.md"><span class="hab-nome">Veu Mana</span><span class="hab-tag">1º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">3º Estágio</span>
-                    <span class="stage-req">2x Estágio 2 | 5+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/DungeonMagica.md" class="skill-item">Dungeon Mágica</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/FormaEvo.md" class="skill-item">Forma Evo</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/Inexarcana.md" class="skill-item">Inexarcana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/ModoAtaque.md" class="skill-item">Modo Ataque</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SecondTrigger.md" class="skill-item">Second Trigger</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SpiritEdge.md" class="skill-item">Spirit Edge</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#9d00ff">2º Estágio <span class="qtd">7</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Addere.md"><span class="hab-nome">Addere</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/AmarrasImutaveis.md"><span class="hab-nome">Amarras Imutaveis</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/BarreiraMagica.md"><span class="hab-nome">Barreira Mágica</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/ConstrutoMana.md"><span class="hab-nome">Construto de Mana</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Exarcana.md"><span class="hab-nome">Exarcana</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/SeloReducaoArcana.md"><span class="hab-nome">Selo de Redução Arcana</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/VisitarNucleoMana.md"><span class="hab-nome">Visitar Mundo Interior</span><span class="hab-tag">2º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">4º Estágio</span>
-                    <span class="stage-req">2x Estágio 3 | 8+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/DeathBlade.md" class="skill-item">Death Blade</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/FormaLiber.md" class="skill-item">Forma Liber</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/SacredEye.md" class="skill-item">Sacred Eye</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#9d00ff">3º Estágio <span class="qtd">5</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaFantasma.md"><span class="hab-nome">Exarcana Fantasma</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaMistica.md"><span class="hab-nome">Exarcana Mística</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/InarcanaCristal.md"><span class="hab-nome">Inarcana de Cristal (Rank 7)</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/MisseisMagicos.md"><span class="hab-nome">Mísseis Mágicos</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/SelosMagicos.md"><span class="hab-nome">Selos Mágicos</span><span class="hab-tag">3º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">5º Estágio</span>
-                    <span class="stage-req">2x Estágio 4 | 10+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Ascendentialismo.md" class="skill-item">Ascendentialismo</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Demoncarnation.md" class="skill-item">Demoncarnation</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#9d00ff">4º Estágio <span class="qtd">4</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/AuraControl.md"><span class="hab-nome">Aura Control</span><span class="hab-tag">4º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/EscudosMagicos.md"><span class="hab-nome">Escudo Mágico</span><span class="hab-tag">4º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/MagicaVelum.md"><span class="hab-nome">Magica Velum</span><span class="hab-tag">4º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/PacotsMagicos.md"><span class="hab-nome">Sistema de Pactos: Restrições e Benefícios</span><span class="hab-tag">4º Estágio</span></a>
             </div>
         </section>
 
-        <section id="corpo" class="pillar-section">
-            <h2 class="pillar-title">Habilidades de Corpo</h2>
-            
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">1º Estágio</span>
-                    <span class="stage-req">Qualquer pessoa | Pequeno Requisito</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ArremessoFukujin.md" class="skill-item">Arremesso Fukujin</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Bloquear.md" class="skill-item">Bloquear</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Esquivar.md" class="skill-item">Esquivar</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ExplosaoMana.md" class="skill-item">Explosão Mana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/MegaSalto.md" class="skill-item">Mega Salto</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/PassoVeloz.md" class="skill-item">Passo Veloz</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/RespiracaoRegenerativa.md" class="skill-item">Respiração Reg.</a>
-                </div>
+        <section class="pilar" id="alma" style="--pilar:#00d4ff">
+            <h2 class="pilar-cabecalho"><span class="pilar-icone">🔮</span> Pilar de Alma <span class="pilar-total">24 habilidades</span></h2>
+            <div class="estagio-label" style="--pilar:#00d4ff">1º Estágio <span class="qtd">6</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/FaceAssustadora.md"><span class="hab-nome">Face Assustadora</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/MagicEye.md"><span class="hab-nome">Magic Eye</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ManaCharge.md"><span class="hab-nome">Mana Charge</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SextoSentido.md"><span class="hab-nome">Sexto Sentido</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ShadowArts.md"><span class="hab-nome">Shadow Arts</span><span class="hab-tag">1º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SpiritBlade.md"><span class="hab-nome">Spirit Blade</span><span class="hab-tag">1º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">2º Estágio</span>
-                    <span class="stage-req">2x Estágio 1 | 2+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/ArmaImprovisada.md" class="skill-item">Arma Improvisada</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtaqueInjusto.md" class="skill-item">Ataque Injusto</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtletismoSuperior.md" class="skill-item">Atletismo Superior</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AuraIntimidadora.md" class="skill-item">Aura Intimidadora</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Boomboost.md" class="skill-item">Boomboost</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/CaminhoVeloz.md" class="skill-item">Caminho Veloz</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/DeterminacaoCombate.md" class="skill-item">Det. de Combate</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Inarcana.md" class="skill-item">Inarcana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SaltoSuperior.md" class="skill-item">Salto Superior</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SalvaGuarda.md" class="skill-item">Salva Guarda</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#00d4ff">2º Estágio <span class="qtd">7</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/AbsorverMana.md"><span class="hab-nome">Absorver Mana</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ArcaneEye.md"><span class="hab-nome">Arcane Eye</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/Beastification.md"><span class="hab-nome">Beastification</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/DemaginationEye.md"><span class="hab-nome">Demagination Eye</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ElevenEye.md"><span class="hab-nome">Elven Eye</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/EvolucaoAtaque.md"><span class="hab-nome">Evolução de Ataque</span><span class="hab-tag">2º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/VestirPecado.md"><span class="hab-nome">Vestir Pecado</span><span class="hab-tag">2º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">3º Estágio</span>
-                    <span class="stage-req">2x Estágio 2 | 5+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/ArmaduraNatural.md" class="skill-item">Armadura Natural</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/DeterminacaoSuperior.md" class="skill-item">Det. Superior</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaLinear.md" class="skill-item">Inarcana Linear</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaManatio.md" class="skill-item">Inarcana Manatio</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/SedeSanguinea.md" class="skill-item">Sede Sanguínea</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#00d4ff">3º Estágio <span class="qtd">6</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/DungeonMagica.md"><span class="hab-nome">Dungeon Magica</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/FormaEvo.md"><span class="hab-nome">Forma Evo</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/Inexarcana.md"><span class="hab-nome">Inexarcana</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/ModoAtaque.md"><span class="hab-nome">Modo Ataque</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SecondTrigger.md"><span class="hab-nome">Second Trigger</span><span class="hab-tag">3º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SpiritEdge.md"><span class="hab-nome">Spirit Edge</span><span class="hab-tag">3º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">4º Estágio</span>
-                    <span class="stage-req">2x Estágio 3 | 8+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/4_Estagio/Suplex.md" class="skill-item">Suplex</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#00d4ff">4º Estágio <span class="qtd">3</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/DeathBlade.md"><span class="hab-nome">Death Blade</span><span class="hab-tag">4º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/FormaLiber.md"><span class="hab-nome">Forma Liber</span><span class="hab-tag">4º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/SacredEye.md"><span class="hab-nome">Sacred Eye</span><span class="hab-tag">4º Estágio</span></a>
             </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">5º Estágio</span>
-                    <span class="stage-req">2x Estágio 4 | 10+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AdaptabilidadeTatica.md" class="skill-item">Adaptab. Tática</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AgarraoCelestial.md" class="skill-item">Agarrão Celestial</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/TrueParry.md" class="skill-item">True Parry</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="mente" class="pillar-section">
-            <h2 class="pillar-title">Habilidades de Mente</h2>
-            
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">1º Estágio</span>
-                    <span class="stage-req">Qualquer pessoa | Pequeno Requisito</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/ConectarNucleoMana.md" class="skill-item">Núcleo Mana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/EsconderAparencia.md" class="skill-item">Esconder Aparência</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Flutuar.md" class="skill-item">Flutuar</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Magifeito.md" class="skill-item">Magifeito</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/SuprimirAlma.md" class="skill-item">Suprimir Alma</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/TiroMana.md" class="skill-item">Tiro de Mana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/VeuMana.md" class="skill-item">Véu de Mana</a>
-                </div>
-            </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">2º Estágio</span>
-                    <span class="stage-req">2x Estágio 1 | 2+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Addere.md" class="skill-item">Addere</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/AmarrasImutaveis.md" class="skill-item">Amarras Imutáveis</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/BarreiraMagica.md" class="skill-item">Barreira Mágica</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/ConstrutoMana.md" class="skill-item">Construto Mana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Exarcana.md" class="skill-item">Exarcana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/SeloReducaoArcana.md" class="skill-item">Redução Arcana</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/VisitarNucleoMana.md" class="skill-item">Visitar Núcleo</a>
-                </div>
-            </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">3º Estágio</span>
-                    <span class="stage-req">2x Estágio 2 | 5+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaFantasma.md" class="skill-item">Exarcana Fantasma</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaMistica.md" class="skill-item">Exarcana Mística</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/InarcanaCristal.md" class="skill-item">Inarcana Cristal</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/MisseisMagicos.md" class="skill-item">Mísseis Mágicos</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/SelosMagicos.md" class="skill-item">Selos Mágicos</a>
-                </div>
-            </div>
-
-            <div class="stage-container">
-                <div class="stage-header">
-                    <span class="stage-label">4º Estágio</span>
-                    <span class="stage-req">2x Estágio 3 | 8+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/AuraControl.md" class="skill-item">Aura Control</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/EscudosMagicos.md" class="skill-item">Escudos Mágicos</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/MagicaVelum.md" class="skill-item">Magica Velum</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/PacotsMagicos.md" class="skill-item">Pactos Mágicos</a>
-                </div>
-            </div>
-
-            <div class="stage-container ultimatrix-section">
-                <div class="stage-header">
-                    <span class="stage-label ultimatrix-label">Ultimatrix</span>
-                    <span class="stage-req">1+ Domínio | 15+ Sabedoria</span>
-                </div>
-                <div class="skill-grid">
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Mente.md" class="skill-item border-warning">Domínio da Mente</a>
-                    <a href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Vida.md" class="skill-item border-warning">Domínio da Vida</a>
-                </div>
+            <div class="estagio-label" style="--pilar:#00d4ff">5º Estágio <span class="qtd">2</span></div>
+            <div class="hab-grid">
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Ascendentialismo.md"><span class="hab-nome">Ascendentialismo</span><span class="hab-tag">5º Estágio</span></a>
+                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Demoncarnation.md"><span class="hab-nome">Demoncarnation</span><span class="hab-tag">5º Estágio</span></a>
             </div>
         </section>
 
     </div>
 
-    <a href="#" class="btn btn-warning btn-back-top rounded-circle shadow">↑</a>
-
-    <footer class="text-center py-5" style="border-top: 1px solid var(--c3); margin-top: 100px;">
-        <button onclick="history.back()" class="btn btn-outline-warning mb-4 px-5">Retroceder ao Grimório</button>
-        <p style="color: var(--c3);">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
+    <footer class="text-center py-4" style="border-top:1px solid rgba(255,255,255,.15);color:#9fc0da">
+        <p>Luxsandoria — Sistema de autoria de <strong style="color:#FDF5AA">Lokeser</strong></p>
     </footer>
 
     <script src="../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

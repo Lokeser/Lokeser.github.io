@@ -15,81 +15,136 @@ Uma arte antiga e complexa, desprezada por alguns como covarde e reverenciada po
 
 ## Rank 8 – O Início da Conexão
 
+<!--#poder id="cs_marionetes_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="☆ Conexão de Mana Estruturada"-->
 ### ☆ Conexão de Mana Estruturada
 - **Ação:** Bônus  
 - **Descrição:** Estabelece conexão com a Títere Arcana (Alcance Médio, 18m). Custa 1 Magícula/turno. Com a conexão, você pode comandar a Títere.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="☆☆ A Títere Arcana"-->
 ### ☆☆ A Títere Arcana
 - **Descrição:** Sua Títere ganha vida. Use Ficha de Monstro, 0 Atributos Mentais e 10 pontos distribuídos entre Força, Destreza, Constituição e Mana. Ataque da Títere: DR + Inteligência do Mestre; dano = 1d8 per ER + Força da Títere.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="☆☆☆☆☆ Mestre das Ferramentas"-->
 ### ☆☆☆☆☆ Mestre das Ferramentas
 - **Descrição:** +4 Arcanismo e +4 Destreza para testes de construção, modificação ou reparo de marionetes e construtos.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="Melhoria Inicial"-->
 ### Melhoria Inicial
 - Recebe sua primeira Atualização de Títere.
+
+<!--#fim-->
 
 ---
 
 ## Rank 7 – Refinando a Arte
 
+<!--#poder id="cs_marionetes_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="☆ Fios Invisíveis"-->
 ### ☆ Fios Invisíveis
 - **Descrição:** Oculta os fios de mana; teste de Percepção Mágica CD 10 + Inteligência + ER para detectar a conexão.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="☆☆☆ Reparo de Campo"-->
 ### ☆☆☆ Reparo de Campo
 - **Ação:** Padrão  
 - **Descrição:** Gasta Magículas para reparar Títere à distância. 4 Magículas recuperam 1d10 + Inteligência PV.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="☆☆☆☆☆ Sincronia de Combate"-->
 ### ☆☆☆☆☆ Sincronia de Combate
 - **Descrição:** Use Ação Bônus para Títere realizar ataque básico; permite usar Ação Padrão para outra atividade.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r7e1_4" fonte="classe_avancada" rank="7" estrela="1" nome="Melhoria"-->
 ### Melhoria
 - Recebe terceira Atualização de Títere.
+
+<!--#fim-->
 
 ---
 
 ## Rank 6 – Arsenal Oculto
 
+<!--#poder id="cs_marionetes_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆ Arsenal Secreto"-->
 ### ☆☆☆ Arsenal Secreto
 - **Descrição:** Integra armas ou ferramentas especiais na Títere. Ativação: Ação Padrão.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆☆ Escudo de Marionete"-->
 ### ☆☆☆☆ Escudo de Marionete
 - **Ação:** Reação  
 - **Descrição:** Se Títere estiver a até 3m, ataque que te mira pode mirar na Títere.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆☆☆ Conexão Aprimorada"-->
 ### ☆☆☆☆☆ Conexão Aprimorada
 - **Descrição:** Alcance da Conexão aumenta para Longo (54m). Custo de manutenção reduzido: 1 Magícula/turno apenas se Títere agir.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="Melhoria"-->
 ### Melhoria
 - Recebe terceira Atualização de Títere.
+
+<!--#fim-->
 
 ---
 
 ## Rank 5 – Vontade Estendida
 
+<!--#poder id="cs_marionetes_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆ Mente Dupla"-->
 ### ☆☆☆ Mente Dupla
 - **Ação:** Livre  
 - **Descrição:** Comanda Títere usando Ação Padrão dela, liberando sua própria. Custo de Magículas dobra (2 Magículas/ação).
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆☆ Percepção Compartilhada"-->
 ### ☆☆☆☆ Percepção Compartilhada
 - **Ação:** Padrão  
 - **Descrição:** Transfere percepção para a Títere. Mestre fica Desprevenido enquanto ativa.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆☆☆ Teatro de Marionetes"-->
 ### ☆☆☆☆☆ Teatro de Marionetes
 - **Descrição:** Controla duas Títeres simultaneamente. -1DR para acertos das Títeres devido à complexidade.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r5e1_4" fonte="classe_avancada" rank="5" estrela="1" nome="Melhoria"-->
 ### Melhoria
 - Recebe quarta e quinta Atualizações de Títere.
+
+<!--#fim-->
 
 ---
 
 ## Rank 4 – Soberania Arcana
 
+<!--#poder id="cs_marionetes_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="☆ Mestre Artesão"-->
 ### ☆ Mestre Artesão
 - **Descrição:** Reparo de Campo cura 1d12 + Inteligência + ER por cada 2 Magículas. Tempo de Atualizações de Títere reduzido pela metade.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="☆☆☆ Vontade Soberana"-->
 ### ☆☆☆ Vontade Soberana
 - **Descrição:** Sem penalidade de -1DR ao controlar duas Títeres. Títeres agem com precisão letal.
+<!--#fim-->
 
+
+<!--#poder id="cs_marionetes_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Melhoria"-->
 ### Melhoria
 - Recebe oitava e nona Atualizações de Títere.
 
@@ -245,3 +300,5 @@ Raridade: Comum → Incomum → Raro → Épico → Lendário
 - **Escalamento:**
   - **Épico:** Alcance 3m, Títere recebe ataque + bônus PV Temporários = 1d6  
   - **Lendário:** Alcance 5m, Títere recebe ataque + PV Temporários = 2d6 + imunidade a empurrão
+<!--#fim-->
+

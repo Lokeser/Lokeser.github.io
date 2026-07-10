@@ -15,12 +15,16 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
 
 ## Rank 8 – O Despertar do Luar
 
+<!--#poder id="cs_tsukihime_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="Espada Banhada em Lua"-->
 ### ✭ Estrela 1 – Espada Banhada em Lua
 - **Custo:** 4 Magículas  
 - **Ação:** Ação Livre  
 - **Efeito:** Imbe o corpo e arma com eletricidade clara. Próximo ataque causa +1d12 de dano mágico a cada 2 pontos de Mana. Aplica 1 acúmulo da **Marca do Brilho Lunar**.  
 - O dado aumenta ao atingir a primeira estrela de um rank (d12 → d14 → d16 ...).
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r8e2_1" fonte="classe_avancada" rank="8" estrela="2" nome="Marca do Brilho Lunar"-->
 ### ✭✭ Estrela 2 – Marca do Brilho Lunar
 - **Passivo:** Acumula energia lunar. Ao atingir o limite, recupera Magículas igual à Mana e ganha VT igual ao triplo.  
 - Limite de Marcas:  
@@ -29,7 +33,10 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
   - Rank 6: 26  
   - Rank 5: 24  
   - Rank 4: 22
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r8e3_1" fonte="classe_avancada" rank="8" estrela="3" nome="Passo Lunar"-->
 ### ✭✭✭ Estrela 3 – Passo Lunar
 - **Custo:** 5 Magículas  
 - **Ação:** Ação Bônus  
@@ -37,26 +44,38 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
   - Recebe +1DR contra o alvo no turno  
   - Multiplicador crítico +1  
   - Aplica 1d6 **Marca do Brilho Lunar** em si mesmo (dura apenas o turno)
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r8e5_1" fonte="classe_avancada" rank="8" estrela="5" nome="Treino Lunar"-->
 ### ✭✭✭✭✭ Estrela 5 – Treino Lunar
 - Aprenda uma Técnica da Princesa da Lua da lista de habilidades.
+
+<!--#fim-->
 
 ---
 
 ## Rank 7 – A Dança do Eclipse
 
+<!--#poder id="cs_tsukihime_r7e2_1" fonte="classe_avancada" rank="7" estrela="2" nome="Passo Lunar Aprimorado"-->
 ### ✭✭ Estrela 2 – Passo Lunar Aprimorado
 - **Passivo e Ação Bônus:** Pode usar como reação (custo dobrado).  
 - Recebe +5 pontos para distribuir em **Furtividade** e **Percepção**.
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r7e3_1" fonte="classe_avancada" rank="7" estrela="3" nome="Treino Lunar"-->
 ### ✭✭✭ Estrela 3 – Treino Lunar
 - Aprenda nova Técnica da Princesa da Lua.
+
+<!--#fim-->
 
 ---
 
 ## Rank 7 – A Fúria da Meia-Lua
 > Só acessível com a arcana
 
+<!--#poder id="cs_tsukihime_r7e4_1" fonte="classe_avancada" rank="7" estrela="4" nome="Manto Lunar"-->
 ### ✭✭✭✭ Estrela 4 – Manto Lunar
 - **Ação:** Bônus  
 - Cria um manto de luz e raios (Artefato Sincronizado) até o fim do combate.  
@@ -64,39 +83,59 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
   - CA = Arcana  
   - Deslocamento = Furtividade  
   - Metade das magículas gastas em **Espada Banhada ao Luar** retornam se acerto crítico
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r7e5_1" fonte="classe_avancada" rank="7" estrela="5" nome="Luar Penetrante"-->
 ### ✭✭✭✭✭ Estrela 5 – Luar Penetrante
 - **Passivo:** Ataques ignoram Resistência a dano = ER × 2
+
+<!--#fim-->
 
 ---
 
 ## Rank 6 – Coração da Supernova
 
+<!--#poder id="cs_tsukihime_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="Singularidade Lunar"-->
 ### ✭ Estrela 1 – Singularidade Lunar
 - **Passivo:** Gatilho da Marca do Brilho Lunar mais poderoso.  
 - Recupera Magículas e VT, recebe **Ação Bônus** adicional no próximo turno.
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r6e3_1" fonte="classe_avancada" rank="6" estrela="3" nome="Rastro de Cometa"-->
 ### ✭✭✭ Estrela 3 – Rastro de Cometa
 - **Custo:** 7 Magículas  
 - **Ação:** Padrão  
 - Após Passo Lunar, acerto crítico recupera o custo em Magículas.
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r6e5_1" fonte="classe_avancada" rank="6" estrela="5" nome="Treino Lunar"-->
 ### ✭✭✭✭✭ Estrela 5 – Treino Lunar
 - Aprenda nova Técnica da Princesa da Lua.
+
+<!--#fim-->
 
 ---
 
 ## Rank 5 – Avatar do Firmamento
 
+<!--#poder id="cs_tsukihime_r5e2_1" fonte="classe_avancada" rank="5" estrela="2" nome="Espada Banhada em Lua Suprema"-->
 ### ✭✭ Estrela 2 – Espada Banhada em Lua Suprema
 - **Passivo:**  
   - Margem de crítico aumenta +1  
   - Acertos críticos obrigam teste de Constituição (CD 10 + Mana + ER) ou condição Fraco 1d4 rodadas  
   - Deslocamento = Mana × ER  
   - +7 pontos para distribuir em perícias de combate
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r5e4_1" fonte="classe_avancada" rank="5" estrela="4" nome="Treino Lunar"-->
 ### ✭✭✭✭ Estrela 4 – Treino Lunar
 - Aprenda nova Técnica da Princesa da Lua.
+
+<!--#fim-->
 
 ---
 
@@ -109,12 +148,16 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
   - Habilidade base Dungeon Mágica (adquirida no Rank 7)  
   - Feito de grande magnitude relacionado à Lua, Mana ou Destino
 
+<!--#poder id="cs_tsukihime_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Ativação"-->
 ### Ativação
 - **Uso:** 1 vez/dia  
 - **Ação:** Completa  
 - Lua cresce no céu, banhando a área (raio = Mana × 10m).  
 - Benefícios da Dungeon Mágica aplicam-se: imunidade a efeitos externos, bônus de Mana, aparência especial do mundo interior.
+<!--#fim-->
 
+
+<!--#poder id="cs_tsukihime_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="Poderes Exclusivos"-->
 ### Poderes Exclusivos
 
 #### 1. Julgamento das Estrelas
@@ -232,6 +275,8 @@ Para aprender, é necessário **sincronizar mente e corpo**, calculando moviment
 - **Ação:** Ação Completa  
 - **Descrição:** Estocada concentrada em ponto vital.  
 - **Efeito:** -1DR no acerto, dano **Magi-Perfurante** = 1d12 para cada 2 de Mana + valor de Mana.
+
+<!--#fim-->
 
 ---
 

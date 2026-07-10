@@ -20,6 +20,11 @@
 
     let char = modoEdicao ? WNJ.obter(editId) : WNJ.novoPersonagem();
     if (modoEdicao && !char) { alert('Personagem não encontrado.'); location.href = 'personagem.html'; return; }
+    // compatibilidade com fichas antigas
+    char.pensamentos = char.pensamentos || [];
+    char.titulo = char.titulo || '';
+    char.tituloArtigo = char.tituloArtigo || '';
+    if (modoEdicao) document.body.classList.add('modo-edicao');
 
     let racaInfo = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, livre: true };
     let rankInfo = { dr: 20, er: 1 };
@@ -64,9 +69,9 @@
         for (const p of autos) {
             const existente = char.poderes.find(x => x.refId === p.id);
             const html = (typeof marked !== 'undefined') ? marked.parse(p.efeitoMD) : '<pre>' + esc(p.efeitoMD) + '</pre>';
-            if (existente) { existente.nome = p.nome; existente.efeitoHTML = html; }
+            if (existente) { existente.nome = p.nome; existente.efeitoHTML = html; existente.rank = p.rank; existente.estrela = p.estrela; }
             else {
-                char.poderes.push({ refId: p.id, nome: p.nome, tag: WNJ.tagDaFonte(p.fonte), efeitoHTML: html, auto: true });
+                char.poderes.push({ refId: p.id, nome: p.nome, tag: WNJ.tagDaFonte(p.fonte), efeitoHTML: html, auto: true, rank: p.rank, estrela: p.estrela });
                 novos++;
             }
         }
@@ -80,6 +85,7 @@
         const estrelas = char.rank < 10 ? ' ' + '★'.repeat(char.estrela) : '';
         $('badge-rank').textContent = 'RANK ' + char.rank + estrelas;
         $('btn-evoluir').style.display = modoEdicao ? '' : 'none';
+        $('btn-visualizar').style.display = modoEdicao ? '' : 'none';
         $('btn-baixar').style.display = modoEdicao ? '' : 'none';
         $('btn-salvar').style.display = modoEdicao ? '' : 'none';
         $('rodape-criar').style.display = modoEdicao ? 'none' : '';
@@ -97,6 +103,8 @@
         $('f-classe1').value = char.classeInicial || '';
         $('f-classe2').value = char.classeAvancada || '';
         $('f-magia').value = char.magia || '';
+        $('f-titulo-artigo').value = char.tituloArtigo || '';
+        $('f-titulo').value = char.titulo || '';
         $('foto').innerHTML = char.img ? '<img src="' + char.img + '" alt="">' : '🖼️';
         renderEquipados();
     }
@@ -200,33 +208,58 @@
 
     function renderFiltrosPoder() {
         const tags = [{ id: 'todos', nome: 'Todos', cor: '' }].concat(cfg.tags_poder);
-        $('filtros-poder').innerHTML = tags.map(t =>
+        let html = tags.map(t =>
             '<button class="filtro' + (filtroPoder === t.id ? ' ativo' : '') + '" data-tag="' + t.id + '">' + t.nome + '</button>').join('');
+        // filtros por rank: do 10 até o rank atual do personagem
+        for (let r = 10; r >= char.rank; r--) {
+            html += '<button class="filtro' + (filtroPoder === 'rank' + r ? ' ativo' : '') + '" data-tag="rank' + r + '">R' + r + '</button>';
+        }
+        html += '<button class="filtro' + (filtroPoder === 'ocultos' ? ' ativo' : '') + '" data-tag="ocultos" style="border-color:#8fa3b5;color:#8fa3b5' + (filtroPoder === 'ocultos' ? ';background:#8fa3b5;color:#14202e' : '') + '">👁 Ocultos</button>';
+        $('filtros-poder').innerHTML = html;
         document.querySelectorAll('#filtros-poder .filtro').forEach(b => {
             b.onclick = () => { filtroPoder = b.dataset.tag; renderFiltrosPoder(); renderPoderes(); };
         });
     }
 
+    function poderVisivel(p) {
+        if (filtroPoder === 'ocultos') return !!p.oculto;
+        if (p.oculto) return false;
+        if (filtroPoder === 'todos') return true;
+        if (filtroPoder.startsWith('rank')) return p.rank === parseInt(filtroPoder.slice(4), 10);
+        return p.tag === filtroPoder;
+    }
+
     function renderPoderes() {
-        const lista = char.poderes.filter(p => filtroPoder === 'todos' || p.tag === filtroPoder);
-        $('board-poderes').innerHTML = lista.length ? lista.map((p, i) => {
+        const lista = char.poderes.filter(poderVisivel);
+        $('board-poderes').innerHTML = lista.length ? lista.map((p) => {
             const idx = char.poderes.indexOf(p);
             const tag = TAGS[p.tag] || TAGS.extra;
-            return '<div class="tcard" style="--tag:' + tag.cor + '">' +
+            const rankSelo = p.rank ? '<span class="escala" style="margin-left:6px">R' + p.rank + (p.estrela > 1 ? '★' + p.estrela : '') + '</span>' : '';
+            return '<div class="tcard' + (p.oculto ? ' ocultado' : '') + '" style="--tag:' + tag.cor + '">' +
                 '<div class="acoes-card">' +
+                '<button class="olho" data-ocultar="' + idx + '" title="' + (p.oculto ? 'Mostrar poder' : 'Ocultar poder') + '">' + (p.oculto ? '🙈' : '👁') + '</button>' +
                 (p.auto ? '<span class="auto-selo">AUTO</span>' :
                     '<button data-editar="' + idx + '" title="Editar">✏️</button><button data-remover="' + idx + '" title="Remover">🗑️</button>') +
                 '</div>' +
-                '<span class="tag">' + tag.nome + '</span>' +
+                '<span class="tag">' + tag.nome + '</span>' + rankSelo +
                 '<h4>' + esc(p.nome) + '</h4>' +
                 '<div class="efeito">' + (p.efeitoHTML || '') + '</div>' +
                 '</div>';
-        }).join('') : '<p class="aviso-inline">Nenhum poder ainda — escolha raça/classe/magia ou clique em <strong>+ Novo Poder</strong>.</p>';
+        }).join('') : '<p class="aviso-inline">' + (filtroPoder === 'ocultos'
+            ? 'Nenhum poder oculto — use o olhinho 👁 de um poder para guardá-lo aqui.'
+            : 'Nenhum poder aqui — escolha raça/classe/magia ou clique em <strong>+ Novo Poder</strong>.') + '</p>';
         document.querySelectorAll('#board-poderes [data-remover]').forEach(b => {
             b.onclick = () => { char.poderes.splice(parseInt(b.dataset.remover), 1); renderPoderes(); };
         });
         document.querySelectorAll('#board-poderes [data-editar]').forEach(b => {
             b.onclick = () => abrirModalPoder(parseInt(b.dataset.editar));
+        });
+        document.querySelectorAll('#board-poderes [data-ocultar]').forEach(b => {
+            b.onclick = () => {
+                const p = char.poderes[parseInt(b.dataset.ocultar)];
+                p.oculto = !p.oculto;
+                renderPoderes();
+            };
         });
     }
 
@@ -302,10 +335,26 @@
         grid.querySelectorAll('[data-max]').forEach(inp => inp.oninput = () => { char.cargas[parseInt(inp.dataset.max)].max = parseInt(inp.value) || 0; });
     }
 
+    function renderPensamentos() {
+        $('board-pensamentos').innerHTML = char.pensamentos.length ? char.pensamentos.map((p, i) =>
+            '<div class="tcard" style="--tag:#9fc0da">' +
+            '<div class="acoes-card"><button data-editar="' + i + '" title="Editar">✏️</button><button data-remover="' + i + '" title="Remover">🗑️</button></div>' +
+            '<span class="tag" style="background:#9fc0da">Pensamento</span>' +
+            '<h4>' + esc(p.assunto) + '</h4>' +
+            '<div class="efeito">' + (p.textoHTML || '') + '</div>' +
+            '</div>').join('') : '<p class="aviso-inline">O que seu personagem pensa sobre o mundo? Clique em <strong>+ Novo Pensamento</strong>.</p>';
+        document.querySelectorAll('#board-pensamentos [data-remover]').forEach(b => {
+            b.onclick = () => { char.pensamentos.splice(parseInt(b.dataset.remover), 1); renderPensamentos(); };
+        });
+        document.querySelectorAll('#board-pensamentos [data-editar]').forEach(b => {
+            b.onclick = () => abrirModalPensamento(parseInt(b.dataset.editar));
+        });
+    }
+
     function renderTudo() {
         renderTopo(); renderIdentidade(); renderAutos(); renderAtributos();
         renderPericias(); renderFiltrosPoder(); renderPoderes(); renderAtaques();
-        renderFiltrosInv(); renderInventario(); renderCargas();
+        renderFiltrosInv(); renderInventario(); renderCargas(); renderPensamentos();
     }
 
     // ================= MODAIS =================
@@ -401,9 +450,66 @@
         fecharOverlay('ov-item'); renderInventario(); renderEquipados();
     };
 
+    let pensamentoEditando = null;
+    function abrirModalPensamento(idx) {
+        pensamentoEditando = idx != null ? idx : null;
+        const p = pensamentoEditando != null ? char.pensamentos[pensamentoEditando] : null;
+        $('pensamento-titulo').textContent = p ? 'Editar Pensamento' : 'Novo Pensamento';
+        $('pen-assunto').value = p ? p.assunto : '';
+        $('pen-texto').innerHTML = p ? (p.textoHTML || '') : '';
+        abrirOverlay('ov-pensamento');
+    }
+    $('btn-novo-pensamento').onclick = () => abrirModalPensamento(null);
+    $('pen-salvar').onclick = () => {
+        const assunto = $('pen-assunto').value.trim();
+        if (!assunto) { alert('Sobre o quê é esse pensamento?'); return; }
+        const dados = { assunto, textoHTML: $('pen-texto').innerHTML };
+        if (pensamentoEditando != null) Object.assign(char.pensamentos[pensamentoEditando], dados);
+        else char.pensamentos.push(dados);
+        fecharOverlay('ov-pensamento'); renderPensamentos();
+    };
+
+    // ================= VISUALIZAR (card retrato) =================
+    function tituloCompleto() {
+        if (!char.titulo) return '';
+        return (char.tituloArtigo ? char.tituloArtigo + ' ' : '') + char.titulo;
+    }
+    $('btn-visualizar').onclick = () => {
+        coletarIdentidade();
+        const pal = WNJ.paletaMagia(char.magia);
+        const card = $('view-card');
+        const a = pal.acentos;
+        card.classList.toggle('animado', pal.animado);
+        card.style.setProperty('--vc-f1', pal.fundo1);
+        card.style.setProperty('--vc-f2', pal.fundo2);
+        card.style.setProperty('--vc-acento', a[0]);
+        card.style.setProperty('--vc-brilho', a[0] + '66');
+        card.style.setProperty('--vc-g1', a[0]);
+        card.style.setProperty('--vc-g2', a[1] || a[0]);
+        card.style.setProperty('--vc-g3', a[2] || a[0]);
+        if (!pal.animado) card.style.borderColor = a[0]; else card.style.borderColor = '';
+        $('view-foto').style.backgroundImage = char.img ? 'url(' + char.img + ')' : 'none';
+        $('view-foto').textContent = char.img ? '' : '🎭';
+        const nomeCompleto = [char.nome, char.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
+        const tit = tituloCompleto();
+        $('view-titulo').textContent = tit;
+        $('view-titulo').style.display = tit ? '' : 'none';
+        $('view-nome').textContent = nomeCompleto;
+        $('view-nome').classList.toggle('destaque', !tit);
+        const estrelas = char.rank < 10 ? ' ' + '★'.repeat(char.estrela) : '';
+        $('view-rank').textContent = 'Rank ' + char.rank + estrelas + (pal.nome ? ' · ' + pal.nome : '');
+        const [p1, p2] = WNJ.atributosPrincipais(cfg, attrsTotais());
+        $('view-attrs').innerHTML =
+            '<span style="color:' + p1.cor + ';border-color:' + p1.cor + '">' + p1.nome + '</span>' +
+            '<span style="color:' + p2.cor + ';border-color:' + p2.cor + '">' + p2.nome + '</span>';
+        abrirOverlay('ov-view');
+    };
+
     // ================= CAMPOS DE IDENTIDADE =================
     $('f-nome').oninput = e => char.nome = e.target.value;
     $('f-sobrenome').oninput = e => char.sobrenome = e.target.value;
+    $('f-titulo-artigo').onchange = e => char.tituloArtigo = e.target.value;
+    $('f-titulo').oninput = e => char.titulo = e.target.value;
     $('f-raca').onchange = async e => {
         char.raca = e.target.value;
         await carregarRaca(); await sincronizarPoderes();
@@ -478,6 +584,8 @@
     function coletarIdentidade() {
         char.nome = $('f-nome').value.trim();
         char.sobrenome = $('f-sobrenome').value.trim();
+        char.titulo = $('f-titulo').value.trim();
+        char.tituloArtigo = $('f-titulo-artigo').value;
     }
     $('btn-salvar').onclick = () => {
         coletarIdentidade();

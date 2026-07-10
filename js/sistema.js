@@ -242,10 +242,50 @@ const WNJ = (() => {
         };
     }
 
+    // ---------- PALETA POR MAGIA ----------
+    // Cores tematicas usadas no card Visualizar e no .html exportado.
+    // animado=true -> borda/acentos com gradiente em movimento.
+    const PALETAS = {
+        fogo:    { nome: 'Fogo',    acentos: ['#ff5a3c'],                       fundo1: '#4a0d05', fundo2: '#1d0502', animado: false },
+        agua:    { nome: 'Água',    acentos: ['#4aa3ff'],                       fundo1: '#06213f', fundo2: '#020e1d', animado: false },
+        terra:   { nome: 'Terra',   acentos: ['#ff9040'],                       fundo1: '#4a2405', fundo2: '#1d0e02', animado: false },
+        vento:   { nome: 'Vento',   acentos: ['#52d273'],                       fundo1: '#0b3d1e', fundo2: '#04180b', animado: false },
+        raio:    { nome: 'Raio',    acentos: ['#b05aff'],                       fundo1: '#2d0a4e', fundo2: '#12041f', animado: false },
+        anomala: { nome: 'Anômala', acentos: ['#6fd4ff', '#b05aff', '#ff4d6d'], fundo1: '#0a0a14', fundo2: '#000000', animado: true },
+        ki:      { nome: 'Ki',      acentos: ['#ff2e2e', '#1a0000', '#ff6b4a'], fundo1: '#3d0715', fundo2: '#12010a', animado: true },
+        fe:      { nome: 'Fé',      acentos: ['#ffe27a', '#d4a017', '#fff6c9'], fundo1: '#4a3805', fundo2: '#1d1502', animado: true },
+        caos:    { nome: 'Caos',    acentos: ['#0d0212', '#9d5cff', '#3b1266'], fundo1: '#2e1b4e', fundo2: '#120a22', animado: true },
+        neutro:  { nome: '',        acentos: ['#58A0C8'],                       fundo1: '#113F67', fundo2: '#081e33', animado: false }
+    };
+    function paletaMagia(nomeMagia) {
+        const n = String(nomeMagia || '').toLowerCase()
+            .normalize('NFD').replace(/[̀-ͯ]/g, '');
+        let chave = 'neutro';
+        if (n.includes('fogo')) chave = 'fogo';
+        else if (n.includes('agua')) chave = 'agua';
+        else if (n.includes('terra')) chave = 'terra';
+        else if (n.includes('vento')) chave = 'vento';
+        else if (n.includes('raio')) chave = 'raio';
+        else if (n.includes('anomal')) chave = 'anomala';
+        else if (n.startsWith('ki')) chave = 'ki';
+        else if (n === 'fe' || n.startsWith('fe ') || n.startsWith('fe—') || n.startsWith('fe -')) chave = 'fe';
+        else if (n.includes('caos')) chave = 'caos';
+        return Object.assign({ chave }, PALETAS[chave]);
+    }
+
+    // Dois maiores atributos (para "Atributo Principal + Secundário")
+    function atributosPrincipais(cfg, atributosTotais) {
+        const ordenados = cfg.atributos
+            .map(a => ({ id: a.id, nome: a.nome, cor: a.cor, valor: atributosTotais[a.id] || 0 }))
+            .sort((x, y) => y.valor - x.valor);
+        return [ordenados[0], ordenados[1]];
+    }
+
     return {
         fetchMD, config, parsePoderes, parseRankDados, parseRaca,
         calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcCA,
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
-        tagDaFonte, listar, salvar, excluir, obter, novoPersonagem
+        tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
+        paletaMagia, atributosPrincipais
     };
 })();

@@ -217,6 +217,56 @@
         .rodape-criar { text-align: center; margin-top: 10px; }
         .rodape-criar .btn-wnj { font-size: 1.05rem; padding: 14px 44px; }
         .aviso-inline { color: #8fb3cf; font-size: .8rem; }
+
+        /* Foto maior no modo edição (Usar personagem) */
+        body.modo-edicao .foto-box { flex-basis: 240px; }
+        body.modo-edicao .foto { width: 240px; height: 240px; font-size: 4.4rem; }
+
+        /* Botão olhinho (ocultar poder) */
+        .olho { background: none; border: none; cursor: pointer; font-size: .8rem; opacity: .45; }
+        .olho:hover { opacity: 1; }
+        .tcard.ocultado { opacity: .75; border-style: dashed; }
+
+        /* ===== Card VISUALIZAR (retrato) ===== */
+        .view-moldura { width: min(92vw, 380px); }
+        .view-card {
+            aspect-ratio: 3 / 4.35; border-radius: 18px; overflow: hidden;
+            position: relative; display: flex; flex-direction: column;
+            border: 6px solid var(--vc-acento, var(--c3));
+            background: linear-gradient(170deg, var(--vc-f1, #113F67), var(--vc-f2, #081e33));
+            box-shadow: 0 24px 70px rgba(0,0,0,.7), 0 0 40px var(--vc-brilho, rgba(88,160,200,.35));
+        }
+        .view-card.animado {
+            border: 6px solid transparent;
+            background:
+                linear-gradient(170deg, var(--vc-f1), var(--vc-f2)) padding-box,
+                linear-gradient(120deg, var(--vc-g1), var(--vc-g2), var(--vc-g3), var(--vc-g1)) border-box;
+            background-size: 100% 100%, 320% 320%;
+            animation: vcgirar 5s linear infinite;
+        }
+        @keyframes vcgirar {
+            0% { background-position: 0 0, 0% 50%; }
+            50% { background-position: 0 0, 100% 50%; }
+            100% { background-position: 0 0, 0% 50%; }
+        }
+        .view-foto {
+            flex: 1 1 58%; min-height: 0; background-size: cover; background-position: center top;
+            display: flex; align-items: center; justify-content: center; font-size: 5rem;
+        }
+        .view-info { padding: 16px 18px 18px; text-align: center; background: linear-gradient(to top, rgba(0,0,0,.45), transparent); }
+        .view-titulo {
+            font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700;
+            color: var(--vc-acento, var(--c4)); letter-spacing: 1px;
+            text-shadow: 0 0 14px var(--vc-brilho, rgba(253,245,170,.5));
+        }
+        .view-nome { color: #fff; font-size: .98rem; margin-top: 3px; letter-spacing: .5px; }
+        .view-nome.destaque { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: var(--vc-acento, var(--c4)); text-shadow: 0 0 14px var(--vc-brilho, rgba(253,245,170,.5)); }
+        .view-rank { color: #cfe1f0; font-size: .78rem; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+        .view-attrs { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+        .view-attrs span {
+            border: 1px solid; border-radius: 14px; padding: 4px 14px;
+            font-size: .8rem; font-weight: 700; letter-spacing: 1px; background: rgba(0,0,0,.35);
+        }
     </style>
 </head>
 <body>
@@ -229,6 +279,7 @@
             <span class="badge-rank" id="badge-rank">RANK 10</span>
             <div class="direita">
                 <button class="btn-wnj verde" id="btn-evoluir" style="display:none">⭐ Evoluir</button>
+                <button class="btn-wnj fantasma" id="btn-visualizar" style="display:none">👁 Visualizar</button>
                 <button class="btn-wnj azul" id="btn-baixar" style="display:none">⬇ Baixar</button>
                 <button class="btn-wnj ouro" id="btn-salvar" style="display:none">💾 Salvar</button>
             </div>
@@ -251,6 +302,16 @@
                         <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Classe Avançada <span class="aviso-inline" id="aviso-ca">(Rank 8+)</span></label><select id="f-classe2" disabled><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
+                        <div class="campo"><label>Título</label>
+                            <div style="display:flex;gap:6px">
+                                <select id="f-titulo-artigo" style="flex:0 0 84px;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px 6px">
+                                    <option value="">Nada</option>
+                                    <option value="O">O</option>
+                                    <option value="A">A</option>
+                                </select>
+                                <input id="f-titulo" placeholder="Ex: Espadachim de Fogo" style="flex:1">
+                            </div>
+                        </div>
                     </div>
                     <div class="equipados" id="equipados" style="display:none">
                         <div class="rotulo">⚜ Artefatos Equipados</div>
@@ -318,6 +379,16 @@
                 </div>
             </div>
             <div class="cargas-grid" id="cargas-grid"></div>
+        </section>
+
+        <!-- PENSAMENTOS E OPINIÕES -->
+        <section class="secao">
+            <div class="secao-titulo">💭 Pensamentos e Opiniões
+                <div class="direita">
+                    <button class="btn-wnj ouro" id="btn-novo-pensamento">+ Novo Pensamento</button>
+                </div>
+            </div>
+            <div class="board" id="board-pensamentos"></div>
         </section>
 
         <div class="rodape-criar" id="rodape-criar">
@@ -399,6 +470,43 @@
                 <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
                 <button class="btn-wnj ouro" id="item-salvar">Salvar Item</button>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PENSAMENTO -->
+    <div class="overlay" id="ov-pensamento">
+        <div class="modal-wnj">
+            <h3 id="pensamento-titulo">Novo Pensamento</h3>
+            <label>Sobre o quê?</label>
+            <input id="pen-assunto" placeholder="Ex: A Academia Omnus">
+            <label>Pensamento / Opinião</label>
+            <div class="rt-bar">
+                <button type="button" data-cmd="bold"><b>B</b></button>
+                <button type="button" data-cmd="italic"><i>I</i></button>
+                <button type="button" data-cmd="underline"><u>U</u></button>
+                <button type="button" data-cmd="insertUnorderedList">•</button>
+            </div>
+            <div class="rt-editor" id="pen-texto" contenteditable="true"></div>
+            <div class="modal-acoes">
+                <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
+                <button class="btn-wnj ouro" id="pen-salvar">Salvar Pensamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP: VISUALIZAR CARD -->
+    <div class="overlay" id="ov-view">
+        <div class="view-moldura" id="view-moldura">
+            <div class="view-card" id="view-card">
+                <div class="view-foto" id="view-foto"></div>
+                <div class="view-info">
+                    <div class="view-titulo" id="view-titulo"></div>
+                    <div class="view-nome" id="view-nome"></div>
+                    <div class="view-rank" id="view-rank"></div>
+                    <div class="view-attrs" id="view-attrs"></div>
+                </div>
+            </div>
+            <button class="btn-wnj fantasma" data-fechar style="margin-top:14px;width:100%">Fechar</button>
         </div>
     </div>
 

@@ -18,12 +18,12 @@
 ```json
 {
   "atributos": [
-    { "id": "corpo",     "nome": "Corpo",     "cor": "#e06a5a" },
-    { "id": "tecnica",   "nome": "Técnica",   "cor": "#e0a13f" },
-    { "id": "intelecto", "nome": "Intelecto", "cor": "#4fb3bf" },
-    { "id": "carisma",   "nome": "Carisma",   "cor": "#c58cf6" },
-    { "id": "sabedoria", "nome": "Sabedoria", "cor": "#7fd08a" },
-    { "id": "mana",      "nome": "Mana",      "cor": "#58A0C8" }
+    { "id": "corpo",     "nome": "Corpo",     "cor": "#e04343" },
+    { "id": "tecnica",   "nome": "Técnica",   "cor": "#3fbf6a" },
+    { "id": "intelecto", "nome": "Intelecto", "cor": "#3a63d2" },
+    { "id": "carisma",   "nome": "Carisma",   "cor": "#e6c15a" },
+    { "id": "sabedoria", "nome": "Sabedoria", "cor": "#a86af0" },
+    { "id": "mana",      "nome": "Mana",      "cor": "#5ec8f0" }
   ],
 
   "pericias": [
@@ -134,6 +134,7 @@
     { "id": "classe",     "nome": "Poder de Classe",    "cor": "#d98c3f" },
     { "id": "magia",      "nome": "Poder de Magia",     "cor": "#8a5cf6" },
     { "id": "habilidade", "nome": "Poder de Habilidade","cor": "#e05a7d" },
+    { "id": "arcana",     "nome": "Poder de Arcana",    "cor": "#4fb3bf" },
     { "id": "extra",      "nome": "Poder Extra",        "cor": "#58A0C8" }
   ],
 

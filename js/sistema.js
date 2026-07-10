@@ -137,9 +137,11 @@ const WNJ = (() => {
         return total;
     }
 
-    function calcCA(cfg, atributos) {
+    function calcCA(cfg, atributos, rank) {
         const attr = cfg.formulas.ca_atributo;
-        return (cfg.formulas.ca_base || 10) + (attr ? (atributos[attr] || 0) : 0);
+        // +1 de CA na primeira estrela de cada rank novo (R9..R3) => (10 - rank)
+        const bonusRank = (cfg.formulas.ca_por_rank !== false && rank) ? (10 - rank) : 0;
+        return (cfg.formulas.ca_base || 10) + (attr ? (atributos[attr] || 0) : 0) + bonusRank;
     }
 
     function calcDeslocamento(cfg, atributos) {

@@ -343,6 +343,7 @@
         <section class="secao">
             <div class="secao-titulo">⚡ Poderes
                 <div class="direita">
+                    <button class="btn-wnj fantasma" id="btn-nova-habilidade" style="font-size:.72rem;padding:7px 12px">✨ Nova Habilidade</button>
                     <button class="btn-wnj ouro" id="btn-novo-poder">+ Novo Poder</button>
                 </div>
             </div>
@@ -473,6 +474,23 @@
         </div>
     </div>
 
+    <!-- MODAL: NOVA HABILIDADE -->
+    <div class="overlay" id="ov-habilidade">
+        <div class="modal-wnj">
+            <h3>✨ Nova Habilidade</h3>
+            <label>Pilar</label>
+            <select id="hab-tipo">
+                <option value="corpo">💪 Corpo</option>
+                <option value="mente">🧠 Mente</option>
+                <option value="alma">🔮 Alma</option>
+            </select>
+            <div id="hab-lista" style="max-height:340px;overflow-y:auto;margin-top:12px"></div>
+            <div class="modal-acoes">
+                <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: PENSAMENTO -->
     <div class="overlay" id="ov-pensamento">
         <div class="modal-wnj">
@@ -506,7 +524,10 @@
                     <div class="view-attrs" id="view-attrs"></div>
                 </div>
             </div>
-            <button class="btn-wnj fantasma" data-fechar style="margin-top:14px;width:100%">Fechar</button>
+            <div style="display:flex;gap:10px;margin-top:14px">
+                <button class="btn-wnj fantasma" data-fechar style="flex:1">Fechar</button>
+                <button class="btn-wnj ouro" id="btn-carta-png" style="flex:1">⬇ Baixar PNG</button>
+            </div>
         </div>
     </div>
 

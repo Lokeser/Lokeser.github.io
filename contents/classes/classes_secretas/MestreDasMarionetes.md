@@ -1,304 +1,134 @@
-# Mestre de Marionetes
+# Classe Secreta — Mestre de Marionetes
 
-Uma arte antiga e complexa, desprezada por alguns como covarde e reverenciada por outros como o ápice do controle de mana e da proeza técnica. O Mestre de Marionetes não entra em combate direto; ele é o cérebro por trás da destruição, o maestro de uma dança mortal conduzida por fios de mana. Cada movimento de sua Títere Arcana é um reflexo de sua vontade, cada golpe, uma extensão de sua inteligência. Eles são artesãos, estrategistas e guerreiros, tudo em um só, controlando o campo de batalha a partir das sombras.
+O cérebro por trás da destruição: não luta diretamente, mas conduz uma **Títere Arcana** por fios de mana, uma extensão de sua vontade e inteligência.
 
----
-
-## Pré-Requisitos
-- Mana 8+
-- Inteligência 10+
-- Possuir a habilidade "Construto de Mana"
-- Ter realizado a jornada do "Visitar Mundo Interno"
-- Possuir uma "Títere Arcana" (marionete com Núcleo de Mana Artificial)
+**Pré-Requisitos:** Mana 8+, Intelecto 10+, habilidade "Construto de Mana", ter visitado o Mundo Interno e possuir uma "Títere Arcana".
 
 ---
 
-## Rank 8 – O Início da Conexão
+## Rank 8 — O Início da Conexão
 
-<!--#poder id="cs_marionetes_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="☆ Conexão de Mana Estruturada"-->
-### ☆ Conexão de Mana Estruturada
-- **Ação:** Bônus  
-- **Descrição:** Estabelece conexão com a Títere Arcana (Alcance Médio, 18m). Custa 1 Magícula/turno. Com a conexão, você pode comandar a Títere.
+<!--#poder id="cs_marionetes_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Conexão de Mana Estruturada"-->
+### Conexão de Mana Estruturada
+
+Como Ação Bônus, conecta-se à Títere a até Alcance Médio (18m). Manter custa **1 Magícula/turno**. Sem conexão, a Títere é um objeto inanimado.
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="A Títere Arcana"-->
+### A Títere Arcana
 
-<!--#poder id="cs_marionetes_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="☆☆ A Títere Arcana"-->
-### ☆☆ A Títere Arcana
-- **Descrição:** Sua Títere ganha vida. Use Ficha de Monstro, 0 Atributos Mentais e 10 pontos distribuídos entre Força, Destreza, Constituição e Mana. Ataque da Títere: DR + Inteligência do Mestre; dano = 1d8 per ER + Força da Títere.
+A Títere ganha vida (Ficha de Monstro, 0 em atributos mentais, 10 pontos entre Corpo/Técnica/Mana). **Ataque Títere:** acerto com seu Intelecto (DR + Intelecto + ER), dano escala com os atributos físicos dela (ex: 1d8 per 2 Corpo da Títere). Ela age no seu turno. **Recebe sua 1ª Atualização de Títere.**
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r8e5" fonte="classe_avancada" rank="8" estrela="5" nome="Mestre das Ferramentas"-->
+### Mestre das Ferramentas
 
-<!--#poder id="cs_marionetes_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="☆☆☆☆☆ Mestre das Ferramentas"-->
-### ☆☆☆☆☆ Mestre das Ferramentas
-- **Descrição:** +4 Arcanismo e +4 Destreza para testes de construção, modificação ou reparo de marionetes e construtos.
-<!--#fim-->
-
-
-<!--#poder id="cs_marionetes_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="Melhoria Inicial"-->
-### Melhoria Inicial
-- Recebe sua primeira Atualização de Títere.
-
++4 em Arcanismo e +4 em Técnica para construir, modificar ou reparar construtos e marionetes.
 <!--#fim-->
 
 ---
 
-## Rank 7 – Refinando a Arte
+## Rank 7 — Refinando a Arte
 
-<!--#poder id="cs_marionetes_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="☆ Fios Invisíveis"-->
-### ☆ Fios Invisíveis
-- **Descrição:** Oculta os fios de mana; teste de Percepção Mágica CD 10 + Inteligência + ER para detectar a conexão.
+<!--#poder id="cs_marionetes_r7e1" fonte="classe_avancada" rank="7" estrela="1" nome="Fios Invisíveis"-->
+### Fios Invisíveis
+
+Mascara os fios de mana. Detectar a conexão exige teste de Percepção Mágica contra CD 10 + seu Intelecto + ER.
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r7e3" fonte="classe_avancada" rank="7" estrela="3" nome="Reparo de Campo"-->
+### Reparo de Campo
 
-<!--#poder id="cs_marionetes_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="☆☆☆ Reparo de Campo"-->
-### ☆☆☆ Reparo de Campo
-- **Ação:** Padrão  
-- **Descrição:** Gasta Magículas para reparar Títere à distância. 4 Magículas recuperam 1d10 + Inteligência PV.
+Como Ação Padrão, gaste magículas para consertar a Títere à distância (no alcance da conexão): cada **4 Magículas** cura 1d10 + Intelecto de PV. **Recebe sua 3ª Atualização.**
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r7e5" fonte="classe_avancada" rank="7" estrela="5" nome="Sincronia de Combate"-->
+### Sincronia de Combate
 
-<!--#poder id="cs_marionetes_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="☆☆☆☆☆ Sincronia de Combate"-->
-### ☆☆☆☆☆ Sincronia de Combate
-- **Descrição:** Use Ação Bônus para Títere realizar ataque básico; permite usar Ação Padrão para outra atividade.
-<!--#fim-->
-
-
-<!--#poder id="cs_marionetes_r7e1_4" fonte="classe_avancada" rank="7" estrela="1" nome="Melhoria"-->
-### Melhoria
-- Recebe terceira Atualização de Títere.
-
+Use sua Ação Bônus para a Títere fazer um ataque básico, liberando sua Ação Padrão.
 <!--#fim-->
 
 ---
 
-## Rank 6 – Arsenal Oculto
+## Rank 6 — Arsenal Oculto
 
-<!--#poder id="cs_marionetes_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆ Arsenal Secreto"-->
-### ☆☆☆ Arsenal Secreto
-- **Descrição:** Integra armas ou ferramentas especiais na Títere. Ativação: Ação Padrão.
+<!--#poder id="cs_marionetes_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Arsenal Secreto"-->
+### Arsenal Secreto
+
+Ative armas/ferramentas especiais instaladas por Atualização como Ação Padrão. **Recebe outra Atualização.**
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r6e4" fonte="classe_avancada" rank="6" estrela="4" nome="Escudo de Marionete"-->
+### Escudo de Marionete
 
-<!--#poder id="cs_marionetes_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆☆ Escudo de Marionete"-->
-### ☆☆☆☆ Escudo de Marionete
-- **Ação:** Reação  
-- **Descrição:** Se Títere estiver a até 3m, ataque que te mira pode mirar na Títere.
+Como Reação, se a Títere estiver a até 3m, force um ataque contra você a mirar nela.
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r6e5" fonte="classe_avancada" rank="6" estrela="5" nome="Conexão Aprimorada"-->
+### Conexão Aprimorada
 
-<!--#poder id="cs_marionetes_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="☆☆☆☆☆ Conexão Aprimorada"-->
-### ☆☆☆☆☆ Conexão Aprimorada
-- **Descrição:** Alcance da Conexão aumenta para Longo (54m). Custo de manutenção reduzido: 1 Magícula/turno apenas se Títere agir.
-<!--#fim-->
-
-
-<!--#poder id="cs_marionetes_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="Melhoria"-->
-### Melhoria
-- Recebe terceira Atualização de Títere.
-
+Alcance da conexão vira **Longo (54m)**. A conexão só custa 1 Magícula no turno se a Títere agir; parada e conectada não custa nada.
 <!--#fim-->
 
 ---
 
-## Rank 5 – Vontade Estendida
+## Rank 5 — Vontade Estendida
 
-<!--#poder id="cs_marionetes_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆ Mente Dupla"-->
-### ☆☆☆ Mente Dupla
-- **Ação:** Livre  
-- **Descrição:** Comanda Títere usando Ação Padrão dela, liberando sua própria. Custo de Magículas dobra (2 Magículas/ação).
+<!--#poder id="cs_marionetes_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Mente Dupla"-->
+### Mente Dupla
+
+Como Ação Livre, comande a Títere para usar a própria Ação Padrão, deixando a sua livre. **Custo:** o gasto da Títere dobra (2 Magículas/ação). **Recebe sua 4ª Atualização.**
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Percepção Compartilhada"-->
+### Percepção Compartilhada
 
-<!--#poder id="cs_marionetes_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆☆ Percepção Compartilhada"-->
-### ☆☆☆☆ Percepção Compartilhada
-- **Ação:** Padrão  
-- **Descrição:** Transfere percepção para a Títere. Mestre fica Desprevenido enquanto ativa.
+Como Ação Padrão, veja e ouça pela Títere a qualquer distância (com conexão ativa). Fica **Desprevenido** enquanto o faz.
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r5e5" fonte="classe_avancada" rank="5" estrela="5" nome="Teatro de Marionetes"-->
+### Teatro de Marionetes
 
-<!--#poder id="cs_marionetes_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="☆☆☆☆☆ Teatro de Marionetes"-->
-### ☆☆☆☆☆ Teatro de Marionetes
-- **Descrição:** Controla duas Títeres simultaneamente. -1DR para acertos das Títeres devido à complexidade.
-<!--#fim-->
-
-
-<!--#poder id="cs_marionetes_r5e1_4" fonte="classe_avancada" rank="5" estrela="1" nome="Melhoria"-->
-### Melhoria
-- Recebe quarta e quinta Atualizações de Títere.
-
+Controle uma **segunda Títere** simultaneamente (mesmo custo). Comandar as duas com Mente Dupla impõe −1DR nos acertos. **Recebe sua 5ª Atualização.**
 <!--#fim-->
 
 ---
 
-## Rank 4 – Soberania Arcana
+## Rank 4 — Soberania Arcana
 
-<!--#poder id="cs_marionetes_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="☆ Mestre Artesão"-->
-### ☆ Mestre Artesão
-- **Descrição:** Reparo de Campo cura 1d12 + Inteligência + ER por cada 2 Magículas. Tempo de Atualizações de Títere reduzido pela metade.
+<!--#poder id="cs_marionetes_r4e1" fonte="classe_avancada" rank="4" estrela="1" nome="Mestre Artesão"-->
+### Mestre Artesão
+
+Reparo de Campo cura 1d12 + Intelecto + ER a cada **2 Magículas**; tempo de Atualizações reduzido à metade. **Recebe sua 8ª Atualização.**
 <!--#fim-->
 
+<!--#poder id="cs_marionetes_r4e3" fonte="classe_avancada" rank="4" estrela="3" nome="Vontade Soberana"-->
+### Vontade Soberana
 
-<!--#poder id="cs_marionetes_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="☆☆☆ Vontade Soberana"-->
-### ☆☆☆ Vontade Soberana
-- **Descrição:** Sem penalidade de -1DR ao controlar duas Títeres. Títeres agem com precisão letal.
+Sem penalidade de −1DR ao controlar duas marionetes com Teatro de Marionetes. **Recebe sua 9ª e última Atualização.**
 <!--#fim-->
 
+## Atualizações de Títere *(escolha ao ganhar uma melhoria)*
 
-<!--#poder id="cs_marionetes_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Melhoria"-->
-### Melhoria
-- Recebe oitava e nona Atualizações de Títere.
+Modificações instaláveis na Títere Arcana:
 
-# Atualizações de Títere – Requisitos de Peças e Escalamento
-
-Cada atualização exige **pelo menos dois tipos de peças**. A raridade mínima está listada, mas usar peças **Épicas** ou **Lendárias** aumenta o efeito.
-
-Tipos de Peças:
-- **Peças de Manátio:** Cristais, núcleos de energia, drenos arcanos.
-- **Peças Mágicas:** Cristais elementais, runas, gemas encantadas.
-- **Peças Orgânicas:** Ossos, fibras musculares artificiais, tentáculos sintéticos.
-- **Peças Gerais:** Estruturas metálicas, engrenagens, molas, pistões.
-
-Raridade: Comum → Incomum → Raro → Épico → Lendário  
-
----
-
-## Placas de Reforço
-- **Requisitos:** Peças Gerais Raras + Peças Mágicas Comuns  
-- **Efeito Base:** +2 CA e Resistência I a um dano físico  
-- **Escalamento:**
-  - **Épico:** +3 CA, Resistência II  
-  - **Lendário:** +4 CA, Resistência III + 1 turno de imunidade a efeito de empurrão
-
-## Lâminas Ocultas
-- **Requisitos:** Peças Gerais Comuns + Peças Mágicas Incomuns  
-- **Efeito Base:** Ataque 1d6 Cortante per 2 Destreza, crítico = Sangrando  
-- **Escalamento:**
-  - **Épico:** Dano aumenta 1d6, crítico causa Sangrando + Tonto 1 rodada  
-  - **Lendário:** Dano 2d6 per 2 Destreza, crítico causa Sangrando + Debilitado 1 rodada
-
-## Injetor de Peçonha
-- **Requisitos:** Peças Orgânicas Raras + Peças Mágicas Comuns  
-- **Efeito Base:** CD 10 + Inteligência + ER, dano 1d6/rodada, duração ER  
-- **Escalamento:**
-  - **Épico:** Dano 2d6/rodada, CD aumenta +2  
-  - **Lendário:** Dano 3d6/rodada, CD +4 e alvo recebe Debilitado 1 rodada
-
-## Sistema de Propulsão
-- **Requisitos:** Peças Gerais Comuns + Peças de Manátio Incomuns  
-- **Efeito Base:** Deslocamento +3m, bônus Acrobacia = ER  
-- **Escalamento:**
-  - **Épico:** Deslocamento +5m, bônus Acrobacia = ER +2  
-  - **Lendário:** Deslocamento +7m, bônus Acrobacia = ER +3 e salto sem teste de CD
-
-## Lançador de Fios ou Rede
-- **Requisitos:** Peças de Manátio Incomuns + Peças Mágicas Raras  
-- **Efeito Base:** CD 10 + Inteligência + ER; Enredado/Imóvel 1d4  
-- **Escalamento:**
-  - **Épico:** Duração 1d6, CD +2  
-  - **Lendário:** Duração 1d8, CD +4 e área de alcance aumenta +2m
-
-## Mecanismo de Impacto Pesado
-- **Requisitos:** Peças Gerais Raras + Peças de Manátio Comuns  
-- **Efeito Base:** Teste CD 10 + Força + ER, alvo empurrado 3m + Tonto  
-- **Escalamento:**
-  - **Épico:** Empurrado 6m + Tonto 2 rodadas  
-  - **Lendário:** Empurrado 9m + Tonto 2 rodadas + dano Contundente extra 1d6
-
-## Núcleo de Auto-Reparo
-- **Requisitos:** Peças de Manátio Raras + Peças Mágicas Raras  
-- **Efeito Base:** Recupera ER PV por turno, 1x/dia 2d10 + Inteligência  
-- **Escalamento:**
-  - **Épico:** Recupera ER +2 PV, ativo 3d10 + Inteligência  
-  - **Lendário:** Recupera ER +4 PV, ativo 4d10 + Inteligência e remove 1 condição adversa
-
-## Canalizador Elemental
-- **Requisitos:** Peças Mágicas Raras + Peças de Manátio Comuns  
-- **Efeito Base:** Ataque elemental +1d10, custo 2 Magículas  
-- **Escalamento:**
-  - **Épico:** +2d10  
-  - **Lendário:** +3d10 e alvo sofre condição elemental (Ex: Queimando, Molhado, etc.)
-
-## Camuflagem Adaptativa
-- **Requisitos:** Peças Orgânicas Comuns + Peças Mágicas Incomuns  
-- **Efeito Base:** Bônus Furtividade = Destreza + ER, pode se esconder em sombra 1,5m  
-- **Escalamento:**
-  - **Épico:** Alcance de cobertura 3m  
-  - **Lendário:** Alcance 5m + invisível até atacar
-
-## Gerador de Escudo Arcano
-- **Requisitos:** Peças Mágicas Raras + Peças de Manátio Raras  
-- **Efeito Base:** PV Temporários = 3 x Inteligência, Reação, usos/dia = ER  
-- **Escalamento:**
-  - **Épico:** PV Temporários = 4 x Inteligência  
-  - **Lendário:** PV Temporários = 5 x Inteligência + absorve dano mágico Rank 2
-
-## Transpositor de Posição
-- **Requisitos:** Peças de Manátio Raras + Peças Mágicas Raras  
-- **Efeito Base:** Troca de lugar Ação Bônus, até ER vezes/dia  
-- **Escalamento:**
-  - **Épico:** Alcance aumenta +9m  
-  - **Lendário:** Sem restrição de alcance, +1DR ataque pós-troca
-
-## Perfurador de Blindagem Cinético
-- **Requisitos:** Peças Gerais Raras + Peças Orgânicas Comuns  
-- **Efeito Base:** Ignora 2 x ER Resistência, +1d10 se sem resistência  
-- **Escalamento:**
-  - **Épico:** Ignora 3 x ER, +2d10  
-  - **Lendário:** Ignora 4 x ER, +3d10 e crítico causa Tonto 1 rodada
-
-## Dispersor de Gás Nocivo
-- **Requisitos:** Peças Orgânicas Raras + Peças Mágicas Comuns  
-- **Efeito Base:** Raio 3m, duração 1d4, CD 10 + Inteligência, Fraco 1 rodada  
-- **Escalamento:**
-  - **Épico:** Raio 4m, duração 1d6  
-  - **Lendário:** Raio 5m, duração 1d8 + condição Fraco e Tonto
-
-## Sifão de Mana
-- **Requisitos:** Peças de Manátio Raras + Peças Mágicas Comuns  
-- **Efeito Base:** CD 10 + Inteligência, alvo perde 1d6 Magículas, mestre recupera metade  
-- **Escalamento:**
-  - **Épico:** Drena 2d6  
-  - **Lendário:** Drena 3d6 e recupera total para mestre
-
-## Módulo de Imagem Ilusória
-- **Requisitos:** Peças Mágicas Raras + Peças Orgânicas Comuns  
-- **Efeito Base:** Criar duplicata 1 PV, teste CD 11 + ER para discernir  
-- **Escalamento:**
-  - **Épico:** Criar 2 duplicatas simultâneas  
-  - **Lendário:** Criar 3 duplicatas + ilusão pode causar dano leve 1d4
-
-## Membros Múltiplos de Combate
-- **Requisitos:** Peças Gerais Raras + Peças Orgânicas Incomuns  
-- **Efeito Base:** Rajada de 2 ataques, -1DR  
-- **Escalamento:**
-  - **Épico:** 3 ataques, -1DR  
-  - **Lendário:** 4 ataques, -1DR
-
-## Reator de Sobrecarga
-- **Requisitos:** Peças de Manátio Raras + Peças Gerais Comuns  
-- **Efeito Base:** +1DR, +5m deslocamento, 2d12 dano + Debilitado  
-- **Escalamento:**
-  - **Épico:** +2DR, +7m deslocamento, 3d12 dano  
-  - **Lendário:** +3DR, +10m deslocamento, 4d12 dano + Debilitado 2 rodadas
-
-## Sistema de Armas Modular
-- **Requisitos:** Peças Gerais Raras + Peças Mágicas Incomuns  
-- **Efeito Base:** Alternar 2 armas, mudar tipo de dano  
-- **Escalamento:**
-  - **Épico:** Alterna 3 armas  
-  - **Lendário:** Alterna 4 armas + bônus dano +1d6
-
-## Anulador de Magia Ressonante
-- **Requisitos:** Peças Mágicas Lendárias + Peças de Manátio Raras  
-- **Efeito Base:** Reação, teste Inteligência + ER vs CD magia, 1x/dia  
-- **Escalamento:**
-  - **Lendário:** Usos/dia aumentam para ER vezes, CD +2
-
-## Protocolo Guardião
-- **Requisitos:** Peças Gerais Raras + Peças Mágicas Incomuns  
-- **Efeito Base:** Mestre a 1,5m +2 CA, Títere intercepta ataque  
-- **Escalamento:**
-  - **Épico:** Alcance 3m, Títere recebe ataque + bônus PV Temporários = 1d6  
-  - **Lendário:** Alcance 5m, Títere recebe ataque + PV Temporários = 2d6 + imunidade a empurrão
-<!--#fim-->
-
+* **Placas de Reforço:** +2 CA e Resistência I a um dano físico à escolha.
+* **Lâminas Ocultas:** ataque de Ação Padrão, 1d6 Cortante per 2 Técnica da Títere; crítico causa Sangrando.
+* **Injetor de Peçonha:** 1×/turno ao acertar, alvo faz Defesa de Corpo (CD 10 + Intelecto + ER) ou fica Envenenado (1d6/rodada por ER rodadas).
+* **Sistema de Propulsão:** +3m de Deslocamento e bônus em Acrobacia igual à ER.
+* **Lançador de Fios/Rede:** Ação Padrão, alcance Curto; alvo faz Defesa de Técnica ou fica Enredado/Imóvel 1d4 rodadas.
+* **Mecanismo de Impacto Pesado:** dano Contundente força Defesa de Corpo; falha empurra 3m e deixa Tonto.
+* **Núcleo de Auto-Reparo:** recupera ER PV por turno; 1×/dia como Reação, 2d10 + Intelecto.
+* **Canalizador Elemental:** gaste 2 Magículas para +1d10 de dano elemental à escolha.
+* **Camuflagem Adaptativa:** bônus em Furtividade igual à Técnica + ER; pode esconder-se observada.
+* **Gerador de Escudo Arcano:** como Reação, VT igual a 3× Intelecto (ER usos/dia).
+* **Transpositor de Posição:** ER×/dia, troca de lugar com a Títere como Ação Bônus, sem ataques de oportunidade.
+* **Perfurador de Blindagem Cinético:** ignora Resistência a Dano igual a 2× ER (ou +1d10 se não houver).
+* **Dispersor de Gás Nocivo:** nuvem de 3m; quem começar o turno nela faz Defesa de Corpo (CD 10 + Intelecto) ou fica Fraco.
+* **Sifão de Mana:** 1×/turno, alvo faz Defesa de Mana ou perde 1d6 Magículas (você recupera metade).
+* **Módulo de Imagem Ilusória:** cria uma cópia (mesma CA, 1 PV); discernir exige Intuição (CD 11 + ER).
+* **Membros Múltiplos de Combate:** dois ataques com −1DR cada.
+* **Reator de Sobrecarga:** +1DR nos ataques e +5m por 1d3 rodadas; ao fim, 2d12 de dano e Debilitado.
+* **Sistema de Armas Modular:** duas armas; troca o tipo de dano como Ação Bônus.
+* **Anulador de Magia Ressonante:** Reação, teste de Intelecto + ER vs CD da magia inimiga para dissipá-la (1×/dia).
+* **Protocolo Guardião:** +2 CA ao mestre adjacente; 1×/combate a Títere recebe o 1º golpe no lugar dele sem gastar reação.

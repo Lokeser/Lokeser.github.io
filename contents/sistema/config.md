@@ -90,7 +90,8 @@
     { "nome": "Hypnoriano",         "arquivo": "contents/racas/Humano-Hypnoriano.md" },
     { "nome": "Rekel Ancestral",              "arquivo": "contents/racas/Secreta-RekelAncestral.md",  "secreta": true },
     { "nome": "Humano Variante — Convertido", "arquivo": "contents/racas/Secreta-HumanoConvertido.md", "secreta": true },
-    { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md",       "secreta": true }
+    { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md",       "secreta": true },
+    { "nome": "ArkHumano",                    "arquivo": "contents/racas/Secreta-ArkHumano.md",        "secreta": true, "proibida": true }
   ],
 
   "classes_iniciais": [

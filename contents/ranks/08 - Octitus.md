@@ -11,7 +11,10 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 * **Dado de Rank (DR):** **d24**
 * **Margem de Crítico:** **23–24**
-* **Eficiência de Rank (ER):** **3**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d6 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d2 + 2**
 
 ---
 

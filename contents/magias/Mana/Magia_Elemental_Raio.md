@@ -8,17 +8,18 @@
 
 ---
 
-<!--#poder id="mg_magia_elemental_raio_r10e1_1" fonte="magia" rank="10" estrela="1" nome="Rank 10"-->
 ## Rank 10
 
-<!--#fim-->
 
+<!--#poder id="mg_magia_elemental_raio_r10_nucleo" fonte="magia" rank="10" estrela="1" nome="Núcleo de Mana Elétrico"-->
 ## Núcleo de Mana Elétrico
 Ao nascer com este núcleo, sua Mana assume propriedades elétricas instáveis e agressivas.
 
 - Recebe **Resistência Adaptativa (Mana + ER)** contra **Dano de Raio** (Mágico e Natural).
 
 ---
+
+<!--#fim-->
 
 <!--#poder id="mg_magia_elemental_raio_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre de Raio"-->
 ## Manipulação Livre de Raio
@@ -206,10 +207,8 @@ Sempre que causar dano elétrico à **Vida Temporária** de um inimigo:
 
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r3e1_1" fonte="magia" rank="3" estrela="1" nome="Rank 3"-->
 ## Rank 3
 
-<!--#fim-->
 
 ## ARK
 Desbloqueia acesso a poderes de **Ark-Magia** focados em:

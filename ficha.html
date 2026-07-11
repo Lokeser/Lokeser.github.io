@@ -313,6 +313,7 @@
                 <button class="btn-wnj fantasma" id="btn-visualizar" style="display:none">👁 Visualizar</button>
                 <button class="btn-wnj azul" id="btn-baixar" style="display:none">⬇ Baixar</button>
                 <button class="btn-wnj ouro" id="btn-salvar" style="display:none">💾 Salvar</button>
+                <button class="btn-wnj fantasma" id="btn-reset-criacao" style="display:none;border-color:#c05050;color:#ff9b9b" title="Resetar a criação de personagem">⟳</button>
             </div>
         </div>
 
@@ -508,6 +509,16 @@
                 <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
                 <button class="btn-wnj ouro" id="item-salvar">Salvar Item</button>
             </div>
+        </div>
+    </div>
+
+    <!-- POPUP: BENEFÍCIOS DO ATRIBUTO -->
+    <div class="overlay" id="ov-attrinfo">
+        <div class="modal-wnj" style="max-width:640px">
+            <h3 id="attrinfo-titulo">Atributo</h3>
+            <div id="attrinfo-ganhos" style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 14px;margin-bottom:14px"></div>
+            <div id="attrinfo-md" class="efeito" style="max-height:320px;overflow-y:auto;font-size:.86rem;line-height:1.5"></div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
         </div>
     </div>
 

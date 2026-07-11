@@ -7,6 +7,7 @@
 
 ---
 
+<!--#poder id="mg_magia_elmental_fogo_r10_nucleo" fonte="magia" rank="10" estrela="1" nome="Núcleo de Mana Flamejante"-->
 ## Núcleo de Mana Flamejante
 Ao nascer com este núcleo, a Magia de Fogo molda seu corpo e espírito naturalmente.
 
@@ -14,6 +15,8 @@ Ao nascer com este núcleo, a Magia de Fogo molda seu corpo e espírito naturalm
 - Para cada **10 de Dano** causado a um alvo, você recebe **1 de Vida Temporária**.
 
 ---
+
+<!--#fim-->
 
 <!--#poder id="mg_magia_elmental_fogo_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
 ## Manipulação Livre

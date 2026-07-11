@@ -190,14 +190,17 @@
     function renderPericias() {
         const t = attrsTotais();
         const lista = WNJ.calcPericias(cfg, t);
+        // Ajustes manuais são guardados como DELTA (bônus/pena) sobre o valor
+        // automático — assim, subir um atributo continua refletindo na perícia.
+        char.periciasDelta = char.periciasDelta || {};
         $('pericias-grid').innerHTML = lista.map(p => {
-            const override = char.overridesPericias[p.nome];
-            const manual = override !== undefined;
-            const valor = manual ? override : p.valor;
+            const delta = char.periciasDelta[p.nome] || 0;
+            const manual = delta !== 0;
+            const valor = p.valor + delta;
             const corPrincipal = CORES[Object.entries(p.pesos).sort((a, b) => b[1] - a[1])[0][0]];
-            return '<div class="pericia' + (manual ? ' editada' : '') + '" data-pericia="' + esc(p.nome) + '">' +
+            return '<div class="pericia' + (manual ? ' editada' : '') + '" data-pericia="' + esc(p.nome) + '" data-auto="' + p.valor + '">' +
                 '<span style="width:8px;height:8px;border-radius:50%;background:' + corPrincipal + ';flex:0 0 8px"></span>' +
-                '<span class="pnome">' + esc(p.nome) + '</span>' +
+                '<span class="pnome">' + esc(p.nome) + (manual ? ' <small style="color:#f0c56b">(' + (delta > 0 ? '+' : '') + delta + ')</small>' : '') + '</span>' +
                 '<span class="escala">' + escalaTexto(p.pesos) + '</span>' +
                 '<button class="reset" title="Voltar ao automático">↺</button>' +
                 '<input type="number" value="' + valor + '">' +
@@ -205,14 +208,81 @@
         }).join('');
         document.querySelectorAll('#pericias-grid .pericia').forEach(el => {
             const nome = el.dataset.pericia;
+            const auto = parseInt(el.dataset.auto, 10) || 0;
             el.querySelector('input').oninput = (e) => {
-                char.overridesPericias[nome] = parseInt(e.target.value) || 0;
-                el.classList.add('editada');
+                const digitado = parseInt(e.target.value, 10);
+                const delta = (isNaN(digitado) ? auto : digitado) - auto;
+                if (delta === 0) delete char.periciasDelta[nome];
+                else char.periciasDelta[nome] = delta;
+                el.classList.toggle('editada', delta !== 0);
             };
             el.querySelector('.reset').onclick = () => {
-                delete char.overridesPericias[nome];
+                delete char.periciasDelta[nome];
                 renderPericias();
             };
+        });
+    }
+
+    // ================= RESISTÊNCIAS =================
+    // Redução (Tipos_Resistencia.md): base do estágio + ER + Corpo.
+    const TIPOS_DANO = [
+        { nome: 'Cortante', cor: '#b9c4cf' }, { nome: 'Perfurante', cor: '#b9c4cf' }, { nome: 'Contundente', cor: '#b9c4cf' },
+        { nome: 'Magi-Cortante', cor: '#a86af0' }, { nome: 'Magi-Perfurante', cor: '#a86af0' }, { nome: 'Magi-Contundente', cor: '#a86af0' },
+        { nome: 'Água', cor: '#4aa3ff' }, { nome: 'Terra', cor: '#ff9040' }, { nome: 'Fogo', cor: '#ff5a3c' },
+        { nome: 'Vento', cor: '#52d273' }, { nome: 'Raio', cor: '#b05aff' },
+        { nome: 'Ki', cor: '#ff2e2e' }, { nome: 'Fé', cor: '#ffe27a' }, { nome: 'Caos', cor: '#9d5cff' },
+        { nome: 'Anômalo', cor: '#6fd4ff' }, { nome: 'Malícia', cor: '#c94f7c' }, { nome: 'Ordem', cor: '#f0f0f0' }
+    ];
+    const NIVEIS_RES = [
+        { id: 'acostumado', rotulo: 'Acostumado', base: null },
+        { id: 'r1', rotulo: 'Resistência I', base: 3 }, { id: 'r2', rotulo: 'Resistência II', base: 6 },
+        { id: 'r3', rotulo: 'Resistência III', base: 8 }, { id: 'r4', rotulo: 'Resistência IV', base: 10 },
+        { id: 'r5', rotulo: 'Resistência V', base: 12 }, { id: 'r6', rotulo: 'Resistência VI', base: 14 },
+        { id: 'r7', rotulo: 'Resistência VII', base: 16 }, { id: 'r8', rotulo: 'Resistência VIII', base: 18 },
+        { id: 'r9', rotulo: 'Resistência IX', base: 20 }, { id: 'r10', rotulo: 'Resistência X', base: 25 },
+        { id: 'imune', rotulo: 'Imunidade', base: null }
+    ];
+    function reducaoTexto(nivel) {
+        if (!nivel) return '';
+        if (nivel.id === 'imune') return 'não recebe dano';
+        if (nivel.id === 'acostumado') return 'reduz conforme o atributo adaptado';
+        const t = attrsTotais();
+        const valor = nivel.base + (rankInfo.er || 1) + (t.corpo || 0);
+        return 'reduz ' + valor + ' (' + nivel.base + ' + ER + Corpo)';
+    }
+    let resAberto = null; // tipo com o painel aberto
+    function renderResistencias() {
+        char.resistencias = char.resistencias || {};
+        $('res-grid').innerHTML = TIPOS_DANO.map(td => {
+            const nivelId = char.resistencias[td.nome];
+            const nivel = NIVEIS_RES.find(n => n.id === nivelId);
+            const badge = nivel ? '<span class="res-nivel">' + nivel.rotulo + '</span>' : '';
+            const reducao = nivel ? '<span class="res-reducao">' + reducaoTexto(nivel) + '</span>' : '';
+            const painel = resAberto === td.nome
+                ? '<div class="res-painel">' +
+                  '<button data-nivel=""><span>— Nenhuma —</span></button>' +
+                  NIVEIS_RES.map(n => '<button data-nivel="' + n.id + '"><span>' + n.rotulo + '</span><small>' + reducaoTexto(n) + '</small></button>').join('') +
+                  '</div>'
+                : '';
+            return '<div class="res-item" data-tipo="' + esc(td.nome) + '">' +
+                '<button type="button" class="res-chip" style="--rescor:' + td.cor + '"><span>' + esc(td.nome) + reducao + '</span>' + badge + '</button>' +
+                painel + '</div>';
+        }).join('');
+        document.querySelectorAll('#res-grid .res-item').forEach(item => {
+            const tipo = item.dataset.tipo;
+            item.querySelector('.res-chip').onclick = () => {
+                resAberto = resAberto === tipo ? null : tipo;
+                renderResistencias();
+            };
+            item.querySelectorAll('.res-painel button').forEach(b => {
+                b.onclick = (e) => {
+                    e.stopPropagation();
+                    if (b.dataset.nivel) char.resistencias[tipo] = b.dataset.nivel;
+                    else delete char.resistencias[tipo];
+                    resAberto = null;
+                    renderResistencias();
+                };
+            });
         });
     }
 
@@ -363,7 +433,7 @@
 
     function renderTudo() {
         renderTopo(); renderIdentidade(); renderAutos(); renderAtributos();
-        renderPericias(); renderFiltrosPoder(); renderPoderes(); renderAtaques();
+        renderPericias(); renderResistencias(); renderFiltrosPoder(); renderPoderes(); renderAtaques();
         renderFiltrosInv(); renderInventario(); renderCargas(); renderPensamentos();
     }
 
@@ -536,7 +606,10 @@
         for (const h of itens) {
             if (h.estagio_rotulo !== atual) {
                 atual = h.estagio_rotulo;
-                html += '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:' + cor + ';margin:12px 2px 6px">' + esc(atual) + '</div>';
+                const nota = h.estagio >= 2
+                    ? ' <span style="text-transform:none;letter-spacing:0;font-weight:400;color:#8fb3cf">— Requer até duas habilidades do estágio passado.</span>'
+                    : '';
+                html += '<div style="font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:' + cor + ';margin:12px 2px 6px">' + esc(atual) + nota + '</div>';
             }
             html += '<button type="button" class="hab-opcao" data-arquivo="' + esc(h.arquivo) + '" ' +
                 'style="display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);' +
@@ -901,5 +974,21 @@
     await carregarRaca();
     await carregarRank();
     await sincronizarPoderes();
+
+    // Migração: fichas antigas guardavam a perícia editada como valor absoluto;
+    // convertemos para delta (valor - automático) para acompanhar os atributos.
+    if (char.overridesPericias && Object.keys(char.overridesPericias).length) {
+        char.periciasDelta = char.periciasDelta || {};
+        const autos = WNJ.calcPericias(cfg, attrsTotais());
+        for (const [nome, absoluto] of Object.entries(char.overridesPericias)) {
+            const p = autos.find(x => x.nome === nome);
+            const delta = (absoluto || 0) - (p ? p.valor : 0);
+            if (delta !== 0) char.periciasDelta[nome] = delta;
+        }
+        delete char.overridesPericias;
+    } else {
+        delete char.overridesPericias;
+    }
+
     renderTudo();
 })();

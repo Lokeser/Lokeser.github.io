@@ -45,7 +45,7 @@
     { "nome": "Intuição",          "pesos": { "sabedoria": 4 } },
     { "nome": "Percepção",         "pesos": { "sabedoria": 2, "intelecto": 2 } },
     { "nome": "Sobrevivência",     "pesos": { "sabedoria": 2, "corpo": 2 } },
-    { "nome": "Arcanismo",         "pesos": { "mana": 3, "intelecto": 1 } },
+    { "nome": "Arcanismo",         "pesos": { "intelecto": 3, "mana": 1 } },
     { "nome": "Percepção Mágica",  "pesos": { "mana": 3, "sabedoria": 1 } },
     { "nome": "Aura",              "pesos": { "mana": 3, "carisma": 1 } }
   ],

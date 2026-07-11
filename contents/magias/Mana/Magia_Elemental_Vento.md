@@ -22,6 +22,7 @@ Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.
 
 ---
 
+<!--#poder id="mg_magia_elemental_vento_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
 ## Manipulação Livre
 Você se torna capaz de externar sua Mana em vento puro, moldando correntes, impulsos e pressões conforme sua vontade.
 
@@ -65,6 +66,7 @@ Sempre que causar dano com a Manipulação Livre:
 
 - Aplica **1 Marca da Tontura** no alvo.
 - Ao atingir **3 Marcas**, o alvo fica **Tonto por 1d2 turnos**.
+<!--#fim-->
 
 ---
 

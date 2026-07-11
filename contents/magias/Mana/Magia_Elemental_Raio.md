@@ -20,6 +20,7 @@ Ao nascer com este núcleo, sua Mana assume propriedades elétricas instáveis e
 
 ---
 
+<!--#poder id="mg_magia_elemental_raio_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre de Raio"-->
 ## Manipulação Livre de Raio
 Você se torna capaz de expelir sua Mana em forma de eletricidade pura, adquirindo a **Manipulação Livre de Raio**.
 
@@ -60,6 +61,7 @@ Sempre que acertar um alvo:
 
 **Condutor Elétrico:**
 - Inimigos com **Condutor Elétrico** recebem o dano **sem custo de Magículas**.
+<!--#fim-->
 
 ---
 

@@ -15,6 +15,7 @@ Ao nascer com este núcleo, a Magia de Fogo molda seu corpo e espírito naturalm
 
 ---
 
+<!--#poder id="mg_magia_elmental_fogo_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
 ## Manipulação Livre
 Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que se moldam em ataques diretos.
 
@@ -29,6 +30,7 @@ Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que
 **Efeito Especial:**  
 - Em **Crítico**, o dano total é **dobrado** contra seres vivos.
 - O alvo fica **Em Chamas**.
+<!--#fim-->
 
 ---
 

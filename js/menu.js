@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/magias/magias_menu.html">Magias</a></li>
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
                     <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
-                    <li><a href="${finalPrefix}personagem.html" class="nav-cta">Criar Personagem</a></li>
+                    <li><a href="${finalPrefix}personagem.html" class="nav-cta">Meus Personagens</a></li>
                     <li><button id="theme-toggle" class="theme-toggle" type="button" title="Alternar tema">🌙</button></li>
                 </ul>
             </div>

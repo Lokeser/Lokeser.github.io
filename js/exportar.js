@@ -39,7 +39,9 @@ const WNJExport = (() => {
         const desloc = char.deslocManual != null ? char.deslocManual : WNJ.calcDeslocamento(cfg, attrs);
         const pericias = WNJ.calcPericias(cfg, attrs).map(p => ({
             nome: p.nome,
-            valor: (char.overridesPericias || {})[p.nome] !== undefined ? char.overridesPericias[p.nome] : p.valor,
+            valor: (char.overridesPericias || {})[p.nome] !== undefined
+                ? char.overridesPericias[p.nome]                     // legado (absoluto)
+                : p.valor + ((char.periciasDelta || {})[p.nome] || 0), // atual (delta)
             cor: CORES[Object.entries(p.pesos).sort((a, b) => b[1] - a[1])[0][0]]
         }));
         const [ap1, ap2] = WNJ.atributosPrincipais(cfg, attrs);
@@ -60,6 +62,24 @@ const WNJExport = (() => {
         const perHTML = pericias.map(p =>
             '<div class="pe"><span class="dot" style="background:' + p.cor + '"></span>' + esc(p.nome) +
             '<span class="pv">' + p.valor + '</span></div>').join('');
+
+        // ---- resistências ----
+        const NIVEIS_RES = {
+            acostumado: { rotulo: 'Acostumado', base: null },
+            r1: { rotulo: 'Resistência I', base: 3 }, r2: { rotulo: 'Resistência II', base: 6 },
+            r3: { rotulo: 'Resistência III', base: 8 }, r4: { rotulo: 'Resistência IV', base: 10 },
+            r5: { rotulo: 'Resistência V', base: 12 }, r6: { rotulo: 'Resistência VI', base: 14 },
+            r7: { rotulo: 'Resistência VII', base: 16 }, r8: { rotulo: 'Resistência VIII', base: 18 },
+            r9: { rotulo: 'Resistência IX', base: 20 }, r10: { rotulo: 'Resistência X', base: 25 },
+            imune: { rotulo: 'Imunidade', base: null }
+        };
+        const resHTML = Object.entries(char.resistencias || {}).map(([tipo, nid]) => {
+            const n = NIVEIS_RES[nid]; if (!n) return '';
+            const red = n.base != null ? 'reduz ' + (n.base + er + (attrs.corpo || 0)) :
+                (nid === 'imune' ? 'não recebe dano' : 'reduz pelo atributo adaptado');
+            return '<div class="pe"><span class="dot" style="background:' + AC + '"></span>' + esc(tipo) +
+                '<span class="pv" style="font-size:.72rem">' + n.rotulo + ' · ' + red + '</span></div>';
+        }).join('');
 
         const poderesVisiveis = (char.poderes || []).filter(p => !p.oculto);
         const podHTML = poderesVisiveis.map(p => {
@@ -166,6 +186,7 @@ const WNJExport = (() => {
             '</div>' +
             '<h2>Atributos</h2><div class="ats">' + attrCards + '</div>' +
             '<h2>Perícias</h2><div class="pes">' + perHTML + '</div>' +
+            (resHTML ? '<h2>Resistências</h2><div class="pes">' + resHTML + '</div>' : '') +
             '<h2>Poderes</h2><div class="cards">' + podHTML + '</div>' +
             '<h2>Ataques</h2><div class="cards">' + atqHTML + '</div>' +
             '<h2>Inventário</h2><div class="cards">' + invHTML + '</div>' +

@@ -531,6 +531,26 @@
         </div>
     </div>
 
+    <!-- POPUP: ESCOLHA DE EVOLUÇÃO -->
+    <div class="overlay" id="ov-evo-menu">
+        <div class="modal-wnj">
+            <h3>⭐ Evoluir</h3>
+            <p style="color:#9fc0da;font-size:.88rem;margin-bottom:14px">Atual: <strong id="evo-atual" style="color:#fff"></strong></p>
+            <button class="btn-wnj verde" id="evo-mais1" style="width:100%;justify-content:center">⭐ Subir 1 Estrela</button>
+            <div style="margin:18px 0 8px;color:#8fb3cf;font-size:.76rem;text-transform:uppercase;letter-spacing:2px;text-align:center">— ou salte direto para —</div>
+            <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap">
+                <label style="flex:1;min-width:110px">Rank
+                    <select id="evo-rank" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px"></select>
+                </label>
+                <label style="flex:1;min-width:110px">Estrela
+                    <select id="evo-estrela" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px"></select>
+                </label>
+                <button class="btn-wnj ouro" id="evo-saltar">Ir →</button>
+            </div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Cancelar</button></div>
+        </div>
+    </div>
+
     <!-- POPUP: EVOLUÇÃO -->
     <div class="overlay" id="ov-evo">
         <div class="modal-wnj evo-pop">

@@ -147,6 +147,7 @@
             '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · auto: ' + WNJ.calcDeslocamento(cfg, t) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' (' + racaInfo.vidaBase + ' + ' + racaInfo.vidaPasso + ' a cada 2 Corpo)</small></div>' +
+            '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: Mana + ER = ' + magAuto + '</small></div>';
 
@@ -157,6 +158,8 @@
         $('in-vida-max').oninput = e => { char.vidaMaxManual = parseInt(e.target.value) || 0; };
         $('in-mag-atual').oninput = e => { char.magiculasAtual = parseInt(e.target.value) || 0; };
         $('in-mag-max').oninput = e => { char.magiculasMax = parseInt(e.target.value) || 0; };
+        $('in-vidamag-atual').oninput = e => { char.vidaMagicaAtual = parseInt(e.target.value) || 0; };
+        $('in-vidamag-max').oninput = e => { char.vidaMagicaMax = parseInt(e.target.value) || 0; };
     }
 
     function renderAtributos() {
@@ -732,21 +735,20 @@
     };
 
     // ================= EVOLUIR =================
-    $('btn-evoluir').onclick = async () => {
-        let { rank, estrela } = char;
-        const maxE = cfg.estrelas_por_rank || 5;
-        if (rank === 10) { rank = 9; estrela = 1; }
-        else if (estrela < maxE) { estrela++; }
-        else if (rank > 3) { rank--; estrela = 1; }
-        else { alert('Você já alcançou o topo: Rank 3 ★' + maxE + '!'); return; }
+    const MAX_E = cfg.estrelas_por_rank || 5;
+    // "posição" linear para comparar avanço: rank 10 = 0, cada estrela +1
+    function posEvo(rank, est) { return rank === 10 ? 0 : (10 - rank - 1) * MAX_E + est; }
+
+    async function aplicarEvolucao(rank, estrela) {
         char.rank = rank; char.estrela = estrela;
         await carregarRank();
         const novos = await sincronizarPoderes();
         WNJ.salvar(char);
         renderTudo();
-        // popup
-        $('evo-estrelas').textContent = '★'.repeat(estrela);
-        $('evo-titulo').textContent = 'Parabéns! Rank ' + rank + ' — ' + estrela + 'ª Estrela';
+        $('evo-estrelas').textContent = rank < 10 ? '★'.repeat(estrela) : '✦';
+        $('evo-titulo').textContent = rank < 10
+            ? 'Parabéns! Rank ' + rank + ' — ' + estrela + 'ª Estrela'
+            : 'Rank 10 — Início da Jornada';
         const texto = await WNJ.textoEstrela(cfg, rank, estrela);
         $('evo-ganhos').innerHTML = texto
             ? (typeof marked !== 'undefined' ? marked.parse(texto) : '<pre>' + esc(texto) + '</pre>')
@@ -755,6 +757,46 @@
             $('evo-ganhos').innerHTML += '<p style="color:#7fd08a"><strong>+' + novos + ' poder(es)</strong> adicionados à sua ficha.</p>';
         }
         abrirOverlay('ov-evo');
+    }
+
+    function proximaEvo() {
+        let { rank, estrela } = char;
+        if (rank === 10) return { rank: 9, estrela: 1 };
+        if (estrela < MAX_E) return { rank, estrela: estrela + 1 };
+        if (rank > 3) return { rank: rank - 1, estrela: 1 };
+        return null; // topo
+    }
+
+    $('btn-evoluir').onclick = () => {
+        $('evo-atual').textContent = char.rank < 10 ? 'Rank ' + char.rank + ' · ' + char.estrela + 'ª Estrela' : 'Rank 10';
+        // popular selects de salto (10 → 3)
+        $('evo-rank').innerHTML = '';
+        for (let r = 10; r >= 3; r--) $('evo-rank').insertAdjacentHTML('beforeend', '<option value="' + r + '">Rank ' + r + '</option>');
+        $('evo-estrela').innerHTML = '';
+        for (let s = 1; s <= MAX_E; s++) $('evo-estrela').insertAdjacentHTML('beforeend', '<option value="' + s + '">' + s + 'ª Estrela</option>');
+        $('evo-rank').value = String(char.rank);
+        $('evo-estrela').value = String(char.rank < 10 ? char.estrela : 1);
+        const semTopo = !proximaEvo();
+        $('evo-mais1').disabled = semTopo;
+        $('evo-mais1').textContent = semTopo ? 'Você já está no topo (Rank 3 ★' + MAX_E + ')' : '⭐ Subir 1 Estrela';
+        abrirOverlay('ov-evo-menu');
+    };
+
+    $('evo-mais1').onclick = async () => {
+        const nx = proximaEvo();
+        if (!nx) return;
+        fecharOverlay('ov-evo-menu');
+        await aplicarEvolucao(nx.rank, nx.estrela);
+    };
+
+    $('evo-saltar').onclick = async () => {
+        let rank = parseInt($('evo-rank').value, 10);
+        let estrela = rank === 10 ? 1 : parseInt($('evo-estrela').value, 10);
+        if (posEvo(rank, estrela) < posEvo(char.rank, char.estrela)) {
+            if (!confirm('Isso vai REGREDIR seu personagem para um estágio anterior. Continuar?')) return;
+        }
+        fecharOverlay('ov-evo-menu');
+        await aplicarEvolucao(rank, estrela);
     };
 
     // ================= SALVAR / CRIAR / BAIXAR =================

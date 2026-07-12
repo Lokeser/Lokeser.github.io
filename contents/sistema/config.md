@@ -62,6 +62,18 @@
   "estrelas_por_rank": 5,
   "max_cargas": 9,
 
+  "atributos_md": {
+    "corpo":     "contents/regras/Regras_Gerais/Atributos/Corpo.md",
+    "tecnica":   "contents/regras/Regras_Gerais/Atributos/Tecnica.md",
+    "intelecto": "contents/regras/Regras_Gerais/Atributos/Intelecto.md",
+    "carisma":   "contents/regras/Regras_Gerais/Atributos/Carisma.md",
+    "sabedoria": "contents/regras/Regras_Gerais/Atributos/Sabedoria.md",
+    "mana":      "contents/regras/Regras_Gerais/Atributos/Mana.md"
+  },
+  "carga_corpo": [20, 60, 100, 120, 160, 200, 250, 300, 350, 400, 500, 600, 700, 800, 900, 1000, 1200, 1500, 2000, 3000],
+  "vida_por_estrela":      { "10": "Corpo×d4 + VR", "9": "Corpo×d6 + VR", "8": "Corpo×d6 + VR", "7": "Corpo×d8 + VR", "6": "Corpo×d10 + VR", "5": "Corpo×d12 + VR", "4": "Corpo×d14 + VR" },
+  "magiculas_por_estrela": { "10": "1d4 + Mana", "9": "Mana×d2 + 2", "8": "Mana×d2 + 2", "7": "Mana×d3 + 3", "6": "Mana×d4 + 4", "5": "Mana×d5 + 5", "4": "Mana×d6 + 6" },
+
   "ranks": [
     { "n": 10, "nome": "Deceri",    "arquivo": "contents/ranks/10 - Deceri.md" },
     { "n": 9,  "nome": "Novedo",    "arquivo": "contents/ranks/09 - Novedo.md" },

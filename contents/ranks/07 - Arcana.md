@@ -11,7 +11,10 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 
 * **Dado de Rank (DR):** **d26**
 * **Margem de Crítico:** **25–26**
-* **Eficiência de Rank (ER):** **4**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d8 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d3 + 3**
 
 ---
 

@@ -12,7 +12,10 @@ Ao alcançar este Rank, você **inicia automaticamente na 1ª Estrela**.
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d22**
-* **Eficiência de Rank (ER):** **2**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d6 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d2 + 2**
 
 ---
 
@@ -26,21 +29,6 @@ Ao atingir o Rank 9:
 
 ---
 
-## Estágios de Vida
-
-O **Dado de Vida** evolui conforme sua **Constituição**:
-0 → d4
-2 → d6
-4 → d8
-6 → d10
-8 → d12
-10 → d14
-12 → d16
-14 → d18
-16 → d20
-18 → d22
-20 → d24
----
 
 ## Progressão por Estrelas
 
@@ -48,7 +36,7 @@ O **Dado de Vida** evolui conforme sua **Constituição**:
 ### ✭ 1ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
-  **1d[Dado de Vida] + (ER × 2) + Valor de Vida da Raça**
+  **Corpo×d6 + Valor de Vida da Raça**
 * Aprende **1 Habilidade de Alma**, ligada diretamente à progressão do personagem.
 
 ---

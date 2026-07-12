@@ -8,11 +8,10 @@
 
 ---
 
-<!--#poder id="mg_magia_elemental_vento_r10e1_1" fonte="magia" rank="10" estrela="1" nome="Rank 10"-->
 ## Rank 10
 
-<!--#fim-->
 
+<!--#poder id="mg_magia_elemental_vento_r10_nucleo" fonte="magia" rank="10" estrela="1" nome="Núcleo de Mana Ventuoso"-->
 ## Núcleo de Mana Ventuoso
 Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.
 
@@ -21,6 +20,8 @@ Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.
 - Sua **Distância de Pulo** aumenta em um valor igual à sua **ER (em metros)**.
 
 ---
+
+<!--#fim-->
 
 <!--#poder id="mg_magia_elemental_vento_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
 ## Manipulação Livre

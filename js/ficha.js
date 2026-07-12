@@ -95,6 +95,7 @@
         $('btn-visualizar').style.display = modoEdicao ? '' : 'none';
         $('btn-baixar').style.display = modoEdicao ? '' : 'none';
         $('btn-salvar').style.display = modoEdicao ? '' : 'none';
+        $('btn-reset-criacao').style.display = modoEdicao ? 'none' : '';
         $('rodape-criar').style.display = modoEdicao ? 'none' : '';
         $('secao-inventario').style.display = modoEdicao ? '' : 'none';
         // classe avancada libera no rank 8
@@ -124,6 +125,13 @@
         $('equipados-lista').innerHTML = eq.map(i => '<span class="chip-artefato">⚜ ' + esc(i.nome) + '</span>').join('');
     }
 
+    // Fórmula por estrela do rank atual (config), com o VR da raça substituído
+    function formulaEstrela(chave) {
+        const f = (cfg[chave] || {})[String(char.rank)];
+        if (!f) return '';
+        return f.replace(/\bVR\b/g, 'VR ' + racaInfo.vidaRacial);
+    }
+
     function autoCard(rotulo, valorHTML, sub) {
         return '<div class="auto-card"><div class="rotulo">' + rotulo + '</div><div class="valor">' + valorHTML + '</div>' +
             (sub ? '<small>' + sub + '</small>' : '') + '</div>';
@@ -146,10 +154,10 @@
             autoCard('Eficiência de Rank', 'ER ' + rankInfo.er) +
             '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · auto: ' + WNJ.calcDeslocamento(cfg, t) + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' (' + racaInfo.vidaBase + ' + ' + racaInfo.vidaPasso + ' a cada 2 Corpo)</small></div>' +
+            '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: Mana + ER = ' + magAuto + '</small></div>';
+            '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: Mana + ER = ' + magAuto + (formulaEstrela('magiculas_por_estrela') ? ' · por ★: ' + formulaEstrela('magiculas_por_estrela') : '') + '</small></div>';
 
         $('in-ca').oninput = e => { char.caManual = parseInt(e.target.value) || 0; };
         $('in-desloc').oninput = e => { char.deslocManual = parseInt(e.target.value) || 0; };
@@ -167,7 +175,7 @@
         $('attr-grid').innerHTML = cfg.atributos.map(a => {
             const mod = racaInfo.livre ? null : (racaInfo.mods[a.id] || 0);
             return '<div class="attr-card" style="background:' + a.cor + '18;border-color:' + a.cor + '">' +
-                '<div class="nome" style="color:' + a.cor + '">' + a.nome.toUpperCase() + '</div>' +
+                '<div class="nome" data-info="' + a.id + '" style="color:' + a.cor + ';cursor:pointer" title="Ver os benefícios de ' + a.nome + '">' + a.nome.toUpperCase() + ' ℹ️</div>' +
                 '<input type="number" data-attr="' + a.id + '" value="' + (char.atributos[a.id] || 0) + '">' +
                 '<div class="mod" style="color:' + a.cor + '">' + (mod === null ? 'raça: livre' : 'raça: ' + fmtMod(mod)) + '</div>' +
                 '<div class="total" style="color:#fff">total: ' + t[a.id] + '</div>' +
@@ -181,6 +189,71 @@
                 if (foco) { foco.focus(); }
             };
         });
+        document.querySelectorAll('#attr-grid .nome[data-info]').forEach(el => {
+            el.onclick = () => abrirInfoAtributo(el.dataset.info);
+        });
+    }
+
+    // ---------- POPUP DE BENEFÍCIOS DO ATRIBUTO ----------
+    function ganhosAtributo(id, v) {
+        const g = [];
+        const dom = (nome) => { if (v >= 20) g.push('👑 <strong>Domínio de ' + nome + '</strong> desbloqueado!'); };
+        if (id === 'corpo') {
+            const tabela = cfg.carga_corpo || [];
+            let carga = 0;
+            for (let i = 0; i < Math.min(v, tabela.length); i++) carga += tabela[i];
+            g.push('🏋️ <strong>Capacidade de carga atual: ' + carga.toLocaleString('pt-BR') + ' kg</strong>');
+            g.push('👊 Dano desarmado: <strong>+' + v + '</strong>');
+            g.push('🛡️ Resistências I ganhas: <strong>' + Math.floor(v / 3) + '</strong> (a cada 3 pontos; mesmas resistências acumulam estágio)');
+            if (v >= 10) g.push('💀 Testes de Resistência contra a Morte: <strong>+' + (v - 9) + '</strong>');
+            dom('Corpo');
+        } else if (id === 'tecnica') {
+            g.push('🛡️ CA: <strong>+' + v + '</strong>');
+            g.push('🤌 Gestos Perfeitos: <strong>' + Math.floor(v / 5) + '</strong> (a cada 5 pontos)');
+            dom('Técnica');
+        } else if (id === 'intelecto') {
+            g.push('🎯 Pontos de perícia para distribuir: <strong>+' + v + '</strong>');
+            g.push('🗣️ Idiomas/códigos extras: <strong>' + Math.floor(v / 3) + '</strong> (a cada 3 pontos)');
+            g.push('⚡ Reações extras por rodada: <strong>' + Math.floor(v / 5) + '</strong> (a cada 5 pontos)');
+            const acoes = v >= 10 ? 1 + Math.floor((v - 10) / 5) : 0;
+            g.push('⏳ Ações extras em Interlúdios: <strong>' + acoes + '</strong> (1 aos 10, +1 a cada +5)');
+            dom('Intelecto');
+        } else if (id === 'carisma') {
+            g.push('💬 PA em eventos com personagens: <strong>+' + v + '</strong>');
+            g.push('🛡️ CA: <strong>+' + Math.floor(v / 5) + '</strong> (a cada 5 pontos)');
+            if (v >= 10) g.push('🕊️ Hostilidade de seres vivos em relação a você <strong>diminui em um nível</strong>');
+            dom('Carisma');
+        } else if (id === 'sabedoria') {
+            g.push('📖 Habilidades de Corpo/Mente que pode aprender: <strong>' + v + '</strong>');
+            g.push('🔁 Reaprender habilidades: <strong>' + Math.floor(v / 5) + '</strong> (a cada 5 pontos)');
+            if (v >= 10) g.push('🔮 <strong>+1DR</strong> em Testes de Intuição');
+            dom('Sabedoria');
+        } else if (id === 'mana') {
+            g.push('✨ Magículas: <strong>+' + v + '</strong>');
+            if (v >= 10) g.push('🌊 <strong>+1DR</strong> na Manipulação Livre OU no Ataque Principal da Magia');
+            dom('Mana');
+        }
+        return g;
+    }
+    async function abrirInfoAtributo(id) {
+        const a = cfg.atributos.find(x => x.id === id);
+        const v = attrsTotais()[id] || 0;
+        $('attrinfo-titulo').innerHTML = a.nome + ' <span style="font-size:.9rem;color:#9fc0da">— total ' + v + '</span>';
+        $('attrinfo-titulo').style.color = a.cor;
+        $('attrinfo-ganhos').innerHTML =
+            '<div style="font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:' + a.cor + ';margin-bottom:8px">Seus ganhos atuais</div>' +
+            ganhosAtributo(id, v).map(x => '<div style="padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem">' + x + '</div>').join('');
+        $('attrinfo-md').innerHTML = '<p class="aviso-inline">Carregando…</p>';
+        abrirOverlay('ov-attrinfo');
+        try {
+            const arq = (cfg.atributos_md || {})[id];
+            const md = arq ? await WNJ.fetchMD(arq) : null;
+            $('attrinfo-md').innerHTML = md
+                ? (typeof marked !== 'undefined' ? marked.parse(md.replace(/^#\s+.*\n/, '')) : '<pre>' + esc(md) + '</pre>')
+                : '<p class="aviso-inline">Sem página de regras para este atributo.</p>';
+        } catch (e) {
+            $('attrinfo-md').innerHTML = '<p class="aviso-inline">Não consegui carregar as regras: ' + esc(e.message) + '</p>';
+        }
     }
 
     function escalaTexto(pesos) {
@@ -895,10 +968,21 @@
         location.href = 'personagem.html#meus';
     };
 
+    // ================= RESETAR CRIAÇÃO (modo criação) =================
+    let resetandoCriacao = false;
+    $('btn-reset-criacao').onclick = () => {
+        if (!confirm('Tem certeza que deseja resetar a criação de personagem?\nTudo que foi preenchido será excluído.')) return;
+        resetandoCriacao = true; // impede o auto-save de regravar o rascunho ao sair
+        localStorage.removeItem('wnj_draft');
+        localStorage.removeItem('wnj_draft_oculto');
+        location.href = 'ficha.html'; // recarrega limpo, sem restaurar rascunho
+    };
+
     // ================= AUTO-SAVE DO RASCUNHO (modo criação) =================
     if (!modoEdicao) {
         let draftTimer = null;
         const salvarRascunho = () => {
+            if (resetandoCriacao) return;
             coletarIdentidade();
             try {
                 localStorage.setItem('wnj_draft', JSON.stringify(char));

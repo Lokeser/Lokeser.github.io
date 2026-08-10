@@ -8,6 +8,7 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d32**
+* **Eficiência de Rank (ER):** **7**
 
 
 * **Aumento de Vida por Estrela:** **Corpo×d14 + Valor de Vida da Raça (VR)**

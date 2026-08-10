@@ -8,6 +8,7 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d28**
+* **Eficiência de Rank (ER):** **5**
 
 
 * **Aumento de Vida por Estrela:** **Corpo×d10 + Valor de Vida da Raça (VR)**

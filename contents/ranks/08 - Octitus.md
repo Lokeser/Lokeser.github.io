@@ -10,6 +10,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d24**
+* **Eficiência de Rank (ER):** **3**
 * **Margem de Crítico:** **23–24**
 
 

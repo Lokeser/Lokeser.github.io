@@ -8,6 +8,7 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d30**
+* **Eficiência de Rank (ER):** **6**
 
 
 * **Aumento de Vida por Estrela:** **Corpo×d12 + Valor de Vida da Raça (VR)**

@@ -53,7 +53,7 @@
   "formulas": {
     "ca_base": 10,
     "ca_atributo": "tecnica",
-    "deslocamento_base": 9,
+    "deslocamento_base": 0,
     "deslocamento_atributo": "",
     "magiculas_iniciais": "mana + er",
     "arcana_por_rank": { "6": 5, "5": 5, "4": 5 }
@@ -183,7 +183,7 @@
 ## Notas de edição
 
 * **CA:** `ca_base + atributo + (10 − rank)` (padrão: 10 + Técnica). Toda **primeira estrela de um rank novo** dá **+1 CA** automático (desative com `"ca_por_rank": false`). Armaduras somam por cima, manualmente ou via inventário.
-* **Deslocamento:** `deslocamento_base` em metros. Se quiser que um atributo some, preencha `deslocamento_atributo`.
+* **Deslocamento:** igual ao valor da **perícia Deslocamento** (+ `deslocamento_base` opcional em metros). Editar o card em Valores Automáticos vira um override manual e **não** altera a perícia.
 * **Arcana:** começa em 0; `arcana_por_rank` diz quanto soma ao **entrar** em cada rank (ex.: +5 no R6, R5 e R4).
 * **Magículas iniciais:** fórmula com `mana` e `er` (Rank 10: Mana + 1, pois ER = 1).
 * Para **adicionar uma raça/classe/magia** nova ao criador: crie o .md e acrescente a linha no registro acima.

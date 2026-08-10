@@ -15,6 +15,8 @@ Ao iniciar a criação de personagem, **todo personagem começa neste Rank**.
 
 
 
+* **Eficiência de Rank (ER):** **1**
+
 * **Aumento de Vida por Estrela:** **Corpo×d4 + Valor de Vida da Raça (VR)**
 * **Aumento de Magículas por Estrela:** **1d4 + Mana**
 

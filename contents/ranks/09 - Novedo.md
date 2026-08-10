@@ -12,6 +12,7 @@ Ao alcançar este Rank, você **inicia automaticamente na 1ª Estrela**.
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d22**
+* **Eficiência de Rank (ER):** **2**
 
 
 * **Aumento de Vida por Estrela:** **Corpo×d6 + Valor de Vida da Raça (VR)**

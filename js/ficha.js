@@ -66,6 +66,8 @@
         const d = await WNJ.dadosRank(cfg, char.rank);
         if (d.dr) rankInfo.dr = d.dr;
         if (d.er) rankInfo.er = d.er;
+        rankInfo.vidaEstrela = d.vidaEstrela || null;
+        rankInfo.magEstrela = d.magEstrela || null;
     }
 
     // Sincroniza poderes automaticos (raca / classes / magia) com o estado atual.
@@ -147,13 +149,17 @@
         if (char.magiculasAtual == null) char.magiculasAtual = magMax;
         const arcana = char.arcanaManual != null ? char.arcanaManual : WNJ.calcArcana(cfg, char.rank);
         const ca = char.caManual != null ? char.caManual : WNJ.calcCA(cfg, t, char.rank);
-        const desloc = char.deslocManual != null ? char.deslocManual : WNJ.calcDeslocamento(cfg, t);
+        // Deslocamento automático acompanha a perícia Deslocamento (com ajuste manual dela)
+        const pDesloc = WNJ.calcPericias(cfg, t).find(p => p.nome === 'Deslocamento');
+        const perDesloc = pDesloc ? pDesloc.valor + ((char.periciasDelta || {})[pDesloc.nome] || 0) : 0;
+        const deslocAuto = WNJ.calcDeslocamento(cfg, t, perDesloc);
+        const desloc = char.deslocManual != null ? char.deslocManual : deslocAuto;
 
         $('autos').innerHTML =
             autoCard('Dado de Rank', 'DR 1d' + rankInfo.dr) +
             autoCard('Eficiência de Rank', 'ER ' + rankInfo.er) +
             '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · auto: ' + WNJ.calcDeslocamento(cfg, t) + '</small></div>' +
+            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · perícia Deslocamento: ' + deslocAuto + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
@@ -288,10 +294,12 @@
                 if (delta === 0) delete char.periciasDelta[nome];
                 else char.periciasDelta[nome] = delta;
                 el.classList.toggle('editada', delta !== 0);
+                if (nome === 'Deslocamento') renderAutos(); // card automático acompanha a perícia
             };
             el.querySelector('.reset').onclick = () => {
                 delete char.periciasDelta[nome];
                 renderPericias();
+                renderAutos();
             };
         });
     }
@@ -885,7 +893,7 @@
     // "posição" linear para comparar avanço: rank 10 = 0, cada estrela +1
     function posEvo(rank, est) { return rank === 10 ? 0 : (10 - rank - 1) * MAX_E + est; }
 
-    async function aplicarEvolucao(rank, estrela) {
+    async function aplicarEvolucao(rank, estrela, comDados) {
         char.rank = rank; char.estrela = estrela;
         await carregarRank();
         const novos = await sincronizarPoderes();
@@ -902,7 +910,57 @@
         if (novos > 0) {
             $('evo-ganhos').innerHTML += '<p style="color:#7fd08a"><strong>+' + novos + ' poder(es)</strong> adicionados à sua ficha.</p>';
         }
+        renderDadosEvolucao(comDados, texto);
         abrirOverlay('ov-evo');
+    }
+
+    // Botões "Girar Dados" do popup — só ao subir 1 estrela (não em saltos).
+    // Quais aparecem segue o texto da estrela no .md do rank; as fórmulas vêm
+    // das linhas "Aumento de Vida/Magículas por Estrela" do mesmo .md.
+    function renderDadosEvolucao(comDados, textoEstrela) {
+        const box = $('evo-dados');
+        box.innerHTML = '';
+        if (!comDados) return;
+        const t = attrsTotais();
+        const ctx = {};
+        cfg.atributos.forEach(a => ctx[a.id] = t[a.id] || 0);
+        ctx.vr = racaInfo.vidaRacial || 0;
+        const plano = (textoEstrela || '').replace(/[*_]/g, ''); // remove negrito/itálico do markdown
+        const mostraVida = rankInfo.vidaEstrela && (!plano || /vida m[aá]xima aumenta/i.test(plano));
+        const mostraMag = rankInfo.magEstrela && (!plano || /mag[íi]culas aumenta/i.test(plano));
+        if (!mostraVida && !mostraMag) return;
+
+        const botao = (id, rotulo, formula) =>
+            '<button class="btn-wnj verde" id="' + id + '" style="width:100%;justify-content:center;margin-top:8px">🎲 ' + rotulo + ' <small style="opacity:.8">(' + esc(formula) + ')</small></button>';
+        let html = '<div style="font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:#8fb3cf;margin-top:14px">Rolagens da estrela</div>';
+        if (mostraVida) html += botao('evo-rolar-vida', 'Girar Dados de Vida', rankInfo.vidaEstrela);
+        if (mostraMag) html += botao('evo-rolar-mag', 'Girar Dados de Magículas', rankInfo.magEstrela);
+        box.innerHTML = html;
+
+        if (mostraVida) $('evo-rolar-vida').onclick = () => {
+            const r = WNJ.rolarFormula(rankInfo.vidaEstrela, ctx);
+            if (!r) return;
+            const maxAtual = char.vidaMaxManual != null ? char.vidaMaxManual : WNJ.calcVida(racaInfo, t.corpo);
+            char.vidaMaxManual = maxAtual + r.total;
+            WNJ.salvar(char);
+            renderAutos();
+            const b = $('evo-rolar-vida');
+            b.disabled = true;
+            b.innerHTML = '❤️ +' + r.total + ' de Vida Máxima <small style="opacity:.8">(agora ' + char.vidaMaxManual + ')</small>';
+            b.title = r.partes.join(' · ');
+        };
+        if (mostraMag) $('evo-rolar-mag').onclick = () => {
+            const r = WNJ.rolarFormula(rankInfo.magEstrela, ctx);
+            if (!r) return;
+            const maxAtual = char.magiculasMax != null ? char.magiculasMax : WNJ.calcMagiculas(cfg, t, rankInfo.er);
+            char.magiculasMax = maxAtual + r.total;
+            WNJ.salvar(char);
+            renderAutos();
+            const b = $('evo-rolar-mag');
+            b.disabled = true;
+            b.innerHTML = '✨ +' + r.total + ' de Magículas <small style="opacity:.8">(agora ' + char.magiculasMax + ')</small>';
+            b.title = r.partes.join(' · ');
+        };
     }
 
     function proximaEvo() {
@@ -932,7 +990,7 @@
         const nx = proximaEvo();
         if (!nx) return;
         fecharOverlay('ov-evo-menu');
-        await aplicarEvolucao(nx.rank, nx.estrela);
+        await aplicarEvolucao(nx.rank, nx.estrela, true);
     };
 
     $('evo-saltar').onclick = async () => {
@@ -942,7 +1000,7 @@
             if (!confirm('Isso vai REGREDIR seu personagem para um estágio anterior. Continuar?')) return;
         }
         fecharOverlay('ov-evo-menu');
-        await aplicarEvolucao(rank, estrela);
+        await aplicarEvolucao(rank, estrela, false); // salto direto: sem rolagens automáticas
     };
 
     // ================= SALVAR / CRIAR / BAIXAR =================

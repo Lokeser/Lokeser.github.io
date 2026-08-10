@@ -10,6 +10,7 @@ O avanço exige **vínculo, conflito ou consumo**, seja físico, mágico ou exis
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d26**
+* **Eficiência de Rank (ER):** **4**
 * **Margem de Crítico:** **25–26**
 
 

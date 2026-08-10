@@ -60,10 +60,55 @@ const WNJ = (() => {
     function parseRankDados(text) {
         const dr = text.match(/Dado de Rank \(DR\):\*\*\s*\*\*d(\d+)/i);
         const er = text.match(/Efici[êe]ncia de Rank \(ER\):\*\*\s*\*\*(\d+)/i);
+        const vida = text.match(/Aumento de Vida por Estrela:\*\*\s*\*\*([^*\n]+)\*\*/i);
+        const mag = text.match(/Aumento de Mag[íi]culas por Estrela:\*\*\s*\*\*([^*\n]+)\*\*/i);
         return {
             dr: dr ? parseInt(dr[1], 10) : null,
-            er: er ? parseInt(er[1], 10) : null
+            er: er ? parseInt(er[1], 10) : null,
+            vidaEstrela: vida ? vida[1].trim() : null,
+            magEstrela: mag ? mag[1].trim() : null
         };
+    }
+
+    // ---------- ROLAGEM DE FÓRMULAS ("Corpo×d8 + VR", "Mana×d2 + 2", "1d4 + Mana") ----------
+    // contexto = { corpo: 7, mana: 3, ..., vr: 6 }
+    function rolarFormula(formula, contexto) {
+        if (!formula) return null;
+        const norm = formula
+            .toLowerCase()
+            .replace(/valor de vida da ra[çc]a\s*\(vr\)/g, 'vr')
+            .replace(/valor de vida da ra[çc]a/g, 'vr')
+            .replace(/×/g, ' ')          // "corpo×d6" -> "corpo d6"
+            .replace(/\bx\b/g, ' ');     // "corpo x d6" -> "corpo d6"
+        let total = 0;
+        const partes = [];
+        const rolagens = [];
+        for (const bruto of norm.split('+')) {
+            const termo = bruto.trim();
+            if (!termo) continue;
+            const dado = termo.match(/^([a-zà-ú]+|\d+)\s*d(\d+)$/i);
+            if (dado) {
+                const qtd = /^\d+$/.test(dado[1]) ? parseInt(dado[1], 10) : Math.max(0, contexto[dado[1]] || 0);
+                const lados = parseInt(dado[2], 10);
+                let soma = 0;
+                const dice = [];
+                for (let i = 0; i < qtd; i++) {
+                    const r = 1 + Math.floor(Math.random() * lados);
+                    dice.push(r); soma += r;
+                }
+                total += soma;
+                rolagens.push({ termo: qtd + 'd' + lados, dados: dice, soma });
+                partes.push(qtd + 'd' + lados + ' = ' + soma + (dice.length ? ' [' + dice.join(', ') + ']' : ''));
+            } else if (/^\d+$/.test(termo)) {
+                total += parseInt(termo, 10);
+                partes.push('+' + termo);
+            } else {
+                const v = contexto[termo] || 0;
+                total += v;
+                partes.push(termo + ' = ' + v);
+            }
+        }
+        return { total, partes, rolagens };
     }
 
     // ---------- RAÇA (mods + vida lidos do .md da raça) ----------
@@ -144,9 +189,10 @@ const WNJ = (() => {
         return (cfg.formulas.ca_base || 10) + (attr ? (atributos[attr] || 0) : 0) + bonusRank;
     }
 
-    function calcDeslocamento(cfg, atributos) {
+    // Deslocamento automático = perícia Deslocamento (+ base opcional do config)
+    function calcDeslocamento(cfg, atributos, periciaDesloc) {
         const attr = cfg.formulas.deslocamento_atributo;
-        return (cfg.formulas.deslocamento_base || 9) + (attr ? (atributos[attr] || 0) : 0);
+        return (cfg.formulas.deslocamento_base || 0) + (attr ? (atributos[attr] || 0) : 0) + (periciaDesloc || 0);
     }
 
     function calcMagiculas(cfg, atributos, er) {
@@ -288,6 +334,6 @@ const WNJ = (() => {
         calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcCA,
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
-        paletaMagia, atributosPrincipais
+        paletaMagia, atributosPrincipais, rolarFormula
     };
 })();

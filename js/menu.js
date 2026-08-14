@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
                     <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
                     <li><a href="${finalPrefix}eras.html" class="nav-eras">Eras</a></li>
+                    <li><a href="${finalPrefix}mapa.html" class="nav-eras">Mapa</a></li>
                     <li><a href="${finalPrefix}personagem.html" class="nav-cta">Meus Personagens</a></li>
                     <li><button id="theme-toggle" class="theme-toggle" type="button" title="Alternar tema">🌙</button></li>
                     <li><button id="gh-login-btn" class="gh-login" type="button" title="Entrar com GitHub">🔑 <span id="gh-login-rotulo">Entrar</span></button></li>

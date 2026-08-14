@@ -192,5 +192,29 @@ const WNJAuth = (() => {
         atualizarBotao();
     }
 
-    return { credenciais, logado, podeEditar, entrar, sair, lerArquivo, salvarArquivo, abrirLogin, ligarBotao, atualizarBotao, repo };
+    // Grava conteúdo já em base64 (imagens e outros binários).
+    async function salvarArquivoBase64(caminho, base64, mensagem) {
+        if (!podeEditar()) throw new Error('Você não tem permissão de edição neste repositório.');
+        const c = credenciais();
+        const r = repo();
+        const url = `${API}/repos/${r.owner}/${r.repo}/contents/${encPath(caminho)}`;
+        let sha = null;
+        try {
+            const atual = await fetch(url + '?t=' + Date.now(), {
+                headers: { 'Authorization': 'token ' + c.token, 'Accept': 'application/vnd.github+json' }
+            });
+            if (atual.ok) sha = (await atual.json()).sha;
+        } catch (e) { /* arquivo novo */ }
+        const body = { message: mensagem || ('Enviando ' + caminho), content: base64 };
+        if (sha) body.sha = sha;
+        const res = await fetch(url, {
+            method: 'PUT',
+            headers: { 'Authorization': 'token ' + c.token, 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (!res.ok) throw new Error((await res.json()).message || ('Erro ' + res.status));
+        return res.json();
+    }
+
+    return { credenciais, logado, podeEditar, entrar, sair, lerArquivo, salvarArquivo, salvarArquivoBase64, abrirLogin, ligarBotao, atualizarBotao, repo };
 })();

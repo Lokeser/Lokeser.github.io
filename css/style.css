@@ -517,7 +517,7 @@ html, body {
 }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
-@media screen and (max-width: 1100px) { /* Colapsa antes de o menu transbordar (logo + 7 links + tema) */
+@media screen and (max-width: 1560px) { /* Colapsa antes de transbordar (logo + 9 links + tema + login) */
     
     .mobile-menu-icon {
         display: flex; 

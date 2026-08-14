@@ -1010,17 +1010,34 @@
         char.titulo = $('f-titulo').value.trim();
         char.tituloArtigo = $('f-titulo-artigo').value;
     }
-    $('btn-salvar').onclick = () => {
+    // Salva local e, se estiver logado com permissão, também na nuvem do usuário
+    async function salvarTudo() {
+        const okLocal = WNJ.salvar(char);
+        let nuvem = null;
+        if (typeof WNJNuvem !== 'undefined' && WNJNuvem.disponivel()) {
+            try { await WNJNuvem.enviar(char); nuvem = true; }
+            catch (e) { nuvem = false; console.warn('Falha ao enviar para a nuvem', e); }
+        }
+        return { okLocal, nuvem };
+    }
+
+    $('btn-salvar').onclick = async () => {
         coletarIdentidade();
-        WNJ.salvar(char);
         const btn = $('btn-salvar');
-        btn.textContent = '✔ Salvo!';
-        setTimeout(() => btn.innerHTML = '💾 Salvar', 1400);
+        btn.disabled = true; btn.textContent = '⏳ Salvando...';
+        const r = await salvarTudo();
+        btn.disabled = false;
+        btn.textContent = r.nuvem === true ? '✔ Salvo + ☁️' : (r.okLocal ? '✔ Salvo!' : '⚠️ Falhou');
+        setTimeout(() => btn.innerHTML = '💾 Salvar', 1600);
     };
-    $('btn-criar').onclick = () => {
+    $('btn-criar').onclick = async () => {
         coletarIdentidade();
         if (!char.nome) { alert('Dê um nome ao seu personagem!'); return; }
-        WNJ.salvar(char);
+        const btn = $('btn-criar');
+        btn.disabled = true; btn.textContent = '⏳ Salvando...';
+        const r = await salvarTudo();
+        btn.disabled = false; btn.innerHTML = '✨ Criar Personagem';
+        if (!r.okLocal) return;   // avisos já foram mostrados
         localStorage.removeItem('wnj_draft');
         localStorage.removeItem('wnj_draft_oculto');
         location.href = 'personagem.html#meus';

@@ -467,7 +467,8 @@ html, body {
 /* --- LOGO (LUXSANDORIA) --- */
 .nav-logo-link {
     font-family: "Cinzel", "Times New Roman", serif; /* Fonte serifada para o logo */
-    font-size: 1.8rem;
+    font-size: clamp(1rem, .85vw + .5rem, 1.8rem);
+    flex: 0 0 auto;
     font-weight: bold;
     text-decoration: none; 
     color: var(--cor-dourada); /* DOURADO */
@@ -476,24 +477,33 @@ html, body {
     text-transform: uppercase;
 }
 
-/* --- LINKS DO MENU (Desktop) --- */
+/* --- LINKS DO MENU (Desktop) ---
+   Os links encolhem conforme a largura da janela para caber em qualquer
+   monitor. O menu hambúrguer só entra em telas realmente estreitas. */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px; /* Espaço entre os links */
+    flex-wrap: wrap;                     /* rede de segurança: quebra antes de cortar */
+    justify-content: flex-end;
+    align-items: center;
+    row-gap: 6px;
+    gap: clamp(6px, .82vw, 25px);        /* 25px em telas largas, 6px em telas apertadas */
     margin: 0;
     padding: 0;
+    flex: 1 1 auto;                      /* recebe o espaço que sobra do logo */
+    min-width: 0;
 }
 
 .nav-links li a {
     text-decoration: none;
     color: var(--cor-dourada); /* DOURADO */
-    font-size: 1rem;
+    font-size: clamp(.68rem, .5vw + .34rem, 1rem);
     font-weight: 600;
     text-transform: uppercase; /* Deixa tudo maiúsculo (HOME, REGRAS...) */
     font-family: sans-serif;   /* Fonte normal para os links */
     transition: 0.3s;
-    letter-spacing: 1px;
+    letter-spacing: clamp(0px, .06vw, 1px);
+    white-space: nowrap;
 }
 
 .nav-links li a:hover {
@@ -517,7 +527,9 @@ html, body {
 }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
-@media screen and (max-width: 1560px) { /* Colapsa antes de transbordar (logo + 9 links + tema + login) */
+/* Em telas médias os links quebram em 2 linhas — melhor do que desaparecer.
+   O menu lateral (hambúrguer) só entra em telas de celular/tablet estreito. */
+@media screen and (max-width: 900px) {
     
     .mobile-menu-icon {
         display: flex; 
@@ -585,8 +597,9 @@ html[data-theme="dark"] #content blockquote {
     background: transparent;
     border: 1px solid var(--cor-dourada, #c5a059);
     color: var(--cor-dourada, #c5a059);
-    width: 38px;
-    height: 38px;
+    width: clamp(28px, 2vw, 38px);
+    height: clamp(28px, 2vw, 38px);
+    flex: 0 0 auto;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1rem;
@@ -608,7 +621,7 @@ html[data-theme="dark"] #content blockquote {
     background: #16233d;
     border: 1px solid #3a63d2;
     border-radius: 16px;
-    padding: 5px 14px;
+    padding: 5px clamp(7px, .7vw, 14px);
     color: #9fc0da !important;
 }
 .nav-links li a.nav-eras:hover {
@@ -619,13 +632,13 @@ html[data-theme="dark"] #content blockquote {
 
 /* --- Botão de login (extremo direito da navbar) --- */
 .gh-login {
-    margin-left: 6px;
+    margin-left: 2px;
     background: transparent;
     border: 1px solid #6b5a35;
     color: var(--cor-dourada, #c5a059);
     border-radius: 16px;
-    padding: 5px 13px;
-    font-size: .78rem;
+    padding: 5px clamp(7px, .7vw, 13px);
+    font-size: clamp(.68rem, .4vw + .45rem, .78rem);
     font-weight: 700;
     cursor: pointer;
     white-space: nowrap;
@@ -671,7 +684,7 @@ html[data-theme="dark"] #content blockquote {
 .nav-links li a.nav-cta {
     background: var(--cor-dourada, #c5a059);
     color: #14100a !important;
-    padding: 8px 16px;
+    padding: 8px clamp(8px, .9vw, 16px);
     border-radius: 20px;
     font-weight: 700;
 }

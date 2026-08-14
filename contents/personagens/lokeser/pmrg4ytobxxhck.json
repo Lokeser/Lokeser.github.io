@@ -1,0 +1,251 @@
+{
+  "id": "pmrg4ytobxxhck",
+  "criado": "2026-07-11T03:17:36.654Z",
+  "img": "data:image/jpeg;base64,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",
+  "nome": "Nicholle",
+  "sobrenome": "Cali",
+  "raca": "Humano",
+  "classeInicial": "Combativo",
+  "classeAvancada": "Combativo Mágico",
+  "magia": "Elemental — Fogo",
+  "rank": 7,
+  "estrela": 2,
+  "atributos": {
+    "corpo": 5,
+    "tecnica": 1,
+    "intelecto": 0,
+    "carisma": 3,
+    "sabedoria": 2,
+    "mana": 5
+  },
+  "vidaAtual": 211,
+  "vidaMaxManual": 211,
+  "magiculasAtual": 1,
+  "magiculasMax": null,
+  "arcanaManual": null,
+  "caManual": null,
+  "deslocManual": 12,
+  "overridesPericias": {
+    "Atletismo": 20,
+    "Tenacidade": 18,
+    "Charme": 15,
+    "Performance": 14,
+    "Percepção Mágica": 20,
+    "Intuição": 14,
+    "Percepção": 9,
+    "Aura": 25
+  },
+  "cargas": [],
+  "poderes": [
+    {
+      "refId": "rc_humano_r10_1",
+      "nome": "Sangue Humano Puro",
+      "tag": "raca",
+      "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r10e1_1",
+      "nome": "Estilo de Luta",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>um</strong> dos estilos abaixo:</p>\n<h4>Armeiro</h4>\n<ul>\n<li>Escolha <strong>1 tipo de Arma</strong> em <em>Artes da Guerra</em>.</li>\n<li>Recebe <strong>+1DR no Acerto</strong> com essa arma.</li>\n</ul>\n<h4>Lutador</h4>\n<ul>\n<li>Recebe <strong>+1DR</strong> em <strong>Ataques Desarmados</strong>.</li>\n<li>O <strong>Estágio de Dano</strong> do dado aumenta em <strong>+1</strong>.</li>\n</ul>\n<h4>Ninja</h4>\n<ul>\n<li>Recebe <strong>+1DR no Acerto</strong> com <strong>Ataques Desarmados</strong>.</li>\n<li>Caso esteja <strong>escondido</strong>, o Estágio de Dano aumenta em <strong>+2</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r10e1_2",
+      "nome": "Treino de Resistência I",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>Resistência I</strong> contra o <strong>tipo de dano associado ao Estilo de Luta</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r8_1",
+      "nome": "Aproximação Divina",
+      "tag": "raca",
+      "efeitoHTML": "<p>Sempre que atingir a <strong>5ª Estrela de qualquer Rank</strong>, incluindo este, você recebe <strong>+1 ponto de atributo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r7_1",
+      "nome": "Características Raciais do Humano",
+      "tag": "raca",
+      "efeitoHTML": "<p>Receba <strong>uma característica</strong>, baseada em seu <strong>maior atributo</strong>:</p>\n<ul>\n<li><p><strong>Corpo</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Atletismo e <strong>Resistência I</strong> a um tipo de dano à sua escolha.\nAlém disso, sua capacidade de carga aumenta em <strong>2 × ER</strong> (em kg).</p>\n</li>\n<li><p><strong>Técnica</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em Deslocamento.</p>\n</li>\n<li><p><strong>Intelecto</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Erudição ou Arcanismo.</p>\n</li>\n<li><p><strong>Sabedoria</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Intuição.</p>\n</li>\n<li><p><strong>Carisma</strong>\nAumenta em <strong>+1</strong> o PA obtido.\nReduz em <strong>−10</strong> o PA necessário para obter Relacionamento com outro Humano.</p>\n</li>\n<li><p><strong>Mana</strong>\nDobra a cura recebida ao dormir.\nRecebe <strong>+1d4</strong> magículas totais.</p>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r9e2_1",
+      "nome": "Estilo de Luta II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Seu <strong>Estilo de Luta</strong> recebe <strong>+1 na Margem Crítica</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_combativo_r9e2_2",
+      "nome": "Combo de Ataques",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Após acertar <strong>2 ataques</strong> no mesmo inimigo:<ul>\n<li>O <strong>3º ataque</strong> aplica automaticamente o <strong>efeito de crítico</strong> da arma.</li>\n</ul>\n</li>\n<li>Caso o <strong>3º ataque seja um crítico</strong>:<ul>\n<li>O dano é <strong>dobrado</strong>.</li>\n<li>O <strong>efeito de crítico</strong> tem <strong>duração triplicada</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende uma técnica alternativa de Manipulação Livre.</p>\n<ul>\n<li>Requer <strong>Livro de Formulação</strong> ou ensino direto.</li>\n<li>Escolha <strong>1 Técnica</strong> que atenda aos pré-requisitos.</li>\n<li>Formulações avançadas exigem domínio das básicas.</li>\n<li>Existem inúmeras formulações não oficiais a serem descobertas durante o RPG.</li>\n</ul>\n<blockquote>\n<p>Referência: <a href=\"https://trello.com/c/7nHWRHMM\">https://trello.com/c/7nHWRHMM</a></p>\n</blockquote>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e3_1",
+      "nome": "Elevar Chama",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você amplifica sua Manipulação Livre.</p>\n<ul>\n<li>Ao declarar o uso deste poder, pode consumir <strong>Magículas adicionais</strong> até o limite da sua <strong>Sabedoria</strong>.</li>\n<li>Para cada Magícula consumida desta forma:<ul>\n<li>O ataque recebe <strong>+1D de Dano</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 3
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e1_1",
+      "nome": "Foco Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende a criar focos de Mana de Fogo.</p>\n<ul>\n<li><strong>Ação:</strong> Bônus  </li>\n<li><strong>Custo:</strong> 5 Magículas  </li>\n<li>Área máxima: <strong>Mana (em metros)</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e3_1",
+      "nome": "Foco de Fogo",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li>Inimigos a até <strong>5m</strong> de um foco de fogo:<ul>\n<li>Devem realizar um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>.</li>\n<li>Em falha, ficam <strong>Em Chamas</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 3
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r7e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Aprenda <strong>mais uma Formulação Elemental</strong><br><em>(requer livro ou ensino direto)</em></p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "nome": "Adolescente Viciada em Moda",
+      "tag": "extra",
+      "efeitoHTML": "<div>Enquanto <b>Nicholle </b>utilizar estilos de roupas específicos, ela \nrecebe Buffs e Debuffs, mudando um pouco sua personalidade e \ncomportamento, sendo eles:</div><div><ul><li><b>Roupas Casuais: </b>-2 em Perícias de Carisma.&nbsp;</li><li><b>Roupas Escolares:</b> +1 em Todas as Perícias</li><li><b>Roupas Elegantes:</b> -2 em Atletismo e Deslocamento. +2 em Charme e Lábia.</li><li><b>Roupas de Dormir:</b> -2 em Análise e Percepção. +2 em Intuição e Furtividade.</li><li><b>Roupas de Treino:</b> -2 em Charme e Performance. +2 em Atletismo e Acrobacia.</li><li><b>Roupas de Empregada:</b> -2 em Perícias de Intelecto e Carisma. +2 em Perícia de Técnica e Corpo</li></ul><div>Caso uma de suas roupas seja danificada, <b>Nicholle </b>entra em fúria até o fim do combate ou até ela ficar inconsciente.</div></div><div><br><br><br></div>",
+      "auto": false
+    },
+    {
+      "refId": "ca_combativo_magico_r8e1_1",
+      "nome": "1 Estrela",
+      "tag": "classe",
+      "efeitoHTML": "<p><strong>Arma Favorita do Mago:</strong></p>\n<ul>\n<li>Você se torna um aficionado na <strong>Arte da Guerra Mágica</strong>.</li>\n<li>Escolha <strong>1 arma</strong> de um dos tipos:<ul>\n<li>Cortante, Perfurante ou Contundente.</li>\n</ul>\n</li>\n<li>Enquanto empunhar essa arma:<ul>\n<li>Recebe <strong>+1 no Acerto</strong>.</li>\n<li>Recebe <strong>+2 no Dano</strong>.</li>\n<li>O dano da arma se torna:<ul>\n<li><strong>Mágico-Cortante</strong>, <strong>Mágico-Perfurante</strong> ou <strong>Mágico-Contundente</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>Você pode possuir:<ul>\n<li><strong>1 Arma Favorita do Mago</strong> neste Rank.</li>\n<li>Uma <strong>segunda no Rank 6</strong>.</li>\n<li>Uma <strong>terceira no Rank 4</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_combativo_magico_r8e1_2",
+      "nome": "4 Estrelas",
+      "tag": "classe",
+      "efeitoHTML": "<p><strong>Lâmina Mágica:</strong></p>\n<ul>\n<li>Sempre que causar dano com sua <strong>Arma Favorita do Mago</strong>, aplique:<ul>\n<li><strong>1d4 de dano adicional a cada 2 pontos de Mana</strong>.</li>\n</ul>\n</li>\n<li>O tipo de dano segue o <strong>elemento da sua Magia</strong>.</li>\n</ul>\n<hr>\n<p><strong>Caminho:</strong></p>\n<ul>\n<li>Seu treino como Combativo Mágico te levou a um <strong>Caminho</strong>.</li>\n<li>Aprenda <strong>1 Poder do Caminho</strong>, baseado em como você jogou até aqui.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_combativo_magico_r7e1_1",
+      "nome": "1 Estrela",
+      "tag": "classe",
+      "efeitoHTML": "<p><strong>Espada da Luz | Espada das Sombras:</strong></p>\n<ul>\n<li>Se sua <strong>Destreza &gt; Força</strong>:<ul>\n<li>Recebe a <strong>Espada da Luz</strong>.<ul>\n<li>Pode realizar <strong>um segundo ataque como Ação Bônus</strong> enquanto empunhar sua Arma Favorita do Mago.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>Se sua <strong>Força &gt; Destreza</strong>:<ul>\n<li>Recebe a <strong>Espada das Sombras</strong>.<ul>\n<li>Ataques com sua Arma Favorita do Mago causam <strong>+1D de dano por ER</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_combativo_magico_r7e1_2",
+      "nome": "2 Estrelas",
+      "tag": "classe",
+      "efeitoHTML": "<p><strong>Instinto Mágico:</strong></p>\n<ul>\n<li>Recebe:<ul>\n<li><strong>+3 em Percepção</strong>.</li>\n<li><strong>+3 em Percepção Mágica</strong>.</li>\n</ul>\n</li>\n<li>Enquanto estiver com <strong>Vida cheia</strong>, recebe:<ul>\n<li><strong>+1DR em testes de Percepção</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    }
+  ],
+  "ataques": [
+    {
+      "nome": "Espadada Forte",
+      "ndr": 2,
+      "mult": 2,
+      "atrAtaque": "tecnica",
+      "atrDano": "corpo",
+      "crit": "Sangramento",
+      "efeitoHTML": "4d12+5"
+    },
+    {
+      "nome": "MEGA MORTE!",
+      "ndr": 1,
+      "mult": 2,
+      "atrAtaque": "tecnica",
+      "atrDano": "corpo",
+      "crit": "",
+      "efeitoHTML": "<p data-prosemirror-content-type=\"node\" data-prosemirror-node-name=\"paragraph\" data-prosemirror-node-block=\"true\" data-pm-slice=\"1 1 []\">Como uma ação padrão, desfira um mega ataque contra um jogador, este ataque se beneficia de <strong data-prosemirror-content-type=\"mark\" data-prosemirror-mark-name=\"strong\">Corte</strong> para o acerto, e o dano é igual á ERd12 para cada ação de ataque que seu personagem possuir. Caso você reduza a vida do inimigo em 10% com este ataque, recebe +1DR contra ele.</p>"
+    }
+  ],
+  "inventario": [
+    {
+      "nome": "Roupas Escolares",
+      "tag": "outro",
+      "qtd": 1,
+      "descHTML": "Academia Omnus",
+      "equipado": false
+    }
+  ],
+  "pensamentos": [
+    {
+      "assunto": "Lokeliel",
+      "textoHTML": "Ele é um nerd chato e insuportável... Pelo menos no inicio. Hoje eu meio que gosto muito dele... Tipo muito mesmo... QUERO QUE ELE SEJA PAI DOS MEUS FILHOS, PRONTO FALEI #TOLEVE"
+    },
+    {
+      "assunto": "Daphne",
+      "textoHTML": "MY BESTO FRIENDO. Que bom que ela saiu do Armário... Aquele papo de gostar do Loke tava me dando nos nervos."
+    },
+    {
+      "assunto": "Rinma",
+      "textoHTML": "Minha Rival... Na Espada e no Amor... Ela é forte, e isso é bom, se não eu não seria também."
+    },
+    {
+      "assunto": "Azura",
+      "textoHTML": "Ela é bem legal! É a mãezona do Grupo! Eu adoro ela, mas ela tem um clima estranho com o pessoal, ela olha pra todo mundo(inclusive eu) com olhares estranhos de um predador. Então no fim ela é igual um crocodilo, pode brincar, mas cuidado com a mão perto da boca dela."
+    }
+  ],
+  "titulo": "Espadachim de Fogo",
+  "tituloArtigo": "A",
+  "atualizado": "2026-08-14T14:27:13.450Z",
+  "dono": "Lokeser"
+}

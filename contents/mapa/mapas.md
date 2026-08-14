@@ -81,7 +81,18 @@
       "id": "mundo",
       "nome": "Mundo",
       "imagem": "assets/mapas/mapa-mundo-xy3ecbl4.jpg",
-      "locais": []
+      "locais": [
+        {
+          "id": "xuttbok7",
+          "nome": "Reino Scarlett",
+          "tipo": "capital",
+          "x": 0.49820825173880745,
+          "y": 0.8254893430799609,
+          "foto": null,
+          "desc": "",
+          "campanhas": []
+        }
+      ]
     }
   ]
 }

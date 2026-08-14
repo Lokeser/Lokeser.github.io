@@ -15,22 +15,72 @@
 ```json
 {
   "tipos": [
-    { "id": "capital",  "nome": "Capital",   "icone": "🏰", "cor": "#f0d17a" },
-    { "id": "cidade",   "nome": "Cidade",    "icone": "🏘️", "cor": "#58A0C8" },
-    { "id": "vila",     "nome": "Vila",      "icone": "🏡", "cor": "#7fd08a" },
-    { "id": "dungeon",  "nome": "Dungeon",   "icone": "💀", "cor": "#e04343" },
-    { "id": "ruina",    "nome": "Ruína",     "icone": "🏛️", "cor": "#b9a68a" },
-    { "id": "floresta", "nome": "Floresta",  "icone": "🌲", "cor": "#3fbf6a" },
-    { "id": "montanha", "nome": "Montanha",  "icone": "⛰️", "cor": "#9aa7b5" },
-    { "id": "agua",     "nome": "Mar / Rio", "icone": "🌊", "cor": "#4aa3ff" },
-    { "id": "marco",    "nome": "Marco",     "icone": "✦",  "cor": "#c58cf6" },
-    { "id": "outro",    "nome": "Outro",     "icone": "📍", "cor": "#ffffff" }
+    {
+      "id": "capital",
+      "nome": "Capital",
+      "icone": "🏰",
+      "cor": "#f0d17a"
+    },
+    {
+      "id": "cidade",
+      "nome": "Cidade",
+      "icone": "🏘️",
+      "cor": "#58A0C8"
+    },
+    {
+      "id": "vila",
+      "nome": "Vila",
+      "icone": "🏡",
+      "cor": "#7fd08a"
+    },
+    {
+      "id": "dungeon",
+      "nome": "Dungeon",
+      "icone": "💀",
+      "cor": "#e04343"
+    },
+    {
+      "id": "ruina",
+      "nome": "Ruína",
+      "icone": "🏛️",
+      "cor": "#b9a68a"
+    },
+    {
+      "id": "floresta",
+      "nome": "Floresta",
+      "icone": "🌲",
+      "cor": "#3fbf6a"
+    },
+    {
+      "id": "montanha",
+      "nome": "Montanha",
+      "icone": "⛰️",
+      "cor": "#9aa7b5"
+    },
+    {
+      "id": "agua",
+      "nome": "Mar / Rio",
+      "icone": "🌊",
+      "cor": "#4aa3ff"
+    },
+    {
+      "id": "marco",
+      "nome": "Marco",
+      "icone": "✦",
+      "cor": "#c58cf6"
+    },
+    {
+      "id": "outro",
+      "nome": "Outro",
+      "icone": "📍",
+      "cor": "#ffffff"
+    }
   ],
   "mapas": [
     {
       "id": "mundo",
       "nome": "Mundo",
-      "imagem": "",
+      "imagem": "assets/mapas/mapa-mundo-xy3ecbl4.jpg",
       "locais": []
     }
   ]

@@ -517,7 +517,7 @@ html, body {
 }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
-@media screen and (max-width: 1100px) { /* Colapsa antes de o menu transbordar (logo + 7 links + tema) */
+@media screen and (max-width: 1560px) { /* Colapsa antes de transbordar (logo + 9 links + tema + login) */
     
     .mobile-menu-icon {
         display: flex; 
@@ -602,6 +602,70 @@ html[data-theme="dark"] #content blockquote {
     transform: rotate(-20deg) scale(1.08);
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
 }
+
+/* --- Link "Eras" (fundo azul escuro) --- */
+.nav-links li a.nav-eras {
+    background: #16233d;
+    border: 1px solid #3a63d2;
+    border-radius: 16px;
+    padding: 5px 14px;
+    color: #9fc0da !important;
+}
+.nav-links li a.nav-eras:hover {
+    background: #1e3157;
+    color: #fff !important;
+    box-shadow: 0 0 12px rgba(58, 99, 210, .5);
+}
+
+/* --- Botão de login (extremo direito da navbar) --- */
+.gh-login {
+    margin-left: 6px;
+    background: transparent;
+    border: 1px solid #6b5a35;
+    color: var(--cor-dourada, #c5a059);
+    border-radius: 16px;
+    padding: 5px 13px;
+    font-size: .78rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .25s;
+}
+.gh-login:hover { background: rgba(197, 160, 89, .16); }
+.gh-login.editor { border-color: #4caf50; color: #8fe0a0; box-shadow: 0 0 10px rgba(76, 175, 80, .35); }
+
+/* --- Modal de login --- */
+.gh-overlay {
+    position: fixed; inset: 0; z-index: 4000;
+    background: rgba(0, 0, 0, .72);
+    display: none; align-items: center; justify-content: center; padding: 20px;
+}
+.gh-overlay.aberto { display: flex; }
+.gh-box {
+    width: 100%; max-width: 420px;
+    background: #101a2b; border: 1px solid #3a63d2; border-top: 4px solid #c5a059;
+    border-radius: 14px; padding: 24px;
+    color: #eaf2fa; font-family: 'Lato', sans-serif;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .7);
+}
+.gh-box h3 { font-family: 'Cinzel', serif; color: #f0d17a; margin: 0 0 6px; font-size: 1.25rem; }
+.gh-sub { color: #9fc0da; font-size: .84rem; margin-bottom: 16px; }
+.gh-box label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: #8fb3cf; margin: 12px 0 5px; }
+.gh-box input {
+    width: 100%; box-sizing: border-box;
+    background: rgba(0, 0, 0, .35); border: 1px solid #34699A; color: #fff;
+    border-radius: 8px; padding: 10px 12px; font-size: .9rem;
+}
+.gh-box input:focus { outline: none; border-color: #f0d17a; box-shadow: 0 0 8px rgba(240, 209, 122, .3); }
+.gh-nota { font-size: .74rem; color: #f0c56b; margin-top: 12px; }
+.gh-status { font-size: .82rem; margin-top: 10px; min-height: 18px; color: #cfe1f0; }
+.gh-status.ok { color: #8fe0a0; }
+.gh-status.err { color: #ff9b9b; }
+.gh-acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
+.gh-btn { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; transition: .2s; }
+.gh-btn:hover { filter: brightness(1.12); }
+.gh-btn.ouro { background: #f0d17a; color: #14202e; }
+.gh-btn.fantasma { background: transparent; color: #cfe1f0; border: 1px solid #58A0C8; }
 
 /* --- Botão "Criar Personagem" na navbar --- */
 .nav-links li a.nav-cta {

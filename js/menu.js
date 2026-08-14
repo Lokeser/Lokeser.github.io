@@ -61,8 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/magias/magias_menu.html">Magias</a></li>
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
                     <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
+                    <li><a href="${finalPrefix}eras.html" class="nav-eras">Eras</a></li>
+                    <li><a href="${finalPrefix}mapa.html" class="nav-eras">Mapa</a></li>
                     <li><a href="${finalPrefix}personagem.html" class="nav-cta">Meus Personagens</a></li>
                     <li><button id="theme-toggle" class="theme-toggle" type="button" title="Alternar tema">🌙</button></li>
+                    <li><button id="gh-login-btn" class="gh-login" type="button" title="Entrar com GitHub">🔑 <span id="gh-login-rotulo">Entrar</span></button></li>
                 </ul>
             </div>
         </nav>
@@ -74,6 +77,16 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(getCookie('theme') || 'blue');
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+    // Login GitHub: carrega o módulo sob demanda (a navbar existe em todas as páginas)
+    if (typeof WNJAuth === 'undefined') {
+        const s = document.createElement('script');
+        s.src = finalPrefix + 'js/auth.js';
+        s.onload = () => WNJAuth.ligarBotao();
+        document.head.appendChild(s);
+    } else {
+        WNJAuth.ligarBotao();
+    }
 
     // --- LÓGICA DO MENU MOBILE ---
     const menuBtn = document.getElementById('mobile-menu-btn');

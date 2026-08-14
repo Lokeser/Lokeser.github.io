@@ -251,23 +251,119 @@ const WNJ = (() => {
     }
 
     // ---------- ARMAZENAMENTO LOCAL ----------
+    // IMPORTANTE: antes, um JSON corrompido fazia listar() devolver [] em silêncio
+    // e o salvar() seguinte sobrescrevia TUDO — perdendo todos os personagens.
+    // Agora a leitura sinaliza falha, a gravação nunca apaga o que não conseguiu
+    // ler e cada gravação deixa um backup da versão anterior.
     const KEY = 'wnj_personagens';
+    const KEY_BAK = 'wnj_personagens_backup';
+    const KEY_BAK2 = 'wnj_personagens_backup2';
+    let leituraFalhou = false;
+
     function listar() {
-        try { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
-        catch (e) { return []; }
+        const bruto = localStorage.getItem(KEY);
+        if (bruto == null || bruto === '') { leituraFalhou = false; return []; }
+        try {
+            const v = JSON.parse(bruto);
+            if (!Array.isArray(v)) throw new Error('formato inesperado');
+            leituraFalhou = false;
+            return v;
+        } catch (e) {
+            leituraFalhou = true;   // trava gravações destrutivas
+            console.error('Lista de personagens corrompida. Tentando backup...', e);
+            for (const k of [KEY_BAK, KEY_BAK2]) {
+                try {
+                    const b = JSON.parse(localStorage.getItem(k) || 'null');
+                    if (Array.isArray(b) && b.length) {
+                        console.warn('Recuperado do backup ' + k + ': ' + b.length + ' personagem(ns).');
+                        return b;
+                    }
+                } catch (e2) { /* tenta o próximo */ }
+            }
+            return [];
+        }
     }
+
+    function gravar(lista) {
+        // roda os backups antes de sobrescrever
+        try {
+            const atual = localStorage.getItem(KEY);
+            if (atual) {
+                const bak = localStorage.getItem(KEY_BAK);
+                if (bak) localStorage.setItem(KEY_BAK2, bak);
+                localStorage.setItem(KEY_BAK, atual);
+            }
+        } catch (e) { /* backup é melhor-esforço */ }
+
+        try {
+            localStorage.setItem(KEY, JSON.stringify(lista));
+            return true;
+        } catch (e) {
+            // quota estourada (normalmente por imagens em base64)
+            console.error('Falha ao gravar personagens', e);
+            alert('⚠️ Não consegui salvar: o armazenamento deste navegador encheu.\n\n' +
+                  'Seus personagens antigos continuam salvos. Para liberar espaço, baixe as fichas ' +
+                  'em .html (ou envie para a nuvem, se você estiver logado) e remova imagens muito grandes.');
+            return false;
+        }
+    }
+
     function salvar(char) {
         const todos = listar();
+        if (leituraFalhou) {
+            alert('⚠️ Não salvei para não apagar seus outros personagens: a lista salva neste ' +
+                  'navegador está ilegível.\n\nAbra "Meus Personagens" → Recuperar personagens ' +
+                  'para restaurar antes de continuar.');
+            return false;
+        }
         const i = todos.findIndex(c => c.id === char.id);
         char.atualizado = new Date().toISOString();
         if (i >= 0) todos[i] = char; else todos.push(char);
-        localStorage.setItem(KEY, JSON.stringify(todos));
+        return gravar(todos);
     }
     function excluir(id) {
-        localStorage.setItem(KEY, JSON.stringify(listar().filter(c => c.id !== id)));
+        const todos = listar();
+        if (leituraFalhou) return false;
+        return gravar(todos.filter(c => c.id !== id));
     }
     function obter(id) {
         return listar().find(c => c.id === id) || null;
+    }
+
+    // ---------- RECUPERAÇÃO ----------
+    // Varre TODO o localStorage procurando qualquer coisa que pareça personagem:
+    // a chave principal, os backups, o rascunho da criação e chaves antigas.
+    function pareceFicha(o) {
+        return o && typeof o === 'object' && !Array.isArray(o) &&
+            (o.atributos || o.pericias || o.periciasDelta) &&
+            ('rank' in o || 'nome' in o);
+    }
+    function varrerRecuperaveis() {
+        const achados = [];
+        const vistos = new Set(listar().map(c => c.id));
+        for (let i = 0; i < localStorage.length; i++) {
+            const k = localStorage.key(i);
+            if (!k) continue;
+            let v;
+            try { v = JSON.parse(localStorage.getItem(k)); } catch (e) { continue; }
+            const candidatos = Array.isArray(v) ? v : [v];
+            candidatos.forEach(c => {
+                if (!pareceFicha(c)) return;
+                if (!c.id) c.id = 'rec' + Math.random().toString(36).slice(2, 9);
+                if (vistos.has(c.id)) return;      // já está na lista ativa
+                achados.push({ origem: k, char: c });
+            });
+        }
+        return achados;
+    }
+    function restaurar(chars) {
+        const todos = listar();
+        let n = 0;
+        chars.forEach(c => {
+            if (!todos.some(x => x.id === c.id)) { todos.push(c); n++; }
+        });
+        if (n) gravar(todos);
+        return n;
     }
 
     function novoPersonagem() {
@@ -334,6 +430,7 @@ const WNJ = (() => {
         calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcCA,
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
-        paletaMagia, atributosPrincipais, rolarFormula
+        paletaMagia, atributosPrincipais, rolarFormula,
+        varrerRecuperaveis, restaurar
     };
 })();

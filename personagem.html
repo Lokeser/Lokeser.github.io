@@ -83,6 +83,49 @@
 
         .vazio { text-align: center; color: #8fb3cf; padding: 40px 20px; grid-column: 1 / -1; }
         .vazio .icone { font-size: 3rem; display: block; margin-bottom: 10px; opacity: .6; }
+
+        /* ===== Barra da nuvem / recuperação ===== */
+        .barra-nuvem {
+            max-width: 1100px; margin: 0 auto 22px; padding: 12px 18px;
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
+            border-radius: 12px; font-size: .86rem; color: #cfe1f0;
+        }
+        .barra-nuvem .barra-acoes { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+        .mini-btn {
+            background: transparent; border: 1px solid var(--c3); color: #cfe1f0;
+            border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: .8rem; font-weight: 700;
+        }
+        .mini-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+        .mini-btn.ativo { border-color: #4caf50; color: #8fe0a0; }
+
+        .pcard .selo-nuvem {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            background: rgba(6,14,24,.85); border: 1px solid #4caf50; color: #8fe0a0;
+            border-radius: 10px; padding: 2px 8px; font-size: .64rem; font-weight: 700;
+        }
+        .acoes button.btn-nuvem { background: #2f6f4f; color: #dfffe9; }
+
+        /* ===== Modal ===== */
+        .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .ov.aberto { display: flex; }
+        .box {
+            width: 100%; max-width: 560px; background: #101a2b; border: 1px solid #3a63d2;
+            border-top: 4px solid var(--c4); border-radius: 14px; padding: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.7);
+        }
+        .box h3 { font-family: 'Cinzel', serif; color: var(--c4); margin: 0 0 8px; }
+        .box .sub { color: #9fc0da; font-size: .84rem; margin-bottom: 14px; }
+        .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+        .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; }
+        .b:hover { filter: brightness(1.12); }
+        .b.ouro { background: var(--c4); color: #14202e; }
+        .b.fantasma { background: transparent; color: #cfe1f0; border: 1px solid var(--c3); }
+        .rec-item {
+            display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px;
+            background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; font-size: .86rem;
+        }
+        .rec-item small { color: #8fb3cf; margin-left: auto; font-size: .72rem; }
     </style>
 </head>
 <body>
@@ -102,18 +145,49 @@
     </div>
 
     <h2 class="galeria-titulo" id="meus">MEUS PERSONAGENS</h2>
-    <p class="galeria-sub">Salvos neste navegador. Baixe um .html para guardar ou compartilhar.</p>
+    <p class="galeria-sub" id="galeria-sub">Salvos neste navegador. Baixe um .html para guardar ou compartilhar.</p>
+
+    <div class="barra-nuvem" id="barra-nuvem">
+        <span id="nuvem-status">☁️ Entre com o GitHub para salvar seus personagens na nuvem.</span>
+        <div class="barra-acoes">
+            <button class="mini-btn" id="btn-sincronizar" style="display:none">🔄 Sincronizar com a nuvem</button>
+            <button class="mini-btn" id="btn-recuperar">🛟 Recuperar personagens</button>
+        </div>
+    </div>
+
     <div class="galeria" id="galeria"></div>
+
+    <!-- MODAL: RECUPERAÇÃO -->
+    <div class="ov" id="ov-recuperar">
+        <div class="box">
+            <h3>🛟 Recuperar personagens</h3>
+            <p class="sub">Procuro no armazenamento deste navegador por fichas que não estão
+            aparecendo na lista — incluindo backups automáticos e a criação que ficou pela metade.</p>
+            <div id="rec-resultado"></div>
+            <div class="acoes">
+                <button class="b fantasma" data-fechar>Fechar</button>
+                <button class="b ouro" id="rec-restaurar" style="display:none">Restaurar selecionados</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/menu.js"></script>
     <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nuvem.js"></script>
     <script src="js/exportar.js"></script>
     <script>
+        const $ = (id) => document.getElementById(id);
+        let idsNaNuvem = new Set();
+
         function render() {
-            const g = document.getElementById('galeria');
+            const g = $('galeria');
             const chars = WNJ.listar();
             if (!chars.length) {
-                g.innerHTML = '<div class="vazio"><span class="icone">🕯️</span>Nenhum personagem ainda. Clique em <strong>Novo Personagem</strong> para começar.</div>';
+                g.innerHTML = '<div class="vazio"><span class="icone">🕯️</span>Nenhum personagem neste navegador.<br>' +
+                    'Clique em <strong>Novo Personagem</strong> para começar' +
+                    (WNJNuvem.disponivel() ? ', ou em <strong>Sincronizar com a nuvem</strong> para baixar os seus.' : '.') +
+                    '<br><small>Se você já tinha fichas aqui, tente <strong>🛟 Recuperar personagens</strong>.</small></div>';
                 return;
             }
             g.innerHTML = '';
@@ -122,24 +196,123 @@
                 card.className = 'pcard';
                 const nome = [c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
                 const est = c.rank < 10 ? ' ' + '★'.repeat(c.estrela) : '';
+                const naNuvem = idsNaNuvem.has(c.id);
                 card.innerHTML =
                     (c.img ? '<img src="' + c.img + '" alt="">' : '<div class="sem-img">🎭</div>') +
+                    (naNuvem ? '<div class="selo-nuvem">☁️ NA NUVEM</div>' : '') +
                     '<div class="prank">R' + c.rank + est + '</div>' +
                     '<div class="pnome">' + nome.replace(/</g, '&lt;') + '</div>' +
                     '<div class="acoes">' +
                     '<button class="btn-usar">▶ Usar</button>' +
+                    (WNJNuvem.disponivel() ? '<button class="btn-nuvem">' + (naNuvem ? '☁️ Atualizar' : '☁️ Enviar') + '</button>' : '') +
                     '<button class="btn-baixar">⬇ Baixar</button>' +
                     '<button class="btn-excluir">✖ Excluir</button>' +
                     '</div>';
                 card.querySelector('.btn-usar').onclick = () => location.href = 'ficha.html?id=' + c.id;
                 card.querySelector('.btn-baixar').onclick = async () => { await WNJExport.baixar(c); };
-                card.querySelector('.btn-excluir').onclick = () => {
-                    if (confirm('Excluir permanentemente "' + nome + '"?')) { WNJ.excluir(c.id); render(); }
+                const bn = card.querySelector('.btn-nuvem');
+                if (bn) bn.onclick = async () => {
+                    bn.disabled = true; bn.textContent = '⏳...';
+                    try { await WNJNuvem.enviar(c); idsNaNuvem.add(c.id); render(); }
+                    catch (e) { alert('Erro ao enviar: ' + e.message); bn.disabled = false; render(); }
+                };
+                card.querySelector('.btn-excluir').onclick = async () => {
+                    if (!confirm('Excluir permanentemente "' + nome + '"?')) return;
+                    WNJ.excluir(c.id);
+                    if (idsNaNuvem.has(c.id) && WNJNuvem.disponivel() &&
+                        confirm('Excluir também a cópia na nuvem?')) {
+                        try { await WNJNuvem.excluir(c.id); idsNaNuvem.delete(c.id); } catch (e) { alert('Erro na nuvem: ' + e.message); }
+                    }
+                    render();
                 };
                 g.appendChild(card);
             }
         }
+
+        // ---------- NUVEM ----------
+        async function atualizarBarraNuvem() {
+            const st = $('nuvem-status');
+            const btn = $('btn-sincronizar');
+            if (!WNJNuvem.disponivel()) {
+                const c = (typeof WNJAuth !== 'undefined') ? WNJAuth.credenciais() : {};
+                st.innerHTML = c.token
+                    ? '☁️ Conectado como <strong>' + (c.user || '—') + '</strong>, mas sem permissão de escrita no repositório — seus personagens ficam salvos só neste navegador.'
+                    : '☁️ <strong>Entre com o GitHub</strong> (botão 🔑 na barra de cima) para salvar seus personagens no repositório e acessá-los de qualquer PC.';
+                btn.style.display = 'none';
+                return;
+            }
+            btn.style.display = '';
+            st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong> — carregando...';
+            try {
+                const naNuvem = await WNJNuvem.listar();
+                idsNaNuvem = new Set(naNuvem.map(c => c.id));
+                st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong>: ' +
+                    naNuvem.length + ' personagem(ns) salvos em <code>' + WNJNuvem.pasta() + '</code>';
+                render();
+            } catch (e) {
+                st.innerHTML = '☁️ Não consegui ler a nuvem: ' + e.message;
+            }
+        }
+
+        $('btn-sincronizar').onclick = async () => {
+            const b = $('btn-sincronizar');
+            b.disabled = true; b.textContent = '⏳ Sincronizando...';
+            try {
+                const r = await WNJNuvem.sincronizar();
+                alert('✓ Sincronizado!\n\n' +
+                      '⬇ Baixados da nuvem: ' + r.baixados + '\n' +
+                      '⬆ Enviados para a nuvem: ' + r.enviados + '\n' +
+                      '🔄 Atualizados: ' + r.atualizados);
+                await atualizarBarraNuvem();
+                render();
+            } catch (e) {
+                alert('Erro ao sincronizar: ' + e.message);
+            } finally {
+                b.disabled = false; b.textContent = '🔄 Sincronizar com a nuvem';
+            }
+        };
+
+        // ---------- RECUPERAÇÃO ----------
+        let achados = [];
+        $('btn-recuperar').onclick = () => {
+            achados = WNJ.varrerRecuperaveis();
+            const box = $('rec-resultado');
+            if (!achados.length) {
+                box.innerHTML = '<p class="sub">Não encontrei nenhuma ficha perdida neste navegador. ' +
+                    'Se os personagens foram criados em outro computador, navegador ou aba anônima, ' +
+                    'eles ficaram no armazenamento <em>daquele</em> navegador — não há como buscá-los daqui. ' +
+                    'Use a nuvem para não depender mais de um único dispositivo.</p>';
+                $('rec-restaurar').style.display = 'none';
+            } else {
+                box.innerHTML = '<p class="sub">Encontrei <strong>' + achados.length + '</strong> ficha(s) fora da lista:</p>' +
+                    achados.map((a, i) => {
+                        const n = [a.char.nome, a.char.sobrenome].filter(Boolean).join(' ') || '(sem nome)';
+                        return '<label class="rec-item"><input type="checkbox" checked data-i="' + i + '">' +
+                            '<span>' + n.replace(/</g, '&lt;') + ' — R' + (a.char.rank || '?') + '</span>' +
+                            '<small>' + a.origem + '</small></label>';
+                    }).join('');
+                $('rec-restaurar').style.display = '';
+            }
+            $('ov-recuperar').classList.add('aberto');
+        };
+        $('rec-restaurar').onclick = () => {
+            const sel = [...document.querySelectorAll('#rec-resultado input:checked')]
+                .map(i => achados[parseInt(i.dataset.i, 10)].char);
+            const n = WNJ.restaurar(sel);
+            alert(n ? '✓ ' + n + ' personagem(ns) restaurado(s)!' : 'Nada novo para restaurar.');
+            $('ov-recuperar').classList.remove('aberto');
+            render();
+        };
+        document.querySelectorAll('[data-fechar]').forEach(b => {
+            b.onclick = () => b.closest('.ov').classList.remove('aberto');
+        });
+        document.querySelectorAll('.ov').forEach(ov => {
+            ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('aberto'); });
+        });
+
         render();
+        atualizarBarraNuvem();
+        document.addEventListener('wnj-auth', () => { atualizarBarraNuvem(); render(); });
     </script>
 </body>
 </html>

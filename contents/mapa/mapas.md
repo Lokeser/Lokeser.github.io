@@ -91,8 +91,27 @@
           "foto": null,
           "desc": "",
           "campanhas": []
+        },
+        {
+          "id": "x547khm2",
+          "nome": "Caverna do Boss de Ferro",
+          "tipo": "dungeon",
+          "x": 0.5573881442970956,
+          "y": 0.3485602862364253,
+          "foto": null,
+          "desc": "Monstro blablabla",
+          "campanhas": [
+            "Future",
+            "Tempestaria"
+          ]
         }
       ]
+    },
+    {
+      "id": "xdzwmydu",
+      "nome": "Mapa 2",
+      "imagem": "",
+      "locais": []
     }
   ]
 }

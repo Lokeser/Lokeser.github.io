@@ -11,20 +11,20 @@
   "rank": 8,
   "estrela": 2,
   "atributos": {
-    "corpo": 2,
-    "tecnica": 4,
+    "corpo": 1,
+    "tecnica": 1,
     "intelecto": 1,
     "carisma": 9,
     "sabedoria": 2,
-    "mana": 15
+    "mana": 9
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": 95,
-  "magiculasAtual": 1,
+  "vidaAtual": 170,
+  "vidaMaxManual": 170,
+  "magiculasAtual": 103,
   "magiculasMax": 103,
   "arcanaManual": null,
   "caManual": null,
-  "deslocManual": null,
+  "deslocManual": 13,
   "cargas": [],
   "poderes": [
     {
@@ -98,6 +98,7 @@
   "tituloArtigo": "A",
   "periciasDelta": {},
   "resistencias": {},
-  "atualizado": "2026-08-16T02:12:25.167Z",
+  "atualizado": "2026-08-16T02:12:47.707Z",
+  "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io"
 }

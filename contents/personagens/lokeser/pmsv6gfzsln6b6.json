@@ -11,15 +11,15 @@
   "rank": 8,
   "estrela": 1,
   "atributos": {
-    "corpo": 4,
+    "corpo": 8,
     "tecnica": 1,
     "intelecto": 0,
     "carisma": 0,
     "sabedoria": 3,
     "mana": 1
   },
-  "vidaAtual": 141,
-  "vidaMaxManual": 141,
+  "vidaAtual": 188,
+  "vidaMaxManual": 188,
   "magiculasAtual": 1,
   "magiculasMax": 20,
   "arcanaManual": 0,
@@ -241,7 +241,7 @@
   "resistencias": {
     "Contundente": "r1"
   },
-  "atualizado": "2026-08-16T02:38:50.317Z",
+  "atualizado": "2026-08-16T03:59:42.645Z",
   "vidaMagicaMax": 100,
   "vidaMagicaAtual": 100,
   "dono": "Lokeser"

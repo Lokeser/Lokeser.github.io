@@ -9,7 +9,7 @@
   "classeAvancada": "",
   "magia": "Anômala",
   "rank": 8,
-  "estrela": 2,
+  "estrela": 1,
   "atributos": {
     "corpo": 1,
     "tecnica": 1,
@@ -131,7 +131,7 @@
     "Charme": 3
   },
   "resistencias": {},
-  "atualizado": "2026-08-16T02:39:58.058Z",
+  "atualizado": "2026-08-16T02:40:09.697Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

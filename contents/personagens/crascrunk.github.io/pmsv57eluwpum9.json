@@ -5,7 +5,7 @@
   "nome": "Analin",
   "sobrenome": "Lullavrud",
   "raca": "Humano",
-  "classeInicial": "Prodígio",
+  "classeInicial": "Aventureiro",
   "classeAvancada": "",
   "magia": "Anômala",
   "rank": 8,
@@ -37,26 +37,6 @@
       "estrela": 1
     },
     {
-      "refId": "ci_prodigio_r10e1_1",
-      "nome": "Prodígio",
-      "tag": "classe",
-      "efeitoHTML": "<ul>\n<li>Escolha <strong>1 Atributo</strong> à sua escolha.</li>\n<li>Recebe <strong>+1</strong> nesse atributo.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 10,
-      "estrela": 1,
-      "oculto": true
-    },
-    {
-      "refId": "ci_prodigio_r10e1_2",
-      "nome": "Expandir Limites",
-      "tag": "classe",
-      "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+12 Vida Máxima</strong></li>\n<li><strong>+3 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
-      "auto": true,
-      "rank": 10,
-      "estrela": 1,
-      "oculto": true
-    },
-    {
       "refId": "rc_humano_r9_1",
       "nome": "Existencialismo",
       "tag": "raca",
@@ -64,26 +44,6 @@
       "auto": true,
       "rank": 9,
       "estrela": 1,
-      "oculto": true
-    },
-    {
-      "refId": "ci_prodigio_r9e2_1",
-      "nome": "Prodígio Definitivo",
-      "tag": "classe",
-      "efeitoHTML": "<p>Escolha <strong>uma opção</strong>:</p>\n<ul>\n<li>Escolha <strong>outro atributo</strong>:<ul>\n<li>Recebe <strong>+2</strong> nele.</li>\n</ul>\n</li>\n<li><strong>OU</strong></li>\n<li>Escolha o <strong>mesmo atributo</strong> de Prodígio:<ul>\n<li>Recebe <strong>+1 adicional</strong> nele.</li>\n</ul>\n</li>\n</ul>\n",
-      "auto": true,
-      "rank": 9,
-      "estrela": 2,
-      "oculto": true
-    },
-    {
-      "refId": "ci_prodigio_r9e2_2",
-      "nome": "Expandir Limites II",
-      "tag": "classe",
-      "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+24 Vida Máxima</strong></li>\n<li><strong>+6 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
-      "auto": true,
-      "rank": 9,
-      "estrela": 2,
       "oculto": true
     },
     {
@@ -98,14 +58,64 @@
     {
       "nome": "Proto-Despertar",
       "tag": "raca",
-      "efeitoHTML": "<h4 data-renderer-start-pos=\"1524\" tabindex=\"-1\"><strong data-renderer-mark=\"true\">Proto-Despertar</strong></h4><div><br></div><div><p data-renderer-start-pos=\"2085\"><strong data-renderer-mark=\"true\">Proto-Despertar</strong></p><ul class=\"ak-ul\" data-indent-level=\"2\"><li><p data-renderer-start-pos=\"2104\">Ganha asas de energia que brilham com a cor da mana da Fada (definida pelo mestre ou jogador, ex.: azul, roxo, verde). Elas não são físicas, apenas etéreas, e não podem ser danificadas.</p><ul class=\"ak-ul\" data-indent-level=\"3\"><li><p data-renderer-start-pos=\"2293\">Pode ativar as asas <strong data-renderer-mark=\"true\">vezes por dia igual sua sabedoria</strong> (Ação Padrão, dura 1 minuto). Recebe <strong data-renderer-mark=\"true\">+1 Mana</strong> durante a transformação, além disso escolha um efeito ao ativar(pode escolher diferentes efeitos ao ativar diferentes vezes):</p><ul class=\"ak-ul\" data-indent-level=\"4\"><li><p data-renderer-start-pos=\"2521\"><strong data-renderer-mark=\"true\">Brilho Etéreo:</strong> Emite luz fraca em 3m, dando <strong data-renderer-mark=\"true\">+3</strong> em testes de Carisma (ex.: Persuasão, Intimidação) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2638\"><strong data-renderer-mark=\"true\">Pulso de Mana:</strong> Ganha <strong data-renderer-mark=\"true\">+2</strong> em testes de Mana (ex.: lançar magias, resistir a efeitos mágicos) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2748\"><strong data-renderer-mark=\"true\">Eco Astral:</strong> Pode sentir presenças mágicas ou astrais a ditância longa, como um teste de Percepção (CD 15).</p></li></ul></li></ul></li><li><p data-renderer-start-pos=\"2862\">As asas de energia são o primeiro sinal da herança do Meio-Fada, um vislumbre do que ele pode se tornar.</p></li></ul><br></div>",
+      "efeitoHTML": "<div><ul class=\"ak-ul\" data-indent-level=\"2\"><li><p data-renderer-start-pos=\"2104\">Ganha asas de energia que brilham com a cor da mana da Fada (definida pelo mestre ou jogador, ex.: azul, roxo, verde). Elas não são físicas, apenas etéreas, e não podem ser danificadas.</p></li><li><p data-renderer-start-pos=\"2104\">Pode ativar as asas <strong data-renderer-mark=\"true\">vezes por dia igual sua sabedoria</strong> (Ação Padrão, dura 1 minuto). Recebe <strong data-renderer-mark=\"true\">+1 Mana</strong> durante a transformação, além disso escolha um efeito ao ativar(pode escolher diferentes efeitos ao ativar diferentes vezes):</p><ul class=\"ak-ul\" data-indent-level=\"3\"><li><ul class=\"ak-ul\" data-indent-level=\"4\"><li><p data-renderer-start-pos=\"2521\"><strong data-renderer-mark=\"true\">Brilho Etéreo:</strong> Emite luz fraca em 3m, dando <strong data-renderer-mark=\"true\">+3</strong> em testes de Carisma (ex.: Persuasão, Intimidação) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2638\"><strong data-renderer-mark=\"true\">Pulso de Mana:</strong> Ganha <strong data-renderer-mark=\"true\">+2</strong> em testes de Mana (ex.: lançar magias, resistir a efeitos mágicos) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2748\"><strong data-renderer-mark=\"true\">Eco Astral:</strong> Pode sentir presenças mágicas ou astrais a ditância longa, como um teste de Percepção (CD 15).</p></li></ul></li></ul></li><li><p data-renderer-start-pos=\"2862\">As asas de energia são o primeiro sinal da herança do Meio-Fada, um vislumbre do que ele pode se tornar.</p></li></ul><br></div>",
       "auto": false
     },
     {
       "nome": "Despertar Asas",
       "tag": "raca",
-      "efeitoHTML": "<h4 data-renderer-start-pos=\"2973\" tabindex=\"-1\"><strong data-renderer-mark=\"true\">Despertar Asas</strong></h4><div><br></div><div>Escolha um poder permanente para suas asas (cada escolha adiciona um detalhe visual):</div><ul><li><strong data-renderer-mark=\"true\">Voo Etéreo Natural:</strong> Como uma <strong data-renderer-mark=\"true\">ação de movimento</strong>, pode voar em um valor igual sua Mana + Metade do Deslocamento. Custa <strong data-renderer-mark=\"true\">1 Magícula</strong> por uso. <em data-renderer-mark=\"true\">(Detalhe visual: asas ganham linhas curvas que lembram correntes de ar.)</em></li></ul><div>As asas do Meio-Fada agora são reais, um símbolo de sua herança etérea.</div><div><br></div>",
+      "efeitoHTML": "<div>Escolha um poder permanente para suas asas (cada escolha adiciona um detalhe visual):</div><div><br></div><ul><li><strong data-renderer-mark=\"true\">Voo Etéreo Natural:</strong> Como uma <strong data-renderer-mark=\"true\">ação de movimento</strong>, pode voar em um valor igual sua Mana + Metade do Deslocamento. Custa <strong data-renderer-mark=\"true\">1 Magícula</strong> por uso. <em data-renderer-mark=\"true\">(Detalhe visual: asas ganham linhas curvas que lembram correntes de ar.)</em></li></ul><div>As asas do Meio-Fada agora são reais, um símbolo de sua herança etérea.</div><div><br></div>",
       "auto": false
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_1",
+      "nome": "Vida de Aventureiro",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>uma Habilidade Principal</strong> de uma <strong>Classe Inicial</strong>:</p>\n<ul>\n<li><strong>Trabalhador:</strong> Moldado pelo Ofício</li>\n<li><strong>Combativo:</strong> Estilo de Luta</li>\n<li><strong>Ladino:</strong> Ponto Fraco</li>\n<li><strong>Malandro:</strong> Insultar</li>\n<li><strong>Acadêmico:</strong> Estudar</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_2",
+      "nome": "Um Pouco de Tudo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Escolha <strong>2 Perícias</strong>.</li>\n<li>Recebe <strong>+3</strong> nelas.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_3",
+      "nome": "Treino de Adaptação",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>1 Habilidade Extra (Inicial)</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_1",
+      "nome": "Sobrevivencialismo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Enquanto estiver em <strong>Ambiente Selvagem</strong>:<ul>\n<li>Recebe <strong>+5</strong> em <strong>Sobrevivência</strong>.</li>\n<li>Recebe <strong>+5</strong> em <strong>Intuição</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_2",
+      "nome": "Próxima Aventura",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Ao atingir o <strong>Rank 8</strong>:<ul>\n<li>Pode escolher uma <strong>Classe Avançada</strong> que tenha como pré-requisito:<ul>\n<li>Uma das Classes escolhidas em <strong>Vida de Aventureiro</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li><strong>Obs:</strong> Ainda é necessário cumprir <strong>todos os outros pré-requisitos</strong> da Classe Avançada.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
     }
   ],
   "ataques": [],
@@ -113,9 +123,14 @@
   "pensamentos": [],
   "titulo": "Lolimancer",
   "tituloArtigo": "A",
-  "periciasDelta": {},
+  "periciasDelta": {
+    "Intuição": 5,
+    "Sobrevivência": 5,
+    "Lábia": 3,
+    "Análise": 3
+  },
   "resistencias": {},
-  "atualizado": "2026-08-16T02:18:08.130Z",
+  "atualizado": "2026-08-16T02:32:49.825Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io"
 }

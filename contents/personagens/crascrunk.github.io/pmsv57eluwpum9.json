@@ -94,6 +94,18 @@
       "auto": true,
       "rank": 8,
       "estrela": 1
+    },
+    {
+      "nome": "Proto-Despertar",
+      "tag": "raca",
+      "efeitoHTML": "<h4 data-renderer-start-pos=\"1524\" tabindex=\"-1\"><strong data-renderer-mark=\"true\">Proto-Despertar</strong></h4><div><br></div><div><p data-renderer-start-pos=\"2085\"><strong data-renderer-mark=\"true\">Proto-Despertar</strong></p><ul class=\"ak-ul\" data-indent-level=\"2\"><li><p data-renderer-start-pos=\"2104\">Ganha asas de energia que brilham com a cor da mana da Fada (definida pelo mestre ou jogador, ex.: azul, roxo, verde). Elas não são físicas, apenas etéreas, e não podem ser danificadas.</p><ul class=\"ak-ul\" data-indent-level=\"3\"><li><p data-renderer-start-pos=\"2293\">Pode ativar as asas <strong data-renderer-mark=\"true\">vezes por dia igual sua sabedoria</strong> (Ação Padrão, dura 1 minuto). Recebe <strong data-renderer-mark=\"true\">+1 Mana</strong> durante a transformação, além disso escolha um efeito ao ativar(pode escolher diferentes efeitos ao ativar diferentes vezes):</p><ul class=\"ak-ul\" data-indent-level=\"4\"><li><p data-renderer-start-pos=\"2521\"><strong data-renderer-mark=\"true\">Brilho Etéreo:</strong> Emite luz fraca em 3m, dando <strong data-renderer-mark=\"true\">+3</strong> em testes de Carisma (ex.: Persuasão, Intimidação) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2638\"><strong data-renderer-mark=\"true\">Pulso de Mana:</strong> Ganha <strong data-renderer-mark=\"true\">+2</strong> em testes de Mana (ex.: lançar magias, resistir a efeitos mágicos) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2748\"><strong data-renderer-mark=\"true\">Eco Astral:</strong> Pode sentir presenças mágicas ou astrais a ditância longa, como um teste de Percepção (CD 15).</p></li></ul></li></ul></li><li><p data-renderer-start-pos=\"2862\">As asas de energia são o primeiro sinal da herança do Meio-Fada, um vislumbre do que ele pode se tornar.</p></li></ul><br></div>",
+      "auto": false
+    },
+    {
+      "nome": "Despertar Asas",
+      "tag": "raca",
+      "efeitoHTML": "<h4 data-renderer-start-pos=\"2973\" tabindex=\"-1\"><strong data-renderer-mark=\"true\">Despertar Asas</strong></h4><div><br></div><div>Escolha um poder permanente para suas asas (cada escolha adiciona um detalhe visual):</div><ul><li><strong data-renderer-mark=\"true\">Voo Etéreo Natural:</strong> Como uma <strong data-renderer-mark=\"true\">ação de movimento</strong>, pode voar em um valor igual sua Mana + Metade do Deslocamento. Custa <strong data-renderer-mark=\"true\">1 Magícula</strong> por uso. <em data-renderer-mark=\"true\">(Detalhe visual: asas ganham linhas curvas que lembram correntes de ar.)</em></li></ul><div>As asas do Meio-Fada agora são reais, um símbolo de sua herança etérea.</div><div><br></div>",
+      "auto": false
     }
   ],
   "ataques": [],
@@ -103,7 +115,7 @@
   "tituloArtigo": "A",
   "periciasDelta": {},
   "resistencias": {},
-  "atualizado": "2026-08-16T02:13:11.970Z",
+  "atualizado": "2026-08-16T02:18:08.130Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io"
 }

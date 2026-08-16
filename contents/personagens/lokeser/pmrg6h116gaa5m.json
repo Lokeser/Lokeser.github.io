@@ -16,7 +16,7 @@
     "intelecto": 20,
     "carisma": 3,
     "sabedoria": 6,
-    "mana": -99
+    "mana": -999
   },
   "vidaAtual": 20,
   "vidaMaxManual": 20,
@@ -25,9 +25,6 @@
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": 9,
-  "overridesPericias": {
-    "Arcanismo": 100
-  },
   "cargas": [],
   "poderes": [
     {
@@ -153,6 +150,10 @@
   ],
   "titulo": "Erro",
   "tituloArtigo": "O",
-  "atualizado": "2026-08-14T14:27:14.960Z",
-  "dono": "Lokeser"
+  "atualizado": "2026-08-16T09:35:35.934Z",
+  "dono": "Lokeser",
+  "periciasDelta": {
+    "Arcanismo": 139
+  },
+  "resistencias": {}
 }

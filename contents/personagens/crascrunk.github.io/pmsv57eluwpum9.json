@@ -43,7 +43,8 @@
       "efeitoHTML": "<ul>\n<li>Escolha <strong>1 Atributo</strong> à sua escolha.</li>\n<li>Recebe <strong>+1</strong> nesse atributo.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_prodigio_r10e1_2",
@@ -52,7 +53,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+12 Vida Máxima</strong></li>\n<li><strong>+3 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_humano_r9_1",
@@ -61,7 +63,8 @@
       "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_prodigio_r9e2_1",
@@ -70,7 +73,8 @@
       "efeitoHTML": "<p>Escolha <strong>uma opção</strong>:</p>\n<ul>\n<li>Escolha <strong>outro atributo</strong>:<ul>\n<li>Recebe <strong>+2</strong> nele.</li>\n</ul>\n</li>\n<li><strong>OU</strong></li>\n<li>Escolha o <strong>mesmo atributo</strong> de Prodígio:<ul>\n<li>Recebe <strong>+1 adicional</strong> nele.</li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 2
+      "estrela": 2,
+      "oculto": true
     },
     {
       "refId": "ci_prodigio_r9e2_2",
@@ -79,7 +83,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+24 Vida Máxima</strong></li>\n<li><strong>+6 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 2
+      "estrela": 2,
+      "oculto": true
     },
     {
       "refId": "rc_humano_r8_1",
@@ -98,7 +103,7 @@
   "tituloArtigo": "A",
   "periciasDelta": {},
   "resistencias": {},
-  "atualizado": "2026-08-16T02:12:47.707Z",
+  "atualizado": "2026-08-16T02:13:11.970Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io"
 }

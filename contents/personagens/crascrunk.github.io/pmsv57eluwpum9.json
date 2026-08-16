@@ -8,8 +8,8 @@
   "classeInicial": "Prodígio",
   "classeAvancada": "",
   "magia": "Anômala",
-  "rank": 10,
-  "estrela": 1,
+  "rank": 8,
+  "estrela": 2,
   "atributos": {
     "corpo": 2,
     "tecnica": 4,
@@ -19,9 +19,9 @@
     "mana": 15
   },
   "vidaAtual": 20,
-  "vidaMaxManual": null,
+  "vidaMaxManual": 95,
   "magiculasAtual": 1,
-  "magiculasMax": null,
+  "magiculasMax": 103,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -53,6 +53,42 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_prodigio_r9e2_1",
+      "nome": "Prodígio Definitivo",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>uma opção</strong>:</p>\n<ul>\n<li>Escolha <strong>outro atributo</strong>:<ul>\n<li>Recebe <strong>+2</strong> nele.</li>\n</ul>\n</li>\n<li><strong>OU</strong></li>\n<li>Escolha o <strong>mesmo atributo</strong> de Prodígio:<ul>\n<li>Recebe <strong>+1 adicional</strong> nele.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_prodigio_r9e2_2",
+      "nome": "Expandir Limites II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+24 Vida Máxima</strong></li>\n<li><strong>+6 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "rc_humano_r8_1",
+      "nome": "Aproximação Divina",
+      "tag": "raca",
+      "efeitoHTML": "<p>Sempre que atingir a <strong>5ª Estrela de qualquer Rank</strong>, incluindo este, você recebe <strong>+1 ponto de atributo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
     }
   ],
   "ataques": [],
@@ -62,6 +98,6 @@
   "tituloArtigo": "A",
   "periciasDelta": {},
   "resistencias": {},
-  "atualizado": "2026-08-16T01:51:44.053Z",
+  "atualizado": "2026-08-16T02:12:25.167Z",
   "dono": "Crascrunk.github.io"
 }

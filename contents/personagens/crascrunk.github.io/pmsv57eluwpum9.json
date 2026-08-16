@@ -34,7 +34,8 @@
       "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_humano_r9_1",
@@ -187,6 +188,20 @@
       "qtd": 1000,
       "descHTML": "",
       "equipado": false
+    },
+    {
+      "nome": "Selos",
+      "tag": "outro",
+      "qtd": 1,
+      "descHTML": "<div>Mana: 15 - 6 (9)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 4 - 6 (1)</div>",
+      "equipado": false
+    },
+    {
+      "nome": "Wendy - A Fada do Oeste",
+      "tag": "artefato",
+      "qtd": 1,
+      "descHTML": "<div>Raridade: Mítica [Consome 2 Slots de Artefato]</div><div><br></div><div>Passiva:</div><ul><li>Faro Elemental I: É capaz de detectar toda e qualquer mana elemental de vento dentro de 6km, especificando qualidade e quantidade.</li></ul><ul><li>Medo: Caso esteja na em alcance curto de seres com alguns tipos de Anomalia, -100 de PA, usuários de Caos ou Malícia; Wendy fica Amedrontada.</li></ul><br>Ativa:<ul><li>Peso Mágico I: 1/Dia; Como uma ação bônus de Analin, Pode manipular a mana de vento ao redor, sendo capaz de levitar até 34kg, movendo-os em até 30m.</li></ul><ul><li>Sopro Tempestuoso I: 1/Dia; Como uma ação bônus de Analin, É capaz de realizar sopros de mana elemental de vento, estes são considerados ataques de mana, com Acerto: DR(Analin)+6 | Dano:6d4+6[Vento]. Caso acerte, empurra o alvo em 6m. Caso seja um crítico, pode usar Peso Mágica sem consumir o uso e como reação.</li></ul><ul><li>Barreira de Vento: 2/Dia; Como uma ação bônus de Analin, cria uma véu de vento rotatório em até 3m em volta de Analin, este Véu é considerado como construto de mana e fica imóvel no local, possuindo VT=10+Mana. Resistência X a Dano de Vento e Vulnerabilidade á dano de Terra(Recebe 2x). Deste modo, todo inimigo que estiver á corpo-a-corpo com a barreira realiza um Teste de Resistência de Corpo(CD: 10+Mana+ER), caso falhe é empurrado á 6m e fica Caído.</li></ul>",
+      "equipado": false
     }
   ],
   "pensamentos": [],
@@ -205,7 +220,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-08-16T03:17:45.698Z",
+  "atualizado": "2026-08-16T03:27:54.902Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

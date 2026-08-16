@@ -9,7 +9,7 @@
   "classeAvancada": "",
   "magia": "Anômala",
   "rank": 8,
-  "estrela": 1,
+  "estrela": 2,
   "atributos": {
     "corpo": 1,
     "tecnica": 1,
@@ -18,8 +18,8 @@
     "sabedoria": 2,
     "mana": 9
   },
-  "vidaAtual": 170,
-  "vidaMaxManual": 179,
+  "vidaAtual": 181,
+  "vidaMaxManual": 181,
   "magiculasAtual": 99,
   "magiculasMax": 103,
   "arcanaManual": null,
@@ -227,7 +227,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-08-16T09:52:49.103Z",
+  "atualizado": "2026-08-16T09:53:18.973Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

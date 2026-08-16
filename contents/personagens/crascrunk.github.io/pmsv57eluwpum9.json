@@ -23,7 +23,7 @@
   "magiculasAtual": 103,
   "magiculasMax": 103,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 14,
   "deslocManual": 13,
   "cargas": [],
   "poderes": [
@@ -116,10 +116,79 @@
       "rank": 9,
       "estrela": 1,
       "oculto": true
+    },
+    {
+      "nome": "Magic Eye",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_magiceye\" fonte=\"habilidade\" estrela=\"1\" nome=\"Magic Eye\"-->\n<h1>Magic Eye</h1>\n<p>Você enxerga o <strong>Plano Mágico</strong>, onde reside a Mana.</p>\n<p>Com esta habilidade, você é capaz de:</p>\n<ul>\n<li>Enxergar no escuro em uma quantidade de metros igual sua <strong>Mana + ER</strong></li>\n<li>Enxergar <strong>focos de Mana</strong></li>\n<li>Identificar <strong>quantidades aproximadas de Mana</strong></li>\n<li>Ver <strong>seres do Plano Mágico</strong>, como Fadas e Gnomos</li>\n</ul>\n<hr>\n<h3>Ativação</h3>\n<p>Como uma <strong>Ação</strong>, você pode ativar o Magic Eye e receber:</p>\n<ul>\n<li><strong>+ERd4 em Percepção Mágica</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Shadow Arts",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_shadowarts\" fonte=\"habilidade\" estrela=\"1\" nome=\"Shadow Arts\"-->\n<h1>Shadow Arts</h1>\n<p><strong>Pré-Requisitos:</strong> 7+ Mana &amp; 3+ Inteligência  </p>\n<p>Habilidade focada na manipulação da <strong>Mana Residual da Sombra</strong>.</p>\n<hr>\n<h2>Shadow Cast</h2>\n<p>Como uma <b>Ação Bônus</b>, você utiliza a Mana residual da sua sombra para lançar magias.</p>\n<p>Efeitos:</p><ul>\n<li><strong>+1D no Acerto</strong></li>\n<li>A magia recebe bônus ER de <strong>Acerto e Dano</strong> baseados no Rank</li></ul><hr>\n<h2>Shadow Bomb</h2>\n<p>Como uma <strong>Ação Bônus</strong>, você energiza sua sombra.</p>\n<p>Durante <strong>1d4 turnos</strong>:</p>\n<ul>\n<li>Caso um alvo pise na sua sombra, ele sofre o <strong>dano de Shadow Cast</strong></li>\n</ul>\n<hr>\n<h2>Shadow Steal</h2>\n<p>Como uma <strong>Ação Bônus</strong>:</p>\n<ul>\n<li>Se sua sombra estiver em contato com outra</li>\n<li>Você absorve a Mana residual dela por <strong>1d4 turnos</strong></li>\n</ul>\n<hr>\n<h2>Shadow Absorb</h2>\n<p><strong>1 vez por dia</strong>, você absorve totalmente a Mana residual da sua sombra.</p>\n<ul>\n<li>Ganha <strong>1d3 + 1 de Mana por Rank</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Tiro Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Tiro de Mana</h2>\n<p><strong>Descrição:</strong> Cria um raio utilizando a Mana do ambiente como projétil mágico.  </p>\n<ul>\n<li><strong>Magículas:</strong>&nbsp;0 +1</li>\n<li><strong>Dado:</strong>&nbsp;2#DR + Mana + 6</li>\n<li><strong>Alcance:</strong> Curto  </li>\n<li><strong>Dano:</strong>&nbsp;ERd4 + Mana  </li>\n<li><strong>Efeito:</strong> Em caso de crítico, o ataque gasta metade da mana original</li><li>Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER</li><li>Permite mirar como ação bônus, +1 DR no acerto</li><li>Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n<h3>Evoluções (Estrelas 1, 3, 5)</h3>\n<ul>\n<li><strong>EV1:</strong> +1 Acerto (+1 Magícula)  </li>\n<li><strong>EV2:</strong> +3 Dano (+1 Magícula por +6 de dano)  </li>\n<li><strong>EV3:</strong> Crítico arremessa inimigo +1 metro  </li>\n<li><strong>EV4:</strong> Aumenta 1 estágio da distância (+4 Magículas)  </li>\n<li><strong>EV5:</strong> Crítico: +3 no próximo acerto  </li>\n<li><strong>EV6:</strong> Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER  </li>\n<li><strong>EV7:</strong> Permite mirar como ação bônus, +1 DR no acerto  </li>\n<li><strong>EV8:</strong> Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Conectar Nucleo Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Conectar Núcleo de Mana</h2>\n<p><strong>Descrição:</strong> Conecta-se ao núcleo de mana de outra pessoa para comunicação telepática.  </p>\n<ul>\n<li><strong>Duração:</strong> Até o toque ser encerrado  </li>\n<li><strong>Resistência do alvo:</strong> Teste de Mana vs CD mágica (10 + ER + Mana)  </li>\n<li><strong>Custo:</strong> 1 Magícula se o teste for necessário; 0 se voluntário</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Magifeito",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Magifeito</h2>\n<p><strong>Descrição:</strong> Manipula a mana ao redor para criar pequenos efeitos dentro do alcance igual à sua Mana em metros.  </p>\n<ul>\n<li><strong>Efeitos possíveis:</strong>  <ul>\n<li>Aumentar ou mudar a voz  </li>\n<li>Fazer o chão tremer levemente (1 m)  </li>\n<li>Criar sons à distância (trovão, corvo, sussurro ameaçador)  </li>\n<li>Mudar aparência dos olhos por 1 minuto</li>\n</ul>\n</li>\n<li><strong>Custo:</strong> Não usa Magículas  </li>\n<li><strong>Limitação:</strong> Só disponível na criação da ficha, não pode ser reaprendida</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Manipulação Celestial (Anomalia Espacial)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Núcleo de Mana do Horizonte</div><div><br></div>Ao despertar este núcleo, sua percepção de profundidade e distância se torna absoluta.<br>Percepção Espacial: Você sabe exatamente a distância em metros de qualquer objeto que possa ver.<br>Resistência do Vazio: Recebe Resistência Adaptativa (Mana + ER) contra Dano de Vento ou Dano de Força (Impacto). (16)",
+      "auto": false
+    },
+    {
+      "nome": "Manipulação Livre: Dobra Espacial (Spatial Fold)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Ação: Padrão</div><div><br></div><div>Gera um conjunto de distorções invisíveis que seleciona um alvo e \"exclui\" o espaço entre ele, criando um efeito espacial.Caso o alvo for um ser vivo, realize um Teste de Arcanismo, caso o resultado passe em sua CA, ele é tratado como um objeto mágico qualquer com o mesmo peso para os fins desta magia.</div><div><br></div><div>Ao acertar um objeto mágico, você pode escolher manipular a posição espacial do alvo ou a sua. Escolha um:</div><ul><li>Atração/Repulsão: Puxe o alvo até MANAm em sua direção ou empurre-o MANAm para longe (Encurtando o espaço atrás ou na frente dele).</li><li>Translação: Mova-se instantaneamente para um espaço desocupado adjacente ao alvo atingido.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Passo no Vazio (Void Step)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Ação: Movimento ou Reação (Ao ser atacado)</div><div>Custo: 2 Magículas</div><div><br></div><ul><li>Efeito (Movimento): Você se teletransporta para um local visível dentro do seu deslocamento base. Isso não gera ataques de oportunidade.</li></ul><ul><li>Efeito (Reação): Quando for alvo de um ataque, você \"dobra\" o espaço para que o ataque passe longe de você. Realize um teste de Mana contra o Acerto do inimigo. Se vencer, o ataque erra e você pode se mover 1,5m imediatamente.</li></ul><ul><li>Passiva: Resíduo Espacial Sempre que você utiliza uma Magia ou Habilidade que mova você ou um inimigo instantaneamente, você ganha +1,5m de Deslocamento até o fim do seu próximo turno. Este efeito acumula até um máximo de +4,5m.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "POV Sub Strike!",
+      "tag": "magia",
+      "efeitoHTML": "<div>Sempre que um aliado que estiver dentro do seu alcance de manipulação livre errar um ataque, você pode, como uma reação, consumir 1d12 magículas;&nbsp;</div><div>Dobre o espaço no ataque de seu aliado, ele realiza o teste de ataque novamente, com um bônus de acerto extra igual sua ER.&nbsp;</div><div>Se ele acertar, o dano causado pelo seu aliado tem um aumento igual sua Mana + as Magículas gastas no ataque.&nbsp;</div><ul><li>Em caso de crítico, você recupera as magículas gastas.&nbsp;</li><li>Caso você consuma o máximo de magículas possíveis no ataque, pode escolher entre:</li><li>.Consumir metade das magículas</li><li>.Deixar o inimigo Alquebrado até o final do próximo turno dele</li></ul>",
+      "auto": false
     }
   ],
   "ataques": [],
-  "inventario": [],
+  "inventario": [
+    {
+      "nome": "Akarin",
+      "tag": "dinheiro",
+      "qtd": 780,
+      "descHTML": "<br>",
+      "equipado": false
+    },
+    {
+      "nome": "Valorin",
+      "tag": "dinheiro",
+      "qtd": 1000,
+      "descHTML": "",
+      "equipado": false
+    }
+  ],
   "pensamentos": [],
   "titulo": "Lolimancer",
   "tituloArtigo": "A",
@@ -128,10 +197,15 @@
     "Sobrevivência": 5,
     "Lábia": 3,
     "Análise": 4,
-    "Charme": 3
+    "Charme": 3,
+    "Percepção Mágica": 2
   },
-  "resistencias": {},
-  "atualizado": "2026-08-16T02:40:09.697Z",
+  "resistencias": {
+    "Contundente": "acostumado",
+    "Vento": "acostumado",
+    "Cortante": "acostumado"
+  },
+  "atualizado": "2026-08-16T03:17:45.698Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

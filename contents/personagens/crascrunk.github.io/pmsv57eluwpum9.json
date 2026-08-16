@@ -127,10 +127,12 @@
     "Intuição": 5,
     "Sobrevivência": 5,
     "Lábia": 3,
-    "Análise": 3
+    "Análise": 4,
+    "Charme": 3
   },
   "resistencias": {},
-  "atualizado": "2026-08-16T02:32:49.825Z",
+  "atualizado": "2026-08-16T02:39:58.058Z",
   "vidaMagicaAtual": 75,
-  "dono": "Crascrunk.github.io"
+  "dono": "Crascrunk.github.io",
+  "vidaMagicaMax": 75
 }

@@ -8,7 +8,7 @@
   "classeInicial": "Combativo",
   "classeAvancada": "",
   "magia": "Elemental — Terra",
-  "rank": 10,
+  "rank": 8,
   "estrela": 1,
   "atributos": {
     "corpo": 4,
@@ -18,10 +18,10 @@
     "sabedoria": 3,
     "mana": 1
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": null,
+  "vidaAtual": 141,
+  "vidaMaxManual": 141,
   "magiculasAtual": 1,
-  "magiculasMax": null,
+  "magiculasMax": 20,
   "arcanaManual": 0,
   "caManual": null,
   "deslocManual": null,
@@ -124,6 +124,93 @@
       "tag": "magia",
       "efeitoHTML": "<br>Ação Bônus ativa<li class=\"font-claude-response-body whitespace-normal break-words pl-2\">Aliados adjacentes recebem <strong>+ER de CA</strong></li>\n<li class=\"font-claude-response-body whitespace-normal break-words pl-2\">Os socos causam <strong>metade do dano</strong>, mas aplicam <strong>Marcado</strong>: o alvo tem desvantagem para atacar qualquer um que não seja Gina <em>(dura 1 rodada, renova a cada acerto)</em></li>\n<li class=\"font-claude-response-body whitespace-normal break-words pl-2\"><strong>Interceptar (Reação):</strong>&nbsp;Recebe Salva Gurda, porém, após defender um aliado, pode imediatamente realizar um ataque de sua mágia</li>",
       "auto": false
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_1",
+      "nome": "⭐ 1 — Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende a utilizar sua <strong>Manipulação Livre</strong> de formas avançadas.</p>\n<blockquote>\n<p>Livros e ensinamentos descrevem técnicas criadas por Sábios e Reis Elementais.<br>Você pode aprender <strong>1 Formulação Elemental</strong> que atenda aos pré-requisitos ao encontrar um livro ou receber ensino direto.</p>\n</blockquote>\n<p>🔗 Referência:<br><a href=\"https://trello.com/c/BvyeaK9f\">https://trello.com/c/BvyeaK9f</a></p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_2",
+      "nome": "Conceito da Terra II",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li><strong>Tamanho dos Construtos:</strong> <strong>+3² m</strong>  </li>\n<li><strong>Vida Temporária dos Construtos:</strong> <strong>+1d10</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_3",
+      "nome": "⭐⭐ 2 — Fonte Elemental I",
+      "tag": "magia",
+      "efeitoHTML": "<p>Se houver uma <strong>Fonte de Terra</strong> próxima:</p>\n<ul>\n<li>Suas magias de Terra recebem <strong>+1D de Dano</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_4",
+      "nome": "⭐⭐⭐⭐ 4 — Ser da Terra",
+      "tag": "magia",
+      "efeitoHTML": "<p>Enquanto estiver em <strong>contato direto com a Terra</strong>:</p>\n<ul>\n<li>Recebe <strong>Bônus de Deslocamento</strong> igual à sua <strong>Mana</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r9e2_1",
+      "nome": "Estilo de Luta II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Seu <strong>Estilo de Luta</strong> recebe <strong>+1 na Margem Crítica</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_combativo_r9e2_2",
+      "nome": "Combo de Ataques",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Após acertar <strong>2 ataques</strong> no mesmo inimigo:<ul>\n<li>O <strong>3º ataque</strong> aplica automaticamente o <strong>efeito de crítico</strong> da arma.</li>\n</ul>\n</li>\n<li>Caso o <strong>3º ataque seja um crítico</strong>:<ul>\n<li>O dano é <strong>dobrado</strong>.</li>\n<li>O <strong>efeito de crítico</strong> tem <strong>duração triplicada</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r8e1_1",
+      "nome": "⭐ 1 — Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Aprenda <strong>mais uma Formulação Elemental</strong> (livro ou ensino direto necessário).</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r8e1_2",
+      "nome": "Conceito da Terra III",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li><strong>Tamanho dos Construtos:</strong> <strong>+6² m</strong>  </li>\n<li><strong>Vida Temporária dos Construtos:</strong> <strong>+2d12</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r8e1_3",
+      "nome": "⭐⭐⭐ 3 — Melhoria de Manipulação Livre",
+      "tag": "magia",
+      "efeitoHTML": "<p>Escolha <strong>uma</strong> melhoria:</p>\n<ul>\n<li><strong>Acerto:</strong> +1 no Acerto  </li>\n<li><strong>Dano:</strong> +1 Estágio de Dano  </li>\n<li><strong>Efeito:</strong>  <ul>\n<li>Sempre que acertar um ataque, cria uma área de <strong>2m</strong> no ponto de impacto  </li>\n<li>A área se torna <strong>Terreno Difícil</strong></li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "nome": "Golem da Rainha das Fadas I",
+      "tag": "magia",
+      "efeitoHTML": "Todo dia, enquanto estiver em alcance longo da Rainha das Fadas, recebe um valor de Vida Extra igual sua ERx10.",
+      "auto": false
     }
   ],
   "ataques": [
@@ -154,6 +241,8 @@
   "resistencias": {
     "Contundente": "r1"
   },
-  "atualizado": "2026-08-16T02:36:28.019Z",
+  "atualizado": "2026-08-16T02:38:50.317Z",
+  "vidaMagicaMax": 100,
+  "vidaMagicaAtual": 100,
   "dono": "Lokeser"
 }

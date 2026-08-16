@@ -19,7 +19,7 @@
     "mana": 9
   },
   "vidaAtual": 170,
-  "vidaMaxManual": 170,
+  "vidaMaxManual": 179,
   "magiculasAtual": 99,
   "magiculasMax": 103,
   "arcanaManual": null,
@@ -193,7 +193,7 @@
       "nome": "Selos",
       "tag": "outro",
       "qtd": 1,
-      "descHTML": "<div>Mana: 15 - 6 (9)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 4 - 6 (1)</div>",
+      "descHTML": "<div>Mana: 15 - 6 (9)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 6 - 6 (1)</div>",
       "equipado": false
     },
     {
@@ -227,7 +227,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-08-16T09:35:38.388Z",
+  "atualizado": "2026-08-16T09:52:49.103Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

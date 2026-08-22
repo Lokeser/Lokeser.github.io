@@ -9,7 +9,7 @@
   "classeAvancada": "",
   "magia": "Anômala",
   "rank": 8,
-  "estrela": 2,
+  "estrela": 3,
   "atributos": {
     "corpo": 1,
     "tecnica": 1,
@@ -18,10 +18,10 @@
     "sabedoria": 2,
     "mana": 9
   },
-  "vidaAtual": 181,
-  "vidaMaxManual": 181,
-  "magiculasAtual": 99,
-  "magiculasMax": 103,
+  "vidaAtual": 115,
+  "vidaMaxManual": 197,
+  "magiculasAtual": 93,
+  "magiculasMax": 127,
   "arcanaManual": null,
   "caManual": 14,
   "deslocManual": 13,
@@ -133,7 +133,7 @@
     {
       "nome": "Tiro Mana",
       "tag": "habilidade",
-      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Tiro de Mana</h2>\n<p><strong>Descrição:</strong> Cria um raio utilizando a Mana do ambiente como projétil mágico.  </p>\n<ul>\n<li><strong>Magículas:</strong>&nbsp;0 +1</li>\n<li><strong>Dado:</strong>&nbsp;2#DR + Mana</li>\n<li><strong>Alcance:</strong> Curto  </li>\n<li><strong>Dano:</strong>&nbsp;ERd4 + Mana+ 6</li>\n<li><strong>Efeito:</strong> Em caso de crítico, o ataque gasta metade da mana original</li><li>Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER</li><li>Permite mirar como ação bônus, +1 DR no acerto</li><li>Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n<h3>Evoluções (Estrelas 1, 3, 5)</h3>\n<ul>\n<li><strong>EV1:</strong> +1 Acerto (+1 Magícula)  </li>\n<li><strong>EV2:</strong> +3 Dano (+1 Magícula por +6 de dano)  </li>\n<li><strong>EV3:</strong> Crítico arremessa inimigo +1 metro  </li>\n<li><strong>EV4:</strong> Aumenta 1 estágio da distância (+4 Magículas)  </li>\n<li><strong>EV5:</strong> Crítico: +3 no próximo acerto  </li>\n<li><strong>EV6:</strong> Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER  </li>\n<li><strong>EV7:</strong> Permite mirar como ação bônus, +1 DR no acerto  </li>\n<li><strong>EV8:</strong> Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Tiro de Mana</h2>\n<p><strong>Descrição:</strong> Cria um raio utilizando a Mana do ambiente como projétil mágico.  </p>\n<ul>\n<li><strong>Magículas:</strong>&nbsp;0 +5</li>\n<li><strong>Dado:</strong>&nbsp;2#DR + Mana</li>\n<li><strong>Alcance:</strong>&nbsp;Médio</li>\n<li><strong>Dano:</strong>&nbsp;ERd4 + Mana+ 9</li>\n<li><strong>Efeito:</strong> Em caso de crítico, o ataque gasta metade da mana original</li><li>Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER</li><li>Permite mirar como ação bônus, +1 DR no acerto</li><li>Ataques considerados Manipulação Livre para efeitos que dependam disso</li><li>Aumenta 1 estágio da distância</li>\n</ul>\n<h3>Evoluções (Estrelas 1, 3, 5)</h3>\n<ul>\n<li><strong>EV1:</strong> +1 Acerto (+1 Magícula)  </li>\n<li><strong>EV2:</strong> +3 Dano (+1 Magícula por +6 de dano)  </li>\n<li><strong>EV3:</strong> Crítico arremessa inimigo +1 metro  </li>\n<li><strong>EV4:</strong> Aumenta 1 estágio da distância (+4 Magículas)  </li>\n<li><strong>EV5:</strong> Crítico: +3 no próximo acerto  </li>\n<li><strong>EV6:</strong> Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER  </li>\n<li><strong>EV7:</strong> Permite mirar como ação bônus, +1 DR no acerto  </li>\n<li><strong>EV8:</strong> Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n",
       "auto": false
     },
     {
@@ -157,7 +157,7 @@
     {
       "nome": "Manipulação Livre: Dobra Espacial (Spatial Fold)",
       "tag": "magia",
-      "efeitoHTML": "<div>Ação: Padrão</div><div><br></div><div>Gera um conjunto de distorções invisíveis que seleciona um alvo e \"exclui\" o espaço entre ele, criando um efeito espacial.Caso o alvo for um ser vivo, realize um Teste de Arcanismo, caso o resultado passe em sua CA, ele é tratado como um objeto mágico qualquer com o mesmo peso para os fins desta magia.</div><div><br></div><div>Ao acertar um objeto mágico, você pode escolher manipular a posição espacial do alvo ou a sua. Escolha um:</div><ul><li>Atração/Repulsão: Puxe o alvo até MANAm em sua direção ou empurre-o MANAm para longe (Encurtando o espaço atrás ou na frente dele).</li><li>Translação: Mova-se instantaneamente para um espaço desocupado adjacente ao alvo atingido.</li></ul>",
+      "efeitoHTML": "<div>Ação: Padrão</div><div>Alcançe: médio</div><div><br></div><div>Gera um conjunto de distorções invisíveis que seleciona um alvo e \"exclui\" o espaço entre ele, criando um efeito espacial. Caso o alvo for um ser vivo, realize um Teste de Arcanismo, caso o resultado passe em sua CA, ele é tratado como um objeto mágico qualquer com o mesmo peso para os fins desta magia.</div><div><br></div><div>Ao acertar um objeto mágico, você pode escolher manipular a posição espacial do alvo ou a sua. Escolha um:</div><ul><li>Atração/Repulsão: Puxe o alvo até MANAm em sua direção ou empurre-o MANAm para longe (Encurtando o espaço atrás ou na frente dele).</li><li>Translação: Mova-se instantaneamente para um espaço desocupado adjacente ao alvo atingido.</li></ul>",
       "auto": false
     },
     {
@@ -206,7 +206,7 @@
     {
       "nome": "Sorte",
       "tag": "outro",
-      "qtd": 2,
+      "qtd": 4,
       "descHTML": "",
       "equipado": false
     }
@@ -220,14 +220,16 @@
     "Lábia": 3,
     "Análise": 4,
     "Charme": 3,
-    "Percepção Mágica": 2
+    "Percepção Mágica": 4,
+    "Arcanismo": 2,
+    "Erudição": 2
   },
   "resistencias": {
     "Contundente": "acostumado",
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-08-17T05:22:27.875Z",
+  "atualizado": "2026-08-22T08:54:27.074Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

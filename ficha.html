@@ -259,9 +259,9 @@
         .tcard.ocultado { opacity: .75; border-style: dashed; }
 
         /* ===== Card VISUALIZAR (retrato) ===== */
-        .view-moldura { width: min(92vw, 380px); }
+        .view-moldura { width: min(92vw, 420px); max-height: 92vh; overflow-y: auto; }
         .view-card {
-            aspect-ratio: 3 / 4.35; border-radius: 18px; overflow: hidden;
+            border-radius: 18px; overflow: hidden;
             position: relative; display: flex; flex-direction: column;
             border: 6px solid var(--vc-acento, var(--c3));
             background: linear-gradient(170deg, var(--vc-f1, #113F67), var(--vc-f2, #081e33));
@@ -280,10 +280,13 @@
             50% { background-position: 0 0, 100% 50%; }
             100% { background-position: 0 0, 0% 50%; }
         }
+        /* imagem COMPLETA (sem corte) — o bloco de info vem abaixo dela */
         .view-foto {
-            flex: 1 1 58%; min-height: 0; background-size: cover; background-position: center top;
-            display: flex; align-items: center; justify-content: center; font-size: 5rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 5rem; min-height: 60px; background: rgba(0,0,0,.25);
         }
+        .view-foto img { width: 100%; height: auto; display: block; }
+        .view-foto[data-vazio]:not([data-vazio=""])::before { content: attr(data-vazio); }
         .view-info { padding: 16px 18px 18px; text-align: center; background: linear-gradient(to top, rgba(0,0,0,.45), transparent); }
         .view-titulo {
             font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700;
@@ -564,7 +567,7 @@
     <div class="overlay" id="ov-view">
         <div class="view-moldura" id="view-moldura">
             <div class="view-card" id="view-card">
-                <div class="view-foto" id="view-foto"></div>
+                <div class="view-foto" id="view-foto"><img id="view-foto-img" alt="" style="display:none"></div>
                 <div class="view-info">
                     <div class="view-titulo" id="view-titulo"></div>
                     <div class="view-nome" id="view-nome"></div>

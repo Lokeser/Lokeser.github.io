@@ -152,6 +152,7 @@
         // Deslocamento automático acompanha a perícia Deslocamento (com ajuste manual dela)
         const pDesloc = WNJ.calcPericias(cfg, t).find(p => p.nome === 'Deslocamento');
         const perDesloc = pDesloc ? pDesloc.valor + ((char.periciasDelta || {})[pDesloc.nome] || 0) : 0;
+        const baseDesloc = cfg.formulas.deslocamento_base || 0;
         const deslocAuto = WNJ.calcDeslocamento(cfg, t, perDesloc);
         const desloc = char.deslocManual != null ? char.deslocManual : deslocAuto;
 
@@ -159,7 +160,7 @@
             autoCard('Dado de Rank', 'DR 1d' + rankInfo.dr) +
             autoCard('Eficiência de Rank', 'ER ' + rankInfo.er) +
             '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · perícia Deslocamento: ' + deslocAuto + '</small></div>' +
+            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · ' + baseDesloc + ' base ' + (perDesloc < 0 ? '−' : '+') + ' ' + Math.abs(perDesloc) + ' perícia = ' + deslocAuto + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +

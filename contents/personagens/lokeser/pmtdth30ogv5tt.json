@@ -8,13 +8,13 @@
   "classeInicial": "Combativo",
   "classeAvancada": "",
   "magia": "Elemental — Terra",
-  "rank": 10,
-  "estrela": 1,
+  "rank": 9,
+  "estrela": 3,
   "atributos": {
     "corpo": 3,
     "tecnica": 1,
     "intelecto": 0,
-    "carisma": 2,
+    "carisma": 3,
     "sabedoria": 1,
     "mana": 2
   },
@@ -52,7 +52,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe <strong>Resistência I</strong> contra o <strong>tipo de dano associado ao Estilo de Luta</strong>.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "mg_magia_elemental_terra_r10e1_1",
@@ -89,15 +90,94 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_1",
+      "nome": "⭐ 1 — Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende a utilizar sua <strong>Manipulação Livre</strong> de formas avançadas.</p>\n<blockquote>\n<p>Livros e ensinamentos descrevem técnicas criadas por Sábios e Reis Elementais.<br>Você pode aprender <strong>1 Formulação Elemental</strong> que atenda aos pré-requisitos ao encontrar um livro ou receber ensino direto.</p>\n</blockquote>\n<p>🔗 Referência:<br><a href=\"https://trello.com/c/BvyeaK9f\">https://trello.com/c/BvyeaK9f</a></p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_2",
+      "nome": "Conceito da Terra II",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li><strong>Tamanho dos Construtos:</strong> <strong>+3² m</strong>  </li>\n<li><strong>Vida Temporária dos Construtos:</strong> <strong>+1d10</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_3",
+      "nome": "⭐⭐ 2 — Fonte Elemental I",
+      "tag": "magia",
+      "efeitoHTML": "<p>Se houver uma <strong>Fonte de Terra</strong> próxima:</p>\n<ul>\n<li>Suas magias de Terra recebem <strong>+1D de Dano</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_terra_r9e1_4",
+      "nome": "⭐⭐⭐⭐ 4 — Ser da Terra",
+      "tag": "magia",
+      "efeitoHTML": "<p>Enquanto estiver em <strong>contato direto com a Terra</strong>:</p>\n<ul>\n<li>Recebe <strong>Bônus de Deslocamento</strong> igual à sua <strong>Mana</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r9e2_1",
+      "nome": "Estilo de Luta II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Seu <strong>Estilo de Luta</strong> recebe <strong>+1 na Margem Crítica</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_combativo_r9e2_2",
+      "nome": "Combo de Ataques",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Após acertar <strong>2 ataques</strong> no mesmo inimigo:<ul>\n<li>O <strong>3º ataque</strong> aplica automaticamente o <strong>efeito de crítico</strong> da arma.</li>\n</ul>\n</li>\n<li>Caso o <strong>3º ataque seja um crítico</strong>:<ul>\n<li>O dano é <strong>dobrado</strong>.</li>\n<li>O <strong>efeito de crítico</strong> tem <strong>duração triplicada</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
     }
   ],
-  "ataques": [],
+  "ataques": [
+    {
+      "nome": "Socos",
+      "ndr": 2,
+      "mult": 2,
+      "atrAtaque": "corpo",
+      "atrDano": "corpo",
+      "crit": "Crita com -1. Tontura",
+      "efeitoHTML": "ERd6+COR"
+    }
+  ],
   "inventario": [],
   "pensamentos": [],
   "titulo": "Super Herói",
   "tituloArtigo": "O",
-  "periciasDelta": {},
-  "resistencias": {},
-  "atualizado": "2026-08-29T03:42:31.455Z",
+  "periciasDelta": {
+    "Charme": 5,
+    "Atletismo": 2
+  },
+  "resistencias": {
+    "Magi-Contundente": "r1"
+  },
+  "atualizado": "2026-08-29T03:46:26.438Z",
   "dono": "Lokeser"
 }

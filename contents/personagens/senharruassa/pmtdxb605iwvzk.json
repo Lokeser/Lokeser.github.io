@@ -9,8 +9,8 @@
   "classeInicial": "Ladino",
   "classeAvancada": "",
   "magia": "Ki — Arte da Besta",
-  "rank": 10,
-  "estrela": 1,
+  "rank": 9,
+  "estrela": 4,
   "atributos": {
     "corpo": -2,
     "tecnica": 3,
@@ -20,9 +20,9 @@
     "mana": 2
   },
   "vidaAtual": 20,
-  "vidaMaxManual": null,
+  "vidaMaxManual": 57,
   "magiculasAtual": 1,
-  "magiculasMax": null,
+  "magiculasMax": 15,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -72,15 +72,64 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "mg_arte_besta_r9e1_1",
+      "nome": "Aceleração Bestial",
+      "tag": "magia",
+      "efeitoHTML": "<p>Mistura sua Aceleração normal com sua Arte, criando a <strong>Aceleração Bestial</strong>.</p>\n<ul>\n<li>Ação bônus, custo <strong>2 Accels</strong></li>\n<li>Técnicas só funcionam durante a Aceleração Bestial</li>\n</ul>\n<p><strong>Substitui os efeitos normais de Accel por:</strong></p>\n<ul>\n<li>Vida Temporária = <strong>Ki × Eficiência de Rank × 2</strong></li>\n<li>Força e Destreza +2 (sem Domínio)</li>\n<li>Resistência II a todos os danos</li>\n<li>Ataques desarmados: <strong>1d4 por Ki + 1d4 por 2 Força</strong></li>\n<li>Deslocamento e Pulo = <strong>Força × 4m</strong></li>\n<li>Aprende <strong>Bloquear</strong> ou aumenta seu estágio</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_ladino_r9e2_1",
+      "nome": "Ladinagem",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+1DR</strong> em testes de <strong>Acrobacia</strong> para escalar estruturas.</li>\n<li>Caso falhe:<ul>\n<li>Recebe <strong>metade do dano de queda</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_ladino_r9e2_2",
+      "nome": "Serelepe das Ruas II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+3</strong> em:<ul>\n<li><strong>Acrobacia</strong></li>\n<li><strong>Furtividade</strong></li>\n</ul>\n</li>\n<li>Seu <strong>Deslocamento Base</strong> aumenta em <strong>+3m</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_ladino_r9e2_3",
+      "nome": "Ponto Fraco II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Ataques furtivos causam <strong>+2D de Dano</strong> contra inimigos <strong>Machucados</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
     }
   ],
-  "ataques": [],
+  "ataques": [
+    {
+      "nome": "Ataque Desarmado",
+      "ndr": 1,
+      "mult": 2,
+      "atrAtaque": "tecnica",
+      "atrDano": "tecnica",
+      "crit": "",
+      "efeitoHTML": "<span style=\"color: rgb(201, 217, 232); font-size: 13.12px; background-color: rgba(0, 0, 0, 0.28);\">Causa ERd6+Tec</span>"
+    }
+  ],
   "inventario": [],
   "pensamentos": [],
-  "periciasDelta": {},
+  "periciasDelta": {
+    "Acrobacia": 6,
+    "Furtividade": 6
+  },
   "resistencias": {},
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-08-29T05:22:26.480Z",
+  "atualizado": "2026-08-29T06:04:39.269Z",
   "dono": "Senharruassa"
 }

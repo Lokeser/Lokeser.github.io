@@ -1,0 +1,76 @@
+{
+  "id": "pmtdurp466zaic",
+  "criado": "2026-08-29T03:46:09.858Z",
+  "img": null,
+  "nome": "Rumya",
+  "sobrenome": "Montnati",
+  "raca": "Manpan",
+  "classeInicial": "Combativo",
+  "classeAvancada": "",
+  "magia": "Ki — Arte da Besta",
+  "rank": 10,
+  "estrela": 1,
+  "atributos": {
+    "corpo": 1,
+    "tecnica": 3,
+    "intelecto": -1,
+    "carisma": 0,
+    "sabedoria": 3,
+    "mana": 2
+  },
+  "vidaAtual": 20,
+  "vidaMaxManual": null,
+  "magiculasAtual": 1,
+  "magiculasMax": null,
+  "arcanaManual": null,
+  "caManual": null,
+  "deslocManual": null,
+  "cargas": [],
+  "poderes": [
+    {
+      "refId": "rc_demihumano_manpan_r10_1",
+      "nome": "Instinto Manpan",
+      "tag": "raca",
+      "efeitoHTML": "<p>Durante o combate:</p>\n<ul>\n<li><strong>Sabedoria, Intelecto e Carisma</strong> são reduzidos em <strong>−2</strong>.</li>\n<li>Recebe <strong>+1DR</strong> em testes de <strong>Corpo</strong> e <strong>Corpo</strong>.</li>\n<li>Ataques desarmados causam dano igual a <strong>1d4 a cada 2 Corpo + Corpo</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_demihumano_manpan_r10_2",
+      "nome": "Anatomia Manpan",
+      "tag": "raca",
+      "efeitoHTML": "<p>Escolha <strong>uma</strong> característica racial:</p>\n<ul>\n<li><p><strong>Corpo Primitiva</strong>\nRecebe <strong>+5</strong> no dano de ataques corpo a corpo.</p>\n</li>\n<li><p><strong>Sangue Humano Inferior</strong>\nRecebe <strong>+2 pontos</strong> para distribuir entre seus atributos.</p>\n</li>\n<li><p><strong>Reflexos Instintivos</strong>\nComo uma ação, pode realizar um teste de <strong>Intuição</strong> contra um inimigo.\n<strong>CD:</strong> <strong>15 + 1 para cada Rank acima do 10</strong>.\nEm sucesso, recebe <strong>+2 CA</strong> contra esse inimigo.</p>\n</li>\n<li><p><strong>Garras Afiadas</strong>\nAtaques desarmados tornam‑se <strong>1d6 + Técnica</strong>.\nAcertos críticos causam <strong>Sangramento</strong>.</p>\n</li>\n<li><p><strong>Mãos Pesadas</strong>\nAtaques desarmados tornam‑se <strong>1d8 a cada 2 Corpo + Corpo</strong>.\nAcertos críticos deixam o alvo <strong>Tonto</strong>.</p>\n</li>\n<li><p><strong>Dentes Afiados</strong>\nPode realizar ataques de mordida causando <strong>1d8 + Corpo</strong>.</p>\n</li>\n<li><p><strong>Cauda</strong>\nPode tentar <strong>derrubar</strong> inimigos com um teste de Técnica ou utilizá‑la como ataque desarmado usando Técnica no acerto e no dano.</p>\n</li>\n<li><p><strong>Pele Rígida</strong>\nRecebe <strong>Resistência I</strong> contra dano físico (Corte, Concussão e Perfuração).</p>\n</li>\n<li><p><strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.</p>\n</li>\n<li><p><strong>Lado Humano</strong>\nSua <strong>Sabedoria não é reduzida</strong> durante o Instinto Manpan.\nNão pode ser escolhida caso possua <strong>Bestial Eye</strong>.</p>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r10e1_1",
+      "nome": "Estilo de Luta",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>um</strong> dos estilos abaixo:</p>\n<h4>Armeiro</h4>\n<ul>\n<li>Escolha <strong>1 tipo de Arma</strong> em <em>Artes da Guerra</em>.</li>\n<li>Recebe <strong>+1DR no Acerto</strong> com essa arma.</li>\n</ul>\n<h4>Lutador</h4>\n<ul>\n<li>Recebe <strong>+1DR</strong> em <strong>Ataques Desarmados</strong>.</li>\n<li>O <strong>Estágio de Dano</strong> do dado aumenta em <strong>+1</strong>.</li>\n</ul>\n<h4>Ninja</h4>\n<ul>\n<li>Recebe <strong>+1DR no Acerto</strong> com <strong>Ataques Desarmados</strong>.</li>\n<li>Caso esteja <strong>escondido</strong>, o Estágio de Dano aumenta em <strong>+2</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_combativo_r10e1_2",
+      "nome": "Treino de Resistência I",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>Resistência I</strong> contra o <strong>tipo de dano associado ao Estilo de Luta</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    }
+  ],
+  "ataques": [],
+  "inventario": [],
+  "pensamentos": [],
+  "titulo": "",
+  "tituloArtigo": "",
+  "periciasDelta": {},
+  "resistencias": {},
+  "atualizado": "2026-08-29T04:13:38.061Z",
+  "dono": "Senharruassa"
+}

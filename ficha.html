@@ -110,6 +110,28 @@
         /* Perícias */
         .pericias-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 9px; }
 
+        /* ===== Linhagem (sub-raça) ===== */
+        .aviso-subraca {
+            margin-top: 6px; font-size: .76rem; color: #f0c56b;
+            background: rgba(240,197,107,.1); border: 1px solid rgba(240,197,107,.4);
+            border-radius: 8px; padding: 6px 10px;
+        }
+        .aviso-subraca button {
+            background: none; border: none; color: var(--c4); text-decoration: underline;
+            cursor: pointer; font-size: .76rem; padding: 0 2px;
+        }
+        .subraca-op {
+            display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16);
+            border-left: 3px solid var(--c4); border-radius: 8px;
+            color: #eaf2fa; padding: 11px 14px; margin-bottom: 7px; cursor: pointer; font-size: .92rem;
+        }
+        .subraca-op:hover { background: rgba(255,255,255,.12); }
+        .subraca-op span { flex: 1; }
+        .subraca-op small { color: #8fb3cf; font-size: .72rem; }
+        .subraca-op small.ok { color: #8fe0a0; font-weight: 700; }
+        .subraca-op.wip { border-left-color: #8fa3b5; opacity: .82; }
+
         /* ===== Resistências ===== */
         .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 9px; }
         .res-item { position: relative; }
@@ -259,9 +281,9 @@
         .tcard.ocultado { opacity: .75; border-style: dashed; }
 
         /* ===== Card VISUALIZAR (retrato) ===== */
-        .view-moldura { width: min(92vw, 380px); }
+        .view-moldura { width: min(92vw, 420px); max-height: 92vh; overflow-y: auto; }
         .view-card {
-            aspect-ratio: 3 / 4.35; border-radius: 18px; overflow: hidden;
+            border-radius: 18px; overflow: hidden;
             position: relative; display: flex; flex-direction: column;
             border: 6px solid var(--vc-acento, var(--c3));
             background: linear-gradient(170deg, var(--vc-f1, #113F67), var(--vc-f2, #081e33));
@@ -280,10 +302,13 @@
             50% { background-position: 0 0, 100% 50%; }
             100% { background-position: 0 0, 0% 50%; }
         }
+        /* imagem COMPLETA (sem corte) — o bloco de info vem abaixo dela */
         .view-foto {
-            flex: 1 1 58%; min-height: 0; background-size: cover; background-position: center top;
-            display: flex; align-items: center; justify-content: center; font-size: 5rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 5rem; min-height: 60px; background: rgba(0,0,0,.25);
         }
+        .view-foto img { width: 100%; height: auto; display: block; }
+        .view-foto[data-vazio]:not([data-vazio=""])::before { content: attr(data-vazio); }
         .view-info { padding: 16px 18px 18px; text-align: center; background: linear-gradient(to top, rgba(0,0,0,.45), transparent); }
         .view-titulo {
             font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700;
@@ -330,7 +355,9 @@
                     <div class="campos">
                         <div class="campo"><label>Nome</label><input id="f-nome" placeholder="Ex: Nichole"></div>
                         <div class="campo"><label>Sobrenome</label><input id="f-sobrenome" placeholder="Ex: Cali"></div>
-                        <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select></div>
+                        <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select>
+                            <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
+                        </div>
                         <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Classe Avançada <span class="aviso-inline" id="aviso-ca">(Rank 8+)</span></label><select id="f-classe2" disabled><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
@@ -512,6 +539,18 @@
         </div>
     </div>
 
+    <!-- MODAL: LINHAGEM (sub-raça) -->
+    <div class="overlay" id="ov-subraca">
+        <div class="modal-wnj" style="max-width:560px">
+            <h3 id="subraca-titulo">Escolha a linhagem</h3>
+            <p class="aviso-inline">Cada linhagem tem seus próprios atributos e poderes. As marcadas como
+            <strong>W.I.P</strong> ainda estão sendo escritas — você pode escolhê-las para reservar o conceito,
+            mas elas não concedem nada automaticamente ainda.</p>
+            <div id="subraca-lista" style="max-height:52vh;overflow-y:auto;margin-top:12px"></div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
+        </div>
+    </div>
+
     <!-- POPUP: BENEFÍCIOS DO ATRIBUTO -->
     <div class="overlay" id="ov-attrinfo">
         <div class="modal-wnj" style="max-width:640px">
@@ -564,7 +603,7 @@
     <div class="overlay" id="ov-view">
         <div class="view-moldura" id="view-moldura">
             <div class="view-card" id="view-card">
-                <div class="view-foto" id="view-foto"></div>
+                <div class="view-foto" id="view-foto"><img id="view-foto-img" alt="" style="display:none"></div>
                 <div class="view-info">
                     <div class="view-titulo" id="view-titulo"></div>
                     <div class="view-nome" id="view-nome"></div>

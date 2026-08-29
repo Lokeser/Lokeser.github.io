@@ -27,8 +27,16 @@
             if (rasc) char = Object.assign(WNJ.novoPersonagem(), JSON.parse(rasc), { id: char.id });
         } catch (e) {}
     }
-    // compatibilidade com fichas antigas
-    char.pensamentos = char.pensamentos || [];
+    // Compatibilidade e blindagem: uma ficha vinda da nuvem (ou editada a mao)
+    // pode nao ter todos os campos — sem isso, a pagina inteira quebrava.
+    ['poderes', 'ataques', 'inventario', 'cargas', 'pensamentos'].forEach(k => {
+        if (!Array.isArray(char[k])) char[k] = [];
+    });
+    if (!char.atributos || typeof char.atributos !== 'object') char.atributos = {};
+    if (!char.periciasDelta || typeof char.periciasDelta !== 'object') char.periciasDelta = {};
+    if (!char.resistencias || typeof char.resistencias !== 'object') char.resistencias = {};
+    char.rank = char.rank || 10;
+    char.estrela = char.estrela || 1;
     char.titulo = char.titulo || '';
     char.tituloArtigo = char.tituloArtigo || '';
     if (modoEdicao) document.body.classList.add('modo-edicao');
@@ -57,10 +65,45 @@
 
     // ================= CARREGAMENTO DE FONTES =================
     async function carregarRaca() {
-        const entry = cfg.racas.find(r => r.nome === char.raca);
-        if (!entry) { racaInfo = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, livre: true }; return; }
-        try { racaInfo = WNJ.parseRaca(await WNJ.fetchMD(entry.arquivo)); }
+        const arq = WNJ.arquivoRaca(cfg, char);
+        if (!arq) { racaInfo = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, livre: true }; return; }
+        try { racaInfo = WNJ.parseRaca(await WNJ.fetchMD(arq)); }
         catch (e) { console.warn(e); }
+    }
+
+    // ---------- LINHAGENS (sub-raças) ----------
+    function entradaRaca() { return (cfg.racas || []).find(r => r.nome === char.raca); }
+    function abrirSubRaca() {
+        const e = entradaRaca();
+        if (!e || !e.subracas) return;
+        $('subraca-titulo').textContent = 'Escolha a linhagem — ' + e.nome;
+        $('subraca-lista').innerHTML = e.subracas.map(s =>
+            '<button type="button" class="subraca-op' + (s.wip ? ' wip' : '') + '" data-sub="' + esc(s.nome) + '">' +
+            '<span>' + esc(s.nome) + '</span>' +
+            (s.wip ? '<small>🚧 W.I.P</small>' : '<small class="ok">✅ Disponível</small>') +
+            '</button>').join('');
+        document.querySelectorAll('#subraca-lista .subraca-op').forEach(b => {
+            b.onclick = async () => {
+                char.subRaca = b.dataset.sub;
+                fecharOverlay('ov-subraca');
+                await carregarRaca();
+                await sincronizarPoderes();
+                renderIdentidade(); renderAutos(); renderAtributos(); renderPericias(); renderPoderes();
+            };
+        });
+        abrirOverlay('ov-subraca');
+    }
+    function renderSubRacaAviso() {
+        const e = entradaRaca();
+        const box = $('aviso-subraca');
+        if (!e || !e.subracas) { box.style.display = 'none'; return; }
+        box.style.display = '';
+        const s = char.subRaca ? e.subracas.find(x => x.nome === char.subRaca) : null;
+        box.innerHTML = s
+            ? '🩸 Linhagem: <strong>' + esc(s.nome) + '</strong>' + (s.wip ? ' <em>(W.I.P — sem poderes automáticos)</em>' : '') +
+              ' <button type="button" id="btn-trocar-sub">trocar</button>'
+            : '⚠️ <strong>Escolha uma linhagem</strong> para esta raça. <button type="button" id="btn-trocar-sub">escolher</button>';
+        $('btn-trocar-sub').onclick = abrirSubRaca;
     }
     async function carregarRank() {
         const d = await WNJ.dadosRank(cfg, char.rank);
@@ -116,6 +159,7 @@
         $('f-titulo-artigo').value = char.tituloArtigo || '';
         $('f-titulo').value = char.titulo || '';
         $('foto').innerHTML = char.img ? '<img src="' + char.img + '" alt="">' : '🖼️';
+        renderSubRacaAviso();
         renderEquipados();
     }
 
@@ -152,6 +196,7 @@
         // Deslocamento automático acompanha a perícia Deslocamento (com ajuste manual dela)
         const pDesloc = WNJ.calcPericias(cfg, t).find(p => p.nome === 'Deslocamento');
         const perDesloc = pDesloc ? pDesloc.valor + ((char.periciasDelta || {})[pDesloc.nome] || 0) : 0;
+        const baseDesloc = cfg.formulas.deslocamento_base || 0;
         const deslocAuto = WNJ.calcDeslocamento(cfg, t, perDesloc);
         const desloc = char.deslocManual != null ? char.deslocManual : deslocAuto;
 
@@ -159,7 +204,7 @@
             autoCard('Dado de Rank', 'DR 1d' + rankInfo.dr) +
             autoCard('Eficiência de Rank', 'ER ' + rankInfo.er) +
             '<div class="auto-card"><div class="rotulo">C.A</div><div class="valor"><input id="in-ca" type="number" value="' + ca + '"></div><small>auto: ' + WNJ.calcCA(cfg, t, char.rank) + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · perícia Deslocamento: ' + deslocAuto + '</small></div>' +
+            '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · ' + baseDesloc + ' base ' + (perDesloc < 0 ? '−' : '+') + ' ' + Math.abs(perDesloc) + ' perícia = ' + deslocAuto + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
@@ -649,8 +694,10 @@
         card.style.setProperty('--vc-g2', a[1] || a[0]);
         card.style.setProperty('--vc-g3', a[2] || a[0]);
         if (!pal.animado) card.style.borderColor = a[0]; else card.style.borderColor = '';
-        $('view-foto').style.backgroundImage = char.img ? 'url(' + char.img + ')' : 'none';
-        $('view-foto').textContent = char.img ? '' : '🎭';
+        const fimg = $('view-foto-img');
+        if (char.img) { fimg.src = char.img; fimg.style.display = ''; $('view-foto').dataset.vazio = ''; }
+        else { fimg.removeAttribute('src'); fimg.style.display = 'none'; $('view-foto').dataset.vazio = '🎭'; }
+        $('view-foto').style.minHeight = char.img ? '0' : '260px';
         const nomeCompleto = [char.nome, char.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
         const tit = tituloCompleto();
         $('view-titulo').textContent = tit;
@@ -738,11 +785,26 @@
         coletarIdentidade();
         const pal = WNJ.paletaMagia(char.magia);
         const a = pal.acentos;
-        const W = 760, H = 1104, B = 14, R = 34;
-        const cv = document.createElement('canvas');
-        cv.width = W; cv.height = H;
-        const ctx = cv.getContext('2d');
+        const ESC = 2;                 // supersampling: PNG sai nítido
+        const W = 900, B = 16, R = 36; // medidas lógicas
         try { await document.fonts.load('700 46px Cinzel'); await document.fonts.load('700 30px Cinzel'); } catch (e) {}
+
+        const img = char.img ? await new Promise(res => {
+            const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = char.img;
+        }) : null;
+
+        // A imagem entra INTEIRA (sem corte): a altura do card acompanha a proporção dela.
+        const larguraUtil = W - 2 * B;
+        const fotoH = img ? Math.round(larguraUtil * img.height / img.width) : 300;
+        const tit = tituloCompleto();
+        const infoH = tit ? 250 : 214;
+        const H = B + fotoH + infoH + B;
+
+        const cv = document.createElement('canvas');
+        cv.width = W * ESC; cv.height = H * ESC;
+        const ctx = cv.getContext('2d');
+        ctx.scale(ESC, ESC);
+        ctx.imageSmoothingQuality = 'high';
 
         // moldura (gradiente animado vira gradiente diagonal)
         const gb = ctx.createLinearGradient(0, 0, W, H);
@@ -755,32 +817,31 @@
         gf.addColorStop(0, pal.fundo1); gf.addColorStop(1, pal.fundo2);
         rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.fillStyle = gf; ctx.fill();
 
-        // foto (58% superior, recorte cover)
-        const fotoH = Math.round((H - 2 * B) * 0.58);
-        if (char.img) {
-            const img = await new Promise(res => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = char.img; });
-            if (img) {
-                ctx.save();
-                rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.clip();
-                const dw = W - 2 * B, dh = fotoH;
-                const sc = Math.max(dw / img.width, dh / img.height);
-                const sw = dw / sc, sh = dh / sc;
-                ctx.drawImage(img, (img.width - sw) / 2, 0, sw, sh, B, B, dw, dh);
-                const sombra = ctx.createLinearGradient(0, B + dh - 130, 0, B + dh);
-                sombra.addColorStop(0, 'rgba(0,0,0,0)'); sombra.addColorStop(1, pal.fundo2);
-                ctx.fillStyle = sombra; ctx.fillRect(B, B + dh - 130, dw, 130);
-                ctx.restore();
-            }
+        // foto completa, no topo
+        ctx.save();
+        rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.clip();
+        if (img) {
+            ctx.drawImage(img, B, B, larguraUtil, fotoH);
         } else {
             ctx.font = '120px serif'; ctx.textAlign = 'center';
             ctx.fillStyle = 'rgba(255,255,255,.25)';
             ctx.fillText('🎭', W / 2, B + fotoH / 2 + 40);
         }
+        ctx.restore();
+
+        // faixa de info abaixo da imagem
+        const infoY = B + fotoH;
+        ctx.save();
+        rrect(ctx, B, B, W - 2 * B, H - 2 * B, R - 8); ctx.clip();
+        const gi = ctx.createLinearGradient(0, infoY - 60, 0, infoY + 40);
+        gi.addColorStop(0, 'rgba(0,0,0,0)'); gi.addColorStop(1, pal.fundo2);
+        ctx.fillStyle = gi; ctx.fillRect(B, infoY - 60, larguraUtil, 100);
+        ctx.fillStyle = pal.fundo2; ctx.fillRect(B, infoY + 38, larguraUtil, infoH);
+        ctx.restore();
 
         // textos
         const nomeCompleto = [char.nome, char.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
-        const tit = tituloCompleto();
-        let y = B + fotoH + 74;
+        let y = infoY + 62;
         ctx.textAlign = 'center';
         if (tit) {
             ctx.font = '700 40px Cinzel, serif';
@@ -789,7 +850,7 @@
             ctx.fillText(tit.toUpperCase(), W / 2, y);
             ctx.shadowBlur = 0;
             y += 46;
-            ctx.font = '26px Lato, sans-serif';
+            ctx.font = '28px Lato, sans-serif';
             ctx.fillStyle = '#ffffff';
             ctx.fillText(nomeCompleto, W / 2, y);
         } else {
@@ -798,17 +859,16 @@
             ctx.shadowColor = a[0]; ctx.shadowBlur = 22;
             ctx.fillText(nomeCompleto.toUpperCase(), W / 2, y);
             ctx.shadowBlur = 0;
-            y += 46;
         }
-        y += 40;
+        y += 44;
         const estrelas = char.rank < 10 ? ' ' + '★'.repeat(char.estrela) : '';
         ctx.font = '700 22px Lato, sans-serif';
         ctx.fillStyle = '#d5dde5';
         ctx.fillText(('RANK ' + char.rank + estrelas + (pal.nome ? ' · ' + pal.nome.toUpperCase() : '')), W / 2, y);
 
-        // pilulas dos 2 maiores atributos
+        // pílulas dos 2 maiores atributos
         const [p1, p2] = WNJ.atributosPrincipais(cfg, attrsTotais());
-        y += 62;
+        y += 58;
         ctx.font = '700 24px Lato, sans-serif';
         const pilula = (texto, cor, cx) => {
             const tw = ctx.measureText(texto).width;
@@ -823,10 +883,10 @@
         pilula(p1.nome, p1.cor, W / 2 - total / 2 + w1 / 2);
         pilula(p2.nome, p2.cor, W / 2 + total / 2 - w2 / 2);
 
-        // rodape discreto
+        // rodapé discreto
         ctx.font = '16px Lato, sans-serif';
         ctx.fillStyle = 'rgba(255,255,255,.35)';
-        ctx.fillText('LUXSANDORIA · WATASHI NO JINSEI', W / 2, H - 34);
+        ctx.fillText('LUXSANDORIA · WATASHI NO JINSEI', W / 2, H - 30);
 
         cv.toBlob(blob => {
             const link = document.createElement('a');
@@ -846,8 +906,11 @@
     $('f-titulo').oninput = e => char.titulo = e.target.value;
     $('f-raca').onchange = async e => {
         char.raca = e.target.value;
+        char.subRaca = '';                       // trocou de raça: linhagem antiga não vale mais
         await carregarRaca(); await sincronizarPoderes();
-        renderAutos(); renderAtributos(); renderPericias(); renderPoderes();
+        renderAutos(); renderAtributos(); renderPericias(); renderPoderes(); renderSubRacaAviso();
+        const ent = entradaRaca();
+        if (ent && ent.subracas) abrirSubRaca();  // pop-up de escolha da linhagem
     };
     $('f-classe1').onchange = async e => {
         char.classeInicial = e.target.value;
@@ -869,13 +932,16 @@
         if (!file) return;
         const img = new Image();
         img.onload = () => {
-            const MAX = 400;
+            // Mantém a qualidade da original: só reduz se for muito grande.
+            const MAX = 1400;
             const escala = Math.min(1, MAX / Math.max(img.width, img.height));
             const cv = document.createElement('canvas');
             cv.width = Math.round(img.width * escala);
             cv.height = Math.round(img.height * escala);
-            cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
-            char.img = cv.toDataURL('image/jpeg', 0.82);
+            const cx = cv.getContext('2d');
+            cx.imageSmoothingQuality = 'high';
+            cx.drawImage(img, 0, 0, cv.width, cv.height);
+            char.img = cv.toDataURL('image/jpeg', 0.92);
             renderIdentidade();
         };
         img.src = URL.createObjectURL(file);

@@ -53,7 +53,7 @@
   "formulas": {
     "ca_base": 10,
     "ca_atributo": "tecnica",
-    "deslocamento_base": 0,
+    "deslocamento_base": 9,
     "deslocamento_atributo": "",
     "magiculas_iniciais": "mana + er",
     "arcana_por_rank": { "6": 5, "5": 5, "4": 5 }
@@ -102,7 +102,21 @@
     { "nome": "Rekel Ancestral",              "arquivo": "contents/racas/Secreta-RekelAncestral.md",  "secreta": true },
     { "nome": "Humano Variante — Convertido", "arquivo": "contents/racas/Secreta-HumanoConvertido.md", "secreta": true },
     { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md",       "secreta": true },
-    { "nome": "ArkHumano",                    "arquivo": "contents/racas/Secreta-ArkHumano.md",        "secreta": true, "proibida": true }
+    { "nome": "ArkHumano",                    "arquivo": "contents/racas/Secreta-ArkHumano.md",        "secreta": true, "proibida": true },
+    { "nome": "Demi-Humano Mitológico",       "arquivo": "contents/racas/Secreta-Mitologico.md",       "secreta": true,
+      "subracas": [
+        { "nome": "Dragão (Primordial)",            "arquivo": "contents/racas/Mitologico/Mito-DragaoPrimordial.md",        "wip": true },
+        { "nome": "Dragão (Místico)",               "arquivo": "contents/racas/Mitologico/Mito-DragaoMistico.md",           "wip": true },
+        { "nome": "Cérbero",                        "arquivo": "contents/racas/Mitologico/Mito-Cerbero.md",                 "wip": true },
+        { "nome": "Kitsune",                        "arquivo": "contents/racas/Mitologico/Mito-Kitsune.md",                 "wip": true },
+        { "nome": "Krakên",                         "arquivo": "contents/racas/Mitologico/Mito-Kraken.md",                  "wip": true },
+        { "nome": "Fênix",                          "arquivo": "contents/racas/Mitologico/Mito-Fenix.md",                   "wip": true },
+        { "nome": "Grifo",                          "arquivo": "contents/racas/Mitologico/Mito-Grifo.md",                   "wip": true },
+        { "nome": "Ciclope",                        "arquivo": "contents/racas/Mitologico/Mito-Ciclope.md",                 "wip": true },
+        { "nome": "Quimera",                        "arquivo": "contents/racas/Mitologico/Mito-Quimera.md",                 "wip": true },
+        { "nome": "Dragão (Primordial | Algodão)",  "arquivo": "contents/racas/Mitologico/Mito-DragaoPrimordialAlgodao.md", "wip": true },
+        { "nome": "Dragão (Místico | Ouro)",        "arquivo": "contents/racas/Mitologico/Mito-DragaoMisticoOuro.md" }
+      ] }
   ],
 
   "classes_iniciais": [
@@ -183,7 +197,7 @@
 ## Notas de edição
 
 * **CA:** `ca_base + atributo + (10 − rank)` (padrão: 10 + Técnica). Toda **primeira estrela de um rank novo** dá **+1 CA** automático (desative com `"ca_por_rank": false`). Armaduras somam por cima, manualmente ou via inventário.
-* **Deslocamento:** igual ao valor da **perícia Deslocamento** (+ `deslocamento_base` opcional em metros). Editar o card em Valores Automáticos vira um override manual e **não** altera a perícia.
+* **Deslocamento:** `deslocamento_base` (9 m) **+ a perícia Deslocamento**. Editar o card em Valores Automáticos vira um override manual e **não** altera a perícia.
 * **Arcana:** começa em 0; `arcana_por_rank` diz quanto soma ao **entrar** em cada rank (ex.: +5 no R6, R5 e R4).
 * **Magículas iniciais:** fórmula com `mana` e `er` (Rank 10: Mana + 1, pois ER = 1).
 * Para **adicionar uma raça/classe/magia** nova ao criador: crie o .md e acrescente a linha no registro acima.

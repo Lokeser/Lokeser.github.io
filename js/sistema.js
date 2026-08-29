@@ -216,13 +216,24 @@ const WNJ = (() => {
     }
 
     // Busca todos os poderes automaticos elegiveis para o personagem.
+    // Arquivo da raça — se ela tiver linhagens (sub-raças), usa o da escolhida.
+    function arquivoRaca(cfg, char) {
+        const e = (cfg.racas || []).find(x => x.nome === char.raca);
+        if (!e) return null;
+        if (e.subracas && char.subRaca) {
+            const s = e.subracas.find(x => x.nome === char.subRaca);
+            if (s) return s.arquivo;
+        }
+        return e.arquivo;
+    }
+
     async function poderesAutomaticos(cfg, char) {
         const arquivos = [];
         const findArq = (lista, nome) => {
             const e = (lista || []).find(x => x.nome === nome);
             return e ? e.arquivo : null;
         };
-        const rc = findArq(cfg.racas, char.raca); if (rc) arquivos.push(rc);
+        const rc = arquivoRaca(cfg, char); if (rc) arquivos.push(rc);
         const ci = findArq(cfg.classes_iniciais, char.classeInicial); if (ci) arquivos.push(ci);
         const ca = findArq(cfg.classes_avancadas, char.classeAvancada); if (ca) arquivos.push(ca);
         const mg = findArq(cfg.magias, char.magia); if (mg) arquivos.push(mg);
@@ -372,7 +383,7 @@ const WNJ = (() => {
             criado: new Date().toISOString(),
             img: null,
             nome: '', sobrenome: '',
-            raca: '', classeInicial: '', classeAvancada: '', magia: '',
+            raca: '', subRaca: '', classeInicial: '', classeAvancada: '', magia: '',
             rank: 10, estrela: 1,
             atributos: { corpo: 0, tecnica: 0, intelecto: 0, carisma: 0, sabedoria: 0, mana: 0 },
             vidaAtual: null, vidaMaxManual: null,
@@ -430,7 +441,7 @@ const WNJ = (() => {
         calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcCA,
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
-        paletaMagia, atributosPrincipais, rolarFormula,
+        paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca,
         varrerRecuperaveis, restaurar
     };
 })();

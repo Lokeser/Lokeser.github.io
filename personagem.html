@@ -126,6 +126,36 @@
             background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; font-size: .86rem;
         }
         .rec-item small { color: #8fb3cf; margin-left: auto; font-size: .72rem; }
+
+        /* ===== Grupos e arraste ===== */
+        .grupo-barra {
+            grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
+            background: var(--gcor, #f0d17a); color: #14202e;
+            border-radius: 10px; padding: 9px 16px; cursor: grab;
+            font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.05rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,.35); margin-top: 6px;
+        }
+        .grupo-barra:active { cursor: grabbing; }
+        .grupo-barra .g-nome { flex: 1; }
+        .grupo-barra .g-conta { font-family: 'Lato', sans-serif; font-size: .72rem; opacity: .7; font-weight: 700; }
+        .grupo-barra button {
+            background: rgba(0,0,0,.22); border: none; color: inherit; cursor: pointer;
+            border-radius: 6px; padding: 3px 8px; font-size: .8rem;
+        }
+        .grupo-barra button:hover { background: rgba(0,0,0,.4); }
+
+        .pcard { cursor: grab; }
+        .pcard:active { cursor: grabbing; }
+        .arrastando { opacity: .35; }
+        .alvo-antes { outline: 3px dashed var(--c4); outline-offset: 3px; }
+
+        .rodape-grupos { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
+        .btn-add-grupo {
+            background: #0d1b2c; color: var(--c4); border: 1px solid var(--c4);
+            border-radius: 10px; padding: 11px 22px; cursor: pointer; font-weight: 700; font-size: .9rem;
+        }
+        .btn-add-grupo:hover { background: var(--c4); color: #14202e; }
+        .dica-arraste { text-align: center; color: #8fb3cf; font-size: .78rem; margin: 0 0 14px; }
     </style>
 </head>
 <body>
@@ -155,7 +185,29 @@
         </div>
     </div>
 
+    <p class="dica-arraste" id="dica-arraste">✋ Segure e arraste os cards para reordenar — solte abaixo de um grupo para agrupar.</p>
     <div class="galeria" id="galeria"></div>
+
+    <div class="rodape-grupos">
+        <button class="btn-add-grupo" id="btn-add-grupo">➕ Adicionar Grupo</button>
+    </div>
+
+    <!-- MODAL: GRUPO -->
+    <div class="ov" id="ov-grupo">
+        <div class="box" style="max-width:420px">
+            <h3 id="grupo-titulo">Novo Grupo</h3>
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Nome do grupo</label>
+            <input type="text" id="grupo-nome" placeholder="Ex: Grupo um"
+                   style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:10px 12px;font-size:.9rem">
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Cor</label>
+            <input type="color" id="grupo-cor" value="#f0d17a"
+                   style="width:64px;height:40px;background:none;border:1px solid var(--c2);border-radius:8px;cursor:pointer">
+            <div class="acoes">
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="grupo-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL: RECUPERAÇÃO -->
     <div class="ov" id="ov-recuperar">
@@ -180,6 +232,25 @@
         const $ = (id) => document.getElementById(id);
         let idsNaNuvem = new Set();
 
+        // ===== LAYOUT (ordem dos cards + grupos) =====
+        // Lista unica: {t:'g',id,nome,cor} para grupos e {t:'c',id} para personagens.
+        // A ordem define tudo - um personagem pertence ao grupo da barra acima dele.
+        const LAYOUT_KEY = 'wnj_layout';
+        let layout = [];
+        function carregarLayout() {
+            try { const v = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '[]'); layout = Array.isArray(v) ? v : []; }
+            catch (e) { layout = []; }
+        }
+        function salvarLayout() {
+            try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch (e) {}
+        }
+        function conciliarLayout(chars) {
+            const existentes = new Set(chars.map(c => c.id));
+            layout = layout.filter(i => i.t === 'g' || existentes.has(i.id));
+            const noLayout = new Set(layout.filter(i => i.t === 'c').map(i => i.id));
+            chars.forEach(c => { if (!noLayout.has(c.id)) layout.push({ t: 'c', id: c.id }); });
+        }
+
         function render() {
             const g = $('galeria');
             const chars = WNJ.listar();
@@ -190,10 +261,54 @@
                     '<br><small>Se você já tinha fichas aqui, tente <strong>🛟 Recuperar personagens</strong>.</small></div>';
                 return;
             }
+            conciliarLayout(chars);
+            salvarLayout();
+            const porId = {}; chars.forEach(c => porId[c.id] = c);
             g.innerHTML = '';
-            for (const c of chars) {
+
+            layout.forEach((item, idx) => {
+                if (item.t === 'g') { g.appendChild(criarBarraGrupo(item, idx)); return; }
+                const c = porId[item.id];
+                if (c) g.appendChild(criarCard(c, idx));
+            });
+            ligarArraste();
+            $('dica-arraste').style.display = chars.length > 1 ? '' : 'none';
+        }
+
+        function contarNoGrupo(idx) {
+            let n = 0;
+            for (let i = idx + 1; i < layout.length; i++) {
+                if (layout[i].t === 'g') break;
+                n++;
+            }
+            return n;
+        }
+
+        function criarBarraGrupo(gr, idx) {
+            const barra = document.createElement('div');
+            barra.className = 'grupo-barra';
+            barra.style.setProperty('--gcor', gr.cor || '#f0d17a');
+            barra.draggable = true;
+            barra.dataset.idx = idx;
+            barra.innerHTML = '<span class="g-nome">' + (gr.nome || 'Grupo').replace(/</g, '&lt;') + '</span>' +
+                '<span class="g-conta">' + contarNoGrupo(idx) + ' personagem(ns)</span>' +
+                '<button data-editar-g="1" title="Editar">✏️</button>' +
+                '<button data-excluir-g="1" title="Remover grupo">✖</button>';
+            barra.querySelector('[data-editar-g]').onclick = (e) => { e.stopPropagation(); abrirGrupo(idx); };
+            barra.querySelector('[data-excluir-g]').onclick = (e) => {
+                e.stopPropagation();
+                if (!confirm('Remover o grupo "' + (gr.nome || '') + '"?\nOs personagens continuam salvos.')) return;
+                layout.splice(idx, 1); salvarLayout(); render();
+            };
+            return barra;
+        }
+
+        function criarCard(c, idx) {
+            {
                 const card = document.createElement('div');
                 card.className = 'pcard';
+                card.draggable = true;
+                card.dataset.idx = idx;
                 const nome = [c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
                 const est = c.rank < 10 ? ' ' + '★'.repeat(c.estrela) : '';
                 const naNuvem = idsNaNuvem.has(c.id);
@@ -225,9 +340,85 @@
                     }
                     render();
                 };
-                g.appendChild(card);
+                return card;
             }
         }
+
+        // ===== ARRASTE =====
+        let arrastadoIdx = null;
+        function ligarArraste() {
+            const itens = [...document.querySelectorAll('#galeria [data-idx]')];
+            itens.forEach(el => {
+                el.addEventListener('dragstart', (e) => {
+                    arrastadoIdx = parseInt(el.dataset.idx, 10);
+                    el.classList.add('arrastando');
+                    e.dataTransfer.effectAllowed = 'move';
+                    try { e.dataTransfer.setData('text/plain', String(arrastadoIdx)); } catch (err) {}
+                });
+                el.addEventListener('dragend', () => {
+                    el.classList.remove('arrastando');
+                    itens.forEach(x => x.classList.remove('alvo-antes'));
+                    arrastadoIdx = null;
+                });
+                el.addEventListener('dragover', (e) => {
+                    if (arrastadoIdx == null) return;
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    itens.forEach(x => x.classList.remove('alvo-antes'));
+                    el.classList.add('alvo-antes');
+                });
+                el.addEventListener('drop', (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    if (arrastadoIdx == null) return;
+                    moverItem(arrastadoIdx, parseInt(el.dataset.idx, 10), e, el);
+                });
+            });
+            const g = $('galeria');
+            g.ondragover = (e) => { if (arrastadoIdx != null) e.preventDefault(); };
+            g.ondrop = (e) => {
+                if (arrastadoIdx == null || e.target !== g) return;
+                e.preventDefault();
+                moverItem(arrastadoIdx, layout.length, null, null);
+            };
+        }
+
+        function moverItem(de, para, ev, el) {
+            if (de === para) return;
+            // solta na metade de baixo (grupo) ou da direita (card) => entra depois do alvo
+            if (el && ev) {
+                const r = el.getBoundingClientRect();
+                const depois = el.classList.contains('grupo-barra')
+                    ? (ev.clientY - r.top) > r.height / 2
+                    : (ev.clientX - r.left) > r.width / 2;
+                if (depois) para += 1;
+            }
+            const [item] = layout.splice(de, 1);
+            if (de < para) para -= 1;
+            layout.splice(Math.max(0, Math.min(para, layout.length)), 0, item);
+            salvarLayout();
+            render();
+        }
+
+        // ===== GRUPOS =====
+        let grupoEditando = null;
+        function abrirGrupo(idx) {
+            grupoEditando = idx;
+            const gr = idx != null ? layout[idx] : null;
+            $('grupo-titulo').textContent = gr ? 'Editar Grupo' : 'Novo Grupo';
+            $('grupo-nome').value = gr ? (gr.nome || '') : '';
+            $('grupo-cor').value = gr ? (gr.cor || '#f0d17a') : '#f0d17a';
+            $('ov-grupo').classList.add('aberto');
+        }
+        $('btn-add-grupo').onclick = () => abrirGrupo(null);
+        $('grupo-salvar').onclick = () => {
+            const nome = $('grupo-nome').value.trim() || 'Grupo';
+            const cor = $('grupo-cor').value;
+            if (grupoEditando != null) { layout[grupoEditando].nome = nome; layout[grupoEditando].cor = cor; }
+            else layout.push({ t: 'g', id: 'g' + Date.now().toString(36), nome, cor });
+            salvarLayout();
+            $('ov-grupo').classList.remove('aberto');
+            render();
+        };
 
         // ---------- NUVEM ----------
         async function atualizarBarraNuvem() {
@@ -310,6 +501,7 @@
             ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('aberto'); });
         });
 
+        carregarLayout();
         render();
         atualizarBarraNuvem();
         document.addEventListener('wnj-auth', () => { atualizarBarraNuvem(); render(); });

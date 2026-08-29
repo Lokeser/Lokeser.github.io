@@ -18,12 +18,12 @@
     "sabedoria": 1,
     "mana": 2
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": null,
+  "vidaAtual": 30,
+  "vidaMaxManual": 30,
   "magiculasAtual": 1,
   "magiculasMax": null,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 15,
   "deslocManual": null,
   "cargas": [],
   "poderes": [
@@ -172,12 +172,12 @@
   "titulo": "Super Herói",
   "tituloArtigo": "O",
   "periciasDelta": {
-    "Charme": 5,
+    "Charme": 6,
     "Atletismo": 2
   },
   "resistencias": {
     "Magi-Contundente": "r1"
   },
-  "atualizado": "2026-08-29T03:46:43.021Z",
+  "atualizado": "2026-08-29T03:48:08.710Z",
   "dono": "Lokeser"
 }

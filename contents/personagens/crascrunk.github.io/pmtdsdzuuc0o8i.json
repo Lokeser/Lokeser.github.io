@@ -6,7 +6,7 @@
   "sobrenome": "Etherin Saphstar",
   "raca": "Humano",
   "classeInicial": "Acadêmico",
-  "classeAvancada": "",
+  "classeAvancada": "Mago",
   "magia": "Anômala",
   "rank": 8,
   "estrela": 1,
@@ -200,6 +200,43 @@
       "tag": "habilidade",
       "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 3º Estágio</p><!--#poder id=\"hb_selosmagicos\" fonte=\"habilidade\" estrela=\"3\" nome=\"Selos Mágicos\"-->\n<h1>Selos Mágicos</h1>\n<p><strong>Pré-Requisitos:</strong> 1+ Inteligência, 1+ Mana  </p>\n<p>Utilizando o papel Mancharta, você pode transmitir uma Magia ou um Cristal de Mana para ele.  </p>\n<ul>\n<li><strong>Teste de Arcanismo:</strong> CD = 10 + 5 por Rank da Magia  <ul>\n<li>Em caso de crítico, utiliza-se o dobro do modificador</li>\n</ul>\n</li>\n<li><strong>Dano:</strong>  <ul>\n<li>Se for sua Magia: igual ao dano de Manipulação Livre  </li>\n<li>Se for Cristal de Mana: baseado no Rank do Cristal (ver tabela do mestre)</li>\n</ul>\n</li>\n<li><strong>Tempo de produção:</strong> 2d6 horas  <ul>\n<li>Redução em minutos igual ao resultado do dado de Arcanismo</li>\n</ul>\n</li>\n</ul>\n<!--#fim-->",
       "auto": false
+    },
+    {
+      "refId": "ca_mago_r8e1_1",
+      "nome": "⭐ 1 Estrela — Ensinamentos da Magia",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+6 em Arcanismo</strong>.  </li>\n<li>Aprenda <strong>uma Habilidade Mágica de até 3º Estágio</strong>.  </li>\n<li>Caso já possua todas, pode <strong>readquirir</strong> uma já conhecida.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ca_mago_r8e1_2",
+      "nome": "⭐⭐ 2 Estrelas — Conhecimento Arcano",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Suas magias causam <strong>dano adicional igual à sua Inteligência</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_mago_r8e1_3",
+      "nome": "⭐⭐⭐ 3 Estrelas — Estudo Avançado",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li><strong>1 vez por dia</strong>, pode receber <strong>+1DR em um teste de perícia</strong>.  </li>\n<li>Deve ser declarado <strong>antes</strong> de rolar o dado.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_mago_r8e1_4",
+      "nome": "⭐⭐⭐⭐ 4 Estrelas — Mente Multi-programável I",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Sempre que utilizar uma <strong>magia que consuma uma Ação de Ataque</strong>, pode:<ul>\n<li>Consumir o <strong>dobro de Magículas</strong></li>\n<li>Executá-la como <strong>Ação Bônus</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
     }
   ],
   "ataques": [
@@ -236,6 +273,6 @@
     "Fogo": "r1",
     "Perfurante": "r1"
   },
-  "atualizado": "2026-08-29T03:23:52.002Z",
+  "atualizado": "2026-08-29T03:56:19.141Z",
   "dono": "Crascrunk.github.io"
 }

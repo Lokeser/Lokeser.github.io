@@ -21,7 +21,7 @@
   },
   "vidaAtual": 57,
   "vidaMaxManual": 57,
-  "magiculasAtual": 1,
+  "magiculasAtual": 15,
   "magiculasMax": 15,
   "arcanaManual": null,
   "caManual": null,
@@ -137,6 +137,6 @@
   },
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-08-29T07:04:53.001Z",
+  "atualizado": "2026-08-29T07:05:02.610Z",
   "dono": "Senharruassa"
 }

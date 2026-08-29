@@ -72,7 +72,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe <strong>+3</strong> em:<ul>\n<li><strong>Acrobacia</strong></li>\n<li><strong>Furtividade</strong></li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "mg_arte_besta_r9e1_1",
@@ -122,6 +123,18 @@
       "tag": "raca",
       "efeitoHTML": "<ul style=\"color: rgb(201, 217, 232); font-size: 13.12px; background-color: rgba(0, 0, 0, 0.28);\"><li><p style=\"margin-bottom: 6px;\">Ataques desarmados tornam‑se <span style=\"font-weight: bolder;\">1d6 + Técnica</span>. Acertos críticos causam <span style=\"font-weight: bolder;\">Sangramento</span>.</p></li></ul>",
       "auto": false
+    },
+    {
+      "nome": "Forma Accel",
+      "tag": "magia",
+      "efeitoHTML": "<ul><li>Você pode entrar na Forma Accel por 1 Accel, Enquanto estiver nesta forma, seu corpo é elevado a um estado superior:\n.Você recebe Vida Temporária igual a seu Ki x Eficiência de Rank (+16)\n.Recebe Resistência I contra todos os tipos de dano possíveis\n.Seus ataques desarmados causam dano igual a 1d6 per Ki (8d6 + 6+2d4/2d5)\n.Seu Deslocamento e Pulo aumentam em Ki x 2 Metros (16)\n.Recebe a Habiliade Esquivar ou aumenta em 1 o estágio caso já possua (d6)</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Passo Veloz",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#ff4500\">💪 Pilar do Corpo · 1º Estágio</p><p>Pré-Requisitos: Des 3+\nComo ação bônus, se move rapidamente para uma área desocupada.\nDistância: MAN Metros</p>\n<p>Você pode consumir 1 Magícula como ação livre, seu próximo Passo Veloz aplica este efeito:</p>\n<p>Também pode utilizar esta ação como ação livre para aumentar o tipo de alcance em 1 de qualquer habilidade</p>\n",
+      "auto": false
     }
   ],
   "ataques": [
@@ -151,6 +164,6 @@
   },
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-08-29T07:09:31.447Z",
+  "atualizado": "2026-08-29T07:14:09.856Z",
   "dono": "Senharruassa"
 }

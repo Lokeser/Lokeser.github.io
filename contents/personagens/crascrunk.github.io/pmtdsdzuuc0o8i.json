@@ -8,20 +8,20 @@
   "classeInicial": "Acadêmico",
   "classeAvancada": "",
   "magia": "Anômala",
-  "rank": 10,
+  "rank": 8,
   "estrela": 1,
   "atributos": {
     "corpo": 4,
     "tecnica": 2,
     "intelecto": 7,
     "carisma": 3,
-    "sabedoria": 2,
+    "sabedoria": 3,
     "mana": 10
   },
   "vidaAtual": 20,
-  "vidaMaxManual": null,
+  "vidaMaxManual": 125,
   "magiculasAtual": 63,
-  "magiculasMax": 63,
+  "magiculasMax": 113,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -34,7 +34,8 @@
       "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_academico_r10e1_1",
@@ -43,7 +44,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe <strong>10 Pontos de Perícia</strong> para distribuir entre:<ul>\n<li>Inteligência</li>\n<li>Sabedoria</li>\n<li>Carisma</li>\n</ul>\n</li>\n<li>Caso uma perícia receba <strong>4 ou mais pontos</strong> dessa habilidade:<ul>\n<li>Você se torna <strong>Entusiasta</strong> nessa perícia.</li>\n<li>A partir de agora, <strong>sempre que evoluir seu Rank</strong>, recebe <strong>+2</strong> nela.</li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_academico_r10e1_2",
@@ -52,6 +54,52 @@
       "efeitoHTML": "<ul>\n<li><strong>2 vezes por dia</strong>, pode passar <strong>1 hora estudando</strong> uma perícia.</li>\n<li>Se o fizer:<ul>\n<li>Recebe <strong>+1DR</strong> em testes dessa perícia <strong>até o final do dia</strong>.</li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_academico_r9e1_1",
+      "nome": "Treinamento Individual",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Escolha <strong>uma Habilidade</strong> de qualquer nível que você <strong>possa aprender</strong>.</li>\n<li>Você <strong>aprende essa habilidade</strong> imediatamente.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_academico_r9e1_2",
+      "nome": "Fruto do Esforço",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Escolha <strong>um</strong>:<ul>\n<li><strong>+1 Inteligência</strong></li>\n<li><strong>+1 Sabedoria</strong></li>\n<li><strong>+1 Carisma</strong></li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_academico_r9e1_3",
+      "nome": "Conhecimento Teórico II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+6 Pontos de Perícia</strong> adicionais.</li>\n<li>Caso possua <strong>12 ou mais pontos</strong> de Conhecimento Teórico em uma perícia:<ul>\n<li>Recebe <strong>+1DR</strong> sempre que utilizar essa perícia.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r8_1",
+      "nome": "Aproximação Divina",
+      "tag": "raca",
+      "efeitoHTML": "<p>Sempre que atingir a <strong>5ª Estrela de qualquer Rank</strong>, incluindo este, você recebe <strong>+1 ponto de atributo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
       "estrela": 1
     }
   ],
@@ -70,6 +118,6 @@
     "Aura": 2
   },
   "resistencias": {},
-  "atualizado": "2026-08-29T03:03:59.487Z",
+  "atualizado": "2026-08-29T03:05:31.130Z",
   "dono": "Crascrunk.github.io"
 }

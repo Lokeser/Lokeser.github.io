@@ -65,10 +65,45 @@
 
     // ================= CARREGAMENTO DE FONTES =================
     async function carregarRaca() {
-        const entry = cfg.racas.find(r => r.nome === char.raca);
-        if (!entry) { racaInfo = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, livre: true }; return; }
-        try { racaInfo = WNJ.parseRaca(await WNJ.fetchMD(entry.arquivo)); }
+        const arq = WNJ.arquivoRaca(cfg, char);
+        if (!arq) { racaInfo = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, livre: true }; return; }
+        try { racaInfo = WNJ.parseRaca(await WNJ.fetchMD(arq)); }
         catch (e) { console.warn(e); }
+    }
+
+    // ---------- LINHAGENS (sub-raças) ----------
+    function entradaRaca() { return (cfg.racas || []).find(r => r.nome === char.raca); }
+    function abrirSubRaca() {
+        const e = entradaRaca();
+        if (!e || !e.subracas) return;
+        $('subraca-titulo').textContent = 'Escolha a linhagem — ' + e.nome;
+        $('subraca-lista').innerHTML = e.subracas.map(s =>
+            '<button type="button" class="subraca-op' + (s.wip ? ' wip' : '') + '" data-sub="' + esc(s.nome) + '">' +
+            '<span>' + esc(s.nome) + '</span>' +
+            (s.wip ? '<small>🚧 W.I.P</small>' : '<small class="ok">✅ Disponível</small>') +
+            '</button>').join('');
+        document.querySelectorAll('#subraca-lista .subraca-op').forEach(b => {
+            b.onclick = async () => {
+                char.subRaca = b.dataset.sub;
+                fecharOverlay('ov-subraca');
+                await carregarRaca();
+                await sincronizarPoderes();
+                renderIdentidade(); renderAutos(); renderAtributos(); renderPericias(); renderPoderes();
+            };
+        });
+        abrirOverlay('ov-subraca');
+    }
+    function renderSubRacaAviso() {
+        const e = entradaRaca();
+        const box = $('aviso-subraca');
+        if (!e || !e.subracas) { box.style.display = 'none'; return; }
+        box.style.display = '';
+        const s = char.subRaca ? e.subracas.find(x => x.nome === char.subRaca) : null;
+        box.innerHTML = s
+            ? '🩸 Linhagem: <strong>' + esc(s.nome) + '</strong>' + (s.wip ? ' <em>(W.I.P — sem poderes automáticos)</em>' : '') +
+              ' <button type="button" id="btn-trocar-sub">trocar</button>'
+            : '⚠️ <strong>Escolha uma linhagem</strong> para esta raça. <button type="button" id="btn-trocar-sub">escolher</button>';
+        $('btn-trocar-sub').onclick = abrirSubRaca;
     }
     async function carregarRank() {
         const d = await WNJ.dadosRank(cfg, char.rank);
@@ -124,6 +159,7 @@
         $('f-titulo-artigo').value = char.tituloArtigo || '';
         $('f-titulo').value = char.titulo || '';
         $('foto').innerHTML = char.img ? '<img src="' + char.img + '" alt="">' : '🖼️';
+        renderSubRacaAviso();
         renderEquipados();
     }
 
@@ -870,8 +906,11 @@
     $('f-titulo').oninput = e => char.titulo = e.target.value;
     $('f-raca').onchange = async e => {
         char.raca = e.target.value;
+        char.subRaca = '';                       // trocou de raça: linhagem antiga não vale mais
         await carregarRaca(); await sincronizarPoderes();
-        renderAutos(); renderAtributos(); renderPericias(); renderPoderes();
+        renderAutos(); renderAtributos(); renderPericias(); renderPoderes(); renderSubRacaAviso();
+        const ent = entradaRaca();
+        if (ent && ent.subracas) abrirSubRaca();  // pop-up de escolha da linhagem
     };
     $('f-classe1').onchange = async e => {
         char.classeInicial = e.target.value;

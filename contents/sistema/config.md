@@ -102,7 +102,21 @@
     { "nome": "Rekel Ancestral",              "arquivo": "contents/racas/Secreta-RekelAncestral.md",  "secreta": true },
     { "nome": "Humano Variante — Convertido", "arquivo": "contents/racas/Secreta-HumanoConvertido.md", "secreta": true },
     { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md",       "secreta": true },
-    { "nome": "ArkHumano",                    "arquivo": "contents/racas/Secreta-ArkHumano.md",        "secreta": true, "proibida": true }
+    { "nome": "ArkHumano",                    "arquivo": "contents/racas/Secreta-ArkHumano.md",        "secreta": true, "proibida": true },
+    { "nome": "Demi-Humano Mitológico",       "arquivo": "contents/racas/Secreta-Mitologico.md",       "secreta": true,
+      "subracas": [
+        { "nome": "Dragão (Primordial)",            "arquivo": "contents/racas/Mitologico/Mito-DragaoPrimordial.md",        "wip": true },
+        { "nome": "Dragão (Místico)",               "arquivo": "contents/racas/Mitologico/Mito-DragaoMistico.md",           "wip": true },
+        { "nome": "Cérbero",                        "arquivo": "contents/racas/Mitologico/Mito-Cerbero.md",                 "wip": true },
+        { "nome": "Kitsune",                        "arquivo": "contents/racas/Mitologico/Mito-Kitsune.md",                 "wip": true },
+        { "nome": "Krakên",                         "arquivo": "contents/racas/Mitologico/Mito-Kraken.md",                  "wip": true },
+        { "nome": "Fênix",                          "arquivo": "contents/racas/Mitologico/Mito-Fenix.md",                   "wip": true },
+        { "nome": "Grifo",                          "arquivo": "contents/racas/Mitologico/Mito-Grifo.md",                   "wip": true },
+        { "nome": "Ciclope",                        "arquivo": "contents/racas/Mitologico/Mito-Ciclope.md",                 "wip": true },
+        { "nome": "Quimera",                        "arquivo": "contents/racas/Mitologico/Mito-Quimera.md",                 "wip": true },
+        { "nome": "Dragão (Primordial | Algodão)",  "arquivo": "contents/racas/Mitologico/Mito-DragaoPrimordialAlgodao.md", "wip": true },
+        { "nome": "Dragão (Místico | Ouro)",        "arquivo": "contents/racas/Mitologico/Mito-DragaoMisticoOuro.md" }
+      ] }
   ],
 
   "classes_iniciais": [

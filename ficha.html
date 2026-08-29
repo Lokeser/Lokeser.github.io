@@ -110,6 +110,28 @@
         /* Perícias */
         .pericias-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 9px; }
 
+        /* ===== Linhagem (sub-raça) ===== */
+        .aviso-subraca {
+            margin-top: 6px; font-size: .76rem; color: #f0c56b;
+            background: rgba(240,197,107,.1); border: 1px solid rgba(240,197,107,.4);
+            border-radius: 8px; padding: 6px 10px;
+        }
+        .aviso-subraca button {
+            background: none; border: none; color: var(--c4); text-decoration: underline;
+            cursor: pointer; font-size: .76rem; padding: 0 2px;
+        }
+        .subraca-op {
+            display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16);
+            border-left: 3px solid var(--c4); border-radius: 8px;
+            color: #eaf2fa; padding: 11px 14px; margin-bottom: 7px; cursor: pointer; font-size: .92rem;
+        }
+        .subraca-op:hover { background: rgba(255,255,255,.12); }
+        .subraca-op span { flex: 1; }
+        .subraca-op small { color: #8fb3cf; font-size: .72rem; }
+        .subraca-op small.ok { color: #8fe0a0; font-weight: 700; }
+        .subraca-op.wip { border-left-color: #8fa3b5; opacity: .82; }
+
         /* ===== Resistências ===== */
         .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 9px; }
         .res-item { position: relative; }
@@ -333,7 +355,9 @@
                     <div class="campos">
                         <div class="campo"><label>Nome</label><input id="f-nome" placeholder="Ex: Nichole"></div>
                         <div class="campo"><label>Sobrenome</label><input id="f-sobrenome" placeholder="Ex: Cali"></div>
-                        <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select></div>
+                        <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select>
+                            <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
+                        </div>
                         <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Classe Avançada <span class="aviso-inline" id="aviso-ca">(Rank 8+)</span></label><select id="f-classe2" disabled><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
@@ -512,6 +536,18 @@
                 <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
                 <button class="btn-wnj ouro" id="item-salvar">Salvar Item</button>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL: LINHAGEM (sub-raça) -->
+    <div class="overlay" id="ov-subraca">
+        <div class="modal-wnj" style="max-width:560px">
+            <h3 id="subraca-titulo">Escolha a linhagem</h3>
+            <p class="aviso-inline">Cada linhagem tem seus próprios atributos e poderes. As marcadas como
+            <strong>W.I.P</strong> ainda estão sendo escritas — você pode escolhê-las para reservar o conceito,
+            mas elas não concedem nada automaticamente ainda.</p>
+            <div id="subraca-lista" style="max-height:52vh;overflow-y:auto;margin-top:12px"></div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
         </div>
     </div>
 

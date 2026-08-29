@@ -19,7 +19,7 @@
     "sabedoria": 0,
     "mana": 2
   },
-  "vidaAtual": 20,
+  "vidaAtual": 57,
   "vidaMaxManual": 57,
   "magiculasAtual": 1,
   "magiculasMax": 15,
@@ -132,9 +132,11 @@
     "Furtividade": 8,
     "Erudição": 5
   },
-  "resistencias": {},
+  "resistencias": {
+    "Cortante": "r1"
+  },
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-08-29T06:59:14.480Z",
+  "atualizado": "2026-08-29T07:04:53.001Z",
   "dono": "Senharruassa"
 }

@@ -77,42 +77,6 @@
       "estrela": 1
     },
     {
-      "nome": "Centelha Ancestral",
-      "tag": "raca",
-      "efeitoHTML": "Sua Mana recebe um bônus adicional de +1 permanente. Uma vez por Turno, ao lançar um Ataque, você pode adicionar **ERd2 de dano Anomâlo** à magia. Esse dano ignora resistências.",
-      "auto": false
-    },
-    {
-      "nome": "Olhos do Dragão",
-      "tag": "raca",
-      "efeitoHTML": "Seus olhos assumem ocasionalmente uma coloração **âmbar dourado** quando você usa magia. Você consegue **Enxergar no Escuro** em um raio de 10 metros à vontade.",
-      "auto": false
-    },
-    {
-      "nome": "Pele de Escama Latente",
-      "tag": "raca",
-      "efeitoHTML": "Escamas microscópicas e invisíveis se formam sob sua pele. Você recebe **Resistência I** a dano de fogo e a dano físico perfurante.",
-      "auto": false
-    },
-    {
-      "nome": "Rugido Primordial",
-      "tag": "raca",
-      "efeitoHTML": "Uma vez por combate, você pode soltar um rugido gutural impregnado de energia dracônica. Todos os inimigos em um cone de 6 metros devem fazer um **Teste de Constituição (CD 10 + seu modificador de Mana)**.&nbsp; Em caso de falha, ficam **Abalados** *(−2 em todos os testes)* por 1 rodada.",
-      "auto": false
-    },
-    {
-      "nome": "Escamas Douradas",
-      "tag": "raca",
-      "efeitoHTML": "Na Forma Dracônica, sua CA aumenta em +2 devido às escamas de ouro cobrindo seu corpo. Você tem Resistência V a dano de fogo enquanto transformado.",
-      "auto": false
-    },
-    {
-      "nome": "Garganta de Ouro",
-      "tag": "raca",
-      "efeitoHTML": "Seu ataque principal na Forma Dracônica é o Jato de Ouro Derretido — um cone de ouro líquido e incandescente que emerge de sua garganta.",
-      "auto": false
-    },
-    {
       "nome": "Sephstar",
       "tag": "extra",
       "efeitoHTML": "Treinamentos da família Sephstar<br>Tem +1DR em testes de Investigação, Arcanismo e Percepção.<br><br>Bennet<br>Caso esteja com mais da metade de sua vida, você tem duas ações bônus no mesmo turno.<br><br>Obsessão<br>Sempre que falhar em um teste de perícia, pode refaze-lo, mas se falhar você fica Abalado.<br><br>Magículas Sagradas<br>Recebe um aumento de Magículas igual a ER x ER",
@@ -216,7 +180,8 @@
       "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir livremente entre seus atributos.</p>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_mito_dragaoouro_r10_2",
@@ -225,7 +190,8 @@
       "efeitoHTML": "<p>Suas <strong>2 perícias</strong> de maior valor que usem <strong>atributos diferentes</strong> recebem <strong>+2</strong> cada.</p>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_mito_dragaoouro_r10_3",
@@ -297,7 +263,8 @@
       "efeitoHTML": "<p>Seu ataque principal na Forma Dracônica é o <strong>Jato de Ouro Derretido</strong> — um cone de ouro líquido incandescente que emerge da sua garganta.</p>\n<ul>\n<li><strong>Custo:</strong> 9 Magículas</li>\n<li><strong>Alcance:</strong> cone de 18 m</li>\n<li><strong>Acerto:</strong> DR + <strong>Técnica</strong> + ER</li>\n<li><strong>Dano:</strong> <strong>ERd11</strong> de Fogo + <strong>ERd6</strong> de Anômalo <em>(o ouro solidifica ao esfriar)</em></li>\n<li><strong>Efeito:</strong> atingidos ficam <strong>Imobilizados</strong> por 1 rodada enquanto o ouro endurece <em>(Teste de Corpo CD 13 para escapar, como ação bônus)</em></li>\n<li><strong>Recarga:</strong> 2 turnos</li>\n</ul>\n",
       "auto": true,
       "rank": 8,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_mito_dragaoouro_r8_4",
@@ -343,7 +310,7 @@
     "Fogo": "r1",
     "Perfurante": "r1"
   },
-  "atualizado": "2026-08-29T04:15:06.513Z",
+  "atualizado": "2026-08-29T04:16:31.298Z",
   "subRaca": "Dragão (Místico | Ouro)",
   "dono": "Crascrunk.github.io"
 }

@@ -275,6 +275,12 @@
       "auto": true,
       "rank": 8,
       "estrela": 1
+    },
+    {
+      "nome": "Bonus em arte",
+      "tag": "extra",
+      "efeitoHTML": "Arte (Desenho): +7",
+      "auto": false
     }
   ],
   "ataques": [
@@ -299,7 +305,7 @@
   "tituloArtigo": "",
   "periciasDelta": {
     "Arcanismo": 20,
-    "Erudição": 12,
+    "Erudição": 15,
     "Análise": 4,
     "Intuição": 7,
     "Lábia": 6,
@@ -311,7 +317,7 @@
     "Fogo": "r1",
     "Perfurante": "r1"
   },
-  "atualizado": "2026-08-29T04:20:15.947Z",
+  "atualizado": "2026-08-29T07:10:58.166Z",
   "subRaca": "Dragão (Místico | Ouro)",
   "dono": "Crascrunk.github.io"
 }

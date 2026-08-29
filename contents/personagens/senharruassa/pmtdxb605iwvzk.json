@@ -125,12 +125,16 @@
   "pensamentos": [],
   "periciasDelta": {
     "Acrobacia": 6,
-    "Furtividade": 6,
+    "Percepção": 6,
+    "Intimidação": 5,
+    "Lábia": 4,
+    "Charme": 7,
+    "Furtividade": 8,
     "Erudição": 5
   },
   "resistencias": {},
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-08-29T06:05:02.338Z",
+  "atualizado": "2026-08-29T06:59:14.480Z",
   "dono": "Senharruassa"
 }

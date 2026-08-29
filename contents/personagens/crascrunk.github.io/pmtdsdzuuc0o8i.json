@@ -85,7 +85,7 @@
     {
       "nome": "Transformação Dracônica",
       "tag": "raca",
-      "efeitoHTML": "Bônus da Forma Dracônica neste Rank<br>| Atributo&nbsp; &nbsp; &nbsp;| Bônus |<br>|-----------------|:-----:|<br>| Força&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | +3&nbsp; &nbsp; |<br>| Constituição&nbsp; &nbsp;| +2&nbsp; &nbsp; |<br>| Mana&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | +2&nbsp; &nbsp; |<br>| Destreza&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| −4&nbsp; &nbsp; |<br>⚠️ Duração máxima: 5 minutos. Com um Teste de Sabedoria CD 13 bem-sucedido, você pode retornar à forma humana voluntariamente.",
+      "efeitoHTML": "Bônus da Forma Dracônica neste Rank<br>| Atributo&nbsp; &nbsp; &nbsp;| Bônus |<br>|-----------------|:-----:|<br>| Corpo&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | +3&nbsp; &nbsp; |<br>| Mana&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| +2&nbsp; &nbsp; |<br>| Destreza&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| +2&nbsp; &nbsp;|<br>⚠️ Duração máxima: 5 minutos. Com um Teste de Sabedoria CD 13 bem-sucedido, você pode retornar à forma humana voluntariamente.",
       "auto": false
     },
     {
@@ -245,7 +245,8 @@
       "efeitoHTML": "<p>Receba <strong>uma</strong> habilidade baseada no seu maior atributo:</p>\n<ul>\n<li><strong>Corpo:</strong> bônus igual à <strong>ER</strong> em Atletismo; capacidade de carga aumenta em <strong>2 × ER</strong> kg.</li>\n<li><strong>Técnica:</strong> bônus igual à <strong>ER</strong> no seu Deslocamento.</li>\n<li><strong>Intelecto:</strong> bônus igual à <strong>ER</strong> em testes de Erudição ou Arcanismo.</li>\n<li><strong>Carisma:</strong> +1 PA obtido e −10 no PA necessário para Relacionamento com humanos.</li>\n<li><strong>Sabedoria:</strong> bônus igual à <strong>ER</strong> em testes de Intuição.</li>\n<li><strong>Mana:</strong> dobra a cura ao dormir e recebe <strong>+1d4</strong> magículas totais.</li>\n</ul>\n",
       "auto": true,
       "rank": 8,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_mito_dragaoouro_r8_2",
@@ -310,7 +311,7 @@
     "Fogo": "r1",
     "Perfurante": "r1"
   },
-  "atualizado": "2026-08-29T04:16:31.298Z",
+  "atualizado": "2026-08-29T04:20:15.947Z",
   "subRaca": "Dragão (Místico | Ouro)",
   "dono": "Crascrunk.github.io"
 }

@@ -11,17 +11,17 @@
   "rank": 8,
   "estrela": 1,
   "atributos": {
-    "corpo": 4,
-    "tecnica": 2,
+    "corpo": 2,
+    "tecnica": 4,
     "intelecto": 7,
     "carisma": 3,
     "sabedoria": 3,
     "mana": 10
   },
-  "vidaAtual": 20,
+  "vidaAtual": 125,
   "vidaMaxManual": 125,
-  "magiculasAtual": 63,
-  "magiculasMax": 113,
+  "magiculasAtual": 105,
+  "magiculasMax": 105,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -64,7 +64,8 @@
       "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_academico_r9e1_1",
@@ -73,7 +74,8 @@
       "efeitoHTML": "<ul>\n<li>Escolha <strong>uma Habilidade</strong> de qualquer nível que você <strong>possa aprender</strong>.</li>\n<li>Você <strong>aprende essa habilidade</strong> imediatamente.</li>\n</ul>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_academico_r9e1_2",
@@ -82,7 +84,8 @@
       "efeitoHTML": "<ul>\n<li>Escolha <strong>um</strong>:<ul>\n<li><strong>+1 Inteligência</strong></li>\n<li><strong>+1 Sabedoria</strong></li>\n<li><strong>+1 Carisma</strong></li>\n</ul>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 9,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_academico_r9e1_3",
@@ -101,23 +104,138 @@
       "auto": true,
       "rank": 8,
       "estrela": 1
+    },
+    {
+      "nome": "Centelha Ancestral",
+      "tag": "raca",
+      "efeitoHTML": "Sua Mana recebe um bônus adicional de +1 permanente. Uma vez por Turno, ao lançar um Ataque, você pode adicionar **ERd2 de dano Anomâlo** à magia. Esse dano ignora resistências.",
+      "auto": false
+    },
+    {
+      "nome": "Olhos do Dragão",
+      "tag": "raca",
+      "efeitoHTML": "Seus olhos assumem ocasionalmente uma coloração **âmbar dourado** quando você usa magia. Você consegue **Enxergar no Escuro** em um raio de 10 metros à vontade.",
+      "auto": false
+    },
+    {
+      "nome": "Pele de Escama Latente",
+      "tag": "raca",
+      "efeitoHTML": "Escamas microscópicas e invisíveis se formam sob sua pele. Você recebe **Resistência I** a dano de fogo e a dano físico perfurante.",
+      "auto": false
+    },
+    {
+      "nome": "Rugido Primordial",
+      "tag": "raca",
+      "efeitoHTML": "Uma vez por combate, você pode soltar um rugido gutural impregnado de energia dracônica. Todos os inimigos em um cone de 6 metros devem fazer um **Teste de Constituição (CD 10 + seu modificador de Mana)**.&nbsp; Em caso de falha, ficam **Abalados** *(−2 em todos os testes)* por 1 rodada.",
+      "auto": false
+    },
+    {
+      "nome": "Escamas Douradas",
+      "tag": "raca",
+      "efeitoHTML": "Na Forma Dracônica, sua CA aumenta em +2 devido às escamas de ouro cobrindo seu corpo. Você tem Resistência V a dano de fogo enquanto transformado.",
+      "auto": false
+    },
+    {
+      "nome": "Garganta de Ouro",
+      "tag": "raca",
+      "efeitoHTML": "Seu ataque principal na Forma Dracônica é o Jato de Ouro Derretido — um cone de ouro líquido e incandescente que emerge de sua garganta.",
+      "auto": false
+    },
+    {
+      "nome": "Sephstar",
+      "tag": "extra",
+      "efeitoHTML": "Treinamentos da família Sephstar<br>Tem +1DR em testes de Investigação, Arcanismo e Percepção.<br><br>Bennet<br>Caso esteja com mais da metade de sua vida, você tem duas ações bônus no mesmo turno.<br><br>Obsessão<br>Sempre que falhar em um teste de perícia, pode refaze-lo, mas se falhar você fica Abalado.<br><br>Magículas Sagradas<br>Recebe um aumento de Magículas igual a ER x ER",
+      "auto": false
+    },
+    {
+      "nome": "Transformação Dracônica",
+      "tag": "raca",
+      "efeitoHTML": "Bônus da Forma Dracônica neste Rank<br>| Atributo&nbsp; &nbsp; &nbsp;| Bônus |<br>|-----------------|:-----:|<br>| Força&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | +3&nbsp; &nbsp; |<br>| Constituição&nbsp; &nbsp;| +2&nbsp; &nbsp; |<br>| Mana&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | +2&nbsp; &nbsp; |<br>| Destreza&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| −4&nbsp; &nbsp; |<br>⚠️ Duração máxima: 5 minutos. Com um Teste de Sabedoria CD 13 bem-sucedido, você pode retornar à forma humana voluntariamente.",
+      "auto": false
+    },
+    {
+      "nome": "Magic Eye",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_magiceye\" fonte=\"habilidade\" estrela=\"1\" nome=\"Magic Eye\"-->\n<h1>Magic Eye</h1>\n<p>Você enxerga o <strong>Plano Mágico</strong>, onde reside a Mana.</p>\n<p>Com esta habilidade, você é capaz de:</p>\n<ul>\n<li>Enxergar no escuro em uma quantidade de metros igual sua <strong>Mana + ER</strong></li>\n<li>Enxergar <strong>focos de Mana</strong></li>\n<li>Identificar <strong>quantidades aproximadas de Mana</strong></li>\n<li>Ver <strong>seres do Plano Mágico</strong>, como Fadas e Gnomos</li>\n</ul>\n<hr>\n<h3>Ativação</h3>\n<p>Como uma <strong>Ação</strong>, você pode ativar o Magic Eye e receber:</p>\n<ul>\n<li><strong>+ERd4 em Percepção Mágica</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Shadow Arts",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_shadowarts\" fonte=\"habilidade\" estrela=\"1\" nome=\"Shadow Arts\"-->\n<h1>Shadow Arts</h1>\n<p><strong>Pré-Requisitos:</strong> 7+ Mana &amp; 3+ Inteligência  </p>\n<p>Habilidade focada na manipulação da <strong>Mana Residual da Sombra</strong>.</p>\n<hr>\n<h2>Shadow Cast</h2>\n<p>Você utiliza a Mana residual da sua sombra para lançar magias.</p>\n<p>Efeitos:</p>\n<ul>\n<li><strong>+1D no Acerto</strong></li>\n<li>A magia recebe bônus de <strong>Acerto e Dano</strong> baseados no Rank</li>\n</ul>\n<h3>Bônus por Rank</h3>\n<ul>\n<li><strong>R10:</strong> +1  </li>\n<li><strong>R9:</strong> +2  </li>\n<li><strong>R8:</strong> +3  </li>\n<li><em>(continua seguindo o mesmo padrão)</em></li>\n</ul>\n<hr>\n<h2>Shadow Bomb</h2>\n<p>Como uma <strong>Ação Bônus</strong>, você energiza sua sombra.</p>\n<p>Durante <strong>1d4 turnos</strong>:</p>\n<ul>\n<li>Caso um alvo pise na sua sombra, ele sofre o <strong>dano de Shadow Cast</strong></li>\n</ul>\n<hr>\n<h2>Shadow Steal</h2>\n<p>Como uma <strong>Ação Bônus</strong>:</p>\n<ul>\n<li>Se sua sombra estiver em contato com outra</li>\n<li>Você absorve a Mana residual dela por <strong>1d4 turnos</strong></li>\n</ul>\n<hr>\n<h2>Shadow Absorb</h2>\n<p><strong>1 vez por dia</strong>, você absorve totalmente a Mana residual da sua sombra.</p>\n<ul>\n<li>Ganha <strong>1d3 + 1 de Mana por Rank</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Magifeito",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Magifeito</h2>\n<p><strong>Descrição:</strong> Manipula a mana ao redor para criar pequenos efeitos dentro do alcance igual à sua Mana em metros.  </p>\n<ul>\n<li><strong>Efeitos possíveis:</strong>  <ul>\n<li>Aumentar ou mudar a voz  </li>\n<li>Fazer o chão tremer levemente (1 m)  </li>\n<li>Criar sons à distância (trovão, corvo, sussurro ameaçador)  </li>\n<li>Mudar aparência dos olhos por 1 minuto</li>\n</ul>\n</li>\n<li><strong>Custo:</strong> Não usa Magículas  </li>\n<li><strong>Limitação:</strong> Só disponível na criação da ficha, não pode ser reaprendida</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Veu Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Véu de Mana</h2>\n<p><strong>Descrição:</strong> Defesa mágica utilizando Manipulação Livre.  </p>\n<ul>\n<li><strong>Vezes por dia:</strong> Igual à Inteligência  </li>\n<li><strong>Ativação:</strong> Reação a ataque mágico  </li>\n<li><strong>Custo:</strong> 3 Magículas  </li>\n<li><strong>Efeito:</strong> Gire DR de Manipulação Livre + Mana e receba o valor como Vida Temporária até o final do próximo turno.  </li>\n<li><strong>Detalhes adicionais:</strong>  <ul>\n<li>Elemento do Véu segue a Mana do usuário  </li>\n<li>Ataques de elementos oprimidos causam dobro de dano no Véu; elementos oprimidos pelo usuário causam metade do dano</li>\n</ul>\n</li>\n<li><strong>Rank 8:</strong> Alcance médio, pode ser resistido por teste de Mana, até 2 alvos  </li>\n<li><strong>Rank 6:</strong> Alcance visível, +1D no teste, até 2 alvos simultâneos</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Tiro Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Tiro de Mana</h2>\n<p><strong>Descrição:</strong> Cria um raio utilizando a Mana do ambiente como projétil mágico.  </p>\n<ul>\n<li><strong>Magículas:</strong> 0 + 1</li>\n<li><strong>Dado:</strong> DR + Mana + 6</li>\n<li><strong>Alcance:</strong> Curto  </li>\n<li><strong>Dano:</strong> 1d4 por 2 de Mana + Mana  </li>\n<li><strong>Efeito:</strong> Em caso de crítico, o ataque gasta metade da mana original</li><li>Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER</li><li>Permite mirar como ação bônus, +1 DR no acerto</li>\n</ul>\n<h3>Evoluções (Estrelas 1, 3, 5)</h3>\n<ul>\n<li><strong>EV1:</strong> +1 Acerto (+1 Magícula)  </li>\n<li><strong>EV2:</strong> +3 Dano (+1 Magícula por +6 de dano)  </li>\n<li><strong>EV3:</strong> Crítico arremessa inimigo +1 metro  </li>\n<li><strong>EV4:</strong> Aumenta 1 estágio da distância (+4 Magículas)  </li>\n<li><strong>EV5:</strong> Crítico: +3 no próximo acerto  </li>\n<li><strong>EV6:</strong> Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER  </li>\n<li><strong>EV7:</strong> Permite mirar como ação bônus, +1 DR no acerto  </li>\n<li><strong>EV8:</strong> Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Barreira Mágica",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 2º Estágio</p><!--#poder id=\"hb_barreiramagica\" fonte=\"habilidade\" estrela=\"2\" nome=\"Barreira Mágica\"-->\n<h1>Barreira Mágica</h1>\n<p><strong>Pré-Requisitos:</strong> Mana 5+, Inteligência 5+  </p>\n<ul>\n<li><strong>Vezes por dia:</strong> Igual à sua Mana  </li>\n<li><strong>Ativação:</strong> Ação  </li>\n<li><strong>Efeito:</strong>  <ul>\n<li>Cria uma barreira, recebendo Vida Temporária igual ao DR de Manipulação Livre  </li>\n<li>Copia o elemento do usuário  </li>\n<li>Imunidade a ataques do mesmo elemento de Rank igual ou inferior</li>\n</ul>\n</li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Construto de Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 2º Estágio</p><!--#poder id=\"hb_construtomana\" fonte=\"habilidade\" estrela=\"2\" nome=\"Construto de Mana\"-->\n<h1>Construto de Mana</h1>\n<p><strong>Pré-Requisitos:</strong> Rank 9, Mana 4+, Inteligência 5+ ou estudo de livro específico  </p>\n<p>Cria um objeto feito de Mana com as seguintes regras:  </p>\n<ul>\n<li><strong>Tamanho:</strong> Mana x 10 cm  </li>\n<li><strong>HP:</strong> DR (Dado do Rank) + Mana</li>\n</ul>\n<p><strong>Caso seja uma arma:</strong>  </p>\n<ul>\n<li>Perde 1d2 HP a cada ataque acertado  </li>\n<li>Dano: Cortante, Perfurante ou Concussivo  </li>\n<li>Dano igual ao da arma escolhida -1d  </li>\n<li>Dano é considerado Dano de Mana ou Mágico Puro</li>\n</ul>\n<p><strong>Recuperação:</strong>  </p>\n<ul>\n<li>Ação bônus, consome Magículas  </li>\n<li>Recupera 1d4 HP por Magícula consumida</li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Selos Mágicos",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 3º Estágio</p><!--#poder id=\"hb_selosmagicos\" fonte=\"habilidade\" estrela=\"3\" nome=\"Selos Mágicos\"-->\n<h1>Selos Mágicos</h1>\n<p><strong>Pré-Requisitos:</strong> 1+ Inteligência, 1+ Mana  </p>\n<p>Utilizando o papel Mancharta, você pode transmitir uma Magia ou um Cristal de Mana para ele.  </p>\n<ul>\n<li><strong>Teste de Arcanismo:</strong> CD = 10 + 5 por Rank da Magia  <ul>\n<li>Em caso de crítico, utiliza-se o dobro do modificador</li>\n</ul>\n</li>\n<li><strong>Dano:</strong>  <ul>\n<li>Se for sua Magia: igual ao dano de Manipulação Livre  </li>\n<li>Se for Cristal de Mana: baseado no Rank do Cristal (ver tabela do mestre)</li>\n</ul>\n</li>\n<li><strong>Tempo de produção:</strong> 2d6 horas  <ul>\n<li>Redução em minutos igual ao resultado do dado de Arcanismo</li>\n</ul>\n</li>\n</ul>\n<!--#fim-->",
+      "auto": false
     }
   ],
-  "ataques": [],
+  "ataques": [
+    {
+      "nome": "Jato de Ouro Derretido:",
+      "ndr": 1,
+      "mult": 2,
+      "atrAtaque": "mana",
+      "atrDano": "mana",
+      "crit": "",
+      "efeitoHTML": "<div>Custo: 9 Magículas</div><div>Alcance: Cone de 18 metros</div><div>Dano: ERd11 de dano de fogo + ERd6 de dano anômalo (ouro sólido ao resfriar)&nbsp;</div><div>Efeito: Inimigos atingidos ficam Imobilizados por 1 rodada enquanto o ouro endurece ao redor deles (Teste de Força CD 13 para escapar como ação bônus) - Recarga: 2 turnos de recarga</div>"
+    }
+  ],
   "inventario": [],
-  "pensamentos": [],
+  "pensamentos": [
+    {
+      "assunto": "Linguagem",
+      "textoHTML": "<div>Comum</div><div>Elfico</div><div>Vineis</div>"
+    }
+  ],
   "titulo": "",
   "tituloArtigo": "",
   "periciasDelta": {
     "Arcanismo": 20,
-    "Erudição": 4,
+    "Erudição": 12,
     "Análise": 4,
     "Intuição": 7,
     "Lábia": 6,
     "Charme": 10,
-    "Aura": 2
+    "Aura": 2,
+    "Percepção Mágica": 2
   },
-  "resistencias": {},
-  "atualizado": "2026-08-29T03:05:31.130Z",
+  "resistencias": {
+    "Fogo": "r1",
+    "Perfurante": "r1"
+  },
+  "atualizado": "2026-08-29T03:22:49.658Z",
   "dono": "Crascrunk.github.io"
 }

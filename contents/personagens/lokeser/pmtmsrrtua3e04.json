@@ -9,20 +9,20 @@
   "classeInicial": "Prodígio",
   "classeAvancada": "",
   "magia": "Elemental — Fogo",
-  "rank": 10,
+  "rank": 8,
   "estrela": 1,
   "atributos": {
     "corpo": 0,
     "tecnica": 0,
     "intelecto": 1,
-    "carisma": 3,
+    "carisma": 4,
     "sabedoria": 2,
-    "mana": 3
+    "mana": 5
   },
   "vidaAtual": 20,
-  "vidaMaxManual": 39,
+  "vidaMaxManual": 131,
   "magiculasAtual": 1,
-  "magiculasMax": 8,
+  "magiculasMax": 41,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -93,17 +93,120 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende uma técnica alternativa de Manipulação Livre.</p>\n<ul>\n<li>Requer <strong>Livro de Formulação</strong> ou ensino direto.</li>\n<li>Escolha <strong>1 Técnica</strong> que atenda aos pré-requisitos.</li>\n<li>Formulações avançadas exigem domínio das básicas.</li>\n<li>Existem inúmeras formulações não oficiais a serem descobertas durante o RPG.</li>\n</ul>\n<blockquote>\n<p>Referência: <a href=\"https://trello.com/c/7nHWRHMM\">https://trello.com/c/7nHWRHMM</a></p>\n</blockquote>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "nome": "Mana Charge",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_manacharge\" fonte=\"habilidade\" estrela=\"1\" nome=\"Mana Charge\"-->\n<h1>Mana Charge</h1>\n<p>Você pode utilizar esta habilidade um número de vezes por dia igual à sua <strong>ER</strong>.</p>\n<hr>\n<h3>Efeito Principal</h3>\n<p>Como uma <strong>Ação</strong>:</p>\n<ul>\n<li>Recupera <strong>Magículas iguais à sua Mana</strong></li>\n</ul>\n<hr>\n<h3>Uso Forçado</h3>\n<p>Você pode <strong>queimar HP</strong> igual à <strong>metade da sua Mana</strong> para receber <strong>+1 uso</strong> desta habilidade.</p>\n<ul>\n<li>Esse uso extra <strong>expira ao final do dia</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "refId": "ci_prodigio_r9e2_1",
+      "nome": "Prodígio Definitivo",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>uma opção</strong>:</p>\n<ul>\n<li>Escolha <strong>outro atributo</strong>:<ul>\n<li>Recebe <strong>+2</strong> nele.</li>\n</ul>\n</li>\n<li><strong>OU</strong></li>\n<li>Escolha o <strong>mesmo atributo</strong> de Prodígio:<ul>\n<li>Recebe <strong>+1 adicional</strong> nele.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_prodigio_r9e2_2",
+      "nome": "Expandir Limites II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe:<ul>\n<li><strong>+24 Vida Máxima</strong></li>\n<li><strong>+6 Magículas permanentes</strong></li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2,
+      "oculto": true
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e3_1",
+      "nome": "Elevar Chama",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você amplifica sua Manipulação Livre.</p>\n<ul>\n<li>Ao declarar o uso deste poder, pode consumir <strong>Magículas adicionais</strong> até o limite da sua <strong>Sabedoria</strong>.</li>\n<li>Para cada Magícula consumida desta forma:<ul>\n<li>O ataque recebe <strong>+1D de Dano</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 3
+    },
+    {
+      "refId": "rc_humano_oni_r8_1",
+      "nome": "Cultura Oni",
+      "tag": "raca",
+      "efeitoHTML": "<p>Recebe <strong>+2</strong> em <strong>duas perícias de Sabedoria</strong> à sua escolha.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "rc_humano_oni_r8_2",
+      "nome": "Núcleo do Sol Rubro",
+      "tag": "raca",
+      "efeitoHTML": "<p>Recebe <strong>Manipulação Livre (Fogo)</strong> de <strong>Rank 9</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_humano_oni_r8_3",
+      "nome": "Pele Flamejante",
+      "tag": "raca",
+      "efeitoHTML": "<p>Seus ataques <strong>desarmados</strong> aplicam <strong>Queimação</strong> em <strong>Críticos</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e1_1",
+      "nome": "Foco Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende a criar focos de Mana de Fogo.</p>\n<ul>\n<li><strong>Ação:</strong> Bônus  </li>\n<li><strong>Custo:</strong> 5 Magículas  </li>\n<li>Área máxima: <strong>Mana (em metros)</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "nome": "Shadow Arts",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_shadowarts\" fonte=\"habilidade\" estrela=\"1\" nome=\"Shadow Arts\"-->\n<h1>Shadow Arts</h1>\n<p><strong>Pré-Requisitos:</strong> 7+ Mana &amp; 3+ Inteligência  </p>\n<p>Habilidade focada na manipulação da <strong>Mana Residual da Sombra</strong>.</p>\n<hr>\n<h2>Shadow Cast</h2>\n<p>Você utiliza a Mana residual da sua sombra para lançar magias.</p>\n<p>Efeitos:</p>\n<ul>\n<li><strong>+1D no Acerto</strong></li>\n<li>A magia recebe bônus de <strong>Acerto e Dano</strong> baseados no Rank</li>\n</ul>\n<h3>Bônus por Rank</h3>\n<ul>\n<li><strong>R10:</strong> +1  </li>\n<li><strong>R9:</strong> +2  </li>\n<li><strong>R8:</strong> +3  </li>\n<li><em>(continua seguindo o mesmo padrão)</em></li>\n</ul>\n<hr>\n<h2>Shadow Bomb</h2>\n<p>Como uma <strong>Ação Bônus</strong>, você energiza sua sombra.</p>\n<p>Durante <strong>1d4 turnos</strong>:</p>\n<ul>\n<li>Caso um alvo pise na sua sombra, ele sofre o <strong>dano de Shadow Cast</strong></li>\n</ul>\n<hr>\n<h2>Shadow Steal</h2>\n<p>Como uma <strong>Ação Bônus</strong>:</p>\n<ul>\n<li>Se sua sombra estiver em contato com outra</li>\n<li>Você absorve a Mana residual dela por <strong>1d4 turnos</strong></li>\n</ul>\n<hr>\n<h2>Shadow Absorb</h2>\n<p><strong>1 vez por dia</strong>, você absorve totalmente a Mana residual da sua sombra.</p>\n<ul>\n<li>Ganha <strong>1d3 + 1 de Mana por Rank</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Absorver Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 2º Estágio</p><!--#poder id=\"hb_absorvermana\" fonte=\"habilidade\" estrela=\"2\" nome=\"Absorver Mana\"-->\n<h1>Absorver Mana</h1>\n<p><strong>Pré-Requisitos:</strong> Mana 12+  </p>\n<p><strong>2 vezes por dia</strong>, como <strong>Ação de Toque</strong>, absorve Mana do alvo.</p>\n<hr>\n<h3>Execução</h3>\n<ul>\n<li>Role um dado de Mana para acertar</li>\n<li>Role outro dado de Mana para absorção</li>\n</ul>\n<p>O primeiro deve superar a CA do alvo.</p>\n<hr>\n<h3>Resultados</h3>\n<p><strong>12–15</strong></p>\n<ul>\n<li>Absorve pequena quantidade de Mana</li>\n</ul>\n<p><strong>16–20</strong></p>\n<ul>\n<li>Absorve quantidade considerável de Mana</li>\n</ul>\n<p><strong>21–27</strong></p>\n<ul>\n<li>Absorve alta quantidade</li>\n<li>Causa <strong>1d10 + Mana</strong> de dano</li>\n</ul>\n<p><strong>27–35</strong></p>\n<ul>\n<li>Absorve <strong>1/4 da Mana</strong></li>\n<li>Causa <strong>1d10 + Mana</strong> de dano</li>\n</ul>\n<p><strong>36–49</strong></p>\n<ul>\n<li>Absorve <strong>2/4 da Mana</strong></li>\n<li>Causa <strong>3d10 + Mana</strong></li>\n<li>Copia 1 Habilidade por <strong>1d60 minutos</strong></li>\n</ul>\n<p><strong>50–54</strong></p>\n<ul>\n<li>Absorve <strong>3/4 da Mana</strong></li>\n<li>Causa <strong>5d10 + Mana</strong></li>\n<li>Copia 1 Habilidade por <strong>1 hora</strong></li>\n</ul>\n<p><strong>55</strong></p>\n<ul>\n<li>Absorve <strong>3/4 da Mana</strong></li>\n<li>Causa <strong>5d10 + Mana</strong></li>\n<li>Copia 1 Habilidade permanentemente</li>\n<li>Se o alvo desmaiar, ele morre</li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Beastification",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 2º Estágio</p><!--#poder id=\"hb_beastification\" fonte=\"habilidade\" estrela=\"2\" nome=\"Beastification\"-->\n<h1>Beastification</h1>\n<p><strong>Pré-Requisitos:</strong> Raça Bestial ou Demi-Bestial  </p>\n<p>Você assume uma forma bestial primitiva.</p>\n<hr>\n<h3>Restrições</h3>\n<ul>\n<li>Não distingue aliados corretamente</li>\n<li>Não pode usar magias, habilidades mágicas ou falar</li>\n<li>Pode marcar aliados em quantidade igual à Sabedoria</li>\n</ul>\n<hr>\n<h3>Atributo Base por Raça</h3>\n<ul>\n<li>Manpan: Constituição</li>\n<li>Fada: Mana</li>\n<li>Meio-Vampiro: Carisma</li>\n</ul>\n<hr>\n<h3>Efeitos</h3>\n<ul>\n<li>Vida Temporária: Maior atributo × 3</li>\n<li>Ataques Desarmados: +d11 per 2 do atributo base</li>\n<li>Deslocamento: +atributo base</li>\n</ul>\n<hr>\n<h3>Duração</h3>\n<ul>\n<li>Dura 12 horas</li>\n<li>Reduz 1 hora por metade da Mana</li>\n</ul>\n<!--#fim-->",
+      "auto": false
     }
   ],
   "ataques": [],
   "inventario": [],
   "pensamentos": [],
-  "periciasDelta": {},
+  "periciasDelta": {
+    "Performance": 3,
+    "Intuição": 2,
+    "Percepção": 2
+  },
   "resistencias": {
     "Fogo": "acostumado"
   },
   "titulo": "Sacerdotisa da Flor Solar",
   "tituloArtigo": "A",
-  "atualizado": "2026-09-04T10:37:50.952Z",
+  "atualizado": "2026-09-04T10:42:22.031Z",
   "dono": "Lokeser"
 }

@@ -178,7 +178,7 @@
     {
       "nome": "Akarin",
       "tag": "dinheiro",
-      "qtd": 780,
+      "qtd": 720,
       "descHTML": "<br>",
       "equipado": false
     },
@@ -206,7 +206,7 @@
     {
       "nome": "Sorte",
       "tag": "outro",
-      "qtd": 4,
+      "qtd": 5,
       "descHTML": "",
       "equipado": false
     }
@@ -229,7 +229,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-08-22T08:54:27.074Z",
+  "atualizado": "2026-09-05T03:39:47.177Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

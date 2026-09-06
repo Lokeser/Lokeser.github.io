@@ -20,7 +20,7 @@
   },
   "vidaAtual": 115,
   "vidaMaxManual": 197,
-  "magiculasAtual": 93,
+  "magiculasAtual": 110,
   "magiculasMax": 127,
   "arcanaManual": null,
   "caManual": 14,
@@ -178,7 +178,7 @@
     {
       "nome": "Akarin",
       "tag": "dinheiro",
-      "qtd": 720,
+      "qtd": 370,
       "descHTML": "<br>",
       "equipado": false
     },
@@ -206,7 +206,7 @@
     {
       "nome": "Sorte",
       "tag": "outro",
-      "qtd": 5,
+      "qtd": 3,
       "descHTML": "",
       "equipado": false
     }
@@ -229,7 +229,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-09-05T03:39:47.177Z",
+  "atualizado": "2026-09-06T05:49:26.062Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 75

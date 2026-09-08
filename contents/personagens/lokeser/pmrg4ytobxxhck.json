@@ -25,16 +25,6 @@
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": 12,
-  "overridesPericias": {
-    "Atletismo": 20,
-    "Tenacidade": 18,
-    "Charme": 15,
-    "Performance": 14,
-    "Percepção Mágica": 20,
-    "Intuição": 14,
-    "Percepção": 9,
-    "Aura": 25
-  },
   "cargas": [],
   "poderes": [
     {
@@ -195,6 +185,24 @@
       "auto": true,
       "rank": 7,
       "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r10_nucleo",
+      "nome": "Núcleo de Mana Flamejante",
+      "tag": "magia",
+      "efeitoHTML": "<p>Ao nascer com este núcleo, a Magia de Fogo molda seu corpo e espírito naturalmente.</p>\n<ul>\n<li>Recebe <strong>Resistência Adaptativa (Mana + ER)</strong> contra <strong>Dano de Fogo</strong>.</li>\n<li>Para cada <strong>10 de Dano</strong> causado a um alvo, você recebe <strong>1 de Vida Temporária</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r10_ml",
+      "nome": "Manipulação Livre",
+      "tag": "magia",
+      "efeitoHTML": "<p>Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que se moldam em ataques diretos.</p>\n<ul>\n<li><strong>Ação:</strong> Ataque Mágico  </li>\n<li><strong>Custo:</strong> 1 Magícula <em>(ignorado em acerto crítico)</em></li>\n</ul>\n<p><strong>Teste de Ataque:</strong>  </p>\n<ul>\n<li>Acerto: <strong>DR + Mana</strong>  </li>\n<li>Alcance: Médio (6m)  </li>\n<li>Dano: <strong>1d10 por 2 Mana + Mana</strong></li>\n</ul>\n<p><strong>Efeito Especial:</strong>  </p>\n<ul>\n<li>Em <strong>Crítico</strong>, o dano total é <strong>dobrado</strong> contra seres vivos.</li>\n<li>O alvo fica <strong>Em Chamas</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
     }
   ],
   "ataques": [
@@ -224,6 +232,13 @@
       "qtd": 1,
       "descHTML": "Academia Omnus",
       "equipado": false
+    },
+    {
+      "nome": "llll",
+      "tag": "artefato",
+      "qtd": 1,
+      "descHTML": "jij",
+      "equipado": false
     }
   ],
   "pensamentos": [
@@ -246,6 +261,16 @@
   ],
   "titulo": "Espadachim de Fogo",
   "tituloArtigo": "A",
-  "atualizado": "2026-08-29T04:10:32.458Z",
-  "dono": "Lokeser"
+  "atualizado": "2026-09-08T21:44:56.069Z",
+  "dono": "Lokeser",
+  "periciasDelta": {
+    "Tenacidade": 1,
+    "Charme": 4,
+    "Performance": 2,
+    "Percepção Mágica": 3,
+    "Intuição": 6,
+    "Percepção": 5,
+    "Aura": 7
+  },
+  "resistencias": {}
 }

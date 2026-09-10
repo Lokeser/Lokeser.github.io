@@ -7,24 +7,24 @@
   "raca": "Humano",
   "subRaca": "",
   "classeInicial": "Malandro",
-  "classeAvancada": "",
+  "classeAvancada": "Domador",
   "magia": "Elemental — Fogo",
-  "rank": 10,
-  "estrela": 1,
+  "rank": 8,
+  "estrela": 5,
   "atributos": {
-    "corpo": 0,
+    "corpo": 2,
     "tecnica": 0,
-    "intelecto": 1,
-    "carisma": 3,
-    "sabedoria": 1,
-    "mana": 1
+    "intelecto": 2,
+    "carisma": 8,
+    "sabedoria": 2,
+    "mana": 5
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": null,
-  "magiculasAtual": 1,
-  "magiculasMax": null,
+  "vidaAtual": 89,
+  "vidaMaxManual": 89,
+  "magiculasAtual": 34,
+  "magiculasMax": 34,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 13,
   "deslocManual": null,
   "cargas": [],
   "poderes": [
@@ -35,7 +35,8 @@
       "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_malandro_r10e1_1",
@@ -44,7 +45,8 @@
       "efeitoHTML": "<p>Escolha uma das opções:</p>\n<ul>\n<li>Escolha <strong>2</strong> entre:<ul>\n<li>Persuasão</li>\n<li>Enganação</li>\n<li>Intimidação</li>\n<li>Intuição<br>→ Receba <strong>+3</strong> nelas.</li>\n</ul>\n</li>\n<li><strong>OU</strong></li>\n<li>Escolha <strong>1</strong> dessas perícias:\n→ Receba <strong>+5</strong> nela.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_malandro_r10e1_2",
@@ -81,17 +83,173 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende uma técnica alternativa de Manipulação Livre.</p>\n<ul>\n<li>Requer <strong>Livro de Formulação</strong> ou ensino direto.</li>\n<li>Escolha <strong>1 Técnica</strong> que atenda aos pré-requisitos.</li>\n<li>Formulações avançadas exigem domínio das básicas.</li>\n<li>Existem inúmeras formulações não oficiais a serem descobertas durante o RPG.</li>\n</ul>\n<blockquote>\n<p>Referência: <a href=\"https://trello.com/c/7nHWRHMM\">https://trello.com/c/7nHWRHMM</a></p>\n</blockquote>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "nome": "Magic Eye",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio<br></p>\n<p>Você enxerga o <strong>Plano Mágico</strong>, onde reside a Mana.</p>\n<p>Com esta habilidade, você é capaz de:</p>\n<ul>\n<li>Enxergar no escuro em uma quantidade de metros igual sua <strong>Mana + ER</strong></li>\n<li>Enxergar <strong>focos de Mana</strong></li>\n<li>Identificar <strong>quantidades aproximadas de Mana</strong></li>\n<li>Ver <strong>seres do Plano Mágico</strong>, como Fadas e Gnomos</li>\n</ul>\n<hr>\n<h3>Ativação</h3>\n<p>Como uma <strong>Ação</strong>, você pode ativar o Magic Eye e receber:</p>\n<ul>\n<li><strong>+ERd4 em Percepção Mágica</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "refId": "ci_malandro_r9e2_1",
+      "nome": "Serelepe II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Escolha novamente:<ul>\n<li><strong>2 perícias</strong> para receber <strong>+3</strong></li>\n<li><strong>OU</strong> 1 perícia para receber <strong>+5</strong></li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2,
+      "oculto": true
+    },
+    {
+      "refId": "ci_malandro_r9e2_2",
+      "nome": "Se Explicar",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Sempre que <strong>falhar</strong> em um teste de <strong>Cara-a-Cara</strong>:<ul>\n<li>Pode gastar <strong>1 uso diário</strong> para <strong>refazer o teste</strong>.</li>\n<li>A <strong>CD aumenta em +2</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "ci_malandro_r9e2_3",
+      "nome": "Insultar II",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+2</strong> no <strong>Teste de Insultar</strong>.</li>\n<li>Sempre que aplicar um efeito de Insulto:<ul>\n<li>Recebe <strong>bônus na CA igual à sua ER</strong> contra aquele alvo.</li>\n<li>O bônus dura até o fim do efeito.</li>\n<li><strong>Não se acumula</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r9e3_1",
+      "nome": "Elevar Chama",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você amplifica sua Manipulação Livre.</p>\n<ul>\n<li>Ao declarar o uso deste poder, pode consumir <strong>Magículas adicionais</strong> até o limite da sua <strong>Sabedoria</strong>.</li>\n<li>Para cada Magícula consumida desta forma:<ul>\n<li>O ataque recebe <strong>+1D de Dano</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 3
+    },
+    {
+      "refId": "rc_humano_r8_1",
+      "nome": "Aproximação Divina",
+      "tag": "raca",
+      "efeitoHTML": "<p>Sempre que atingir a <strong>5ª Estrela de qualquer Rank</strong>, incluindo este, você recebe <strong>+1 ponto de atributo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e1_1",
+      "nome": "Foco Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende a criar focos de Mana de Fogo.</p>\n<ul>\n<li><strong>Ação:</strong> Bônus  </li>\n<li><strong>Custo:</strong> 5 Magículas  </li>\n<li>Área máxima: <strong>Mana (em metros)</strong></li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "nome": "Sexto Sentido",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p>\n<p><strong>Pré-Requisitos:</strong> 2+ Sabedoria  </p>\n<p>Você pode usar esta habilidade um número de vezes por dia igual à sua <strong>ER</strong>.</p>\n<hr>\n<h3>Meditação</h3>\n<p>Após alguns minutos de meditação, faça um <strong>Teste de Intuição</strong>:</p>\n<ul>\n<li><strong>CD: 30</strong></li>\n</ul>\n<h4>Sucesso</h4>\n<ul>\n<li>Você recebe <strong>1 Carga de Sexto Sentido</strong></li>\n<li>A CD retorna para <strong>30</strong></li>\n</ul>\n<h4>Falha</h4>\n<ul>\n<li>A CD do teste <strong>diminui em 1</strong></li>\n<li>Essa redução se mantém até você passar uma vez</li>\n</ul>\n<hr>\n<h3>Ganho Alternativo de Cargas</h3>\n<p>Você também recebe <strong>1 Carga de Sexto Sentido</strong> quando:</p>\n<ul>\n<li>Acerta um <strong>Crítico Verdadeiro</strong> (dado natural máximo)</li>\n<li>O alvo tira <strong>1 Natural</strong> ao resistir a um poder seu</li>\n</ul>\n<hr>\n<h3>Uso da Carga</h3>\n<p>Ao realizar um teste, você pode consumir <strong>1 Carga de Sexto Sentido</strong> para:</p>\n<ul>\n<li>Adicionar um bônus igual à sua <strong>Sabedoria</strong> <em>(mínimo +1)</em></li>\n</ul>\n<hr>\n<h3>Limite Diário</h3>\n<p>Ao final do dia:</p>\n<ul>\n<li>Todas as <strong>Cargas de Sexto Sentido</strong> são perdidas</li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "refId": "ca_domador_r8e1_1",
+      "nome": "⭐ 1 Estrela — Ossos e Ofício",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>+5 em Adestramento</strong>.</li>\n</ul>\n<h4>Afeição com Animal</h4>\n<ul>\n<li>Escolha um animal com o qual tenha <strong>PA máximo</strong> como seu <strong>Animal Favorito</strong>.<br>Este animal recebe:</li>\n<li><strong>Treino e Paciência:</strong> Pode aprender <strong>1 Habilidade Animal</strong>.</li>\n<li><strong>Cão de Guarda:</strong> O animal recebe <strong>+5 de Acerto</strong> em seu turno contra um inimigo que tenha atacado o Domador no último turno (funciona em <strong>1 alvo por vez</strong>).</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_domador_r8e1_2",
+      "nome": "⭐⭐ 2 Estrelas — Qualidade e Sincronia",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Pode <strong>trocar de turno</strong> com seu Animal Favorito <strong>uma vez por batalha</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_domador_r8e1_3",
+      "nome": "⭐⭐⭐ 3 Estrelas — Rastrear",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Pode usar o animal para realizar um teste de <strong>Investigação</strong> para encontrar um ser vivo ou rastros.</li>\n<li>O animal soma o <strong>bônus de Adestramento do Domador</strong> ao teste.</li>\n<li>Se o rastreio envolver sentidos aprimorados (ex.: <strong>Faro, Audição</strong>), o animal tem <strong>vantagem</strong> (rola 2 dados e escolhe o maior).</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "nome": "Laços Místicos[MANA/RECESSO]",
+      "tag": "classe",
+      "efeitoHTML": "<div>Escolha uma criatura mágica como Aliado, você pode escolher, em seu turno, consumir suas ações e magículas para comandar seu aliado. Ao longo dos níveis, você recebe novos comandos. Durante o modo Místico, o aliado não realiza nenhuma ação. Caso seu aliado recena dano, realize um teste de lábia ou charme CD: 50-MANA-ER, se não passar ele deixa o modo Místico até o final do seu próximo turno.</div><div>[Ataque!] Consuma sua ação padrão, seu Aliado ataca no turno dele.</div><div>[Corra] Consuma sua ação de movimento, seu Aliado se move seu deslocamento em linha reta em uma direção á sua escolha</div><div>[Use! {Habilidade}] Consuma sua ação padrão, seu Aliado utiliza uma habilidade possível</div><div>[Venha até mim!] Consuma sua ação bônus, o Aliado vai utilizar todo seu deslocamento em sua direção</div><div>[Deixe-me montar em você] Como sua ação de movimento, você pode montar em seu Aliado.</div>",
+      "auto": false
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e3_1",
+      "nome": "Foco de Fogo",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li>Inimigos a até <strong>5m</strong> de um foco de fogo:<ul>\n<li>Devem realizar um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>.</li>\n<li>Em falha, ficam <strong>Em Chamas</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 3
+    },
+    {
+      "nome": "Fagulhas Explosivas",
+      "tag": "magia",
+      "efeitoHTML": "Dano: 2x(rank) + Mana [8 de dano]<br>Range: Cone - 4m<br><br>Como uma ação, cria fagulhas de fogo na palma de sua mão, então as lance para frente, elas se espalham em um cone de 4m e explodem em qualquer núcleo de mana próximo, inimigos na área realizam um Teste de Destreza para se esquivar, se passar recebe metade do dano, se não eles recebem dano igual a 2 per rank + Mana, além de deixar os inimigos Cegos até o fim do turno deles.&nbsp; (SuperConjurar: As Fagulhas explosivas se tornam um Cone igual a sua Mana e causam d8 per ER + Mana de dano)",
+      "auto": false
+    },
+    {
+      "nome": "Conectar Nucleo Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p>\n<p><strong>Descrição:</strong> Conecta-se ao núcleo de mana de outra pessoa para comunicação telepática.  </p>\n<ul>\n<li><strong>Duração:</strong> Até o toque ser encerrado  </li>\n<li><strong>Resistência do alvo:</strong> Teste de Mana vs CD mágica (10 + ER + Mana)  </li>\n<li><strong>Custo:</strong> 1 Magícula se o teste for necessário; 0 se voluntário</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Magifeito",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p>\n<p><strong>Descrição:</strong> Manipula a mana ao redor para criar pequenos efeitos dentro do alcance igual à sua Mana em metros.  </p>\n<ul>\n<li><strong>Efeitos possíveis:</strong>  <ul>\n<li>Aumentar ou mudar a voz  </li>\n<li>Fazer o chão tremer levemente (1 m)  </li>\n<li>Criar sons à distância (trovão, corvo, sussurro ameaçador)  </li>\n<li>Mudar aparência dos olhos por 1 minuto</li>\n</ul>\n</li>\n<li><strong>Custo:</strong> Não usa Magículas  </li>\n<li><strong>Limitação:</strong> Só disponível na criação da ficha, não pode ser reaprendida</li>\n</ul>\n",
+      "auto": false
     }
   ],
   "ataques": [],
   "inventario": [],
   "pensamentos": [],
   "periciasDelta": {
-    "Lábia": 1
+    "Lábia": 6,
+    "Adestramento": 7,
+    "Intimidação": 4,
+    "Percepção Mágica": 2,
+    "Aura": 1,
+    "Performance": 2,
+    "Intuição": 6,
+    "Charme": 3
   },
-  "resistencias": {},
+  "resistencias": {
+    "Fogo": "r1"
+  },
   "titulo": "",
   "tituloArtigo": "",
-  "atualizado": "2026-09-10T17:08:51.980Z",
+  "atualizado": "2026-09-10T18:01:45.090Z",
   "dono": "Senharruassa"
 }

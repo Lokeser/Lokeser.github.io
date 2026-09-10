@@ -9,7 +9,7 @@
   "classeInicial": "Aventureiro",
   "classeAvancada": "",
   "magia": "Elemental — Vento",
-  "rank": 10,
+  "rank": 8,
   "estrela": 1,
   "atributos": {
     "corpo": 8,
@@ -19,12 +19,12 @@
     "sabedoria": 1,
     "mana": 5
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": null,
-  "magiculasAtual": 1,
-  "magiculasMax": null,
+  "vidaAtual": 356,
+  "vidaMaxManual": 356,
+  "magiculasAtual": 40,
+  "magiculasMax": 40,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 26,
   "deslocManual": null,
   "cargas": [],
   "poderes": [
@@ -125,6 +125,87 @@
       "tag": "magia",
       "efeitoHTML": "Como uma ação, gere um tiro de vácuo da boca, uma linha de 12m. Todos no alcance realizam um teste de técnica. CD: 10+MANA+ER. Se falhar, recebem dano igual ERd11+Mana.",
       "auto": false
+    },
+    {
+      "refId": "rc_demihumano_manpan_r8_1",
+      "nome": "Guerreiro Manpan",
+      "tag": "raca",
+      "efeitoHTML": "<p>Escolha <strong>uma</strong> das opções abaixo:</p>\n<ul>\n<li><p><strong>Guerreiro Natural</strong>\nAtaques desarmados causam <strong>+1D</strong> de dano.</p>\n</li>\n<li><p><strong>Guerreiro Protetor</strong>\nRecebe <strong>Resistência II</strong> a um tipo de dano físico <strong>ou</strong> <strong>Resistência I</strong> a um tipo de dano mágico.</p>\n</li>\n<li><p><strong>Guerreiro da Mente</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em <strong>duas perícias</strong> à sua escolha.</p>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_demihumano_manpan_r8_2",
+      "nome": "Corpo Animal",
+      "tag": "raca",
+      "efeitoHTML": "<p>Seu valor para <strong>carregar, levantar e empurrar</strong> é considerado como se tivesse <strong>+1 ponto de Corpo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_1",
+      "nome": "Sobrevivencialismo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Enquanto estiver em <strong>Ambiente Selvagem</strong>:<ul>\n<li>Recebe <strong>+5</strong> em <strong>Sobrevivência</strong>.</li>\n<li>Recebe <strong>+5</strong> em <strong>Intuição</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_2",
+      "nome": "Próxima Aventura",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Ao atingir o <strong>Rank 8</strong>:<ul>\n<li>Pode escolher uma <strong>Classe Avançada</strong> que tenha como pré-requisito:<ul>\n<li>Uma das Classes escolhidas em <strong>Vida de Aventureiro</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li><strong>Obs:</strong> Ainda é necessário cumprir <strong>todos os outros pré-requisitos</strong> da Classe Avançada.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Você aprende uma <strong>Técnica da Magia de Vento</strong>, alterando sua Manipulação Livre.</p>\n<ul>\n<li>Requer <strong>Livro de Formulação</strong> ou ensino direto.</li>\n<li>Técnicas avançadas exigem conhecimento das básicas.</li>\n<li>Existem inúmeras formulações não oficiais a serem descobertas durante o RPG.</li>\n</ul>\n<blockquote>\n<p>Referência: <a href=\"https://trello.com/c/wGhsFydU\">https://trello.com/c/wGhsFydU</a></p>\n</blockquote>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e3_1",
+      "nome": "Extensão de Foco",
+      "tag": "magia",
+      "efeitoHTML": "<p>Enquanto estiver a <strong>até 5m</strong> de um <strong>Foco de Vento</strong>:</p>\n<ul>\n<li>Recebe <strong>+5m de Alcance</strong> em Manipulação Livre.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 3
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e1_2",
+      "nome": "Vento a Favor",
+      "tag": "magia",
+      "efeitoHTML": "<p><strong>Custo:</strong> 5 Magículas<br><strong>Ação:</strong> Ação</p>\n<ul>\n<li>Escolha um alvo dentro do alcance da sua Manipulação Livre.</li>\n<li>O alvo recebe <strong>Bônus de Deslocamento</strong> igual à sua <strong>Mana (em metros)</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e4_1",
+      "nome": "Manipulação Livre II",
+      "tag": "magia",
+      "efeitoHTML": "<p>Desbloqueia novos estágios da Manipulação Livre.</p>\n<h4>Mover Alvos</h4>\n<ul>\n<li>Pode mover alvos com peso até <strong>2x o Peso Mágico</strong>.</li>\n<li>Inimigos podem resistir com um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>:<ul>\n<li><strong>CD = 10 + Mana + ER</strong></li>\n</ul>\n</li>\n</ul>\n<p><strong>Efeitos ao mover:</strong></p>\n<ul>\n<li>O alvo tem <strong>Deslocamento reduzido pela metade</strong> até o final do próximo turno.</li>\n<li>Em <strong>Crítico</strong>, o alvo também fica <strong>Tonto</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 4
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r8e1_1",
+      "nome": "Formulação Elemental",
+      "tag": "magia",
+      "efeitoHTML": "<p>Aprenda mais uma <strong>Técnica da Magia de Vento</strong><br><em>(requer livro ou ensino direto)</em></p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
     }
   ],
   "ataques": [
@@ -148,11 +229,21 @@
     }
   ],
   "inventario": [],
-  "pensamentos": [],
+  "pensamentos": [
+    {
+      "assunto": "Desejos",
+      "textoHTML": "<div>Quero:</div><div>.Comer bem</div><div>.Dormir tranquilamente</div><div>.fdr</div><div>.Voar livremente</div><div><br></div>"
+    }
+  ],
   "periciasDelta": {},
-  "resistencias": {},
+  "resistencias": {
+    "Vento": "r3",
+    "Cortante": "r1",
+    "Perfurante": "r1",
+    "Contundente": "r1"
+  },
   "titulo": "Carneiro das Correntes Brancas",
   "tituloArtigo": "O",
-  "atualizado": "2026-09-10T18:17:43.812Z",
+  "atualizado": "2026-09-10T18:20:23.984Z",
   "dono": "Lokeser"
 }

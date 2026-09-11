@@ -1,0 +1,236 @@
+{
+  "id": "pmsv57eluwpum9",
+  "criado": "2026-08-16T01:45:10.578Z",
+  "img": "data:image/jpeg;base64,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",
+  "nome": "Analin",
+  "sobrenome": "Lullavrud",
+  "raca": "Humano",
+  "classeInicial": "Aventureiro",
+  "classeAvancada": "",
+  "magia": "Anômala",
+  "rank": 8,
+  "estrela": 3,
+  "atributos": {
+    "corpo": 1,
+    "tecnica": 1,
+    "intelecto": 1,
+    "carisma": 9,
+    "sabedoria": 2,
+    "mana": 9
+  },
+  "vidaAtual": 175,
+  "vidaMaxManual": 197,
+  "magiculasAtual": 108,
+  "magiculasMax": 127,
+  "arcanaManual": null,
+  "caManual": 14,
+  "deslocManual": 13,
+  "cargas": [],
+  "poderes": [
+    {
+      "refId": "rc_humano_r10_1",
+      "nome": "Sangue Humano Puro",
+      "tag": "raca",
+      "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "rc_humano_r9_1",
+      "nome": "Existencialismo",
+      "tag": "raca",
+      "efeitoHTML": "<p>Suas <strong>2 perícias com maior valor</strong>, desde que utilizem <strong>atributos diferentes</strong>, recebem <strong>+2</strong>.</p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "rc_humano_r8_1",
+      "nome": "Aproximação Divina",
+      "tag": "raca",
+      "efeitoHTML": "<p>Sempre que atingir a <strong>5ª Estrela de qualquer Rank</strong>, incluindo este, você recebe <strong>+1 ponto de atributo</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "nome": "Proto-Despertar",
+      "tag": "raca",
+      "efeitoHTML": "<div><ul class=\"ak-ul\" data-indent-level=\"2\"><li><p data-renderer-start-pos=\"2104\">Ganha asas de energia que brilham com a cor da mana da Fada (definida pelo mestre ou jogador, ex.: azul, roxo, verde). Elas não são físicas, apenas etéreas, e não podem ser danificadas.</p></li><li><p data-renderer-start-pos=\"2104\">Pode ativar as asas <strong data-renderer-mark=\"true\">vezes por dia igual sua sabedoria</strong> (Ação Padrão, dura 1 minuto). Recebe <strong data-renderer-mark=\"true\">+1 Mana</strong> durante a transformação, além disso escolha um efeito ao ativar(pode escolher diferentes efeitos ao ativar diferentes vezes):</p><ul class=\"ak-ul\" data-indent-level=\"3\"><li><ul class=\"ak-ul\" data-indent-level=\"4\"><li><p data-renderer-start-pos=\"2521\"><strong data-renderer-mark=\"true\">Brilho Etéreo:</strong> Emite luz fraca em 3m, dando <strong data-renderer-mark=\"true\">+3</strong> em testes de Carisma (ex.: Persuasão, Intimidação) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2638\"><strong data-renderer-mark=\"true\">Pulso de Mana:</strong> Ganha <strong data-renderer-mark=\"true\">+2</strong> em testes de Mana (ex.: lançar magias, resistir a efeitos mágicos) enquanto ativo.</p></li><li><p data-renderer-start-pos=\"2748\"><strong data-renderer-mark=\"true\">Eco Astral:</strong> Pode sentir presenças mágicas ou astrais a ditância longa, como um teste de Percepção (CD 15).</p></li></ul></li></ul></li><li><p data-renderer-start-pos=\"2862\">As asas de energia são o primeiro sinal da herança do Meio-Fada, um vislumbre do que ele pode se tornar.</p></li></ul><br></div>",
+      "auto": false
+    },
+    {
+      "nome": "Despertar Asas",
+      "tag": "raca",
+      "efeitoHTML": "<div>Escolha um poder permanente para suas asas (cada escolha adiciona um detalhe visual):</div><div><br></div><ul><li><strong data-renderer-mark=\"true\">Voo Etéreo Natural:</strong> Como uma <strong data-renderer-mark=\"true\">ação de movimento</strong>, pode voar em um valor igual sua Mana + Metade do Deslocamento. Custa <strong data-renderer-mark=\"true\">1 Magícula</strong> por uso. <em data-renderer-mark=\"true\">(Detalhe visual: asas ganham linhas curvas que lembram correntes de ar.)</em></li></ul><div>As asas do Meio-Fada agora são reais, um símbolo de sua herança etérea.</div><div><br></div>",
+      "auto": false
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_1",
+      "nome": "Vida de Aventureiro",
+      "tag": "classe",
+      "efeitoHTML": "<p>Escolha <strong>uma Habilidade Principal</strong> de uma <strong>Classe Inicial</strong>:</p>\n<ul>\n<li><strong>Trabalhador:</strong> Moldado pelo Ofício</li>\n<li><strong>Combativo:</strong> Estilo de Luta</li>\n<li><strong>Ladino:</strong> Ponto Fraco</li>\n<li><strong>Malandro:</strong> Insultar</li>\n<li><strong>Acadêmico:</strong> Estudar</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_2",
+      "nome": "Um Pouco de Tudo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Escolha <strong>2 Perícias</strong>.</li>\n<li>Recebe <strong>+3</strong> nelas.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r10e1_3",
+      "nome": "Treino de Adaptação",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>1 Habilidade Extra (Inicial)</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_1",
+      "nome": "Sobrevivencialismo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Enquanto estiver em <strong>Ambiente Selvagem</strong>:<ul>\n<li>Recebe <strong>+5</strong> em <strong>Sobrevivência</strong>.</li>\n<li>Recebe <strong>+5</strong> em <strong>Intuição</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_2",
+      "nome": "Próxima Aventura",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Ao atingir o <strong>Rank 8</strong>:<ul>\n<li>Pode escolher uma <strong>Classe Avançada</strong> que tenha como pré-requisito:<ul>\n<li>Uma das Classes escolhidas em <strong>Vida de Aventureiro</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li><strong>Obs:</strong> Ainda é necessário cumprir <strong>todos os outros pré-requisitos</strong> da Classe Avançada.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "nome": "Magic Eye",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_magiceye\" fonte=\"habilidade\" estrela=\"1\" nome=\"Magic Eye\"-->\n<h1>Magic Eye</h1>\n<p>Você enxerga o <strong>Plano Mágico</strong>, onde reside a Mana.</p>\n<p>Com esta habilidade, você é capaz de:</p>\n<ul>\n<li>Enxergar no escuro em uma quantidade de metros igual sua <strong>Mana + ER</strong></li>\n<li>Enxergar <strong>focos de Mana</strong></li>\n<li>Identificar <strong>quantidades aproximadas de Mana</strong></li>\n<li>Ver <strong>seres do Plano Mágico</strong>, como Fadas e Gnomos</li>\n</ul>\n<hr>\n<h3>Ativação</h3>\n<p>Como uma <strong>Ação</strong>, você pode ativar o Magic Eye e receber:</p>\n<ul>\n<li><strong>+ERd4 em Percepção Mágica</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Shadow Arts",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 1º Estágio</p><!--#poder id=\"hb_shadowarts\" fonte=\"habilidade\" estrela=\"1\" nome=\"Shadow Arts\"-->\n<h1>Shadow Arts</h1>\n<p><strong>Pré-Requisitos:</strong> 7+ Mana &amp; 3+ Inteligência  </p>\n<p>Habilidade focada na manipulação da <strong>Mana Residual da Sombra</strong>.</p>\n<hr>\n<h2>Shadow Cast</h2>\n<p>Como uma <b>Ação Bônus</b>, você utiliza a Mana residual da sua sombra para lançar magias.</p>\n<p>Efeitos:</p><ul>\n<li><strong>+1D no Acerto</strong></li>\n<li>A magia recebe bônus ER de <strong>Acerto e Dano</strong> baseados no Rank</li></ul><hr>\n<h2>Shadow Bomb</h2>\n<p>Como uma <strong>Ação Bônus</strong>, você energiza sua sombra.</p>\n<p>Durante <strong>1d4 turnos</strong>:</p>\n<ul>\n<li>Caso um alvo pise na sua sombra, ele sofre o <strong>dano de Shadow Cast</strong></li>\n</ul>\n<hr>\n<h2>Shadow Steal</h2>\n<p>Como uma <strong>Ação Bônus</strong>:</p>\n<ul>\n<li>Se sua sombra estiver em contato com outra</li>\n<li>Você absorve a Mana residual dela por <strong>1d4 turnos</strong></li>\n</ul>\n<hr>\n<h2>Shadow Absorb</h2>\n<p><strong>1 vez por dia</strong>, você absorve totalmente a Mana residual da sua sombra.</p>\n<ul>\n<li>Ganha <strong>1d3 + 1 de Mana por Rank</strong></li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "nome": "Tiro Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Tiro de Mana</h2>\n<p><strong>Descrição:</strong> Cria um raio utilizando a Mana do ambiente como projétil mágico.  </p>\n<ul>\n<li><strong>Magículas:</strong>&nbsp;0 +5</li>\n<li><strong>Dado:</strong>&nbsp;2#DR + Mana</li>\n<li><strong>Alcance:</strong>&nbsp;Médio</li>\n<li><strong>Dano:</strong>&nbsp;ERd4 + Mana+ 9</li>\n<li><strong>Efeito:</strong> Em caso de crítico, o ataque gasta metade da mana original</li><li>Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER</li><li>Permite mirar como ação bônus, +1 DR no acerto</li><li>Ataques considerados Manipulação Livre para efeitos que dependam disso</li><li>Aumenta 1 estágio da distância</li>\n</ul>\n<h3>Evoluções (Estrelas 1, 3, 5)</h3>\n<ul>\n<li><strong>EV1:</strong> +1 Acerto (+1 Magícula)  </li>\n<li><strong>EV2:</strong> +3 Dano (+1 Magícula por +6 de dano)  </li>\n<li><strong>EV3:</strong> Crítico arremessa inimigo +1 metro  </li>\n<li><strong>EV4:</strong> Aumenta 1 estágio da distância (+4 Magículas)  </li>\n<li><strong>EV5:</strong> Crítico: +3 no próximo acerto  </li>\n<li><strong>EV6:</strong> Ao acertar, recebe 1 Carga de Energia; a cada 4 cargas, próximo tiro causa dano adicional igual a 1d3 por ER  </li>\n<li><strong>EV7:</strong> Permite mirar como ação bônus, +1 DR no acerto  </li>\n<li><strong>EV8:</strong> Ataques considerados Manipulação Livre para efeitos que dependam disso</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Conectar Nucleo Mana",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Conectar Núcleo de Mana</h2>\n<p><strong>Descrição:</strong> Conecta-se ao núcleo de mana de outra pessoa para comunicação telepática.  </p>\n<ul>\n<li><strong>Duração:</strong> Até o toque ser encerrado  </li>\n<li><strong>Resistência do alvo:</strong> Teste de Mana vs CD mágica (10 + ER + Mana)  </li>\n<li><strong>Custo:</strong> 1 Magícula se o teste for necessário; 0 se voluntário</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Magifeito",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Magifeito</h2>\n<p><strong>Descrição:</strong> Manipula a mana ao redor para criar pequenos efeitos dentro do alcance igual à sua Mana em metros.  </p>\n<ul>\n<li><strong>Efeitos possíveis:</strong>  <ul>\n<li>Aumentar ou mudar a voz  </li>\n<li>Fazer o chão tremer levemente (1 m)  </li>\n<li>Criar sons à distância (trovão, corvo, sussurro ameaçador)  </li>\n<li>Mudar aparência dos olhos por 1 minuto</li>\n</ul>\n</li>\n<li><strong>Custo:</strong> Não usa Magículas  </li>\n<li><strong>Limitação:</strong> Só disponível na criação da ficha, não pode ser reaprendida</li>\n</ul>\n",
+      "auto": false
+    },
+    {
+      "nome": "Manipulação Celestial (Anomalia Espacial)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Núcleo de Mana do Horizonte</div><div><br></div>Ao despertar este núcleo, sua percepção de profundidade e distância se torna absoluta.<br>Percepção Espacial: Você sabe exatamente a distância em metros de qualquer objeto que possa ver.<br>Resistência do Vazio: Recebe Resistência Adaptativa (Mana + ER) contra Dano de Vento ou Dano de Força (Impacto). (16)",
+      "auto": false
+    },
+    {
+      "nome": "Manipulação Livre: Dobra Espacial (Spatial Fold)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Ação: Padrão</div><div>Alcançe: médio</div><div><br></div><div>Gera um conjunto de distorções invisíveis que seleciona um alvo e \"exclui\" o espaço entre ele, criando um efeito espacial. Caso o alvo for um ser vivo, realize um Teste de Arcanismo, caso o resultado passe em sua CA, ele é tratado como um objeto mágico qualquer com o mesmo peso para os fins desta magia.</div><div><br></div><div>Ao acertar um objeto mágico, você pode escolher manipular a posição espacial do alvo ou a sua. Escolha um:</div><ul><li>Atração/Repulsão: Puxe o alvo até MANAm em sua direção ou empurre-o MANAm para longe (Encurtando o espaço atrás ou na frente dele).</li><li>Translação: Mova-se instantaneamente para um espaço desocupado adjacente ao alvo atingido.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Passo no Vazio (Void Step)",
+      "tag": "magia",
+      "efeitoHTML": "<div>Ação: Movimento ou Reação (Ao ser atacado)</div><div>Custo: 2 Magículas</div><div><br></div><ul><li>Efeito (Movimento): Você se teletransporta para um local visível dentro do seu deslocamento base. Isso não gera ataques de oportunidade.</li></ul><ul><li>Efeito (Reação): Quando for alvo de um ataque, você \"dobra\" o espaço para que o ataque passe longe de você. Realize um teste de Mana contra o Acerto do inimigo. Se vencer, o ataque erra e você pode se mover 1,5m imediatamente.</li></ul><ul><li>Passiva: Resíduo Espacial Sempre que você utiliza uma Magia ou Habilidade que mova você ou um inimigo instantaneamente, você ganha +1,5m de Deslocamento até o fim do seu próximo turno. Este efeito acumula até um máximo de +4,5m.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "POV Sub Strike!",
+      "tag": "magia",
+      "efeitoHTML": "<div>Sempre que um aliado que estiver dentro do seu alcance de manipulação livre errar um ataque, você pode, como uma reação, consumir 1d12 magículas;&nbsp;</div><div>Dobre o espaço no ataque de seu aliado, ele realiza o teste de ataque novamente, com um bônus de acerto extra igual sua ER.&nbsp;</div><div>Se ele acertar, o dano causado pelo seu aliado tem um aumento igual sua Mana + as Magículas gastas no ataque.&nbsp;</div><ul><li>Em caso de crítico, você recupera as magículas gastas.&nbsp;</li></ul>Caso você consuma o máximo de magículas possíveis no ataque, pode escolher entre:<ul><li>.Consumir metade das magículas</li><li>.Deixar o inimigo Alquebrado até o final do próximo turno dele</li></ul>",
+      "auto": false
+    }
+  ],
+  "ataques": [],
+  "inventario": [
+    {
+      "nome": "Akarin",
+      "tag": "dinheiro",
+      "qtd": 370,
+      "descHTML": "<br>",
+      "equipado": false
+    },
+    {
+      "nome": "Valorin",
+      "tag": "dinheiro",
+      "qtd": 1000,
+      "descHTML": "",
+      "equipado": false
+    },
+    {
+      "nome": "Selos",
+      "tag": "outro",
+      "qtd": 1,
+      "descHTML": "<div>Mana: 15 - 6 (9)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 6 - 6 (1)</div>",
+      "equipado": false
+    },
+    {
+      "nome": "Wendy - A Fada do Oeste",
+      "tag": "artefato",
+      "qtd": 1,
+      "descHTML": "<div>Raridade: Mítica [Consome 2 Slots de Artefato]</div><div><br></div><div>Passiva:</div><ul><li>Faro Elemental I: É capaz de detectar toda e qualquer mana elemental de vento dentro de 6km, especificando qualidade e quantidade.</li></ul><ul><li>Medo: Caso esteja na em alcance curto de seres com alguns tipos de Anomalia, -100 de PA, usuários de Caos ou Malícia; Wendy fica Amedrontada.</li></ul><br>Ativa:<ul><li>Peso Mágico I: 1/Dia; Como uma ação bônus de Analin, Pode manipular a mana de vento ao redor, sendo capaz de levitar até 34kg, movendo-os em até 30m.</li></ul><ul><li>Sopro Tempestuoso I: 1/Dia; Como uma ação bônus de Analin, É capaz de realizar sopros de mana elemental de vento, estes são considerados ataques de mana, com Acerto: DR(Analin)+6 | Dano:6d4+6[Vento]. Caso acerte, empurra o alvo em 6m. Caso seja um crítico, pode usar Peso Mágica sem consumir o uso e como reação.</li></ul><ul><li>Barreira de Vento: 2/Dia; Como uma ação bônus de Analin, cria uma véu de vento rotatório em até 3m em volta de Analin, este Véu é considerado como construto de mana e fica imóvel no local, possuindo VT=10+Mana. Resistência X a Dano de Vento e Vulnerabilidade á dano de Terra(Recebe 2x). Deste modo, todo inimigo que estiver á corpo-a-corpo com a barreira realiza um Teste de Resistência de Corpo(CD: 10+Mana+ER), caso falhe é empurrado á 6m e fica Caído.</li></ul>",
+      "equipado": true
+    },
+    {
+      "nome": "Sorte",
+      "tag": "outro",
+      "qtd": 3,
+      "descHTML": "",
+      "equipado": false
+    }
+  ],
+  "pensamentos": [],
+  "titulo": "Lolimancer",
+  "tituloArtigo": "A",
+  "periciasDelta": {
+    "Intuição": 5,
+    "Sobrevivência": 5,
+    "Lábia": 3,
+    "Análise": 4,
+    "Charme": 3,
+    "Percepção Mágica": 4,
+    "Arcanismo": 2,
+    "Erudição": 2
+  },
+  "resistencias": {
+    "Contundente": "acostumado",
+    "Vento": "acostumado",
+    "Cortante": "acostumado"
+  },
+  "atualizado": "2026-09-09T01:44:27.331Z",
+  "vidaMagicaAtual": 75,
+  "dono": "Crascrunk.github.io",
+  "vidaMagicaMax": 75
+}

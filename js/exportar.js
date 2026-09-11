@@ -34,7 +34,7 @@ const WNJExport = (() => {
         }
         const vidaMax = char.vidaMaxManual != null ? char.vidaMaxManual : WNJ.calcVida(racaInfo, attrs.corpo);
         const magMax = char.magiculasMax != null ? char.magiculasMax : WNJ.calcMagiculas(cfg, attrs, er);
-        const arcana = char.arcanaManual != null ? char.arcanaManual : WNJ.calcArcana(cfg, char.rank);
+        const arcana = char.arcanaManual != null ? char.arcanaManual : WNJ.calcArcanaPersonagem(cfg, char, attrs);
         const ca = char.caManual != null ? char.caManual : WNJ.calcCA(cfg, attrs, char.rank);
         const pDesloc0 = WNJ.calcPericias(cfg, attrs).find(p => p.nome === 'Deslocamento');
         const perDesloc0 = pDesloc0 ? pDesloc0.valor + ((char.periciasDelta || {})[pDesloc0.nome] || 0) : 0;

@@ -358,7 +358,10 @@
                         <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select>
                             <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
                         </div>
-                        <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">— escolher —</option></select></div>
+                        <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">- escolher -</option></select></div>
+                        <div id="campo-subclasse1" class="campo" style="display:none"><label>Entidade do Pacto</label>
+                            <div id="aviso-subclasse1" class="aviso-subraca" style="display:none"></div>
+                        </div>
                         <div class="campo"><label>Classe Avançada <span class="aviso-inline" id="aviso-ca">(Rank 8+)</span></label><select id="f-classe2" disabled><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Título</label>
@@ -547,6 +550,16 @@
             <strong>W.I.P</strong> ainda estão sendo escritas — você pode escolhê-las para reservar o conceito,
             mas elas não concedem nada automaticamente ainda.</p>
             <div id="subraca-lista" style="max-height:52vh;overflow-y:auto;margin-top:12px"></div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
+        </div>
+    </div>
+
+    <!-- MODAL: ENTIDADE DO PACTO (subclasse) -->
+    <div class="overlay" id="ov-subclasse1">
+        <div class="modal-wnj" style="max-width:560px">
+            <h3 id="subclasse1-titulo">Escolha a entidade</h3>
+            <p class="aviso-inline">A entidade define os poderes personalizados do pacto. Os poderes universais do Embaixador continuam os mesmos.</p>
+            <div id="subclasse1-lista" style="max-height:52vh;overflow-y:auto;margin-top:12px"></div>
             <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
         </div>
     </div>

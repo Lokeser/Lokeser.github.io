@@ -37,6 +37,8 @@
     if (!char.resistencias || typeof char.resistencias !== 'object') char.resistencias = {};
     char.rank = char.rank || 10;
     char.estrela = char.estrela || 1;
+    char.subClasseInicial = char.subClasseInicial || '';
+    char.subClasseAvancada = char.subClasseAvancada || '';
     char.titulo = char.titulo || '';
     char.tituloArtigo = char.tituloArtigo || '';
     if (modoEdicao) document.body.classList.add('modo-edicao');
@@ -105,6 +107,39 @@
             : '⚠️ <strong>Escolha uma linhagem</strong> para esta raça. <button type="button" id="btn-trocar-sub">escolher</button>';
         $('btn-trocar-sub').onclick = abrirSubRaca;
     }
+
+    // ---------- ENTIDADES DE PACTO (subclasses da classe inicial) ----------
+    function entradaClasseInicial() { return (cfg.classes_iniciais || []).find(c => c.nome === char.classeInicial); }
+    function abrirSubClasseInicial() {
+        const e = entradaClasseInicial();
+        if (!e || !e.subclasses) return;
+        $('subclasse1-titulo').textContent = 'Escolha a entidade - ' + e.nome;
+        $('subclasse1-lista').innerHTML = e.subclasses.map(s =>
+            '<button type="button" class="subraca-op" data-subclasse="' + esc(s.nome) + '">' +
+            '<span>' + esc(s.nome) + '</span><small class="ok">Disponível</small></button>').join('');
+        document.querySelectorAll('#subclasse1-lista .subraca-op').forEach(b => {
+            b.onclick = async () => {
+                char.subClasseInicial = b.dataset.subclasse;
+                fecharOverlay('ov-subclasse1');
+                await sincronizarPoderes();
+                renderIdentidade(); renderPoderes();
+            };
+        });
+        abrirOverlay('ov-subclasse1');
+    }
+    function renderSubClasseInicialAviso() {
+        const e = entradaClasseInicial();
+        const campo = $('campo-subclasse1');
+        const box = $('aviso-subclasse1');
+        if (!e || !e.subclasses) { campo.style.display = 'none'; return; }
+        campo.style.display = '';
+        box.style.display = '';
+        const s = char.subClasseInicial ? e.subclasses.find(x => x.nome === char.subClasseInicial) : null;
+        box.innerHTML = s
+            ? '✦ Entidade: <strong>' + esc(s.nome) + '</strong> <button type="button" id="btn-trocar-subclasse1">trocar</button>'
+            : '✦ <strong>Escolha sua entidade de pacto</strong>. <button type="button" id="btn-trocar-subclasse1">escolher</button>';
+        $('btn-trocar-subclasse1').onclick = abrirSubClasseInicial;
+    }
     async function carregarRank() {
         const d = await WNJ.dadosRank(cfg, char.rank);
         if (d.dr) rankInfo.dr = d.dr;
@@ -160,6 +195,7 @@
         $('f-titulo').value = char.titulo || '';
         $('foto').innerHTML = char.img ? '<img src="' + char.img + '" alt="">' : '🖼️';
         renderSubRacaAviso();
+        renderSubClasseInicialAviso();
         renderEquipados();
     }
 
@@ -191,7 +227,8 @@
         const magAuto = WNJ.calcMagiculas(cfg, t, rankInfo.er);
         const magMax = char.magiculasMax != null ? char.magiculasMax : magAuto;
         if (char.magiculasAtual == null) char.magiculasAtual = magMax;
-        const arcana = char.arcanaManual != null ? char.arcanaManual : WNJ.calcArcana(cfg, char.rank);
+        const arcanaAuto = WNJ.calcArcanaPersonagem(cfg, char, t);
+        const arcana = char.arcanaManual != null ? char.arcanaManual : arcanaAuto;
         const ca = char.caManual != null ? char.caManual : WNJ.calcCA(cfg, t, char.rank);
         // Deslocamento automático acompanha a perícia Deslocamento (com ajuste manual dela)
         const pDesloc = WNJ.calcPericias(cfg, t).find(p => p.nome === 'Deslocamento');
@@ -207,7 +244,7 @@
             '<div class="auto-card"><div class="rotulo">Deslocamento</div><div class="valor"><input id="in-desloc" type="number" value="' + desloc + '"></div><small>metros · ' + baseDesloc + ' base ' + (perDesloc < 0 ? '−' : '+') + ' ' + Math.abs(perDesloc) + ' perícia = ' + deslocAuto + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + WNJ.calcArcana(cfg, char.rank) + '</small></div>' +
+            '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + arcanaAuto + '</small></div>' +
             '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: Mana + ER = ' + magAuto + (formulaEstrela('magiculas_por_estrela') ? ' · por ★: ' + formulaEstrela('magiculas_por_estrela') : '') + '</small></div>';
 
         $('in-ca').oninput = e => { char.caManual = parseInt(e.target.value) || 0; };
@@ -914,7 +951,10 @@
     };
     $('f-classe1').onchange = async e => {
         char.classeInicial = e.target.value;
-        await sincronizarPoderes(); renderPoderes();
+        char.subClasseInicial = '';
+        await sincronizarPoderes(); renderPoderes(); renderSubClasseInicialAviso();
+        const ent = entradaClasseInicial();
+        if (ent && ent.subclasses) abrirSubClasseInicial();
     };
     $('f-classe2').onchange = async e => {
         char.classeAvancada = e.target.value;

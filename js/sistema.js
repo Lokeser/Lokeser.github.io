@@ -182,6 +182,17 @@ const WNJ = (() => {
         return total;
     }
 
+    // Certas classes especiais definem a Arcana fora da progressao de rank.
+    // O Embaixador, por exemplo, a desperta no valor de seu maior atributo.
+    function calcArcanaPersonagem(cfg, char, atributos) {
+        const classe = (cfg.classes_iniciais || []).find(x => x.nome === char.classeInicial) ||
+            (cfg.classes_avancadas || []).find(x => x.nome === char.classeAvancada);
+        if (classe && classe.arcana === 'maior_atributo') {
+            return Math.max(0, ...Object.values(atributos || {}).map(v => Number(v) || 0));
+        }
+        return calcArcana(cfg, char.rank);
+    }
+
     function calcCA(cfg, atributos, rank) {
         const attr = cfg.formulas.ca_atributo;
         // +1 de CA na primeira estrela de cada rank novo (R9..R3) => (10 - rank)
@@ -227,16 +238,26 @@ const WNJ = (() => {
         return e.arquivo;
     }
 
+    // Uma classe com especializações lê sempre o arquivo-base e, depois,
+    // o da escolha atual. Assim os poderes universais e os personalizados
+    // coexistem na ficha sem duplicar a classe inteira.
+    function arquivosClasse(cfg, lista, nome, subNome) {
+        const e = (lista || []).find(x => x.nome === nome);
+        if (!e) return [];
+        const arquivos = e.arquivo ? [e.arquivo] : [];
+        if (e.subclasses && subNome) {
+            const s = e.subclasses.find(x => x.nome === subNome);
+            if (s && s.arquivo) arquivos.push(s.arquivo);
+        }
+        return arquivos;
+    }
+
     async function poderesAutomaticos(cfg, char) {
         const arquivos = [];
-        const findArq = (lista, nome) => {
-            const e = (lista || []).find(x => x.nome === nome);
-            return e ? e.arquivo : null;
-        };
         const rc = arquivoRaca(cfg, char); if (rc) arquivos.push(rc);
-        const ci = findArq(cfg.classes_iniciais, char.classeInicial); if (ci) arquivos.push(ci);
-        const ca = findArq(cfg.classes_avancadas, char.classeAvancada); if (ca) arquivos.push(ca);
-        const mg = findArq(cfg.magias, char.magia); if (mg) arquivos.push(mg);
+        arquivos.push(...arquivosClasse(cfg, cfg.classes_iniciais, char.classeInicial, char.subClasseInicial));
+        arquivos.push(...arquivosClasse(cfg, cfg.classes_avancadas, char.classeAvancada, char.subClasseAvancada));
+        const mg = (cfg.magias || []).find(x => x.nome === char.magia); if (mg) arquivos.push(mg.arquivo);
         const out = [];
         for (const arq of arquivos) {
             try {
@@ -383,7 +404,7 @@ const WNJ = (() => {
             criado: new Date().toISOString(),
             img: null,
             nome: '', sobrenome: '',
-            raca: '', subRaca: '', classeInicial: '', classeAvancada: '', magia: '',
+            raca: '', subRaca: '', classeInicial: '', subClasseInicial: '', classeAvancada: '', subClasseAvancada: '', magia: '',
             rank: 10, estrela: 1,
             atributos: { corpo: 0, tecnica: 0, intelecto: 0, carisma: 0, sabedoria: 0, mana: 0 },
             vidaAtual: null, vidaMaxManual: null,
@@ -438,10 +459,10 @@ const WNJ = (() => {
 
     return {
         fetchMD, config, parsePoderes, parseRankDados, parseRaca,
-        calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcCA,
+        calcPericias, elegivel, dadosRank, calcVida, calcArcana, calcArcanaPersonagem, calcCA,
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
-        paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca,
+        paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca, arquivosClasse,
         varrerRecuperaveis, restaurar
     };
 })();

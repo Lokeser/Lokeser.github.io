@@ -130,7 +130,13 @@
     { "nome": "Caminho Vidente",  "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md", "secreta": true },
     { "nome": "Caminho Astral",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md",     "secreta": true },
     { "nome": "Caminho Lunar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md",      "secreta": true },
-    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md",      "secreta": true }
+    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md",      "secreta": true },
+    { "nome": "Embaixador Cósmico", "arquivo": "contents/classes/classes_secretas/Embaixador.md", "secreta": true, "arcana": "maior_atributo",
+      "subclasses": [
+        { "nome": "Entidade de Mana", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeMana.md" },
+        { "nome": "Entidade de Fé",  "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeFe.md" },
+        { "nome": "Entidade de Caos", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeCaos.md" }
+      ] }
   ],
 
   "classes_avancadas": [

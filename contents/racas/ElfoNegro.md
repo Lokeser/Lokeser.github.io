@@ -5,35 +5,44 @@
 
 ---
 
-## Atributos Base
+## Classificação
 
-| Atributo     | Valor           |
-| ------------ | --------------- |
-| Força        | 0               |
-| Destreza     | 0               |
-| Constituição | 0               |
-| Inteligência | 0               |
-| Sabedoria    | 0 (+1 por Saga) |
-| Carisma      | 0               |
-| Mana         | 2               |
+**Mágica — Auto-Play** &nbsp;·&nbsp; Magia Inicial (MD): **2** &nbsp;·&nbsp; **Sem Magias** (o poder vem do sangue)
+
+---
+
+## Atributos Raciais
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0"><div style="flex:1 1 92px;background:#e0434322;border:1px solid #e04343;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e04343">CORPO</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#3fbf6a22;border:1px solid #3fbf6a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3fbf6a">TÉCNICA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+2</div></div><div style="flex:1 1 92px;background:#3a63d222;border:1px solid #3a63d2;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3a63d2">INTELECTO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+1</div></div><div style="flex:1 1 92px;background:#e6c15a22;border:1px solid #e6c15a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e6c15a">CARISMA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−2</div></div><div style="flex:1 1 92px;background:#a86af022;border:1px solid #a86af0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#a86af0">SABEDORIA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#5ec8f022;border:1px solid #5ec8f0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#5ec8f0">MANA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+3</div></div></div>
+
+**Modificadores raciais:** +2 Técnica, +1 Intelecto, +3 Mana, −2 Carisma
+
+> A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20 por atributo.
 
 ---
 
 ## Vida
 
-* **Vida Base:** **18 + 6 a cada 2 pontos de Constituição**
+* **Vida Base:** **18 + 6 a cada 2 pontos de Corpo**
 * **Valor de Vida da Raça:** **6**
 
 ---
 
-## Dados Raciais
+## Marcos de Sangue — R8 · R6 · R4
 
-* **Magia Inicial (MD):** **2**
+Em cada marco, a raça evolui por uma escolha:
 
----
+- **Purificar** — +1 no atributo negativo da raça (abraçar o lado humano).
+- **Despertar** — receber um poder do lado mágico da raça (ver abaixo).
+
+**Despertar (a Maldição):** Corpo de Raios, Benção Arcana.
+
+> **Raça Mágica (auto-play):** não distribui os 5 pontos da criação. Recebe a linha fixa acima (6 pontos brutos pré-distribuídos, −2); pode **mover 1 ponto** de um atributo para outro. **Não aprende Magias** — o poder nasce do sangue.
+
 
 ## Progressão Racial
 
+<!--#poder id="rc_elfonegro_r10_1" fonte="raca" rank="10" estrela="1" nome="Maldição Arcana"-->
 ### Rank 10 — Maldição Arcana
 
 * Suas **magículas totais são reduzidas pela metade**.
@@ -45,6 +54,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r10_2" fonte="raca" rank="10" estrela="1" nome="Tipo de Elfo Negro"-->
 ### Rank 10 — Tipo de Elfo Negro
 
 Escolha **uma** das características abaixo:
@@ -67,11 +79,14 @@ Escolha **uma** das características abaixo:
   Esse movimento **não gera contra‑ataques**.
 
 * **Bestificação**
-  Suas presas causam dano igual a **1d8 a cada 2 Força + Força**.
+  Suas presas causam dano igual a **1d8 a cada 2 Corpo + Corpo**.
   Recebe bônus em **Intimidação** igual à sua **ER**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r9_1" fonte="raca" rank="9" estrela="1" nome="Despertar da Maldição"-->
 ### Rank 9 — Despertar da Maldição
 
 Seu Núcleo de Mana passa a ser conhecido como **Dupla Frequência**.
@@ -81,12 +96,18 @@ Seu Núcleo de Mana passa a ser conhecido como **Dupla Frequência**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r8_1" fonte="raca" rank="8" estrela="1" nome="Maldito Poder"-->
 ### Rank 8 — Maldito Poder
 
 Um número de vezes por dia igual à sua **Mana**, você pode utilizar um poder que consuma **1 magícula sem gastá‑la**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r6_1" fonte="raca" rank="6" estrela="1" nome="Corpo de Raios"-->
 ### Rank 6 — Corpo de Raios
 
 * Sua **Manipulação Livre de Raio** evolui até o **Rank 7**.
@@ -96,6 +117,9 @@ Se possuir Magia de Raios, pode aprender a **Evolução Elemental: Raios Amaldi�
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfonegro_r4_1" fonte="raca" rank="4" estrela="1" nome="Benção Arcana"-->
 ### Rank 4 — Benção Arcana
 
 Quando aplicar **Maldição Arcana** através de **dano de Raio** causado por você:
@@ -105,3 +129,6 @@ Quando aplicar **Maldição Arcana** através de **dano de Raio** causado por vo
   * **Deslocamento Extra**
   * **Vida Temporária**
 * O inimigo pode acumular até **+5D de Dano Mágico** enquanto estiver amaldiçoado.
+
+
+<!--#fim-->

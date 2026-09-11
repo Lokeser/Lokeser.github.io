@@ -5,35 +5,44 @@
 
 ---
 
-## Atributos Base
+## Classificação
 
-| Atributo     | Valor           |
-| ------------ | --------------- |
-| Força        | 0               |
-| Destreza     | 1               |
-| Constituição | 0               |
-| Inteligência | 0               |
-| Sabedoria    | 0 (+1 por Saga) |
-| Carisma      | 0               |
-| Mana         | 2               |
+**Mágica — Auto-Play** &nbsp;·&nbsp; Magia Inicial (MD): **2** &nbsp;·&nbsp; **Sem Magias** (o poder vem do sangue)
+
+---
+
+## Atributos Raciais
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0"><div style="flex:1 1 92px;background:#e0434322;border:1px solid #e04343;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e04343">CORPO</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−2</div></div><div style="flex:1 1 92px;background:#3fbf6a22;border:1px solid #3fbf6a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3fbf6a">TÉCNICA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#3a63d222;border:1px solid #3a63d2;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3a63d2">INTELECTO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+2</div></div><div style="flex:1 1 92px;background:#e6c15a22;border:1px solid #e6c15a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e6c15a">CARISMA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#a86af022;border:1px solid #a86af0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#a86af0">SABEDORIA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+1</div></div><div style="flex:1 1 92px;background:#5ec8f022;border:1px solid #5ec8f0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#5ec8f0">MANA</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+3</div></div></div>
+
+**Modificadores raciais:** +2 Intelecto, +1 Sabedoria, +3 Mana, −2 Corpo
+
+> A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20 por atributo.
 
 ---
 
 ## Vida
 
-* **Vida Base:** **20 + 5 a cada 2 pontos de Constituição**
+* **Vida Base:** **20 + 5 a cada 2 pontos de Corpo**
 * **Valor de Vida da Raça:** **5**
 
 ---
 
-## Dados Raciais
+## Marcos de Sangue — R8 · R6 · R4
 
-* **Magia Inicial (MD):** **2**
+Em cada marco, a raça evolui por uma escolha:
 
----
+- **Purificar** — +1 no atributo negativo da raça (abraçar o lado humano).
+- **Despertar** — receber um poder do lado mágico da raça (ver abaixo).
+
+**Despertar (Características de Elfo):** Magic Eye, Conexão Elemental.
+
+> **Raça Mágica (auto-play):** não distribui os 5 pontos da criação. Recebe a linha fixa acima (6 pontos brutos pré-distribuídos, −2); pode **mover 1 ponto** de um atributo para outro. **Não aprende Magias** — o poder nasce do sangue.
+
 
 ## Progressão Racial
 
+<!--#poder id="rc_elfo_r10_1" fonte="raca" rank="10" estrela="1" nome="Dieta Mágica"-->
 ### Rank 10 — Dieta Mágica
 
 Um número de vezes por dia igual à sua **Eficiência de Rank (ER)**, você pode consumir **cristais de mana** para ampliar sua reserva.
@@ -42,12 +51,18 @@ Seu **próximo teste que utilize Mana** recebe um bônus igual à sua **ER**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r10_2" fonte="raca" rank="10" estrela="1" nome="Conexão com o Plano Arcano"-->
 ### Rank 10 — Conexão com o Plano Arcano
 
 Recebe a habilidade **Magic Eye**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r10_3" fonte="raca" rank="10" estrela="1" nome="Características Raciais do Elfo"-->
 ### Rank 10 — Características Raciais do Elfo
 
 Escolha **uma** característica racial:
@@ -64,11 +79,11 @@ Escolha **uma** característica racial:
   Pode enxergar no escuro uma quantidade de metros igual à sua **Mana + ER**.
 
 * **Filho da Mãe‑Natureza**
-  Recebe **+X** em testes de Sobrevivência, História e Arcanismo relacionados à natureza de **Far Everus**.
+  Recebe **+X** em testes de Sobrevivência, Erudição e Arcanismo relacionados à natureza de **Far Everus**.
   *(X = Eficiência de Rank × 2)*
 
-* **Destreza Élfica**
-  Perícias baseadas em Destreza e o dano causado com Destreza recebem **+X**.
+* **Técnica Élfica**
+  Perícias baseadas em Técnica e o dano causado com Técnica recebem **+X**.
   *(X = Eficiência de Rank)*
 
 * **Orcond Reforçado**
@@ -88,6 +103,9 @@ Escolha **uma** característica racial:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r8_1" fonte="raca" rank="8" estrela="1" nome="Olhos da Mãe‑Natureza"-->
 ### Rank 8 — Olhos da Mãe‑Natureza
 
 Recebe a habilidade **Elven Eye**.
@@ -95,30 +113,45 @@ Esta habilidade **não é considerada uma evolução** de *Magic Eye*.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r8_2" fonte="raca" rank="8" estrela="1" nome="Características Raciais do Elfo II"-->
 ### Rank 8 — Características Raciais do Elfo II
 
 Escolha **uma segunda** característica racial de Elfo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r6_1" fonte="raca" rank="6" estrela="1" nome="Conexão Elemental"-->
 ### Rank 6 — Conexão Elemental
 
 Permite aprender **uma segunda evolução elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r6_2" fonte="raca" rank="6" estrela="1" nome="Características Raciais do Elfo III"-->
 ### Rank 6 — Características Raciais do Elfo III
 
 Escolha **uma terceira** característica racial de Elfo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r5_1" fonte="raca" rank="5" estrela="1" nome="Conexão Total com o Plano Arcano"-->
 ### Rank 5 — Conexão Total com o Plano Arcano
 
 Recebe **+1 Mana imediatamente** e **+1 Mana adicional ao alcançar o Rank 4**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_elfo_r5_2" fonte="raca" rank="5" estrela="1" nome="Comando Imperial (Elfo)"-->
 ### Rank 5 — Comando Imperial (Elfo)
 
 Um número de vezes por dia igual à sua **ER**, consumindo **15 magículas**, você pode, como uma ação, exalar uma voz imbuída de autoridade arcana.
@@ -130,3 +163,6 @@ CD = 10 + Mana + ER
 ******
 
 Se falhar, o alvo torna‑se **incapaz de utilizar poderes que causem dano físico** por **1d6** turnos.
+
+
+<!--#fim-->

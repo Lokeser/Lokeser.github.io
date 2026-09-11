@@ -9,11 +9,16 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 
 * **Dado de Rank (DR):** **d32**
 * **Eficiência de Rank (ER):** **7**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d14 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d6 + 6**
 
 ---
 
 ## Progressão por Estrelas
 
+<!--#poder id="rk_r4_e1" fonte="rank" rank="4" estrela="1" nome="1a Estrela — Rank 4"-->
 ### ✭ 1ª Estrela
 
 * Sua **CA Base** aumenta em **+2**.
@@ -35,6 +40,9 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r4_e2" fonte="rank" rank="4" estrela="2" nome="2a Estrela — Rank 4"-->
 ### ✭✭ 2ª Estrela
 
 * Recebe **+5 em Arcana**.
@@ -52,6 +60,9 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r4_e3" fonte="rank" rank="4" estrela="3" nome="3a Estrela — Rank 4"-->
 ### ✭✭✭ 3ª Estrela
 
 * Aumenta o **estágio de 1 Habilidade**.
@@ -66,3 +77,6 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
   Duas vezes por dia, no início do combate:
   * Role **dois dados de Iniciativa**
   * Você pode agir em **dois turnos na mesma rodada**.
+
+
+<!--#fim-->

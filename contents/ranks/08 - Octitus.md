@@ -10,13 +10,18 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 ## Dados do Rank
 
 * **Dado de Rank (DR):** **d24**
-* **Margem de Crítico:** **23–24**
 * **Eficiência de Rank (ER):** **3**
+* **Margem de Crítico:** **23–24**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d6 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d2 + 2**
 
 ---
 
 ## Progressão por Estrelas
 
+<!--#poder id="rk_r8_e1" fonte="rank" rank="8" estrela="1" nome="1a Estrela — Rank 8"-->
 ### ✭ 1ª Estrela
 
 * Suas **Magículas** aumentam em:  
@@ -29,6 +34,9 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r8_e2" fonte="rank" rank="8" estrela="2" nome="2a Estrela — Rank 8"-->
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -38,6 +46,9 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r8_e3" fonte="rank" rank="8" estrela="3" nome="3a Estrela — Rank 8"-->
 ### ✭✭✭ 3ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -53,6 +64,9 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r8_e4" fonte="rank" rank="8" estrela="4" nome="4a Estrela — Rank 8"-->
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -62,6 +76,9 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r8_e5" fonte="rank" rank="8" estrela="5" nome="5a Estrela — Rank 8"-->
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -69,3 +86,6 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 
 * Suas **Magículas** aumentam em:  
   **1d4 + 2**
+
+
+<!--#fim-->

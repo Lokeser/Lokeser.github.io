@@ -1,3 +1,4 @@
+<!--#poder id="hb_exarcana" fonte="habilidade" estrela="2" nome="Exarcana"-->
 # Exarcana
 **Requisitos:** Rank 9, ser ensinado por alguém que já possua a habilidade  
 
@@ -23,3 +24,6 @@ Cria um selo de magia que se move em até 1m de você e permite lançar magias a
   - Teste de Mana do alvo vs sua CD mágica  
   - Se falhar, recebe metade do dano: 1d6 por contador  
 - **Limitação:** Só pode ser usado uma vez por alvo por dia
+
+
+<!--#fim-->

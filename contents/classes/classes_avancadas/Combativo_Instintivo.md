@@ -7,6 +7,7 @@
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_combativo_instintivo_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Instintivo:**
@@ -25,6 +26,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas"-->
 ### 3 Estrelas
 
 **Postura de Duelo:**
@@ -47,8 +51,11 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_combativo_instintivo_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Explosão de Vontade:**
@@ -56,6 +63,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Veterano de Batalha:**
@@ -65,6 +75,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="4 Estrelas"-->
 ### 4 Estrelas
 
 **Treino de Resistência:**
@@ -73,8 +86,11 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_combativo_instintivo_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Instintivo II:**
@@ -85,6 +101,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Esquiva de Emergência:**
@@ -95,6 +114,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrela"-->
 ### 5 Estrela
 
 **Arma Favorita II:**
@@ -104,8 +126,11 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Mestre
 
+<!--#poder id="ca_combativo_instintivo_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrela"-->
 ### 2 Estrela
 
 **Mestre Instintivo:**
@@ -114,6 +139,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="4 Estrela"-->
 ### 4 Estrela
 
 **Veterano de Batalha II:**
@@ -123,12 +151,18 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Mestre Espadachim
 
+<!--#poder id="ca_combativo_instintivo_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Descrição"-->
 ### Descrição
 
 O mestre de combate instintivo chega a um nível de poder onde sua presença no campo de batalha é inquestionável. Sua habilidade com a espada se torna lendária.
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="Características"-->
 ### Características
 
 * Sua **arma agora atinge inimigos com CA 16-**.
@@ -139,12 +173,18 @@ O mestre de combate instintivo chega a um nível de poder onde sua presença no 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="3 Estrelas"-->
 ### 3 Estrelas
 
 **Recebe a Forma Liber (Instinto)**
 
 * A **Forma Liber** lhe permite realizar as **Técnicas de Arma** com um fluxo de combate extremamente poderoso.
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_instintivo_r4e1_4" fonte="classe_avancada" rank="4" estrela="1" nome="Técnicas de Arma"-->
 ### Técnicas de Arma
 
 - **Fluxo Tempestade (5I):**  
@@ -197,3 +237,6 @@ O mestre de combate instintivo chega a um nível de poder onde sua presença no 
 
 - **Fúria Inquebrável (4I):**  
   Aumente o dano da arma e **ganhe Vida Temporária** até o fim do próximo turno.
+
+
+<!--#fim-->

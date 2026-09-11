@@ -11,6 +11,7 @@ O **Domador** é um mestre do adestramento que forja um vínculo inquebrável co
 
 ## Rank 8
 
+<!--#poder id="ca_domador_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Ossos e Ofício"-->
 ### ⭐ 1 Estrela — Ossos e Ofício
 - Recebe **+5 em Adestramento**.
 
@@ -22,11 +23,17 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐ 2 Estrelas — Qualidade e Sincronia"-->
 ### ⭐⭐ 2 Estrelas — Qualidade e Sincronia
 - Pode **trocar de turno** com seu Animal Favorito **uma vez por batalha**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Rastrear"-->
 ### ⭐⭐⭐ 3 Estrelas — Rastrear
 - Pode usar o animal para realizar um teste de **Investigação** para encontrar um ser vivo ou rastros.
 - O animal soma o **bônus de Adestramento do Domador** ao teste.
@@ -34,8 +41,11 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="ca_domador_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Ossos e Ofício II"-->
 ### ⭐ 1 Estrela — Ossos e Ofício II
 - Seu bônus em **Adestramento aumenta para +10**.
 
@@ -46,6 +56,9 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐ 2 Estrelas — Cão de Guarda II"-->
 ### ⭐⭐ 2 Estrelas — Cão de Guarda II
 - O bônus contra um inimigo que atacou o Domador aumenta para:
   - **+10 de Acerto**
@@ -60,6 +73,9 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — A Soul for a Soul"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — A Soul for a Soul
 - Quando o Domador sofreria dano que o levaria a **0 PV**:
   - O Animal Favorito se joga na frente do ataque.
@@ -69,14 +85,20 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="ca_domador_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Elo Inquebrável"-->
 ### ⭐ 1 Estrela — Elo Inquebrável
 - Seu bônus em **Adestramento aumenta para +15**.
 - O Animal Favorito aprende uma **3ª Habilidade Animal**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Táticas de Matilha"-->
 ### ⭐⭐⭐ 3 Estrelas — Táticas de Matilha
 - Quando você e seu Animal Favorito estiverem **adjacentes ao mesmo inimigo**:
   - Ambos recebem **+1DR em testes de ataque** contra esse inimigo.
@@ -84,6 +106,9 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Marca Feral II"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Marca Feral II
 - O dano extra ao estourar a Marca Feral aumenta para **+5D**.
 - Ao estourar a marca, escolha **um**:
@@ -92,13 +117,19 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="ca_domador_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="⭐ 1 Estrela — Vínculo Primevo"-->
 ### ⭐ 1 Estrela — Vínculo Primevo
 - O Animal Favorito aprende uma **4ª Habilidade Animal**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐ 2 Estrelas — Aspecto da Fera"-->
 ### ⭐⭐ 2 Estrelas — Aspecto da Fera
 - Como **Ação Bônus**, manifeste os instintos do animal:
   - Recebe **+ER em Força ou Destreza** (à escolha) por **1 minuto**.
@@ -107,6 +138,9 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Fúria Coordenada"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Fúria Coordenada
 - **1 vez por dia**, como **Ação Livre**, você e o animal entram em fúria sinérgica por **ER rodadas**.
 - Durante o efeito:
@@ -115,13 +149,19 @@ Este animal recebe:
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="ca_domador_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Escolha do Domador"-->
 ### Escolha do Domador
 Escolha **um** dos poderes abaixo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="🐾 Um é Bom, Dois é Demais"-->
 ### 🐾 Um é Bom, Dois é Demais
 - Você pode escolher um **segundo animal favorito**.
 - O segundo animal:
@@ -132,6 +172,9 @@ Escolha **um** dos poderes abaixo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_domador_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="🐺 Vínculo Supremo"-->
 ### 🐺 Vínculo Supremo
 Você aprofunda a ligação com seu primeiro animal, tornando-o lendário.
 
@@ -147,6 +190,8 @@ Você aprofunda a ligação com seu primeiro animal, tornando-o lendário.
   - O animal fica **imune a condições de mente**.
 
 ---
+
+<!--#fim-->
 
 ## Habilidades Animais
 

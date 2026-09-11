@@ -9,6 +9,7 @@
 
 ## Rank 10 — Iniciante
 
+<!--#poder id="ci_trabalhador_r10e1_1" fonte="classe_inicial" rank="10" estrela="1" nome="Trabalhador"-->
 ### Trabalhador
 
 * Recebe **1d10 de Vida** para cada **Estrela**.
@@ -16,12 +17,18 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_trabalhador_r10e1_2" fonte="classe_inicial" rank="10" estrela="1" nome="Sistema Imunológico Potente"-->
 ### Sistema Imunológico Potente
 
 * Recebe **ER + 5** em testes de **Constituição** para resistir a condições adversas do corpo.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_trabalhador_r10e1_3" fonte="classe_inicial" rank="10" estrela="1" nome="Moldado pelo Ofício"-->
 ### Moldado pelo Ofício
 
 * Escolha **1 tipo de Dano**:
@@ -33,8 +40,11 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 9 — Intermediário (✭✭)
 
+<!--#poder id="ci_trabalhador_r9e2_1" fonte="classe_inicial" rank="9" estrela="2" nome="Moldado pelo Ofício II"-->
 ### Moldado pelo Ofício II
 
 * A **Resistência principal** aumenta para **Resistência II**.
@@ -42,6 +52,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_trabalhador_r9e2_2" fonte="classe_inicial" rank="9" estrela="2" nome="Sistema Imunológico Reforçado"-->
 ### Sistema Imunológico Reforçado
 
 * **1 vez por dia**, como **Ação Completa**, pode remover:
@@ -49,6 +62,12 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ci_trabalhador_r9e2_3" fonte="classe_inicial" rank="9" estrela="2" nome="Corpo de Ferro"-->
 ### Corpo de Ferro
 
 * Recebe **+1DR** em **Testes de Constituição**.
+
+
+<!--#fim-->

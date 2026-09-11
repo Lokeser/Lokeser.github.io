@@ -1,13 +1,10 @@
 # Sabedoria
 
-Sabedoria representa intuição, experiência, percepção espiritual e bom senso.
+<div style="border-left:4px solid #a86af0;background:#a86af018;border-radius:8px;padding:12px 16px;margin:14px 0"><strong style="color:#a86af0">NÃO-UPÁVEL · +1 POR SAGA</strong></div>
 
-## Conhecer Habilidade
+## Benefícios por Ponto
 
-A cada ponto de Sabedoria, você aprende **1 Habilidade Extra**.
-
-> Sabedoria não pode ser aumentada por evolução comum.
-
-## Voz da Sua Cabeça
-
-Cada ponto em Sabedoria permite que o Mestre forneça **dicas sutis** em situações importantes, refletindo intuição e pressentimentos.
+* **Por ponto** de Sabedoria: recebe **uma Habilidade de Corpo ou Mente** que possa aprender.
+* A cada **5 pontos**: pode **reaprender** uma Habilidade gratuitamente, melhorando seus efeitos (somente algumas habilidades permitem reaprender).
+* Ao alcançar **10**: **+1DR** em Testes de Intuição.
+* Ao atingir **20**: recebe o **Domínio de Sabedoria**.

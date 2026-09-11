@@ -1,3 +1,4 @@
+<!--#poder id="hb_exarcanafantasma" fonte="habilidade" estrela="3" nome="Exarcana Fantasma"-->
 # Exarcana Fantasma
 **Requisitos:** Rank 7, Mana 7+  
 **Ação:** Bônus  
@@ -21,3 +22,6 @@ Movimenta-se até 24m do usuário.
 - **Rank 5 bônus:**  
   - Símbolo pode desaparecer gastando 5 Magículas e ação bônus  
   - Recebe +1D de Acerto no próximo ataque de Exarcana
+
+
+<!--#fim-->

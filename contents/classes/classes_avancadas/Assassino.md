@@ -15,6 +15,7 @@ O **Assassino** é o ápice da arte de matar nas sombras. Ele não busca confron
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_assassino_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Assassinato"-->
 ### 1 Estrela — Assassinato
 
 Quando desferir um **ataque leve** contra um alvo:
@@ -42,6 +43,9 @@ Se você estiver **Furtivo** **ou** o alvo estiver sob uma **Condição Adversa 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Dispositivos Mortíferos"-->
 ### 2 Estrelas — Dispositivos Mortíferos
 
 * Você aprende a criar e utilizar **Dispositivos Mortíferos**.
@@ -50,6 +54,9 @@ Se você estiver **Furtivo** **ou** o alvo estiver sob uma **Condição Adversa 
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="5 Estrelas — Facilmente Não-Visto"-->
 ### 5 Estrelas — Facilmente Não-Visto
 
 * Durante a **noite**, recebe **Furtividade** igual a:
@@ -62,14 +69,20 @@ Sabedoria + ER
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_assassino_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="2 Estrelas — Artes da Noite"-->
 ### 2 Estrelas — Artes da Noite
 
 * Você aprende **1 Arte da Noite** (lista ao final do documento).
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="3 Estrelas — Fuga Vital"-->
 ### 3 Estrelas — Fuga Vital
 
 Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:
@@ -83,20 +96,29 @@ Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_assassino_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela — Artes da Noite +1"-->
 ### 1 Estrela — Artes da Noite +1
 
 * Recebe **1 Arte da Noite** adicional.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Onda de Ataques"-->
 ### 3 Estrelas — Onda de Ataques
 
 * Recebe a habilidade **Ataque Evoluído**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="4 Estrelas — Assassinato II"-->
 ### 4 Estrelas — Assassinato II
 
 * Sempre que **acertar ou receber um crítico**, você recebe **3 Magículas** exclusivas para Assassinato.
@@ -109,14 +131,20 @@ Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Especialista
 
+<!--#poder id="ca_assassino_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Artes da Noite +1"-->
 ### 1 Estrela — Artes da Noite +1
 
 * Recebe **1 Arte da Noite** adicional.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="3 Estrelas — Mergir no Crime"-->
 ### 3 Estrelas — Mergir no Crime
 
 Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
@@ -132,14 +160,20 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Mestre
 
+<!--#poder id="ca_assassino_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Artes da Noite +1"-->
 ### Artes da Noite +1
 
 * Recebe **1 Arte da Noite** adicional.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="Assassinato III"-->
 ### Assassinato III
 
 * O dado de Assassinato passa para **1d11**.
@@ -147,6 +181,9 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_assassino_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Mestre Assassino"-->
 ### Mestre Assassino
 
 * Recebe a **Forma Liber (Destreza)**.
@@ -154,6 +191,8 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 ---
 
 # Dispositivos Mortíferos
+
+<!--#fim-->
 
 ## Dispositivos Padrão
 

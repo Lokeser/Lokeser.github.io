@@ -19,6 +19,7 @@ Enquanto outros atiram para acertar, o Atirador Mágico atira para **reescrever 
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_atirador_magico_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Flechas Mágicas"-->
 ### 1 Estrela — Flechas Mágicas
 
 * Você se torna capaz de criar **Projéteis Mágicos**.
@@ -40,6 +41,9 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Destreza de Flechas"-->
 ### 2 Estrelas — Destreza de Flechas
 
 * Você **ignora a propriedade de recarga** das armas de longo alcance.
@@ -47,6 +51,9 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas — Olhar Afiado Mágico"-->
 ### 3 Estrelas — Olhar Afiado Mágico
 
 * Recebe **+5 em Percepção Mágica**.
@@ -55,8 +62,11 @@ make
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_atirador_magico_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela — Treino de Flechas Alternativas"-->
 ### 1 Estrela — Treino de Flechas Alternativas
 
 * Você aprende a criar **Flechas Alternativas**.
@@ -73,6 +83,9 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="3 Estrelas — Flechas Mágicas II"-->
 ### 3 Estrelas — Flechas Mágicas II
 
 * O dano de **Flecha Mágica** aumenta em **1 Estágio**.
@@ -80,6 +93,9 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="4 Estrelas — Esconderijo Secreto"-->
 ### 4 Estrelas — Esconderijo Secreto
 
 * Pode realizar **testes de Mana em ambientes selvagens** para:
@@ -90,20 +106,29 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r7e1_4" fonte="classe_avancada" rank="7" estrela="1" nome="4 Estrelas — Olhos Treinados"-->
 ### 4 Estrelas — Olhos Treinados
 
 * Aumenta em **+1 a Margem Crítica**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_atirador_magico_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas — Treino de Flechas Alternativas II"-->
 ### 2 Estrelas — Treino de Flechas Alternativas II
 
 * Aprende **mais 2 Flechas Alternativas**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas — Flechas Mágicas III"-->
 ### 2 Estrelas — Flechas Mágicas III
 
 * O dano de **Flecha Mágica** aumenta em **+1 Estágio**.
@@ -111,6 +136,9 @@ make
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Explosão de Movimento"-->
 ### 3 Estrelas — Explosão de Movimento
 
 * Vezes por dia: **1 por Rank**.
@@ -142,6 +170,9 @@ Valor do seu maior atributo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrelas — Flechas Portanplexas"-->
 ### 5 Estrelas — Flechas Portanplexas
 
 * Vezes por dia = **Mana**.
@@ -151,6 +182,9 @@ Valor do seu maior atributo
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r6e1_5" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrelas — Flechas Arcanas"-->
 ### 5 Estrelas — Flechas Arcanas
 
 * Você cria **Flechas Arcanas**, baseadas em **Arcana**.
@@ -160,20 +194,29 @@ Valor do seu maior atributo
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Especialista
 
+<!--#poder id="ca_atirador_magico_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Instinto Extremo"-->
 ### 1 Estrela — Instinto Extremo
 
 * Você pode realizar **2 ações bônus por turno**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrelas — Treino de Flechas Alternativas III"-->
 ### 2 Estrelas — Treino de Flechas Alternativas III
 
 * Aprende **mais 1 Flecha Alternativa**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_magico_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Rank 4 — Mestre das Flechas Mágicas"-->
 ## Rank 4 — Mestre das Flechas Mágicas
 
 *Você se torna um arquimago da longa distância.*
@@ -186,6 +229,8 @@ As **Flechas Alternativas** utilizam **Dados de Criação Alternativa**.
 Evoluções **Ativas** exigem ativação prévia; Evoluções **Passivas** estão sempre ativas.
 
 ---
+
+<!--#fim-->
 
 ## Impacto Mágico (Evolução Ativa)
 

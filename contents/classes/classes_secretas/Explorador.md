@@ -1,232 +1,136 @@
-# Explorador  
-*Classe Avançada*  
+# Classe Secreta — Explorador
 
-Aqueles cujo espírito de explorador fora reconhecido pela **Relíquia** agora recebem a **Marca do Explorador**. Seu trabalho é juntar artefatos pelo mundo e alimentar a marca com seus poderes, tornando-se cada vez mais forte.
+Reconhecido pela Relíquia, portador da **Marca do Explorador**. Junta artefatos pelo mundo e alimenta a marca com seus poderes, tornando-se cada vez mais forte a cada cor da marca.
 
----
-
-## Pré-Requisitos
-- **Aventureiro Avançado**  
-- Ter recebido a **Marca do Abismo**
+**Pré-Requisitos:** Aventureiro Avançado, ter recebido a Marca do Abismo.
 
 ---
 
-## Marca Vermelha
+## Rank 8 — Marca Vermelha
 
-### ⭐ 1 Estrela — DASH
-- Técnica secreta de mobilidade dos Exploradores  
-- **Ação Bônus:** mover metade do Deslocamento Base  
-- Enquanto se move assim:  
-  - Não recebe contra-ataques ao sair de área  
-  - Recebe **CA** e **Deslocamento** até o fim do próximo turno  
-  - **+1DR** em testes de Escalar  
-  - Ignora Terreno Difícil  
+<!--#poder id="cs_explorador_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="DASH"-->
+### DASH
 
-| Rank | CA | Deslocamento |
-|------|----|--------------|
-| 8    | +1 | +5m          |
-| 7    | +2 | +7m          |
-| 6    | +4 | +12m         |
-| 5    | +5 | +15m         |
-| 4    | +6 | +18m         |
+Técnica secreta de mobilidade: mova-se metade do Deslocamento Base como **Ação Bônus**, sem sofrer contra-ataques por sair de área, ganhando CA e Deslocamento até o fim do próximo turno. +1DR para Escalar e ignora Terreno Difícil.
 
-### ⭐ 1 Estrela — Espírito de Explorador
-- Recebe **Sobrevivência** + duas perícias à escolha  
-- **+4** nestas perícias
+Escala por rank: **R8** +1 CA/+5m · **R7** +2/+7m · **R6** +4/+12m · **R5** +5/+15m · **R4** +6/+18m.
+<!--#fim-->
 
-### ⭐ 1 Estrela — Maldições Arcanas
-- Capaz de melhorar artefatos via Maldições Arcanas  
-- Pode adquirir maldições de níveis inferiores (1-20 Corrupção)  
+<!--#poder id="cs_explorador_r8e1b" fonte="classe_avancada" rank="8" estrela="1" nome="Espírito de Explorador"-->
+### Espírito de Explorador
 
-### ⭐ 1 Estrela — Estilo de Exploração
-- Aprenda um estilo baseado em sua experiência de combate
+Receba Sobrevivência e mais 2 perícias à escolha, com **+4** nelas.
+<!--#fim-->
+
+<!--#poder id="cs_explorador_r8e1c" fonte="classe_avancada" rank="8" estrela="1" nome="Maldições Arcanas"-->
+### Maldições Arcanas
+
+Pode melhorar artefatos com Maldições Arcanas de níveis inferiores (1–20 de Corrupção).
+<!--#fim-->
+
+<!--#poder id="cs_explorador_r8e1d" fonte="classe_avancada" rank="8" estrela="1" nome="Estilo de Exploração"-->
+### Estilo de Exploração
+
+Aprenda 1 Estilo de Exploração (ver lista).
+<!--#fim-->
 
 ---
 
-## Marca Roxa
+## Rank 7 — Marca Roxa
 
-### ⭐ 1 Estrela — Veterano Natural
-- Conexão profunda com a natureza  
-- Benefícios permanentes:  
-  - Sempre sabe o horário enquanto de dia  
-  - **+1DR** em testes de rastrear seres vivos, encontrar e reconhecer alimentos  
-  - Inimigos têm **-1DR** para localizar você  
-  - Pode acordar ou dormir no horário que quiser
+<!--#poder id="cs_explorador_r7e1" fonte="classe_avancada" rank="7" estrela="1" nome="Veterano Natural"-->
+### Veterano Natural
 
-### ⭐ 1 Estrela — Espírito de Explorador
-- Recebe **Sobrevivência** + duas perícias à escolha  
-- **+3** nestas perícias
+Sempre sabe o horário de dia; +1DR para rastrear seres vivos e reconhecer alimentos; inimigos têm −1DR para localizar você; escolhe quando acordar/dormir.
+<!--#fim-->
 
-### ⭐ 1 Estrela — Maldições Arcanas II
-- Maldições Arcanas de níveis superiores (20-40 Corrupção)  
+<!--#poder id="cs_explorador_r7e1b" fonte="classe_avancada" rank="7" estrela="1" nome="Espírito de Explorador (Roxa)"-->
+### Espírito de Explorador (Roxa)
 
-### ⭐ 1 Estrela — Estilo de Exploração
-- Aprenda dois estilos baseados em sua experiência de combate
+Sobrevivência + 2 perícias com **+3**.
+<!--#fim-->
 
----
+<!--#poder id="cs_explorador_r7e1c" fonte="classe_avancada" rank="7" estrela="1" nome="Maldições Arcanas II"-->
+### Maldições Arcanas II
 
-## Marca Preta
+Maldições de níveis superiores (20–40 de Corrupção).
+<!--#fim-->
 
-### ⭐ 1 Estrela — Marca Evoluída
-- Concede uma **Manipulação Livre Aleatória**
+<!--#poder id="cs_explorador_r7e1d" fonte="classe_avancada" rank="7" estrela="1" nome="Estilo de Exploração (Roxa)"-->
+### Estilo de Exploração (Roxa)
 
-### ⭐ 1 Estrela — Maldições Arcanas III
-- Maldições Arcanas de níveis superiores (40-60 Corrupção)
-
-### ⭐ 1 Estrela — Espírito de Explorador
-- Recebe **Sobrevivência** + duas perícias à escolha  
-- **+3** nestas perícias
-
-### ⭐ 1 Estrela — Encontro Inesperado
-- **1 vez/dia** em área selvagem:  
-  - Escolha um número 1-20  
-  - Role 1d20  
-  - Se sair o número, +1 ou -1: encontra um artefato
-
-### ⭐ 1 Estrela — Estilo de Exploração
-- Aprenda dois estilos baseados em sua experiência de combate
+Aprenda 2 Estilos de Exploração.
+<!--#fim-->
 
 ---
 
-## Marca Branca
+## Rank 6 — Marca Preta
 
-### ⭐ 1 Estrela — Marca Evoluída
-- Concede uma **Manipulação Livre Aleatória**
+<!--#poder id="cs_explorador_r6e1" fonte="classe_avancada" rank="6" estrela="1" nome="Marca Evoluída"-->
+### Marca Evoluída
 
-### ⭐ 1 Estrela — Maldições Arcanas IV
-- Maldições Arcanas de níveis superiores (40-60 Corrupção)
+Sua marca evolui, concedendo uma **Manipulação Livre** aleatória.
+<!--#fim-->
 
-### ⭐ 1 Estrela — Estilo de Exploração
-- Aprenda um estilo baseado em sua experiência de combate
+<!--#poder id="cs_explorador_r6e1b" fonte="classe_avancada" rank="6" estrela="1" nome="Maldições Arcanas III"-->
+### Maldições Arcanas III
 
-### ⭐ 1 Estrela — Espírito de Explorador
-- Recebe **Sobrevivência** + duas perícias à escolha  
-- **+3** nestas perícias
+Maldições de níveis superiores (40–60 de Corrupção).
+<!--#fim-->
+
+<!--#poder id="cs_explorador_r6e1c" fonte="classe_avancada" rank="6" estrela="1" nome="Encontro Inesperado"-->
+### Encontro Inesperado
+
+1×/dia em área selvagem, escolha um número de 1–20 e gire 1d20; se tirar o número (±1), encontra um Artefato na área.
+<!--#fim-->
+
+<!--#poder id="cs_explorador_r6e1d" fonte="classe_avancada" rank="6" estrela="1" nome="Espírito & Estilos (Preta)"-->
+### Espírito & Estilos (Preta)
+
+Sobrevivência + 2 perícias com +3; aprenda 2 Estilos de Exploração.
+<!--#fim-->
 
 ---
 
-## Estilos de Exploração
+## Rank 5 — Marca Branca
 
-### Guia dos Exploradores
-- Recebe o **Guia dos Exploradores**  
-- Pode usar **Sobrevivência** no lugar de testes de perícia para Artefatos, Exploração ou Monstros  
-- Requisito: 4+ em Arcanismo, História ou Investigação
+<!--#poder id="cs_explorador_r5e1" fonte="classe_avancada" rank="5" estrela="1" nome="Marca Evoluída II"-->
+### Marca Evoluída II
 
-### Reciclador
-- Ferramentas duram o dobro  
-- Consome metade dos materiais durante exploração  
-- **+1DR** em testes ao receber dano mirado em artefato equipado  
-- Requisito: 4+ Intuição
+Sua marca evolui novamente, concedendo outra **Manipulação Livre** aleatória.
+<!--#fim-->
 
-### Enganador
-- **+1DR** para esconder objetos  
-- **+1DR** em enganação contra pessoas com 100+ PA  
-- Requisito: 4+ Enganação
+<!--#poder id="cs_explorador_r5e1b" fonte="classe_avancada" rank="5" estrela="1" nome="Maldições Arcanas IV"-->
+### Maldições Arcanas IV
 
-### Intimidador
-- Testes de intimidação afetam monstros  
-- Requisito: 7+ Intimidação
+Maldições dos níveis mais altos.
+<!--#fim-->
 
-### Historiador
-- Investiga construções ancestrais com teste de História  
-- Resultados:  
-  - 10+: Semelhança de Arquitetura  
-  - 15+: Possível Cultura  
-  - 20+: Causa do fim  
-  - 25+: Idade  
-  - 30+: Locais de Tesouro  
-  - 35+: Descobre tudo  
-- Requisito: 4+ História
+<!--#poder id="cs_explorador_r5e1c" fonte="classe_avancada" rank="5" estrela="1" nome="Espírito & Estilos (Branca)"-->
+### Espírito & Estilos (Branca)
 
-### Astuto
-- Vezes/dia = Destreza  
-- Falha em Acrobacia? Refazer teste  
-- Acrobacia em terreno difícil sem penalidade  
-- Requisito: 4+ Acrobacia
+Sobrevivência + 2 perícias com +3; aprenda 1 Estilo de Exploração.
+<!--#fim-->
 
-### Adestramento
-- Testes de Adestramento aplicáveis a monstros  
-- Requisito: 7+ Adestramento
+## Estilos de Exploração *(escolha ao ganhar um Estilo)*
 
-### Descobridor
-- Mapeia áreas e perigos  
-- Gire 1DR de Investigação para determinar benefícios:  
-  - 10+: +1DR em Sobrevivência  
-  - 15+: d9 por Rank de Vida Temporária  
-  - 20+: +3 CA contra inimigos no local  
-  - 25+: Ignora dificuldades de terreno  
-  - 30+: +5m deslocamento e movimento furtivo  
-- Requisito: 4+ Investigação
-
-### Escondedor
-- Pode se esconder em situações complicadas  
-- Vezes/dia = Rank  
-- Teste de Destreza para dobrar deslocamento e Furtividade  
-- Requisito: 4+ Furtividade
-
-### Analista
-- Teste de Arcanismo para analisar artefatos  
-- 10+: deduz preço  
-- 15+: descobre efeito sem conexão  
-- Requisito: 4+ Arcanismo
-
-### Mochileiro
-- Carrega peso = 2x Força  
-- Sem penalidade por excesso  
-- Requisito: 4+ Atletismo
-
-### Cavernólogo
-- +1DR em testes de Percepção em ambientes fechados  
-- Detecta seres vivos em área 1m por Rank  
-- Requisito: 4+ Percepção
-
-### Detetive
-- Teste de Investigação em criatura revela informações  
-- Bônus por sofrer ou causar dano  
-- Resultados:  
-  - 10+: Deslocamento  
-  - 15+: Habilidade  
-  - 20+: Resistência  
-  - 25+: Vida  
-  - 30+: Ataques  
-  - 35+: Resistências  
-  - 40+: Fraquezas  
-- Requisito: 6+ Investigação
-
-### Medo Monstruoso
-- Intimidação dobrada contra criaturas com Vida ≤ 1/4  
-- Requisito: Intimidador e 15+ Intimidação
-
-### Cozinheiro
-- +3 por Rank para Cozinhar  
-- 1 vez/dia: preparar refeição mágica  
-- Requisito: 7+ Sobrevivência
-
-### DASH v2
-- Aprende novo tipo de DASH mantendo o antigo  
-
-#### Opções:
-- **DASH BREAK:** mover metade do deslocamento em direção a inimigo e atacar  
-- **DASH SPACE:** mover metade do deslocamento para qualquer direção, sem ativar reações  
-- **DASH ROCK:** mover metade do deslocamento, ganha **Resistência I per Rank** contra danos mágicos  
-- Requisitos: 7+ Força, Destreza ou Constituição, conforme tipo
-
-### Minerador
-- Proficiência com picaretas e lanternas  
-- +2 por Rank em mineração  
-- +1DR em acertos com picareta  
-- Picareta pode ser usada como ação de movimento de 3m  
-- Requisito: 6+ Atletismo e experiência minerando
-
-### Por um Fio
-- 1 vez/dia: rerrolar 1DR após resultado  
-- +1 em testes de perícia enquanto não usado  
-- Requisito: Critar em DR com 3- de Vida
-
-### Furtivista
-- Testes de Furtividade como ação bônus em combate e ação livre fora de combate  
-- Requisito: Escondedor e 10+ Furtividade
-
-### Sombra Viva
-- Move-se sem revelar furtividade  
-- Requisito: Furtivista e 18+ Furtividade
+* **Guia dos Exploradores:** use Sobrevivência no lugar de perícias para reconhecer Artefatos, Exploração ou Monstros. *(4+ Arcanismo/Erudição/Investigação)*
+* **Reciclador:** ferramentas duram o dobro; consome metade dos materiais; +1DR para receber dano mirado em Artefato equipado. *(4+ Intuição)*
+* **Enganador:** +1DR para esconder objetos e enganar quem tem 100+ PA. *(4+ Enganação)*
+* **Intimidador:** intimidação afeta monstros. *(7+ Intimidação)*
+* **Historiador:** investiga construções ancestrais com Erudição (escala 10→35+). *(4+ Erudição)*
+* **Astuto:** refaz testes de Acrobacia falhos (Técnica×/dia); sem penalidade em terreno difícil. *(4+ Acrobacia)*
+* **Adestramento:** usa Adestramento em Monstros. *(7+ Adestramento)*
+* **Descobridor:** mapeia áreas; gire 1DR de Investigação para benefícios no local. *(4+ Investigação)*
+* **Escondedor:** rank×/dia, ao ser atacado fora de combate, teste de Técnica para correr o dobro e se esconder. *(4+ Furtividade)*
+* **Analista:** analisa Artefatos com Arcanismo (preço 10+, efeito 15+). *(4+ Arcanismo)*
+* **Mochileiro:** carrega o dobro da Força sem penalidade. *(4+ Atletismo)*
+* **Cavernólogo:** +1DR em Percepção e detecta seres vivos (1m per rank) em ambientes fechados. *(4+ Percepção)*
+* **Detetive:** teste de Investigação revela dados do monstro (escala 10→40+). *(6+ Investigação)*
+* **Medo Monstruoso:** intimidação dobrada contra criaturas com 1/4 de vida. *(Intimidador, 15+ Intimidação)*
+* **Cozinheiro:** +3 per rank para Cozinhar; 1×/dia refeição mágica. *(7+ Sobrevivência)*
+* **DASH v2:** ganha um novo DASH — **Break** (investida ofensiva, 7+ Força), **Space** (qualquer direção sem reações, 7+ Técnica) ou **Rock** (Resistência I per rank a dano mágico, 7+ Constituição).
+* **Minerador:** +2 per rank para minerar; +1DR de acerto com Picareta. *(6+ Atletismo)*
+* **Por um Fio:** 1×/dia rerola 1DR após ver o resultado; +1 em perícia enquanto não usar. *(critar com 3− de vida)*
+* **Furtivista:** Furtividade como ação bônus em combate / ação livre fora. *(Escondedor, 10+ Furtividade)*
+* **Sombra Viva:** move-se sem revelar furtividade. *(Furtivista, 18+ Furtividade)*

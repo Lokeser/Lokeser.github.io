@@ -1,3 +1,4 @@
+<!--#poder id="hb_exarcanamistica" fonte="habilidade" estrela="3" nome="Exarcana Mística"-->
 # Exarcana Mística
 **Requisitos:** Exarcana, Rank 7, Mana 9  
 **Ação:** Bônus  
@@ -17,3 +18,6 @@ Cria um símbolo mágico que funciona como extensão do seu núcleo de mana (cí
 - Rank 3: 3 Exarcanas  
 
 Cada Exarcana adicional requer ação bônus e 3 Magículas
+
+
+<!--#fim-->

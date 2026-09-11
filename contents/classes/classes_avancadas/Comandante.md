@@ -15,6 +15,7 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ## Rank 8
 
+<!--#poder id="ca_comandante_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Fundamentos do Comando"-->
 ### ⭐ 1 Estrela — Fundamentos do Comando
 
 #### Aliados
@@ -36,6 +37,9 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_comandante_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Voz e Presença"-->
 ### ⭐⭐⭐ 3 Estrelas — Voz e Presença
 
 #### Oratória
@@ -48,8 +52,11 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="ca_comandante_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐ 2 Estrelas — Táticas Avançadas"-->
 ### ⭐⭐ 2 Estrelas — Táticas Avançadas
 - Escolha **1 novo Comando** da lista para aprender.
 
@@ -59,6 +66,9 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_comandante_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Comando Sustentado"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Comando Sustentado
 
 #### Mente Estratégica
@@ -71,8 +81,11 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="ca_comandante_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Táticas de Mestre"-->
 ### ⭐ 1 Estrela — Táticas de Mestre
 - Escolha **1 novo Comando** da lista para aprender.
 
@@ -82,6 +95,9 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_comandante_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Autoridade Absoluta"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Autoridade Absoluta
 
 #### Comando Aprimorado
@@ -94,13 +110,19 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="ca_comandante_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐ 2 Estrelas — Táticas Superiores"-->
 ### ⭐⭐ 2 Estrelas — Táticas Superiores
 - Escolha **1 novo Comando** da lista para aprender.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_comandante_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Sacrifício e Logística"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Sacrifício e Logística
 
 #### Sacrifício do Rei
@@ -118,8 +140,11 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="ca_comandante_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="👑 Monarca do Campo de Batalha"-->
 ### 👑 Monarca do Campo de Batalha
 Sua presença dita o ritmo da guerra.
 
@@ -141,6 +166,8 @@ Sua presença dita o ritmo da guerra.
 > Todos os Comandos exigem **Postura de Comando** e **1 Ação de Comando**, salvo indicação contrária.
 
 ---
+
+<!--#fim-->
 
 ## Comandos Iniciais
 

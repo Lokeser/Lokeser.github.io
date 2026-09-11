@@ -1,3 +1,4 @@
+<!--#poder id="hb_spiritblade" fonte="habilidade" estrela="1" nome="Spirit Blade"-->
 # Spirit Blade
 
 **Requisitos:** 4+ Mana  
@@ -18,3 +19,6 @@ Enquanto a Spirit Blade estiver ativa:
 
 - **Rank 6** e **18+ Mana**  
   Recebe a habilidade de **4º Estágio – Death Blade**
+
+
+<!--#fim-->

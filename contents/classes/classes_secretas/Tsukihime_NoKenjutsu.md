@@ -1,275 +1,128 @@
-# Tsukihime no Kenjutsu  
-*Classe Avançada – Estilo de Esgrima da Princesa da Lua*  
+# Classe Secreta — Tsukihime no Kenjutsu
 
-> Pré-Requisito: Classe Extra [Link](https://trello.com/c/NMnltXaZ)  
-> Rank 8
+A Esgrima da Princesa da Lua, criada por Luna há mais de 13 mil anos — um estilo feito para imobilizar, passado de geração em geração até Loke. Combina cortes de prata, marcas lunares e teleportes.
 
----
-
-## Descrição
-Tsukihime no Kenjutsu é um estilo ancestral criado por **Luna, a Princesa da Lua**, há mais de 13 mil anos. Considerada a espadachim mais habilidosa do mundo, Luna era pura e gentil, então criou um estilo de luta para **imobilizar adversários**.  
-
-Para aprender, é necessário **sincronizar mente e corpo**, calculando movimentos em milissegundos. O estilo é passado de geração em geração para descendentes de Luna. A última descendente foi Alura, que passou o estilo para Loke.
+**Pré-Requisitos:** Classe Extra (Tsukihime), Rank 8.
 
 ---
 
-## Rank 8 – O Despertar do Luar
+## Rank 8 — O Despertar do Luar
 
-### ✭ Estrela 1 – Espada Banhada em Lua
-- **Custo:** 4 Magículas  
-- **Ação:** Ação Livre  
-- **Efeito:** Imbe o corpo e arma com eletricidade clara. Próximo ataque causa +1d12 de dano mágico a cada 2 pontos de Mana. Aplica 1 acúmulo da **Marca do Brilho Lunar**.  
-- O dado aumenta ao atingir a primeira estrela de um rank (d12 → d14 → d16 ...).
+<!--#poder id="cs_tsukihime_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Espada Banhada em Lua"-->
+### Espada Banhada em Lua
 
-### ✭✭ Estrela 2 – Marca do Brilho Lunar
-- **Passivo:** Acumula energia lunar. Ao atingir o limite, recupera Magículas igual à Mana e ganha VT igual ao triplo.  
-- Limite de Marcas:  
-  - Rank 8: 30  
-  - Rank 7: 28  
-  - Rank 6: 26  
-  - Rank 5: 24  
-  - Rank 4: 22
+Custo 4 Magículas · Ação Livre. Imbui corpo e arma: o próximo ataque causa +1d12 de Dano Mágico per 2 Mana (mesmo tipo da sua magia) e aplica 1 acúmulo da Marca do Brilho Lunar em você. O dado aumenta a cada 1ª estrela de rank (d12→d14→…).
+<!--#fim-->
 
-### ✭✭✭ Estrela 3 – Passo Lunar
-- **Custo:** 5 Magículas  
-- **Ação:** Ação Bônus  
-- **Efeito:** Teleporta-se para trás do alvo (alcance = Mana + ER metros).  
-  - Recebe +1DR contra o alvo no turno  
-  - Multiplicador crítico +1  
-  - Aplica 1d6 **Marca do Brilho Lunar** em si mesmo (dura apenas o turno)
+<!--#poder id="cs_tsukihime_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="Marca do Brilho Lunar"-->
+### Marca do Brilho Lunar
 
-### ✭✭✭✭✭ Estrela 5 – Treino Lunar
-- Aprenda uma Técnica da Princesa da Lua da lista de habilidades.
+*(Passivo)* Ao atingir o limite de Marcas, recupera Magículas iguais à Mana e ganha VT igual ao triplo. Limite: R8=30, R7=28, R6=26, R5=24, R4=22.
+<!--#fim-->
+
+<!--#poder id="cs_tsukihime_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Passo Lunar"-->
+### Passo Lunar
+
+Custo 5 Magículas · Ação Bônus. Teleporta-se para trás de um alvo (alcance Mana + ER em m). No resto do turno: +1DR contra ele, +1 no multiplicador de crítico, e seus ataques aplicam 1d6 Marcas em você.
+<!--#fim-->
+
+<!--#poder id="cs_tsukihime_r8e5" fonte="classe_avancada" rank="8" estrela="5" nome="Treino Lunar"-->
+### Treino Lunar
+
+Aprenda uma **Técnica da Princesa da Lua** (ver lista).
+<!--#fim-->
 
 ---
 
-## Rank 7 – A Dança do Eclipse
+## Rank 7 — A Dança do Eclipse
 
-### ✭✭ Estrela 2 – Passo Lunar Aprimorado
-- **Passivo e Ação Bônus:** Pode usar como reação (custo dobrado).  
-- Recebe +5 pontos para distribuir em **Furtividade** e **Percepção**.
+<!--#poder id="cs_tsukihime_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Passo Lunar Aprimorado"-->
+### Passo Lunar Aprimorado
 
-### ✭✭✭ Estrela 3 – Treino Lunar
-- Aprenda nova Técnica da Princesa da Lua.
+Pode usar Passo Lunar como reação (dobro de magículas). +5 pontos em Furtividade e Percepção.
+<!--#fim-->
 
----
+<!--#poder id="cs_tsukihime_r7e3" fonte="classe_avancada" rank="7" estrela="3" nome="Treino Lunar (II)"-->
+### Treino Lunar (II)
 
-## Rank 7 – A Fúria da Meia-Lua
-> Só acessível com a arcana
+Aprenda uma nova Técnica da Princesa da Lua.
+<!--#fim-->
 
-### ✭✭✭✭ Estrela 4 – Manto Lunar
-- **Ação:** Bônus  
-- Cria um manto de luz e raios (Artefato Sincronizado) até o fim do combate.  
-- Efeitos enquanto ativo:  
-  - CA = Arcana  
-  - Deslocamento = Furtividade  
-  - Metade das magículas gastas em **Espada Banhada ao Luar** retornam se acerto crítico
+<!--#poder id="cs_tsukihime_r7e4" fonte="classe_avancada" rank="7" estrela="4" nome="Manto Lunar"-->
+### Manto Lunar
 
-### ✭✭✭✭✭ Estrela 5 – Luar Penetrante
-- **Passivo:** Ataques ignoram Resistência a dano = ER × 2
+*(Requer a Arcana — A Fúria da Meia-Lua)* Ação Bônus. Gaste Mana em magículas para criar um manto de luz e raios (Artefato Sincronizado; dura até o fim do combate): CA igual à Arcana, Deslocamento igual à Furtividade, e crítico com Espada Banhada ao Luar recupera metade das magículas gastas no turno.
+<!--#fim-->
 
----
+<!--#poder id="cs_tsukihime_r7e5" fonte="classe_avancada" rank="7" estrela="5" nome="Luar Penetrante"-->
+### Luar Penetrante
 
-## Rank 6 – Coração da Supernova
-
-### ✭ Estrela 1 – Singularidade Lunar
-- **Passivo:** Gatilho da Marca do Brilho Lunar mais poderoso.  
-- Recupera Magículas e VT, recebe **Ação Bônus** adicional no próximo turno.
-
-### ✭✭✭ Estrela 3 – Rastro de Cometa
-- **Custo:** 7 Magículas  
-- **Ação:** Padrão  
-- Após Passo Lunar, acerto crítico recupera o custo em Magículas.
-
-### ✭✭✭✭✭ Estrela 5 – Treino Lunar
-- Aprenda nova Técnica da Princesa da Lua.
+*(Passivo)* Ataques sob Espada Banhada em Lua ignoram Resistência a Dano de qualquer tipo igual a **ER × 2**.
+<!--#fim-->
 
 ---
 
-## Rank 5 – Avatar do Firmamento
+## Rank 6 — Coração da Supernova
 
-### ✭✭ Estrela 2 – Espada Banhada em Lua Suprema
-- **Passivo:**  
-  - Margem de crítico aumenta +1  
-  - Acertos críticos obrigam teste de Constituição (CD 10 + Mana + ER) ou condição Fraco 1d4 rodadas  
-  - Deslocamento = Mana × ER  
-  - +7 pontos para distribuir em perícias de combate
+<!--#poder id="cs_tsukihime_r6e1" fonte="classe_avancada" rank="6" estrela="1" nome="Singularidade Lunar"-->
+### Singularidade Lunar
 
-### ✭✭✭✭ Estrela 4 – Treino Lunar
-- Aprenda nova Técnica da Princesa da Lua.
+*(Passivo)* Ao ativar a Marca do Brilho Lunar, além de Magículas e VT, recebe uma **Ação Bônus adicional** no próximo turno.
+<!--#fim-->
 
----
+<!--#poder id="cs_tsukihime_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Rastro de Cometa"-->
+### Rastro de Cometa
 
-## Rank 4 – Dungeon Mágica: Era das Estrelas
+Custo 7 Magículas. Após um Passo Lunar, se você acertar um crítico, o custo em magículas do poder é recuperado.
+<!--#fim-->
 
-- **Pré-Requisitos:**  
-  - Rank mínimo 4  
-  - Mana 15+  
-  - Classe: Esgrima da Princesa da Lua  
-  - Habilidade base Dungeon Mágica (adquirida no Rank 7)  
-  - Feito de grande magnitude relacionado à Lua, Mana ou Destino
+<!--#poder id="cs_tsukihime_r6e5" fonte="classe_avancada" rank="6" estrela="5" nome="Treino Lunar (III)"-->
+### Treino Lunar (III)
 
-### Ativação
-- **Uso:** 1 vez/dia  
-- **Ação:** Completa  
-- Lua cresce no céu, banhando a área (raio = Mana × 10m).  
-- Benefícios da Dungeon Mágica aplicam-se: imunidade a efeitos externos, bônus de Mana, aparência especial do mundo interior.
-
-### Poderes Exclusivos
-
-#### 1. Julgamento das Estrelas
-- **Uso:** 2x na Dungeon  
-- **Ação:** Padrão  
-- Raio de energia estelar pura: 10d12 de dano Anômalo  
-- Teste de Defesa de Sabedoria (CD 15 + Mana + ER)  
-- Marca o alvo, condição Vulnerável e sem possibilidade de se esconder  
-- Metade do dano se passa
-
-#### 2. Pulsar Lunar
-- **Gatilho:** Início de cada turno  
-- **Aliados:** Recebem VT igual ao número de acúmulos da Marca do Brilho Lunar  
-- **Inimigos:** Perdem 1 Estágio de Resistência ao tipo de dano primário  
-- **Corrosão Completa:** Vida máxima drenada = atributo de Mana (dura até o final da cena)
-
-# Técnicas da Princesa da Lua
-*Escolha uma técnica sempre que receber um Treino Lunar.*
+Aprenda uma nova Técnica da Princesa da Lua.
+<!--#fim-->
 
 ---
 
-## Visão Estelar
-- **Custo:** 7 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Conecta a mente ao firmamento, enxergando o corpo e a constelação da alma do inimigo.  
-- **Teste:** Defesa de Sabedoria (CD 10 + Mana + ER)  
-- **Efeito Falha:** Mestre informa duas informações: Resistência mais alta, Resistência mais baixa, CA, ou atributo de ataque principal.  
-- **Efeito Sucesso:** Você aprende apenas uma informação da lista acima.
+## Rank 5 — Avatar do Firmamento
+
+<!--#poder id="cs_tsukihime_r5e2" fonte="classe_avancada" rank="5" estrela="2" nome="Espada Banhada em Lua Suprema"-->
+### Espada Banhada em Lua Suprema
+
+*(Passivo)* Com a Espada ativa, margem de ameaça de crítico +1; críticos forçam Defesa de Corpo (CD 10 + Mana + ER) ou o alvo fica Fraco 1d4 rodadas; deslocamento vira Mana × ER; +7 pontos em perícias de combate.
+<!--#fim-->
+
+<!--#poder id="cs_tsukihime_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Treino Lunar (IV)"-->
+### Treino Lunar (IV)
+
+Aprenda uma nova Técnica da Princesa da Lua.
+<!--#fim-->
 
 ---
 
-## Selo do Ponto de Origem
-- **Custo:** 7 Magículas  
-- **Ação:** Ação Bônus  
-- **Descrição:** Marca um selo lunar no chão por 1 minuto.  
-- **Efeito:** Pode usar Reação ou Ação Bônus para teleportar-se instantaneamente de volta ao selo. O selo se dissipa após uso.
+## Rank 4
 
----
+<!--#poder id="cs_tsukihime_r4e1" fonte="classe_avancada" rank="4" estrela="1" nome="Dungeon Mágica: Era das Estrelas"-->
+### Dungeon Mágica: Era das Estrelas
 
-## Mar de Raios Laminar
-- **Custo:** 8 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Avança até 10 metros envolto em energia prateada.  
-- **Teste:** Defesa de Destreza (CD 10 + Mana + ER)  
-- **Efeito Falha:** Recebe dano de arma padrão + condição **Em Chamas** (1d6 dano mágico por turno)  
-- **Efeito Sucesso:** Não recebe condição, apenas dano normal.
+1×/dia · Ação Completa. Sobrepõe a realidade com o céu noturno (raio Mana × 10 m) — imunidade a efeitos externos e todos os efeitos base de Dungeon Mágica. Ganha dois poderes: **Julgamento das Estrelas** (2×; Ação Padrão; Defesa de Sabedoria CD 15 + Mana + ER; 10d12 Anômalo + marcado/Vulnerável; metade se passar) e **Pulsar Lunar** (início do turno: aliados ganham VT igual aos acúmulos de Marca; inimigos perdem 1 estágio de Resistência ao seu dano mágico, cumulativo; ao zerar, perdem Vida Máxima igual à sua Mana por pulso).
+<!--#fim-->
 
----
+## Técnicas da Princesa da Lua *(escolha ao receber um Treino Lunar)*
 
-## Parada da Imagem Espelhada
-- **Custo:** 8 Magículas  
-- **Ação:** Reação  
-- **Descrição:** Intercepta ataques corpo a corpo com velocidade sobrenatural.  
-- **Resultado maior:** Aparou o golpe, inimigo fica **Desprevenido** até o próximo turno.  
-- **Resultado igual/menor:** Falha em aparar, ataque atinge normalmente.
-
----
-
-## Voo da Mariposa Prateada
-- **Custo:** 8 Magículas  
-- **Ação:** Ação Bônus  
-- **Descrição:** Ganha deslocamento de voo igual ao terrestre por **ER** rodadas.
-
----
-
-## Dança da Borboleta Lunar
-- **Custo:** 10 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Três ataques rápidos ao alcance.  
-- **Efeito:** Cada acerto causa metade do dano, alvo perde 1d8 Magículas e você ganha 1d3 Marcas do Brilho Lunar.
-
----
-
-## Manto de Estrelas Cadentes
-- **Custo:** 10 Magículas  
-- **Ação:** Ação Bônus  
-- **Descrição:** Recebe bônus em todos os testes de defesa igual à ER, duração = atributo de Carisma rodadas (mín. 1).
-
----
-
-## Ricochete Lunar
-- **Custo:** 10 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Ataca um alvo e ricocheteia até 2 outros inimigos (total 3 ataques).  
-- **Penalidade:** -1DR cumulativo após o primeiro ataque.
-
----
-
-## Campo de Pressão Lunar
-- **Custo:** 12 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Cria zona de 15m de raio por ER rodadas.  
-- **Teste Falha:** deslocamento inimigo reduzido à metade e não pode correr (**Lento**)  
-- **Teste Sucesso:** deslocamento reduzido em 3m.
-
----
-
-## Troca Sideral
-- **Custo:** 12 Magículas  
-- **Ação:** Ação Bônus  
-- **Descrição:** Troca de posição com outra criatura a até 18m.  
-- **Teste:** Defesa de Carisma (CD 10 + Mana + ER) para inimigos; aliados podem aceitar.
-
----
-
-## Órbita da Lâmina Lunar
-- **Custo:** 15 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Ataca todos em 3m ao redor com dano **Magi-Cortante** = 1d6 para cada 2 de Destreza + valor de Destreza.
-
----
-
-## Lança da Estrela Polar
-- **Custo:** 18 Magículas  
-- **Ação:** Ação Completa  
-- **Descrição:** Estocada concentrada em ponto vital.  
-- **Efeito:** -1DR no acerto, dano **Magi-Perfurante** = 1d12 para cada 2 de Mana + valor de Mana.
-
----
-
-## Rank 6 – Presença da Lua Tirana
-- **Custo:** 15 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Aura lunar em 9m.  
-- **Teste Falha:** Inimigos **Apavorados** 1d4 rodadas  
-- **Teste Sucesso:** Inimigos **Abalados** 1 rodada
-
----
-
-## Rank 5 – Resplendor Lunar
-- **Custo:** 20 Magículas  
-- **Ação:** Ação Completa  
-- **Pré-requisito:** Conhecer ao menos 2 técnicas  
-- **Descrição:** Espada libera torrente de energia em linha 162m × 3m  
-- **Dano:** d16 p2Mana + Mana (metade Sagrado, metade Anômalo)  
-- **Condição:** Cego 1 rodada  
-- **Nota:** Encerra o turno e impede reações até o próximo turno.
-
----
-
-## Rank 5 – Divine Road
-- **Custo:** 30 Magículas + 20 Marcas do Brilho Lunar  
-- **Ação:** Ação Completa  
-- **Pré-requisito:** Ensinada por Alura e conhecer ao menos 4 técnicas  
-- **Descrição:** Golpe horizontal que cria onda de choque em cone 18m.  
-- **Efeito:** d20 pMana dano Magi-Cortante, todos arremessados 3d100m, Atordoados 1d4 rodadas  
-- **Opção:** Aumentar estágio de dano e distância transformando em Ação Completa  
-- **Impacto:** Usuário sofre 5d10 ignorando resistências e condição **Fraco** 1 rodada.
-
----
-
-## Rank 4 – Corte que Divide a Noite
-- **Custo:** 15 Magículas  
-- **Ação:** Ação Padrão  
-- **Descrição:** Arco de energia prateada de 54m (linha longa)  
-- **Teste:** Defesa de Destreza (CD 12 + Mana + ER)  
-- **Dano:** d10 pMana + Mana, **Magi-Cortante**  
-- **Efeito:** Ignora Resistência de Estágio VI ou inferior.
+* **Visão Estelar** (7 mgc, Ação Padrão): Defesa de Sabedoria; falha revela 2 infos do alvo, sucesso revela 1.
+* **Selo do Ponto de Origem** (7 mgc, Ação Bônus): sigilo por 1 min; teleporta de volta a ele como reação ou bônus.
+* **Mar de Raios Laminar** (8 mgc, Ação Padrão): linha 10m; Defesa de Técnica ou dano de arma + Em Chamas (prateado, 1d6 + ER/turno).
+* **Parada da Imagem Espelhada** (8 mgc, Reação): teste de ataque vs o inimigo; maior apara o golpe e o deixa Desprevenido.
+* **Voo da Mariposa Prateada** (8 mgc, Ação Bônus): voo igual ao deslocamento por ER rodadas.
+* **Dança da Borboleta Lunar** (10 mgc, Ação Padrão): 3 ataques (metade do dano); cada acerto drena 1d8 Magículas e dá 1d3 Marcas.
+* **Manto de Estrelas Cadentes** (10 mgc, Ação Bônus): +ER em todos os Testes de Defesa por Carisma rodadas.
+* **Ricochete Lunar** (10 mgc, Ação Padrão): até 3 ataques em 3 alvos (−1DR cumulativo).
+* **Campo de Pressão Lunar** (12 mgc, Ação Padrão): zona 15m por ER rodadas; Defesa de Corpo ou Lento.
+* **Troca Sideral** (12 mgc, Ação Bônus): troca de lugar com criatura a 18m (inimigo resiste com Defesa de Carisma).
+* **Órbita da Lâmina Lunar** (15 mgc, Ação Padrão): atinge todos em 3m; Magi-Cortante 1d6 per 2 Técnica + Técnica.
+* **Lança da Estrela Polar** (18 mgc, Ação Completa): ataque único −1DR; Magi-Perfurante 1d12 per 2 Mana + Mana.
+* **Presença da Lua Tirana** (R6, 15 mgc): raio 9m; Defesa de Sabedoria ou Apavorado 1d4 rodadas (Abalado se passar).
+* **Resplendor Lunar** (R5, 20 mgc, Ação Completa): linha 162m; d16 per 2 Mana + Mana (metade Sagrado/Anômalo) + Cego.
+* **Divine Road** (R5, 30 mgc + 20 Marcas): cone 18m; d20 per Mana Magi-Cortante automático + arremesso 3d100m + Atordoado (você sofre 5d10 e fica Fraco).
+* **Corte que Divide a Noite** (R4, 15 mgc): linha 54m; Defesa de Técnica; d10 per Mana + Mana Magi-Cortante; ignora Resistência ≤ VI.

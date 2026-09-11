@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; background: #14263c; color: #eaf2fa; font-family: 'Lato', sans-serif; overflow: hidden; }
+        html[data-theme="dark"] body { background: #0b0d12; }
+
+        /* ===== Abas de mapas ===== */
+        .mapas-bar {
+            display: flex; align-items: flex-end; gap: 10px;
+            padding: 12px 16px 0; background: #0d1b2c;
+            border-bottom: 2px solid #2a4a72; overflow-x: auto; position: relative; z-index: 60;
+        }
+        .mapa-aba {
+            background: transparent; border: 2px solid #fff; border-bottom: none;
+            border-radius: 14px 14px 0 0; color: #fff; padding: 10px 30px;
+            font-size: .95rem; cursor: pointer; white-space: nowrap; transition: .2s; font-family: 'Lato', sans-serif;
+        }
+        .mapa-aba:hover { background: rgba(255,255,255,.12); }
+        .mapa-aba.ativa { background: #14263c; border-color: #f0d17a; color: #f0d17a; font-weight: 700; }
+        .mapa-add {
+            background: transparent; border: 2px solid #fff; border-bottom: none;
+            border-radius: 10px 10px 0 0; color: #fff; padding: 10px 14px; cursor: pointer; font-size: 1rem; line-height: 1;
+        }
+        .mapa-add:hover { background: rgba(255,255,255,.15); }
+        .bar-acoes { margin-left: auto; display: flex; gap: 8px; padding-bottom: 8px; align-items: center; }
+
+        /* ===== Palco do mapa (zoom + pan) ===== */
+        .visor {
+            position: relative; width: 100%; height: calc(100vh - 118px);
+            overflow: hidden; cursor: grab; background: #0f1d30;
+        }
+        .visor.arrastando { cursor: grabbing; }
+        .palco { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+        .palco img.mapa-img { display: block; max-width: none; user-select: none; -webkit-user-drag: none; }
+
+        /* marcadores: tamanho fixo (contra-escala pelo --inv) */
+        .pino {
+            position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+            border-radius: 50%; border: 2px solid var(--cor, #fff);
+            background: rgba(8, 16, 28, .88);
+            display: flex; align-items: center; justify-content: center; font-size: .95rem;
+            cursor: pointer; transform: scale(var(--inv, 1)); transform-origin: center;
+            box-shadow: 0 0 0 2px rgba(0,0,0,.5), 0 4px 12px rgba(0,0,0,.6);
+            transition: filter .15s;
+        }
+        .pino:hover { filter: brightness(1.4); z-index: 30; }
+        .pino .rotulo {
+            position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+            background: rgba(6, 14, 24, .95); border: 1px solid var(--cor, #fff);
+            color: #fff; border-radius: 8px; padding: 4px 10px; font-size: .78rem;
+            white-space: nowrap; display: none; pointer-events: none; font-weight: 700;
+        }
+        .pino:hover .rotulo { display: block; }
+
+        /* ===== Painéis flutuantes ===== */
+        .painel {
+            position: absolute; z-index: 50; background: rgba(6, 14, 24, .92);
+            border: 1px solid #3a63d2; border-radius: 12px; padding: 12px 14px;
+            box-shadow: 0 10px 28px rgba(0,0,0,.55); backdrop-filter: blur(3px);
+        }
+        .painel .tit { font-size: .64rem; letter-spacing: 2px; text-transform: uppercase; color: #8fb3cf; margin-bottom: 8px; }
+        #legenda { left: 16px; top: 16px; max-height: calc(100% - 130px); overflow-y: auto; min-width: 170px; }
+        .leg-item {
+            display: flex; align-items: center; gap: 8px; width: 100%;
+            background: none; border: none; color: #eaf2fa; padding: 5px 4px;
+            cursor: pointer; font-size: .82rem; text-align: left; border-radius: 6px;
+        }
+        .leg-item:hover { background: rgba(255,255,255,.09); }
+        .leg-item.off { opacity: .35; text-decoration: line-through; }
+        .leg-item .bolinha { width: 12px; height: 12px; border-radius: 50%; border: 2px solid; flex: 0 0 12px; }
+        .leg-item .qtd { margin-left: auto; font-size: .7rem; color: #8fb3cf; }
+
+        #filtro-campanha { right: 16px; top: 16px; }
+        #filtro-campanha select {
+            background: rgba(0,0,0,.4); border: 1px solid #34699A; color: #fff;
+            border-radius: 8px; padding: 8px 10px; font-size: .86rem; min-width: 190px;
+        }
+
+        #zoom-ctrl { right: 16px; bottom: 16px; display: flex; gap: 6px; align-items: center; padding: 8px 10px; }
+        #zoom-ctrl button {
+            width: 32px; height: 32px; border-radius: 8px; border: 1px solid #58A0C8;
+            background: rgba(0,0,0,.35); color: #fff; cursor: pointer; font-size: 1rem; line-height: 1;
+        }
+        #zoom-ctrl button:hover { background: rgba(255,255,255,.14); }
+        #zoom-val { font-size: .78rem; color: #cfe1f0; min-width: 46px; text-align: center; }
+
+        .dica-flutuante {
+            position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 50;
+            background: rgba(6,14,24,.9); border: 1px solid #6b5a35; color: #f0c56b;
+            border-radius: 20px; padding: 8px 18px; font-size: .78rem; cursor: pointer;
+        }
+
+        .sem-mapa { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #9fc0da; gap: 14px; padding: 20px; }
+        .sem-mapa .icone { font-size: 3.4rem; opacity: .6; }
+
+        /* menu de contexto */
+        .menu-ctx {
+            position: fixed; z-index: 200; background: #101a2b; border: 1px solid #3a63d2;
+            border-radius: 10px; overflow: hidden; box-shadow: 0 14px 34px rgba(0,0,0,.65); min-width: 210px;
+        }
+        .menu-ctx button {
+            display: block; width: 100%; text-align: left; background: none; border: none;
+            border-bottom: 1px solid rgba(255,255,255,.08); color: #eaf2fa; padding: 10px 14px; cursor: pointer; font-size: .85rem;
+        }
+        .menu-ctx button:hover { background: rgba(255,255,255,.1); }
+        .menu-ctx .cab { padding: 8px 14px; font-size: .68rem; letter-spacing: 1px; text-transform: uppercase; color: #8fb3cf; background: rgba(0,0,0,.3); }
+
+        /* ===== Modais ===== */
+        .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .ov.aberto { display: flex; }
+        .box {
+            width: 100%; max-width: 520px; background: #101a2b; border: 1px solid #3a63d2;
+            border-top: 4px solid #f0d17a; border-radius: 14px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.7);
+        }
+        .box h3 { font-family: 'Cinzel', serif; color: #f0d17a; margin: 0 0 14px; }
+        .box label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: #8fb3cf; margin: 12px 0 5px; }
+        .box input[type=text], .box textarea, .box select {
+            width: 100%; box-sizing: border-box; background: rgba(0,0,0,.35);
+            border: 1px solid #34699A; color: #fff; border-radius: 8px; padding: 10px 12px; font-size: .9rem;
+        }
+        .box textarea { resize: vertical; min-height: 90px; font-family: inherit; }
+        .box input:focus, .box textarea:focus, .box select:focus { outline: none; border-color: #f0d17a; }
+        .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+        .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; transition: .2s; }
+        .b:hover { filter: brightness(1.13); transform: translateY(-1px); }
+        .b.ouro { background: #f0d17a; color: #14202e; }
+        .b.azul { background: #3a63d2; color: #fff; }
+        .b.fantasma { background: transparent; color: #cfe1f0; border: 1px solid #58A0C8; }
+        .b.perigo { background: #7a1f1f; color: #ffd9d9; }
+        .dica { font-size: .76rem; color: #8fb3cf; margin-top: 6px; }
+        .previa img { max-width: 100%; max-height: 190px; border-radius: 8px; border: 1px solid #58A0C8; margin-top: 8px; }
+        .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+        .chip {
+            background: rgba(58,99,210,.25); border: 1px solid #3a63d2; color: #cfe1f0;
+            border-radius: 14px; padding: 3px 12px; font-size: .76rem;
+        }
+
+        /* card do local */
+        .card-local { max-width: 620px; }
+        .card-local .capa { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; border: 1px solid #58A0C8; margin-bottom: 14px; }
+        .card-local .titulo { font-family: 'Cinzel', serif; font-size: 1.4rem; text-align: center; }
+        .card-local .subtipo { text-align: center; font-size: .76rem; letter-spacing: 2px; text-transform: uppercase; color: #9fc0da; margin-top: 4px; }
+        .card-local .desc { margin-top: 16px; font-size: .92rem; line-height: 1.6; white-space: pre-wrap; color: #e8f0f8; }
+        .card-local .campos { margin-top: 16px; }
+        .card-local .campos .tit { font-size: .66rem; letter-spacing: 2px; text-transform: uppercase; color: #8fb3cf; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="mapas-bar" id="mapas-bar"></div>
+
+    <div class="visor" id="visor">
+        <div class="palco" id="palco"></div>
+
+        <div class="painel" id="legenda"></div>
+        <div class="painel" id="filtro-campanha">
+            <div class="tit">Campanha</div>
+            <select id="sel-campanha"><option value="">Todas</option></select>
+        </div>
+        <div class="painel" id="zoom-ctrl">
+            <button id="zoom-menos" title="Diminuir">−</button>
+            <span id="zoom-val">100%</span>
+            <button id="zoom-mais" title="Aumentar">+</button>
+            <button id="zoom-reset" title="Enquadrar o mapa">⤢</button>
+        </div>
+    </div>
+
+    <!-- MODAL: MAPA (aba) -->
+    <div class="ov" id="ov-mapa">
+        <div class="box">
+            <h3 id="mapa-titulo">Novo Mapa</h3>
+            <label>Nome da aba</label>
+            <input type="text" id="mapa-nome" placeholder="Ex: Mundo, Strongland, Academia Omnus">
+            <label>Imagem do mapa</label>
+            <input type="file" id="mapa-img" accept="image/*">
+            <div class="previa" id="mapa-img-previa"></div>
+            <div class="dica">A imagem é enviada como arquivo para <code>assets/mapas/</code> no repositório (redimensionada para no máximo 2600px de largura).</div>
+            <div class="acoes">
+                <button class="b perigo" id="mapa-excluir" style="margin-right:auto;display:none">🗑 Excluir mapa</button>
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="mapa-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: LOCAL -->
+    <div class="ov" id="ov-local">
+        <div class="box">
+            <h3 id="local-titulo">Novo Local</h3>
+            <div class="dica" id="local-coord"></div>
+            <label>Nome do local</label>
+            <input type="text" id="local-nome" placeholder="Ex: Academia Omnus">
+            <label>Tipo</label>
+            <select id="local-tipo"></select>
+            <label>Foto do lugar (opcional)</label>
+            <input type="file" id="local-foto" accept="image/*">
+            <div class="previa" id="local-foto-previa"></div>
+            <label>Descrição</label>
+            <textarea id="local-desc" placeholder="O que existe aqui..."></textarea>
+            <label>Campanhas (separe por vírgula)</label>
+            <input type="text" id="local-campanhas" placeholder="A Queda de Omnus, Crônicas da Tundra">
+            <div class="acoes">
+                <button class="b perigo" id="local-excluir" style="margin-right:auto;display:none">🗑 Excluir local</button>
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="local-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP: CARD DO LOCAL -->
+    <div class="ov" id="ov-card">
+        <div class="box card-local" id="card-box">
+            <img class="capa" id="card-foto" alt="" style="display:none">
+            <div class="titulo" id="card-titulo"></div>
+            <div class="subtipo" id="card-tipo"></div>
+            <div class="desc" id="card-desc"></div>
+            <div class="campos" id="card-campanhas"></div>
+            <div class="acoes">
+                <button class="b azul" id="card-editar" style="display:none">✏️ Editar</button>
+                <button class="b fantasma" data-fechar>Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mapa.js"></script>
+</body>
+</html>

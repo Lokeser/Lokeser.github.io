@@ -1,3 +1,4 @@
+<!--#poder id="hb_auracontrol" fonte="habilidade" estrela="4" nome="Aura Control"-->
 # Aura Control
 **Pré-Requisitos:** Rank 6, Aura 6+, Suprimir Aura, Aura Intimidadora  
 
@@ -13,3 +14,6 @@ Permite manipular a aura de forma avançada:
     - Rank 6: escala 3,5 – falha em teste de CON = cair  
     - Rank 5: escala 5,5 – dano = 4x Aura  
     - Rank 4: escala 7 – destruição de construções até 1km, tremor em 100km, dano 8x Aura em 500m
+
+
+<!--#fim-->

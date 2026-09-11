@@ -1,3 +1,4 @@
+<!--#poder id="hb_manacharge" fonte="habilidade" estrela="1" nome="Mana Charge"-->
 # Mana Charge
 
 Você pode utilizar esta habilidade um número de vezes por dia igual à sua **ER**.
@@ -16,3 +17,6 @@ Como uma **Ação**:
 Você pode **queimar HP** igual à **metade da sua Mana** para receber **+1 uso** desta habilidade.
 
 - Esse uso extra **expira ao final do dia**
+
+
+<!--#fim-->

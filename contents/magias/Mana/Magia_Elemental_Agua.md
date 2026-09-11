@@ -8,6 +8,7 @@
 
 ## Rank 10
 
+<!--#poder id="mg_magia_elemental_agua_r10e1_1" fonte="magia" rank="10" estrela="1" nome="Núcleo de Mana Aquático"-->
 ### Núcleo de Mana Aquático
 Ao nascer com este núcleo, você manifesta características mágicas naturais da Água:
 
@@ -19,6 +20,9 @@ Ao nascer com este núcleo, você manifesta características mágicas naturais d
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r10e1_2" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
 ### Manipulação Livre
 Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, permitindo ataques mágicos.
 
@@ -37,6 +41,9 @@ Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, pe
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r10e1_3" fonte="magia" rank="10" estrela="1" nome="Fonte Natural"-->
 ### Fonte Natural
 Nem sempre é necessário gerar magia do próprio corpo. Fontes naturais potencializam a magia elemental.
 
@@ -51,8 +58,11 @@ Nem sempre é necessário gerar magia do próprio corpo. Fontes naturais potenci
 
 ---
 
+<!--#fim-->
+
 ## Rank 9
 
+<!--#poder id="mg_magia_elemental_agua_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Você aprende uma técnica especial de manipulação elemental.
 
@@ -65,19 +75,28 @@ Você aprende uma técnica especial de manipulação elemental.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r9e3_1" fonte="magia" rank="9" estrela="3" nome="Passos Sólidos"-->
 ### ★★★ Passos Sólidos
 - Teste de Mana **(CD 18)**  
 - Em sucesso, você pode **andar sobre a água por 1d7 turnos**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 8
 
+<!--#poder id="mg_magia_elemental_agua_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Armadura Aquática"-->
 ### Armadura Aquática
 Enquanto estiver submerso:
 
@@ -86,18 +105,27 @@ Enquanto estiver submerso:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r8e2_1" fonte="magia" rank="8" estrela="2" nome="Fonte Natural II"-->
 ### ★★ Fonte Natural II
 - Ataques realizados por **Fonte Natural** recebem **+1 DR no Acerto**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 7
 
+<!--#poder id="mg_magia_elemental_agua_r7e1_1" fonte="magia" rank="7" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r7e1_2" fonte="magia" rank="7" estrela="1" nome="Interação Mágica"-->
 ### Interação Mágica
 - Teste de **Percepção Mágica** contra um animal marítimo  
   - CD: **20 + ER da Criatura**
@@ -107,31 +135,46 @@ Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r7e2_1" fonte="magia" rank="7" estrela="2" nome="Passos Sólidos II"-->
 ### ★★ Passos Sólidos II
 - Permite **andar sobre a água indefinidamente**.
 
 ---
 
+<!--#fim-->
+
 ## Rank 6
 
+<!--#poder id="mg_magia_elemental_agua_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r6e3_1" fonte="magia" rank="6" estrela="3" nome="Núcleo de Mana Aquático II"-->
 ### ★★★ Núcleo de Mana Aquático II
 - Desbloqueia a **Manipulação Evoluída**
 - Escolha **uma Evolução** para o elemento Água.
 
 ---
 
+<!--#fim-->
+
 ## Rank 5
 
+<!--#poder id="mg_magia_elemental_agua_r5e1_1" fonte="magia" rank="5" estrela="1" nome="Formulação Elemental"-->
 ### ★ Formulação Elemental
 Aprenda **mais uma Formulação Elemental**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="mg_magia_elemental_agua_r5e5_1" fonte="magia" rank="5" estrela="5" nome="Super Conjuração"-->
 ### ★★★★★ Super Conjuração
 Forma avançada de magia elemental.
 
@@ -148,8 +191,11 @@ Forma avançada de magia elemental.
 
 ---
 
+<!--#fim-->
+
 ## Rank 4
 
+<!--#poder id="mg_magia_elemental_agua_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Manipulação Verus"-->
 ### ★ Manipulação Verus
 Sua magia atinge sua forma mais poderosa.
 
@@ -159,8 +205,11 @@ Sua magia atinge sua forma mais poderosa.
 
 ---
 
+<!--#fim-->
+
 ## Rank 3
 
+<!--#poder id="mg_magia_elemental_agua_r3e1_1" fonte="magia" rank="3" estrela="1" nome="Domínio Elemental — Água"-->
 ### Domínio Elemental — Água
 Você domina completamente o elemento.
 
@@ -175,3 +224,6 @@ Você domina completamente o elemento.
 - Deslocamento aquático **triplicado**
 
 ---
+
+
+<!--#fim-->

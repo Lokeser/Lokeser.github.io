@@ -1,3 +1,4 @@
+<!--#poder id="hb_evolucaoataque" fonte="habilidade" estrela="2" nome="Evolução de Ataque"-->
 # Evolução de Ataque
 
 Sempre que você realizar um ataque em um turno:
@@ -17,3 +18,5 @@ Ao adquirir esta evolução:
 
 Ao adquirir esta evolução:
 - Você se torna capaz de realizar um **quarto ataque** durante sua ação de ataque.
+
+<!--#fim-->

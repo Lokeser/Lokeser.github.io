@@ -18,6 +18,7 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_atirador_instintivo_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Instinto Perfurante"-->
 ### 1 Estrela — Instinto Perfurante
 
 * Você se torna um aficionado em **Artes de Tiro**.
@@ -27,6 +28,9 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela — Instintivo"-->
 ### 1 Estrela — Instintivo
 
 * Adquire **Pontos de Instinto**:
@@ -37,6 +41,9 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Destreza de Flechas"-->
 ### 2 Estrelas — Destreza de Flechas
 
 * Você **ignora a propriedade de recarga** das armas de longo alcance.
@@ -44,6 +51,9 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas — Olhar Afiado"-->
 ### 3 Estrelas — Olhar Afiado
 
 * Recebe **+5 em Percepção**.
@@ -52,8 +62,11 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário
 
+<!--#poder id="ca_atirador_instintivo_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela — Instinto Cauteloso | Instinto Confiante"-->
 ### 1 Estrela — Instinto Cauteloso | Instinto Confiante
 
 Escolha **apenas um**:
@@ -72,6 +85,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="2 Estrelas — Patrulheiro Parkour"-->
 ### 2 Estrelas — Patrulheiro Parkour
 
 * Recebe **+5 em Acrobacia**.
@@ -80,8 +96,11 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado
 
+<!--#poder id="ca_atirador_instintivo_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela — Esquiva Tática"-->
 ### 1 Estrela — Esquiva Tática
 
 * Sua Esquiva recebe uma propriedade extra:
@@ -93,6 +112,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Tiro Duplo"-->
 ### 3 Estrelas — Tiro Duplo
 
 * Como **ação bônus**, você pode acoplar uma segunda flecha.
@@ -104,6 +126,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="4 Estrelas — Mira do Futuro"-->
 ### 4 Estrelas — Mira do Futuro
 
 * Ao **Mirar como Ação de Movimento**:
@@ -112,6 +137,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrelas — Feitos II"-->
 ### 5 Estrelas — Feitos II
 
 * Sempre que acertar um **Crítico com valor máximo no Acerto**:
@@ -119,8 +147,11 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Especialista
 
+<!--#poder id="ca_atirador_instintivo_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Aguçar Instinto"-->
 ### 1 Estrela — Aguçar Instinto
 
 * Vezes por dia = **Sabedoria**.
@@ -132,6 +163,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrelas — Rolamento"-->
 ### 2 Estrelas — Rolamento
 
 * Sempre que se mover **4m ou mais**:
@@ -143,6 +177,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="3 Estrelas — Instinto Perfurante II"-->
 ### 3 Estrelas — Instinto Perfurante II
 
 * Suas armas passam a conceder:
@@ -151,8 +188,11 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Mestre Instintivo
 
+<!--#poder id="ca_atirador_instintivo_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Mestre Instintivo"-->
 ### 1 Estrela — Mestre Instintivo
 
 * Sempre que for alvo de um ataque:
@@ -163,6 +203,9 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Tiro Triplo"-->
 ### 1 Estrela — Tiro Triplo
 
 * **Tiro Duplo aprimorado**:
@@ -175,12 +218,18 @@ Escolha **apenas um**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="2 Estrelas — Feitos II"-->
 ### 2 Estrelas — Feitos II
 
 * Habilidades reduzem o **custo de Feito em 1** *(mín. 1)*.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_atirador_instintivo_r4e1_4" fonte="classe_avancada" rank="4" estrela="1" nome="3 Estrelas — Forma Líber (Instinto)"-->
 ### 3 Estrelas — Forma Líber (Instinto)
 
 * Recebe a **Forma Líber (Instinto)**.
@@ -192,6 +241,8 @@ Escolha **apenas um**:
 As Técnicas de Tiro consomem **Pontos de Instinto (I)** e representam manobras instintivas, acrobáticas e letais com armas à distância.
 
 ---
+
+<!--#fim-->
 
 ## Tiro-Carpado (1I)
 

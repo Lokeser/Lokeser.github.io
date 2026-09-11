@@ -7,6 +7,7 @@
 
 ## Rank 8 — Iniciante
 
+<!--#poder id="ca_combativo_magico_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Arma Favorita do Mago:**
@@ -25,6 +26,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_magico_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="4 Estrelas"-->
 ### 4 Estrelas
 
 **Lâmina Mágica:**
@@ -40,9 +44,12 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 7 — Intermediário  
 *Adquire ao evoluir o Rank com o estágio anterior.*
 
+<!--#poder id="ca_combativo_magico_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Espada da Luz | Espada das Sombras:**
@@ -55,6 +62,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_magico_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="2 Estrelas"-->
 ### 2 Estrelas
 
 **Instinto Mágico:**
@@ -66,9 +76,12 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 6 — Avançado  
 *Adquire ao evoluir o Rank com o estágio anterior.*
 
+<!--#poder id="ca_combativo_magico_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="1 Estrela"-->
 ### 1 Estrela
 
 **Treino de Resistência Equinox:**
@@ -78,6 +91,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_magico_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas"-->
 ### 3 Estrelas
 
 **Arma Favorita do Mago II:**
@@ -91,6 +107,9 @@
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="ca_combativo_magico_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="4 Estrelas"-->
 ### 4 Estrelas
 
 **Caminho:**
@@ -98,9 +117,12 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 5 — Mestre  
 *Adquire ao evoluir o Rank com o estágio anterior.*
 
+<!--#poder id="ca_combativo_magico_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="3 Estrelas"-->
 ### 3 Estrelas
 
 **Lâmina Mágica II:**
@@ -111,8 +133,11 @@
 
 ---
 
+<!--#fim-->
+
 ## Rank 4 — Santo da Espada Mágica
 
+<!--#poder id="ca_combativo_magico_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="Características"-->
 ### Características
 
 * Recebe direito a uma **terceira Arma Favorita do Mago**.
@@ -123,6 +148,8 @@
 * Recebe a **Forma Líber (Combate)**.
 
 ---
+
+<!--#fim-->
 
 ## Poderes do Caminho
 

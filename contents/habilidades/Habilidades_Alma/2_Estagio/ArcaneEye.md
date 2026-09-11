@@ -1,3 +1,4 @@
+<!--#poder id="hb_arcaneeye" fonte="habilidade" estrela="2" nome="Arcane Eye"-->
 # Arcane Eye
 _(O Olho do Mundo Interior)_
 
@@ -58,3 +59,6 @@ Evolução que ignora a casca física da realidade para enxergar a **verdade int
 - Vezes por dia igual à ER:
   - Força re-rolagem de um sucesso inimigo (fica com o pior)
   - Ou re-rola sua própria falha (fica com o melhor)
+
+
+<!--#fim-->

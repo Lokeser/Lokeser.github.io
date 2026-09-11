@@ -1,262 +1,143 @@
-# Shiki no Kenjutsu
-*Pré-Requisitos: Combativo, Rank 8*
+# Classe Secreta — Shiki no Kenjutsu
+
+A Esgrima das Quatro Estações. Empunha a **Shikimaru**, uma lâmina que troca entre Fogo, Água, Terra e Vento, canalizando o ciclo do ano em cortes migratórios.
+
+**Pré-Requisitos:** Combativo, Rank 8.
 
 ---
 
-## Aluno: Rank 8
+## Rank 8 — Aluno
 
-### ✭ Lâmina das Estações
-- **Descrição:** Escolha uma arma (Espada Longa, Espada Curta, Katana ou Nodachi), chamada **Shikimaru**.  
-- **Bônus:** +Acerto = Sabedoria | -1 na Margem de Ameaça
+<!--#poder id="cs_shiki_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Lâmina das Estações"-->
+### Lâmina das Estações
 
-### ✭✭ Cortes Migratórios
-- **Custo:** 2 Magículas  
-- **Descrição:** Após atacar, pode realizar um ataque extra usando ER + Sabedoria no Acerto e apenas os dados de dano.
+Escolha uma Espada Longa/Curta, Katana ou Nodachi — ela vira a **Shikimaru**. Ao empunhá-la: bônus no acerto igual à Sabedoria e −1 na Margem de Ameaça.
+<!--#fim-->
 
-### ✭✭✭ As 4 Estações
-- **Descrição:** Desbloqueia 4 Técnicas Iniciais do Shiki no Kenjutsu:  
-  - Verão: Hi no Hōkō  
-  - Inverno: Mizu no Tansaku  
-  - Outono: Ougomuno  
-  - Primavera: Sakuramaru
+<!--#poder id="cs_shiki_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="Cortes Migratórios"-->
+### Cortes Migratórios
 
----
+Após atacar, gaste 2 Magículas para um ataque extra (parte do mesmo ataque), usando só ER + Sabedoria no acerto e só os dados no dano.
+<!--#fim-->
 
-## Veterano: Rank 7
+<!--#poder id="cs_shiki_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="As 4 Estações"-->
+### As 4 Estações
 
-### ✭ Treino Solar
-- **Descrição:** Pode aprender 2 Técnicas Intermediárias de Shiki no Kenjutsu.
-
-### ✭✭ Inazuma no Kaidan
-- **Custo:** 2 Magículas  
-- **Ação:** Ação Bônus  
-- **Descrição:** Move-se rapidamente até Destreza + Arcana metros, ignorando obstáculos. Próximo ataque recebe +1D Acerto e Dano.
-
-### ✭✭✭ Aprimoramento Instintivo
-- **Descrição:** +10 Percepção | +5 pontos para Intuição e Sobrevivência
-
-### ✭✭✭✭ Lâmina Migratória
-- **Descrição:** Shikimaru causa dano extra = ER + Sabedoria. Aplica-se a Cortes Migratórios.  
-- **Margem de Ameaça:** -1
-
-### ✭✭✭✭✭ Fluxo Verdadeiro
-- **Descrição:** Cortes Migratórios podem ser usados até Sabedoria vezes/turno. Custo em Magículas aumenta +2 a cada uso.
+Desbloqueia as 4 Técnicas Iniciais (Verão: Hi no Hōkō, Inverno: Mizu no Tansaku, Outono: Ougomuno, Primavera: Sakuramaru).
+<!--#fim-->
 
 ---
 
-## Escolhido: Rank 6
+## Rank 7 — Veterano
 
-### ✭ Nova Técnica Elemental
-- **Descrição:** Pode aprender 1 Técnica Intermediária e 1 Avançada de Shiki no Kenjutsu.
+<!--#poder id="cs_shiki_r7e1" fonte="classe_avancada" rank="7" estrela="1" nome="Treino Solar"-->
+### Treino Solar
 
-### ✭✭ Marca das Estações
-- **Descrição:** Se inimigo for atingido por 4 tipos de dano elementais (Fogo, Água, Terra, Vento) em 2 turnos, sofre dano Anômalo = Dano da Shikimaru × ER (5d11 Base).  
-- **Limite:** 1 vez por inimigo a cada 1d6 turnos
+Pode aprender 2 Técnicas Intermediárias de Shiki no Kenjutsu.
+<!--#fim-->
 
-### ✭✭✭ Kami’o Inazuma no Kaidan
-- **Custo:** 4 Magículas  
-- **Descrição:** +2 CA e reduz taxa crítica = ER no próximo ataque (neste turno)
+<!--#poder id="cs_shiki_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Inazuma no Kaidan"-->
+### Inazuma no Kaidan
 
-### ✭✭✭✭✭ Mobilidade Aprimorada
-- **Descrição:** +10m deslocamento | +5 pontos para Furtividade e Acrobacia
+2 Magículas · Ação Bônus. Move-se em área igual à Técnica + Arcana, ignorando obstáculos. Depois, o próximo ataque recebe +1D no acerto e dano (1D R9-8, 2D R7-6, 3D R5-3).
+<!--#fim-->
 
----
+<!--#poder id="cs_shiki_r7e3" fonte="classe_avancada" rank="7" estrela="3" nome="Aprimoramento Instintivo"-->
+### Aprimoramento Instintivo
 
-## Mestre: Rank 5
+Percepção +10; +5 pontos em Intuição e Sobrevivência.
+<!--#fim-->
 
-### ✭ Arsenal de Técnicas
-- **Descrição:** Aprender 2 Técnicas Avançadas ou 1 Avançada + 1 Intermediária
+<!--#poder id="cs_shiki_r7e4" fonte="classe_avancada" rank="7" estrela="4" nome="Lâmina Migratória"-->
+### Lâmina Migratória
 
-### ✭✭ Foco Ancestral
-- **Descrição:** +10 Intuição | +7 pontos para Intuição e Sobrevivência
+A Shikimaru causa dano extra igual a ER + Sabedoria (aplica a Cortes Migratórios) e −1 na Margem de Ameaça.
+<!--#fim-->
 
-### ✭✭✭ Fluxo Constante
-- **Descrição:** No turno, troca de tipo de dano da Shikimaru recupera 1 Magícula e é considerada Ação Livre.
+<!--#poder id="cs_shiki_r7e5" fonte="classe_avancada" rank="7" estrela="5" nome="Fluxo Verdadeiro"-->
+### Fluxo Verdadeiro
 
-### ✭✭✭✭ Maestria de Cortes Migratórios
-- **Descrição:** Ataque extra de Cortes Migratórios causa dano completo da Shikimaru.
-
-### ✭✭✭✭✭ Ritual das Estações
-- **Uso:** 1 vez/dia, Ação Padrão  
-- **Descrição:** Todos os cristais de mana da Shikimaru recarregados, recupera Magículas = Sabedoria + ER
+Use Cortes Migratórios vezes por turno igual à Sabedoria; o custo aumenta +2 Magículas a cada uso.
+<!--#fim-->
 
 ---
 
-## Conceito: Rank 4
+## Rank 6 — Escolhido
+
+<!--#poder id="cs_shiki_r6e1" fonte="classe_avancada" rank="6" estrela="1" nome="Nova Técnica Elemental"-->
+### Nova Técnica Elemental
+
+Aprenda 1 Técnica Intermediária E 1 Técnica Avançada.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r6e2" fonte="classe_avancada" rank="6" estrela="2" nome="Marca das Estações"-->
+### Marca das Estações
+
+Ao atingir um inimigo com os 4 tipos elementais (Fogo/Água/Terra/Vento) da Shikimaru em 2 turnos, ele recebe Dano Anômalo igual ao dado da Shikimaru × ER (5d11 base). 1× por inimigo a cada 1d6 (ou 3) turnos.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Kami'o Inazuma no Kaidan"-->
+### Kami'o Inazuma no Kaidan
+
+4 Magículas após um Inazuma no Kaidan: +2 CA e reduz a taxa crítica pela ER (só no próximo ataque neste turno).
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r6e5" fonte="classe_avancada" rank="6" estrela="5" nome="Mobilidade Aprimorada"-->
+### Mobilidade Aprimorada
+
+Deslocamento +10m; +5 pontos em Furtividade e Acrobacia.
+<!--#fim-->
+
+---
+
+## Rank 5 — Mestre
+
+<!--#poder id="cs_shiki_r5e1" fonte="classe_avancada" rank="5" estrela="1" nome="Arsenal de Técnicas"-->
+### Arsenal de Técnicas
+
+Aprenda 2 Técnicas Avançadas OU 1 Avançada + 1 Intermediária.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r5e2" fonte="classe_avancada" rank="5" estrela="2" nome="Foco Ancestral"-->
+### Foco Ancestral
+
+Intuição +10; +7 pontos em Intuição e Sobrevivência.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Fluxo Constante"-->
+### Fluxo Constante
+
+Ao trocar o tipo de dano da Shikimaru (no 1º turno da rodada ou no seu), recupera 1 Magícula; a troca vira Ação Livre.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Maestria de Cortes Migratórios"-->
+### Maestria de Cortes Migratórios
+
+O ataque extra de Cortes Migratórios passa a causar o dano completo da Shikimaru.
+<!--#fim-->
+
+<!--#poder id="cs_shiki_r5e5" fonte="classe_avancada" rank="5" estrela="5" nome="Ritual das Estações"-->
+### Ritual das Estações
+
+1×/dia, Ação Padrão: recarrega os cristais de mana da Shikimaru e recupera Magículas iguais à Sabedoria + ER.
+<!--#fim-->
+
+---
+
+## Rank 4 — Conceito
+
+<!--#poder id="cs_shiki_r4e1" fonte="classe_avancada" rank="4" estrela="1" nome="A Imperatriz do Ciclo Planetário"-->
 ### A Imperatriz do Ciclo Planetário
-- **Descrição:** Pode aprender 1 Técnica Avançada e 1 Suprema de Shiki no Kenjutsu.  
-- **Benefícios:**  
-  - +2 Mana  
-  - +8 pontos para Percepção Mágica e Aura  
-  - Inazuma no Kaidan: 2x/dia sem custo, +1D Acerto/Dano para próximos ataques (até 3 ataques)  
-  - Marca das Estações: dano Anômalo 3d8 + Sabedoria×2 + ER×3; inimigo fica Vulnerável 1 turno  
-  - Ação Bônus diária: imbuir Shikimaru com um elemento (Fogo, Água, Terra, Vento) por 1 minuto; +Sabedoria no dano e ignora Resistência I do tipo
 
-- **Desbloqueio:** Forma Liber (Dama da 2ª Calamidade)
+Aprenda 1 Técnica Avançada + 1 Suprema. Mana +2; +8 pontos em Percepção Mágica e Aura. Inazuma no Kaidan 2×/dia sem custo (bônus +1D no turno, até 3 ataques). Marca das Estações vira 3d8 + Sabedoria×2 + ER×3 e deixa o alvo Vulnerável. 1×/dia imbui a Shikimaru com um elemento por 1 min (+Sabedoria de dano, ignora Resistência I). Desbloqueia **Forma Liber (Dama da 2ª Calamidade)**.
+<!--#fim-->
 
-# Shiki no Kenjutsu – Técnicas
+## Técnicas do Shiki no Kenjutsu *(escolha ao ganhar acesso)*
 
----
+**Iniciais** — Hi no Hōkō (Verão/Fogo, cone 5m + efeito de crítico), Mizu no Tansaku (Inverno/Água, drena ER Magículas), Ougomuno (Outono/Terra, VT igual à ER), Sakuramaru (Primavera/Vento, empurra Mana metros).
 
-## Técnicas Iniciais
+**Intermediárias** — *Fogo:* Honoo Zan (Em Chamas), Ryūen no Iki (cone 3m, Ofuscado), Shien no Mai (dado extra ER). *Água:* Hyōketsu Ryū (Lento), Suijun (reação, +2 CA), Iyashi no Nami (cura 1d8 + Sab + ER). *Terra:* Jishin Shōgeki (Tonto), Ganpeki (barreira), Nebari (Imóvel). *Vento:* Kaze Kiri (−1DR no inimigo), Shippū no Suishin (+6m), Shunbi no Kaze (+2 esquiva).
 
-### Verão – Hi no Hōkō
-- **Ação:** Ataque  
-- **Descrição:** Concentre a energia ardente da espada e desfira um golpe flamejante em um cone de 5m. Se passar na CA, inimigos recebem o Dano de Shikimaru (Fogo) e seu Efeito de Crítico.
+**Avançadas** — *Fogo:* Nekkaku Rensa (ricochete), Kaen no Toppa (investida + empurrão), Hai to Ketsujin (nuvem de cinzas). *Água:* Suidan no Gekiryū (linha 18m perfurante), Tōketsu no Daichi (chão de gelo), Fukai Kiri no Rōgoku (névoa 12m). *Terra:* Gansaku no Sōgeki (estacas + Imóvel), Doro no Nami (onda de lama). *Vento:* Kaiten no Kamaitachi (ciclone), Bōfū no Hōi (desvia projéteis).
 
-### Inverno – Mizu no Tansaku
-- **Ação:** Ataque  
-- **Descrição:** Mergulhe a lâmina na água circundante. Ataque como Shikimaru (Água). Alvo acertado perde Magículas = ER.
-
-### Outono – Ougomuno
-- **Ação:** Ataque  
-- **Descrição:** Golpe poderoso que destroça com impacto. Ataque como Shikimaru (Terra). Se acertar, você recebe VT = ER.
-
-### Primavera – Sakuramaru
-- **Ação:** Ataque  
-- **Descrição:** Golpe que varre o vento. Ataque como Shikimaru (Vento). Alvo atingido é empurrado em metros = Mana.
-
----
-
-## Técnicas Intermediárias
-
-### Verão (Fogo)
-
-#### Honoo Zan
-- **Custo:** 2 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Golpe flamejante. Se acertar, alvo recebe dano da Shikimaru (Fogo) e Teste de Constituição (CD 10+Mana+ER). Falha: Fica Em Chamas e dano ignora Resistência I de Fogo.
-
-#### Ryūen no Iki
-- **Custo:** 3 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Rajada de chamas em cone de 3m. Inimigos recebem 2d6+Sabedoria+ER de dano de Fogo e Teste de Destreza (CD 10+Mana+ER) ou ficam Ofuscados.
-
-#### Shien no Mai
-- **Custo:** 2 Magículas  
-- **Ação:** Bônus  
-- **Descrição:** Ataques corpo a corpo causam +1d dano = ER e -1 margem de ameaça para críticos de Fogo.
-
-### Inverno (Água)
-
-#### Hyōketsu Ryū
-- **Custo:** 2 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Golpe de água gélida. Alvo faz Teste de Força (CD 10+Mana+ER) ou fica Lento.
-
-#### Suijun
-- **Custo:** 3 Magículas  
-- **Ação:** Reação  
-- **Descrição:** Escudo de água +2 CA e atacante corpo a corpo faz Teste de Força (CD 10+Mana+ER) ou é empurrado 3m.
-
-#### Iyashi no Nami
-- **Custo:** 4 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Onda de energia aquática em si ou aliado até 6m. Cura 1d8+Sabedoria+ER e remove condição adversa de corpo.
-
-### Outono (Terra)
-
-#### Jishin Shōgeki
-- **Custo:** 2 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Golpe pesado reverbera no chão. Alvo faz Teste de Constituição (CD 10+Mana+ER) ou fica Tonto 1 turno.
-
-#### Ganpeki
-- **Custo:** 3 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Conjura barreira de terra (1.5x1.5m), CA 15, 20 PV, cobertura total até o fim do turno ou destruição.
-
-#### Nebari
-- **Custo:** 2 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Ataque com força da terra. Teste de Destreza (CD 10+Mana+ER) ou alvo fica Imóvel 1 turno.
-
-### Primavera (Vento)
-
-#### Kaze Kiri
-- **Custo:** 2 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Corte rápido cria rajada de vento. Alvo recebe dano da Shikimaru (Vento) e próximo ataque do inimigo tem -1DR.
-
-#### Shippū no Suishin
-- **Custo:** 2 Magículas  
-- **Ação:** Movimento  
-- **Descrição:** Corrente de vento aumenta deslocamento em +6m, sem provocar ataques de oportunidade.
-
-#### Shunbi no Kaze
-- **Custo:** 3 Magículas  
-- **Ação:** Bônus  
-- **Descrição:** Aura de vento: +2 testes de Destreza para esquiva e Vantagem em Acrobacia.
-
----
-
-## Técnicas Avançadas
-
-### Verão (Fogo) – A Chama Concentrada
-
-#### Nekkaku Rensa
-- **Custo:** 3 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Golpe lança bola de fogo supercondensada. Acerto atinge segundo inimigo até 9m. Dano adicional = 1d8 cada 2 Mana + ER.
-
-#### Kaen no Toppa
-- **Custo:** 2 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Investida propulsora de chamas. Passa por obstáculos, inimigo faz Teste de Destreza ou recebe dano de Fogo+Contusão (1d10/2 Força + Força) e é empurrado 6m.
-
-#### Hai to Ketsujin
-- **Custo:** 3 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Nuvem de cinzas e brasas em raio 6m. Teste de Constituição (CD 10+Mana+ER) ou Ofuscado e tossindo. Nuvem dura 1d4+1 turnos.
-
-### Inverno (Água) – A Força Inexorável
-
-#### Suidan no Gekiryū
-- **Custo:** 3 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Jato de água 18x1,5m. Teste de Destreza (CD 10+Mana+ER) ou dano Perfurante Água = 1d8/2 Mana + Mana.
-
-#### Tōketsu no Daichi
-- **Custo:** 2 Magículas  
-- **Ação:** Bônus  
-- **Descrição:** Piso coberto de gelo em raio 9m. Teste de Destreza (CD 10+Sabedoria+ER) ou Caído.
-
-#### Fukai Kiri no Rōgoku
-- **Custo:** 4 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Névoa mágica 12m. Criaturas dentro ficam Cegas/Surdas, deslocamento reduzido pela metade. Dura 1 minuto ou até dispersada.
-
-### Outono (Terra) – O Peso da Vontade
-
-#### Gansaku no Sōgeki
-- **Custo:** 3 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Ataque de Shikimaru + estacas de pedra. Teste de Destreza (CD 10+Sabedoria+ER) ou Imóvel + dano Perfurante 1d6/2 Sabedoria + Sabedoria.
-
-#### Doro no Nami
-- **Custo:** 2 Magículas  
-- **Ação:** Movimento  
-- **Descrição:** Onda de lama dobra deslocamento em linha reta. Teste de Força (CD 10+Força+ER) ou Caído.
-
-### Primavera (Vento) – A Lâmina Invisível
-
-#### Kaiten no Kamaitachi
-- **Custo:** 3 Magículas  
-- **Ação:** Ataque  
-- **Descrição:** Pequeno ciclone 3m altura até 18m. Movimenta-se 9m/turno. Teste de Força (CD 10+Sabedoria+ER) ou inimigo erguidos 3m e girando.
-
-#### Bōfū no Hōi
-- **Custo:** 3 Magículas  
-- **Ação:** Bônus  
-- **Descrição:** Aura de ventos por 1 minuto. Ataques de projétil normais erram automaticamente; mágicos/cerco -2DR.
-
----
-
-## Técnicas Supremas
-
-### Verão (Fogo) – A Ira do Sol
-
-#### Chōshinsei no Gōka
-- **Custo:** 10 Magículas  
-- **Ação:** Padrão  
-- **Descrição:** Sol em miniatura surge a 50m. Inimigos em 300m recebem 1d20/2 Mana + Mana
+**Supremas** — *Fogo:* Chōshinsei no Gōka (sol em miniatura, raio 300m, 1d20 per 2 Mana + Mana). *Água:* Kaitei no Hakai-shin (pressão abissal, 1d20 per Constituição/Corpo, ignora CA). *Água:* Suikyō no Setsuri (reação anti-morte, reflete o dano). *Terra:* Tairiku no Ibuki (choque tectônico 500m), Jūryoku no Chōtei (singularidade gravitacional 50m). *Vento:* Ichi-O-Kiri no Arashi (Tempestade de Um Milhão de Cortes, raio 200m, 1d10 per Destreza/Técnica + Técnica×2).

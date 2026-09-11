@@ -1,3 +1,4 @@
+<!--#poder id="hb_eleveneye" fonte="habilidade" estrela="2" nome="Elven Eye"-->
 # Elven Eye
 
 **Pré-Requisitos:**  
@@ -29,3 +30,6 @@ Ao ativar o Elven Eye, você recebe:
 
 - Durante o combate, pode consumir **1 Magícula** para:
   - Realizar um teste de **Mana, Inteligência ou Sabedoria** como **Ação Livre**
+
+
+<!--#fim-->

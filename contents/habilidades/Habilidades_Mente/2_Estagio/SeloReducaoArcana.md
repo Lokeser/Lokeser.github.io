@@ -1,3 +1,4 @@
+<!--#poder id="hb_seloreducaoarcana" fonte="habilidade" estrela="2" nome="Selo de Redução Arcana"-->
 # Selo de Redução Arcana
 **Pré-Requisitos:** 1+ Sabedoria, 2+ Inteligência ou Mana  
 
@@ -14,3 +15,6 @@ Reduz atributos de um alvo enquanto acelera sua evolução:
 - 2 ou mais: +1 em um Atributo ao evoluir  
 - 3 ou mais: Aprender Habilidade adicional ao evoluir  
 - 5 ou mais: Limite de Mana aumenta (22 → 30 conforme evolução)
+
+
+<!--#fim-->

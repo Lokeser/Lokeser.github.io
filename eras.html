@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eras - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --era-fundo: #1b3a5c; --era-fundo2: #14263c; }
+        body {
+            margin: 0; background: var(--era-fundo); color: #eaf2fa;
+            font-family: 'Lato', sans-serif; min-height: 100vh;
+        }
+        html[data-theme="dark"] body { background: #0b0d12; }
+
+        /* ===== Abas de mundos ===== */
+        .mundos-bar {
+            position: sticky; top: 0; z-index: 60;
+            display: flex; align-items: flex-end; gap: 10px;
+            padding: 12px 16px 0; background: #0d1b2c;
+            border-bottom: 2px solid #2a4a72;
+            overflow-x: auto;
+        }
+        .mundo-aba {
+            background: transparent; border: 2px solid #fff; border-bottom: none;
+            border-radius: 14px 14px 0 0; color: #fff;
+            padding: 10px 30px; font-size: .95rem; cursor: pointer;
+            white-space: nowrap; transition: .2s; font-family: 'Lato', sans-serif;
+        }
+        .mundo-aba:hover { background: rgba(255,255,255,.12); }
+        .mundo-aba.ativa { background: var(--era-fundo); border-color: #f0d17a; color: #f0d17a; font-weight: 700; }
+        .mundo-add {
+            background: transparent; border: 2px solid #fff; border-bottom: none;
+            border-radius: 10px 10px 0 0; color: #fff;
+            padding: 10px 14px; cursor: pointer; font-size: 1rem; line-height: 1;
+        }
+        .mundo-add:hover { background: rgba(255,255,255,.15); }
+        .aba-acoes { margin-left: auto; display: flex; gap: 8px; padding-bottom: 8px; }
+
+        /* ===== HUD do ano ===== */
+        .hud {
+            position: fixed; top: 96px; left: 20px; z-index: 55;
+            background: rgba(6, 14, 24, .88); border: 1px solid #3a63d2;
+            border-radius: 12px; padding: 12px 16px; min-width: 190px;
+            box-shadow: 0 10px 28px rgba(0,0,0,.5);
+        }
+        .hud .rot { font-size: .64rem; letter-spacing: 2px; text-transform: uppercase; color: #8fb3cf; }
+        .hud .ano { font-family: 'Cinzel', serif; font-size: 1.7rem; font-weight: 700; color: #f0d17a; line-height: 1.1; }
+        .hud .dentro { font-size: .82rem; color: #cfe1f0; margin-top: 6px; }
+        .hud .era-nome { font-size: .78rem; margin-top: 2px; font-weight: 700; }
+        .hud .total { font-size: .72rem; color: #8fb3cf; margin-top: 8px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 6px; }
+
+        /* ===== Linha do tempo ===== */
+        .linha-area { position: relative; padding: 40px 0 140px; }
+        .coluna { --larg: 170px; position: relative; width: var(--larg); margin: 0 auto; }
+        .era {
+            position: relative; width: 170px; box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,.35);
+            cursor: pointer;
+        }
+        .era:hover { filter: brightness(1.08); }
+        /* conteúdo DENTRO do retângulo: nome + imagem 128x128 */
+        .era-dentro {
+            height: 100%; overflow: hidden; padding: 8px 8px 0;
+            text-align: center; pointer-events: none; box-sizing: border-box;
+        }
+        .era-dentro .nome {
+            font-family: 'Cinzel', serif; font-weight: 700; font-size: .92rem; color: #fff;
+            text-shadow: 0 2px 6px rgba(0,0,0,.9); line-height: 1.2;
+        }
+        .era-dentro .anos { font-size: .68rem; color: rgba(255,255,255,.85); margin-top: 2px; text-shadow: 0 1px 4px #000; }
+        .era-dentro img {
+            width: 128px; height: 128px; object-fit: cover; margin: 8px auto 0; display: block;
+            border-radius: 8px; border: 2px solid rgba(255,255,255,.6);
+            box-shadow: 0 6px 18px rgba(0,0,0,.55);
+        }
+        /* marcas de século (saem à direita do retângulo, na cor da era) */
+        .seculo { position: absolute; left: 170px; width: 16px; height: 2px; pointer-events: none; }
+        .seculo span {
+            position: absolute; left: 20px; top: -8px; font-size: .64rem;
+            color: rgba(255,255,255,.6); white-space: nowrap;
+        }
+        /* alça de arrastar (só editor) */
+        .alca {
+            position: absolute; left: 0; bottom: -5px; width: 170px; height: 12px;
+            background: #000; cursor: ns-resize; border-radius: 2px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,.4);
+        }
+        .alca::after {
+            content: '⇕ arraste'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+            font-size: .6rem; color: #fff; white-space: nowrap;
+        }
+
+        /* eventos: risco preto à esquerda + nome */
+        .evento {
+            position: absolute; right: 170px; height: 0; width: 300px;
+            display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+            cursor: pointer; pointer-events: auto;
+        }
+        .evento .txt {
+            text-align: right; line-height: 1.2; max-width: 250px;
+            text-shadow: 0 2px 6px rgba(0,0,0,.9);
+        }
+        .evento .txt b { color: #f0d17a; font-size: .84rem; display: block; }
+        .evento .txt small { color: #dfe9f2; font-size: .72rem; }
+        .evento .risco { width: 34px; height: 3px; background: #000; flex: 0 0 34px; box-shadow: 0 0 0 1px rgba(255,255,255,.35); }
+        .evento:hover .txt b { color: #fff; }
+        .evento:hover .risco { background: #f0d17a; }
+
+        /* fantasma do mouse (posição do novo evento) */
+        .fantasma {
+            position: absolute; right: 170px; height: 0; width: 280px; pointer-events: none;
+            display: flex; align-items: center; justify-content: flex-end; gap: 8px; opacity: .85;
+        }
+        .fantasma .risco { width: 34px; height: 3px; background: #000; flex: 0 0 34px; }
+        .fantasma .txt { font-size: .74rem; color: #fff; text-shadow: 0 2px 6px #000; }
+
+        .vazio-aviso { text-align: center; color: #9fc0da; padding: 70px 20px; }
+        .vazio-aviso .icone { font-size: 3rem; display: block; margin-bottom: 12px; opacity: .6; }
+
+        .btn-nova-era {
+            display: block; margin: 0 auto; background: #000; color: #fff;
+            border: 1px solid rgba(255,255,255,.4); border-radius: 4px;
+            padding: 10px 18px; cursor: pointer; font-size: .86rem;
+        }
+        .btn-nova-era:hover { background: #1b1b1b; box-shadow: 0 0 14px rgba(240,209,122,.3); }
+        .legenda-nova { text-align: center; color: #dfe9f2; font-size: .84rem; margin-top: 8px; }
+
+        .modo-leitura-aviso {
+            position: fixed; bottom: 16px; left: 16px; z-index: 55;
+            background: rgba(6,14,24,.9); border: 1px solid #6b5a35; color: #f0c56b;
+            border-radius: 20px; padding: 8px 16px; font-size: .78rem;
+        }
+
+        /* ===== Modais ===== */
+        .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .ov.aberto { display: flex; }
+        .box {
+            width: 100%; max-width: 520px; background: #101a2b;
+            border: 1px solid #3a63d2; border-top: 4px solid #f0d17a; border-radius: 14px;
+            padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.7);
+        }
+        .box h3 { font-family: 'Cinzel', serif; color: #f0d17a; margin: 0 0 14px; }
+        .box label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: #8fb3cf; margin: 12px 0 5px; }
+        .box input[type=text], .box input[type=number], .box textarea {
+            width: 100%; box-sizing: border-box; background: rgba(0,0,0,.35);
+            border: 1px solid #34699A; color: #fff; border-radius: 8px; padding: 10px 12px; font-size: .9rem;
+        }
+        .box textarea { resize: vertical; min-height: 90px; font-family: inherit; }
+        .box input:focus, .box textarea:focus { outline: none; border-color: #f0d17a; }
+        .box input[type=color] { width: 60px; height: 38px; background: none; border: 1px solid #34699A; border-radius: 8px; cursor: pointer; }
+        .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+        .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; transition: .2s; }
+        .b:hover { filter: brightness(1.13); transform: translateY(-1px); }
+        .b.ouro { background: #f0d17a; color: #14202e; }
+        .b.azul { background: #3a63d2; color: #fff; }
+        .b.fantasma { background: transparent; color: #cfe1f0; border: 1px solid #58A0C8; }
+        .b.perigo { background: #7a1f1f; color: #ffd9d9; }
+        .dica { font-size: .76rem; color: #8fb3cf; margin-top: 6px; }
+        .previa { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .previa img { width: 74px; height: 74px; object-fit: cover; border-radius: 6px; border: 1px solid #58A0C8; }
+
+        /* menu de contexto da era */
+        .menu-era {
+            position: absolute; z-index: 200; background: #101a2b; border: 1px solid #3a63d2;
+            border-radius: 10px; overflow: hidden; box-shadow: 0 14px 34px rgba(0,0,0,.65); min-width: 210px;
+        }
+        .menu-era button {
+            display: block; width: 100%; text-align: left; background: none; border: none;
+            border-bottom: 1px solid rgba(255,255,255,.08); color: #eaf2fa;
+            padding: 10px 14px; cursor: pointer; font-size: .85rem;
+        }
+        .menu-era button:hover { background: rgba(255,255,255,.1); }
+        .menu-era .cab { padding: 8px 14px; font-size: .68rem; letter-spacing: 1px; text-transform: uppercase; color: #8fb3cf; background: rgba(0,0,0,.3); }
+
+        /* card do evento (popup) */
+        .card-evento { max-width: 620px; }
+        .card-evento .titulo { font-family: 'Cinzel', serif; color: #f0d17a; font-size: 1.35rem; text-align: center; }
+        .card-evento .ano-sel { text-align: center; color: #9fc0da; font-size: .78rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+        .card-evento .desc { margin-top: 16px; font-size: .92rem; line-height: 1.6; color: #e8f0f8; white-space: pre-wrap; }
+        .card-evento .fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 18px; }
+        .card-evento .fotos img { width: 100%; border-radius: 8px; border: 1px solid #58A0C8; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="mundos-bar" id="mundos-bar"></div>
+
+    <div class="hud" id="hud">
+        <div class="rot">Ano do Mundo</div>
+        <div class="ano" id="hud-ano">—</div>
+        <div class="era-nome" id="hud-era">—</div>
+        <div class="dentro" id="hud-dentro"></div>
+        <div class="total" id="hud-total"></div>
+    </div>
+
+    <div class="linha-area" id="linha-area"></div>
+
+    <!-- MODAL: MUNDO -->
+    <div class="ov" id="ov-mundo">
+        <div class="box">
+            <h3 id="mundo-titulo">Novo Mundo</h3>
+            <label>Nome do mundo</label>
+            <input type="text" id="mundo-nome" placeholder="Ex: Luxsandoria">
+            <div class="acoes">
+                <button class="b perigo" id="mundo-excluir" style="margin-right:auto;display:none">🗑 Excluir mundo</button>
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="mundo-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ERA -->
+    <div class="ov" id="ov-era">
+        <div class="box">
+            <h3 id="era-titulo">Novo Período de Tempo</h3>
+            <label>Nome da era</label>
+            <input type="text" id="era-nome" placeholder="Ex: Era da Selva">
+            <div style="display:flex;gap:14px;flex-wrap:wrap">
+                <div style="flex:0 0 auto"><label>Cor</label><input type="color" id="era-cor" value="#8a5cf6"></div>
+                <div style="flex:1;min-width:150px"><label>Duração (anos = pixels)</label><input type="number" id="era-anos" value="300" min="1"></div>
+            </div>
+            <label>Imagem (opcional — será redimensionada para 128×128)</label>
+            <input type="file" id="era-img" accept="image/*">
+            <div class="previa" id="era-img-previa"></div>
+            <div class="dica">Depois de criar, arraste a alça preta na base do retângulo para ajustar a duração (1 px = 1 ano).</div>
+            <div class="acoes">
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="era-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: EVENTO (edição) -->
+    <div class="ov" id="ov-evento">
+        <div class="box">
+            <h3 id="evento-titulo">Novo Evento</h3>
+            <div id="evento-ano-info" class="dica"></div>
+            <label>Nome do evento</label>
+            <input type="text" id="evento-nome" placeholder="Ex: A Batalha da Selva">
+            <label>Ano (dentro da era)</label>
+            <input type="number" id="evento-ano" min="0">
+            <label>Descrição</label>
+            <textarea id="evento-desc" placeholder="O que aconteceu..."></textarea>
+            <label>Fotos (opcional)</label>
+            <input type="file" id="evento-fotos" accept="image/*" multiple>
+            <div class="previa" id="evento-fotos-previa"></div>
+            <div class="acoes">
+                <button class="b perigo" id="evento-excluir" style="margin-right:auto;display:none">🗑 Excluir evento</button>
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="evento-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP: CARD DO EVENTO -->
+    <div class="ov" id="ov-card">
+        <div class="box card-evento" id="card-box">
+            <div class="titulo" id="card-titulo"></div>
+            <div class="ano-sel" id="card-ano"></div>
+            <div class="desc" id="card-desc"></div>
+            <div class="fotos" id="card-fotos"></div>
+            <div class="acoes">
+                <button class="b azul" id="card-editar" style="display:none">✏️ Editar</button>
+                <button class="b fantasma" data-fechar>Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/eras.js"></script>
+</body>
+</html>

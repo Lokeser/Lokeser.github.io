@@ -1,4 +1,36 @@
+// ==================================================================
+//  TEMA (Azul padrão / Modo Escuro) — persistido via cookie
+// ==================================================================
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+}
+function getCookie(name) {
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
+    return m ? decodeURIComponent(m[1]) : null;
+}
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+        const dark = theme === 'dark';
+        btn.textContent = dark ? '☀️' : '🌙';
+        btn.title = dark ? 'Mudar para tema Azul' : 'Mudar para Modo Escuro';
+        btn.setAttribute('aria-label', btn.title);
+    }
+}
+function toggleTheme() {
+    const current = getCookie('theme') || 'blue';
+    const next = current === 'dark' ? 'blue' : 'dark';
+    setCookie('theme', next, 365);
+    applyTheme(next);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    // Aplica o tema salvo (cookie) assim que a página carrega
+    applyTheme(getCookie('theme') || 'blue');
+
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
     if (!navbarPlaceholder) return;
 
@@ -13,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <nav class="main-navbar">
             <div class="nav-container">
                 
-                <a href="${finalPrefix}index.html" class="nav-logo nav-logo-link">LUXSANDORIA</a>
+                <a href="/" class="nav-logo nav-logo-link">LUXSANDORIA</a>
 
                 <div class="mobile-menu-icon" id="mobile-menu-btn">
                     <span></span>
@@ -29,12 +61,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/magias/magias_menu.html">Magias</a></li>
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
                     <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
+                    <li><a href="${finalPrefix}eras.html" class="nav-eras">Eras</a></li>
+                    <li><a href="${finalPrefix}mapa.html" class="nav-eras">Mapa</a></li>
+                    <li><a href="${finalPrefix}personagem.html" class="nav-cta">Meus Personagens</a></li>
+                    <li><button id="theme-toggle" class="theme-toggle" type="button" title="Alternar tema">🌙</button></li>
+                    <li><button id="gh-login-btn" class="gh-login" type="button" title="Entrar com GitHub">🔑 <span id="gh-login-rotulo">Entrar</span></button></li>
                 </ul>
             </div>
         </nav>
     `;
 
     navbarPlaceholder.innerHTML = navHTML;
+
+    // Sincroniza o ícone do botão com o tema atual e liga o clique
+    applyTheme(getCookie('theme') || 'blue');
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+    // Login GitHub: carrega o módulo sob demanda (a navbar existe em todas as páginas)
+    if (typeof WNJAuth === 'undefined') {
+        const s = document.createElement('script');
+        s.src = finalPrefix + 'js/auth.js';
+        s.onload = () => WNJAuth.ligarBotao();
+        document.head.appendChild(s);
+    } else {
+        WNJAuth.ligarBotao();
+    }
 
     // --- LÓGICA DO MENU MOBILE ---
     const menuBtn = document.getElementById('mobile-menu-btn');
@@ -48,4 +100,32 @@ document.addEventListener("DOMContentLoaded", () => {
             menuBtn.classList.toggle('is-active');
         });
     }
+
+    // ==================================================================
+    //  BOTÃO FLUTUANTE: "Voltar à criação anterior" (rascunho da ficha)
+    // ==================================================================
+    try {
+        const emFicha = /ficha\.html$/i.test(window.location.pathname);
+        const rascunho = localStorage.getItem('wnj_draft');
+        const oculto = localStorage.getItem('wnj_draft_oculto') === '1';
+        if (rascunho && !oculto && !emFicha) {
+            let nome = '';
+            try { nome = (JSON.parse(rascunho).nome || '').trim(); } catch (e) {}
+            const box = document.createElement('div');
+            box.id = 'draft-flutuante';
+            box.style.cssText = 'position:fixed;left:18px;bottom:18px;z-index:3000;display:flex;align-items:center;gap:8px;' +
+                'background:rgba(12,16,24,.95);border:1px solid #c5a059;border-radius:30px;padding:9px 12px 9px 16px;' +
+                'box-shadow:0 8px 24px rgba(0,0,0,.55);font-family:sans-serif;';
+            box.innerHTML =
+                '<a href="' + finalPrefix + 'ficha.html" style="color:#f0d17a;text-decoration:none;font-size:.86rem;font-weight:700;letter-spacing:.5px">' +
+                '↩ Voltar à criação anterior' + (nome ? ' <span style="opacity:.7">(' + nome + ')</span>' : '') + '</a>' +
+                '<button id="draft-fechar" title="Ignorar" style="background:none;border:1px solid #6b5a35;color:#c5a059;' +
+                'border-radius:50%;width:24px;height:24px;line-height:1;cursor:pointer;font-size:.8rem;padding:0">✕</button>';
+            document.body.appendChild(box);
+            document.getElementById('draft-fechar').addEventListener('click', () => {
+                localStorage.setItem('wnj_draft_oculto', '1');
+                box.remove();
+            });
+        }
+    } catch (e) { /* localStorage indisponível — ignora */ }
 });

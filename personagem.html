@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Personagem - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA; }
+        body {
+            background: radial-gradient(circle at top, #1d4267, var(--c1) 70%);
+            min-height: 100vh;
+            color: #eaf2fa;
+            font-family: 'Lato', sans-serif;
+        }
+        html[data-theme="dark"] body {
+            background: radial-gradient(circle at top, #16202c, #0b0d12 70%);
+        }
+        .hub-hero { text-align: center; padding: 55px 20px 25px; }
+        .hub-hero h1 {
+            font-family: 'Cinzel', serif; color: var(--c4);
+            letter-spacing: 5px; font-size: clamp(1.8rem, 5vw, 3rem);
+            text-shadow: 0 0 20px rgba(253,245,170,.35);
+        }
+        .hub-hero p { color: #b9d3e6; }
+
+        .hub-options { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 20px; max-width: 900px; margin: 0 auto; }
+        .hub-option {
+            flex: 1 1 300px; max-width: 420px; text-align: center;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
+            border-top: 4px solid var(--c4); border-radius: 16px; padding: 40px 24px;
+            color: #eaf2fa; text-decoration: none; transition: .3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,.35);
+        }
+        .hub-option:hover { transform: translateY(-6px); border-color: var(--c4); color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 25px rgba(253,245,170,.2); }
+        .hub-option .icone { font-size: 3rem; display: block; margin-bottom: 12px; }
+        .hub-option h2 { font-family: 'Cinzel', serif; color: var(--c4); font-size: 1.4rem; }
+        .hub-option p { color: #9fc0da; font-size: .92rem; margin: 0; }
+
+        .galeria-titulo {
+            font-family: 'Cinzel', serif; color: var(--c4); text-align: center;
+            margin: 55px 0 8px; letter-spacing: 2px;
+        }
+        .galeria-sub { text-align: center; color: #8fb3cf; margin-bottom: 28px; font-size: .9rem; }
+        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
+
+        .pcard {
+            position: relative; border-radius: 14px; overflow: hidden;
+            background: linear-gradient(160deg, var(--c2), var(--c1));
+            border: 2px solid var(--c3); aspect-ratio: 3 / 4; cursor: pointer;
+            transition: .3s;
+        }
+        .pcard:hover { border-color: var(--c4); transform: translateY(-4px); }
+        .pcard img { width: 100%; height: 100%; object-fit: cover; }
+        .pcard .sem-img { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; opacity:.5; }
+        .pcard .pnome {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 12px 12px;
+            background: linear-gradient(to top, rgba(10,20,35,.95), transparent);
+            font-family: 'Cinzel', serif; font-weight: 700; color: var(--c4); text-align: center;
+        }
+        .pcard .prank {
+            position: absolute; top: 10px; right: 10px;
+            background: var(--c4); color: #14202e; font-weight: 700; font-size: .72rem;
+            border-radius: 12px; padding: 3px 10px;
+        }
+        .pcard .acoes {
+            position: absolute; inset: 0; display: flex; flex-direction: column; gap: 10px;
+            align-items: center; justify-content: center;
+            background: rgba(10, 20, 35, .82); opacity: 0; transition: .25s;
+        }
+        .pcard:hover .acoes { opacity: 1; }
+        .acoes button {
+            width: 140px; border: none; border-radius: 8px; padding: 9px 0;
+            font-weight: 700; cursor: pointer; transition: .2s; font-size: .9rem;
+        }
+        .acoes button:hover { transform: scale(1.06); }
+        .btn-usar { background: var(--c4); color: #14202e; }
+        .btn-baixar { background: var(--c3); color: #0b1626; }
+        .btn-excluir { background: #7a1f1f; color: #ffd9d9; }
+
+        .vazio { text-align: center; color: #8fb3cf; padding: 40px 20px; grid-column: 1 / -1; }
+        .vazio .icone { font-size: 3rem; display: block; margin-bottom: 10px; opacity: .6; }
+
+        /* ===== Barra da nuvem / recuperação ===== */
+        .barra-nuvem {
+            max-width: 1100px; margin: 0 auto 22px; padding: 12px 18px;
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
+            border-radius: 12px; font-size: .86rem; color: #cfe1f0;
+        }
+        .barra-nuvem .barra-acoes { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+        .mini-btn {
+            background: transparent; border: 1px solid var(--c3); color: #cfe1f0;
+            border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: .8rem; font-weight: 700;
+        }
+        .mini-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+        .mini-btn.ativo { border-color: #4caf50; color: #8fe0a0; }
+
+        .pcard .selo-nuvem {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            background: rgba(6,14,24,.85); border: 1px solid #4caf50; color: #8fe0a0;
+            border-radius: 10px; padding: 2px 8px; font-size: .64rem; font-weight: 700;
+        }
+        .acoes button.btn-nuvem { background: #2f6f4f; color: #dfffe9; }
+
+        /* ===== Modal ===== */
+        .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        .ov.aberto { display: flex; }
+        .box {
+            width: 100%; max-width: 560px; background: #101a2b; border: 1px solid #3a63d2;
+            border-top: 4px solid var(--c4); border-radius: 14px; padding: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.7);
+        }
+        .box h3 { font-family: 'Cinzel', serif; color: var(--c4); margin: 0 0 8px; }
+        .box .sub { color: #9fc0da; font-size: .84rem; margin-bottom: 14px; }
+        .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+        .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; }
+        .b:hover { filter: brightness(1.12); }
+        .b.ouro { background: var(--c4); color: #14202e; }
+        .b.fantasma { background: transparent; color: #cfe1f0; border: 1px solid var(--c3); }
+        .rec-item {
+            display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px;
+            background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; font-size: .86rem;
+        }
+        .rec-item small { color: #8fb3cf; margin-left: auto; font-size: .72rem; }
+
+        /* ===== Grupos e arraste ===== */
+        .grupo-barra {
+            grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
+            background: var(--gcor, #f0d17a); color: #14202e;
+            border-radius: 10px; padding: 9px 16px; cursor: grab;
+            font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.05rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,.35); margin-top: 6px;
+        }
+        .grupo-barra:active { cursor: grabbing; }
+        .grupo-barra .g-nome { flex: 1; }
+        .grupo-barra .g-conta { font-family: 'Lato', sans-serif; font-size: .72rem; opacity: .7; font-weight: 700; }
+        .grupo-barra button {
+            background: rgba(0,0,0,.22); border: none; color: inherit; cursor: pointer;
+            border-radius: 6px; padding: 3px 8px; font-size: .8rem;
+        }
+        .grupo-barra button:hover { background: rgba(0,0,0,.4); }
+
+        .pcard { cursor: grab; }
+        .pcard:active { cursor: grabbing; }
+        .arrastando { opacity: .35; }
+        .alvo-antes { outline: 3px dashed var(--c4); outline-offset: 3px; }
+
+        .rodape-grupos { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
+        .btn-add-grupo {
+            background: #0d1b2c; color: var(--c4); border: 1px solid var(--c4);
+            border-radius: 10px; padding: 11px 22px; cursor: pointer; font-weight: 700; font-size: .9rem;
+        }
+        .btn-add-grupo:hover { background: var(--c4); color: #14202e; }
+        .dica-arraste { text-align: center; color: #8fb3cf; font-size: .78rem; margin: 0 0 14px; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header class="hub-hero">
+        <h1>CRIAR PERSONAGEM</h1>
+        <p>Forje sua lenda em Luxsandoria — todo destino começa no Rank 10.</p>
+    </header>
+
+    <div class="hub-options">
+        <a href="ficha.html" class="hub-option">
+            <span class="icone">✨</span>
+            <h2>Novo Personagem</h2>
+            <p>Crie uma ficha do zero: raça, classe, atributos, poderes e ataques.</p>
+        </a>
+    </div>
+
+    <h2 class="galeria-titulo" id="meus">MEUS PERSONAGENS</h2>
+    <p class="galeria-sub" id="galeria-sub">Salvos neste navegador. Baixe um .html para guardar ou compartilhar.</p>
+
+    <div class="barra-nuvem" id="barra-nuvem">
+        <span id="nuvem-status">☁️ Entre com o GitHub para salvar seus personagens na nuvem.</span>
+        <div class="barra-acoes">
+            <button class="mini-btn" id="btn-sincronizar" style="display:none">🔄 Sincronizar com a nuvem</button>
+            <button class="mini-btn" id="btn-recuperar">🛟 Recuperar personagens</button>
+        </div>
+    </div>
+
+    <p class="dica-arraste" id="dica-arraste">✋ Segure e arraste os cards para reordenar — solte abaixo de um grupo para agrupar.</p>
+    <div class="galeria" id="galeria"></div>
+
+    <div class="rodape-grupos">
+        <button class="btn-add-grupo" id="btn-add-grupo">➕ Adicionar Grupo</button>
+    </div>
+
+    <!-- MODAL: GRUPO -->
+    <div class="ov" id="ov-grupo">
+        <div class="box" style="max-width:420px">
+            <h3 id="grupo-titulo">Novo Grupo</h3>
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Nome do grupo</label>
+            <input type="text" id="grupo-nome" placeholder="Ex: Grupo um"
+                   style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:10px 12px;font-size:.9rem">
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Cor</label>
+            <input type="color" id="grupo-cor" value="#f0d17a"
+                   style="width:64px;height:40px;background:none;border:1px solid var(--c2);border-radius:8px;cursor:pointer">
+            <div class="acoes">
+                <button class="b fantasma" data-fechar>Cancelar</button>
+                <button class="b ouro" id="grupo-salvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: RECUPERAÇÃO -->
+    <div class="ov" id="ov-recuperar">
+        <div class="box">
+            <h3>🛟 Recuperar personagens</h3>
+            <p class="sub">Procuro no armazenamento deste navegador por fichas que não estão
+            aparecendo na lista — incluindo backups automáticos e a criação que ficou pela metade.</p>
+            <div id="rec-resultado"></div>
+            <div class="acoes">
+                <button class="b fantasma" data-fechar>Fechar</button>
+                <button class="b ouro" id="rec-restaurar" style="display:none">Restaurar selecionados</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/menu.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nuvem.js"></script>
+    <script src="js/exportar.js"></script>
+    <script>
+        const $ = (id) => document.getElementById(id);
+        let idsNaNuvem = new Set();
+
+        // ===== LAYOUT (ordem dos cards + grupos) =====
+        // Lista unica: {t:'g',id,nome,cor} para grupos e {t:'c',id} para personagens.
+        // A ordem define tudo - um personagem pertence ao grupo da barra acima dele.
+        const LAYOUT_KEY = 'wnj_layout';
+        let layout = [];
+        function carregarLayout() {
+            try { const v = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '[]'); layout = Array.isArray(v) ? v : []; }
+            catch (e) { layout = []; }
+        }
+        function salvarLayout() {
+            try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch (e) {}
+        }
+        function conciliarLayout(chars) {
+            const existentes = new Set(chars.map(c => c.id));
+            layout = layout.filter(i => i.t === 'g' || existentes.has(i.id));
+            const noLayout = new Set(layout.filter(i => i.t === 'c').map(i => i.id));
+            chars.forEach(c => { if (!noLayout.has(c.id)) layout.push({ t: 'c', id: c.id }); });
+        }
+
+        function render() {
+            const g = $('galeria');
+            const chars = WNJ.listar();
+            if (!chars.length) {
+                g.innerHTML = '<div class="vazio"><span class="icone">🕯️</span>Nenhum personagem neste navegador.<br>' +
+                    'Clique em <strong>Novo Personagem</strong> para começar' +
+                    (WNJNuvem.disponivel() ? ', ou em <strong>Sincronizar com a nuvem</strong> para baixar os seus.' : '.') +
+                    '<br><small>Se você já tinha fichas aqui, tente <strong>🛟 Recuperar personagens</strong>.</small></div>';
+                return;
+            }
+            conciliarLayout(chars);
+            salvarLayout();
+            const porId = {}; chars.forEach(c => porId[c.id] = c);
+            g.innerHTML = '';
+
+            layout.forEach((item, idx) => {
+                if (item.t === 'g') { g.appendChild(criarBarraGrupo(item, idx)); return; }
+                const c = porId[item.id];
+                if (c) g.appendChild(criarCard(c, idx));
+            });
+            ligarArraste();
+            $('dica-arraste').style.display = chars.length > 1 ? '' : 'none';
+        }
+
+        function contarNoGrupo(idx) {
+            let n = 0;
+            for (let i = idx + 1; i < layout.length; i++) {
+                if (layout[i].t === 'g') break;
+                n++;
+            }
+            return n;
+        }
+
+        function criarBarraGrupo(gr, idx) {
+            const barra = document.createElement('div');
+            barra.className = 'grupo-barra';
+            barra.style.setProperty('--gcor', gr.cor || '#f0d17a');
+            barra.draggable = true;
+            barra.dataset.idx = idx;
+            barra.innerHTML = '<span class="g-nome">' + (gr.nome || 'Grupo').replace(/</g, '&lt;') + '</span>' +
+                '<span class="g-conta">' + contarNoGrupo(idx) + ' personagem(ns)</span>' +
+                '<button data-editar-g="1" title="Editar">✏️</button>' +
+                '<button data-excluir-g="1" title="Remover grupo">✖</button>';
+            barra.querySelector('[data-editar-g]').onclick = (e) => { e.stopPropagation(); abrirGrupo(idx); };
+            barra.querySelector('[data-excluir-g]').onclick = (e) => {
+                e.stopPropagation();
+                if (!confirm('Remover o grupo "' + (gr.nome || '') + '"?\nOs personagens continuam salvos.')) return;
+                layout.splice(idx, 1); salvarLayout(); render();
+            };
+            return barra;
+        }
+
+        function criarCard(c, idx) {
+            {
+                const card = document.createElement('div');
+                card.className = 'pcard';
+                card.draggable = true;
+                card.dataset.idx = idx;
+                const nome = [c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
+                const est = c.rank < 10 ? ' ' + '★'.repeat(c.estrela) : '';
+                const naNuvem = idsNaNuvem.has(c.id);
+                card.innerHTML =
+                    (c.img ? '<img src="' + c.img + '" alt="">' : '<div class="sem-img">🎭</div>') +
+                    (naNuvem ? '<div class="selo-nuvem">☁️ NA NUVEM</div>' : '') +
+                    '<div class="prank">R' + c.rank + est + '</div>' +
+                    '<div class="pnome">' + nome.replace(/</g, '&lt;') + '</div>' +
+                    '<div class="acoes">' +
+                    '<button class="btn-usar">▶ Usar</button>' +
+                    (WNJNuvem.disponivel() ? '<button class="btn-nuvem">' + (naNuvem ? '☁️ Atualizar' : '☁️ Enviar') + '</button>' : '') +
+                    '<button class="btn-baixar">⬇ Baixar</button>' +
+                    '<button class="btn-excluir">✖ Excluir</button>' +
+                    '</div>';
+                card.querySelector('.btn-usar').onclick = () => location.href = 'ficha.html?id=' + c.id;
+                card.querySelector('.btn-baixar').onclick = async () => { await WNJExport.baixar(c); };
+                const bn = card.querySelector('.btn-nuvem');
+                if (bn) bn.onclick = async () => {
+                    bn.disabled = true; bn.textContent = '⏳...';
+                    try { await WNJNuvem.enviar(c); idsNaNuvem.add(c.id); render(); }
+                    catch (e) { alert('Erro ao enviar: ' + e.message); bn.disabled = false; render(); }
+                };
+                card.querySelector('.btn-excluir').onclick = async () => {
+                    if (!confirm('Excluir permanentemente "' + nome + '"?')) return;
+                    WNJ.excluir(c.id);
+                    if (idsNaNuvem.has(c.id) && WNJNuvem.disponivel() &&
+                        confirm('Excluir também a cópia na nuvem?')) {
+                        try { await WNJNuvem.excluir(c.id); idsNaNuvem.delete(c.id); } catch (e) { alert('Erro na nuvem: ' + e.message); }
+                    }
+                    render();
+                };
+                return card;
+            }
+        }
+
+        // ===== ARRASTE =====
+        let arrastadoIdx = null;
+        function ligarArraste() {
+            const itens = [...document.querySelectorAll('#galeria [data-idx]')];
+            itens.forEach(el => {
+                el.addEventListener('dragstart', (e) => {
+                    arrastadoIdx = parseInt(el.dataset.idx, 10);
+                    el.classList.add('arrastando');
+                    e.dataTransfer.effectAllowed = 'move';
+                    try { e.dataTransfer.setData('text/plain', String(arrastadoIdx)); } catch (err) {}
+                });
+                el.addEventListener('dragend', () => {
+                    el.classList.remove('arrastando');
+                    itens.forEach(x => x.classList.remove('alvo-antes'));
+                    arrastadoIdx = null;
+                });
+                el.addEventListener('dragover', (e) => {
+                    if (arrastadoIdx == null) return;
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    itens.forEach(x => x.classList.remove('alvo-antes'));
+                    el.classList.add('alvo-antes');
+                });
+                el.addEventListener('drop', (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    if (arrastadoIdx == null) return;
+                    moverItem(arrastadoIdx, parseInt(el.dataset.idx, 10), e, el);
+                });
+            });
+            const g = $('galeria');
+            g.ondragover = (e) => { if (arrastadoIdx != null) e.preventDefault(); };
+            g.ondrop = (e) => {
+                if (arrastadoIdx == null || e.target !== g) return;
+                e.preventDefault();
+                moverItem(arrastadoIdx, layout.length, null, null);
+            };
+        }
+
+        function moverItem(de, para, ev, el) {
+            if (de === para) return;
+            // solta na metade de baixo (grupo) ou da direita (card) => entra depois do alvo
+            if (el && ev) {
+                const r = el.getBoundingClientRect();
+                const depois = el.classList.contains('grupo-barra')
+                    ? (ev.clientY - r.top) > r.height / 2
+                    : (ev.clientX - r.left) > r.width / 2;
+                if (depois) para += 1;
+            }
+            const [item] = layout.splice(de, 1);
+            if (de < para) para -= 1;
+            layout.splice(Math.max(0, Math.min(para, layout.length)), 0, item);
+            salvarLayout();
+            render();
+        }
+
+        // ===== GRUPOS =====
+        let grupoEditando = null;
+        function abrirGrupo(idx) {
+            grupoEditando = idx;
+            const gr = idx != null ? layout[idx] : null;
+            $('grupo-titulo').textContent = gr ? 'Editar Grupo' : 'Novo Grupo';
+            $('grupo-nome').value = gr ? (gr.nome || '') : '';
+            $('grupo-cor').value = gr ? (gr.cor || '#f0d17a') : '#f0d17a';
+            $('ov-grupo').classList.add('aberto');
+        }
+        $('btn-add-grupo').onclick = () => abrirGrupo(null);
+        $('grupo-salvar').onclick = () => {
+            const nome = $('grupo-nome').value.trim() || 'Grupo';
+            const cor = $('grupo-cor').value;
+            if (grupoEditando != null) { layout[grupoEditando].nome = nome; layout[grupoEditando].cor = cor; }
+            else layout.push({ t: 'g', id: 'g' + Date.now().toString(36), nome, cor });
+            salvarLayout();
+            $('ov-grupo').classList.remove('aberto');
+            render();
+        };
+
+        // ---------- NUVEM ----------
+        async function atualizarBarraNuvem() {
+            const st = $('nuvem-status');
+            const btn = $('btn-sincronizar');
+            if (!WNJNuvem.disponivel()) {
+                const c = (typeof WNJAuth !== 'undefined') ? WNJAuth.credenciais() : {};
+                st.innerHTML = c.token
+                    ? '☁️ Conectado como <strong>' + (c.user || '—') + '</strong>, mas sem permissão de escrita no repositório — seus personagens ficam salvos só neste navegador.'
+                    : '☁️ <strong>Entre com o GitHub</strong> (botão 🔑 na barra de cima) para salvar seus personagens no repositório e acessá-los de qualquer PC.';
+                btn.style.display = 'none';
+                return;
+            }
+            btn.style.display = '';
+            st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong> — carregando...';
+            try {
+                const naNuvem = await WNJNuvem.listar();
+                idsNaNuvem = new Set(naNuvem.map(c => c.id));
+                st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong>: ' +
+                    naNuvem.length + ' personagem(ns) salvos em <code>' + WNJNuvem.pasta() + '</code>';
+                render();
+            } catch (e) {
+                st.innerHTML = '☁️ Não consegui ler a nuvem: ' + e.message;
+            }
+        }
+
+        $('btn-sincronizar').onclick = async () => {
+            const b = $('btn-sincronizar');
+            b.disabled = true; b.textContent = '⏳ Sincronizando...';
+            try {
+                const r = await WNJNuvem.sincronizar();
+                alert('✓ Sincronizado!\n\n' +
+                      '⬇ Baixados da nuvem: ' + r.baixados + '\n' +
+                      '⬆ Enviados para a nuvem: ' + r.enviados + '\n' +
+                      '🔄 Atualizados: ' + r.atualizados);
+                await atualizarBarraNuvem();
+                render();
+            } catch (e) {
+                alert('Erro ao sincronizar: ' + e.message);
+            } finally {
+                b.disabled = false; b.textContent = '🔄 Sincronizar com a nuvem';
+            }
+        };
+
+        // ---------- RECUPERAÇÃO ----------
+        let achados = [];
+        $('btn-recuperar').onclick = () => {
+            achados = WNJ.varrerRecuperaveis();
+            const box = $('rec-resultado');
+            if (!achados.length) {
+                box.innerHTML = '<p class="sub">Não encontrei nenhuma ficha perdida neste navegador. ' +
+                    'Se os personagens foram criados em outro computador, navegador ou aba anônima, ' +
+                    'eles ficaram no armazenamento <em>daquele</em> navegador — não há como buscá-los daqui. ' +
+                    'Use a nuvem para não depender mais de um único dispositivo.</p>';
+                $('rec-restaurar').style.display = 'none';
+            } else {
+                box.innerHTML = '<p class="sub">Encontrei <strong>' + achados.length + '</strong> ficha(s) fora da lista:</p>' +
+                    achados.map((a, i) => {
+                        const n = [a.char.nome, a.char.sobrenome].filter(Boolean).join(' ') || '(sem nome)';
+                        return '<label class="rec-item"><input type="checkbox" checked data-i="' + i + '">' +
+                            '<span>' + n.replace(/</g, '&lt;') + ' — R' + (a.char.rank || '?') + '</span>' +
+                            '<small>' + a.origem + '</small></label>';
+                    }).join('');
+                $('rec-restaurar').style.display = '';
+            }
+            $('ov-recuperar').classList.add('aberto');
+        };
+        $('rec-restaurar').onclick = () => {
+            const sel = [...document.querySelectorAll('#rec-resultado input:checked')]
+                .map(i => achados[parseInt(i.dataset.i, 10)].char);
+            const n = WNJ.restaurar(sel);
+            alert(n ? '✓ ' + n + ' personagem(ns) restaurado(s)!' : 'Nada novo para restaurar.');
+            $('ov-recuperar').classList.remove('aberto');
+            render();
+        };
+        document.querySelectorAll('[data-fechar]').forEach(b => {
+            b.onclick = () => b.closest('.ov').classList.remove('aberto');
+        });
+        document.querySelectorAll('.ov').forEach(ov => {
+            ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('aberto'); });
+        });
+
+        carregarLayout();
+        render();
+        atualizarBarraNuvem();
+        document.addEventListener('wnj-auth', () => { atualizarBarraNuvem(); render(); });
+    </script>
+</body>
+</html>

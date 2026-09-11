@@ -9,11 +9,16 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 
 * **Dado de Rank (DR):** **d28**
 * **Eficiência de Rank (ER):** **5**
+
+
+* **Aumento de Vida por Estrela:** **Corpo×d10 + Valor de Vida da Raça (VR)**
+* **Aumento de Magículas por Estrela:** **Mana×d4 + 4**
 
 ---
 
 ## Progressão por Estrelas
 
+<!--#poder id="rk_r6_e1" fonte="rank" rank="6" estrela="1" nome="1a Estrela — Rank 6"-->
 ### ✭ 1ª Estrela
 
 * Aprende **1 Habilidade de Alma**.
@@ -23,6 +28,9 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r6_e2" fonte="rank" rank="6" estrela="2" nome="2a Estrela — Rank 6"-->
 ### ✭✭ 2ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -34,6 +42,9 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r6_e3" fonte="rank" rank="6" estrela="3" nome="3a Estrela — Rank 6"-->
 ### ✭✭✭ 3ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -48,6 +59,9 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r6_e4" fonte="rank" rank="6" estrela="4" nome="4a Estrela — Rank 6"-->
 ### ✭✭✭✭ 4ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -58,6 +72,9 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rk_r6_e5" fonte="rank" rank="6" estrela="5" nome="5a Estrela — Rank 6"-->
 ### ✭✭✭✭✭ 5ª Estrela
 
 * Sua **Vida Máxima** aumenta em:  
@@ -67,3 +84,6 @@ Cada avanço molda diretamente quem você é — e o que você se tornará.
   **2d4 + 2**
 
 * Aprende **1 Habilidade**, escolhida com base em suas **ações, decisões e feitos** ao longo da campanha.
+
+
+<!--#fim-->

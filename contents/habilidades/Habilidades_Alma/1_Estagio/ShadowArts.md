@@ -1,3 +1,4 @@
+<!--#poder id="hb_shadowarts" fonte="habilidade" estrela="1" nome="Shadow Arts"-->
 # Shadow Arts
 
 **Pré-Requisitos:** 7+ Mana & 3+ Inteligência  
@@ -45,3 +46,6 @@ Como uma **Ação Bônus**:
 **1 vez por dia**, você absorve totalmente a Mana residual da sua sombra.
 
 - Ganha **1d3 + 1 de Mana por Rank**
+
+
+<!--#fim-->

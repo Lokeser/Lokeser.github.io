@@ -5,35 +5,42 @@
 
 ---
 
-## Atributos Base
+## Classificação
 
-| Atributo     | Valor           |
-| ------------ | --------------- |
-| Força        | 1               |
-| Destreza     | 0               |
-| Constituição | 1               |
-| Inteligência | 1               |
-| Sabedoria    | 0 (+1 por Saga) |
-| Carisma      | 0               |
-| Mana         | 0               |
+**Demi-Humano** &nbsp;·&nbsp; Magia Inicial (MD): **1**
+
+---
+
+## Atributos Raciais
+
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin:18px 0"><div style="flex:1 1 92px;background:#e0434322;border:1px solid #e04343;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e04343">CORPO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+2</div></div><div style="flex:1 1 92px;background:#3fbf6a22;border:1px solid #3fbf6a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3fbf6a">TÉCNICA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#3a63d222;border:1px solid #3a63d2;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#3a63d2">INTELECTO</div><div style="font-size:1.5rem;font-weight:700;color:#b6f0c0">+1</div></div><div style="flex:1 1 92px;background:#e6c15a22;border:1px solid #e6c15a;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#e6c15a">CARISMA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div><div style="flex:1 1 92px;background:#a86af022;border:1px solid #a86af0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#a86af0">SABEDORIA</div><div style="font-size:1.5rem;font-weight:700;color:#7d94a8">0</div></div><div style="flex:1 1 92px;background:#5ec8f022;border:1px solid #5ec8f0;border-radius:10px;padding:10px 6px;text-align:center"><div style="font-size:.64rem;letter-spacing:1px;color:#5ec8f0">MANA</div><div style="font-size:1.5rem;font-weight:700;color:#ff9b9b">−1</div></div></div>
+
+**Modificadores raciais:** +2 Corpo, +1 Intelecto, −1 Carisma, −1 Mana
+
+> A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20 por atributo.
 
 ---
 
 ## Vida
 
-* **Vida Base:** **21 + 9 a cada 2 pontos de Constituição**
+* **Vida Base:** **21 + 9 a cada 2 pontos de Corpo**
 * **Valor de Vida da Raça:** **9**
 
 ---
 
-## Dados Raciais
+## Marcos de Sangue — R8 · R6 · R4
 
-* **Magia Inicial (MD):** **1**
+Em cada marco, a raça evolui por uma escolha:
 
----
+- **Purificar** — +1 no atributo negativo da raça (abraçar o lado humano).
+- **Despertar** — receber um poder do lado mágico da raça (ver abaixo).
+
+**Despertar (Evolução Reptiliana):** Troca de Pele evoluída.
+
 
 ## Progressão Racial
 
+<!--#poder id="rc_demihumano_rekel_r10_1" fonte="raca" rank="10" estrela="1" nome="Troca de Pele"-->
 ### Rank 10 — Troca de Pele
 
 A cada **4 semanas**, você troca de pele, recebendo **Resistência I** a um tipo de dano diferente.
@@ -55,6 +62,9 @@ Role **1d13** para determinar o tipo:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r10_2" fonte="raca" rank="10" estrela="1" nome="Anatomia Rekel"-->
 ### Rank 10 — Anatomia Rekel
 
 Escolha **duas** características raciais:
@@ -74,8 +84,8 @@ Escolha **duas** características raciais:
   No **Rank 7**, o deslocamento em paredes torna‑se total.
 
 * **Chifres**
-  Ataque de perfuração causando **1d10 a cada 2 Força + Força**.
-  No turno do inimigo, ele pode realizar um **teste de Força** para se soltar.
+  Ataque de perfuração causando **1d10 a cada 2 Corpo + Corpo**.
+  No turno do inimigo, ele pode realizar um **teste de Corpo** para se soltar.
   Se você errar o ataque, deve andar seu deslocamento em linha reta.
 
 * **Reflexos Instintivos**
@@ -87,43 +97,55 @@ Escolha **duas** características raciais:
   Recebe **+2 pontos** para distribuir entre seus atributos.
 
 * **Garras Afiadas**
-  Ataques básicos tornam‑se **1d6 a cada 2 Força + Força** (Corte).
+  Ataques básicos tornam‑se **1d6 a cada 2 Corpo + Corpo** (Corte).
   Acertos críticos causam **Sangramento**.
 
 * **Dentes Afiados**
-  Pode morder causando **1d4 a cada 1 Força + Força** (Perfuração).
+  Pode morder causando **1d4 a cada 1 Corpo + Corpo** (Perfuração).
 
 * **Cauda**
-  Pode tentar **derrubar** inimigos com um teste de Destreza ou utilizá‑la como ataque básico usando Destreza no acerto e no dano.
+  Pode tentar **derrubar** inimigos com um teste de Técnica ou utilizá‑la como ataque básico usando Técnica no acerto e no dano.
 
 * **Pele Rígida**
-  Recebe **Resistência Adaptativa (Constituição)** contra dano físico (Corte, Concussão e Perfuração).
+  Recebe **Resistência Adaptativa (Corpo)** contra dano físico (Corte, Concussão e Perfuração).
 
 * **Capacidade Aquática**
   Pode **nadar** igual ao deslocamento.
-  Pode prender a respiração por **1 + Constituição** minutos.
+  Pode prender a respiração por **1 + Corpo** minutos.
   No **Rank 7**, a velocidade de nado dobra.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_1" fonte="raca" rank="8" estrela="1" nome="Troca de Pele Melhorada"-->
 ### Rank 8 — Troca de Pele Melhorada
 
 Sua **Resistência** proveniente da Troca de Pele torna‑se **Resistência II**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_2" fonte="raca" rank="8" estrela="1" nome="Evolução Reptiliana"-->
 ### Rank 8 — Evolução Reptiliana
 
 Suas características raciais evoluem, recebendo bônus de **acerto, dano, redução, tempo ou CD** iguais à sua **Eficiência de Rank (ER)**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r8_3" fonte="raca" rank="8" estrela="1" nome="Peso Imenso"-->
 ### Rank 8 — Peso Imenso
 
 Inimigos sofrem **−1DR** em testes para tentar **movê‑lo**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r6_1" fonte="raca" rank="6" estrela="1" nome="Troca de Pele Evoluída"-->
 ### Rank 6 — Troca de Pele Evoluída
 
 Sua Resistência torna‑se **Resistência III**.
@@ -131,12 +153,18 @@ Além disso, role **um dado adicional** e escolha qual resistência manter.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r6_2" fonte="raca" rank="6" estrela="1" nome="Mutação Reptiliana"-->
 ### Rank 6 — Mutação Reptiliana
 
 Escolha **mais uma** característica de **Anatomia Rekel**.
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r4_1" fonte="raca" rank="4" estrela="1" nome="Troca de Pele Total"-->
 ### Rank 4 — Troca de Pele Total
 
 Sua Resistência torna‑se **Resistência IV**.
@@ -149,6 +177,12 @@ O dado de Troca de Pele passa a ser **1d4**:
 
 ---
 
+<!--#fim-->
+
+<!--#poder id="rc_demihumano_rekel_r4_2" fonte="raca" rank="4" estrela="1" nome="O Rekel"-->
 ### Rank 4 — O Rekel
 
-Sua **Constituição** aumenta em **+1**.
+Sua **Corpo** aumenta em **+1**.
+
+
+<!--#fim-->

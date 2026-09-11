@@ -1,3 +1,4 @@
+<!--#poder id="hb_magiceye" fonte="habilidade" estrela="1" nome="Magic Eye"-->
 # Magic Eye
 
 Você enxerga o **Plano Mágico**, onde reside a Mana.
@@ -15,3 +16,6 @@ Com esta habilidade, você é capaz de:
 Como uma **Ação**, você pode ativar o Magic Eye e receber:
 
 - **+ERd4 em Percepção Mágica**
+
+
+<!--#fim-->

@@ -1,3 +1,4 @@
+<!--#poder id="hb_addere" fonte="habilidade" estrela="2" nome="Addere"-->
 # Addere
 **Pré-Requisitos:** Véu de Mana, Inarcana ou Exarcana, Mana 5+  
 
@@ -14,3 +15,6 @@ Permite expelir magia em locais diferentes dos Pontos de Intermutação, podendo
 ### Imbuir em Ser (Ofensivo)
 - Contato com o alvo ativa teste de Mana vs CD mágica  
 - Falha: alvo recebe DR de Manipulação Livre de dano
+
+
+<!--#fim-->

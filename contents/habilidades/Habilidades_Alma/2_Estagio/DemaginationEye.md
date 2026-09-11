@@ -1,3 +1,4 @@
+<!--#poder id="hb_demaginationeye" fonte="habilidade" estrela="2" nome="Demagination Eye"-->
 # Demagination Eye
 _(O Olho do Mundo Físico)_
 
@@ -50,3 +51,6 @@ Evolução focada na **antecipação do movimento físico** e leitura do futuro 
 **Quebra de Causalidade**
 - Vezes por dia igual à ER:
   - Força re-rolagem de um ataque ou defesa bem-sucedido do inimigo
+
+
+<!--#fim-->

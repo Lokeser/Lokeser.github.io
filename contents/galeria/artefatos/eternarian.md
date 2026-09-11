@@ -4,7 +4,6 @@
 
 **Tipo:** Arma.
 **Raridade:** Lendária.
-**Descrição:** 
 
 ### MECÂNICA E EFEITOS
 # ⚔️ Eternarian, a Lamina de Anti-Corpos

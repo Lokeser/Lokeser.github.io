@@ -144,8 +144,15 @@
   "pensamentos": [],
   "titulo": "Inquebrável",
   "tituloArtigo": "A",
-  "periciasDelta": {},
+  "periciasDelta": {
+    "Charme": 10,
+    "Intuição": 14,
+    "Análise": 2,
+    "Aura": 47,
+    "Erudição": 2,
+    "Arcanismo": 2
+  },
   "resistencias": {},
-  "atualizado": "2026-09-19T04:55:00.363Z",
+  "atualizado": "2026-09-19T07:58:21.258Z",
   "dono": "Crascrunk.github.io"
 }

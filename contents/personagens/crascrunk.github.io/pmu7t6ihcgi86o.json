@@ -11,8 +11,8 @@
   "classeAvancada": "",
   "subClasseAvancada": "",
   "magia": "Anômala",
-  "rank": 10,
-  "estrela": 1,
+  "rank": 5,
+  "estrela": 2,
   "atributos": {
     "corpo": 16,
     "tecnica": 5,
@@ -21,10 +21,10 @@
     "sabedoria": 12,
     "mana": 17
   },
-  "vidaAtual": 20,
-  "vidaMaxManual": null,
-  "magiculasAtual": 63,
-  "magiculasMax": 63,
+  "vidaAtual": 1673,
+  "vidaMaxManual": 1673,
+  "magiculasAtual": 168,
+  "magiculasMax": 168,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -83,6 +83,60 @@
       "auto": true,
       "rank": 10,
       "estrela": 1
+    },
+    {
+      "refId": "rc_rekelanc_r8_1",
+      "nome": "Evolução Reptiliana Ancestral",
+      "tag": "raca",
+      "efeitoHTML": "<p>Todas as suas características raciais recebem <strong>+3</strong> no acerto, dano, redução de dano ou qualquer CD, conforme aplicável. <em>(Resistência à Impacto aumenta +1 a CA.)</em></p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_rekelanc_r8_2",
+      "nome": "Chifres de Canalização Mágica",
+      "tag": "raca",
+      "efeitoHTML": "<p>Ao usar Habilidades Mágicas ou Magias, pode escolher seu chifre como ponto de intermutação — os poderes contam como se você tivesse <strong>+2 de Mana</strong>, gozando dos efeitos do Domínio da Mana.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_rekelanc_r6_1",
+      "nome": "Ulkanalização",
+      "tag": "raca",
+      "efeitoHTML": "<p>Uma vez por dia, pode utilizar <strong>Ulkanalização</strong> como uma ação completa.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 1
+    },
+    {
+      "refId": "rc_rekelanc_r6_2",
+      "nome": "Mutação Reptiliana Ancestral",
+      "tag": "raca",
+      "efeitoHTML": "<p>Escolha mais uma característica de Rekel.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_1",
+      "nome": "Sobrevivencialismo",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Enquanto estiver em <strong>Ambiente Selvagem</strong>:<ul>\n<li>Recebe <strong>+5</strong> em <strong>Sobrevivência</strong>.</li>\n<li>Recebe <strong>+5</strong> em <strong>Intuição</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_aventureiro_r9e1_2",
+      "nome": "Próxima Aventura",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Ao atingir o <strong>Rank 8</strong>:<ul>\n<li>Pode escolher uma <strong>Classe Avançada</strong> que tenha como pré-requisito:<ul>\n<li>Uma das Classes escolhidas em <strong>Vida de Aventureiro</strong>.</li>\n</ul>\n</li>\n</ul>\n</li>\n<li><strong>Obs:</strong> Ainda é necessário cumprir <strong>todos os outros pré-requisitos</strong> da Classe Avançada.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
     }
   ],
   "ataques": [],
@@ -92,6 +146,6 @@
   "tituloArtigo": "A",
   "periciasDelta": {},
   "resistencias": {},
-  "atualizado": "2026-09-19T04:53:49.306Z",
+  "atualizado": "2026-09-19T04:55:00.363Z",
   "dono": "Crascrunk.github.io"
 }

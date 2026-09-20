@@ -8,7 +8,7 @@
   "subRaca": "",
   "classeInicial": "Aventureiro",
   "subClasseInicial": "",
-  "classeAvancada": "Jūryoku Ken",
+  "classeAvancada": "",
   "subClasseAvancada": "",
   "magia": "Anômala",
   "rank": 5,
@@ -64,7 +64,8 @@
       "efeitoHTML": "<p>Escolha <strong>uma Habilidade Principal</strong> de uma <strong>Classe Inicial</strong>:</p>\n<ul>\n<li><strong>Trabalhador:</strong> Moldado pelo Ofício</li>\n<li><strong>Combativo:</strong> Estilo de Luta</li>\n<li><strong>Ladino:</strong> Ponto Fraco</li>\n<li><strong>Malandro:</strong> Insultar</li>\n<li><strong>Acadêmico:</strong> Estudar</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_aventureiro_r10e1_2",
@@ -73,7 +74,8 @@
       "efeitoHTML": "<ul>\n<li>Escolha <strong>2 Perícias</strong>.</li>\n<li>Recebe <strong>+3</strong> nelas.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_aventureiro_r10e1_3",
@@ -82,7 +84,8 @@
       "efeitoHTML": "<ul>\n<li>Recebe <strong>1 Habilidade Extra (Inicial)</strong>.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_rekelanc_r8_1",
@@ -139,141 +142,6 @@
       "rank": 9,
       "estrela": 1,
       "oculto": true
-    },
-    {
-      "refId": "cs_juryoku_r8e1",
-      "nome": "Ataques Desarmados & Chifrada",
-      "tag": "classe",
-      "efeitoHTML": "<ul>\n<li><strong>Ataques Desarmados:</strong> +1DR em ataques desarmados; sempre que acertar um crítico, sua margem aumenta em 1 pelo resto do combate.</li>\n<li><strong>Chifrada:</strong> +1DR em ataques de chifre; ao acertar um alvo, recebe 1 <strong>Carga Gravitas</strong>. Só pode usar 1 ataque de chifre por turno.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 8,
-      "estrela": 1
-    },
-    {
-      "refId": "cs_juryoku_r8e2",
-      "nome": "Sequência Orbital",
-      "tag": "classe",
-      "efeitoHTML": "<p>Ao acertar um desarmado ou chifre, o alvo gera um campo gravitacional: cada golpe consecutivo no mesmo alvo dá <strong>+1 no Acerto e +5 no Dano</strong> cumulativos. Você perde a sequência se não atacar no próximo turno ou falhar num teste contra condição de corpo.</p>\n",
-      "auto": true,
-      "rank": 8,
-      "estrela": 2
-    },
-    {
-      "refId": "cs_juryoku_r8e3",
-      "nome": "Jūryoku Ken (Inarcana)",
-      "tag": "classe",
-      "efeitoHTML": "<p>Com 5m da Ação de Movimento e <strong>15 Mgc</strong>, ative o Jūryoku Ken:</p>\n<ul>\n<li>Ataques desarmados: +1d6 no acerto; dano adicional igual a <strong>ERd10 + 1d4 per Carga Gravitas</strong>.</li>\n<li>Ataques de chifre: +1d6 no acerto; estágio de dano do chifre +1.</li>\n<li>CA aumenta igual à sua ER.</li>\n<li>Cria uma luz roxa em 5m ao seu redor.</li>\n<li>No crítico, escolha: dobrar o dano · +6 de CA até o fim do próximo turno · VT igual ao dano · ou 1d8 Cargas Gravitas.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 8,
-      "estrela": 3
-    },
-    {
-      "refId": "cs_juryoku_r7e1",
-      "nome": "Prisão Gravitacional",
-      "tag": "classe",
-      "efeitoHTML": "<p>Vantagem para agarrar inimigos; um inimigo agarrado por você tem desvantagem para se soltar.</p>\n",
-      "auto": true,
-      "rank": 7,
-      "estrela": 1
-    },
-    {
-      "refId": "cs_juryoku_r7e2",
-      "nome": "Vambraço Lunar",
-      "tag": "classe",
-      "efeitoHTML": "<p>No início do turno, como ação bônus, se o alvo estiver sob condição adversa de corpo (Lento, Imóvel, etc.), gaste <strong>10 Mgc</strong> para avançar e prendê-lo com sua magia — ambos só podem se atacar corpo-a-corpo.</p>\n<ul>\n<li>Seus ataques corpo-a-corpo têm +1DR e dano extra igual à Mana.</li>\n<li>Todo turno o alvo faz teste de resistência de Mana para se soltar; cada vez que ele te acertar, a CD dele cai em 1.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 7,
-      "estrela": 2
-    },
-    {
-      "refId": "cs_juryoku_r7e3",
-      "nome": "Aura Gravitacional",
-      "tag": "classe",
-      "efeitoHTML": "<p>+10 pontos de perícia em Aura e +5 pontos para distribuir entre Acrobacia e Atletismo.</p>\n",
-      "auto": true,
-      "rank": 7,
-      "estrela": 3
-    },
-    {
-      "refId": "cs_juryoku_r7e4",
-      "nome": "Peso Irreal",
-      "tag": "classe",
-      "efeitoHTML": "<p>Seu dado de acerto do Jūryoku Ken se torna <strong>2d4</strong>, e o dado per Carga Gravitas se torna <strong>1d6</strong>.</p>\n",
-      "auto": true,
-      "rank": 7,
-      "estrela": 4
-    },
-    {
-      "refId": "cs_juryoku_r7e5",
-      "nome": "Canhão Gravitacional",
-      "tag": "classe",
-      "efeitoHTML": "<p>Enquanto o Jūryoku Ken estiver ativo, o peso que você levanta é <strong>dobrado</strong>, podendo arremessar objetos a distâncias imensas.</p>\n",
-      "auto": true,
-      "rank": 7,
-      "estrela": 5
-    },
-    {
-      "refId": "cs_juryoku_r6e1",
-      "nome": "Investida Impactante",
-      "tag": "classe",
-      "efeitoHTML": "<p>Ao investir contra um inimigo, adiciona seu deslocamento no acerto e no dano do primeiro ataque contra ele.</p>\n",
-      "auto": true,
-      "rank": 6,
-      "estrela": 1
-    },
-    {
-      "refId": "cs_juryoku_r6e2",
-      "nome": "Núcleo Inabalável",
-      "tag": "classe",
-      "efeitoHTML": "<p>Vantagem em resistências contra empurrões, quedas, levitação forçada ou qualquer efeito que tente mover/derrubar você. Enquanto o Jūryoku Ken estiver ativo, reduz o dano recebido em <strong>Mana + ER</strong>.</p>\n",
-      "auto": true,
-      "rank": 6,
-      "estrela": 2
-    },
-    {
-      "refId": "cs_juryoku_r6e3",
-      "nome": "Punhos Dizimadores",
-      "tag": "classe",
-      "efeitoHTML": "<p>Ação padrão com o Jūryoku Ken ativo, <strong>15 Mgc</strong>: sequência de até 4 desarmados no mesmo alvo (+1DR cumulativo após o 1º). Se todos acertarem, faça um <strong>5º ataque de chifre</strong> que causa dano em área igual à luminosidade do Jūryoku Ken, dano extra igual a <strong>Cargas Gravitas × 1d10 + Cargas Ulka × 1d10</strong>, e aplica <strong>Enredado</strong>.</p>\n",
-      "auto": true,
-      "rank": 6,
-      "estrela": 3
-    },
-    {
-      "refId": "cs_juryoku_r6e4",
-      "nome": "Órbita Pessoal",
-      "tag": "classe",
-      "efeitoHTML": "<p>Gaste 1 Carga Gravitas como reação quando um aliado a 10m for atacado: puxe a trajetória para si (o ataque mira em você com −5 no acerto). Se te acertar, ganha 2 Cargas Gravitas.</p>\n",
-      "auto": true,
-      "rank": 6,
-      "estrela": 4
-    },
-    {
-      "refId": "cs_juryoku_r6e5",
-      "nome": "Gravidade Irrefreável",
-      "tag": "classe",
-      "efeitoHTML": "<p>Consuma <strong>8 Cargas Gravitas</strong> para remover uma condição de corpo evoluída.</p>\n",
-      "auto": true,
-      "rank": 6,
-      "estrela": 5
-    },
-    {
-      "refId": "cs_juryoku_r5e1",
-      "nome": "Confiança e Atração",
-      "tag": "classe",
-      "efeitoHTML": "<p>Sua aura inerte de gravitação faz você parecer um porto seguro — pessoas confiam e acreditam em você com mais facilidade.</p>\n",
-      "auto": true,
-      "rank": 5,
-      "estrela": 1
-    },
-    {
-      "refId": "cs_juryoku_r5e2",
-      "nome": "Aura Singular",
-      "tag": "classe",
-      "efeitoHTML": "<p>+15 pontos de perícia em Aura e +8 pontos para distribuir entre Acrobacia e Atletismo.</p>\n",
-      "auto": true,
-      "rank": 5,
-      "estrela": 2
     }
   ],
   "ataques": [],
@@ -328,6 +196,6 @@
     "Malícia": "acostumado",
     "Ordem": "acostumado"
   },
-  "atualizado": "2026-09-20T03:10:15.997Z",
+  "atualizado": "2026-09-20T03:11:04.488Z",
   "dono": "Crascrunk.github.io"
 }

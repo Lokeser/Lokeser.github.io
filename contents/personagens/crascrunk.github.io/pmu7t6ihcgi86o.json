@@ -145,7 +145,15 @@
     }
   ],
   "ataques": [],
-  "inventario": [],
+  "inventario": [
+    {
+      "nome": "Sorte",
+      "tag": "outro",
+      "qtd": 5,
+      "descHTML": "",
+      "equipado": false
+    }
+  ],
   "pensamentos": [
     {
       "assunto": "Soul Drive",
@@ -196,6 +204,6 @@
     "Malícia": "acostumado",
     "Ordem": "acostumado"
   },
-  "atualizado": "2026-09-20T03:11:04.488Z",
+  "atualizado": "2026-09-20T04:33:32.635Z",
   "dono": "Crascrunk.github.io"
 }

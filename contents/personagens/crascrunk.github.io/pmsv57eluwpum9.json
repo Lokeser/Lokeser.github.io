@@ -229,8 +229,10 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-09-09T01:44:27.331Z",
+  "atualizado": "2026-09-22T01:24:43.373Z",
   "vidaMagicaAtual": 75,
   "dono": "Crascrunk.github.io",
-  "vidaMagicaMax": 75
+  "vidaMagicaMax": 75,
+  "subClasseInicial": "",
+  "subClasseAvancada": ""
 }

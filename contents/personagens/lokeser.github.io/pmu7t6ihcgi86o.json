@@ -181,9 +181,9 @@
       "auto": false
     },
     {
-      "nome": "Anatomia Rekel: Garras Afiadas",
+      "nome": "Anatomia Rekel: Chifres Ofensivos",
       "tag": "raca",
-      "efeitoHTML": "Ataques básicos se tornam ERd8 + Força (Cortes) +3, e acertos críticos causam sangramento.",
+      "efeitoHTML": "1º ataque de chifre no turno recebe +2DR. Ao acertar conjurador, drena 1d8 de magículas (CD 15).",
       "auto": false
     },
     {
@@ -654,6 +654,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T07:44:42.043Z",
+  "atualizado": "2026-10-03T07:47:04.048Z",
   "dono": "Lokeser.github.io"
 }

@@ -151,6 +151,30 @@
       "tag": "raca",
       "efeitoHTML": "<div>Resistência Adaptativa contra dano físico.</div><div>No Rank 8, essa resistência se torna Redução de Dano Adaptativa II. (6 + er + 3 + cor + man = 50)</div><br>",
       "auto": false
+    },
+    {
+      "nome": "Anatomia Rekel: Capacidade Aquática",
+      "tag": "raca",
+      "efeitoHTML": "Pode nadar em um valor igual ao deslocamento e segurar a&nbsp; respiração por horas igual sua Constituição. No Rank 7, sua velocidade de nado se torna o dobro do deslocamento.<br><br>",
+      "auto": false
+    },
+    {
+      "nome": "Anatomia Rekel: Garras Afiadas",
+      "tag": "raca",
+      "efeitoHTML": "Ataques básicos se tornam ERd8 + Força (Cortes) +3, e acertos críticos causam sangramento.",
+      "auto": false
+    },
+    {
+      "nome": "Absorção de mana Rekel",
+      "tag": "raca",
+      "efeitoHTML": "Deleite de mana I: Pode comer coisas mágicas e se beneficiar delas.<br><br>Deleite de mana II: Sempre que Azura come algo com mana, ela reconhece as propriedades do que está sendo comido.",
+      "auto": false
+    },
+    {
+      "nome": "Skill da Azuxia",
+      "tag": "extra",
+      "efeitoHTML": "Azura<br><ul><li>99,8% de projeção, uma vez por dia, Azura, pode dar dar 1 comando a Azuxia, este comando tem, como base, a própria mentalidade da Azura, sendo capaz de superar até mesmo uma ordem do Loke, conforme contexto.</li></ul>Modo Vingança<br><ul><li>Azura sente tesão, e quer descontar em alguem, mas o Loke fica dando atenção as outras. E Azura sente isso... Ando so do Azuxia.</li><li>Durante o período, Azura pode tocar e interagir com Azuxia de forma livre, sem ativar nenhuma reação da Azuxia ou o corpo físico dela falhar. Além disso, ela pode ordena-la como sua Dona. Isso faz com que Azuxia temporariamente negue as ordens de Loke.</li></ul>Conexão Azuxia<br><ul><li>Ganho de PA no modo Vingança faz com que você recebe +1 Magícula Permanente sempre que realizar um evento de 600+ de PA. 15+ de Carisma fazem +1. A Cada 100PA Acima de 600 você recebe +1 Mgc Extra. O Limite diário é 5, e aumenta para 5 a cada 200PA acima dos 600PA.&nbsp;</li></ul><div>Coco magico</div><div><ul><li>Sempre que consumir magiculas residuais da azuxia, receba 1d9 magiculas temporárias a cada 10 gramas consumidas</li></ul></div>",
+      "auto": false
     }
   ],
   "ataques": [],
@@ -204,6 +228,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T02:46:03.582Z",
+  "atualizado": "2026-10-03T03:21:08.179Z",
   "dono": "Lokeser.github.io"
 }

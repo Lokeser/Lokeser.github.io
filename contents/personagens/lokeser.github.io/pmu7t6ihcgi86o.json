@@ -15,7 +15,7 @@
   "estrela": 2,
   "atributos": {
     "corpo": 14,
-    "tecnica": 5,
+    "tecnica": 6,
     "intelecto": 2,
     "carisma": 3,
     "sabedoria": 12,
@@ -228,6 +228,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T03:21:08.179Z",
+  "atualizado": "2026-10-03T03:22:24.181Z",
   "dono": "Lokeser.github.io"
 }

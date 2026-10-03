@@ -28,7 +28,23 @@
   "arcanaManual": null,
   "caManual": 32,
   "deslocManual": null,
-  "cargas": [],
+  "cargas": [
+    {
+      "nome": "Gravita",
+      "atual": 0,
+      "max": 0
+    },
+    {
+      "nome": "Ulka",
+      "atual": 0,
+      "max": 0
+    },
+    {
+      "nome": "Crit",
+      "atual": 0,
+      "max": 0
+    }
+  ],
   "poderes": [
     {
       "refId": "rc_rekelanc_r10_1",
@@ -191,6 +207,10 @@
     {
       "assunto": "Soul Drive",
       "textoHTML": "Ja perdi 78 magículas para o soul drive"
+    },
+    {
+      "assunto": "Matrícula",
+      "textoHTML": "matrícula: 27 211 670<br><br>"
     }
   ],
   "titulo": "Inquebrável",
@@ -228,6 +248,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T03:22:24.181Z",
+  "atualizado": "2026-10-03T03:29:21.118Z",
   "dono": "Lokeser.github.io"
 }

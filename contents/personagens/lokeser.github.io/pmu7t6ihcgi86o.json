@@ -579,6 +579,34 @@
       "qtd": 4,
       "descHTML": "",
       "equipado": false
+    },
+    {
+      "nome": "Platinas",
+      "tag": "dinheiro",
+      "qtd": 1,
+      "descHTML": "0",
+      "equipado": false
+    },
+    {
+      "nome": "Ouros",
+      "tag": "dinheiro",
+      "qtd": 1,
+      "descHTML": "1",
+      "equipado": false
+    },
+    {
+      "nome": "Pratas",
+      "tag": "dinheiro",
+      "qtd": 14,
+      "descHTML": "14",
+      "equipado": false
+    },
+    {
+      "nome": "Cobres",
+      "tag": "dinheiro",
+      "qtd": 6,
+      "descHTML": "6",
+      "equipado": false
     }
   ],
   "pensamentos": [
@@ -626,6 +654,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T07:42:37.303Z",
+  "atualizado": "2026-10-03T07:44:42.043Z",
   "dono": "Lokeser.github.io"
 }

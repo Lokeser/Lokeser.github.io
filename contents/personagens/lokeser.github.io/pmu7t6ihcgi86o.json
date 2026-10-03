@@ -8,7 +8,7 @@
   "subRaca": "",
   "classeInicial": "Aventureiro",
   "subClasseInicial": "",
-  "classeAvancada": "",
+  "classeAvancada": "Jūryoku Ken",
   "subClasseAvancada": "",
   "magia": "Anômala",
   "rank": 5,
@@ -21,8 +21,8 @@
     "sabedoria": 12,
     "mana": 17
   },
-  "vidaAtual": 1673,
-  "vidaMaxManual": 1673,
+  "vidaAtual": 1614,
+  "vidaMaxManual": 1614,
   "magiculasAtual": 168,
   "magiculasMax": 168,
   "arcanaManual": null,
@@ -37,12 +37,17 @@
     {
       "nome": "Ulka",
       "atual": 0,
-      "max": 0
+      "max": 9
     },
     {
       "nome": "Crit",
       "atual": 0,
       "max": 0
+    },
+    {
+      "nome": "Escamas (Laranja)",
+      "atual": 5,
+      "max": 7
     }
   ],
   "poderes": [
@@ -130,7 +135,8 @@
       "efeitoHTML": "<p>Uma vez por dia, pode utilizar <strong>Ulkanalização</strong> como uma ação completa.</p>\n",
       "auto": true,
       "rank": 6,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_rekelanc_r6_2",
@@ -191,14 +197,254 @@
       "tag": "extra",
       "efeitoHTML": "Azura<br><ul><li>99,8% de projeção, uma vez por dia, Azura, pode dar dar 1 comando a Azuxia, este comando tem, como base, a própria mentalidade da Azura, sendo capaz de superar até mesmo uma ordem do Loke, conforme contexto.</li></ul>Modo Vingança<br><ul><li>Azura sente tesão, e quer descontar em alguem, mas o Loke fica dando atenção as outras. E Azura sente isso... Ando so do Azuxia.</li><li>Durante o período, Azura pode tocar e interagir com Azuxia de forma livre, sem ativar nenhuma reação da Azuxia ou o corpo físico dela falhar. Além disso, ela pode ordena-la como sua Dona. Isso faz com que Azuxia temporariamente negue as ordens de Loke.</li></ul>Conexão Azuxia<br><ul><li>Ganho de PA no modo Vingança faz com que você recebe +1 Magícula Permanente sempre que realizar um evento de 600+ de PA. 15+ de Carisma fazem +1. A Cada 100PA Acima de 600 você recebe +1 Mgc Extra. O Limite diário é 5, e aumenta para 5 a cada 200PA acima dos 600PA.&nbsp;</li></ul><div>Coco magico</div><div><ul><li>Sempre que consumir magiculas residuais da azuxia, receba 1d9 magiculas temporárias a cada 10 gramas consumidas</li></ul></div>",
       "auto": false
+    },
+    {
+      "refId": "cs_juryoku_r8e1",
+      "nome": "Ataques Desarmados & Chifrada",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li><strong>Ataques Desarmados:</strong> +1DR em ataques desarmados; sempre que acertar um crítico, sua margem aumenta em 1 pelo resto do combate.</li>\n<li><strong>Chifrada:</strong> +1DR em ataques de chifre; ao acertar um alvo, recebe 1 <strong>Carga Gravitas</strong>. Só pode usar 1 ataque de chifre por turno.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "cs_juryoku_r8e2",
+      "nome": "Sequência Orbital",
+      "tag": "classe",
+      "efeitoHTML": "<p>Ao acertar um desarmado ou chifre, o alvo gera um campo gravitacional: cada golpe consecutivo no mesmo alvo dá <strong>+1 no Acerto e +5 no Dano</strong> cumulativos. Você perde a sequência se não atacar no próximo turno ou falhar num teste contra condição de corpo.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 2
+    },
+    {
+      "refId": "cs_juryoku_r8e3",
+      "nome": "Jūryoku Ken (Inarcana)",
+      "tag": "classe",
+      "efeitoHTML": "<p>Com 5m da Ação de Movimento e <strong>15 Mgc</strong>, ative o Jūryoku Ken:</p>\n<ul>\n<li>Ataques desarmados: +1d6 no acerto; dano adicional igual a <strong>ERd10 + 1d4 per Carga Gravitas</strong>.</li>\n<li>Ataques de chifre: +1d6 no acerto; estágio de dano do chifre +1.</li>\n<li>CA aumenta igual à sua ER.</li>\n<li>Cria uma luz roxa em 5m ao seu redor.</li>\n<li>No crítico, escolha: dobrar o dano · +6 de CA até o fim do próximo turno · VT igual ao dano · ou 1d8 Cargas Gravitas.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 3
+    },
+    {
+      "refId": "cs_juryoku_r7e1",
+      "nome": "Prisão Gravitacional",
+      "tag": "classe",
+      "efeitoHTML": "<p>Vantagem para agarrar inimigos; um inimigo agarrado por você tem desvantagem para se soltar.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "cs_juryoku_r7e2",
+      "nome": "Vambraço Lunar",
+      "tag": "classe",
+      "efeitoHTML": "<p>No início do turno, como ação bônus, se o alvo estiver sob condição adversa de corpo (Lento, Imóvel, etc.), gaste <strong>10 Mgc</strong> para avançar e prendê-lo com sua magia — ambos só podem se atacar corpo-a-corpo.</p>\n<ul>\n<li>Seus ataques corpo-a-corpo têm +1DR e dano extra igual à Mana.</li>\n<li>Todo turno o alvo faz teste de resistência de Mana para se soltar; cada vez que ele te acertar, a CD dele cai em 1.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 2
+    },
+    {
+      "refId": "cs_juryoku_r7e3",
+      "nome": "Aura Gravitacional",
+      "tag": "classe",
+      "efeitoHTML": "<p>+10 pontos de perícia em Aura e +5 pontos para distribuir entre Acrobacia e Atletismo.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 3,
+      "oculto": true
+    },
+    {
+      "refId": "cs_juryoku_r7e4",
+      "nome": "Peso Irreal",
+      "tag": "classe",
+      "efeitoHTML": "<p>Seu dado de acerto do Jūryoku Ken se torna <strong>2d4</strong>, e o dado per Carga Gravitas se torna <strong>1d6</strong>.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 4
+    },
+    {
+      "refId": "cs_juryoku_r7e5",
+      "nome": "Canhão Gravitacional",
+      "tag": "classe",
+      "efeitoHTML": "<p>Enquanto o Jūryoku Ken estiver ativo, o peso que você levanta é <strong>dobrado</strong>, podendo arremessar objetos a distâncias imensas.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 5
+    },
+    {
+      "refId": "cs_juryoku_r6e1",
+      "nome": "Investida Impactante",
+      "tag": "classe",
+      "efeitoHTML": "<p>Ao investir contra um inimigo, adiciona seu deslocamento no acerto e no dano do primeiro ataque contra ele.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 1
+    },
+    {
+      "refId": "cs_juryoku_r6e2",
+      "nome": "Núcleo Inabalável",
+      "tag": "classe",
+      "efeitoHTML": "<p>Vantagem em resistências contra empurrões, quedas, levitação forçada ou qualquer efeito que tente mover/derrubar você. Enquanto o Jūryoku Ken estiver ativo, reduz o dano recebido em <strong>Mana + ER</strong>.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 2
+    },
+    {
+      "refId": "cs_juryoku_r6e3",
+      "nome": "Punhos Dizimadores",
+      "tag": "classe",
+      "efeitoHTML": "<p>Ação padrão com o Jūryoku Ken ativo, <strong>15 Mgc</strong>: sequência de até 4 desarmados no mesmo alvo (+1DR cumulativo após o 1º). Se todos acertarem, faça um <strong>5º ataque de chifre</strong> que causa dano em área igual à luminosidade do Jūryoku Ken, dano extra igual a <strong>Cargas Gravitas × 1d10 + Cargas Ulka × 1d10</strong>, e aplica <strong>Enredado</strong>.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 3
+    },
+    {
+      "refId": "cs_juryoku_r6e4",
+      "nome": "Órbita Pessoal",
+      "tag": "classe",
+      "efeitoHTML": "<p>Gaste 1 Carga Gravitas como reação quando um aliado a 10m for atacado: puxe a trajetória para si (o ataque mira em você com −5 no acerto). Se te acertar, ganha 2 Cargas Gravitas.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 4
+    },
+    {
+      "refId": "cs_juryoku_r6e5",
+      "nome": "Gravidade Irrefreável",
+      "tag": "classe",
+      "efeitoHTML": "<p>Consuma <strong>8 Cargas Gravitas</strong> para remover uma condição de corpo evoluída.</p>\n",
+      "auto": true,
+      "rank": 6,
+      "estrela": 5
+    },
+    {
+      "refId": "cs_juryoku_r5e1",
+      "nome": "Confiança e Atração",
+      "tag": "classe",
+      "efeitoHTML": "<p>Sua aura inerte de gravitação faz você parecer um porto seguro — pessoas confiam e acreditam em você com mais facilidade.</p>\n",
+      "auto": true,
+      "rank": 5,
+      "estrela": 1
+    },
+    {
+      "refId": "cs_juryoku_r5e2",
+      "nome": "Aura Singular",
+      "tag": "classe",
+      "efeitoHTML": "<p>+15 pontos de perícia em Aura e +8 pontos para distribuir entre Acrobacia e Atletismo.</p>\n",
+      "auto": true,
+      "rank": 5,
+      "estrela": 2,
+      "oculto": true
+    },
+    {
+      "nome": "Ulkanalização",
+      "tag": "raca",
+      "efeitoHTML": "<b>Primeira Cicatriz {59v} - Barreira Ancestral da Tempestade Carmesim</b><ul><li>Consumindo 1d4 Cargas Ulka, como uma Ação Bônus, pode manifestar temporariamente a Barreira Ancestral da Tempestade Carmesim em volta de você por 2 turnos, se tornando Imune a Dano de Raio e recebendo 59 de Vida Mágica. Enquanto estiver ativa, você ignora condições adversas provenientes de Magia de Raio ou Efeitos do Clima.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Chifres",
+      "tag": "raca",
+      "efeitoHTML": "Ataque de Chifres - Como uma ação de ataque, cause dano igual á d12 per 2 Força + Mana, após isso, receba 1d6 de Ulka<br><br>Ulka - Pode mutações ilusórias á seu chifre, que duram até o final do combate.<br>Remover Condição Adversa Menor - 4 Ulka<br>Aumentar o dano em um estágio - 6 Ulka<br>Aumentar o alcance para curto - 4 Ulka<br>Aplicar 1d4 de dano de fogo - 2 Ulka<br>Aplica 1d5 de dano de mana - 2 Ulka<br><br>Motrícede de Affair - ????<br><br>Ascolian - Adiciona Mana + ER na sua Iniciativa, caso seja o primeiro de todos a agir, sua movimentação não aplica contra-ataques.<br><br>Ultigox - Ao utilizar sua magia pelo chifre, ela consome +1d4 Mgc, adicionalmente você recebe 1d4 Ulka ao utiliza-la, e recebe +1DR em Testes de Ataque e +1D de Dano<br><br>Canalização Magíurna - ???&nbsp;",
+      "auto": false
+    },
+    {
+      "nome": "Atração / Empurrão",
+      "tag": "magia",
+      "efeitoHTML": "<div><b>[Prestigio: +1 DR para acerto ou −1 DR para o inimigo resistir aos efeitos.]</b></div><div>Atração Gravitacional (Ação Bônus) (3Mgc):</div><ul><li>Escolha um alvo dentro de alcance médio que tenha um peso igual ou inferior ao valor de sua Mana multiplicado por 10 (em quilos). O alvo é puxado diretamente para você ou para um ponto ao seu alcance.</li><li>Criaturas podem fazer um teste de Resistência de Força (CD = 10 + ER + MANA) para resistir ao puxão. Se falharem, são puxados para você.</li></ul><br><b>[Prestigio: +1 DR para acerto ou −1 DR para o inimigo resistir aos efeitos.]</b><br><div>Empurrão Gravitacional (Ação de Ataque) (2Mgc):&nbsp;</div><ul><li>Escolha um alvo dentro do alcance longo, e ele é empurrado em linha reta para longe de você.&nbsp;</li><li>Objetos: Objetos inanimados com o valor igual sua Mana x 20 podem ser empurrados até 9 metros para longe de você. Se o objeto colidir com uma criatura, ela deve fazer um teste de Resistência de Destreza (CD Mágica) ou receber dano igual á 1d6 per Metro empurrado + 1d4 per 2 Mana de dano M-Contundente</li><li>Criaturas: Como auma ação de ataque, pode empurar o alvo em até 12m, elas sofrem dano igual a 1d8 per 2 Mana + Mana, mais 1d8 adicional para cada 3 metros movimento empurrado.</li><li>Se forem jogadas contra uma parede ou outro obstáculo sólido, o alvo sofre 3d4 de Dano adicional.</li><li>Caso utilize Empurrão após Atração, empurrão tem +1DR no acerto e deixa o alvo Tonto</li><li>Alvos com Redução de Peso voam o dobro de distância</li><li>Alvos com Aumento de Peso não se movem, mas recebem o 3d4 de dano&nbsp;</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Aumentar / Reduzir Gravidade",
+      "tag": "magia",
+      "efeitoHTML": "<b>[Assinatura +1DR ou -1DR para resistir] Aumentar Gravidade I (4mgc):</b><br>Você pode escolher uma área em distância longa, seu alcance é de 6m, dentro deste local, os seres são comprimidos. Todos os alvos dentro da área realizam um teste de mana contra sua CD Mágica, se não passarem, sofrem dano igual á 3d10 + ERd10 + Mana e ficam imóveis. Você pode manter o aumento no seu próximo turno consumindo mais 4 magículas, repetindo o teste com +2 na CD.<br><br><div><b>[</b><b>Assinatura +1DR ou -1DR para resistir</b><b>]&nbsp;Reduzir gravidade I&nbsp;</b><b>(4mgc)</b><b>:</b></div>Passiva: Reduz em 1 terço seu dano de queda, além disso, você recebe deslocamento extra igual sua Mana.<br><br>Reduzir Gravidade, Utiliza sua Magia para elevar o alvo aos céus, em uma altura de Mana + ER, ele pode se soltar com um teste de Mana em seu turno (Sua Cd Mágica). Enquanto estiver flutuando, ele perde sua Ação de Movimento e recebe 1 Gravitas todo turno em que estiver flutuando.<br><br>",
+      "auto": false
+    },
+    {
+      "nome": "Aura de Gravidade",
+      "tag": "magia",
+      "efeitoHTML": "<div><b>Aura de Peso&nbsp;</b></div><div>Passiva: ataques em distância corpo-a-corpo tem -3 para te acertar, alem de aumentar sua Intimidação em um valor igual sua mana.</div><div><br></div><div><b>Aura Leve</b></div><div>Você recebe Resistência II contra dano elemental</div><div><div><br></div>Como uma ação de movimento, seu efeito passivo é extendido á uma aura, ela exala no seu corpo em até 10+Aura cm, tudo dentro da aura sofre seus efeitos mágicos passivos.</div><div><br></div>Pode consumir 15 Magículas para aumentar o efeito até o final do combate<br>Aura Pesada: -5, Mana+5<br>Aura Leve: Resistência III<br><br>",
+      "auto": false
+    },
+    {
+      "nome": "Choque de Gravidade",
+      "tag": "magia",
+      "efeitoHTML": "<div><b>Choque de Intesificação Gravitacional I:</b></div><div>Como uma ação de ataque mágico, consuma 3 Magículas e escolha um alvo dentro da distância Longa, ele recebe d6 per 2 Mana + d6 per 2 Força + Mana, além disso, você recebe 2 Cargas Gravitas deste ataque.</div><br><div><b>Choque de Redução Gravitacional I:</b></div><div>Como uma ação e consumindo 25 Magículas, escolha um alvo em uma distância Longa, ele recebe 1 Ação de Movimento extra em seu turno e não aplica contra-ataques ao se mover, alternativamente pode utilizar esta habilidade como uma reação, com seu custo aumentado para 35 Magículas.</div>",
+      "auto": false
+    },
+    {
+      "nome": "Ponto de Gravitação",
+      "tag": "magia",
+      "efeitoHTML": "<div>Como uma ação, intesifique a gravidade em um único ponto, todos os alvos dentro de 30m são atraidos para ela, alvos realizam um teste de força contra sua cd mágica, se não passarem eles são puxados 10m para o ponto.&nbsp;</div><div>Tudo que é puxado recebe dano igual metade de sua mana, você gasta 4mgc todo turno para manter esse ponto. Você pode explodir, como ação bônus, causando dano igual á ERd10 + 1d20 per turno ativado (Max.10) + Mana + ER</div>",
+      "auto": false
+    },
+    {
+      "nome": "Cometa Azura",
+      "tag": "magia",
+      "efeitoHTML": "<b>Caminho de Atração</b><br>Ao se concentrar em uma energia que pode sentir, como uma ação de movimento e consumindo 1d8+2 Mgc, você visualiza um caminho que te leva em alta velocidade até lá.<br>Gire 1d8+1, o resultado ditará quantas vezes sua Velocidade de Movimento é multiplicada neste turno para ir em linha reta ao local.<br><br><b>Cometa Azura</b><br>Caso você atravesse algo no caminho, este algo recebe dano igual á d12 per 2 Mana + Mana + 1d4 per 2 Força, caso o alvo perca dano igual á metade de sua vida, ele é arremessado em metros igual sua Mana para longe do caminho, caso contrário, você colide contra ele e recebe metade do dano que causar em dano contundente (ele recebe dano anômalo)<br><br>Essa habilidade não possui um alcânce espécifico, enquanto você sentir á energia, pode ir até ela, caso não tenha chegado no próximo turno, pode consumir 1d4 Mgc para dar continuidade ao poder<br><br>",
+      "auto": false
+    },
+    {
+      "nome": "Azuravidade",
+      "tag": "magia",
+      "efeitoHTML": "<ul><li>5Mgc</li><li>Ação</li><li>Cria um campo de 20+Mana Metros em volta de você, dentro desse local, você tem 1 Ação de Gravidade, uma ação únicamente dedicada a poderes consome -1Mgc em suas habilidades (Min.1). Além disso, sempre que reduzir ou aumentar o peso, recebe 1 Carga Gravitas.</li><li>3 C. Gravitas: Aumenta o Dano de seus ataques em +4</li><li>6 C. Gravitas: Reduz o Deslocamento dos alvos em 5m, você recebe +1m para cada 5m reduzidos desta forma</li><li>9 C. Gravitas: Aumenta sua CD Mágica em +2</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "CAMPOS DO DESOLAMENTO PÚRPURO",
+      "tag": "magia",
+      "efeitoHTML": "110 Magículas<br>Para cada Carga Gravitas, o custo desta habilidade é reduzido em 5 Magículas.<br><br>Você cria um campo púrpuro que lhe permite controlar livremente a Gravidade dentro de um raio igual a sua Mana x 2 em metros, pode zerar a gravidade ou intensifica-la.<br><br>Você recebe 2 Ações de Gravidades todo turno, elas são ações exclusivas para você utilizar Azuravidade, enquanto dentro do Campo. Você não pode utilizar Azuravidade como ação de ataque, enquanto no campo.<br><br><ul><li>Suas magias e habilidade mágicas recebem +2D de Dano e custam 0 magículas.&nbsp;</li></ul><ul><li>A Azura recebe +10m de Deslocamento para se mover dentro da área.</li></ul><ul><li>Inimigos dentro da Habilidade tem seu Deslocamento reduzido pela metade e não podem acertar ataques críticos contra você.</li></ul><b>Você recebe habilidades evoluidas que são consideradas como magias da Azuravidade.</b><br><br><ul><li>Ulbro Empurrão: Dentro de sua área, escolha alvos até um limite de peso igual sua Mana x 15, eles realizam um teste de defesa de mana com desvantagem, se falharem, eles são empurrados em linha reta até onde você quiser, tendo como limite a área de sua ArkMagia e sofrem dano igual á 1d10 per 2 Mana + Mana. (14d10 + 27)</li></ul><ul><li>Venka Puxão: Dentro de sua área, escolha alvos até um limite de peso igual sua Mana x 15, eles realizam um teste de defesa de mana com desvantagem, se falharem, eles são puxados em linha reta até onde você quiser, tendo como limite sua localização.&nbsp;</li></ul><ul><li>Esmagamento Emglar: Dentro de sua área, escolha alvos até um limite de peso igual sua Mana x 20, eles realizam um teste de defesa de mana com desvantagem, se falharem, eles são esmagados no solo e sofrem dano igual 1d15 per 2 Mana + Mana. (14d15 + 27)</li></ul><ul><li>Levitação Aion: Dentro de sua área, escolha alvos até um limite de peso igual sua Mana x 12, eles realizam um teste de defesa de mana com desvantagem, se falharem, eles perdem sua ação de movimento e ações que nessecite de contato com o solo.</li></ul><ul><li>Armadura Púrpura: Neste turno, sua Resistência se torna IV em qualquer dano possível, caso já seja IV em algum dano, este se torna V</li></ul><br><b>Combos:</b><br><ul><li>Levitação + Esmagamento = Queda Colossal: O Alvo recebe dano adicional igual á 1d10 per 2 Força e fica tonto (9d10 + 5)</li></ul><ul><li>Levitação + Empurrão = Cometa de Carne: O Alvo é arremessado para até 2d20 Metros para fora da área da magia, sofrendo dano adicional de Fogo igual á 1d12 per 2 Mana (14d12 + 5)</li></ul><ul><li>Esmagamento + Puxão = Arrastada Sinistra: O Alvo é arrastado pelo chão, recebendo dano igual á d14 per 2 Mana e a condição indefeso (14d14 + 5)</li></ul><ul><li>Levitação + Levitação = Voo Forçado: O Alvo voa até 2d20 metros para fora da área, tomando muito dano de queda.&nbsp;</li></ul><ul><li>Puxão + Empurrão = Quebra Sinética: O Alvo recebe dano adicional igual á 4d10 + 5, este dano atravessa resistências.</li></ul>",
+      "auto": false
+    },
+    {
+      "nome": "Bloquear",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#ff4500\">💪 Pilar do Corpo · 1º Estágio</p><p>Vezes por dia igual a sua Constituição</p><p>Como uma reação a um golpe, pode consumir 2 Magículas e escolher bloquear, fazendo isso, você reduz o dano igual a seu valor de Constituição+Mana, o valor aumenta em 2 per ER (47)</p>\n",
+      "auto": false
     }
   ],
-  "ataques": [],
+  "ataques": [
+    {
+      "nome": "Soco Juryokuken",
+      "ndr": 3,
+      "mult": 2,
+      "atrAtaque": "corpo",
+      "atrDano": "corpo",
+      "crit": "crit 27",
+      "efeitoHTML": "<div>3#d30 + 17 + 2d4</div><div>6d14 + 39 + 6d2</div>"
+    },
+    {
+      "nome": "Chifre Juryokuken",
+      "ndr": 4,
+      "mult": 2,
+      "atrAtaque": "corpo",
+      "atrDano": "corpo",
+      "crit": "1d8 carga gravita / 1d6 cargas ulka",
+      "efeitoHTML": "<div>4#d30 + 17 + 2d4</div><div>6d16 + 6d10 + CGd6 + 6d2 + 39</div>"
+    },
+    {
+      "nome": "Rabo Juryokuken",
+      "ndr": 3,
+      "mult": 2,
+      "atrAtaque": "tecnica",
+      "atrDano": "tecnica",
+      "crit": "crit 27",
+      "efeitoHTML": "<div>3#d30 + 14 + 2d4</div><div>6d6 + 6d2 + 6 + 23</div>"
+    },
+    {
+      "nome": "Cometa Azura",
+      "ndr": 1,
+      "mult": 2,
+      "atrAtaque": "mana",
+      "atrDano": "mana",
+      "crit": "",
+      "efeitoHTML": "7d12 + 10d4 + 30"
+    }
+  ],
   "inventario": [
     {
       "nome": "Sorte",
       "tag": "outro",
-      "qtd": 5,
+      "qtd": 4,
       "descHTML": "",
       "equipado": false
     }
@@ -248,6 +494,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T03:29:21.118Z",
+  "atualizado": "2026-10-03T07:23:51.522Z",
   "dono": "Lokeser.github.io"
 }

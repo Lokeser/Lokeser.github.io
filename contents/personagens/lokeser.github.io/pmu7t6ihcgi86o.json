@@ -14,7 +14,7 @@
   "rank": 5,
   "estrela": 2,
   "atributos": {
-    "corpo": 16,
+    "corpo": 14,
     "tecnica": 5,
     "intelecto": 2,
     "carisma": 3,
@@ -55,7 +55,8 @@
       "efeitoHTML": "<p>Escolha <strong>3 características</strong> da sua raça (em vez de 2):</p>\n<ul>\n<li><strong>Veneno Superior:</strong> ataques corpo a corpo causam 1d8 de dano venenoso por turno (remover: ação padrão, CD 15).</li>\n<li><strong>Asas:</strong> plana pela metade do deslocamento e ignora dano de queda. No Rank 4, voa igual ao deslocamento total.</li>\n<li><strong>Pelos de Queratina:</strong> anda em paredes pela metade do deslocamento e +5 em Acrobacia. No Rank 7, vira deslocamento total.</li>\n<li><strong>Chifres Ofensivos:</strong> 1º ataque de chifre no turno recebe +1DR. Ao acertar conjurador, drena 1d6 de magículas (CD 15).</li>\n<li><strong>Reflexos Instintivos:</strong> como ação, teste de Intuição contra inimigo (CD 15 + ER do inimigo) para +2 de CA contra ele.</li>\n<li><strong>Sangue Humano Inferior:</strong> +2 pontos de atributo.</li>\n<li><strong>Garras Afiadas:</strong> ataques básicos viram 1d8 per 2 Corpo + Corpo (Corte); crítico causa sangramento.</li>\n<li><strong>Dentes Afiados:</strong> morde 1×/turno, 1d6 per Corpo + Corpo (Perfuração).</li>\n<li><strong>Cauda Poderosa:</strong> derruba com teste de Técnica ou usa como ataque básico (Técnica no acerto/dano).</li>\n<li><strong>Pele Rígida Ancestral:</strong> Resistência Adaptativa (Corpo) contra dano físico. No Rank 8, vira Redução de Dano Adaptativa II.</li>\n<li><strong>Capacidade Aquática:</strong> nada igual ao deslocamento; segura a respiração por horas iguais ao Corpo. No Rank 7, nado dobra.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": false
     },
     {
       "refId": "ci_aventureiro_r10e1_1",
@@ -94,7 +95,8 @@
       "efeitoHTML": "<p>Todas as suas características raciais recebem <strong>+3</strong> no acerto, dano, redução de dano ou qualquer CD, conforme aplicável. <em>(Resistência à Impacto aumenta +1 a CA.)</em></p>\n",
       "auto": true,
       "rank": 8,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "rc_rekelanc_r8_2",
@@ -121,7 +123,8 @@
       "efeitoHTML": "<p>Escolha mais uma característica de Rekel.</p>\n",
       "auto": true,
       "rank": 6,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_aventureiro_r9e1_1",
@@ -142,6 +145,12 @@
       "rank": 9,
       "estrela": 1,
       "oculto": true
+    },
+    {
+      "nome": "Anatomia Rekel: Pele Rígida Ancestral",
+      "tag": "raca",
+      "efeitoHTML": "<div>Resistência Adaptativa contra dano físico.</div><div>No Rank 8, essa resistência se torna Redução de Dano Adaptativa II. (6 + er + 3 + cor + man = 50)</div><br>",
+      "auto": false
     }
   ],
   "ataques": [],
@@ -175,35 +184,26 @@
     "Percepção": 74,
     "Tenacidade": 8,
     "Iniciativa": 25,
-    "Medicina": 2,
     "Intimidação": 10,
     "Sobrevivência": 7,
-    "Deslocamento": 27,
+    "Deslocamento": 28,
     "Performance": 2,
     "Adestramento": 2,
     "Acrobacia": 8,
     "Percepção Mágica": 10,
-    "Furtividade": 2
+    "Furtividade": 2,
+    "Medicina": 2
   },
   "resistencias": {
+    "Vento": "r2",
+    "Raio": "r3",
+    "Terra": "r2",
+    "Água": "r2",
+    "Fogo": "r2",
     "Cortante": "acostumado",
     "Perfurante": "acostumado",
-    "Contundente": "acostumado",
-    "Magi-Cortante": "acostumado",
-    "Magi-Perfurante": "acostumado",
-    "Magi-Contundente": "acostumado",
-    "Água": "acostumado",
-    "Terra": "acostumado",
-    "Fogo": "acostumado",
-    "Vento": "acostumado",
-    "Raio": "acostumado",
-    "Ki": "acostumado",
-    "Fé": "acostumado",
-    "Caos": "acostumado",
-    "Anômalo": "acostumado",
-    "Malícia": "acostumado",
-    "Ordem": "acostumado"
+    "Contundente": "acostumado"
   },
-  "atualizado": "2026-09-22T01:30:46.683Z",
+  "atualizado": "2026-10-03T02:46:03.582Z",
   "dono": "Lokeser.github.io"
 }

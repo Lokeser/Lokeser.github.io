@@ -18,9 +18,9 @@
     "sabedoria": 2,
     "mana": 9
   },
-  "vidaAtual": 175,
+  "vidaAtual": 197,
   "vidaMaxManual": 197,
-  "magiculasAtual": 108,
+  "magiculasAtual": 127,
   "magiculasMax": 127,
   "arcanaManual": null,
   "caManual": 14,
@@ -229,7 +229,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-03T07:47:00.812Z",
+  "atualizado": "2026-10-04T18:15:00.014Z",
   "vidaMagicaAtual": 75,
   "dono": "Lokeser.github.io",
   "vidaMagicaMax": 75,

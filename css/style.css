@@ -195,11 +195,16 @@
         flex-direction: column; justify-content: flex-start; align-items: stretch;
         gap: var(--sp-1); padding: 84px var(--sp-4) var(--sp-5);
         background: var(--surface); border-left: 1px solid var(--border);
-        box-shadow: -12px 0 40px var(--overlay);
-        transition: transform var(--t-slow) var(--ease);
+        /* Fechada, a gaveta não projeta sombra nem recebe foco */
+        box-shadow: none; visibility: hidden;
+        transition: transform var(--t-slow) var(--ease), visibility 0s linear var(--t-slow);
         overflow-y: auto;
     }
-    .nav-links.active { transform: none; }
+    .nav-links.active {
+        transform: none; visibility: visible;
+        box-shadow: -12px 0 40px var(--overlay);
+        transition: transform var(--t-slow) var(--ease), visibility 0s;
+    }
     .nav-links li { width: 100%; }
     .nav-links li a { padding: 12px var(--sp-3); font-size: .95rem; }
     /* No celular a conta fica na barra, ao lado do hambúrguer */

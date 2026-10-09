@@ -1,192 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caminho do Ki - Luxsandoria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Caminho do Ki</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        /* Paleta: Branco (P), Vermelho (S), Azul (T) */
-        body { 
-            background-color: #f8f9fa !important; 
-            color: #1a1a1a;
+        /* ==========================================================
+           KI — selvagem e voraz.
+           Base: o preto ou o branco do tema. Acentos: sangue e ouro.
+           A peça marcante é o "KI" gigante rasgado por três garras.
+           ========================================================== */
+        :root {
+            --sangue: #B3121F;
+            --brasa:  #D8341F;
+            --ki-ouro: #A9771C;
+            --ki-veu: rgba(179, 18, 31, .08);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]):not([data-theme="blue"]) {
+                --sangue: #E8303F; --brasa: #FF5A3D; --ki-ouro: #E7C77F; --ki-veu: rgba(232, 48, 63, .10);
+            }
+        }
+        :root[data-theme="dark"] { --sangue: #E8303F; --brasa: #FF5A3D; --ki-ouro: #E7C77F; --ki-veu: rgba(232, 48, 63, .10); }
+
+        /* O Ki abandona o véu azul do grimório: o fundo é branco ou preto puros */
+        :root { --ki-base: #FFFFFF; }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not([data-theme="blue"]) { --ki-base: #050505; } }
+        :root[data-theme="dark"] { --ki-base: #050505; }
+        body {
+            --surface: color-mix(in srgb, var(--text) 4%, var(--ki-base));
+            --border: color-mix(in srgb, var(--text) 14%, var(--ki-base));
+            --border-strong: color-mix(in srgb, var(--text) 24%, var(--ki-base));
+            background: var(--ki-base);
         }
 
-        .ki-header {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #d32f2f 100%);
-            border-bottom: 5px solid #1976d2;
-            color: var(--text-sobre-arte);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .voltar-topo {
+            display: inline-block; margin-top: var(--sp-5);
+            font-size: var(--step--1); color: var(--text-2); text-decoration: none;
+        }
+        .voltar-topo:hover { color: var(--sangue); }
+
+        /* ===== Hero ===== */
+        .ki-hero {
+            display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+            gap: var(--sp-6); align-items: center;
+            padding: var(--sp-5) 0 var(--sp-7);
+        }
+        @media (max-width: 860px) { .ki-hero { grid-template-columns: 1fr; } }
+
+        .ki-titulo { position: relative; display: inline-block; line-height: .82; margin: 0 0 var(--sp-4); }
+        .ki-titulo h1 {
+            font-family: var(--font-display); font-weight: 700;
+            font-size: clamp(7rem, 19vw, 15rem); letter-spacing: -.02em;
+            line-height: .82; margin: 0; color: var(--text);
+        }
+        /* As três garras rasgando a palavra */
+        .garras {
+            position: absolute; inset: -6% -14% -4% -8%; width: 122%; height: 110%;
+            pointer-events: none; overflow: visible;
+        }
+        .garras path {
+            fill: none; stroke: var(--sangue); stroke-width: 9; stroke-linecap: round;
+            stroke-dasharray: 520; stroke-dashoffset: 520;
+            animation: rasgar .5s cubic-bezier(.6, 0, .2, 1) forwards;
+            filter: drop-shadow(0 0 6px color-mix(in srgb, var(--sangue) 55%, transparent));
+        }
+        .garras path:nth-child(2) { animation-delay: .09s; stroke-width: 11; }
+        .garras path:nth-child(3) { animation-delay: .18s; }
+        @keyframes rasgar { to { stroke-dashoffset: 0; } }
+        @media (prefers-reduced-motion: reduce) { .garras path { animation: none; stroke-dashoffset: 0; } }
+
+        .ki-frase {
+            font-family: var(--font-text); font-style: italic;
+            font-size: var(--step-2); line-height: 1.35; color: var(--text);
+            margin: 0 0 var(--sp-3); max-width: 30ch;
+        }
+        .ki-frase::before {
+            content: ''; display: block; width: 56px; height: 3px; margin-bottom: var(--sp-3);
+            background: linear-gradient(90deg, var(--sangue), var(--ki-ouro));
+        }
+        .ki-texto { color: var(--text-2); max-width: 52ch; margin: 0 0 var(--sp-5); line-height: 1.65; }
+        .ki-acoes { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+        .btn--sangue { background: var(--sangue); color: #fff; }
+        .btn--sangue:hover { background: var(--brasa); color: #fff; box-shadow: 0 8px 22px color-mix(in srgb, var(--sangue) 40%, transparent); }
+
+        /* Retrato do Ki com a borda rasgada */
+        .ki-arte { position: relative; justify-self: center; width: min(100%, 420px); }
+        .ki-arte::before {
+            content: ''; position: absolute; inset: 8% -6% -4% 10%;
+            background: radial-gradient(closest-side, color-mix(in srgb, var(--sangue) 45%, transparent), transparent);
+            filter: blur(10px);
+        }
+        .ki-arte img {
+            position: relative; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+            clip-path: polygon(0 4%, 18% 0, 46% 3%, 71% 0, 100% 5%, 97% 30%, 100% 58%, 96% 82%, 100% 100%, 62% 97%, 34% 100%, 6% 96%, 0 74%, 3% 46%, 0 22%);
         }
 
-        /* Card Horizontal (Ki Fundamental) */
-        .ki-base-card {
-            display: flex;
-            background: #fff;
-            border: 2px solid #d32f2f;
-            border-radius: 15px;
-            overflow: hidden;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            min-height: 250px;
+        /* ===== Como o Ki funciona ===== */
+        .ki-base {
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;
+            border-top: 2px solid var(--text); border-bottom: 1px solid var(--border);
         }
+        @media (max-width: 760px) { .ki-base { grid-template-columns: 1fr; } }
+        .ki-base > div { padding: var(--sp-4) var(--sp-4) var(--sp-4) 0; }
+        .ki-base > div + div { padding-left: var(--sp-4); border-left: 1px solid var(--border); }
+        @media (max-width: 760px) { .ki-base > div + div { border-left: 0; border-top: 1px solid var(--border); padding-left: 0; } }
+        .ki-base h3 { font-size: var(--step-1); margin: 0 0 4px; }
+        .ki-base h3::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-right: 8px; background: var(--sangue); transform: skewX(-20deg); }
+        .ki-base p { margin: 0; color: var(--text-2); font-size: .9rem; line-height: 1.55; }
 
-        .ki-base-img {
-            width: 40%;
-            background-size: cover;
-            background-position: center;
-            transition: 0.6s;
+        /* ===== As três Artes ===== */
+        .artes-head { margin: var(--sp-8) 0 var(--sp-5); max-width: 60ch; }
+        .artes-head h2 { font-size: var(--step-3); margin: 0 0 var(--sp-2); }
+        .artes-head p { margin: 0; color: var(--text-2); font-family: var(--font-text); line-height: 1.6; }
+
+        .artes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); padding-bottom: var(--sp-8); }
+        @media (max-width: 860px) { .artes { grid-template-columns: 1fr; } }
+
+        .arte {
+            position: relative; display: flex; flex-direction: column;
+            min-height: 430px; padding: var(--sp-6) var(--sp-5) var(--sp-5);
+            text-decoration: none; color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 0 100%);
+            transition: transform var(--t) var(--ease), border-color var(--t) var(--ease), background var(--t) var(--ease);
         }
-
-        .ki-base-content {
-            width: 60%;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .arte:hover, .arte:focus-visible {
+            transform: translateY(-6px); color: var(--text);
+            border-color: var(--acento); background: color-mix(in srgb, var(--acento) 7%, var(--surface));
         }
-
-        .ki-base-card:hover {
-            border-color: #1976d2;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
+        /* Ao passar o mouse, as garras atravessam o card */
+        .arte::after {
+            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+            background:
+                linear-gradient(118deg, transparent 47.4%, var(--acento) 48%, var(--acento) 48.8%, transparent 49.4%),
+                linear-gradient(118deg, transparent 53.4%, var(--acento) 54%, var(--acento) 55%, transparent 55.6%),
+                linear-gradient(118deg, transparent 59.4%, var(--acento) 60%, var(--acento) 60.8%, transparent 61.4%);
+            transform: translate(-30%, 30%);
+            transition: opacity .18s ease, transform .3s cubic-bezier(.6, 0, .2, 1);
         }
+        .arte:hover::after { opacity: .22; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .arte::after { display: none; } }
 
-        .ki-base-card:hover .ki-base-img { transform: scale(1.05); }
-
-        /* Divisor de Fluxo */
-        .ki-divider {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #d32f2f, #1976d2, transparent);
-            margin: 40px auto 60px;
-            width: 80%;
-            border-radius: 50%;
+        .arte-emblema { width: 92px; height: 92px; color: var(--acento); margin-bottom: var(--sp-5); }
+        .arte h3 { font-size: var(--step-2); margin: 0 0 var(--sp-2); }
+        .arte p { margin: 0; color: var(--text-2); line-height: 1.6; font-family: var(--font-text); }
+        .arte-dif {
+            margin-top: auto; padding-top: var(--sp-5);
+            display: flex; align-items: center; gap: var(--sp-3); font-size: .85rem; font-weight: 600;
         }
+        .barras { display: inline-flex; gap: 4px; }
+        .barras i { width: 22px; height: 6px; display: block; background: var(--border-strong); transform: skewX(-20deg); }
+        .barras i.on { background: var(--acento); }
 
-        /* Cards Verticais 9:16 (Artes) */
-        .ki-card-art {
-            position: relative;
-            display: block;
-            aspect-ratio: 9 / 16;
-            background-color: var(--surface);
-            border: 2px solid #d32f2f;
-            border-radius: 12px;
-            overflow: hidden;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .ki-art-img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: grayscale(30%);
-            transition: 0.5s;
-        }
-
-        .ki-art-overlay {
-            position: absolute;
-            bottom: 0; width: 100%;
-            padding: 25px 15px;
-            background: linear-gradient(to top, #d32f2f 30%, transparent);
-            text-align: center;
-        }
-
-        .ki-art-title {
-            color: var(--text-sobre-arte);
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-        }
-
-        .ki-card-art:hover {
-            transform: scale(1.05);
-            border-color: #1976d2;
-            box-shadow: 0 10px 25px rgba(25, 118, 210, 0.3);
-        }
-
-        .ki-card-art:hover .ki-art-img { filter: grayscale(0%); transform: scale(1.1); }
-        .ki-card-art:hover .ki-art-overlay { background: linear-gradient(to top, #1976d2 30%, transparent); }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            color: #d32f2f;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .a-besta    { --acento: var(--sangue); }
+        .a-diabo    { --acento: var(--brasa); }
+        .a-celestial { --acento: var(--ki-ouro); }
     </style>
 </head>
 <body>
-    
+
     <div id="navbar-placeholder"></div>
 
-    <header class="ki-header text-center">
-        <h1 class="display-3" style="font-family: 'Cinzel', serif;">Núcleo de Ki</h1>
-        <p class="lead">A energia vital que flui através do esforço e da disciplina.</p>
-    </header>
+    <div class="lux-wrap">
+        <a class="voltar-topo" href="../magias_menu.html">← Núcleos Místicos</a>
 
-    <main class="container py-5">
-        
-        <h2 class="section-title text-center">O Fundamento</h2>
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <a href="../../../viewer.html?file=contents/magias/Ki/Ki.md" class="ki-base-card">
-                    <div class="ki-base-img" style="background-image: url('../../../assets/images/k_ki.png');"></div>
-                    <div class="ki-base-content">
-                        <h3 style="font-family: 'Cinzel', serif; color: #d32f2f;">Essência do Ki</h3>
-                        <p style="color: #555;">Compreenda as bases da energia vital. Antes de dominar as bestas ou o céu, é preciso dominar a si mesmo.</p>
-                        <span style="color: #1976d2; font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">Acessar Conhecimento Base →</span>
-                    </div>
-                </a>
+        <header class="ki-hero">
+            <div>
+                <div class="ki-titulo">
+                    <h1>KI</h1>
+                    <svg class="garras" viewBox="0 0 300 220" aria-hidden="true" preserveAspectRatio="none">
+                        <path d="M40 30 C 110 80, 190 140, 270 196"/>
+                        <path d="M70 12 C 140 66, 214 122, 292 172"/>
+                        <path d="M18 62 C 86 112, 160 168, 236 212"/>
+                    </svg>
+                </div>
+                <p class="ki-frase">A Mana que outros lançam para fora, você mantém por dentro.</p>
+                <p class="ki-texto">
+                    O Ki é a energia vital voltada para o corpo. Você golpeia mais forte, corre mais rápido
+                    e aguenta mais do que deveria — e a Arte que você escolhe decide que tipo de fera você vira.
+                </p>
+                <div class="ki-acoes">
+                    <a class="btn btn--sangue" href="../../../viewer.html?file=contents/magias/Ki/Ki.md">Ler a base do Ki</a>
+                    <a class="btn btn--secondary" href="#artes">Ver as Artes</a>
+                </div>
             </div>
+            <div class="ki-arte">
+                <img src="../../../assets/images/ki.png" alt="Símbolo do Ki em vermelho e branco" width="1024" height="1536">
+            </div>
+        </header>
+
+        <section class="ki-base" aria-label="Como o Ki funciona">
+            <div>
+                <h3>Golpe de Ki</h3>
+                <p>Seu ataque corpo a corpo. Testa com o Dado de Magia e causa 1d8 a cada 2 de Mana, mais a sua Mana.</p>
+            </div>
+            <div>
+                <h3>Aceleração</h3>
+                <p>Ação bônus por 1 Accel: Vida Temporária, mais deslocamento e golpes mais pesados até o fim da Cena.</p>
+            </div>
+            <div>
+                <h3>Accels</h3>
+                <p>Seu combustível: Mana + ER. Volta toda ao fim da Cena, e um crítico devolve um na hora.</p>
+            </div>
+        </section>
+
+        <div class="artes-head" id="artes">
+            <h2>Escolha sua Arte</h2>
+            <p>No Rank 9 o Ki se divide em três caminhos. Cada um tem a sua própria Aceleração e muda completamente o jeito de lutar.</p>
         </div>
 
-        <div class="ki-divider"></div>
+        <main class="artes">
+            <a class="arte a-besta" href="../../../viewer.html?file=contents/magias/Ki/Arte_Besta.md">
+                <svg class="arte-emblema" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true">
+                    <path d="M22 14 C 30 40, 34 62, 30 84"/>
+                    <path d="M44 10 C 52 38, 56 62, 50 88"/>
+                    <path d="M66 14 C 72 40, 74 62, 68 84"/>
+                    <path d="M14 30 l6 -4 M38 24 l6 -4 M60 28 l6 -4" stroke-width="3"/>
+                </svg>
+                <h3>Arte da Besta</h3>
+                <p>Ofensiva total. Mais Vida Temporária, mais resistência e golpes cada vez mais pesados. Você pensa com os punhos.</p>
+                <span class="arte-dif"><span class="barras" aria-hidden="true"><i class="on"></i><i></i><i></i></span> Fácil</span>
+            </a>
 
-        <h2 class="section-title text-center">As Artes Marciais</h2>
-        <div class="row g-4 justify-content-center">
-            
-            <div class="col-6 col-md-4">
-                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Besta.md" class="ki-card-art">
-                    <img src="../../../assets/images/k_besta.png" class="ki-art-img">
-                    <div class="ki-art-overlay">
-                        <h4 class="ki-art-title">Arte Besta</h4>
-                    </div>
-                </a>
-            </div>
+            <a class="arte a-diabo" href="../../../viewer.html?file=contents/magias/Ki/Arte_Diabo.md">
+                <svg class="arte-emblema" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 52 C 12 34, 16 16, 30 8 C 28 22, 32 34, 40 42"/>
+                    <path d="M76 52 C 84 34, 80 16, 66 8 C 68 22, 64 34, 56 42"/>
+                    <path d="M26 62 C 36 54, 60 54, 70 62 C 60 72, 36 72, 26 62 Z"/>
+                    <path d="M48 56 V 68" stroke-width="4"/>
+                </svg>
+                <h3>Arte do Diabo</h3>
+                <p>Destruição fria. O Ki Corrompido desgasta o inimigo aos poucos, e cada Accel é gasto no momento exato.</p>
+                <span class="arte-dif"><span class="barras" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span> Médio</span>
+            </a>
 
-            <div class="col-6 col-md-4">
-                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Diabo.md" class="ki-card-art">
-                    <img src="../../../assets/images/k_diabo.png" class="ki-art-img">
-                    <div class="ki-art-overlay">
-                        <h4 class="ki-art-title">Arte Diabo</h4>
-                    </div>
-                </a>
-            </div>
+            <a class="arte a-celestial" href="../../../viewer.html?file=contents/magias/Ki/Arte_Celestial.md">
+                <svg class="arte-emblema" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" aria-hidden="true">
+                    <ellipse cx="48" cy="20" rx="20" ry="6"/>
+                    <path d="M44 40 C 30 30, 14 34, 6 50 C 18 46, 28 50, 34 58 C 26 58, 18 64, 16 74 C 28 66, 38 66, 44 60"/>
+                    <path d="M52 40 C 66 30, 82 34, 90 50 C 78 46, 68 50, 62 58 C 70 58, 78 64, 80 74 C 68 66, 58 66, 52 60"/>
+                    <path d="M48 38 V 86"/>
+                </svg>
+                <h3>Arte do Celestial</h3>
+                <p>A técnica mais pura. Quase tudo é reação: esquivar, contra-atacar e fluir pelo campo sem precisar atacar primeiro.</p>
+                <span class="arte-dif"><span class="barras" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span> Difícil</span>
+            </a>
+        </main>
+    </div>
 
-            <div class="col-6 col-md-4">
-                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Celestial.md" class="ki-card-art">
-                    <img src="../../../assets/images/k_celestial.png" class="ki-art-img">
-                    <div class="ki-art-overlay">
-                        <h4 class="ki-art-title">Celestial</h4>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="text-center py-5">
-        <button onclick="history.back()" class="btn btn-outline-danger px-5 mb-4" style="border-radius: 0;">Retroceder</button>
-        <p style="color: #999;">Luxsandoria — Sistema de autoria de <strong>Lokeser</strong></p>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
     <script src="../../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

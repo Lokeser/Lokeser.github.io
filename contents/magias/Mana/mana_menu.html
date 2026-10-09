@@ -7,143 +7,127 @@
     <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        /* ---- A Mana primeiro, depois os elementos que nascem dela.
-               Cada elemento: um card-retrato e, colado embaixo, a faixa
-               fina da sua Arte (a subclasse). ---- */
+        /* ---- Proporção da tela: os elementos são o assunto (~60%),
+               as fórmulas vêm logo antes (~20%) e a explicação da Mana
+               é uma faixa curta (~10%). Cada elemento é uma coluna alta
+               com a faixa fina da sua Arte colada embaixo. ---- */
 
-        /* ===== Cabeçalho com a ficha da Mana ===== */
-        .mana-topo {
-            display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-            gap: var(--sp-6); align-items: start;
-            padding: var(--sp-7) 0 var(--sp-6);
-        }
-        @media (max-width: 880px) { .mana-topo { grid-template-columns: 1fr; gap: var(--sp-5); } }
-
-        .mana-intro h1 { font-size: var(--step-4); letter-spacing: .08em; margin: 0 0 var(--sp-3); }
-        .mana-intro .lede {
-            font-family: var(--font-text); font-size: var(--step-1); line-height: 1.6;
-            color: var(--text-2); margin: 0 0 var(--sp-5); max-width: 52ch;
+        .mana-head { padding: var(--sp-6) 0 var(--sp-4); }
+        .mana-head h1 { font-size: var(--step-4); letter-spacing: .08em; margin: 0 0 var(--sp-2); }
+        .mana-head .lede {
+            font-family: var(--font-text); font-size: var(--step-1); line-height: 1.55;
+            color: var(--text-2); margin: 0; max-width: 62ch;
         }
 
-        /* As três fórmulas que todo mago usa, em destaque */
-        .formulas { display: grid; gap: var(--sp-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        @media (max-width: 520px) { .formulas { grid-template-columns: 1fr; } }
+        /* ===== ~20%: as fórmulas ===== */
+        .formulas {
+            display: grid; gap: var(--sp-3);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-bottom: var(--sp-3);
+        }
+        @media (max-width: 640px) { .formulas { grid-template-columns: 1fr; } }
         .formula {
+            position: relative; overflow: hidden;
             background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--r); padding: var(--sp-3) var(--sp-4);
+            border-radius: var(--r-lg); padding: var(--sp-4) var(--sp-5);
+        }
+        .formula::before {
+            content: ''; position: absolute; inset: 0 auto 0 0; width: 3px;
+            background: linear-gradient(var(--gold), var(--royal));
         }
         .formula .f-nome {
-            font-family: var(--font-ui); font-size: .68rem; font-weight: 700;
+            font-family: var(--font-ui); font-size: .7rem; font-weight: 700;
             letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
         }
         .formula .f-valor {
-            display: block; margin-top: 4px;
-            font-family: var(--font-display); font-size: var(--step-1); font-weight: 700;
+            display: block; margin: 6px 0 4px;
+            font-family: var(--font-display); font-size: var(--step-2); font-weight: 700;
             color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap;
         }
-        .formula .f-uso { display: block; margin-top: 2px; font-size: .78rem; color: var(--text-2); line-height: 1.4; }
+        .formula .f-uso { display: block; font-size: .82rem; color: var(--text-2); line-height: 1.4; }
 
-        /* Card de explicação da Mana: o "selo" do grimório */
-        .mana-card {
-            position: relative; overflow: hidden;
-            background:
-                radial-gradient(420px 260px at 100% 0%, var(--glow), transparent 70%),
-                var(--surface);
-            border: 1px solid var(--border); border-radius: var(--r-xl);
-            box-shadow: var(--shadow);
-            padding: var(--sp-5) var(--sp-5) var(--sp-4);
+        /* ===== ~10%: o que é a Mana, em uma faixa ===== */
+        .mana-faixa {
+            display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr));
+            gap: var(--sp-4); align-items: start;
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: var(--r-lg); padding: var(--sp-4) var(--sp-5);
         }
-        .mana-card::before {
-            content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        @media (max-width: 960px) { .mana-faixa { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .mana-faixa { grid-template-columns: 1fr; } }
+        .mana-faixa h2 { font-size: var(--step-1); margin: 0 0 4px; }
+        .mana-faixa p { margin: 0; font-size: .86rem; line-height: 1.5; color: var(--text-2); }
+        .mana-faixa .regra strong {
+            display: block; font-family: var(--font-ui); font-size: .78rem;
+            color: var(--text); margin-bottom: 2px;
         }
-        .mana-card .sigilo {
-            position: absolute; right: -40px; top: -40px; width: 190px; height: 190px;
-            color: var(--royal); opacity: .16; pointer-events: none;
-            animation: girar 80s linear infinite;
-        }
-        @keyframes girar { to { transform: rotate(360deg); } }
-        .mana-card h2 { font-size: var(--step-2); margin: 0 0 var(--sp-2); position: relative; }
-        .mana-card > p {
-            font-family: var(--font-text); color: var(--text-2); line-height: 1.65;
-            margin: 0 0 var(--sp-4); position: relative; max-width: 58ch;
-        }
-        .mana-regras { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; position: relative; }
-        .mana-regras li {
-            display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: var(--sp-2);
-            padding: 9px 0; border-top: 1px solid var(--border);
-            font-size: .88rem; line-height: 1.5; color: var(--text);
-        }
-        .mana-regras li:first-child { border-top: 0; }
-        .mana-regras .ic {
-            width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
-            background: var(--royal-soft); color: var(--royal);
-        }
-        .mana-regras .ic svg { width: 15px; height: 15px; }
-        .mana-regras strong { color: var(--text); }
 
-        /* ===== Os elementos ===== */
-        .sec-head { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; margin: var(--sp-6) 0 var(--sp-4); }
-        .sec-head h2 { font-size: var(--step-2); margin: 0; }
-        .sec-head p { margin: 0; color: var(--text-2); font-size: var(--step--1); }
+        /* ===== ~60%: os elementos ===== */
+        .sec-head { margin: var(--sp-6) 0 var(--sp-4); max-width: 78ch; }
+        .sec-head h2 { font-size: var(--step-2); margin: 0 0 var(--sp-2); }
+        .sec-head p { margin: 0; color: var(--text-2); font-family: var(--font-text); line-height: 1.6; }
 
         .elementos {
-            display: grid; gap: var(--sp-4);
-            grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
-            padding-bottom: var(--sp-8);
+            display: grid; gap: var(--sp-3);
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            padding-bottom: var(--sp-7);
         }
+        @media (max-width: 1000px) { .elementos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 560px)  { .elementos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
         .elemento { display: flex; flex-direction: column; gap: 8px; min-width: 0; container-type: inline-size; }
 
-        /* Card-retrato */
+        /* A coluna do elemento: alta, ocupando ~60% da altura da tela */
         .el-card {
             position: relative; display: block; overflow: hidden;
-            aspect-ratio: 2 / 3; max-width: 100%;
-            border-radius: var(--r-lg); text-decoration: none;
+            height: clamp(380px, 60vh, 660px);
+            border-radius: var(--r-xl); text-decoration: none;
             background: var(--surface-2);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
             transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
         }
+        @media (max-width: 1000px) { .el-card { height: clamp(340px, 52vh, 560px); } }
+        @media (max-width: 560px)  { .el-card { height: auto; aspect-ratio: 2 / 3; } }
+
         .el-card img {
-            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 40%;
             transition: transform var(--t-slow) var(--ease), filter var(--t-slow) var(--ease);
         }
         .el-card::after {
             content: ''; position: absolute; inset: 0;
             background: linear-gradient(to top,
-                rgba(6, 10, 20, .94) 0%,
-                color-mix(in srgb, var(--el) 30%, rgba(6, 10, 20, .55)) 42%,
-                transparent 72%);
+                rgba(6, 10, 20, .95) 0%,
+                color-mix(in srgb, var(--el) 32%, rgba(6, 10, 20, .5)) 34%,
+                transparent 62%);
         }
         .el-card:hover, .el-card:focus-visible {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--el);
-            box-shadow: var(--shadow-lg), 0 0 30px color-mix(in srgb, var(--el) 35%, transparent);
+            box-shadow: var(--shadow-lg), 0 0 36px color-mix(in srgb, var(--el) 38%, transparent);
         }
         .el-card:hover img { transform: scale(1.06); }
 
         .el-info {
             position: absolute; inset: auto 0 0 0; z-index: 1;
-            padding: var(--sp-4) var(--sp-3) var(--sp-3);
+            padding: var(--sp-5) var(--sp-4) var(--sp-4);
             color: var(--text-sobre-arte);
         }
         .el-nome {
             display: block; font-family: var(--font-display); font-weight: 700;
-            font-size: clamp(1.15rem, .9vw + .8rem, 1.5rem); letter-spacing: .14em;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, .7);
+            font-size: clamp(1.2rem, 1.1vw + .7rem, 1.75rem); letter-spacing: .12em;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, .75);
         }
-        .el-papel { display: block; margin-top: 4px; font-size: .74rem; line-height: 1.4; opacity: .88; }
+        .el-papel { display: block; margin-top: 6px; font-size: .8rem; line-height: 1.4; opacity: .9; }
         .el-meta {
             display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
-            margin-top: var(--sp-2); padding-top: var(--sp-2);
-            border-top: 1px solid rgba(255, 255, 255, .18);
-            font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
+            margin-top: var(--sp-3); padding-top: var(--sp-2);
+            border-top: 1px solid rgba(255, 255, 255, .2);
+            font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
         }
         .dif { display: inline-flex; gap: 3px; }
-        .dif i {
-            width: 7px; height: 7px; border-radius: 50%;
-            background: rgba(255, 255, 255, .25); display: block;
-        }
+        .dif i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, .25); display: block; }
         .dif i.on { background: var(--el-claro); box-shadow: 0 0 6px var(--el-claro); }
 
         /* Faixa da Arte: mesma largura, altura pequena */
@@ -151,23 +135,21 @@
             display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
             min-height: 40px; padding: 0 var(--sp-3);
             border-radius: var(--r); text-decoration: none;
-            background: var(--surface);
-            border: 1px solid var(--border);
+            background: var(--surface); border: 1px solid var(--border);
             border-left: 3px solid var(--el);
             font-family: var(--font-display); font-size: .72rem; font-weight: 700;
             letter-spacing: .08em; color: var(--text); white-space: nowrap;
-            transition: background var(--t) var(--ease), border-color var(--t) var(--ease), transform var(--t-fast) var(--ease);
+            transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
         }
         .el-arte small {
             font-family: var(--font-ui); font-size: .66rem; font-weight: 600;
-            letter-spacing: .04em; color: var(--text-2); white-space: nowrap;
+            letter-spacing: .04em; color: var(--text-2);
         }
         .el-arte:hover, .el-arte:focus-visible {
             background: color-mix(in srgb, var(--el) 10%, var(--surface));
             border-color: var(--el); color: var(--text);
         }
         .el-arte:hover small { color: var(--el); }
-        /* Card estreito: a faixa mostra só o nome da Arte, sempre em uma linha */
         @container (max-width: 205px) { .el-arte small { display: none; } .el-arte { justify-content: center; } }
 
         /* Elemento ainda sem conteúdo */
@@ -176,21 +158,17 @@
         .elemento.vazio .el-card:hover { transform: none; box-shadow: var(--shadow-sm); border-color: var(--border); }
         .elemento.vazio .el-card:hover img { transform: none; }
         .elemento.vazio .el-arte { color: var(--text-2); border-left-color: var(--border-strong); cursor: default; }
-        .selo-breve {
-            position: absolute; top: var(--sp-3); left: var(--sp-3); z-index: 2;
-            font-family: var(--font-ui); font-size: .64rem; font-weight: 700; letter-spacing: .08em;
-            text-transform: uppercase; color: var(--text-sobre-arte);
-            background: rgba(6, 10, 20, .7); border: 1px solid rgba(255, 255, 255, .25);
-            border-radius: var(--r-pill); padding: 3px 9px;
-        }
-        .selo-req {
-            position: absolute; top: var(--sp-3); right: var(--sp-3); z-index: 2;
+        .selo-breve, .selo-req {
+            position: absolute; top: var(--sp-3); z-index: 2;
             font-family: var(--font-ui); font-size: .64rem; font-weight: 700;
-            color: var(--text-on-gold); background: var(--gold-light);
             border-radius: var(--r-pill); padding: 3px 9px;
         }
+        .selo-breve {
+            left: var(--sp-3); letter-spacing: .08em; text-transform: uppercase;
+            color: var(--text-sobre-arte); background: rgba(6, 10, 20, .7); border: 1px solid rgba(255, 255, 255, .25);
+        }
+        .selo-req { right: var(--sp-3); color: var(--text-on-gold); background: var(--gold-light); }
 
-        /* Cores dos elementos */
         .e-fogo  { --el: #E0562F; --el-claro: #FF9A6B; }
         .e-agua  { --el: #2E8FCF; --el-claro: #7CC8FF; }
         .e-terra { --el: #A07A43; --el-claro: #E2BC7E; }
@@ -207,72 +185,64 @@
 
     <div class="lux-wrap">
 
-        <!-- ================= A MANA ================= -->
-        <header class="mana-topo">
-            <div class="mana-intro">
-                <p class="eyebrow">Núcleos Místicos · Mana</p>
-                <h1>Magia de Mana</h1>
-                <p class="lede">
-                    A manipulação das fórmulas que tecem a realidade. Todo mago de Mana nasce
-                    com um núcleo ligado a um elemento — e passa a vida aprendendo a dobrá-lo.
-                </p>
-                <div class="formulas" aria-label="As três fórmulas da Magia Elemental">
-                    <div class="formula">
-                        <span class="f-nome">Dado de Magia</span>
-                        <span class="f-valor">DR + Mana + ER</span>
-                        <span class="f-uso">o teste de todo ataque mágico</span>
-                    </div>
-                    <div class="formula">
-                        <span class="f-nome">CD Mágica</span>
-                        <span class="f-valor">10 + Mana + ER</span>
-                        <span class="f-uso">o que o alvo precisa superar</span>
-                    </div>
-                    <div class="formula">
-                        <span class="f-nome">Magículas</span>
-                        <span class="f-valor">Mana + ER</span>
-                        <span class="f-uso">o combustível inicial; cresce com o Rank</span>
-                    </div>
-                </div>
-            </div>
-
-            <section class="mana-card" aria-labelledby="mana-o-que">
-                <svg class="sigilo" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-                    <circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="66"/>
-                    <path d="M100 10 L178 145 L22 145 Z"/><path d="M100 190 L22 55 L178 55 Z"/>
-                    <circle cx="100" cy="100" r="22"/>
-                </svg>
-                <h2 id="mana-o-que">O que é a Mana</h2>
-                <p>
-                    Mana é o atributo da sua capacidade mágica e a energia que corre pelo seu núcleo.
-                    Quanto maior a Mana, mais forte cada magia, maior a sua reserva de
-                    <span class="lux-term" data-termo="magiculas" tabindex="0">Magículas</span>
-                    e mais difícil é resistir a você.
-                </p>
-                <ul class="mana-regras">
-                    <li>
-                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg></span>
-                        <span><strong>Manipulação Livre</strong> — o ataque básico de cada elemento. Custa 1 Magícula, ignorado em acerto crítico.</span>
-                    </li>
-                    <li>
-                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></span>
-                        <span><strong>SuperConjurar</strong> — pague o dobro de Magículas de uma técnica para liberar o efeito extra dela.</span>
-                    </li>
-                    <li>
-                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 012-2h12v18H6a2 2 0 01-2-1.5z"/><path d="M8 7h6"/></svg></span>
-                        <span><strong>Artes da Magia</strong> — no Rank 9 você escolhe a <strong>Arte</strong> do seu elemento: a subclasse que define o seu estilo. Artes Superiores exigem <strong>5+ de Mana</strong>.</span>
-                    </li>
-                    <li>
-                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
-                        <span><strong>Foco de Mana</strong> — a partir do Rank 8, você planta pontos do seu elemento no campo, e cada elemento os usa de um jeito.</span>
-                    </li>
-                </ul>
-            </section>
+        <header class="mana-head">
+            <p class="eyebrow">Núcleos Místicos · Mana</p>
+            <h1>Magia de Mana</h1>
+            <p class="lede">
+                A manipulação das fórmulas que tecem a realidade. Todo mago de Mana nasce
+                com um núcleo ligado a um elemento — e passa a vida aprendendo a dobrá-lo.
+            </p>
         </header>
 
-        <!-- ================= OS ELEMENTOS ================= -->
+        <!-- ~20%: as fórmulas -->
+        <section class="formulas" aria-label="As três fórmulas da Magia Elemental">
+            <div class="formula">
+                <span class="f-nome">Dado de Magia</span>
+                <span class="f-valor">DR + Mana + ER</span>
+                <span class="f-uso">O teste de todo ataque de magia elemental.</span>
+            </div>
+            <div class="formula">
+                <span class="f-nome">CD Mágica</span>
+                <span class="f-valor">10 + Mana + ER</span>
+                <span class="f-uso">O valor que o alvo precisa superar para resistir.</span>
+            </div>
+            <div class="formula">
+                <span class="f-nome">Magículas</span>
+                <span class="f-valor">Mana + ER</span>
+                <span class="f-uso">O combustível inicial das suas magias; cresce com o Rank.</span>
+            </div>
+        </section>
+
+        <!-- ~10%: o que é a Mana -->
+        <section class="mana-faixa" aria-labelledby="mana-o-que">
+            <div>
+                <h2 id="mana-o-que">O que é a Mana</h2>
+                <p>O atributo da sua capacidade mágica. Quanto maior, mais forte cada magia,
+                   mais <span class="lux-term" data-termo="magiculas" tabindex="0">Magículas</span> e mais difícil resistir a você.</p>
+            </div>
+            <div class="regra">
+                <strong>Manipulação Livre</strong>
+                <p>O ataque básico de cada elemento. Custa 1 Magícula, ignorado em crítico.</p>
+            </div>
+            <div class="regra">
+                <strong>SuperConjurar</strong>
+                <p>Pague o dobro de Magículas de uma técnica para liberar o efeito extra dela.</p>
+            </div>
+            <div class="regra">
+                <strong>Artes da Magia</strong>
+                <p>No Rank 9 você escolhe a Arte do seu elemento. Artes Superiores exigem 5+ de Mana.</p>
+            </div>
+        </section>
+
+        <!-- ~60%: os elementos -->
         <div class="sec-head">
             <h2>Os Elementos</h2>
-            <p>Fácil de aprender, difícil de dominar. Abra o elemento para ver a magia, ou a Arte para ver as subclasses.</p>
+            <p>
+                Cada núcleo de Mana nasce ligado a um único elemento, e é ele que define o seu papel
+                em combate — quem causa dano, quem protege, quem controla o campo. Dentro do elemento,
+                a <strong>Arte</strong> escolhida no Rank 9 define o seu estilo: duas pessoas com o mesmo
+                elemento podem lutar de jeitos completamente diferentes.
+            </p>
         </div>
 
         <main class="elementos">

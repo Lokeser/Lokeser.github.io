@@ -3,220 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Núcleos Místicos - Luxsandoria</title>
+    <title>Núcleos Místicos</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../css/style.css">
-    
     <style>
-        /* ================= BASE E TRANSIÇÃO DE BACKGROUND ================= */
-        body.grimoire-bg {
-            /* Define uma cor base caso a imagem demore a carregar */
-            background-color: #111;
-            /* A transição suave é crucial aqui */
-            transition: background-image 0.6s ease-in-out, background-color 0.6s ease-in-out;
-            background-blend-mode: overlay;
-            min-height: 100vh;
+        /* ---- Quatro portais. Cada fonte tem identidade própria,
+               mas a composição é a mesma — unidade sem monotonia. ---- */
+        .portais {
+            display: grid; gap: var(--sp-5);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            padding-bottom: var(--sp-7);
         }
-
-        /* --- Estados de Hover do Body (Ativados via JS) --- */
-        
-        /* Mana: Azul Profundo e Dourado */
-        body.bg-mana {
-            background-image: linear-gradient(135deg, rgba(0, 20, 40, 0.9), rgba(0, 50, 100, 0.7)), radial-gradient(circle at center, rgba(197, 160, 89, 0.4) 0%, transparent 70%);
-            background-color: #18238a;
+        .portal {
+            position: relative; display: block; overflow: hidden;
+            text-decoration: none; color: inherit;
+            border-radius: var(--r-xl); border: 1px solid var(--border);
+            background: var(--surface); box-shadow: var(--shadow);
+            transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+                        border-color var(--t) var(--ease);
         }
-
-        /* Ki: Branco Espiritual e Vermelho Sangue */
-        body.bg-ki {
-            background-image: linear-gradient(135deg, rgba(220, 220, 220, 0.8), rgba(100, 0, 0, 0.7)), radial-gradient(circle at center, rgba(255, 50, 50, 0.3) 0%, transparent 60%);
-            background-color: #621818;
+        .portal:hover, .portal:focus-visible {
+            transform: translateY(-6px); border-color: var(--fonte);
+            box-shadow: var(--shadow-lg), 0 0 36px color-mix(in srgb, var(--fonte) 26%, transparent);
+            color: inherit;
         }
-
-        /* Fé: Dourado Celestial e Amarelo Solar */
-        body.bg-fe {
-            background-image: linear-gradient(135deg, rgba(189, 164, 19, 0.7), rgba(255, 140, 0, 0.6)), radial-gradient(circle at center, rgba(255, 255, 200, 0.5) 0%, transparent 70%);
-            background-color: #766914;
+        .portal-arte { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--surface-2); }
+        .portal-arte img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform var(--t-slow) var(--ease);
         }
-
-        /* Caos: Roxo Obscuro e Preto Abissal */
-        body.bg-caos {
-            background-image: linear-gradient(135deg, rgba(40, 0, 60, 0.95), rgba(0, 0, 0, 0.9)), radial-gradient(circle at center, rgba(138, 43, 226, 0.4) 0%, transparent 60%);
-            background-color: #7f127fdd;
+        .portal:hover .portal-arte img { transform: scale(1.06); }
+        /* Véu na cor da fonte — assina a energia sem apagar a arte */
+        .portal-arte::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, var(--surface) 2%,
+                        color-mix(in srgb, var(--fonte) 30%, transparent) 55%, transparent 100%);
         }
-
-
-        /* ================= LAYOUT DE GRID 9:16 ================= */
-        .menu-container-full {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        /* Selo circular da fonte, sobreposto à arte */
+        .portal-selo {
+            position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%);
+            width: 56px; height: 56px; border-radius: 50%; z-index: 2;
+            display: grid; place-items: center;
+            background: var(--surface); border: 2px solid var(--fonte);
+            color: var(--fonte); box-shadow: var(--shadow);
+            transition: transform var(--t-slow) var(--ease);
         }
+        .portal:hover .portal-selo { transform: translateX(-50%) rotate(180deg); }
+        .portal-selo svg { width: 28px; height: 28px; }
 
-        .magic-grid-large {
-            display: grid;
-            /* Cria colunas que tentam ter pelo menos 280px de largura */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            justify-content: center;
-            align-items: stretch;
+        .portal-corpo { padding: var(--sp-6) var(--sp-5) var(--sp-5); text-align: center; }
+        .portal-corpo h2 {
+            font-size: var(--step-2); margin: 0 0 var(--sp-2);
+            letter-spacing: .12em; text-transform: uppercase; color: var(--fonte);
         }
+        .portal-corpo p {
+            margin: 0; color: var(--text-2); font-size: var(--step--1);
+            line-height: 1.55; font-family: var(--font-text);
+        }
+        .portal-entrar {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: var(--sp-4); font-size: var(--step--1); font-weight: 600;
+            color: var(--fonte); font-family: var(--font-ui);
+        }
+        .portal-entrar .seta { transition: transform var(--t) var(--ease); }
+        .portal:hover .portal-entrar .seta { transform: translateX(4px); }
 
-        /* ================= ESTILO DOS CARDS VISUAIS ================= */
-        .magic-card-visual {
-            position: relative;
-            display: block;
-            text-decoration: none;
-            border-radius: 15px;
-            overflow: hidden;
-            /* Proporção 9:16 vertical */
-            aspect-ratio: 9 / 16;
-            border: 3px solid transparent; /* Borda invisível por padrão */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        /* Cores de cada fonte, nos dois temas */
+        .f-mana { --fonte: #2855C5; }
+        .f-ki   { --fonte: #C2452F; }
+        .f-fe   { --fonte: #A3761F; }
+        .f-caos { --fonte: #7B3FA8; }
+        :root[data-theme="dark"] .f-mana { --fonte: #5B8DFF; }
+        :root[data-theme="dark"] .f-ki   { --fonte: #FF7A5E; }
+        :root[data-theme="dark"] .f-fe   { --fonte: #E7C77F; }
+        :root[data-theme="dark"] .f-caos { --fonte: #B07AE0; }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .f-mana { --fonte: #5B8DFF; }
+            :root:not([data-theme="light"]) .f-ki   { --fonte: #FF7A5E; }
+            :root:not([data-theme="light"]) .f-fe   { --fonte: #E7C77F; }
+            :root:not([data-theme="light"]) .f-caos { --fonte: #B07AE0; }
         }
-
-        /* Imagem de Fundo */
-        .magic-bg-img {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s ease;
-            z-index: 1;
-        }
-
-        /* Overlay de Texto (Gradiente para leitura) */
-        .magic-content {
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%;
-            padding: 40px 20px 30px;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.6) 50%, transparent 100%);
-            z-index: 2;
-            color: #e0d0b0;
-            text-align: center;
-            transform: translateY(20px); /* Levemente descido */
-            transition: transform 0.4s ease, color 0.4s ease;
-        }
-
-        .magic-content h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #c5a059;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .magic-content p {
-            font-size: 1rem;
-            line-height: 1.4;
-            opacity: 0.9;
-        }
-
-        /* ================= HOVER NOS CARDS (Animação do Card) ================= */
-        .magic-card-visual:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-        }
-        .magic-card-visual:hover .magic-bg-img {
-            transform: scale(1.15); /* Zoom lento na imagem */
-        }
-        .magic-card-visual:hover .magic-content {
-            transform: translateY(0); /* Sobe o texto */
-            color: #fff;
-        }
-
-        /* Cores de Borda Específicas no Hover do Card */
-        .magic-card-visual.mana:hover { border-color: #0088ff; }
-        .magic-card-visual.ki:hover { border-color: #ff3333; }
-        .magic-card-visual.fe:hover { border-color: #ffd700; }
-        .magic-card-visual.caos:hover { border-color: #9d00ff; }
-
-        .p-white {
-            color: #ffffff !important;
-        }
-
     </style>
 </head>
-<body class="grimoire-bg">
-    
+<body>
+
     <div id="navbar-placeholder"></div>
 
-    <header class="menu-header" style="margin-top: 40px;">
-        <p class="p-white">   Escolha a fonte primordial que alimentará sua existência.</p>
-    </header>
+    <div class="lux-wrap">
+        <header class="page-head">
+            <p class="eyebrow">Grimório · Poderes</p>
+            <h1>Núcleos Místicos</h1>
+            <p class="lede">
+                Quatro fontes primordiais alimentam toda magia de Luxsandoria.
+                Escolha a que sustenta a sua existência.
+            </p>
+        </header>
 
-    <main class="menu-container-full">
-        <div class="magic-grid-large">
-            
-            <a href="Mana/mana_menu.html" class="magic-card-visual mana" data-bg="bg-mana">
-                <div class="magic-bg-img" style="background-image: url('../../assets/images/mana.png');"></div>
-                <div class="magic-content">
+        <main class="portais">
+
+            <a href="Mana/mana_menu.html" class="portal f-mana">
+                <div class="portal-arte">
+                    <img src="../../assets/images/mana.png" alt="Mana" loading="lazy" width="400" height="500">
+                    <span class="portal-selo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/>
+                            <path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="portal-corpo">
                     <h2>Mana</h2>
                     <p>O tecido da realidade. Manipule os elementos naturais e as leis do mundo através do conhecimento arcano.</p>
+                    <span class="portal-entrar">Abrir o núcleo <span class="seta">&#8594;</span></span>
                 </div>
             </a>
 
-            <a href="Ki/ki_menu.html" class="magic-card-visual ki" data-bg="bg-ki">
-                <div class="magic-bg-img" style="background-image: url('../../assets/images/ki.png');"></div>
-                <div class="magic-content">
+            <a href="Ki/ki_menu.html" class="portal f-ki">
+                <div class="portal-arte">
+                    <img src="../../assets/images/ki.png" alt="Ki" loading="lazy" width="400" height="500">
+                    <span class="portal-selo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2.5c3 4 6 6 6 10a6 6 0 11-12 0c0-4 3-6 6-10z"/>
+                            <path d="M12 9.5c1.4 2 2.6 3 2.6 5a2.6 2.6 0 11-5.2 0c0-2 1.2-3 2.6-5z"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="portal-corpo">
                     <h2>Ki</h2>
                     <p>A forja da alma. A energia vital interior manifestada em proezas físicas e instintos bestiais.</p>
+                    <span class="portal-entrar">Abrir o núcleo <span class="seta">&#8594;</span></span>
                 </div>
             </a>
 
-            <a href="Fe/fe_menu.html" class="magic-card-visual fe" data-bg="bg-fe">
-                <div class="magic-bg-img" style="background-image: url('../../assets/images/fe.png');"></div>
-                <div class="magic-content">
+            <a href="Fe/fe_menu.html" class="portal f-fe">
+                <div class="portal-arte">
+                    <img src="../../assets/images/fe.png" alt="Fé" loading="lazy" width="400" height="500">
+                    <span class="portal-selo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 1.5v3.5M12 19v3.5M1.5 12h3.5M19 12h3.5M4.6 4.6l2.5 2.5M16.9 16.9l2.5 2.5M19.4 4.6l-2.5 2.5M7.1 16.9l-2.5 2.5"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="portal-corpo">
                     <h2>Fé</h2>
                     <p>A luz dos deuses. Milagres, curas e proteções concedidas por devoção a entidades superiores.</p>
+                    <span class="portal-entrar">Abrir o núcleo <span class="seta">&#8594;</span></span>
                 </div>
             </a>
 
-            <a href="Caos/caos_menu.html" class="magic-card-visual caos" data-bg="bg-caos">
-                <div class="magic-bg-img" style="background-image: url('../../assets/images/caos.png');"></div>
-                <div class="magic-content">
+            <a href="Caos/caos_menu.html" class="portal f-caos">
+                <div class="portal-arte">
+                    <img src="../../assets/images/caos.png" alt="Caos" loading="lazy" width="400" height="500">
+                    <span class="portal-selo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2.5l2.8 6.2 6.7.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.7-.7z"/>
+                            <path d="M12 8.5v4M12 15h.01"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="portal-corpo">
                     <h2>Caos</h2>
                     <p>O abismo de Nox. Rituais proibidos, sacrifícios e a instabilidade do poder que corrompe.</p>
+                    <span class="portal-entrar">Abrir o núcleo <span class="seta">&#8594;</span></span>
                 </div>
             </a>
 
-        </div>
-    </main>
+        </main>
+    </div>
 
-    <footer>
-        <button onclick="location.href='../../index.html'" class="btn-back">Voltar ao Átrio</button>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
-    <script src="../../../js/menu.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const cards = document.querySelectorAll('.magic-card-visual');
-            const body = document.body;
-            // Guarda a classe original do background para restaurar depois
-            const originalBgClass = 'grimoire-bg'; 
-
-            cards.forEach(card => {
-                // Quando o mouse entra no card
-                card.addEventListener('mouseenter', () => {
-                    // Pega o nome da classe de background do atributo data-bg (ex: bg-caos)
-                    const bgClass = card.getAttribute('data-bg');
-                    if (bgClass) {
-                        // Adiciona a nova classe ao body para ativar a transição do CSS
-                        body.classList.add(bgClass);
-                    }
-                });
-
-                // Quando o mouse sai do card
-                card.addEventListener('mouseleave', () => {
-                    // Remove todas as classes de background específicas, voltando ao padrão
-                    body.classList.remove('bg-mana', 'bg-ki', 'bg-fe', 'bg-caos');
-                });
-            });
-        });
-    </script>
-
+    <script src="../../js/menu.js"></script>
 </body>
 </html>

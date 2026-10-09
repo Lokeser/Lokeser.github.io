@@ -1,11 +1,17 @@
-# 🔥 Formulações de Fogo
+# 🔥 Artes do Fogo
 
-> **Readiquirir Geral:** A  
-> Técnicas de Magia de Fogo desenvolvidas por sábios, guerreiros e reis ao longo da história.
+> As **Artes do Fogo** são as **subclasses oficiais** da Magia de Fogo. No Rank 9, o poder **Artes da Magia** permite escolher a Arte cujo estilo combina com o seu — e a cada novo rank você aprende mais uma técnica dela.
+
+- **Técnicas:** cada uma traz **Pré-Requisito**, **Custo** e, quase sempre, um efeito **SuperConjurar** (pague o dobro de Magículas).
+- **Outras Artes:** técnicas de outra Arte só podem ser aprendidas com **livro** ou **ensino direto**.
+- **Artes Superiores:** exigem **5+ de Mana**.
 
 ---
 
-## 🔥 Formulação de Nichollas Flamel
+
+## 🔥 Arte de Nichollas Flamel
+
+> *Subclasse da Magia de Fogo — explosões em área, fagulhas que cegam e marcas que detonam.*
 
 O Sábio mais antigo de todos. Sua idade é desconhecida, mas é considerado o humano mais velho da história.  
 Ele estava presente quando o **Trono do Sábio** foi esculpido — e o utiliza até hoje.
@@ -64,7 +70,9 @@ A explosão afeta inimigos em **3m**, que realizam Teste de Destreza
 
 ---
 
-## 🔥 Formulação de Destora
+## 🔥 Arte de Destora
+
+> *Subclasse da Magia de Fogo — corpo a corpo: punhos em chamas e combos que crescem a cada técnica.*
 
 Uma lutadora de fogo implacável. Viveu em uma Era de Paz, onde monstros estavam selados e batalhas eram raras.
 
@@ -88,7 +96,7 @@ Caso realize um segundo ataque no turno, o dado sobe um estágio (**d9**)
 
 ### ✦ Destroyer Punch!
 
-**Pré-Requisito:** Rank 9+, 1 Formulação de Destora  
+**Pré-Requisito:** Rank 9+, 1 técnica da Arte de Destora  
 **Custo:** 6 Mgc  
 
 Um soco devastador envolto em chamas.
@@ -105,7 +113,7 @@ Pode acertar **um alvo adicional**
 
 ### ✦ Dragon Assault
 
-**Pré-Requisito:** Rank 7+, 2 Formulações de Destora  
+**Pré-Requisito:** Rank 7+, 2 técnicas da Arte de Destora  
 **Custo:** 7 Mgc  
 
 Uma combinação feroz de ataques.
@@ -121,7 +129,7 @@ Inimigos com CA reduzida recebem **1d7** adicional
 
 ### ✦ Ignis Turbo
 
-**Pré-Requisito:** Rank 5+, 3 Formulações de Destora  
+**Pré-Requisito:** Rank 5+, 3 técnicas da Arte de Destora  
 **Custo:** 8 Mgc  
 
 Forma avançada de calor extremo.
@@ -141,7 +149,7 @@ Dura **1d12 Turnos**:
 
 ### ✦ Legendary Ignis Dragon Assault
 
-**Pré-Requisito:** Rank 3+, 4 Formulações de Destora  
+**Pré-Requisito:** Rank 3+, 4 técnicas da Arte de Destora  
 **Custo:** 22 Mgc  
 
 Dizem que Destora completou esta técnica antes de morrer.  
@@ -149,7 +157,9 @@ Seu pergaminho está perdido em algum lugar do mundo…
 
 ---
 
-## 🔥 Formulação de Suzanne Redwood
+## 🔥 Arte de Suzanne Redwood
+
+> *Subclasse da Magia de Fogo — disparos precisos à distância e auréolas que enfraquecem a área.*
 
 Uma arqueira que se tornou princesa.  
 Suas técnicas tornaram possível o avanço tecnológico humano.
@@ -192,7 +202,9 @@ Testes de Fogo usam **d10** ao invés de d6
 
 ---
 
-## 🔥 Formulação de Eduardo Vermillion
+## 🔥 Arte de Eduardo Vermillion
+
+> *Subclasse da Magia de Fogo — mobilidade aérea e diabretes flamejantes.*
 
 Antigo Rei de Scarlet.  
 Mestre da Magia Teórica, suas técnicas são raras e perigosas.
@@ -231,3 +243,90 @@ Cria pequenos seres flamejantes.
 - Dano: **1d4 por 2 Mana + Mana**
 
 ---
+
+---
+
+## 🌋 Arte da Lava
+
+> **Arte Superior da Magia de Fogo** · Requisito: **5+ de Mana**  
+> *Subclasse para quem quer que o fogo fique. A Lava desce ao chão e não esfria: cada golpe deixa o campo derretido, e quem pisar nele queima turno após turno.*
+
+---
+
+### ✦ Poça de Magma
+
+**Pré-Requisito:** Rank 9+  
+**Custo:** 4 Mgc  
+**Uso:** Vezes por dia igual à sua **Mana**
+
+Como uma ação, derrame magma em um ponto a até **12m**, criando uma poça com raio de **Mana / 2** metros (mínimo 2m). Ela dura até o fim da Cena.
+
+- A poça é **Terreno Difícil**.
+- Inimigos que entrarem nela ou começarem o turno nela sofrem **1d6 por 2 Mana** de dano de Fogo e fazem um **Teste de Técnica** contra sua **CD Mágica**.
+  - **Falha:** ficam **Em Chamas**.
+
+**SuperConjurar:**  
+O raio passa a ser igual à sua **Mana** e o dano sobe para **1d10 por 2 Mana**.
+
+---
+
+### ✦ Rocha Derretida
+
+**Pré-Requisito:** Rank 9+  
+**Custo:** 2 Mgc
+
+Como ação bônus, aqueça sua Manipulação Livre até o ponto de fusão. Até o fim do seu turno, sempre que ela acertar:
+
+- Uma poça de magma de **1m** se forma sob o alvo, durando **2 turnos** (mesmos efeitos da Poça de Magma).
+- **Em Chamas** aplicado em alvos sobre Lava **não pode ser apagado** com uma ação.
+
+**SuperConjurar:**  
+A poça formada tem **3m** de raio.
+
+---
+
+### ✦ Erupção
+
+**Pré-Requisito:** Rank 8+  
+**Custo:** 7 Mgc
+
+Como uma ação, faça uma poça de magma sua entrar em erupção. A poça permanece depois.
+
+- Criaturas sobre ela fazem um **Teste de Técnica** contra sua **CD Mágica**.
+  - **Falha:** sofrem **1d12 por 2 Mana + Mana** de dano de Fogo, são arremessadas **3m** e ficam **Caídas**.
+  - **Sucesso:** metade do dano.
+
+**SuperConjurar:**  
+**Todas** as suas poças de magma entram em erupção ao mesmo tempo.
+
+---
+
+### ✦ Pele de Obsidiana
+
+**Pré-Requisito:** Rank 7+  
+**Custo:** 5 Mgc
+
+Como ação bônus, até o fim da Cena, enquanto estiver sobre uma poça de magma sua:
+
+- Recebe **+2 de CA**.
+- Quem te acertar com um ataque corpo a corpo fica **Em Chamas**.
+- A poça não é Terreno Difícil para você.
+
+**SuperConjurar:**  
+Você também fica **imune a Em Chamas**.
+
+---
+
+### ✦ Coração do Vulcão
+
+**Pré-Requisito:** Rank 5+  
+**Custo:** 15 Mgc  
+**Uso:** 1 vez por dia
+
+Por um número de turnos igual à sua **Mana**:
+
+- Sua Manipulação Livre cria uma poça de **1m** sob o alvo a cada acerto, **sem custo**.
+- **Em Chamas** aplicado por você se torna **Em Chamas III**.
+
+**SuperConjurar:**  
+O efeito dura até o fim da Cena.

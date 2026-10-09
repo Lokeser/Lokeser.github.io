@@ -100,9 +100,9 @@ Ao completar o vínculo:
 * Reduz em **1** a **Margem de Ameaça Geral**  
   *(Passa a critar em 24, 25 e 26)*
 
-* Sua **Magia evolui**:
-  * Escolha **uma Evolução Elemental**, **ou**
-  * Crie, junto ao Mestre, a **Evolução de sua Anomalia**.
+* Sua **Magia se aprofunda**:
+  * Aprenda **uma técnica** de qualquer **Arte da sua Magia** *(Artes Superiores exigem 5+ de Mana)*, **ou**
+  * Crie, junto ao Mestre, uma **Arte da sua Anomalia**.
 
 
 <!--#fim-->

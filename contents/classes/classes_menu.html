@@ -3,169 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grimório de Classes - Luxsandoria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Arquivo dos Arquétipos</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        .class-container { padding-top: 50px; padding-bottom: 80px; }
-        
-        /* Proporção 3:2 para os Cards de Classe */
-        .class-card-visual {
-            background-color: #34699A;
-            border: 2px solid #58A0C8;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.4s ease-in-out;
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            aspect-ratio: 3 / 2;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        /* ---- Catálogo de arquétipos. Cada patamar tem sua cor; a arte
+               original (muita em P&B) é harmonizada pela moldura e pelo
+               véu, nunca por filtro sobre o desenho. ---- */
+        .tier { margin-bottom: var(--sp-7); scroll-margin-top: 90px; }
+        .tier-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-2); }
+        .tier-head h2 { font-size: var(--step-2); margin: 0; color: var(--tier); }
+        .tier-head .count-badge { border-color: var(--tier); color: var(--tier); }
+        .tier-note { color: var(--text-2); font-size: var(--step--1); margin: 0 0 var(--sp-4); max-width: var(--measure); }
+
+        .classes-grid {
+            display: grid; gap: var(--sp-4);
+            grid-template-columns: repeat(auto-fill, minmax(146px, 1fr));
         }
 
-        .class-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .classe {
+            position: relative; display: block; text-decoration: none;
+            border-radius: var(--r-lg); overflow: hidden;
+            background: var(--surface-2); border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+                        border-color var(--t) var(--ease);
+        }
+        .classe:hover, .classe:focus-visible {
+            transform: translateY(-4px); border-color: var(--tier); box-shadow: var(--shadow-lg);
+        }
+        .classe-arte { display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+        .classe-arte img, .arte-gerada {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform var(--t-slow) var(--ease);
+        }
+        .classe:hover .classe-arte img { transform: scale(1.07); }
+
+        /* O nome fica legível mesmo sobre arte de alto contraste: véu na
+           cor do patamar + sombra, em vez de tarja preta grosseira. */
+        .classe-nome {
+            position: absolute; inset: auto 0 0 0; z-index: 1;
+            padding: 28px 10px 11px;
+            font-family: var(--font-display); font-weight: 700;
+            font-size: .82rem; line-height: 1.2; text-align: center;
+            color: var(--text-sobre-arte); text-shadow: 0 1px 4px rgba(0,0,0,.9);
+            background: linear-gradient(to top,
+                color-mix(in srgb, var(--tier) 42%, #05070D) 0%,
+                color-mix(in srgb, var(--tier) 38%, rgba(5,7,13,.82)) 46%,
+                rgba(5,7,13,.45) 72%, transparent 100%);
         }
 
-        .class-overlay {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(to top, #113F67 40%, transparent);
-            text-align: left;
-        }
+        .busca-wrap { margin-top: var(--sp-5); max-width: 420px; }
+        .busca-meta { font-size: var(--step--1); color: var(--text-2); margin-top: var(--sp-2); min-height: 1.3em; }
+        .oculto { display: none !important; }
 
-        .class-title {
-            color: #FDF5AA;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+        .atalhos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--sp-4); }
+        .atalhos a {
+            font-size: var(--step--1); color: var(--text-2); text-decoration: none;
+            padding: 5px 12px; border: 1px solid var(--border); border-radius: var(--r-pill);
+            transition: all var(--t) var(--ease);
         }
-
-        /* Hover: Destaque Solar */
-        .class-card-visual:hover {
-            transform: scale(1.05) translateY(-5px);
-            border-color: #FDF5AA;
-            box-shadow: 0 12px 25px rgba(253, 245, 170, 0.25);
-            z-index: 5;
-        }
-
-        .class-card-visual:hover .class-img {
-            transform: scale(1.1);
-        }
-
-        .tier-header {
-            color: #FDF5AA;
-            font-family: 'Cinzel', serif;
-            border-bottom: 2px solid #58A0C8;
-            margin: 60px 0 30px;
-            padding-bottom: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .btn-back-custom {
-            border: 1px solid #FDF5AA;
-            color: #FDF5AA;
-            transition: 0.3s;
-        }
-
-        .btn-back-custom:hover {
-            background-color: #FDF5AA;
-            color: #113F67;
-        }
+        .atalhos a:hover { border-color: var(--royal); color: var(--royal); background: var(--surface-2); }
     </style>
 </head>
-<body class="grimoire-bg" style="background-color: #113F67;">
-    
+<body>
+
     <div id="navbar-placeholder"></div>
 
-    <div class="container class-container">
-        <header class="text-center mb-5">
-            <h1 class="display-3" style="color: #FDF5AA; font-family: 'Cinzel', serif;">Grimório de Classes</h1>
-            <p class="lead" style="color: #58A0C8;">O registro de todas as linhagens de poder em Luxsandoria.</p>
+    <div class="lux-wrap">
+        <header class="page-head">
+            <p class="eyebrow">Grimório · Conhecimento</p>
+            <h1>Arquivo dos Arquétipos</h1>
+            <p class="lede">
+                46 caminhos, do primeiro ofício às linhagens que o mundo preferiu esquecer.
+                Busque pelo nome ou percorra os patamares.
+            </p>
+            <div class="busca-wrap">
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                        </svg>
+                    </span>
+                    <input type="search" id="busca" class="field" placeholder="Buscar uma classe…"
+                           autocomplete="off" aria-label="Buscar uma classe" aria-describedby="busca-meta">
+                </div>
+                <p class="busca-meta" id="busca-meta" role="status" aria-live="polite"></p>
+            </div>
+            <nav class="atalhos" aria-label="Ir para um patamar">
+                <a href="#classes-iniciais">Classes Iniciais</a>
+                <a href="#trilhas-e-manas-extras">Trilhas e Manas Extras</a>
+                <a href="#classes-avancadas">Classes Avançadas</a>
+                <a href="#linhagens-absolutas">Linhagens Absolutas</a>
+                <a href="#registros-proibidos-secretas">Registros Proibidos (Secretas)</a>
+            </nav>
         </header>
 
-        <h2 class="tier-header">Classes Iniciais</h2>
-        <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Academico.md" class="class-card-visual"><img src="../../assets/images/c_academico.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Acadêmico</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md" class="class-card-visual"><img src="../../assets/images/c_aventureiro.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Aventureiro</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Combativo.md" class="class-card-visual"><img src="../../assets/images/c_combativo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Ladino.md" class="class-card-visual"><img src="../../assets/images/c_ladino.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Ladino</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Malandro.md" class="class-card-visual"><img src="../../assets/images/c_malandro.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Malandro</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Prodigio.md" class="class-card-visual"><img src="../../assets/images/c_prodigio.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Prodígio</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md" class="class-card-visual"><img src="../../assets/images/c_trabalhador.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Trabalhador</h3></div></a></div>
-        </div>
-
-        <h2 class="tier-header" style="font-size: 1.5rem; opacity: 0.8;">Trilhas e Manas Extras</h2>
-        <div class="row g-3">
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" class="class-card-visual"><img src="../../assets/images/c_caminho_astral.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Astral</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" class="class-card-visual"><img src="../../assets/images/c_caminho_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Lunar</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" class="class-card-visual"><img src="../../assets/images/c_caminhosolar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Caminho Solar</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" class="class-card-visual"><img src="../../assets/images/c_caminho_vidente.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Visionário</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Draconica.md" class="class-card-visual"><img src="../../assets/images/c_mana_draconica.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mana Dracônica</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Purificada.md" class="class-card-visual"><img src="../../assets/images/c_mana_purificada.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mana Purificada</h3></div></a></div>
-            <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/NotasMagicas.md" class="class-card-visual"><img src="../../assets/images/c_notas_magicas.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Notas Mágicas</h3></div></a></div>
-        </div>
-
-        <h2 class="tier-header">Classes Avançadas</h2>
-        <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/ArtistaMarcial.md" class="class-card-visual"><img src="../../assets/images/c_artista_marcial.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Artista Marcial</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Assassino.md" class="class-card-visual"><img src="../../assets/images/c_assassino.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Assassino</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Instintivo.md" class="class-card-visual"><img src="../../assets/images/c_atirador_instintivo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Atirador Inst.</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Mágico.md" class="class-card-visual"><img src="../../assets/images/c_atirador_magico.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Atirador Mágico</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Berserker.md" class="class-card-visual"><img src="../../assets/images/c_berserker.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Berserker</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Comandante.md" class="class-card-visual"><img src="../../assets/images/c_comandante.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Comandante</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Instintivo.md" class="class-card-visual"><img src="../../assets/images/c_combativo_instintivo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Inst.</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Mágico.md" class="class-card-visual"><img src="../../assets/images/c_combativo_magico.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Mágico</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Domador.md" class="class-card-visual"><img src="../../assets/images/c_domador.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Domador</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Estrategista.md" class="class-card-visual"><img src="../../assets/images/c_estrategista.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Estrategista</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Guardiao.md" class="class-card-visual"><img src="../../assets/images/c_guardiao.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Guardião</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_avancadas/Mago.md" class="class-card-visual"><img src="../../assets/images/c_mago.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mago</h3></div></a></div>
-        </div>
-
-        <h2 class="tier-header" style="color: #ffd700;">Linhagens Absolutas</h2>
-        <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Avatar_doEclipse.md" class="class-card-visual"><img src="../../assets/images/c_avatar_eclipse.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Avatar do Eclipse</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Combativo_Supremo.md" class="class-card-visual"><img src="../../assets/images/c_combativo_absoluto.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Supremo</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Lunar.md" class="class-card-visual"><img src="../../assets/images/c_lorde_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Lorde Lunar</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Solar.md" class="class-card-visual"><img src="../../assets/images/c_lorde_solar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Lorde Solar</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/MartirLunar.md" class="class-card-visual"><img src="../../assets/images/c_martir_lunar.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Mártir Lunar</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Oraculo.md" class="class-card-visual"><img src="../../assets/images/c_oraculo.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Oráculo</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Akatsuki.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_akatsuki.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Akatsuki</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Kaminotsuki.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_kaminotsuki.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Kami.</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_absolutas/Yunnuen_TrueKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_yunnuen_true.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Yunnuen True</h3></div></a></div>
-        </div>
-
-        <h2 class="tier-header" style="color: #bf00ff;">Registros Proibidos (Secretas)</h2>
-        <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Embaixador.md" class="class-card-visual"><div class="class-img" style="background:radial-gradient(circle at 50% 35%,#e5d2ff 0 3%,#7654c7 18%,#162348 55%,#070c1e 100%)"></div><div class="class-overlay"><h3 class="class-title">Embaixador Cósmico</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Paladino_Papa.md" class="class-card-visual"><img src="../../assets/images/c_calaveiro_papa.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Inquisitor</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Combativo_Imaginario.md" class="class-card-visual"><img src="../../assets/images/c_combativo_imaginario.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Combativo Imag.</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Ecomago.md" class="class-card-visual"><img src="../../assets/images/c_ecomago.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Ecomago</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Explorador.md" class="class-card-visual"><img src="../../assets/images/c_explorador.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Explorador</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/HikariKen.md" class="class-card-visual"><img src="../../assets/images/c_hikari_ken.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">HikariKen</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/MestreDasMarionetes.md" class="class-card-visual"><img src="../../assets/images/c_mestre_marionetes.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Marionetista</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Musicista.md" class="class-card-visual"><img src="../../assets/images/c_musicista.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Musicista</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Shiki_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_shiki_kenjutsu.jpg" class="class-img"><div class="class-overlay"><h3 class="class-title">Shiki no Kenjutsu</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_tsukihime_kenjutsu.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Tsukihime Kenjutsu</h3></div></a></div>
-            <div class="col-6 col-md-4 col-lg-3"><a href="../../viewer.html?file=contents/classes/classes_secretas/Yunnuen_NoKenjutsu.md" class="class-card-visual"><img src="../../assets/images/c_yunnuen_no_kenjutsu.png" class="class-img"><div class="class-overlay"><h3 class="class-title">Yunnuen Kenjutsu</h3></div></a></div>
-        </div>
-
-        <footer class="mt-5 text-center py-4" style="border-top: 1px solid #58A0C8;">
-            <button onclick="history.back()" class="btn btn-back-custom px-4 mb-3">Retroceder</button>
-            <p style="color: #58A0C8;">Luxsandoria — Sistema de autoria de <strong style="color: #FDF5AA;">Lokeser</strong></p>
-        </footer>
+        <main id="catalogo">
+        <section class="tier" id="classes-iniciais" style="--tier:#2855C5">
+            <div class="tier-head">
+                <h2>Classes Iniciais</h2>
+                <span class="count-badge">7</span>
+            </div>
+            <p class="tier-note">Por onde todo mundo comeca. Cada uma define sua base de atributos e pericias.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Academico.md" data-nome="Acadêmico">
+                    <span class="classe-arte"><img src="../../assets/images/c_academico.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Acadêmico</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md" data-nome="Aventureiro">
+                    <span class="classe-arte"><img src="../../assets/images/c_aventureiro.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Aventureiro</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Combativo.md" data-nome="Combativo">
+                    <span class="classe-arte"><img src="../../assets/images/c_combativo.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Combativo</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Ladino.md" data-nome="Ladino">
+                    <span class="classe-arte"><img src="../../assets/images/c_ladino.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Ladino</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Malandro.md" data-nome="Malandro">
+                    <span class="classe-arte"><img src="../../assets/images/c_malandro.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Malandro</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Prodigio.md" data-nome="Prodígio">
+                    <span class="classe-arte"><img src="../../assets/images/c_prodigio.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Prodígio</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md" data-nome="Trabalhador">
+                    <span class="classe-arte"><img src="../../assets/images/c_trabalhador.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Trabalhador</span>
+                </a>
+            </div>
+        </section>
+        <section class="tier" id="trilhas-e-manas-extras" style="--tier:#2E8FA8">
+            <div class="tier-head">
+                <h2>Trilhas e Manas Extras</h2>
+                <span class="count-badge">7</span>
+            </div>
+            <p class="tier-note">Caminhos e manas que se somam a uma classe inicial.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" data-nome="Caminho Astral">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_astral.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Astral</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" data-nome="Caminho Lunar">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_lunar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Lunar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" data-nome="Caminho Solar">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminhosolar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Solar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" data-nome="Visionário">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_vidente.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Visionário</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Draconica.md" data-nome="Mana Dracônica">
+                    <span class="classe-arte"><img src="../../assets/images/c_mana_draconica.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mana Dracônica</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Purificada.md" data-nome="Mana Purificada">
+                    <span class="classe-arte"><img src="../../assets/images/c_mana_purificada.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mana Purificada</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/NotasMagicas.md" data-nome="Notas Mágicas">
+                    <span class="classe-arte"><img src="../../assets/images/c_notas_magicas.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Notas Mágicas</span>
+                </a>
+            </div>
+        </section>
+        <section class="tier" id="classes-avancadas" style="--tier:#7B3FA8">
+            <div class="tier-head">
+                <h2>Classes Avançadas</h2>
+                <span class="count-badge">12</span>
+            </div>
+            <p class="tier-note">O que voce se torna quando a base ja nao basta.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/ArtistaMarcial.md" data-nome="Artista Marcial">
+                    <span class="classe-arte"><img src="../../assets/images/c_artista_marcial.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Artista Marcial</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Assassino.md" data-nome="Assassino">
+                    <span class="classe-arte"><img src="../../assets/images/c_assassino.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Assassino</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Instintivo.md" data-nome="Atirador Inst.">
+                    <span class="classe-arte"><img src="../../assets/images/c_atirador_instintivo.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Atirador Inst.</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Atirador_Mágico.md" data-nome="Atirador Mágico">
+                    <span class="classe-arte"><img src="../../assets/images/c_atirador_magico.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Atirador Mágico</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Berserker.md" data-nome="Berserker">
+                    <span class="classe-arte"><img src="../../assets/images/c_berserker.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Berserker</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Comandante.md" data-nome="Comandante">
+                    <span class="classe-arte"><img src="../../assets/images/c_comandante.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Comandante</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Instintivo.md" data-nome="Combativo Inst.">
+                    <span class="classe-arte"><img src="../../assets/images/c_combativo_instintivo.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Combativo Inst.</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Combativo_Mágico.md" data-nome="Combativo Mágico">
+                    <span class="classe-arte"><img src="../../assets/images/c_combativo_magico.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Combativo Mágico</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Domador.md" data-nome="Domador">
+                    <span class="classe-arte"><img src="../../assets/images/c_domador.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Domador</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Estrategista.md" data-nome="Estrategista">
+                    <span class="classe-arte"><img src="../../assets/images/c_estrategista.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Estrategista</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Guardiao.md" data-nome="Guardião">
+                    <span class="classe-arte"><img src="../../assets/images/c_guardiao.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Guardião</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/Mago.md" data-nome="Mago">
+                    <span class="classe-arte"><img src="../../assets/images/c_mago.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mago</span>
+                </a>
+            </div>
+        </section>
+        <section class="tier" id="linhagens-absolutas" style="--tier:#A3761F">
+            <div class="tier-head">
+                <h2>Linhagens Absolutas</h2>
+                <span class="count-badge">9</span>
+            </div>
+            <p class="tier-note">O topo de uma trilha. Poucos chegam, menos ainda retornam.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Avatar_doEclipse.md" data-nome="Avatar do Eclipse">
+                    <span class="classe-arte"><img src="../../assets/images/c_avatar_eclipse.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Avatar do Eclipse</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Combativo_Supremo.md" data-nome="Combativo Supremo">
+                    <span class="classe-arte"><img src="../../assets/images/c_combativo_absoluto.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Combativo Supremo</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Lunar.md" data-nome="Lorde Lunar">
+                    <span class="classe-arte"><img src="../../assets/images/c_lorde_lunar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Lorde Lunar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Lorde_Solar.md" data-nome="Lorde Solar">
+                    <span class="classe-arte"><img src="../../assets/images/c_lorde_solar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Lorde Solar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/MartirLunar.md" data-nome="Mártir Lunar">
+                    <span class="classe-arte"><img src="../../assets/images/c_martir_lunar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mártir Lunar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Oraculo.md" data-nome="Oráculo">
+                    <span class="classe-arte"><img src="../../assets/images/c_oraculo.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Oráculo</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Akatsuki.md" data-nome="Tsukihime Akatsuki">
+                    <span class="classe-arte"><img src="../../assets/images/c_tsukihime_akatsuki.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Tsukihime Akatsuki</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Tsukihime_Kaminotsuki.md" data-nome="Tsukihime Kami.">
+                    <span class="classe-arte"><img src="../../assets/images/c_tsukihime_kaminotsuki.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Tsukihime Kami.</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_absolutas/Yunnuen_TrueKenjutsu.md" data-nome="Yunnuen True">
+                    <span class="classe-arte"><img src="../../assets/images/c_yunnuen_true.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Yunnuen True</span>
+                </a>
+            </div>
+        </section>
+        <section class="tier" id="registros-proibidos-secretas" style="--tier:#C2452F">
+            <div class="tier-head">
+                <h2>Registros Proibidos (Secretas)</h2>
+                <span class="count-badge">11</span>
+            </div>
+            <p class="tier-note">Guardadas pelo mundo. Existem, mas nao se ensinam.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Embaixador.md" data-nome="Embaixador Cósmico">
+                    <span class="classe-arte"><span class="arte-gerada" style="background:radial-gradient(circle at 50% 35%,#e5d2ff 0 3%,#7654c7 18%,#162348 55%,#070c1e 100%)"></span></span>
+                    <span class="classe-nome">Embaixador Cósmico</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Paladino_Papa.md" data-nome="Inquisitor">
+                    <span class="classe-arte"><img src="../../assets/images/c_calaveiro_papa.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Inquisitor</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Combativo_Imaginario.md" data-nome="Combativo Imag.">
+                    <span class="classe-arte"><img src="../../assets/images/c_combativo_imaginario.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Combativo Imag.</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Ecomago.md" data-nome="Ecomago">
+                    <span class="classe-arte"><img src="../../assets/images/c_ecomago.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Ecomago</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Explorador.md" data-nome="Explorador">
+                    <span class="classe-arte"><img src="../../assets/images/c_explorador.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Explorador</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/HikariKen.md" data-nome="HikariKen">
+                    <span class="classe-arte"><img src="../../assets/images/c_hikari_ken.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">HikariKen</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/MestreDasMarionetes.md" data-nome="Marionetista">
+                    <span class="classe-arte"><img src="../../assets/images/c_mestre_marionetes.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Marionetista</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Musicista.md" data-nome="Musicista">
+                    <span class="classe-arte"><img src="../../assets/images/c_musicista.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Musicista</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Shiki_NoKenjutsu.md" data-nome="Shiki no Kenjutsu">
+                    <span class="classe-arte"><img src="../../assets/images/c_shiki_kenjutsu.jpg" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Shiki no Kenjutsu</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md" data-nome="Tsukihime Kenjutsu">
+                    <span class="classe-arte"><img src="../../assets/images/c_tsukihime_kenjutsu.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Tsukihime Kenjutsu</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Yunnuen_NoKenjutsu.md" data-nome="Yunnuen Kenjutsu">
+                    <span class="classe-arte"><img src="../../assets/images/c_yunnuen_no_kenjutsu.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Yunnuen Kenjutsu</span>
+                </a>
+            </div>
+        </section>
+            <div class="empty-state oculto" id="vazio">
+                <p class="empty-title">Nenhuma classe com esse nome</p>
+                <p>Tente outro termo, ou <button class="btn btn--ghost btn--sm" id="limpar">limpar a busca</button>.</p>
+            </div>
+        </main>
     </div>
 
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
     <script src="../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const busca = document.getElementById('busca');
+        const meta  = document.getElementById('busca-meta');
+        const vazio = document.getElementById('vazio');
+        const cards = [...document.querySelectorAll('.classe')];
+        const tiers = [...document.querySelectorAll('.tier')];
+        const normalizar = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        cards.forEach(c => c.dataset.busca = normalizar(c.dataset.nome));
+
+        function filtrar() {
+            const q = normalizar(busca.value.trim());
+            if (!q) {
+                cards.forEach(c => c.classList.remove('oculto'));
+                tiers.forEach(t => t.classList.remove('oculto'));
+                vazio.classList.add('oculto'); meta.textContent = ''; return;
+            }
+            let achou = 0;
+            cards.forEach(c => {
+                const ok = c.dataset.busca.includes(q);
+                c.classList.toggle('oculto', !ok); if (ok) achou++;
+            });
+            tiers.forEach(t => t.classList.toggle('oculto',
+                t.querySelectorAll('.classe:not(.oculto)').length === 0));
+            vazio.classList.toggle('oculto', achou > 0);
+            meta.textContent = achou
+                ? achou + (achou === 1 ? ' classe encontrada' : ' classes encontradas')
+                : 'Nenhuma classe encontrada';
+        }
+        busca.addEventListener('input', filtrar);
+        document.getElementById('limpar').addEventListener('click', () => { busca.value=''; filtrar(); busca.focus(); });
+    </script>
 </body>
 </html>

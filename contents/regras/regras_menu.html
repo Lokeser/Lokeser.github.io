@@ -3,139 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Códice de Regras - Luxsandoria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Biblioteca de Regras</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        :root {
-            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
+        /* ---- Biblioteca: índice fixo à esquerda, estantes à direita ---- */
+        .lib {
+            display: grid; grid-template-columns: 210px minmax(0, 1fr);
+            gap: var(--sp-7); align-items: start;
+            padding-bottom: var(--sp-8);
         }
-        body { background-color: var(--c1) !important; color: var(--c4); }
-        
-        .rules-header { padding: 60px 0; background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%); border-bottom: 2px solid var(--c4); margin-bottom: 50px; }
-        .section-title { font-family: 'Cinzel', serif; color: var(--c4); border-bottom: 2px solid var(--c3); padding-bottom: 10px; margin-bottom: 30px; margin-top: 50px; }
+        @media (max-width: 880px) { .lib { grid-template-columns: 1fr; gap: var(--sp-5); } }
 
-        /* Estilo dos Links de Regras */
-        .rule-item {
-            display: flex;
-            align-items: center;
-            background: rgba(52, 105, 154, 0.2);
-            border: 1px solid var(--c2);
-            border-radius: 8px;
-            padding: 15px 20px;
-            color: var(--c4);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            height: 100%;
-            font-weight: 500;
+        .lib-index { position: sticky; top: 86px; }
+        @media (max-width: 880px) { .lib-index { position: static; } }
+        .lib-index .idx-title {
+            font-family: var(--font-ui); font-size: var(--step--1); font-weight: 600;
+            letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
+            margin-bottom: var(--sp-3);
         }
-        .rule-item:hover {
-            background: var(--c4);
-            color: var(--c1);
-            transform: translateY(-5px);
-            border-color: var(--c4);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .lib-index a {
+            display: block; padding: 7px 11px; margin-bottom: 2px;
+            color: var(--text-2); text-decoration: none; font-size: var(--step--1);
+            border-left: 2px solid var(--border); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+            transition: all var(--t) var(--ease);
         }
-        .rule-icon { margin-right: 15px; font-size: 1.2rem; color: var(--c3); transition: 0.3s; }
-        .rule-item:hover .rule-icon { color: var(--c1); }
+        .lib-index a:hover, .lib-index a.ativo {
+            color: var(--royal); border-left-color: var(--royal); background: var(--royal-soft);
+        }
+        @media (max-width: 880px) {
+            .lib-index nav { display: flex; flex-wrap: wrap; gap: 6px; }
+            .lib-index a { border-left: 0; border: 1px solid var(--border); border-radius: var(--r-pill); }
+        }
 
-        /* Sub-seções (Arsenal/Domínios) */
-        .sub-box {
-            background: rgba(17, 63, 103, 0.5);
-            border: 1px dashed var(--c3);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 20px;
+        .shelf { scroll-margin-top: 90px; }
+        .shelf + .shelf { margin-top: var(--sp-7); }
+        .shelf-head { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-2); }
+        .shelf-head h2 { font-size: var(--step-2); margin: 0; }
+        .shelf-note { color: var(--text-2); font-size: var(--step--1); margin: 0 0 var(--sp-4); max-width: var(--measure); }
+
+        .sub-head {
+            font-family: var(--font-ui); font-size: var(--step--1); font-weight: 600;
+            letter-spacing: .14em; text-transform: uppercase; color: var(--text-2);
+            margin: var(--sp-5) 0 var(--sp-3);
+            display: flex; align-items: center; gap: var(--sp-2);
         }
-        .sub-title { font-size: 0.9rem; color: var(--c3); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; text-align: center; }
+        .sub-head::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        .rule-list { display: grid; gap: 6px; }
+        .rule-list.cols { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+
+        /* Atributo: pastilha colorida com a inicial, em vez de emoji */
+        .attr-dot {
+            width: 24px; height: 24px; flex: 0 0 auto; border-radius: 50%;
+            display: grid; place-items: center;
+            font-family: var(--font-display); font-size: .72rem; font-weight: 700;
+            background: color-mix(in srgb, var(--accent) 16%, transparent);
+            color: var(--accent); border: 1px solid var(--accent);
+        }
+        .legado { opacity: .72; }
+        .tag-legado {
+            font-size: .64rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+            color: var(--text-2); border: 1px solid var(--border); border-radius: var(--r-pill);
+            padding: 1px 7px;
+        }
+
+        .busca-wrap { margin: var(--sp-5) 0 0; max-width: 460px; }
+        .busca-meta { font-size: var(--step--1); color: var(--text-2); margin-top: var(--sp-2); min-height: 1.3em; }
+        .oculto { display: none !important; }
     </style>
 </head>
 <body>
+
     <div id="navbar-placeholder"></div>
 
-    <header class="rules-header text-center">
-        <div class="container">
-            <h1 class="display-3" style="font-family: 'Cinzel', serif;">Códice de Regras</h1>
-            <p class="lead" style="color: var(--c3);">A estrutura que rege a realidade, o conflito e a evolução.</p>
+    <div class="lux-wrap">
+        <header class="page-head">
+            <p class="eyebrow">Grimório · Consulta</p>
+            <h1>Biblioteca de Regras</h1>
+            <p class="lede">
+                Tudo o que rege Luxsandoria, organizado por assunto. Busque pelo nome
+                da regra ou percorra as estantes.
+            </p>
+            <div class="busca-wrap">
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                        </svg>
+                    </span>
+                    <input type="search" id="busca" class="field" placeholder="Buscar uma regra…"
+                           autocomplete="off" aria-label="Buscar uma regra" aria-describedby="busca-meta">
+                </div>
+                <p class="busca-meta" id="busca-meta" role="status" aria-live="polite"></p>
+            </div>
+        </header>
+
+        <div class="lib">
+            <aside class="lib-index">
+                <p class="idx-title">Estantes</p>
+                <nav aria-label="Índice das regras">
+                    <a href="#fundamentos">Fundamentos</a>
+                    <a href="#atributos">Atributos &amp; Raças</a>
+                    <a href="#combate">Combate</a>
+                    <a href="#arsenal">Arsenal</a>
+                    <a href="#opcionais">Opcionais</a>
+                    <a href="#dominios">Domínios (legado)</a>
+                </nav>
+            </aside>
+
+            <main id="estantes">
+
+                <!-- ===== FUNDAMENTOS ===== -->
+                <section class="shelf" id="fundamentos">
+                    <div class="shelf-head"><h2>Fundamentos Gerais</h2></div>
+                    <p class="shelf-note">As engrenagens que todo personagem usa, do primeiro teste ao último golpe.</p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/EficienciaRank.md" style="--accent:#2855C5">
+                            <span class="row-name">Eficiência de Rank</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Magiculas.md" style="--accent:#2855C5">
+                            <span class="row-name">Sistema de Magículas</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" style="--accent:#2855C5">
+                            <span class="row-name">Lista de Perícias</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Critico.md" style="--accent:#2855C5">
+                            <span class="row-name">Regras de Crítico</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/EstagioDistancia.md" style="--accent:#2855C5">
+                            <span class="row-name">Estágios de Distância</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/PontosAfeicaoPA.md" style="--accent:#2855C5">
+                            <span class="row-name">Pontos de Afeição (PA)</span></a>
+                    </div>
+                </section>
+
+                <!-- ===== ATRIBUTOS & RAÇAS ===== -->
+                <section class="shelf" id="atributos">
+                    <div class="shelf-head"><h2>Atributos &amp; Raças</h2><span class="count-badge">V2</span></div>
+                    <p class="shelf-note">Os seis atributos de Luxsandoria V2 e como a linhagem molda o que você é.</p>
+
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos.md" style="--accent:#B88A35">
+                            <span class="row-name">Os Seis Atributos</span><span class="row-meta">visão geral</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" style="--accent:#B88A35">
+                            <span class="row-name">Perícias — as 4 escalas</span><span class="row-meta">4/0 · 3/1 · 2/2</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Regras_Raciais.md" style="--accent:#B88A35">
+                            <span class="row-name">Regras Raciais</span></a>
+                    </div>
+
+                    <p class="sub-head">Um a um</p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Corpo.md" style="--accent:#C2452F">
+                            <span class="attr-dot">C</span><span class="row-name">Corpo</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Tecnica.md" style="--accent:#2E8F57">
+                            <span class="attr-dot">T</span><span class="row-name">Técnica</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Intelecto.md" style="--accent:#2855C5">
+                            <span class="attr-dot">I</span><span class="row-name">Intelecto</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md" style="--accent:#B88A35">
+                            <span class="attr-dot">Ca</span><span class="row-name">Carisma</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md" style="--accent:#7B4FD0">
+                            <span class="attr-dot">S</span><span class="row-name">Sabedoria</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md" style="--accent:#2E8FA8">
+                            <span class="attr-dot">M</span><span class="row-name">Mana</span></a>
+                    </div>
+                </section>
+
+                <!-- ===== COMBATE ===== -->
+                <section class="shelf" id="combate">
+                    <div class="shelf-head"><h2>Combate</h2></div>
+                    <p class="shelf-note">O que acontece quando a conversa acaba: o que machuca, o que protege e o que te deixa pelo caminho.</p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md" style="--accent:#C2452F">
+                            <span class="row-name">Tipos de Dano</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Resistencia.md" style="--accent:#C2452F">
+                            <span class="row-name">Tipos de Resistência</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md" style="--accent:#C2452F">
+                            <span class="row-name">Condições</span><span class="row-meta">adversas · graves · especiais</span></a>
+                    </div>
+                </section>
+
+                <!-- ===== ARSENAL ===== -->
+                <section class="shelf" id="arsenal">
+                    <div class="shelf-head"><h2>Arsenal</h2></div>
+                    <p class="shelf-note">Armas, armaduras e os itens que carregam história dentro.</p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armas.md" style="--accent:#B88A35">
+                            <span class="row-name">Armas &amp; A Arte da Guerra</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md" style="--accent:#B88A35">
+                            <span class="row-name">Armaduras &amp; Escudos</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md" style="--accent:#B88A35">
+                            <span class="row-name">Itens Mágicos</span></a>
+                    </div>
+                </section>
+
+                <!-- ===== OPCIONAIS ===== -->
+                <section class="shelf" id="opcionais">
+                    <div class="shelf-head"><h2>Opcionais &amp; Sistemas</h2></div>
+                    <p class="shelf-note">Módulos que a mesa adota se quiser.</p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Opcionais/cristais.md" style="--accent:#7B4FD0">
+                            <span class="row-name">Códice de Cristais</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Opcionais/versus.md" style="--accent:#7B4FD0">
+                            <span class="row-name">Modo Versus (PvP)</span></a>
+                    </div>
+                </section>
+
+                <!-- ===== DOMÍNIOS (LEGADO) ===== -->
+                <section class="shelf legado" id="dominios">
+                    <div class="shelf-head">
+                        <h2>Domínios de Atributos</h2>
+                        <span class="tag-legado">Sistema legado</span>
+                    </div>
+                    <p class="shelf-note">
+                        Da edição anterior, com os atributos antigos. Mantido para consulta —
+                        Luxsandoria V2 usa os seis atributos acima.
+                    </p>
+                    <div class="rule-list cols">
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md" style="--accent:#566783">
+                            <span class="row-name">Introdução aos Domínios</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Forca.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Força</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Destreza.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Destreza</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Constituicao.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Constituição</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Inteligencia.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Inteligência</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Sabedoria.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Sabedoria</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Carisma.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Carisma</span></a>
+                        <a class="index-row" href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Mana.md" style="--accent:#566783">
+                            <span class="row-name">Domínio: Mana</span></a>
+                    </div>
+                </section>
+
+                <div class="empty-state oculto" id="vazio">
+                    <p class="empty-title">Nenhuma regra com esse nome</p>
+                    <p>Tente outro termo, ou <button class="btn btn--ghost btn--sm" id="limpar">limpar a busca</button>.</p>
+                </div>
+            </main>
         </div>
-    </header>
-
-    <div class="container pb-5">
-        
-        <section>
-            <h2 class="section-title">⚖️ Fundamentos Gerais</h2>
-            <div class="row g-3">
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/EficienciaRank.md" class="rule-item"><span class="rule-icon">✦</span> Eficiência de Rank</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/EstagioDistancia.md" class="rule-item"><span class="rule-icon">✦</span> Estágios de Distância</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Magiculas.md" class="rule-item"><span class="rule-icon">✦</span> Sistema de Magículas</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" class="rule-item"><span class="rule-icon">✦</span> Lista de Perícias</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Critico.md" class="rule-item"><span class="rule-icon">✦</span> Regras de Crítico</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/PontosAfeicaoPA.md" class="rule-item"><span class="rule-icon">✦</span> Pontos de Afeição (PA)</a></div>
-            </div>
-
-            <div class="sub-box">
-                <h3 class="sub-title">Atributos & Raças — Luxsandoria V2</h3>
-                <div class="row g-2 mb-4">
-                    <div class="col-12 col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos.md" class="rule-item py-2">🧬 Os Seis Atributos</a></div>
-                    <div class="col-12 col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" class="rule-item py-2">🎯 Perícias (4 Escalas)</a></div>
-                    <div class="col-12 col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Regras_Raciais.md" class="rule-item py-2">🩸 Regras Raciais</a></div>
-                </div>
-                <div class="row g-2 mb-4">
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Corpo.md" class="rule-item py-2">Corpo</a></div>
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Tecnica.md" class="rule-item py-2">Técnica</a></div>
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Intelecto.md" class="rule-item py-2">Intelecto</a></div>
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md" class="rule-item py-2">Carisma</a></div>
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md" class="rule-item py-2">Sabedoria</a></div>
-                    <div class="col-6 col-md-2"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md" class="rule-item py-2">Mana</a></div>
-                </div>
-
-                <h3 class="sub-title">Domínios de Atributos <span style="text-transform:none;letter-spacing:0;opacity:.7">(sistema legado)</span></h3>
-                <div class="row g-2">
-                    <div class="col-12"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md" class="rule-item py-2 mb-2" style="border-style: double;">Introdução aos Domínios</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Forca.md" class="rule-item py-2">Domínio: Força</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Destreza.md" class="rule-item py-2">Domínio: Destreza</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Constituicao.md" class="rule-item py-2">Domínio: Const.</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Inteligencia.md" class="rule-item py-2">Domínio: Intel.</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Sabedoria.md" class="rule-item py-2">Domínio: Sabedoria</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Carisma.md" class="rule-item py-2">Domínio: Carisma</a></div>
-                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Mana.md" class="rule-item py-2">Domínio: Mana</a></div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">⚔️ Regras de Combate</h2>
-            <div class="row g-3">
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Condições</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Dano</a></div>
-                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Resistencia.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Resistência</a></div>
-            </div>
-
-            <div class="sub-box mt-4">
-                <h3 class="sub-title">Arsenal de Equipamentos</h3>
-                <div class="row g-2">
-                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md" class="rule-item py-2">Armaduras & Escudos</a></div>
-                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armas.md" class="rule-item py-2">Armas & A Arte da Guerra</a></div>
-                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md" class="rule-item py-2">Itens Mágicos</a></div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">✨ Regras Opcionais & Sistemas</h2>
-            <div class="row g-3">
-                <div class="col-md-6"><a href="../../viewer.html?file=contents/regras/Regras_Opcionais/cristais.md" class="rule-item border-warning"><span class="rule-icon">💠</span> Códice de Cristais</a></div>
-                <div class="col-md-6"><a href="../../viewer.html?file=contents/regras/Regras_Opcionais/versus.md" class="rule-item border-warning"><span class="rule-icon">⚔️</span> Modo Versus (PvP)</a></div>
-            </div>
-        </section>
-
     </div>
 
-    <footer class="text-center py-5 border-top border-secondary">
-        <p style="color: var(--c3);">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
     <script src="../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ---- Busca: filtra as regras de verdade, pelo texto de cada linha ----
+        const busca = document.getElementById('busca');
+        const meta  = document.getElementById('busca-meta');
+        const vazio = document.getElementById('vazio');
+        const linhas = [...document.querySelectorAll('.index-row')];
+        const secoes = [...document.querySelectorAll('.shelf')];
+
+        const normalizar = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        linhas.forEach(l => l.dataset.busca = normalizar(l.textContent));
+
+        function filtrar() {
+            const q = normalizar(busca.value.trim());
+            if (!q) {
+                linhas.forEach(l => l.classList.remove('oculto'));
+                secoes.forEach(s => s.classList.remove('oculto'));
+                vazio.classList.add('oculto');
+                meta.textContent = '';
+                return;
+            }
+            let achou = 0;
+            linhas.forEach(l => {
+                const ok = l.dataset.busca.includes(q);
+                l.classList.toggle('oculto', !ok);
+                if (ok) achou++;
+            });
+            // Esconde a estante inteira quando nenhuma regra dela sobrou
+            secoes.forEach(s => {
+                const visiveis = s.querySelectorAll('.index-row:not(.oculto)').length;
+                s.classList.toggle('oculto', visiveis === 0);
+            });
+            vazio.classList.toggle('oculto', achou > 0);
+            meta.textContent = achou
+                ? achou + (achou === 1 ? ' regra encontrada' : ' regras encontradas')
+                : 'Nenhuma regra encontrada';
+        }
+        busca.addEventListener('input', filtrar);
+        document.getElementById('limpar').addEventListener('click', () => { busca.value = ''; filtrar(); busca.focus(); });
+
+        // ---- Índice acompanha a leitura ----
+        const links = [...document.querySelectorAll('.lib-index a')];
+        const obs = new IntersectionObserver((entradas) => {
+            entradas.forEach(e => {
+                if (!e.isIntersecting) return;
+                links.forEach(a => a.classList.toggle('ativo', a.getAttribute('href') === '#' + e.target.id));
+            });
+        }, { rootMargin: '-90px 0px -70% 0px' });
+        secoes.forEach(s => obs.observe(s));
+    </script>
 </body>
 </html>

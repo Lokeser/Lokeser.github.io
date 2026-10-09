@@ -3,279 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxsandoria - O Grimório do Destino</title>
-    <!-- Aplica o tema salvo antes da renderização (evita "flash") -->
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Luxsandoria</title>
+    <meta name="description" content="O grimório digital de Luxsandoria — regras, ranks, raças, classes, magias e habilidades do sistema Watashi no Jinsei.">
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        :root {
-            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
+        /* ---- Portal: hero compacto + quatro grupos de navegação ---- */
+        .hero {
+            position: relative; overflow: hidden;
+            padding: var(--sp-8) 0 var(--sp-7);
+            border-bottom: 1px solid var(--border);
+        }
+        /* Selo arcano: círculo de runas girando devagar atrás do título */
+        .hero-sigil {
+            position: absolute; top: 50%; right: -90px; transform: translateY(-50%);
+            width: 440px; height: 440px; pointer-events: none;
+            opacity: .5; color: var(--royal);
+        }
+        .hero-sigil .ring-slow { animation: sigil-spin 90s linear infinite; transform-origin: 250px 250px; }
+        .hero-sigil .ring-fast { animation: sigil-spin 55s linear infinite reverse; transform-origin: 250px 250px; }
+        @keyframes sigil-spin { to { transform: rotate(360deg); } }
+
+        .hero-inner { position: relative; z-index: 1; max-width: 640px; }
+        .hero h1 {
+            font-size: var(--step-4); letter-spacing: .1em; margin: 0 0 var(--sp-3);
+        }
+        .hero .lede {
+            font-family: var(--font-text); font-size: var(--step-1);
+            color: var(--text-2); margin: 0 0 var(--sp-5); line-height: 1.6;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+        .hero-stats {
+            display: flex; flex-wrap: wrap; gap: var(--sp-5);
+            margin-top: var(--sp-6); padding-top: var(--sp-4);
+            border-top: 1px solid var(--border);
+        }
+        .hero-stats div { font-size: var(--step--1); color: var(--text-2); }
+        .hero-stats b {
+            display: block; font-family: var(--font-display);
+            font-size: var(--step-2); color: var(--gold); line-height: 1.1;
+            font-variant-numeric: tabular-nums;
         }
 
-        body.board-bg {
-            background:
-                radial-gradient(1200px 600px at 50% -10%, rgba(88,160,200,0.20), transparent 60%),
-                linear-gradient(180deg, var(--c2) 0%, var(--c1) 100%);
-            min-height: 100vh;
-            color: #eaf2fa;
-        }
+        /* ---- Grupos ---- */
+        .group { margin-top: var(--sp-7); }
+        .group-head { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+        .group-head h2 { font-size: var(--step-2); margin: 0; }
+        .group-head .group-note { color: var(--text-2); font-size: var(--step--1); }
 
-        /* ===== Cabeçalho compacto ===== */
-        .board-hero {
-            text-align: center;
-            padding: 55px 20px 15px;
+        /* Glifo do card: desenho, não emoji */
+        .card-glyph {
+            width: 38px; height: 38px; color: var(--accent, var(--royal));
+            margin-bottom: var(--sp-1);
         }
-        .board-hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            color: var(--c4);
-            letter-spacing: 8px;
-            text-shadow: 0 0 25px rgba(253, 245, 170, 0.45);
-            margin: 0;
-        }
-        .board-hero p {
-            color: #d6e6f4 !important;
-            max-width: 620px;
-            margin: 14px auto 0;
-            letter-spacing: 1px;
-            font-size: 0.98rem;
-        }
-        .board-hero .hint {
-            color: #8fb3cf !important;
-            font-size: 0.82rem;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .nav-card.wide { grid-column: span 2; }
+        @media (max-width: 620px) { .nav-card.wide { grid-column: span 1; } }
 
-        /* ===== O Quadro (Trello vertical) ===== */
-        .board {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 22px;
-            align-items: start;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 25px 20px 90px;
+        /* Atalhos diretos dentro do card de categoria */
+        .card-links {
+            display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--sp-2);
         }
+        .card-links a {
+            font-size: var(--step--1); color: var(--text-2); text-decoration: none;
+            padding: 3px 9px; border: 1px solid var(--border); border-radius: var(--r-pill);
+            transition: all var(--t) var(--ease);
+        }
+        .card-links a:hover { border-color: var(--accent, var(--royal)); color: var(--accent, var(--royal)); background: var(--surface-2); }
 
-        .trello-list {
-            background: rgba(255, 255, 255, 0.045);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            border-top: 3px solid var(--accent, var(--c3));
-            border-radius: 14px;
-            padding: 14px 14px 16px;
-            box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-            animation: fadeUp 0.5s ease both;
+        /* O card da jornada pessoal é o único dourado — a ação que importa */
+        .nav-card--journey {
+            background: linear-gradient(140deg, var(--gold-wash), transparent 70%), var(--surface);
+            border-color: var(--text-2);
         }
-        .trello-list:nth-child(2) { animation-delay: .05s; }
-        .trello-list:nth-child(3) { animation-delay: .10s; }
-        .trello-list:nth-child(4) { animation-delay: .15s; }
-        .trello-list:nth-child(5) { animation-delay: .20s; }
-        .trello-list:nth-child(6) { animation-delay: .25s; }
-        .trello-list:nth-child(7) { animation-delay: .30s; }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .list-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: var(--accent, var(--c3));
-            padding: 6px 4px 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.10);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .list-header .icon { font-size: 1.3rem; line-height: 1; }
-        .list-header .count {
-            margin-left: auto;
-            background: var(--accent, var(--c3));
-            color: #0b1b2b;
-            border-radius: 20px;
-            padding: 2px 10px;
-            font-size: 0.72rem;
-            font-family: sans-serif;
-            font-weight: 700;
-        }
-
-        /* Cartas */
-        .trello-card {
-            display: block;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            border-left: 3px solid var(--accent, var(--c3));
-            border-radius: 8px;
-            padding: 11px 13px;
-            margin-bottom: 9px;
-            color: #eaf2fa;
-            text-decoration: none;
-            font-size: 0.92rem;
-            line-height: 1.3;
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-        }
-        .trello-card:hover {
-            transform: translateX(5px);
-            background: rgba(255, 255, 255, 0.14);
-            color: #fff;
-            border-left-width: 5px;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.4);
-        }
-
-        /* Carta destacada (abrir seção inteira) */
-        .trello-card.pinned {
-            background: var(--accent, var(--c3));
-            color: #08111c;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            text-align: center;
-            letter-spacing: 1px;
-            border-color: transparent;
-            border-left-color: transparent;
-            margin-bottom: 14px;
-        }
-        .trello-card.pinned:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.12);
-            color: #000;
-        }
-
-        /* Rótulo divisor dentro da lista */
-        .list-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #9fc0da;
-            margin: 12px 4px 8px;
-            font-weight: 700;
-        }
-
-        footer.board-footer {
-            text-align: center;
-            padding: 35px 20px;
-            border-top: 1px solid rgba(255,255,255,0.12);
-            color: #b9d3e6;
-        }
+        .nav-card--journey h3 { color: var(--gold); }
     </style>
 </head>
-<body class="board-bg">
+<body>
 
     <div id="navbar-placeholder"></div>
 
-    <header class="board-hero">
-        <h1>LUXSANDORIA</h1>
-        <p>O Grimório do Destino. Navegue pelo mundo como quem organiza um quadro — cada carta leva direto ao seu conteúdo.</p>
-        <p class="hint">✦ Escolha uma carta &nbsp;•&nbsp; chegue lá em um clique ✦</p>
+    <header class="hero">
+        <div class="lux-wrap">
+            <svg class="hero-sigil" viewBox="0 0 500 500" aria-hidden="true" fill="none">
+                <g class="ring-slow" stroke="currentColor" stroke-width="1" opacity=".85">
+                    <circle cx="250" cy="250" r="200"/>
+                    <circle cx="250" cy="250" r="168"/>
+                    <path d="M250 50 L423 350 L77 350 Z"/>
+                    <path d="M250 450 L77 150 L423 150 Z"/>
+                </g>
+                <g class="ring-fast" stroke="currentColor" stroke-width="1" opacity=".6">
+                    <circle cx="250" cy="250" r="126"/>
+                    <path d="M250 124 L362 250 L250 376 L138 250 Z"/>
+                    <circle cx="250" cy="124" r="5"/><circle cx="362" cy="250" r="5"/>
+                    <circle cx="250" cy="376" r="5"/><circle cx="138" cy="250" r="5"/>
+                </g>
+                <circle cx="250" cy="250" r="58" stroke="currentColor" stroke-width="1" opacity=".5"/>
+            </svg>
+
+            <div class="hero-inner rise">
+                <p class="eyebrow">Watashi no Jinsei · Sistema V2</p>
+                <h1>LUXSANDORIA</h1>
+                <p class="lede">
+                    O grimório aberto do mundo. Consulte uma regra no meio da sessão,
+                    escolha uma linhagem, estude uma magia — ou abra a ficha de quem você já é.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn--primary" href="contents/regras/regras_menu.html">Explorar o grimório</a>
+                    <a class="btn btn--secondary" href="personagem.html">Meus personagens</a>
+                </div>
+                <div class="hero-stats">
+                    <div><b>8</b> Ranks</div>
+                    <div><b>18</b> Raças</div>
+                    <div><b>4</b> Fontes de magia</div>
+                    <div><b>75</b> Habilidades</div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="board">
+    <main class="lux-wrap" style="padding-bottom: var(--sp-8)">
 
-        <!-- ===================== REGRAS ===================== -->
-        <section class="trello-list" style="--accent:#58A0C8;">
-            <div class="list-header"><span class="icon">📖</span> Regras <span class="count">8</span></div>
-            <a class="trello-card pinned" href="contents/regras/regras_menu.html">Abrir todas as Regras</a>
-            <div class="list-label">Atributos &amp; Raças — V2</div>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos.md">🧬 Os Seis Atributos</a>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Pericias.md">🎯 Perícias (4 Escalas)</a>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Regras_Raciais.md">🩸 Regras Raciais</a>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md">Domínios (legado)</a>
-            <div class="list-label">Arsenal &amp; Combate</div>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armas.md">Armas &amp; A Arte da Guerra</a>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md">Armaduras &amp; Escudos</a>
-            <a class="trello-card" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md">Itens Mágicos</a>
+        <!-- ============ CONHECIMENTO ============ -->
+        <section class="group">
+            <div class="group-head">
+                <h2>Conhecimento</h2>
+                <span class="group-note">O que rege o mundo</span>
+            </div>
+            <div class="grid grid--rows">
+
+                <div class="nav-card" style="--accent:#2855C5">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <path d="M3 4.5A1.5 1.5 0 014.5 3H10a2 2 0 012 2v14a2 2 0 00-2-2H4.5A1.5 1.5 0 013 15.5z"/>
+                        <path d="M21 4.5A1.5 1.5 0 0019.5 3H14a2 2 0 00-2 2v14a2 2 0 012-2h5.5a1.5 1.5 0 001.5-1.5z"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/regras/regras_menu.html">Regras</a></h3>
+                    <p>Fundamentos, atributos, perícias, combate e sistemas opcionais.</p>
+                    <div class="card-links">
+                        <a href="viewer.html?file=contents/regras/Regras_Gerais/Atributos.md">Atributos</a>
+                        <a href="viewer.html?file=contents/regras/Regras_Gerais/Pericias.md">Perícias</a>
+                        <a href="viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md">Dano</a>
+                    </div>
+                    <span class="card-meta">Abrir biblioteca <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#B88A35">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <path d="M4 20h4v-5H4zM10 20h4V9h-4zM16 20h4V4h-4z"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/ranks/ranks_menu.html">Ranks</a></h3>
+                    <p>Do Deceri ao Ark. Cada degrau define seu Dado de Rank e sua Eficiência.</p>
+                    <div class="card-links">
+                        <a href="viewer.html?file=contents/ranks/10 - Deceri.md">10 · Deceri</a>
+                        <a href="viewer.html?file=contents/ranks/07 - Arcana.md">07 · Arcana</a>
+                        <a href="viewer.html?file=contents/ranks/03 - Ark.md">03 · Ark</a>
+                    </div>
+                    <span class="card-meta">Ver hierarquia <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#247A57">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <circle cx="12" cy="7" r="3.4"/>
+                        <path d="M4.5 20.5c0-4 3.4-6.6 7.5-6.6s7.5 2.6 7.5 6.6"/>
+                        <path d="M7 4.2L5.2 2M17 4.2L18.8 2"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/racas/racas_menu.html">Raças</a></h3>
+                    <p>Humanas, mágicas, especiais e proibidas — o alicerce da sua jornada.</p>
+                    <div class="card-links">
+                        <a href="viewer.html?file=contents/racas/Humano.md">Humano</a>
+                        <a href="viewer.html?file=contents/racas/Elfo.md">Elfo</a>
+                        <a href="viewer.html?file=contents/racas/MeioVampiro.md">Meio-Vampiro</a>
+                    </div>
+                    <span class="card-meta">Ver linhagens <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#7B3FA8">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <path d="M14.5 3.5L20.5 9.5 9 21H3v-6z"/>
+                        <path d="M12.5 5.5l6 6"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/classes/classes_menu.html">Classes</a></h3>
+                    <p>Arquétipos iniciais, trilhas, avançadas e os caminhos que poucos encontram.</p>
+                    <div class="card-links">
+                        <a href="viewer.html?file=contents/classes/classes_iniciais/Academico.md">Acadêmico</a>
+                        <a href="viewer.html?file=contents/classes/classes_iniciais/Combativo.md">Combativo</a>
+                        <a href="viewer.html?file=contents/classes/classes_iniciais/Ladino.md">Ladino</a>
+                    </div>
+                    <span class="card-meta">Ver arquétipos <span class="card-arrow">→</span></span>
+                </div>
+            </div>
         </section>
 
-        <!-- ===================== RANKS ===================== -->
-        <section class="trello-list" style="--accent:#c5a059;">
-            <div class="list-header"><span class="icon">🏅</span> Ranks <span class="count">8</span></div>
-            <a class="trello-card pinned" href="contents/ranks/ranks_menu.html">Ver hierarquia completa</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/10 - Deceri.md">10 · Deceri</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/09 - Novedo.md">09 · Novedo</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/08 - Octitus.md">08 · Octitus</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/07 - Arcana.md">07 · Arcana</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/06 - Coniuncta.md">06 · Coniuncta</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/05 - Unearta.md">05 · Unearta</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/04 - Verus.md">04 · Verus</a>
-            <a class="trello-card" href="viewer.html?file=contents/ranks/03 - Ark.md">03 · Ark <span style="opacity:.6">(lendário)</span></a>
+        <!-- ============ PODERES ============ -->
+        <section class="group">
+            <div class="group-head">
+                <h2>Poderes</h2>
+                <span class="group-note">De onde vem a força</span>
+            </div>
+            <div class="grid grid--rows">
+
+                <div class="nav-card wide" style="--accent:#2855C5">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.6"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 3.4v3M12 17.6v3M3.4 12h3M17.6 12h3"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/magias/magias_menu.html">Magias</a></h3>
+                    <p>Quatro fontes primordiais — Mana, Ki, Fé e Caos. Cada uma alimenta uma existência diferente.</p>
+                    <div class="card-links">
+                        <a href="contents/magias/Mana/mana_menu.html">Mana</a>
+                        <a href="contents/magias/Ki/ki_menu.html">Ki</a>
+                        <a href="contents/magias/Fe/fe_menu.html">Fé</a>
+                        <a href="contents/magias/Caos/caos_menu.html">Caos</a>
+                    </div>
+                    <span class="card-meta">Abrir o portal <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#2E8FA8">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <circle cx="12" cy="4.6" r="2.2"/><circle cx="5" cy="15" r="2.2"/><circle cx="19" cy="15" r="2.2"/>
+                        <path d="M12 6.8v4.4M10.4 12.4L6.6 14M13.6 12.4l3.8 1.6M7 16.8l4 3M17 16.8l-4 3"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/habilidades/habilidades_menu.html">Habilidades</a></h3>
+                    <p>Corpo, Mente e Alma. Setenta e cinco técnicas distribuídas por estágios.</p>
+                    <span class="card-meta">Ver a árvore <span class="card-arrow">→</span></span>
+                </div>
+            </div>
         </section>
 
-        <!-- ===================== RAÇAS ===================== -->
-        <section class="trello-list" style="--accent:#3aa76d;">
-            <div class="list-header"><span class="icon">🧬</span> Raças <span class="count">12</span></div>
-            <a class="trello-card pinned" href="contents/racas/racas_menu.html">Abrir todas as Raças</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/Humano.md">Humano</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/Humano-Hypnoriano.md">Humano Hypnoriano</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/Humano-Oni.md">Humano Oni</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/MeioVampiro.md">Meio-Vampiro</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/Elfo.md">Elfo</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/MeioElfo.md">Meio-Elfo</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/ElfoNegro.md">Elfo Negro</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Atlantide.md">Atlântide</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Loomian.md">Loomian</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Manpan.md">Manpan</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/DemiHumano-Rekel.md">Rekel</a>
-            <a class="trello-card" href="viewer.html?file=contents/racas/MeioOrc.md">Meio-Orc</a>
+        <!-- ============ UNIVERSO ============ -->
+        <section class="group">
+            <div class="group-head">
+                <h2>Universo</h2>
+                <span class="group-note">O mundo em volta da mesa</span>
+            </div>
+            <div class="grid grid--rows">
+
+                <div class="nav-card" style="--accent:#B88A35">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="16" rx="2"/>
+                        <path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.4"/>
+                    </svg>
+                    <h3><a class="card-main" href="contents/galeria/galeria_menu.html">Galeria</a></h3>
+                    <p>Artefatos, personagens e monstros que já cruzaram o mundo.</p>
+                    <span class="card-meta">Abrir galeria <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#7B4FD0">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.6"/><path d="M12 7v5.4l3.4 2"/>
+                    </svg>
+                    <h3><a class="card-main" href="eras.html">Eras</a></h3>
+                    <p>A linha do tempo de cada mundo, ano a ano, com os eventos que a marcaram.</p>
+                    <span class="card-meta">Percorrer a história <span class="card-arrow">→</span></span>
+                </div>
+
+                <div class="nav-card" style="--accent:#247A57">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <path d="M9 3.5L3.5 6v14.5L9 18l6 2.5 5.5-2.5V3.5L15 6z"/><path d="M9 3.5V18M15 6v14.5"/>
+                    </svg>
+                    <h3><a class="card-main" href="mapa.html">Mapa</a></h3>
+                    <p>A cartografia de Luxsandoria e os lugares onde as campanhas acontecem.</p>
+                    <span class="card-meta">Abrir o atlas <span class="card-arrow">→</span></span>
+                </div>
+            </div>
         </section>
 
-        <!-- ===================== CLASSES ===================== -->
-        <section class="trello-list" style="--accent:#d98c3f;">
-            <div class="list-header"><span class="icon">⚔️</span> Classes <span class="count">9</span></div>
-            <a class="trello-card pinned" href="contents/classes/classes_menu.html">Ver todas as Classes</a>
-            <div class="list-label">Iniciais</div>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Academico.md">Acadêmico</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Aventureiro.md">Aventureiro</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Combativo.md">Combativo</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Ladino.md">Ladino</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Malandro.md">Malandro</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Prodigio.md">Prodígio</a>
-            <a class="trello-card" href="viewer.html?file=contents/classes/classes_iniciais/Trabalhador.md">Trabalhador</a>
-            <div class="list-label">Progressão</div>
-            <a class="trello-card" href="contents/classes/classes_menu.html">Avançadas · Absolutas · Secretas →</a>
+        <!-- ============ JORNADA PESSOAL ============ -->
+        <section class="group">
+            <div class="group-head">
+                <h2>Sua jornada</h2>
+                <span class="group-note">Onde o mundo vira personagem</span>
+            </div>
+            <div class="grid grid--rows">
+                <div class="nav-card nav-card--journey wide" style="--accent:#B88A35">
+                    <svg class="card-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                        <path d="M5 3.5h11l3.5 3.5v13.5H5z"/><path d="M15.5 3.5V7H19"/>
+                        <circle cx="12" cy="12" r="2.3"/><path d="M8.2 18c0-2 1.7-3.3 3.8-3.3s3.8 1.3 3.8 3.3"/>
+                    </svg>
+                    <h3><a class="card-main" href="personagem.html">Meus personagens</a></h3>
+                    <p>Crie uma ficha, continue a de ontem ou baixe a carta para levar à mesa. Tudo calculado a partir das regras do grimório.</p>
+                    <span class="card-meta">Abrir minhas fichas <span class="card-arrow">→</span></span>
+                </div>
+            </div>
         </section>
-
-        <!-- ===================== MAGIAS ===================== -->
-        <section class="trello-list" style="--accent:#8a5cf6;">
-            <div class="list-header"><span class="icon">🔮</span> Magias <span class="count">4</span></div>
-            <a class="trello-card pinned" href="contents/magias/magias_menu.html">Abrir o Portal de Magias</a>
-            <a class="trello-card" href="contents/magias/Mana/mana_menu.html" style="--accent:#0088ff;">🌊 Mana</a>
-            <a class="trello-card" href="contents/magias/Ki/ki_menu.html" style="--accent:#ffcc00;">⚡ Ki</a>
-            <a class="trello-card" href="contents/magias/Fe/fe_menu.html" style="--accent:#f0f0f0;">✨ Fé</a>
-            <a class="trello-card" href="contents/magias/Caos/caos_menu.html" style="--accent:#ff00ff;">🕳️ Caos</a>
-        </section>
-
-        <!-- ===================== HABILIDADES ===================== -->
-        <section class="trello-list" style="--accent:#e05a7d;">
-            <div class="list-header"><span class="icon">🌀</span> Habilidades <span class="count">3</span></div>
-            <a class="trello-card pinned" href="contents/habilidades/habilidades_menu.html">Ver todas as Habilidades</a>
-            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#alma" style="--accent:#00d4ff;">Pilar da Alma</a>
-            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#corpo" style="--accent:#ff4500;">Pilar do Corpo</a>
-            <a class="trello-card" href="contents/habilidades/habilidades_menu.html#mente" style="--accent:#9d00ff;">Pilar da Mente</a>
-        </section>
-
-        <!-- ===================== GALERIA ===================== -->
-        <section class="trello-list" style="--accent:#4fb3bf;">
-            <div class="list-header"><span class="icon">🖼️</span> Galeria <span class="count">3</span></div>
-            <a class="trello-card pinned" href="contents/galeria/galeria_menu.html">Abrir a Galeria</a>
-            <a class="trello-card" href="contents/galeria/galeria_artefatos.html">Artefatos</a>
-            <a class="trello-card" href="contents/galeria/galeria_personagens.html">Personagens</a>
-            <a class="trello-card" href="contents/galeria/galeria_monstros.html">Monstros</a>
-        </section>
-
     </main>
 
-    <footer class="board-footer">
-        <p style="color:#b9d3e6;">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
     <script src="js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

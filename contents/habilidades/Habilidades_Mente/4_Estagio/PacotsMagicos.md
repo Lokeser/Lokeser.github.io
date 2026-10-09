@@ -57,7 +57,7 @@ Estas são as limitações que você pode impor a si mesmo para ganhar Pontos de
 ## Restrições Avançadas
 
 * **Renúncia de Sangue (11 PP):** Você perde acesso a todas as suas habilidades e benefícios raciais.
-* **Cego (11 PP):** Você fica cego.
+* **Cego (11 PP):** Você fica Cego.
 * **Toque Etéreo (12 PP):** Você não pode causar dano físico de nenhum tipo (Cortante, Perfurante, Contundente).
 * **Voto de Limitação (13 PP):** Escolha uma de suas Classes (Inicial ou Avançada). Você perde acesso a todas as habilidades concedidas por ela.
 * **Âncora Arcana (14 PP):** Seu deslocamento se torna 0. Você não pode ser movido de seu lugar por meios normais.

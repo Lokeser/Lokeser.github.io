@@ -94,7 +94,7 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 * Seu corpo é sua principal fonte de poder.
 * Recebe a habilidade **Modo de Ataque**, ignorando seus pré-requisitos.
 * Você:
-  * **Não fica exausto** ao utilizá-la.
+  * **Não fica Exausto** ao utilizá-la.
   * Pode ativá-la como **Ação Bônus**.
 
 ---

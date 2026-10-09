@@ -36,7 +36,7 @@ Para evitar repetições, todas as armas abaixo seguem estas fórmulas base, sal
 * **Corte Preciso**
     * *Acerto:* **DR + Técnica**
     * *Dano:* **ERd4 + Técnica**
-    * *Efeito:* Crítico aplica **Sangramento**. Se o alvo já estiver sangrando, recebe +2 de Dano final.
+    * *Efeito:* Crítico aplica **Sangramento**. Se o alvo já estiver Sangrando, recebe +2 de Dano final.
 * **Corte Sombrio (Custo: 1 Magícula)**
     * *Gatilho:* Ao realizar a ação Atacar.
     * *Efeito:* Realiza um ataque extra imediato.
@@ -69,7 +69,7 @@ Para evitar repetições, todas as armas abaixo seguem estas fórmulas base, sal
 * **Corte Circular**
     * *Acerto:* **DR + Técnica**
     * *Dano:* **ER x d4 + Técnica**
-    * *Efeito:* **Sangris.** Crítico aplica **Sangramento**. Se o alvo já estiver sangrando, você causa **+2 Dados** de dano extra.
+    * *Efeito:* **Sangris.** Crítico aplica **Sangramento**. Se o alvo já estiver Sangrando, você causa **+2 Dados** de dano extra.
 * **Arremesso Letal (Requer Conhecimento)**
     * *Acerto:* **DR + Técnica + ER**
     * *Dano:* **ER x d14 + Técnica**

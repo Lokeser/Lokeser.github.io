@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 : '<pre>' + md.replace(/[&<]/g, c => ({ '&': '&amp;', '<': '&lt;' }[c])) + '</pre>';
             alvo.removeAttribute('aria-busy');
             document.title = (alvo.querySelector('h1')?.textContent || 'Pergaminho').trim();
+            const atual = document.querySelector('#trilha .atual');
+            if (atual && alvo.querySelector('h1')) atual.textContent = document.title;
             prepararPlacas(alvo);
             envolverTabelas(alvo);
             montarIndice(alvo);
@@ -58,20 +60,32 @@ const SECOES = {
     'habilidades': ['Habilidades', 'contents/habilidades/habilidades_menu.html'],
     'galeria':     ['Galeria',     'contents/galeria/galeria_menu.html']
 };
+// Dentro de Magias, "voltar" leva ao menu da fonte de onde o arquivo veio
+const FONTES_MAGIA = {
+    'Mana': ['Magias', 'contents/magias/Mana/mana_menu.html', 'Magia de Mana'],
+    'Ki':   ['Magias', 'contents/magias/Ki/ki_menu.html',     'Ki'],
+    'Fe':   ['Magias', 'contents/magias/Fe/fe_menu.html',     'Fé'],
+    'Caos': ['Magias', 'contents/magias/Caos/caos_menu.html', 'Caos']
+};
 
 function montarTrilha(caminho) {
     const trilha = document.getElementById('trilha');
     if (!trilha) return;
     const partes = caminho.split('/');
     const secao = partes[1];                       // contents/<secao>/...
-    const info = SECOES[secao];
+    let info = SECOES[secao];
+    let voltarRotulo = info ? info[0] : '';
+    if (secao === 'magias' && FONTES_MAGIA[partes[2]]) {
+        info = FONTES_MAGIA[partes[2]];
+        voltarRotulo = info[2];
+    }
     const nome = decodeURIComponent(partes[partes.length - 1]).replace(/\.md$/i, '');
 
     let html = '<a href="/">Grimório</a>';
     if (info) {
         html += ' <span class="sep">/</span> <a href="' + info[1] + '">' + info[0] + '</a>';
         const botao = document.getElementById('link-secao');
-        if (botao) { botao.href = info[1]; botao.textContent = 'Ver ' + info[0]; }
+        if (botao) { botao.href = info[1]; botao.textContent = 'Voltar para ' + voltarRotulo; }
     } else {
         document.getElementById('link-secao')?.remove();
     }

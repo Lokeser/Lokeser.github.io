@@ -1,222 +1,278 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abismo de Nox - Luxsandoria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Caos de Nox</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        /* Paleta: Roxo (P), Preto (S), Roxo Claro (T) */
-        body { 
-            background-color: #000000 !important; 
-            color: #bf00ff; /* Roxo Claro Terciário */
+        /* ==========================================================
+           CAOS — ocultismo e misticismo.
+           Base: a do tema. Acento: o roxo de Nox.
+           A peça marcante é o selo girando como um portal.
+           ========================================================== */
+        :root {
+            --nox: #6B2FA8;
+            --nox-claro: #9A63D6;
+            --nox-veu: rgba(107, 47, 168, .08);
+            --nox-fundo: #F6F1FC;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]):not([data-theme="blue"]) {
+                --nox: #B07AE0; --nox-claro: #D2B0F5; --nox-veu: rgba(176, 122, 224, .10); --nox-fundo: #0E0A18;
+            }
+        }
+        :root[data-theme="dark"] { --nox: #B07AE0; --nox-claro: #D2B0F5; --nox-veu: rgba(176, 122, 224, .10); --nox-fundo: #0E0A18; }
+
+        /* Céu de Nox: o véu do grimório trocado por um roxo de madrugada */
+        /* Superfícies tingidas pela fonte, para não destoarem do fundo */
+        body {
+            --surface: color-mix(in srgb, var(--nox) 7%, var(--nox-fundo));
+            --surface-2: color-mix(in srgb, var(--nox) 11%, var(--nox-fundo));
+            --border: color-mix(in srgb, var(--nox) 22%, var(--nox-fundo));
+            background-color: var(--nox-fundo);
+            background-image:
+                radial-gradient(900px 600px at 50% -10%, var(--nox-veu), transparent 65%),
+                radial-gradient(1.2px 1.2px at 12% 18%, var(--nox-claro), transparent 60%),
+                radial-gradient(1px 1px at 78% 12%, var(--nox-claro), transparent 60%),
+                radial-gradient(1.4px 1.4px at 64% 34%, var(--nox-claro), transparent 60%),
+                radial-gradient(1px 1px at 30% 44%, var(--nox-claro), transparent 60%),
+                radial-gradient(1.2px 1.2px at 88% 52%, var(--nox-claro), transparent 60%),
+                radial-gradient(1px 1px at 6% 66%, var(--nox-claro), transparent 60%);
+            background-attachment: fixed;
         }
 
-        .caos-header {
-            padding: 70px 0;
-            background: linear-gradient(180deg, #1a002a 0%, #000000 100%);
-            border-bottom: 3px solid #6a0dad; /* Roxo Primário */
-            text-shadow: 0 0 20px #bf00ff;
+        .voltar-topo {
+            display: inline-block; margin-top: var(--sp-5);
+            font-size: var(--step--1); color: var(--text-2); text-decoration: none;
+        }
+        .voltar-topo:hover { color: var(--nox); }
+
+        /* ===== O portal ===== */
+        .portal-nox { text-align: center; padding: var(--sp-5) 0 var(--sp-7); }
+        .selo {
+            position: relative; width: min(340px, 72vw); aspect-ratio: 1; margin: 0 auto var(--sp-5);
+        }
+        .selo img {
+            position: absolute; inset: 14%; width: 72%; height: 72%;
+            border-radius: 50%; object-fit: cover;
+            box-shadow: 0 0 60px color-mix(in srgb, var(--nox) 55%, transparent);
+            animation: girar 120s linear infinite;
+        }
+        .selo svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--nox); }
+        .selo .anel-lento { animation: girar 90s linear infinite reverse; transform-origin: 50% 50%; }
+        @keyframes girar { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .selo img, .selo .anel-lento { animation: none; } }
+
+        .portal-nox h1 {
+            font-size: clamp(2.6rem, 6vw, 4.6rem); letter-spacing: .14em; margin: 0 0 var(--sp-3);
+        }
+        .portal-nox .encanto {
+            font-family: var(--font-text); font-style: italic;
+            font-size: var(--step-1); line-height: 1.6; color: var(--text-2);
+            max-width: 56ch; margin: 0 auto;
         }
 
-        /* Card Horizontal (Essência do Caos) */
-        .caos-base-card {
-            display: flex;
-            background: #0a0014;
-            border: 2px solid #6a0dad;
-            border-radius: 15px;
-            overflow: hidden;
-            text-decoration: none;
-            transition: all 0.5s ease;
-            margin-bottom: 50px;
-            box-shadow: 0 0 20px rgba(106, 13, 173, 0.2);
-            min-height: 280px;
+        /* ===== O grimório: três páginas ===== */
+        .grim-head { margin: 0 0 var(--sp-4); }
+        .grim-head h2 { font-size: var(--step-3); margin: 0; }
+
+        .grimorio {
+            display: grid; gap: var(--sp-4);
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            grid-template-rows: 1fr 1fr;
         }
+        @media (max-width: 820px) { .grimorio { grid-template-columns: 1fr; grid-template-rows: auto; } }
 
-        .caos-base-img {
-            width: 45%;
-            background-image: url('../../../assets/images/caos.png');
-            background-size: cover;
-            background-position: center;
-            filter: hue-rotate(280deg) brightness(0.8);
-            transition: 0.6s;
+        .pagina {
+            position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+            gap: var(--sp-2); padding: var(--sp-5);
+            text-decoration: none; color: var(--text);
+            background: var(--surface);
+            border: 1px solid color-mix(in srgb, var(--nox) 30%, var(--border));
+            border-radius: 2px;
+            transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
         }
-
-        .caos-base-content {
-            width: 55%;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: linear-gradient(90deg, #0a0014, #1a002a);
+        /* Cantos de grimório: quatro marcas em vez de borda arredondada */
+        .pagina::before {
+            content: ''; position: absolute; inset: 6px; pointer-events: none;
+            background:
+                linear-gradient(var(--nox), var(--nox)) top left / 14px 1px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) top left / 1px 14px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) top right / 14px 1px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) top right / 1px 14px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) bottom left / 14px 1px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) bottom left / 1px 14px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) bottom right / 14px 1px no-repeat,
+                linear-gradient(var(--nox), var(--nox)) bottom right / 1px 14px no-repeat;
+            opacity: .7;
         }
-
-        .caos-base-card:hover {
-            border-color: #bf00ff;
-            transform: scale(1.01);
-            box-shadow: 0 0 40px rgba(191, 0, 255, 0.3);
+        .pagina:hover, .pagina:focus-visible {
+            border-color: var(--nox); color: var(--text);
+            box-shadow: 0 0 34px color-mix(in srgb, var(--nox) 28%, transparent);
+            transform: translateY(-3px);
         }
+        .pagina h3 { font-size: var(--step-1); margin: 0; }
+        .pagina p { margin: 0; color: var(--text-2); font-family: var(--font-text); line-height: 1.6; font-size: .95rem; }
+        .pagina .glifo { width: 48px; height: 48px; color: var(--nox); margin-bottom: auto; }
 
-        .caos-base-card:hover .caos-base-img { filter: hue-rotate(280deg) brightness(1.2); }
-
-        /* Divisor de Nox */
-        .caos-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #6a0dad, #bf00ff, #6a0dad, transparent);
-            margin: 50px auto;
-            width: 90%;
-            box-shadow: 0 0 15px #6a0dad;
+        /* A página principal leva a arte do Caos */
+        .pagina--mestra { grid-row: span 2; min-height: 420px; overflow: hidden; border-radius: 2px; }
+        .pagina--mestra img {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            transition: transform var(--t-slow) var(--ease);
         }
-
-        /* Cards Verticais 9:16 */
-        .nox-card {
-            position: relative;
-            display: block;
-            aspect-ratio: 9 / 16;
-            background-color: #05000a;
-            border: 1px solid #6a0dad;
-            border-radius: 12px;
-            overflow: hidden;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .pagina--mestra::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10, 4, 20, .94) 18%, rgba(10, 4, 20, .4) 60%, transparent);
         }
+        .pagina--mestra > *:not(img) { position: relative; z-index: 1; }
+        .pagina--mestra h3 { font-size: var(--step-2); color: var(--text-sobre-arte); }
+        .pagina--mestra p { color: rgba(255, 255, 255, .82); }
+        .pagina--mestra:hover img { transform: scale(1.05); }
+        @media (max-width: 820px) { .pagina--mestra { grid-row: auto; min-height: 340px; } }
 
-        .nox-img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-            transition: 0.5s;
+        /* ===== A Ascensão de Nox ===== */
+        .ascensao-head { margin: var(--sp-8) 0 var(--sp-2); }
+        .ascensao-head h2 { font-size: var(--step-3); margin: 0 0 var(--sp-2); }
+        .ascensao-head p { margin: 0; color: var(--text-2); font-family: var(--font-text); max-width: 64ch; line-height: 1.6; }
+        .ascensao-head a { color: var(--nox); }
+
+        /* Constelação: cinco estrelas ligadas por um fio, subindo da esquerda para a direita */
+        .constelacao {
+            position: relative; list-style: none; margin: var(--sp-6) 0 0; padding: 0 0 var(--sp-8);
+            display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-3);
         }
-
-        .nox-overlay {
-            position: absolute;
-            bottom: 0; width: 100%;
-            padding: 30px 15px;
-            background: linear-gradient(to top, #000 20%, rgba(26, 0, 42, 0.8) 60%, transparent);
-            text-align: center;
+        .constelacao::before {
+            content: ''; position: absolute; left: 10%; right: 10%; top: 36px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--nox), transparent);
         }
-
-        .nox-title {
-            color: #bf00ff;
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .constelacao li { position: relative; }
+        .nivel { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--sp-2); text-decoration: none; color: var(--text); }
+        .estrela {
+            width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
+            background: var(--nox-fundo); border: 1px solid var(--nox);
+            font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--nox);
+            box-shadow: 0 0 0 6px var(--nox-fundo), 0 0 22px color-mix(in srgb, var(--nox) 30%, transparent);
+            transition: box-shadow var(--t) var(--ease), background var(--t) var(--ease), color var(--t) var(--ease);
         }
-
-        .nox-card:hover {
-            transform: translateY(-10px);
-            border-color: #bf00ff;
-            box-shadow: 0 0 30px rgba(191, 0, 255, 0.4);
+        .nivel:hover .estrela, .nivel:focus-visible .estrela {
+            background: var(--nox); color: var(--nox-fundo);
+            box-shadow: 0 0 0 6px var(--nox-fundo), 0 0 40px color-mix(in srgb, var(--nox) 60%, transparent);
         }
+        .nivel h3 { font-size: var(--step-1); margin: var(--sp-2) 0 0; }
+        .nivel p { margin: 0; color: var(--text-2); font-size: .86rem; line-height: 1.5; font-family: var(--font-text); }
+        /* Quanto mais alto o nível, mais a estrela sobe */
+        .constelacao li:nth-child(2) { transform: translateY(-6px); }
+        .constelacao li:nth-child(3) { transform: translateY(-12px); }
+        .constelacao li:nth-child(4) { transform: translateY(-18px); }
+        .constelacao li:nth-child(5) { transform: translateY(-24px); }
 
-        .nox-card:hover .nox-img { opacity: 1; transform: scale(1.1); }
-
-        .section-label {
-            font-family: 'Cinzel', serif;
-            color: #bf00ff;
-            text-align: center;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+        @media (max-width: 820px) {
+            .constelacao { grid-template-columns: 1fr; gap: var(--sp-5); padding-left: 0; }
+            .constelacao::before { left: 36px; right: auto; top: 0; bottom: var(--sp-8); width: 1px; height: auto;
+                background: linear-gradient(transparent, var(--nox), transparent); }
+            .constelacao li { transform: none !important; }
+            .nivel { flex-direction: row; align-items: flex-start; text-align: left; gap: var(--sp-4); }
+            .nivel .txt h3 { margin-top: 6px; }
         }
     </style>
 </head>
 <body>
-    
+
     <div id="navbar-placeholder"></div>
 
-    <header class="caos-header text-center">
-        <h1 class="display-2" style="font-family: 'Cinzel', serif; color: #bf00ff;">Caos de Nox</h1>
-        <p class="lead" style="color: #6a0dad;">Onde a entropia se torna arma e o abismo responde ao chamado.</p>
-    </header>
+    <div class="lux-wrap">
+        <a class="voltar-topo" href="../magias_menu.html">← Núcleos Místicos</a>
 
-    <main class="container py-5">
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Caos.md" class="caos-base-card">
-                    <div class="caos-base-img"></div>
-                    <div class="caos-base-content">
-                        <h3 style="font-family: 'Cinzel', serif; color: #bf00ff;">As Leis de Nox</h3>
-                        <p style="color: #a29bfe;">Entenda a natureza instável do Caos. Aqui, o custo é sempre alto, mas o poder é absoluto.</p>
-                        <span style="color: #6a0dad; font-weight: bold; font-size: 0.9rem;">REVELAR VERDADES PROIBIDAS →</span>
-                    </div>
-                </a>
+        <header class="portal-nox">
+            <div class="selo" aria-hidden="true">
+                <svg viewBox="0 0 200 200" fill="none" stroke="currentColor">
+                    <g class="anel-lento">
+                        <circle cx="100" cy="100" r="97" stroke-width=".6" stroke-dasharray="2 5"/>
+                        <circle cx="100" cy="100" r="90" stroke-width=".8"/>
+                        <path d="M100 3 L104 10 L100 17 L96 10 Z" fill="currentColor" stroke="none"/>
+                        <path d="M197 100 L190 104 L183 100 L190 96 Z" fill="currentColor" stroke="none"/>
+                        <path d="M100 197 L96 190 L100 183 L104 190 Z" fill="currentColor" stroke="none"/>
+                        <path d="M3 100 L10 96 L17 100 L10 104 Z" fill="currentColor" stroke="none"/>
+                    </g>
+                </svg>
+                <img src="../../../assets/images/m_caos.png" alt="" width="604" height="631">
             </div>
+            <h1>Caos de Nox</h1>
+            <p class="encanto">
+                O Caos é a própria respiração do universo em sua forma mais indomada — um fluxo
+                primordial que desafia ordem, lógica e destino.
+            </p>
+        </header>
+
+        <div class="grim-head"><h2>O grimório</h2></div>
+
+        <section class="grimorio">
+            <a class="pagina pagina--mestra" href="../../../viewer.html?file=contents/magias/Caos/Caos.md">
+                <img src="../../../assets/images/caos.png" alt="" loading="lazy" width="1024" height="1536">
+                <h3>Filosofia do Caos</h3>
+                <p>A natureza instável do Caos e o que ele cobra de quem o usa. Para as bruxas, ele é a antítese da Mana estruturada dos magos.</p>
+            </a>
+
+            <a class="pagina" href="../../../viewer.html?file=contents/magias/Caos/Rituais.md">
+                <svg class="glifo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <circle cx="24" cy="26" r="16"/>
+                    <path d="M24 10 L37.9 34 H10.1 Z"/>
+                    <path d="M24 4 v4 M6 36 l3 -2 M42 36 l-3 -2" stroke-linecap="round"/>
+                    <circle cx="24" cy="26" r="3" fill="currentColor" stroke="none"/>
+                </svg>
+                <h3>Rituais de Caos</h3>
+                <p>Rituais organizados por Nível Nox, do Olhar Transversal ao Sono Abissal. Toda falha cobra um preço — muitas vezes, na Tabela do Caos.</p>
+            </a>
+
+            <a class="pagina" href="../../../viewer.html?file=contents/magias/Caos/TabelaCaotica.md">
+                <svg class="glifo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M24 4 L42 14 V34 L24 44 L6 34 V14 Z"/>
+                    <path d="M24 4 L24 18 M6 14 L24 18 L42 14 M24 18 L14 36 L34 36 Z M6 34 L14 36 M42 34 L34 36 M24 44 L14 36 M24 44 L34 36"/>
+                </svg>
+                <h3>Tabela do Caos</h3>
+                <p>Gire 1d66 e aplique um efeito. É para onde o Caos leva você quando foge do controle.</p>
+            </a>
+        </section>
+
+        <div class="ascensao-head">
+            <h2>A Ascensão de Nox</h2>
+            <p>
+                As bruxas do Caos não sobem por Ranks: sobem por Níveis Nox, e a força vem da conexão
+                com a aleatoriedade primordial. <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/0_Introducao.md">Entenda os Níveis Nox</a>.
+            </p>
         </div>
 
-        <div class="row g-4 mb-5 justify-content-center">
-            <div class="col-md-5">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Rituais.md" class="rule-item" style="background: #1a002a; border: 1px solid #6a0dad; padding: 20px; border-radius: 10px; color: #bf00ff; text-decoration: none; display: block; text-align: center;">
-                    <strong>📖 Grimório de Rituais</strong>
-                </a>
-            </div>
-            <div class="col-md-5">
-                <a href="../../../viewer.html?file=contents/magias/Caos/TabelaCaotica.md" class="rule-item" style="background: #1a002a; border: 1px solid #6a0dad; padding: 20px; border-radius: 10px; color: #bf00ff; text-decoration: none; display: block; text-align: center;">
-                    <strong>🎲 Tabela de Instabilidade</strong>
-                </a>
-            </div>
-        </div>
+        <ol class="constelacao">
+            <li><a class="nivel" href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/1_Nox_Novus.md">
+                <span class="estrela">I</span>
+                <div class="txt"><h3>Novus</h3><p>O despertar. A bruxa começa a sentir o pulsar errático do Caos.</p></div>
+            </a></li>
+            <li><a class="nivel" href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/2_Nox_Pergit.md">
+                <span class="estrela">II</span>
+                <div class="txt"><h3>Pergit</h3><p>O amadurecimento. A alma já vibra em sintonia com o abismo.</p></div>
+            </a></li>
+            <li><a class="nivel" href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/3_Nox_Amantis_Amicita.md">
+                <span class="estrela">III</span>
+                <div class="txt"><h3>Amantis</h3><p>A consumação de um laço íntimo entre a bruxa e o Caos.</p></div>
+            </a></li>
+            <li><a class="nivel" href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/4_Nox_Magister.md">
+                <span class="estrela">IV</span>
+                <div class="txt"><h3>Magister</h3><p>Ela não só escuta os Sussurros: interpreta, compila e reescreve.</p></div>
+            </a></li>
+            <li><a class="nivel" href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/5_Nox_Physicus.md">
+                <span class="estrela">V</span>
+                <div class="txt"><h3>Physicus</h3><p>A bruxa não molda mais a entropia. Ela é a entropia consciente.</p></div>
+            </a></li>
+        </ol>
+    </div>
 
-        <div class="caos-divider"></div>
-
-        <h2 class="section-label">A Ascensão de Nox</h2>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
-            
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/0_Introducao.md" class="nox-card">
-                    <img src="../../../assets/images/nox_0.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Introdução</h4></div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/1_Nox_Novus.md" class="nox-card">
-                    <img src="../../../assets/images/nox_1.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Novus</h4></div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/2_Nox_Pergit.md" class="nox-card">
-                    <img src="../../../assets/images/nox_2.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Pergit</h4></div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/3_Nox_Amantis_Amicita.md" class="nox-card">
-                    <img src="../../../assets/images/nox_3.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Amantis</h4></div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/4_Nox_Magister.md" class="nox-card">
-                    <img src="../../../assets/images/nox_4.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Magister</h4></div>
-                </a>
-            </div>
-
-            <div class="col">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/5_Nox_Physicus.md" class="nox-card">
-                    <img src="../../../assets/images/nox_5.png" class="nox-img">
-                    <div class="nox-overlay"><h4 class="nox-title">Physicus</h4></div>
-                </a>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="text-center py-5">
-        <button onclick="history.back()" class="btn btn-outline-light px-5 mb-4" style="border-color: #6a0dad; color: #bf00ff; border-radius: 0;">Sair do Abismo</button>
-        <p style="color: #30004a;">Luxsandoria — Sistema de autoria de <strong>Lokeser</strong></p>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
     <script src="../../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

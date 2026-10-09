@@ -18,7 +18,7 @@
 
         .classes-grid {
             display: grid; gap: var(--sp-4);
-            grid-template-columns: repeat(auto-fill, minmax(146px, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .classe {
@@ -32,7 +32,9 @@
         .classe:hover, .classe:focus-visible {
             transform: translateY(-4px); border-color: var(--tier); box-shadow: var(--shadow-lg);
         }
-        .classe-arte { display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+        .classe-arte { display: block; aspect-ratio: 9 / 16; max-width: 100%; overflow: hidden; }
+        @media (max-width: 900px) { .classes-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 600px) { .classes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .classe-arte img, .arte-gerada {
             width: 100%; height: 100%; object-fit: cover; display: block;
             transition: transform var(--t-slow) var(--ease);
@@ -43,9 +45,9 @@
            cor do patamar + sombra, em vez de tarja preta grosseira. */
         .classe-nome {
             position: absolute; inset: auto 0 0 0; z-index: 1;
-            padding: 28px 10px 11px;
+            padding: 46px 14px 16px;
             font-family: var(--font-display); font-weight: 700;
-            font-size: .82rem; line-height: 1.2; text-align: center;
+            font-size: clamp(.95rem, .8vw + .6rem, 1.25rem); line-height: 1.2; text-align: center; letter-spacing: .03em;
             color: var(--text-sobre-arte); text-shadow: 0 1px 4px rgba(0,0,0,.9);
             background: linear-gradient(to top,
                 color-mix(in srgb, var(--tier) 42%, #05070D) 0%,
@@ -92,10 +94,10 @@
             </div>
             <nav class="atalhos" aria-label="Ir para um patamar">
                 <a href="#classes-iniciais">Classes Iniciais</a>
-                <a href="#trilhas-e-manas-extras">Trilhas e Manas Extras</a>
                 <a href="#classes-avancadas">Classes Avançadas</a>
-                <a href="#linhagens-absolutas">Linhagens Absolutas</a>
-                <a href="#registros-proibidos-secretas">Registros Proibidos (Secretas)</a>
+                <a href="#classes-absolutas">Classes Absolutas</a>
+                <a href="#classes-herdadas">Classes Herdadas</a>
+                <a href="#classes-secretas">Classes Secretas</a>
             </nav>
         </header>
 
@@ -105,7 +107,7 @@
                 <h2>Classes Iniciais</h2>
                 <span class="count-badge">7</span>
             </div>
-            <p class="tier-note">Por onde todo mundo comeca. Cada uma define sua base de atributos e pericias.</p>
+            <p class="tier-note">Por onde todo mundo começa. A Classe Inicial define sua base de atributos e perícias.</p>
             <div class="classes-grid">
                 <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Academico.md" data-nome="Acadêmico">
                     <span class="classe-arte"><img src="../../assets/images/c_academico.jpg" alt="" loading="lazy" width="300" height="400"></span>
@@ -137,49 +139,12 @@
                 </a>
             </div>
         </section>
-        <section class="tier" id="trilhas-e-manas-extras" style="--tier:#2E8FA8">
-            <div class="tier-head">
-                <h2>Trilhas e Manas Extras</h2>
-                <span class="count-badge">7</span>
-            </div>
-            <p class="tier-note">Caminhos e manas que se somam a uma classe inicial.</p>
-            <div class="classes-grid">
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" data-nome="Caminho Astral">
-                    <span class="classe-arte"><img src="../../assets/images/c_caminho_astral.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Caminho Astral</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" data-nome="Caminho Lunar">
-                    <span class="classe-arte"><img src="../../assets/images/c_caminho_lunar.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Caminho Lunar</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" data-nome="Caminho Solar">
-                    <span class="classe-arte"><img src="../../assets/images/c_caminhosolar.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Caminho Solar</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" data-nome="Visionário">
-                    <span class="classe-arte"><img src="../../assets/images/c_caminho_vidente.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Visionário</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Draconica.md" data-nome="Mana Dracônica">
-                    <span class="classe-arte"><img src="../../assets/images/c_mana_draconica.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Mana Dracônica</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Purificada.md" data-nome="Mana Purificada">
-                    <span class="classe-arte"><img src="../../assets/images/c_mana_purificada.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Mana Purificada</span>
-                </a>
-                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/NotasMagicas.md" data-nome="Notas Mágicas">
-                    <span class="classe-arte"><img src="../../assets/images/c_notas_magicas.png" alt="" loading="lazy" width="300" height="400"></span>
-                    <span class="classe-nome">Notas Mágicas</span>
-                </a>
-            </div>
-        </section>
         <section class="tier" id="classes-avancadas" style="--tier:#7B3FA8">
             <div class="tier-head">
                 <h2>Classes Avançadas</h2>
                 <span class="count-badge">12</span>
             </div>
-            <p class="tier-note">O que voce se torna quando a base ja nao basta.</p>
+            <p class="tier-note">O próximo passo da jornada: o que você se torna quando a base já não basta.</p>
             <div class="classes-grid">
                 <a class="classe" href="../../viewer.html?file=contents/classes/classes_avancadas/ArtistaMarcial.md" data-nome="Artista Marcial">
                     <span class="classe-arte"><img src="../../assets/images/c_artista_marcial.png" alt="" loading="lazy" width="300" height="400"></span>
@@ -231,9 +196,9 @@
                 </a>
             </div>
         </section>
-        <section class="tier" id="linhagens-absolutas" style="--tier:#A3761F">
+        <section class="tier" id="classes-absolutas" style="--tier:#A3761F">
             <div class="tier-head">
-                <h2>Linhagens Absolutas</h2>
+                <h2>Classes Absolutas</h2>
                 <span class="count-badge">9</span>
             </div>
             <p class="tier-note">O topo de uma trilha. Poucos chegam, menos ainda retornam.</p>
@@ -276,12 +241,49 @@
                 </a>
             </div>
         </section>
-        <section class="tier" id="registros-proibidos-secretas" style="--tier:#C2452F">
+        <section class="tier" id="classes-herdadas" style="--tier:#2E8FA8">
             <div class="tier-head">
-                <h2>Registros Proibidos (Secretas)</h2>
+                <h2>Classes Herdadas</h2>
+                <span class="count-badge">7</span>
+            </div>
+            <p class="tier-note">Caminhos e manas herdados, que se somam a uma Classe Inicial.</p>
+            <div class="classes-grid">
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md" data-nome="Caminho Astral">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_astral.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Astral</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md" data-nome="Caminho Lunar">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_lunar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Lunar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md" data-nome="Caminho Solar">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminhosolar.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Caminho Solar</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md" data-nome="Visionário">
+                    <span class="classe-arte"><img src="../../assets/images/c_caminho_vidente.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Visionário</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Draconica.md" data-nome="Mana Dracônica">
+                    <span class="classe-arte"><img src="../../assets/images/c_mana_draconica.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mana Dracônica</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/Mana_Purificada.md" data-nome="Mana Purificada">
+                    <span class="classe-arte"><img src="../../assets/images/c_mana_purificada.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Mana Purificada</span>
+                </a>
+                <a class="classe" href="../../viewer.html?file=contents/classes/classes_iniciais/Classes_Extras/NotasMagicas.md" data-nome="Notas Mágicas">
+                    <span class="classe-arte"><img src="../../assets/images/c_notas_magicas.png" alt="" loading="lazy" width="300" height="400"></span>
+                    <span class="classe-nome">Notas Mágicas</span>
+                </a>
+            </div>
+        </section>
+        <section class="tier" id="classes-secretas" style="--tier:#C2452F">
+            <div class="tier-head">
+                <h2>Classes Secretas</h2>
                 <span class="count-badge">11</span>
             </div>
-            <p class="tier-note">Guardadas pelo mundo. Existem, mas nao se ensinam.</p>
+            <p class="tier-note">Guardadas pelo mundo. Existem, mas não se ensinam.</p>
             <div class="classes-grid">
                 <a class="classe" href="../../viewer.html?file=contents/classes/classes_secretas/Embaixador.md" data-nome="Embaixador Cósmico">
                     <span class="classe-arte"><span class="arte-gerada" style="background:radial-gradient(circle at 50% 35%,#e5d2ff 0 3%,#7654c7 18%,#162348 55%,#070c1e 100%)"></span></span>

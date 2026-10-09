@@ -119,17 +119,24 @@
 /* Em telas médias os links quebram em 2 linhas — melhor do que sumir.
    O menu lateral só entra em telas estreitas de verdade. */
 @media screen and (max-width: 900px) {
+    /* A gaveta vive fora da tela; 'clip' impede que ela gere rolagem
+       horizontal sem criar um container de scroll (o que quebraria o
+       sticky da navbar, como 'hidden' faria). */
+    html, body { overflow-x: clip; }
     .mobile-menu-icon { display: flex; z-index: 1001; }
     .nav-links {
-        position: fixed; top: 0; right: -100%; width: min(300px, 82vw); height: 100vh;
+        /* Fora da tela por transform, nao por "right" negativo: deslocamento
+           de layout cria barra de rolagem horizontal, transform nao. */
+        position: fixed; top: 0; right: 0; transform: translateX(100%);
+        width: min(300px, 82vw); height: 100vh;
         flex-direction: column; justify-content: flex-start; align-items: stretch;
         gap: var(--sp-1); padding: 84px var(--sp-4) var(--sp-5);
         background: var(--surface); border-left: 1px solid var(--border);
         box-shadow: -12px 0 40px var(--overlay);
-        transition: right var(--t-slow) var(--ease);
+        transition: transform var(--t-slow) var(--ease);
         overflow-y: auto;
     }
-    .nav-links.active { right: 0; }
+    .nav-links.active { transform: none; }
     .nav-links li { width: 100%; }
     .nav-links li a { padding: 12px var(--sp-3); font-size: .95rem; }
     .nav-links li a.nav-cta, .nav-links li a.nav-eras { text-align: center; }

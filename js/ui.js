@@ -105,7 +105,7 @@ const LuxUI = (() => {
         },
         condicao: {
             nome: 'Condições',
-            def: 'Estados que alteram o que um personagem pode fazer em combate, como Abalado, Imobilizado ou Paralisado.',
+            def: 'Estados que alteram o que um personagem pode fazer. Divididas em Adversas (simples), Adversas Graves (evoluídas) e Especiais, como Machucado e Transformado.',
             link: 'viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md'
         },
         arcana: {

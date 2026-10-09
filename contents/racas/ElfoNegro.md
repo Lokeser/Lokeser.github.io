@@ -113,7 +113,7 @@ Um número de vezes por dia igual à sua **Mana**, você pode utilizar um poder 
 * Sua **Manipulação Livre de Raio** evolui até o **Rank 7**.
 * Aprende **uma técnica mágica de Raio**.
 
-Se possuir Magia de Raios, pode aprender a **Evolução Elemental: Raios Amaldiçoados**.
+Se possuir Magia de Raio, pode aprender a **Arte dos Raios Amaldiçoados** — uma **Arte Superior** do Raio exclusiva dos Elfos Negros (exige **5+ de Mana**; suas técnicas são definidas junto ao Mestre).
 
 ---
 

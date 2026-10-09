@@ -127,7 +127,7 @@ Escolha **uma segunda** característica racial de Elfo.
 <!--#poder id="rc_elfo_r6_1" fonte="raca" rank="6" estrela="1" nome="Conexão Elemental"-->
 ### Rank 6 — Conexão Elemental
 
-Permite aprender **uma segunda evolução elemental**.
+Permite seguir **uma segunda Arte da sua Magia**: você aprende **uma técnica** de outra Arte, sem precisar de livro ou ensino direto *(Artes Superiores exigem 5+ de Mana)*.
 
 ---
 

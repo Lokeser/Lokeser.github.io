@@ -257,7 +257,12 @@ const WNJ = (() => {
         const rc = arquivoRaca(cfg, char); if (rc) arquivos.push(rc);
         arquivos.push(...arquivosClasse(cfg, cfg.classes_iniciais, char.classeInicial, char.subClasseInicial));
         arquivos.push(...arquivosClasse(cfg, cfg.classes_avancadas, char.classeAvancada, char.subClasseAvancada));
-        const mg = (cfg.magias || []).find(x => x.nome === char.magia); if (mg) arquivos.push(mg.arquivo);
+        const mg = (cfg.magias || []).find(x => x.nome === char.magia);
+        if (mg) {
+            arquivos.push(mg.arquivo);
+            // Magias com subclasse (as Artes do Ki) também carregam os poderes da base
+            if (mg.base) arquivos.push(mg.base);
+        }
         const out = [];
         for (const arq of arquivos) {
             try {

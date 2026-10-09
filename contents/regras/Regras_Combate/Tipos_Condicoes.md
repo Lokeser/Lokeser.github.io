@@ -1,10 +1,14 @@
-# Condições Adversas
+# Condições
 
-As Condições Adversas representam estados físicos, mentais, espirituais ou anômalos que afetam diretamente o desempenho dos personagens em combate e fora dele. Algumas condições podem evoluir para estados mais graves caso sejam aplicadas novamente.
+As Condições representam estados físicos, mentais, espirituais ou anômalos que afetam diretamente o desempenho dos personagens em combate e fora dele. Elas se dividem em três grupos:
+
+- **Condições Adversas** — os estados simples. Algumas delas, se aplicadas novamente, evoluem para uma Condição Adversa Grave.
+- **Condições Adversas Graves** — os estados evoluídos, mais perigosos e difíceis de remover.
+- **Condições Especiais** — estados que surgem de situações próprias do personagem, e não de um ataque comum.
 
 ---
 
-## Condições Básicas
+## Condições Adversas
 
 ### Abalado
 O personagem sofre –1DR em testes de perícia.  
@@ -48,12 +52,6 @@ O personagem está deitado no chão.
 
 ---
 
-### Debilitado
-O personagem sofre –2DR em testes de Destreza, Força e Constituição.  
-Se ficar debilitado novamente, em vez disso fica **Inconsciente**.  
-**Tipo:** Corpo
-
----
 
 ### Doente
 O personagem está sob efeito de uma doença.  
@@ -73,14 +71,6 @@ Duração padrão: pela cena, caso não seja especificado.
 
 ---
 
-### Esmorecido
-O personagem sofre:
-- –1DR em testes de Inteligência e Sabedoria  
-- –3 adicionais nesses testes  
-
-**Tipo:** Mente
-
----
 
 ### Enjoado
 O personagem pode realizar **apenas uma ação** (padrão ou movimento) por rodada.  
@@ -122,13 +112,6 @@ O personagem é considerado desprevenido.
 - Todas as formas de deslocamento são reduzidas à metade  
 - Não pode correr ou fazer investidas  
 
-**Tipo:** Corpo
-
----
-
-### Machucado
-Ativado quando o personagem fica com metade da vida.  
-O deslocamento para se afastar de inimigos é reduzido pela metade.  
 **Tipo:** Corpo
 
 ---
@@ -182,7 +165,23 @@ No início do turno, faça um teste de Constituição:
 
 ---
 
-## Condições Evoluídas
+## Condições Adversas Graves
+
+### Debilitado
+O personagem sofre –2DR em testes de Destreza, Força e Constituição.  
+Se ficar debilitado novamente, em vez disso fica **Inconsciente**.  
+**Tipo:** Corpo
+
+---
+
+### Esmorecido
+O personagem sofre:
+- –1DR em testes de Inteligência e Sabedoria  
+- –3 adicionais nesses testes  
+
+**Tipo:** Mente
+
+---
 
 ### Agarrado
 O personagem fica desprevenido e imóvel.  
@@ -322,7 +321,28 @@ Fica desprevenido e não pode realizar ações.
 
 ---
 
+## Condições Especiais
+
+### Machucado
+Recebida **automaticamente** quando o personagem atinge **1/3 de sua Vida Máxima**.
+
+Sempre que receber uma **Condição Adversa Grave** enquanto estiver Machucado, realize um **Teste de Tenacidade (CD 20)**:
+- **Falha:** o personagem entra em **Morrendo**.
+
+**Tipo:** Corpo
+
+---
+
 ### Sobrecarregado
 O personagem recebe um bônus igual à sua Mana em todo dano causado.  
 Porém, perde vida igual à sua Mana a cada turno.  
 **Tipo:** Alma
+
+---
+
+### Transformado
+Condição que ocorre durante algumas habilidades de **Transformação**.
+
+Enquanto estiver Transformado, o personagem se torna **imune à condição Machucado**.
+
+**Tipo:** Corpo / Alma

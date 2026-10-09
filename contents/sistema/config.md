@@ -170,9 +170,9 @@
     { "nome": "Elemental — Vento", "arquivo": "contents/magias/Mana/Magia_Elemental_Vento.md" },
     { "nome": "Elemental — Raio",  "arquivo": "contents/magias/Mana/Magia_Elemental_Raio.md" },
     { "nome": "Anômala",           "arquivo": "contents/magias/Mana/Anomalia.md" },
-    { "nome": "Ki — Arte da Besta",     "arquivo": "contents/magias/Ki/Arte_Besta.md" },
-    { "nome": "Ki — Arte Celestial",    "arquivo": "contents/magias/Ki/Arte_Celestial.md" },
-    { "nome": "Ki — Arte do Diabo",     "arquivo": "contents/magias/Ki/Arte_Diabo.md" },
+    { "nome": "Ki — Arte da Besta",     "arquivo": "contents/magias/Ki/Arte_Besta.md", "base": "contents/magias/Ki/Ki.md" },
+    { "nome": "Ki — Arte Celestial",    "arquivo": "contents/magias/Ki/Arte_Celestial.md", "base": "contents/magias/Ki/Ki.md" },
+    { "nome": "Ki — Arte do Diabo",     "arquivo": "contents/magias/Ki/Arte_Diabo.md", "base": "contents/magias/Ki/Ki.md" },
     { "nome": "Fé",                "arquivo": "contents/magias/Fe/Fe.md" },
     { "nome": "Caos",              "arquivo": "contents/magias/Caos/Caos.md" }
   ],

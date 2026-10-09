@@ -1,5 +1,9 @@
 # Arte do Celestial
 
+> **Subclasse do Ki** · Dificuldade: **★★★ Difícil**  
+> Uma das três **Artes do Ki**, escolhida no Rank 9. Ela troca a Aceleração básica pela **Aceleração Celestial** e quase não ataca por conta própria: quase tudo nela é **reação** — esquivar, contra-atacar e redirecionar. Exige ler o inimigo e guardar Accels para o momento certo.  
+> Os poderes de Ki desta Arte usam a sua **Mana** onde estiver escrito **Ki**. → [Ver a base do Ki](viewer.html?file=contents/magias/Ki/Ki.md)
+
 ## Caminho do Celestial
 
 A mais pura técnica. O caminho do celestial consiste em treinar sua mente para trabalhar junto com seu corpo acelerado. Você se torna focado em **Contra-Ataques**, sendo desnecessário atacar diretamente — o conceito mais perfeito da autodefesa, fluindo graciosamente pelo campo.

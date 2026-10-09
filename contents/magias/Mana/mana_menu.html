@@ -1,143 +1,367 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artes da Mana - Luxsandoria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Magia de Mana</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        /* Estética Elemental: Preto, Azul e Dourado */
-        body { background-color: #000 !important; color: var(--gold); }
-        
-        .mana-container { padding-top: 50px; padding-bottom: 80px; }
+        /* ---- A Mana primeiro, depois os elementos que nascem dela.
+               Cada elemento: um card-retrato e, colado embaixo, a faixa
+               fina da sua Arte (a subclasse). ---- */
 
+        /* ===== Cabeçalho com a ficha da Mana ===== */
+        .mana-topo {
+            display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+            gap: var(--sp-6); align-items: start;
+            padding: var(--sp-7) 0 var(--sp-6);
+        }
+        @media (max-width: 880px) { .mana-topo { grid-template-columns: 1fr; gap: var(--sp-5); } }
+
+        .mana-intro h1 { font-size: var(--step-4); letter-spacing: .08em; margin: 0 0 var(--sp-3); }
+        .mana-intro .lede {
+            font-family: var(--font-text); font-size: var(--step-1); line-height: 1.6;
+            color: var(--text-2); margin: 0 0 var(--sp-5); max-width: 52ch;
+        }
+
+        /* As três fórmulas que todo mago usa, em destaque */
+        .formulas { display: grid; gap: var(--sp-3); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @media (max-width: 520px) { .formulas { grid-template-columns: 1fr; } }
+        .formula {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--r); padding: var(--sp-3) var(--sp-4);
+        }
+        .formula .f-nome {
+            font-family: var(--font-ui); font-size: .68rem; font-weight: 700;
+            letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+        }
+        .formula .f-valor {
+            display: block; margin-top: 4px;
+            font-family: var(--font-display); font-size: var(--step-1); font-weight: 700;
+            color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap;
+        }
+        .formula .f-uso { display: block; margin-top: 2px; font-size: .78rem; color: var(--text-2); line-height: 1.4; }
+
+        /* Card de explicação da Mana: o "selo" do grimório */
         .mana-card {
-            background-color: var(--bg);
-            border: 2px solid var(--border-strong); /* Azul secundário */
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            position: relative;
-            text-decoration: none;
-            display: block;
-            aspect-ratio: 1024 / 1536; /* Proporção 2:3 vertical */
-            box-shadow: 0 0 15px rgba(52, 105, 154, 0.3);
+            position: relative; overflow: hidden;
+            background:
+                radial-gradient(420px 260px at 100% 0%, var(--glow), transparent 70%),
+                var(--surface);
+            border: 1px solid var(--border); border-radius: var(--r-xl);
+            box-shadow: var(--shadow);
+            padding: var(--sp-5) var(--sp-5) var(--sp-4);
+        }
+        .mana-card::before {
+            content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .mana-card .sigilo {
+            position: absolute; right: -40px; top: -40px; width: 190px; height: 190px;
+            color: var(--royal); opacity: .16; pointer-events: none;
+            animation: girar 80s linear infinite;
+        }
+        @keyframes girar { to { transform: rotate(360deg); } }
+        .mana-card h2 { font-size: var(--step-2); margin: 0 0 var(--sp-2); position: relative; }
+        .mana-card > p {
+            font-family: var(--font-text); color: var(--text-2); line-height: 1.65;
+            margin: 0 0 var(--sp-4); position: relative; max-width: 58ch;
+        }
+        .mana-regras { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; position: relative; }
+        .mana-regras li {
+            display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: var(--sp-2);
+            padding: 9px 0; border-top: 1px solid var(--border);
+            font-size: .88rem; line-height: 1.5; color: var(--text);
+        }
+        .mana-regras li:first-child { border-top: 0; }
+        .mana-regras .ic {
+            width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+            background: var(--royal-soft); color: var(--royal);
+        }
+        .mana-regras .ic svg { width: 15px; height: 15px; }
+        .mana-regras strong { color: var(--text); }
+
+        /* ===== Os elementos ===== */
+        .sec-head { display: flex; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; margin: var(--sp-6) 0 var(--sp-4); }
+        .sec-head h2 { font-size: var(--step-2); margin: 0; }
+        .sec-head p { margin: 0; color: var(--text-2); font-size: var(--step--1); }
+
+        .elementos {
+            display: grid; gap: var(--sp-4);
+            grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+            padding-bottom: var(--sp-8);
+        }
+        .elemento { display: flex; flex-direction: column; gap: 8px; min-width: 0; container-type: inline-size; }
+
+        /* Card-retrato */
+        .el-card {
+            position: relative; display: block; overflow: hidden;
+            aspect-ratio: 2 / 3; max-width: 100%;
+            border-radius: var(--r-lg); text-decoration: none;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
+        }
+        .el-card img {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            transition: transform var(--t-slow) var(--ease), filter var(--t-slow) var(--ease);
+        }
+        .el-card::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top,
+                rgba(6, 10, 20, .94) 0%,
+                color-mix(in srgb, var(--el) 30%, rgba(6, 10, 20, .55)) 42%,
+                transparent 72%);
+        }
+        .el-card:hover, .el-card:focus-visible {
+            transform: translateY(-5px);
+            border-color: var(--el);
+            box-shadow: var(--shadow-lg), 0 0 30px color-mix(in srgb, var(--el) 35%, transparent);
+        }
+        .el-card:hover img { transform: scale(1.06); }
+
+        .el-info {
+            position: absolute; inset: auto 0 0 0; z-index: 1;
+            padding: var(--sp-4) var(--sp-3) var(--sp-3);
+            color: var(--text-sobre-arte);
+        }
+        .el-nome {
+            display: block; font-family: var(--font-display); font-weight: 700;
+            font-size: clamp(1.15rem, .9vw + .8rem, 1.5rem); letter-spacing: .14em;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, .7);
+        }
+        .el-papel { display: block; margin-top: 4px; font-size: .74rem; line-height: 1.4; opacity: .88; }
+        .el-meta {
+            display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
+            margin-top: var(--sp-2); padding-top: var(--sp-2);
+            border-top: 1px solid rgba(255, 255, 255, .18);
+            font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
+        }
+        .dif { display: inline-flex; gap: 3px; }
+        .dif i {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255, 255, 255, .25); display: block;
+        }
+        .dif i.on { background: var(--el-claro); box-shadow: 0 0 6px var(--el-claro); }
+
+        /* Faixa da Arte: mesma largura, altura pequena */
+        .el-arte {
+            display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
+            min-height: 40px; padding: 0 var(--sp-3);
+            border-radius: var(--r); text-decoration: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--el);
+            font-family: var(--font-display); font-size: .72rem; font-weight: 700;
+            letter-spacing: .08em; color: var(--text); white-space: nowrap;
+            transition: background var(--t) var(--ease), border-color var(--t) var(--ease), transform var(--t-fast) var(--ease);
+        }
+        .el-arte small {
+            font-family: var(--font-ui); font-size: .66rem; font-weight: 600;
+            letter-spacing: .04em; color: var(--text-2); white-space: nowrap;
+        }
+        .el-arte:hover, .el-arte:focus-visible {
+            background: color-mix(in srgb, var(--el) 10%, var(--surface));
+            border-color: var(--el); color: var(--text);
+        }
+        .el-arte:hover small { color: var(--el); }
+        /* Card estreito: a faixa mostra só o nome da Arte, sempre em uma linha */
+        @container (max-width: 205px) { .el-arte small { display: none; } .el-arte { justify-content: center; } }
+
+        /* Elemento ainda sem conteúdo */
+        .elemento.vazio .el-card { cursor: default; }
+        .elemento.vazio .el-card img { filter: grayscale(.85) brightness(.75); }
+        .elemento.vazio .el-card:hover { transform: none; box-shadow: var(--shadow-sm); border-color: var(--border); }
+        .elemento.vazio .el-card:hover img { transform: none; }
+        .elemento.vazio .el-arte { color: var(--text-2); border-left-color: var(--border-strong); cursor: default; }
+        .selo-breve {
+            position: absolute; top: var(--sp-3); left: var(--sp-3); z-index: 2;
+            font-family: var(--font-ui); font-size: .64rem; font-weight: 700; letter-spacing: .08em;
+            text-transform: uppercase; color: var(--text-sobre-arte);
+            background: rgba(6, 10, 20, .7); border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: var(--r-pill); padding: 3px 9px;
+        }
+        .selo-req {
+            position: absolute; top: var(--sp-3); right: var(--sp-3); z-index: 2;
+            font-family: var(--font-ui); font-size: .64rem; font-weight: 700;
+            color: var(--text-on-gold); background: var(--gold-light);
+            border-radius: var(--r-pill); padding: 3px 9px;
         }
 
-        .mana-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%) brightness(0.8);
-            transition: all 0.6s ease;
-        }
+        /* Cores dos elementos */
+        .e-fogo  { --el: #E0562F; --el-claro: #FF9A6B; }
+        .e-agua  { --el: #2E8FCF; --el-claro: #7CC8FF; }
+        .e-terra { --el: #A07A43; --el-claro: #E2BC7E; }
+        .e-vento { --el: #2FA884; --el-claro: #7FE6C4; }
+        .e-raio  { --el: #7A5CFA; --el-claro: #B9A6FF; }
+        .e-anomalia { --el: #6E7488; --el-claro: #B8BDCC; }
 
-        .mana-overlay {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 25px 15px;
-            background: linear-gradient(to top, #000 20%, transparent);
-            text-align: center;
-        }
-
-        .mana-title {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin: 0;
-            text-shadow: 0 0 10px color-mix(in srgb, var(--gold) 50%, transparent);
-        }
-
-        /* Efeito de Ativação Arcana */
-        .mana-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--gold);
-            box-shadow: 0 0 30px rgba(88, 160, 200, 0.4), 0 0 15px color-mix(in srgb, var(--gold) 20%, transparent);
-        }
-
-        .mana-card:hover .mana-img {
-            filter: grayscale(0%) brightness(1.1);
-            transform: scale(1.05);
-        }
-
-        .section-header {
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            text-align: center;
-            border-bottom: 2px solid var(--bg);
-            margin-bottom: 50px;
-            padding-bottom: 15px;
-            text-shadow: 0 0 15px color-mix(in srgb, var(--gold) 30%, transparent);
-        }
+        .voltar { padding-bottom: var(--sp-7); }
     </style>
 </head>
 <body>
-    
+
     <div id="navbar-placeholder"></div>
 
-    <div class="container mana-container">
-        <header class="mb-5">
-            <h1 class="display-3 text-center" style="font-family: 'Cinzel', serif;">Artes da Mana</h1>
-            <p class="text-center lead" style="color: var(--text-2);">A manipulação das fórmulas que tecem a realidade.</p>
+    <div class="lux-wrap">
+
+        <!-- ================= A MANA ================= -->
+        <header class="mana-topo">
+            <div class="mana-intro">
+                <p class="eyebrow">Núcleos Místicos · Mana</p>
+                <h1>Magia de Mana</h1>
+                <p class="lede">
+                    A manipulação das fórmulas que tecem a realidade. Todo mago de Mana nasce
+                    com um núcleo ligado a um elemento — e passa a vida aprendendo a dobrá-lo.
+                </p>
+                <div class="formulas" aria-label="As três fórmulas da Magia Elemental">
+                    <div class="formula">
+                        <span class="f-nome">Dado de Magia</span>
+                        <span class="f-valor">DR + Mana + ER</span>
+                        <span class="f-uso">o teste de todo ataque mágico</span>
+                    </div>
+                    <div class="formula">
+                        <span class="f-nome">CD Mágica</span>
+                        <span class="f-valor">10 + Mana + ER</span>
+                        <span class="f-uso">o que o alvo precisa superar</span>
+                    </div>
+                    <div class="formula">
+                        <span class="f-nome">Magículas</span>
+                        <span class="f-valor">Mana + ER</span>
+                        <span class="f-uso">o combustível inicial; cresce com o Rank</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="mana-card" aria-labelledby="mana-o-que">
+                <svg class="sigilo" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                    <circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="66"/>
+                    <path d="M100 10 L178 145 L22 145 Z"/><path d="M100 190 L22 55 L178 55 Z"/>
+                    <circle cx="100" cy="100" r="22"/>
+                </svg>
+                <h2 id="mana-o-que">O que é a Mana</h2>
+                <p>
+                    Mana é o atributo da sua capacidade mágica e a energia que corre pelo seu núcleo.
+                    Quanto maior a Mana, mais forte cada magia, maior a sua reserva de
+                    <span class="lux-term" data-termo="magiculas" tabindex="0">Magículas</span>
+                    e mais difícil é resistir a você.
+                </p>
+                <ul class="mana-regras">
+                    <li>
+                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg></span>
+                        <span><strong>Manipulação Livre</strong> — o ataque básico de cada elemento. Custa 1 Magícula, ignorado em acerto crítico.</span>
+                    </li>
+                    <li>
+                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></span>
+                        <span><strong>SuperConjurar</strong> — pague o dobro de Magículas de uma técnica para liberar o efeito extra dela.</span>
+                    </li>
+                    <li>
+                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 012-2h12v18H6a2 2 0 01-2-1.5z"/><path d="M8 7h6"/></svg></span>
+                        <span><strong>Artes da Magia</strong> — no Rank 9 você escolhe a <strong>Arte</strong> do seu elemento: a subclasse que define o seu estilo. Artes Superiores exigem <strong>5+ de Mana</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
+                        <span><strong>Foco de Mana</strong> — a partir do Rank 8, você planta pontos do seu elemento no campo, e cada elemento os usa de um jeito.</span>
+                    </li>
+                </ul>
+            </section>
         </header>
 
-        <div class="row g-4 justify-content-center">
-            
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elmental_Fogo.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_fogo.png" class="mana-img" alt="Magia de Fogo">
-                    <div class="mana-overlay"><h3 class="mana-title">Chamas Primordiais</h3></div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Agua.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_agua.png" class="mana-img" alt="Magia de Água">
-                    <div class="mana-overlay"><h3 class="mana-title">Fluxo das Marés</h3></div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Terra.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_terra.png" class="mana-img" alt="Magia de Terra">
-                    <div class="mana-overlay"><h3 class="mana-title">Bastião Telúrico</h3></div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Vento.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_vento.png" class="mana-img" alt="Magia de Vento">
-                    <div class="mana-overlay"><h3 class="mana-title">Sopro do Éter</h3></div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Raio.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_raio.png" class="mana-img" alt="Magia de Raio">
-                    <div class="mana-overlay"><h3 class="mana-title">Fulgor Celeste</h3></div>
-                </a>
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <a href="../../../viewer.html?file=contents/magias/Mana/Anomalia.md" class="mana-card">
-                    <img src="../../../assets/images/m_m_anomalia.png" class="mana-img" alt="Anomalia Arcana">
-                    <div class="mana-overlay"><h3 class="mana-title">Vazio & Anomalia</h3></div>
-                </a>
-            </div>
-
+        <!-- ================= OS ELEMENTOS ================= -->
+        <div class="sec-head">
+            <h2>Os Elementos</h2>
+            <p>Fácil de aprender, difícil de dominar. Abra o elemento para ver a magia, ou a Arte para ver as subclasses.</p>
         </div>
 
-        <footer class="mt-5 text-center py-4">
-            <button onclick="history.back()" class="btn btn-outline-warning mb-3">Retroceder</button>
-            <p style="color: var(--text-2);">Luxsandoria — Sistema de autoria de <strong style="color: var(--gold);">Lokeser</strong></p>
-        </footer>
+        <main class="elementos">
+
+            <div class="elemento e-fogo">
+                <a class="el-card" href="../../../viewer.html?file=contents/magias/Mana/Magia_Elmental_Fogo.md">
+                    <img src="../../../assets/images/m_m_fogo.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="el-info">
+                        <span class="el-nome">FOGO</span>
+                        <span class="el-papel">Dano bruto e dano contínuo</span>
+                        <span class="el-meta"><span>Fácil</span><span class="dif" aria-label="Dificuldade 1 de 3"><i class="on"></i><i></i><i></i></span></span>
+                    </span>
+                </a>
+                <a class="el-arte" href="../../../viewer.html?file=contents/magias/Mana/Arte_Fogo.md">ARTE DO FOGO <small>5 Artes</small></a>
+            </div>
+
+            <div class="elemento e-agua">
+                <a class="el-card" href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Agua.md">
+                    <img src="../../../assets/images/m_m_agua.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="el-info">
+                        <span class="el-nome">ÁGUA</span>
+                        <span class="el-papel">Buff, debuff e fluxo de Magículas</span>
+                        <span class="el-meta"><span>Médio</span><span class="dif" aria-label="Dificuldade 2 de 3"><i class="on"></i><i class="on"></i><i></i></span></span>
+                    </span>
+                </a>
+                <a class="el-arte" href="../../../viewer.html?file=contents/magias/Mana/Arte_Agua.md">ARTE DA ÁGUA <small>3 Artes</small></a>
+            </div>
+
+            <div class="elemento e-terra">
+                <a class="el-card" href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Terra.md">
+                    <img src="../../../assets/images/m_m_terra.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="el-info">
+                        <span class="el-nome">TERRA</span>
+                        <span class="el-papel">Controle, terreno e tanque</span>
+                        <span class="el-meta"><span>Médio</span><span class="dif" aria-label="Dificuldade 2 de 3"><i class="on"></i><i class="on"></i><i></i></span></span>
+                    </span>
+                </a>
+                <a class="el-arte" href="../../../viewer.html?file=contents/magias/Mana/Arte_Terra.md">ARTE DA TERRA <small>2 Artes</small></a>
+            </div>
+
+            <div class="elemento e-vento">
+                <a class="el-card" href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Vento.md">
+                    <img src="../../../assets/images/m_m_vento.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="el-info">
+                        <span class="el-nome">VENTO</span>
+                        <span class="el-papel">Buff, controle e reposicionamento</span>
+                        <span class="el-meta"><span>Difícil</span><span class="dif" aria-label="Dificuldade 3 de 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></span>
+                    </span>
+                </a>
+                <a class="el-arte" href="../../../viewer.html?file=contents/magias/Mana/Arte_Vento.md">ARTE DO VENTO <small>3 Artes</small></a>
+            </div>
+
+            <div class="elemento e-raio">
+                <a class="el-card" href="../../../viewer.html?file=contents/magias/Mana/Magia_Elemental_Raio.md">
+                    <img src="../../../assets/images/m_m_raio.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="selo-req">8+ Mana</span>
+                    <span class="el-info">
+                        <span class="el-nome">RAIO</span>
+                        <span class="el-papel">Dano, debuff, controle e buff</span>
+                        <span class="el-meta"><span>Difícil</span><span class="dif" aria-label="Dificuldade 3 de 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></span>
+                    </span>
+                </a>
+                <a class="el-arte" href="../../../viewer.html?file=contents/magias/Mana/Arte_Raio.md">ARTE DO RAIO <small>7 Artes</small></a>
+            </div>
+
+            <div class="elemento e-anomalia vazio">
+                <div class="el-card" role="img" aria-label="Anomalia — em preparação">
+                    <img src="../../../assets/images/m_m_anomalia.png" alt="" loading="lazy" width="1024" height="1536">
+                    <span class="selo-breve">Em preparação</span>
+                    <span class="el-info">
+                        <span class="el-nome">ANOMALIA</span>
+                        <span class="el-papel">Vazio e o que não tem nome</span>
+                        <span class="el-meta"><span>—</span><span class="dif" aria-hidden="true"><i></i><i></i><i></i></span></span>
+                    </span>
+                </div>
+                <span class="el-arte" aria-disabled="true">ARTE DA ANOMALIA <small>em breve</small></span>
+            </div>
+
+        </main>
+
+        <div class="voltar">
+            <a class="btn btn--secondary" href="../magias_menu.html">← Núcleos Místicos</a>
+        </div>
     </div>
 
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
     <script src="../../../js/menu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

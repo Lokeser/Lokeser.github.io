@@ -1,5 +1,9 @@
 # Arte do Diabo
 
+> **Subclasse do Ki** · Dificuldade: **★★☆ Médio**  
+> Uma das três **Artes do Ki**, escolhida no Rank 9. Ela troca a Aceleração básica pela **Aceleração Diabólica** e acrescenta o **Ki Corrompido**: efeitos que você escolhe e aplica aos poucos, gastando Accels na hora certa para desgastar o inimigo.  
+> Os poderes de Ki desta Arte usam a sua **Mana** onde estiver escrito **Ki**. → [Ver a base do Ki](viewer.html?file=contents/magias/Ki/Ki.md)
+
 ## Caminho do Demônio
 
 A destruição de modo frio e calculista. O Caminho do Demônio foca em destruir o inimigo aos poucos, com uma ofensiva cautelosa. Sua mente subjuga o corpo, analisando cada passo e escolhendo exatamente como agir.

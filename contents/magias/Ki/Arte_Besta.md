@@ -1,5 +1,9 @@
 # Arte da Besta
 
+> **Subclasse do Ki** · Dificuldade: **★☆☆ Fácil**  
+> Uma das três **Artes do Ki**, escolhida no Rank 9. Ela troca a Aceleração básica pela **Aceleração Bestial**: mais Vida Temporária, mais resistência e golpes cada vez mais pesados. Poucas decisões, muito dano — a melhor Arte para quem está começando no Ki.  
+> Os poderes de Ki desta Arte usam a sua **Mana** onde estiver escrito **Ki**. → [Ver a base do Ki](viewer.html?file=contents/magias/Ki/Ki.md)
+
 ## Caminho da Besta
 
 Técnica? Tudo que manda é o poder. O Caminho da Besta aprimora o corpo sem se preocupar com limites. A mente é irrelevante — você pensa com os punhos. Foco total em **ofensiva completa**, violência e selvageria.

@@ -61,47 +61,110 @@
 .nav-links li a:hover { color: var(--royal); background: var(--royal-soft); }
 .nav-links li a[aria-current="page"] { color: var(--royal); background: var(--royal-soft); }
 
-/* Eras e Mapa: o grupo "Universo" */
-.nav-links li a.nav-eras {
+/* ---------- Menu da conta (ícone de pessoa) ---------- */
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.conta { position: relative; flex: 0 0 auto; }
+.conta-btn {
+    display: grid; place-items: center; padding: 0;
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+    background: var(--surface-2); border: 1px solid var(--border);
     color: var(--text-2);
-    border: 1px solid var(--border);
+    transition: border-color var(--t) var(--ease), color var(--t) var(--ease), box-shadow var(--t) var(--ease);
 }
-.nav-links li a.nav-eras:hover { border-color: var(--royal); color: var(--royal); }
+.conta-btn:hover, .conta-btn[aria-expanded="true"] {
+    border-color: var(--gold); color: var(--gold); box-shadow: 0 0 0 3px var(--gold-wash);
+}
+.conta-avatar { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; }
+.conta-avatar.logado {
+    background: linear-gradient(135deg, var(--royal), var(--royal-deep));
+    color: var(--text-on-royal);
+    font-family: var(--font-display); font-weight: 700; font-size: .95rem;
+}
 
-/* Ação principal da barra */
-.nav-links li a.nav-cta {
-    background: var(--royal); color: var(--text-on-royal);
-    padding: 8px clamp(9px, .8vw, 16px); border-radius: var(--r);
-    font-weight: 700;
+.conta-menu {
+    position: absolute; top: calc(100% + 10px); right: 0; z-index: 1200;
+    width: min(290px, calc(100vw - 24px));
+    background: var(--surface-raised);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--sp-2);
+    transform-origin: top right;
+    animation: conta-abrir var(--t) var(--ease);
 }
-.nav-links li a.nav-cta:hover {
-    background: var(--royal-deep); color: var(--text-on-royal);
-    box-shadow: 0 4px 14px var(--glow);
+/* Fio dourado no topo: o mesmo detalhe das notas de margem */
+.conta-menu::before {
+    content: ''; position: absolute; inset: 0 var(--sp-4) auto var(--sp-4); height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-:root[data-theme="dark"] .nav-links li a.nav-cta:hover { background: #4878F5; }
+@keyframes conta-abrir { from { opacity: 0; transform: translateY(-6px) scale(.98); } to { opacity: 1; transform: none; } }
 
-.theme-toggle {
-    background: transparent; border: 1px solid var(--border);
-    color: var(--text-2);
-    width: clamp(30px, 2vw, 36px); height: clamp(30px, 2vw, 36px);
-    border-radius: 50%; cursor: pointer; flex: 0 0 auto;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .9rem; line-height: 1;
+.conta-topo { padding: var(--sp-3); border-bottom: 1px solid var(--border); margin-bottom: var(--sp-1); }
+.conta-quem { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+.conta-quem strong { display: block; font-family: var(--font-ui); color: var(--text); font-size: .95rem; }
+.conta-quem small { display: block; color: var(--text-2); font-size: .74rem; }
+.conta-inicial {
+    width: 38px; height: 38px; flex: 0 0 auto; border-radius: 50%;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--royal), var(--royal-deep));
+    color: var(--text-on-royal); font-family: var(--font-display); font-weight: 700;
+}
+.conta-convite { margin: 0 0 var(--sp-3); font-size: .82rem; color: var(--text-2); line-height: 1.45; }
+.conta-entrar, .conta-sair {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: var(--sp-2);
+    padding: 9px 12px; border-radius: var(--r); cursor: pointer;
+    font-family: var(--font-ui); font-weight: 600; font-size: .86rem;
     transition: all var(--t) var(--ease);
 }
-.theme-toggle:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-wash); }
+.conta-entrar { background: var(--royal); color: var(--text-on-royal); border: 1px solid var(--royal); }
+.conta-entrar:hover { background: var(--royal-deep); }
+.conta-sair { background: transparent; color: var(--text-2); border: 1px solid var(--border-strong); }
+.conta-sair:hover { color: var(--error); border-color: var(--error); }
 
-.gh-login {
-    margin-left: 2px; background: transparent;
-    border: 1px solid var(--border); color: var(--text-2);
-    border-radius: var(--r-pill); padding: 6px clamp(8px, .7vw, 13px);
-    font-family: var(--font-ui);
-    font-size: clamp(.68rem, .3vw + .54rem, .78rem); font-weight: 600;
-    cursor: pointer; white-space: nowrap;
-    transition: all var(--t) var(--ease);
+.conta-grupo { padding: var(--sp-1) 0; }
+.conta-grupo + .conta-grupo { border-top: 1px solid var(--border); }
+.conta-rotulo {
+    display: block; margin: 6px var(--sp-3) 2px;
+    font-family: var(--font-ui); font-size: .66rem; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
 }
-.gh-login:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-wash); }
-.gh-login.conectado { border-color: var(--success); color: var(--success); }
+.conta-item {
+    display: flex; align-items: center; gap: var(--sp-3);
+    padding: 9px var(--sp-3); border-radius: var(--r-sm);
+    color: var(--text); text-decoration: none; font-family: var(--font-ui); font-size: .9rem;
+    transition: background var(--t) var(--ease), color var(--t) var(--ease);
+}
+.conta-item svg { color: var(--text-2); flex: 0 0 auto; }
+.conta-item:hover, .conta-item[aria-current="page"] { background: var(--royal-soft); color: var(--royal); }
+.conta-item:hover svg, .conta-item[aria-current="page"] svg { color: var(--royal); }
+.conta-item--destaque { font-weight: 600; }
+
+.conta-tema { display: flex; align-items: center; justify-content: space-between; padding: var(--sp-2) var(--sp-3); }
+.conta-tema-txt { display: flex; flex-direction: column; }
+.conta-tema-txt .conta-rotulo { margin: 0 0 2px; }
+#tema-rotulo { font-family: var(--font-ui); font-size: .88rem; color: var(--text); }
+
+/* Interruptor sol/lua */
+.tema-switch {
+    position: relative; width: 52px; height: 28px; flex: 0 0 auto; padding: 0;
+    border-radius: var(--r-pill); cursor: pointer;
+    background: var(--surface-2); border: 1px solid var(--border-strong);
+    transition: background var(--t) var(--ease);
+}
+.tema-switch .tema-bola {
+    position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFE9A8, var(--gold));
+    box-shadow: 0 0 8px var(--glow-gold);
+    transition: transform var(--t) var(--ease), background var(--t) var(--ease);
+}
+.tema-switch[aria-checked="true"] { background: var(--royal-deep); border-color: var(--royal); }
+.tema-switch[aria-checked="true"] .tema-bola {
+    transform: translateX(24px);
+    background: radial-gradient(circle at 65% 35%, transparent 38%, #E7EEFF 40%);
+    box-shadow: none;
+}
 
 /* --- Hambúrguer --- */
 .mobile-menu-icon {
@@ -139,8 +202,9 @@
     .nav-links.active { transform: none; }
     .nav-links li { width: 100%; }
     .nav-links li a { padding: 12px var(--sp-3); font-size: .95rem; }
-    .nav-links li a.nav-cta, .nav-links li a.nav-eras { text-align: center; }
-    .theme-toggle, .gh-login { width: 100%; border-radius: var(--r); height: auto; padding: 11px; }
+    /* No celular a conta fica na barra, ao lado do hambúrguer */
+    .conta { margin-left: auto; }
+    .mobile-menu-icon { margin-left: var(--sp-2); }
 }
 
 /* ==================================================================

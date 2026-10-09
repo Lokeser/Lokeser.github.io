@@ -8,41 +8,130 @@
     <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ---- Portal: hero compacto + quatro grupos de navegação ---- */
+        /* ---- Portal: um cenário do mundo, sorteado a cada visita, com três
+               personagens vivendo nele. O texto fica numa placa legível sobre a arte. ---- */
         .hero {
-            position: relative; overflow: hidden;
-            padding: var(--sp-8) 0 var(--sp-7);
-            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden; isolation: isolate;
+            height: clamp(520px, 78vh, 780px);
+            background: #0D1424;
+            color: var(--text-sobre-arte);
         }
-        /* Selo arcano: círculo de runas girando devagar atrás do título */
-        .hero-sigil {
-            position: absolute; top: 50%; right: -90px; transform: translateY(-50%);
-            width: 440px; height: 440px; pointer-events: none;
-            opacity: .5; color: var(--royal);
+        .hero-fundo {
+            position: absolute; inset: 0; z-index: -2;
+            background-size: cover; background-position: center bottom;
+            image-rendering: pixelated;
+            opacity: 0; transition: opacity .6s ease;
         }
-        .hero-sigil .ring-slow { animation: sigil-spin 90s linear infinite; transform-origin: 250px 250px; }
-        .hero-sigil .ring-fast { animation: sigil-spin 55s linear infinite reverse; transform-origin: 250px 250px; }
-        @keyframes sigil-spin { to { transform: rotate(360deg); } }
+        .hero-fundo.visivel { opacity: 1; }
+        /* Véu só à esquerda e no topo: protege o texto sem apagar o cenário */
+        .hero-veu {
+            position: absolute; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                linear-gradient(100deg, rgba(5, 8, 16, .78) 0%, rgba(5, 8, 16, .45) 34%, transparent 62%),
+                linear-gradient(to bottom, rgba(5, 8, 16, .35), transparent 30%);
+        }
 
-        .hero-inner { position: relative; z-index: 1; max-width: 640px; }
+        .hero-conteudo {
+            position: relative; z-index: 2; height: 100%;
+            display: flex; flex-direction: column; justify-content: space-between;
+            padding-block: var(--sp-7) var(--sp-5);
+            pointer-events: none;                 /* deixa o clique chegar aos personagens */
+        }
+        .hero-conteudo > * { pointer-events: auto; }
+        .hero-texto { max-width: 560px; }
+        .hero-texto .serie {
+            font-family: var(--font-text); font-style: italic; font-size: var(--step-0);
+            color: var(--gold-light); margin: 0 0 var(--sp-2);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
+        }
         .hero h1 {
-            font-size: var(--step-4); letter-spacing: .1em; margin: 0 0 var(--sp-3);
+            font-size: clamp(2.6rem, 5.5vw, 4.6rem); letter-spacing: .1em; margin: 0 0 var(--sp-3);
+            color: #fff; text-shadow: 0 2px 22px rgba(0, 0, 0, .65);
         }
         .hero .lede {
-            font-family: var(--font-text); font-size: var(--step-1);
-            color: var(--text-2); margin: 0 0 var(--sp-5); line-height: 1.6;
+            font-family: var(--font-text); font-size: var(--step-1); line-height: 1.6;
+            color: rgba(255, 255, 255, .9); margin: 0; max-width: 46ch;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, .7);
         }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
-        .hero-stats {
-            display: flex; flex-wrap: wrap; gap: var(--sp-5);
-            margin-top: var(--sp-6); padding-top: var(--sp-4);
-            border-top: 1px solid var(--border);
+
+        /* Ações pequenas no canto de baixo */
+        .hero-acoes { display: flex; gap: var(--sp-2); flex-wrap: wrap; align-self: flex-start; }
+        .hero-acoes .btn { padding: 8px 15px; font-size: .85rem; }
+        .hero-acoes .btn--secondary {
+            background: rgba(10, 16, 30, .62); color: #fff; border-color: rgba(255, 255, 255, .32);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
         }
-        .hero-stats div { font-size: var(--step--1); color: var(--text-2); }
-        .hero-stats b {
-            display: block; font-family: var(--font-display);
-            font-size: var(--step-2); color: var(--gold); line-height: 1.1;
-            font-variant-numeric: tabular-nums;
+        .hero-acoes .btn--secondary:hover { background: rgba(10, 16, 30, .8); color: #fff; border-color: #fff; }
+
+        /* Botão discreto de trocar cenário e personagens */
+        .hero-trocar {
+            position: absolute; top: var(--sp-4); right: var(--sp-4); z-index: 3;
+            width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+            background: rgba(10, 16, 30, .45); color: rgba(255, 255, 255, .85);
+            border: 1px solid rgba(255, 255, 255, .25); cursor: pointer;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+            transition: background var(--t) var(--ease), transform var(--t-slow) var(--ease);
+        }
+        .hero-trocar:hover { background: rgba(10, 16, 30, .75); color: #fff; }
+        .hero-trocar:active svg, .hero-trocar.girando svg { transform: rotate(-360deg); transition: transform .6s ease; }
+
+        /* ---- O palco: os três personagens de pé sobre o chão do cenário ---- */
+        .hero-palco {
+            position: absolute; z-index: 1; left: 36%; right: 3%;
+            bottom: var(--chao, 110px);
+            display: flex; justify-content: space-around; align-items: flex-end;
+            pointer-events: none;
+        }
+        .heroi {
+            position: relative; pointer-events: auto; cursor: pointer;
+            background: none; border: 0; padding: 0;
+            height: var(--altura-heroi, 230px);
+            animation: pular var(--dur, 1.9s) ease-in-out var(--atraso, 0s) infinite;
+            transform-origin: bottom center;
+        }
+        .heroi img {
+            height: 100%; width: auto; display: block;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .45));
+        }
+        .heroi.virado img { transform: scaleX(-1); }
+        .heroi:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 8px; }
+        @keyframes pular {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            12%      { transform: translateY(0) scaleY(.97); }
+            45%      { transform: translateY(-12px) scaleY(1.01); }
+            60%      { transform: translateY(-12px) scaleY(1.01); }
+            88%      { transform: translateY(0) scaleY(.98); }
+        }
+        .heroi.entrando { animation: entrar .45s ease-out both, pular var(--dur, 1.9s) ease-in-out .45s infinite; }
+        @keyframes entrar { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+        /* Balão com o emoji do personagem */
+        .balao {
+            position: absolute; left: 50%; bottom: calc(100% + 6px);
+            transform: translateX(-50%) scale(.4); opacity: 0;
+            min-width: 46px; height: 46px; padding: 0 10px; border-radius: 23px;
+            display: grid; place-items: center;
+            background: #fff; color: #172642; font-size: 1.6rem; line-height: 1;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+            transition: transform .22s cubic-bezier(.3, 1.6, .5, 1), opacity .15s ease;
+            pointer-events: none;
+        }
+        .balao::after {
+            content: ''; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+            border: 8px solid transparent; border-top-color: #fff; border-bottom: 0;
+        }
+        .balao.aberto { transform: translateX(-50%) scale(1); opacity: 1; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .heroi, .heroi.entrando { animation: none; }
+            .hero-fundo { transition: none; }
+        }
+
+        @media (max-width: 760px) {
+            .hero { height: clamp(560px, 88vh, 720px); }
+            .hero-veu { background: linear-gradient(to bottom, rgba(5, 8, 16, .82) 0%, rgba(5, 8, 16, .45) 46%, rgba(5, 8, 16, .2) 70%, rgba(5, 8, 16, .55) 100%); }
+            .hero-palco { left: 2%; right: 2%; }
         }
 
         /* ---- Grupos ---- */
@@ -82,41 +171,31 @@
 
     <div id="navbar-placeholder"></div>
 
-    <header class="hero">
-        <div class="lux-wrap">
-            <svg class="hero-sigil" viewBox="0 0 500 500" aria-hidden="true" fill="none">
-                <g class="ring-slow" stroke="currentColor" stroke-width="1" opacity=".85">
-                    <circle cx="250" cy="250" r="200"/>
-                    <circle cx="250" cy="250" r="168"/>
-                    <path d="M250 50 L423 350 L77 350 Z"/>
-                    <path d="M250 450 L77 150 L423 150 Z"/>
-                </g>
-                <g class="ring-fast" stroke="currentColor" stroke-width="1" opacity=".6">
-                    <circle cx="250" cy="250" r="126"/>
-                    <path d="M250 124 L362 250 L250 376 L138 250 Z"/>
-                    <circle cx="250" cy="124" r="5"/><circle cx="362" cy="250" r="5"/>
-                    <circle cx="250" cy="376" r="5"/><circle cx="138" cy="250" r="5"/>
-                </g>
-                <circle cx="250" cy="250" r="58" stroke="currentColor" stroke-width="1" opacity=".5"/>
-            </svg>
+    <header class="hero" id="hero">
+        <div class="hero-fundo" id="hero-fundo" aria-hidden="true"></div>
+        <div class="hero-veu" aria-hidden="true"></div>
 
-            <div class="hero-inner rise">
-                <p class="eyebrow">Watashi no Jinsei · Sistema V2</p>
+        <button class="hero-trocar" id="hero-trocar" type="button" title="Trocar cenário e personagens" aria-label="Trocar cenário e personagens">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 11a8 8 0 10-2.3 5.7"/><path d="M20 4v7h-7"/>
+            </svg>
+        </button>
+
+        <div class="hero-palco" id="hero-palco" aria-label="Personagens de Luxsandoria"></div>
+
+        <div class="lux-wrap hero-conteudo">
+            <div class="hero-texto">
+                <p class="serie">Watashi no Jinsei</p>
                 <h1>LUXSANDORIA</h1>
                 <p class="lede">
-                    O grimório aberto do mundo. Consulte uma regra no meio da sessão,
-                    escolha uma linhagem, estude uma magia — ou abra a ficha de quem você já é.
+                    Um RPG de mesa de fantasia. Você cria um personagem, escolhe a raça, a classe
+                    e a magia que corre no seu sangue, e sobe de Rank enquanto escreve a própria
+                    história. Aqui estão todas as regras do mundo.
                 </p>
-                <div class="hero-actions">
-                    <a class="btn btn--primary" href="contents/regras/regras_menu.html">Explorar o grimório</a>
-                    <a class="btn btn--secondary" href="personagem.html">Meus personagens</a>
-                </div>
-                <div class="hero-stats">
-                    <div><b>8</b> Ranks</div>
-                    <div><b>18</b> Raças</div>
-                    <div><b>4</b> Fontes de magia</div>
-                    <div><b>75</b> Habilidades</div>
-                </div>
+            </div>
+            <div class="hero-acoes">
+                <a class="btn btn--primary" href="contents/regras/regras_menu.html">Explorar o grimório</a>
+                <a class="btn btn--secondary" href="personagem.html">Meus personagens</a>
             </div>
         </div>
     </header>
@@ -293,5 +372,95 @@
     </footer>
 
     <script src="js/menu.js"></script>
+    <script>
+    // ---- O palco do portal ----
+    // A cada visita (ou no botão ↻): um cenário + três dos doze personagens.
+    // Cada personagem sorteia o seu emoji no primeiro clique e mantém até a próxima troca.
+    (function () {
+        // chao: onde fica a borda do chão em cada cenário (fração da altura da imagem, de cima)
+        const CENARIOS = [
+            { src: 'c01', chao: .815 }, { src: 'c02', chao: .785 }, { src: 'c03', chao: .79 },
+            { src: 'c04', chao: .815 }, { src: 'c05', chao: .81 },  { src: 'c06', chao: .80 },
+            { src: 'c07', chao: .83 },  { src: 'c08', chao: .815 }
+        ];
+        const HEROIS = Array.from({ length: 12 }, (_, i) => 'p' + String(i + 1).padStart(2, '0'));
+        const EMOJIS = ['😊', '😆', '😎', '🥺', '😤', '🤔', '😴', '😍', '🤩', '😈', '👀', '✨',
+                        '🔥', '💖', '⚔️', '🍖', '🎲', '😳', '💤', '🙄', '🥳', '😭', '🫡', '👑'];
+        const IMG_W = 1672, IMG_H = 941;
+
+        const hero = document.getElementById('hero');
+        const fundo = document.getElementById('hero-fundo');
+        const palco = document.getElementById('hero-palco');
+        const botao = document.getElementById('hero-trocar');
+        if (!hero || !fundo || !palco) return;
+
+        let atual = -1;
+        const sortear = (n) => Math.floor(Math.random() * n);
+        const embaralhar = (lista) => lista.map(v => [Math.random(), v]).sort((a, b) => a[0] - b[0]).map(v => v[1]);
+
+        // Calcula a altura do chão do cenário, já que a imagem cobre a área ancorada embaixo
+        function alinharChao() {
+            if (atual < 0) return;
+            const W = hero.clientWidth, H = hero.clientHeight;
+            const esc = Math.max(W / IMG_W, H / IMG_H);
+            const alturaImg = IMG_H * esc;
+            const doFundo = alturaImg * (1 - CENARIOS[atual].chao);
+            hero.style.setProperty('--chao', Math.round(doFundo - 6) + 'px');
+            hero.style.setProperty('--altura-heroi', Math.round(Math.min(Math.max(H * .30, 120), 250)) + 'px');
+        }
+
+        function trocarCenario() {
+            let i;
+            do { i = sortear(CENARIOS.length); } while (i === atual && CENARIOS.length > 1);
+            atual = i;
+            const url = 'assets/images/cenarios/' + CENARIOS[i].src + '.webp';
+            const pre = new Image();
+            fundo.classList.remove('visivel');
+            pre.onload = () => {
+                fundo.style.backgroundImage = 'url(' + url + ')';
+                requestAnimationFrame(() => fundo.classList.add('visivel'));
+            };
+            pre.src = url;
+            alinharChao();
+        }
+
+        function trocarPersonagens() {
+            palco.innerHTML = '';
+            embaralhar(HEROIS).slice(0, 3).forEach((id, k) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'heroi entrando' + (Math.random() < .5 ? ' virado' : '');
+                b.style.setProperty('--dur', (1.6 + Math.random() * .8).toFixed(2) + 's');
+                b.style.setProperty('--atraso', (k * .25 + Math.random() * .3).toFixed(2) + 's');
+                b.setAttribute('aria-label', 'Personagem — toque para reagir');
+                b.innerHTML = '<span class="balao" aria-live="polite"></span>' +
+                    '<img src="assets/images/herois/' + id + '.webp" alt="" draggable="false">';
+                let emoji = null, timer = null;
+                b.addEventListener('click', () => {
+                    if (!emoji) emoji = EMOJIS[sortear(EMOJIS.length)];   // fica até a próxima troca
+                    const balao = b.querySelector('.balao');
+                    balao.textContent = emoji;
+                    balao.classList.add('aberto');
+                    clearTimeout(timer);
+                    timer = setTimeout(() => balao.classList.remove('aberto'), 2400);
+                });
+                palco.appendChild(b);
+            });
+        }
+
+        function trocarTudo() {
+            trocarCenario();
+            trocarPersonagens();
+        }
+
+        botao.addEventListener('click', () => {
+            botao.classList.add('girando');
+            setTimeout(() => botao.classList.remove('girando'), 600);
+            trocarTudo();
+        });
+        window.addEventListener('resize', alinharChao);
+        trocarTudo();
+    })();
+    </script>
 </body>
 </html>

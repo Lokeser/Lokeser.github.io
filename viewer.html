@@ -3,129 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador - Luxsandoria</title>
+    <title>Pergaminho</title>
     <!-- Aplica o tema salvo antes da renderização (evita "flash") -->
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
-        :root { 
-            --c1: #113F67; /* Fundo Profundo */
-            --c2: #34699A; /* Azul Médio */
-            --c3: #58A0C8; /* Azul Claro */
-            --c4: #FDF5AA; /* Amarelo Solar */
+        /* ---- Ficha de grimório: leitura ao centro, índice à direita ---- */
+        .scroll-wrap {
+            display: grid; grid-template-columns: minmax(0, 1fr) 210px;
+            gap: var(--sp-7); align-items: start;
+            padding: var(--sp-5) 0 var(--sp-8);
         }
-        
-        body { 
-            background-color: var(--c1); 
-            color: #e0e0e0; 
-            font-family: 'Lato', sans-serif; /* Texto corrido mais legível */
-            min-height: 100vh; 
-            background-image: radial-gradient(circle at top, #1a4f7a 0%, var(--c1) 60%);
+        @media (max-width: 960px) { .scroll-wrap { grid-template-columns: 1fr; } }
+
+        .trilha {
+            display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+            font-size: var(--step--1); color: var(--text-2);
+            padding: var(--sp-4) 0 var(--sp-3);
         }
-        
-        /* Container Principal (A Página do Grimório) */
-        .content-container {
-            background: rgba(17, 63, 103, 0.95);
-            border: 1px solid var(--c3);
-            border-top: 4px solid var(--c4); /* Detalhe dourado no topo */
-            border-radius: 4px;
-            padding: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            max-width: 900px;
-            margin: 40px auto;
+        .trilha a { color: var(--text-2); text-decoration: none; }
+        .trilha a:hover { color: var(--royal); }
+        .trilha .sep { opacity: .45; }
+        .trilha .atual { color: var(--text); font-weight: 600; }
+
+        /* A página do pergaminho */
+        .pergaminho {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            padding: clamp(22px, 4vw, 56px);
             position: relative;
+            overflow: hidden;
+        }
+        /* Fio dourado no topo — a borda iluminada da página */
+        .pergaminho::before {
+            content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .pergaminho .prose { max-width: none; }
+        .pergaminho .prose > h1:first-child {
+            font-size: var(--step-3); text-align: center;
+            letter-spacing: .06em; margin-bottom: var(--sp-5);
+            padding-bottom: var(--sp-4);
+            border-bottom: 1px solid var(--border);
         }
 
-        /* --- TIPOGRAFIA SOLAR (Onde a mágica acontece) --- */
-        
-        /* Título Principal (H1) */
-        #content h1 {
-            font-family: 'Cinzel', serif;
-            color: var(--c4);
-            text-align: center;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(253, 245, 170, 0.3);
-            border-bottom: 2px solid var(--c2);
-            padding-bottom: 20px;
+        /* ---- Lâminas arcanas ----
+           Os .md trazem blocos ilustrados escritos para fundo escuro.
+           No tema claro eles viram placas embutidas, como a estampa de
+           um livro: a arte do autor fica intacta e sempre legível. */
+        .lux-plate {
+            background: #0D1424;
+            border: 1px solid #2A3B56;
+            border-radius: var(--r);
+            padding: var(--sp-4);
+            margin-block: var(--sp-4);
+        }
+        .lux-plate :where(h1,h2,h3,h4,strong) { color: #F4F0E6; }
+        :root[data-theme="dark"] .lux-plate { background: var(--surface-inset); }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .lux-plate { background: var(--surface-inset); }
         }
 
-        /* Subtítulos (H2, H3) */
-        #content h2, #content h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--c3);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--c4);
-            padding-left: 15px;
-            background: linear-gradient(90deg, rgba(52, 105, 154, 0.2) 0%, transparent 100%);
+        /* ---- Índice da página ---- */
+        .indice { position: sticky; top: 86px; }
+        @media (max-width: 960px) {
+            .indice { position: static; order: -1; }
+            .indice nav { display: flex; flex-wrap: wrap; gap: 6px; }
+            .indice a { border-left: 0 !important; border: 1px solid var(--border); border-radius: var(--r-pill); }
         }
-
-        #content h2 { font-size: 1.8rem; color: var(--c4); }
-        #content h3 { font-size: 1.4rem; }
-
-        /* Destaques em Negrito (Status, Palavras-chave) */
-        #content strong {
-            color: var(--c4);
-            font-weight: 700;
+        .indice .idx-title {
+            font-family: var(--font-ui); font-size: var(--step--1); font-weight: 600;
+            letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
+            margin-bottom: var(--sp-3);
         }
-
-        /* Imagens no Markdown */
-        #content img {
-            display: block;
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 4px; 
-            border: 1px solid var(--c3);
-            box-shadow: 0 0 20px rgba(0,0,0,0.5); 
-            margin: 30px auto;
+        .indice a {
+            display: block; padding: 6px 11px; margin-bottom: 2px;
+            color: var(--text-2); text-decoration: none; font-size: var(--step--1);
+            border-left: 2px solid var(--border); line-height: 1.4;
+            transition: all var(--t) var(--ease);
         }
+        .indice a:hover, .indice a.ativo { color: var(--royal); border-left-color: var(--royal); background: var(--royal-soft); }
+        .indice a.nivel-3 { padding-left: 22px; font-size: .76rem; }
 
-        /* Citações (Blockquotes) - Lore */
-        #content blockquote {
-            font-style: italic;
-            color: var(--c3);
-            border-left: 3px solid var(--c2);
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.2);
+        .acoes-rodape {
+            display: flex; gap: var(--sp-3); flex-wrap: wrap;
+            margin-top: var(--sp-6); padding-top: var(--sp-5);
+            border-top: 1px solid var(--border);
         }
-
-        /* Listas */
-        #content ul { margin-bottom: 20px; padding-left: 20px; }
-        #content li { margin-bottom: 8px; line-height: 1.6; }
-        #content li::marker { color: var(--c4); } /* Bolinha dourada */
-
-        /* Linhas Horizontais */
-        #content hr { border-color: var(--c3); opacity: 0.3; margin: 40px 0; }
-
-        /* Links dentro do texto */
-        #content a { color: var(--c4); text-decoration: none; border-bottom: 1px dotted var(--c4); transition: 0.3s; }
-        #content a:hover { color: #fff; text-shadow: 0 0 5px var(--c4); }
+        .carregando { display: grid; gap: var(--sp-3); }
+        .carregando div { height: 14px; }
+        .erro-box { text-align: center; padding: var(--sp-7) var(--sp-4); }
     </style>
 </head>
 <body>
 
     <div id="navbar-placeholder"></div>
 
-    <div class="container mt-4">
-        <a href="javascript:history.back()" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left"></i> Voltar</a>
-    </div>
+    <div class="lux-wrap">
+        <nav class="trilha" id="trilha" aria-label="Trilha de navegação">
+            <a href="/">Grimório</a>
+        </nav>
 
-    <div id="content" class="content-container">
-        <div class="text-center py-5">
-            <div class="spinner-border text-warning" role="status"></div>
+        <div class="scroll-wrap">
+            <article class="pergaminho">
+                <div id="content" class="prose">
+                    <div class="carregando" aria-live="polite" aria-busy="true">
+                        <div class="skeleton" style="width:55%;height:30px"></div>
+                        <div class="skeleton" style="width:100%"></div>
+                        <div class="skeleton" style="width:92%"></div>
+                        <div class="skeleton" style="width:78%"></div>
+                    </div>
+                </div>
+
+                <div class="acoes-rodape">
+                    <button class="btn btn--secondary" onclick="history.back()">← Voltar</button>
+                    <a class="btn btn--ghost" href="#" id="link-secao">Ver a seção inteira</a>
+                </div>
+            </article>
+
+            <aside class="indice" id="indice" hidden>
+                <p class="idx-title">Nesta página</p>
+                <nav id="indice-nav" aria-label="Índice da página"></nav>
+            </aside>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
     <script src="js/menu.js"></script>
     <script src="js/loader.js"></script>
 </body>

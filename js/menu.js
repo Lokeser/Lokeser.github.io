@@ -10,26 +10,49 @@ function getCookie(name) {
     const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]+)'));
     return m ? decodeURIComponent(m[1]) : null;
 }
+// Dois temas: Aurora Arcana (claro) e Eclipse Arcano (escuro).
+// O cookie antigo 'blue' continua valendo e é lido como claro.
+function temaSalvo() {
+    const c = getCookie('theme');
+    if (c === 'dark') return 'dark';
+    if (c === 'light' || c === 'blue') return 'light';
+    return null;                       // sem escolha: segue o sistema
+}
 function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
+    if (theme) document.documentElement.setAttribute('data-theme', theme);
+    else document.documentElement.removeAttribute('data-theme');
     const btn = document.getElementById('theme-toggle');
     if (btn) {
-        const dark = theme === 'dark';
-        btn.textContent = dark ? '☀️' : '🌙';
-        btn.title = dark ? 'Mudar para tema Azul' : 'Mudar para Modo Escuro';
+        const escuro = theme === 'dark' ||
+            (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        btn.textContent = escuro ? '☀' : '☾';
+        btn.title = escuro ? 'Mudar para Aurora Arcana (claro)' : 'Mudar para Eclipse Arcano (escuro)';
         btn.setAttribute('aria-label', btn.title);
     }
 }
 function toggleTheme() {
-    const current = getCookie('theme') || 'blue';
-    const next = current === 'dark' ? 'blue' : 'dark';
-    setCookie('theme', next, 365);
-    applyTheme(next);
+    const atual = temaSalvo() ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const proximo = atual === 'dark' ? 'light' : 'dark';
+    setCookie('theme', proximo, 365);
+    applyTheme(proximo);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     // Aplica o tema salvo (cookie) assim que a página carrega
-    applyTheme(getCookie('theme') || 'blue');
+    applyTheme(temaSalvo());
+
+    // Fontes do grimório — injetadas aqui para valer em todas as páginas
+    if (!document.querySelector('link[href*="fonts.googleapis"]')) {
+        const pre = document.createElement('link');
+        pre.rel = 'preconnect'; pre.href = 'https://fonts.gstatic.com'; pre.crossOrigin = '';
+        document.head.appendChild(pre);
+        const f = document.createElement('link');
+        f.rel = 'stylesheet';
+        f.href = 'https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700' +
+                 '&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap';
+        document.head.appendChild(f);
+    }
 
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
     if (!navbarPlaceholder) return;
@@ -74,9 +97,23 @@ document.addEventListener("DOMContentLoaded", () => {
     navbarPlaceholder.innerHTML = navHTML;
 
     // Sincroniza o ícone do botão com o tema atual e liga o clique
-    applyTheme(getCookie('theme') || 'blue');
+    applyTheme(temaSalvo());
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+    // Marca onde o leitor está
+    const aqui = window.location.pathname.replace(/\/$/, '');
+    document.querySelectorAll('.nav-links a[href]').forEach(a => {
+        const alvo = a.getAttribute('href').split('?')[0].replace(/^(\.\.\/)+/, '').replace(/\/$/, '');
+        if (alvo && alvo !== '/' && aqui.endsWith(alvo)) a.setAttribute('aria-current', 'page');
+    });
+
+    // Notas de margem (tooltips) — disponíveis em todas as páginas
+    if (typeof LuxUI === 'undefined') {
+        const u = document.createElement('script');
+        u.src = finalPrefix + 'js/ui.js';
+        document.head.appendChild(u);
+    }
 
     // Login GitHub: carrega o módulo sob demanda (a navbar existe em todas as páginas)
     if (typeof WNJAuth === 'undefined') {

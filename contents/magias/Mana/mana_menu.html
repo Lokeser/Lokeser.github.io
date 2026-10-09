@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artes da Mana - Luxsandoria</title>
@@ -8,13 +9,13 @@
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
         /* Estética Elemental: Preto, Azul e Dourado */
-        body { background-color: #000 !important; color: #FDF5AA; }
+        body { background-color: #000 !important; color: var(--gold); }
         
         .mana-container { padding-top: 50px; padding-bottom: 80px; }
 
         .mana-card {
-            background-color: #113F67;
-            border: 2px solid #58A0C8; /* Azul secundário */
+            background-color: var(--bg);
+            border: 2px solid var(--border-strong); /* Azul secundário */
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -43,19 +44,19 @@
         }
 
         .mana-title {
-            color: #FDF5AA;
+            color: var(--gold);
             font-family: 'Cinzel', serif;
             font-weight: bold;
             font-size: 1.5rem;
             margin: 0;
-            text-shadow: 0 0 10px rgba(253, 245, 170, 0.5);
+            text-shadow: 0 0 10px color-mix(in srgb, var(--gold) 50%, transparent);
         }
 
         /* Efeito de Ativação Arcana */
         .mana-card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: #FDF5AA;
-            box-shadow: 0 0 30px rgba(88, 160, 200, 0.4), 0 0 15px rgba(253, 245, 170, 0.2);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(88, 160, 200, 0.4), 0 0 15px color-mix(in srgb, var(--gold) 20%, transparent);
         }
 
         .mana-card:hover .mana-img {
@@ -64,13 +65,13 @@
         }
 
         .section-header {
-            color: #FDF5AA;
+            color: var(--gold);
             font-family: 'Cinzel', serif;
             text-align: center;
-            border-bottom: 2px solid #113F67;
+            border-bottom: 2px solid var(--bg);
             margin-bottom: 50px;
             padding-bottom: 15px;
-            text-shadow: 0 0 15px rgba(253, 245, 170, 0.3);
+            text-shadow: 0 0 15px color-mix(in srgb, var(--gold) 30%, transparent);
         }
     </style>
 </head>
@@ -81,7 +82,7 @@
     <div class="container mana-container">
         <header class="mb-5">
             <h1 class="display-3 text-center" style="font-family: 'Cinzel', serif;">Artes da Mana</h1>
-            <p class="text-center lead" style="color: #58A0C8;">A manipulação das fórmulas que tecem a realidade.</p>
+            <p class="text-center lead" style="color: var(--text-2);">A manipulação das fórmulas que tecem a realidade.</p>
         </header>
 
         <div class="row g-4 justify-content-center">
@@ -132,7 +133,7 @@
 
         <footer class="mt-5 text-center py-4">
             <button onclick="history.back()" class="btn btn-outline-warning mb-3">Retroceder</button>
-            <p style="color: #58A0C8;">Luxsandoria — Sistema de autoria de <strong style="color: #FDF5AA;">Lokeser</strong></p>
+            <p style="color: var(--text-2);">Luxsandoria — Sistema de autoria de <strong style="color: var(--gold);">Lokeser</strong></p>
         </footer>
     </div>
 

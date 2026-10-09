@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raças - Luxsandoria</title>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
         .grimoire-bg{
-            background: radial-gradient(circle at top,#1d4267,#113F67 70%);
+            background: radial-gradient(circle at top,var(--bg-alt),var(--bg) 70%);
             min-height:100vh;
 }
 
         .race-container { padding-top: 50px; padding-bottom: 50px; }
 
         .race-card {
-            background-color: #34699A;
-            border: 2px solid #58A0C8;
+            background-color: var(--surface-2);
+            border: 2px solid var(--border-strong);
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -30,29 +30,29 @@
         .race-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
         .race-card-body {
             position: absolute; bottom: 0; width: 100%; padding: 20px;
-            background: linear-gradient(to top, #113F67 20%, transparent); text-align: center;
+            background: linear-gradient(to top, rgba(6,10,20,.92) 18%, rgba(6,10,20,.55) 52%, transparent 100%); text-align: center;
         }
         .race-card-title {
-            color: #FDF5AA; font-family: 'Cinzel', serif; font-weight: bold; font-size: 1.4rem;
+            color: var(--gold); font-family: 'Cinzel', serif; font-weight: bold; font-size: 1.4rem;
             margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .race-card:hover {
-            transform: scale(1.08); border-color: #FDF5AA; z-index: 10;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(253, 245, 170, 0.3);
+            transform: scale(1.08); border-color: var(--gold); z-index: 10;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px color-mix(in srgb, var(--gold) 30%, transparent);
         }
         .race-card:hover .race-img { transform: scale(1.1); }
 
         .category-header {
-            color: #FDF5AA; font-family: 'Cinzel', serif; border-bottom: 1px solid #58A0C8;
+            color: var(--gold); font-family: 'Cinzel', serif; border-bottom: 1px solid var(--border-strong);
             margin-bottom: 20px; margin-top: 55px; padding-bottom: 10px;
         }
         .subgroup-label {
-            color: #58A0C8; font-family: 'Cinzel', serif; font-size: 1rem;
+            color: var(--text-2); font-family: 'Cinzel', serif; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 2px; margin: 28px 0 14px;
         }
         .reserved-box {
-            border: 1px dashed #58A0C8; border-radius: 12px; padding: 28px;
-            text-align: center; color: #9fc0da; background: rgba(52,105,154,0.12);
+            border: 1px dashed var(--border-strong); border-radius: 12px; padding: 28px;
+            text-align: center; color: var(--text-2); background: rgba(52,105,154,0.12);
         }
     </style>
 </head>
@@ -62,8 +62,8 @@
 
     <div class="container race-container">
         <header class="text-center mb-5">
-            <h1 class="display-4" style="color: #FDF5AA; font-family: 'Cinzel', serif;">Linhagens de Luxsandoria</h1>
-            <p class="lead" style="color: #58A0C8;">Sua raça é o alicerce de sua jornada — <strong style="color:#FDF5AA;">Luxsandoria V2</strong></p>
+            <h1 class="display-4" style="color: var(--gold); font-family: 'Cinzel', serif;">Linhagens de Luxsandoria</h1>
+            <p class="lead" style="color: var(--text-2);">Sua raça é o alicerce de sua jornada — <strong style="color:var(--gold);">Luxsandoria V2</strong></p>
         </header>
 
         <!-- ================= RAÇAS HUMANAS ================= -->
@@ -147,7 +147,7 @@
 
         <!-- ================= RAÇAS MÁGICAS ================= -->
         <h2 class="category-header">Raças Mágicas</h2>
-        <p style="color:#9fc0da;margin-top:-8px;">Auto-play: linha fixa de atributos, sem os 5 pontos da criação. Não aprendem Magias — o poder vem do sangue.</p>
+        <p style="color:var(--text-2);margin-top:-8px;">Auto-play: linha fixa de atributos, sem os 5 pontos da criação. Não aprendem Magias — o poder vem do sangue.</p>
         <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="../../viewer.html?file=contents/racas/Elfo.md" class="race-card">
@@ -172,19 +172,19 @@
         <!-- ================= RAÇAS ESPECIAIS ================= -->
         <h2 class="category-header">Raças Especiais</h2>
         <div class="reserved-box">
-            <p style="margin:0;">✦ Categoria reservada — <strong style="color:#FDF5AA;">conteúdo futuro</strong>.</p>
+            <p style="margin:0;">✦ Categoria reservada — <strong style="color:var(--gold);">conteúdo futuro</strong>.</p>
         </div>
 
         <div class="subgroup-label">Secretas — Mitológicas</div>
         <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/Secreta-Mitologico.md" class="race-card" style="border-color:#f0d17a;">
+                <a href="../../viewer.html?file=contents/racas/Secreta-Mitologico.md" class="race-card" style="border-color:var(--gold);">
                     <img src="../../assets/images/placeholder.png" class="race-img" alt="Demi-Humano Mitológico">
                     <div class="race-card-body"><h3 class="race-card-title">Mitológico</h3></div>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="../../viewer.html?file=contents/racas/Mitologico/Mito-DragaoMisticoOuro.md" class="race-card" style="border-color:#f0d17a;">
+                <a href="../../viewer.html?file=contents/racas/Mitologico/Mito-DragaoMisticoOuro.md" class="race-card" style="border-color:var(--gold);">
                     <img src="../../assets/images/placeholder.png" class="race-img" alt="Dragão Ouro">
                     <div class="race-card-body"><h3 class="race-card-title">Dragão Ouro</h3></div>
                 </a>
@@ -193,7 +193,7 @@
 
         <!-- ================= RAÇAS PROIBIDAS ================= -->
         <h2 class="category-header">Raças Proibidas</h2>
-        <p style="color:#9fc0da;margin-top:-8px;">🔒 Linhagens seladas pelo mundo. Como obter: <strong style="color:#FDF5AA;">?</strong></p>
+        <p style="color:var(--text-2);margin-top:-8px;">🔒 Linhagens seladas pelo mundo. Como obter: <strong style="color:var(--gold);">?</strong></p>
         <div class="row g-4">
             <div class="col-6 col-md-4 col-lg-3">
                 <a href="../../viewer.html?file=contents/racas/Secreta-ArkHumano.md" class="race-card" style="border-color:#8a2be2;">
@@ -203,9 +203,9 @@
             </div>
         </div>
 
-        <footer class="mt-5 text-center py-4" style="border-top: 1px solid #58A0C8;">
+        <footer class="mt-5 text-center py-4" style="border-top: 1px solid var(--border-strong);">
             <button onclick="history.back()" class="btn btn-outline-warning mb-3">Retroceder</button>
-            <p style="color: #58A0C8;">Luxsandoria — Sistema de autoria de <strong style="color: #FDF5AA;">Lokeser</strong></p>
+            <p style="color: var(--text-2);">Luxsandoria — Sistema de autoria de <strong style="color: var(--gold);">Lokeser</strong></p>
         </footer>
     </div>
 

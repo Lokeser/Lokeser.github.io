@@ -1,695 +1,296 @@
-/* Base de Cards para Menus */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
-}
+/* ==================================================================
+   LUXSANDORIA — folha principal
+   Os tokens e os componentes do design system vivem em tokens.css.
+   Aqui ficam a navegação e os componentes herdados das páginas
+   que ainda não foram redesenhadas — todos lendo os mesmos tokens,
+   para o tema virar por inteiro.
+   ================================================================== */
+@import url('tokens.css');
 
-.menu-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.grid-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.card {
-    background: rgba(40, 30, 20, 0.8);
-    border: 1px solid #c5a059;
-    color: #e0d0b0;
-    padding: 15px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.card:hover {
-    background: #c5a059;
-    color: #1a1a1a;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(197, 160, 89, 0.4);
-}
-
-/* Estilização por Tier */
-.absolute-tier .card { border-color: #ffd700; box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2); }
-.secret-tier .card { border-color: #9400d3; font-style: italic; }
-
-/* Estilo para as categorias de raças */
-.race-category {
-    margin-bottom: 40px;
-}
-
-.category-title {
-    color: #c5a059;
-    border-bottom: 2px solid #4a3b22;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    font-family: 'Crimson Text', serif; /* Sugestão de fonte serifada */
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-/* Card de Raça Específico */
-.race-card {
-    min-height: 80px;
-    background: linear-gradient(145deg, #2c1f14, #1a120b);
-    border: 1px solid #5c4a33;
-    position: relative;
-    overflow: hidden;
-}
-
-.race-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
-    transition: 0.5s;
-}
-
-.race-card:hover::before {
-    left: 100%;
-}
-
-.race-card:hover {
-    border-color: #ffd700;
-    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-}
-
-/* Botão de Voltar Estilizado */
-.btn-back {
-    background: transparent;
-    border: 1px solid #c5a059;
-    color: #c5a059;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-
-.btn-back:hover {
-    background: #c5a059;
-    color: #1a120b;
-}
-
-/* Container das Habilidades */
-.skill-pillar {
-    background: rgba(20, 20, 25, 0.7);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 40px;
-    border-left: 5px solid #ccc;
-}
-
-/* Cores por Pilar */
-.alma { border-left-color: #00d4ff; } /* Azul Etéreo */
-.corpo { border-left-color: #ff4500; } /* Vermelho Físico */
-.mente { border-left-color: #9d00ff; } /* Roxo Psíquico */
-
-.pillar-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.stages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.stage-box {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    border: 1px solid #444;
-    border-radius: 4px;
-}
-
-.stage-box h3 {
-    color: #c5a059;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #c5a059;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-}
-
-.stage-box a {
-    display: block;
-    color: #bbb;
-    text-decoration: none;
-    padding: 5px 0;
-    font-size: 0.9rem;
-    transition: 0.2s;
-}
-
-.stage-box a:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-/* Layout do Portal de Magias */
-.magic-portal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.magic-card {
-    text-decoration: none;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(255,255,255,0.1);
-    background: rgba(10, 10, 15, 0.9);
-}
-
-.magic-card h2 { margin: 15px 0; font-size: 1.8rem; }
-.magic-card p { color: #aaa; font-size: 0.9rem; line-height: 1.4; }
-.card-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
-
-/* Auras por Tipo */
-.mana:hover { border-color: #0088ff; box-shadow: 0 0 20px rgba(0, 136, 255, 0.3); transform: scale(1.05); }
-.ki:hover { border-color: #ffcc00; box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); transform: scale(1.05); }
-.fe:hover { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); transform: scale(1.05); }
-.caos:hover { border-color: #ff00ff; box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); transform: scale(1.05); }
-
-.mana h2 { color: #0088ff; }
-.ki h2 { color: #ffcc00; }
-.fe h2 { color: #f0f0f0; }
-.caos h2 { color: #ff00ff; }
-
-/* Navbar Geral */
+/* ==================================================================
+   NAVEGAÇÃO PRINCIPAL
+   ================================================================== */
 .main-navbar {
-    background: rgba(10, 10, 10, 0.95);
-    margin: 0%;
-    border-bottom: 2px solid #c5a059;
-    position: sticky;
-    justify-content: center;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    box-sizing: border-box;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: sticky; top: 0; z-index: 1000;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+/* Fio dourado tênue sob a barra — a borda encantada da página */
+.main-navbar::after {
+    content: ''; position: absolute; inset: auto 0 -1px 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: .5;
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    max-width: 1400px; margin: 0 auto;
+    padding: 10px var(--sp-5);
+    display: flex; align-items: center; gap: var(--sp-4);
 }
 
-.nav-logo {
-    color: #c5a059;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(197, 160, 89, 0.3);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    color: #e0d0b0;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: #c5a059;
-}
-
-/* Efeito de underline no hover */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: #c5a059;
-    transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* --- Estética do Grimório de Classes --- */
-.tier-header {
-    text-align: center;
-    font-family: 'Cinzel', serif; /* Certifique-se de importar ou usar uma serifada elegante */
-    color: #c5a059;
-    font-size: 2.2rem;
-    margin: 50px 0 20px;
-    text-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
-}
-
-.tier-header::after {
-    content: '';
-    display: block;
-    width: 150px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #c5a059, transparent);
-    margin: 10px auto;
-}
-
-.grimoire-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Design dos Botões (Cards) */
-.class-btn {
-    background: linear-gradient(145deg, #1a1510, #251d15);
-    border: 1px solid #4a3b22;
-    border-radius: 8px;
-    color: #d0c0a0;
-    padding: 25px 15px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Cinzel', serif;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.class-btn:hover {
-    transform: translateY(-5px);
-    border-color: #c5a059;
-    color: #fff;
-    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.2);
-}
-
-/* Variações de Raridade */
-.btn-absolute { 
-    border-color: #ffd700; 
-    background: linear-gradient(145deg, #2b2200, #3d3000);
-}
-.btn-absolute:hover { 
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-    text-shadow: 0 0 8px #ffd700;
-}
-
-.btn-secret { 
-    border-color: #8a2be2; 
-    background: linear-gradient(145deg, #1a0033, #26004d);
-}
-.btn-secret:hover { 
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
-    text-shadow: 0 0 8px #8a2be2;
-}
-
-.extra-info {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: #888;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-/* =========================================
-   ESTILO DO VISUALIZADOR (GRIMÓRIO)
-   ========================================= */
-
-/* Container Principal do Texto */
-.markdown-body {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 50px;
-    background-color: #34699A; /* Cor 2 */
-    color: #FDF5AA; /* Cor 4 (Texto Principal) */
-    border: 3px double #FDF5AA; /* Borda Solar Dupla */
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7), inset 0 0 50px rgba(17, 63, 103, 0.5);
-    line-height: 1.8;
-    font-family: 'Segoe UI', serif;
-}
-
-/* Títulos Interiores */
-.markdown-body h1 {
-    color: #FDF5AA;
-    font-family: 'Cinzel', serif;
-    text-align: center;
-    border-bottom: 2px solid #FDF5AA;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(253, 245, 170, 0.5);
-}
-
-.markdown-body h2, .markdown-body h3 {
-    color: #ffffff; /* Cor 3 */
-    font-family: 'Cinzel', serif;
-    margin-top: 40px;
-    border-left: 5px solid #FDF5AA;
-    padding-left: 15px;
-}
-
-/* Links dentro do texto */
-.markdown-body a {
-    color: #0b425f;
-    text-decoration: underline;
-    transition: 0.3s;
-}
-
-.markdown-body a:hover {
-    color: #FDF5AA;
-    text-shadow: 0 0 5px #FDF5AA;
-}
-
-/* Tabelas (Essencial para Atributos e Ranks) */
-.markdown-body table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 30px 0;
-    background: rgba(17, 63, 103, 0.4); /* Cor 1 com opacidade */
-}
-
-.markdown-body th {
-    background-color: #113F67;
-    color: #FDF5AA;
-    border: 1px solid #58A0C8;
-    padding: 12px;
-    text-transform: uppercase;
-}
-
-.markdown-body td {
-    border: 1px solid #58A0C8;
-    padding: 10px;
-}
-
-.markdown-body tr:nth-child(even) {
-    background: rgba(52, 105, 154, 0.3);
-}
-
-/* Citações e Notas de Lore */
-.markdown-body blockquote {
-    background: rgba(253, 245, 170, 0.05);
-    border-left: 4px solid #FDF5AA;
-    padding: 20px;
-    margin: 20px 0;
-    font-style: italic;
-    color: #d0e8f5;
-}
-
-/* Imagens dentro do Markdown */
-.markdown-body img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #58A0C8;
-    display: block;
-    margin: 20px auto;
-}
-
-/* --- VARIÁVEIS DE COR (Para facilitar ajustes) --- */
-:root {
-    --cor-dourada: #e6c68b; /* Tom aproximado do seu dourado */
-    --cor-fundo: #0b0b0b;   /* Fundo quase preto */
-    --cor-hover: #ffffff;   /* Cor ao passar o mouse (branco brilhante) */
-}
-
-/* --- ESTILOS GERAIS DA NAVBAR --- */
-.main-navbar {
-    background-color: var(--cor-fundo);
-    width: 100%;
-    padding: 15px 20px;
-    box-sizing: border-box;
-    /* Adiciona a linha dourada na parte de baixo igual à imagem */
-    border-bottom: 2px solid var(--cor-dourada); 
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px; /* Aumentei um pouco para caber os itens */
-    margin: 0 auto;
-}
-
-/* --- LOGO (LUXSANDORIA) --- */
 .nav-logo-link {
-    font-family: "Cinzel", "Times New Roman", serif; /* Fonte serifada para o logo */
-    font-size: clamp(1rem, .85vw + .5rem, 1.8rem);
-    flex: 0 0 auto;
-    font-weight: bold;
-    text-decoration: none; 
-    color: var(--cor-dourada); /* DOURADO */
-    letter-spacing: 2px; /* Espaçamento entre letras do logo */
-    cursor: pointer;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, .85vw + .5rem, 1.5rem);
+    font-weight: 700; letter-spacing: .14em;
+    color: var(--text); text-decoration: none;
+    flex: 0 0 auto; white-space: nowrap;
+    transition: color var(--t) var(--ease);
 }
+.nav-logo-link:hover { color: var(--royal); }
 
-/* --- LINKS DO MENU (Desktop) ---
-   Os links encolhem conforme a largura da janela para caber em qualquer
-   monitor. O menu hambúrguer só entra em telas realmente estreitas. */
 .nav-links {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;                     /* rede de segurança: quebra antes de cortar */
-    justify-content: flex-end;
-    align-items: center;
-    row-gap: 6px;
-    gap: clamp(6px, .82vw, 25px);        /* 25px em telas largas, 6px em telas apertadas */
-    margin: 0;
-    padding: 0;
-    flex: 1 1 auto;                      /* recebe o espaço que sobra do logo */
-    min-width: 0;
+    list-style: none; display: flex; flex-wrap: wrap;
+    justify-content: flex-end; align-items: center;
+    row-gap: 6px; gap: clamp(2px, .55vw, 14px);
+    margin: 0; padding: 0; flex: 1 1 auto; min-width: 0;
 }
 
 .nav-links li a {
-    text-decoration: none;
-    color: var(--cor-dourada); /* DOURADO */
-    font-size: clamp(.68rem, .5vw + .34rem, 1rem);
-    font-weight: 600;
-    text-transform: uppercase; /* Deixa tudo maiúsculo (HOME, REGRAS...) */
-    font-family: sans-serif;   /* Fonte normal para os links */
-    transition: 0.3s;
-    letter-spacing: clamp(0px, .06vw, 1px);
+    display: block;
+    font-family: var(--font-ui);
+    font-size: clamp(.72rem, .34vw + .6rem, .86rem);
+    font-weight: 600; letter-spacing: .02em;
+    color: var(--text-2); text-decoration: none;
+    padding: 7px 9px; border-radius: var(--r-sm);
     white-space: nowrap;
+    transition: color var(--t) var(--ease), background var(--t) var(--ease);
 }
+.nav-links li a:hover { color: var(--royal); background: var(--royal-soft); }
+.nav-links li a[aria-current="page"] { color: var(--royal); background: var(--royal-soft); }
 
-.nav-links li a:hover {
-    color: var(--cor-hover); /* Fica branco/brilhante ao passar o mouse */
-    text-shadow: 0 0 5px rgba(230, 198, 139, 0.5); /* Efeito de brilho */
+/* Eras e Mapa: o grupo "Universo" */
+.nav-links li a.nav-eras {
+    color: var(--text-2);
+    border: 1px solid var(--border);
 }
+.nav-links li a.nav-eras:hover { border-color: var(--royal); color: var(--royal); }
 
-/* --- ÍCONE DO MENU MOBILE (Hambúrguer) --- */
+/* Ação principal da barra */
+.nav-links li a.nav-cta {
+    background: var(--royal); color: var(--text-on-royal);
+    padding: 8px clamp(9px, .8vw, 16px); border-radius: var(--r);
+    font-weight: 700;
+}
+.nav-links li a.nav-cta:hover {
+    background: var(--royal-deep); color: var(--text-on-royal);
+    box-shadow: 0 4px 14px var(--glow);
+}
+:root[data-theme="dark"] .nav-links li a.nav-cta:hover { background: #4878F5; }
+
+.theme-toggle {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-2);
+    width: clamp(30px, 2vw, 36px); height: clamp(30px, 2vw, 36px);
+    border-radius: 50%; cursor: pointer; flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; line-height: 1;
+    transition: all var(--t) var(--ease);
+}
+.theme-toggle:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-wash); }
+
+.gh-login {
+    margin-left: 2px; background: transparent;
+    border: 1px solid var(--border); color: var(--text-2);
+    border-radius: var(--r-pill); padding: 6px clamp(8px, .7vw, 13px);
+    font-family: var(--font-ui);
+    font-size: clamp(.68rem, .3vw + .54rem, .78rem); font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    transition: all var(--t) var(--ease);
+}
+.gh-login:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-wash); }
+.gh-login.conectado { border-color: var(--success); color: var(--success); }
+
+/* --- Hambúrguer --- */
 .mobile-menu-icon {
-    display: none; 
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
+    display: none; cursor: pointer; flex-direction: column; gap: 5px;
+    padding: 6px; border-radius: var(--r-sm); margin-left: auto;
 }
-
 .mobile-menu-icon span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--cor-dourada); /* Listras douradas */
-    transition: 0.3s;
+    width: 24px; height: 2px; background-color: var(--text);
+    border-radius: 2px; transition: var(--t);
 }
+.mobile-menu-icon.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-icon.is-active span:nth-child(2) { opacity: 0; }
+.mobile-menu-icon.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* --- RESPONSIVIDADE (MOBILE) --- */
-/* Em telas médias os links quebram em 2 linhas — melhor do que desaparecer.
-   O menu lateral (hambúrguer) só entra em telas de celular/tablet estreito. */
+/* Em telas médias os links quebram em 2 linhas — melhor do que sumir.
+   O menu lateral só entra em telas estreitas de verdade. */
 @media screen and (max-width: 900px) {
-    
-    .mobile-menu-icon {
-        display: flex; 
-        z-index: 1001; 
-    }
-
+    .mobile-menu-icon { display: flex; z-index: 1001; }
     .nav-links {
-        position: fixed;
-        right: -100%; 
-        top: 0;
-        height: 100vh; 
-        width: 250px; 
-        background-color: var(--cor-fundo); /* Fundo preto no menu lateral */
-        border-left: 2px solid var(--cor-dourada); /* Borda decorativa lateral */
-        flex-direction: column; 
-        justify-content: center;
-        align-items: center;
-        transition: 0.4s ease-in-out; 
-        z-index: 1000;
+        position: fixed; top: 0; right: -100%; width: min(300px, 82vw); height: 100vh;
+        flex-direction: column; justify-content: flex-start; align-items: stretch;
+        gap: var(--sp-1); padding: 84px var(--sp-4) var(--sp-5);
+        background: var(--surface); border-left: 1px solid var(--border);
+        box-shadow: -12px 0 40px var(--overlay);
+        transition: right var(--t-slow) var(--ease);
+        overflow-y: auto;
     }
-
-    .nav-links.active {
-        right: 0; 
-    }
-
-    .nav-links li {
-        margin: 20px 0;
-    }
+    .nav-links.active { right: 0; }
+    .nav-links li { width: 100%; }
+    .nav-links li a { padding: 12px var(--sp-3); font-size: .95rem; }
+    .nav-links li a.nav-cta, .nav-links li a.nav-eras { text-align: center; }
+    .theme-toggle, .gh-login { width: 100%; border-radius: var(--r); height: auto; padding: 11px; }
 }
 
 /* ==================================================================
-   TEMA ESCURO — remapeia a paleta azul (--c1..--c4) para tons escuros.
-   Como index.html e viewer.html usam essas variáveis, o site inteiro
-   escurece ao ativar o modo escuro. Usa html[data-theme] para vencer
-   os :root inline das páginas por especificidade.
+   CABEÇALHO DE PÁGINA — padrão das páginas internas
    ================================================================== */
-html[data-theme="dark"] {
-    --c1: #0b0d12;   /* Fundo profundo */
-    --c2: #141922;   /* Médio */
-    --c3: #3a4658;   /* Claro (bordas) */
-    --c4: #e6c66b;   /* Destaque dourado */
+.page-head {
+    padding: var(--sp-7) 0 var(--sp-5);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--sp-6);
 }
-html[data-theme="dark"] body { background-color: #0b0d12; }
-
-/* Ajustes de contraste do modo escuro nos menus (tema dourado) */
-html[data-theme="dark"] .card { background: rgba(15, 15, 20, 0.9); }
-html[data-theme="dark"] .markdown-body { background-color: #12151c; }
-
-/* Overrides para cores fixas do viewer.html (não usam variáveis) */
-html[data-theme="dark"] body {
-    background-image: radial-gradient(circle at top, #16202c 0%, #0b0d12 60%) !important;
+.page-head h1 {
+    font-size: var(--step-3); letter-spacing: .04em;
+    margin: 0 0 var(--sp-2);
 }
-html[data-theme="dark"] .content-container {
-    background: rgba(16, 19, 26, 0.96) !important;
-    border-color: #3a4658;
-}
-html[data-theme="dark"] #content blockquote {
-    color: #b8c6d6;
-    background-color: rgba(0, 0, 0, 0.35);
-    border-left-color: #3a4658;
+.page-head .lede {
+    color: var(--text-2); max-width: var(--measure);
+    font-size: var(--step-0); margin: 0;
 }
 
-/* --- Botão de alternância de tema (na navbar) --- */
-.theme-toggle {
-    background: transparent;
-    border: 1px solid var(--cor-dourada, #c5a059);
-    color: var(--cor-dourada, #c5a059);
-    width: clamp(28px, 2vw, 38px);
-    height: clamp(28px, 2vw, 38px);
-    flex: 0 0 auto;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    padding: 0;
+/* ==================================================================
+   COMPONENTES HERDADOS
+   Mantidos para as páginas ainda não redesenhadas (Ranks, Raças,
+   Galeria, Eras, Mapa). Repintados pelos tokens.
+   ================================================================== */
+.menu-container, .menu-container-full {
+    max-width: var(--wrap); margin: 0 auto; padding: var(--sp-6) var(--sp-4);
 }
-.theme-toggle:hover {
-    background: var(--cor-dourada, #c5a059);
-    transform: rotate(-20deg) scale(1.08);
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+.menu-header { text-align: center; padding: var(--sp-6) var(--sp-4) 0; }
+
+.card, .magic-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-lg); color: var(--text);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+                border-color var(--t) var(--ease);
+}
+.card:hover, .magic-card:hover {
+    transform: translateY(-3px); border-color: var(--royal);
+    box-shadow: var(--shadow-lg);
+}
+.card-icon { color: var(--royal); }
+
+.category-title, .tier-header, .pillar-title, .race-category {
+    font-family: var(--font-display); color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--sp-2); margin: var(--sp-7) 0 var(--sp-4);
 }
 
-/* --- Link "Eras" (fundo azul escuro) --- */
-.nav-links li a.nav-eras {
-    background: #16233d;
-    border: 1px solid #3a63d2;
-    border-radius: 16px;
-    padding: 5px clamp(7px, .7vw, 14px);
-    color: #9fc0da !important;
+.btn-back, .btn-absolute, .btn-secret, .class-btn {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-family: var(--font-ui); font-weight: 600; font-size: var(--step-0);
+    padding: 10px 20px; border-radius: var(--r); cursor: pointer;
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--border-strong); text-decoration: none;
+    transition: all var(--t) var(--ease);
 }
-.nav-links li a.nav-eras:hover {
-    background: #1e3157;
-    color: #fff !important;
-    box-shadow: 0 0 12px rgba(58, 99, 210, .5);
+.btn-back:hover, .btn-absolute:hover, .btn-secret:hover, .class-btn:hover {
+    border-color: var(--royal); color: var(--royal); background: var(--surface-2);
 }
 
-/* --- Botão de login (extremo direito da navbar) --- */
-.gh-login {
-    margin-left: 2px;
-    background: transparent;
-    border: 1px solid #6b5a35;
-    color: var(--cor-dourada, #c5a059);
-    border-radius: 16px;
-    padding: 5px clamp(7px, .7vw, 13px);
-    font-size: clamp(.68rem, .4vw + .45rem, .78rem);
-    font-weight: 700;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: .25s;
+.race-card {
+    background: var(--surface-2); border: 2px solid var(--border);
+    border-radius: var(--r-lg); overflow: hidden; display: block;
+    text-decoration: none; position: relative; aspect-ratio: 9 / 16;
+    transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease),
+                border-color var(--t) var(--ease);
 }
-.gh-login:hover { background: rgba(197, 160, 89, .16); }
-.gh-login.editor { border-color: #4caf50; color: #8fe0a0; box-shadow: 0 0 10px rgba(76, 175, 80, .35); }
+.race-card:hover {
+    transform: translateY(-4px) scale(1.02); border-color: var(--gold);
+    box-shadow: var(--shadow-lg); z-index: 5;
+}
 
-/* --- Modal de login --- */
+.grid-links, .grimoire-grid, .magic-portal-grid, .stages-grid {
+    display: grid; gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.skill-pillar, .stage-box, .extra-info {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--r-lg); padding: var(--sp-5);
+}
+
+/* Acentos dos pilares — cor local, sem quebrar a paleta global */
+.corpo { --accent: #C2452F; }
+.mente { --accent: #7B4FD0; }
+.alma  { --accent: #2E8FA8; }
+:root[data-theme="dark"] .corpo { --accent: #FF7A5E; }
+:root[data-theme="dark"] .mente { --accent: #B18BFF; }
+:root[data-theme="dark"] .alma  { --accent: #5FD0E8; }
+
+/* Acentos das fontes mágicas */
+.mana { --accent: #2855C5; }
+.ki   { --accent: #C2452F; }
+.fe   { --accent: #B88A35; }
+.caos { --accent: #7B3FA8; }
+:root[data-theme="dark"] .mana { --accent: #5B8DFF; }
+:root[data-theme="dark"] .ki   { --accent: #FF7A5E; }
+:root[data-theme="dark"] .fe   { --accent: #E7C77F; }
+:root[data-theme="dark"] .caos { --accent: #B07AE0; }
+
+/* Conteúdo markdown herdado (viewer antigo) */
+.markdown-body, .content-container {
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: var(--sp-6);
+}
+
+/* ==================================================================
+   MODAL DE LOGIN (GitHub)
+   ================================================================== */
 .gh-overlay {
     position: fixed; inset: 0; z-index: 4000;
-    background: rgba(0, 0, 0, .72);
+    background: var(--overlay);
+    backdrop-filter: blur(3px);
     display: none; align-items: center; justify-content: center; padding: 20px;
 }
 .gh-overlay.aberto { display: flex; }
 .gh-box {
     width: 100%; max-width: 420px;
-    background: #101a2b; border: 1px solid #3a63d2; border-top: 4px solid #c5a059;
-    border-radius: 14px; padding: 24px;
-    color: #eaf2fa; font-family: 'Lato', sans-serif;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, .7);
+    background: var(--surface-raised);
+    border: 1px solid var(--border); border-top: 3px solid var(--gold);
+    border-radius: var(--r-lg); padding: var(--sp-5);
+    color: var(--text); font-family: var(--font-ui);
+    box-shadow: var(--shadow-lg);
 }
-.gh-box h3 { font-family: 'Cinzel', serif; color: #f0d17a; margin: 0 0 6px; font-size: 1.25rem; }
-.gh-sub { color: #9fc0da; font-size: .84rem; margin-bottom: 16px; }
-.gh-box label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: #8fb3cf; margin: 12px 0 5px; }
+.gh-box h3 {
+    font-family: var(--font-display); color: var(--text);
+    margin: 0 0 6px; font-size: var(--step-1);
+}
+.gh-sub { color: var(--text-2); font-size: var(--step--1); margin-bottom: var(--sp-4); }
+.gh-box label {
+    display: block; font-size: var(--step--1); font-weight: 600;
+    text-transform: uppercase; letter-spacing: .08em;
+    color: var(--text-2); margin: var(--sp-3) 0 5px;
+}
 .gh-box input {
     width: 100%; box-sizing: border-box;
-    background: rgba(0, 0, 0, .35); border: 1px solid #34699A; color: #fff;
-    border-radius: 8px; padding: 10px 12px; font-size: .9rem;
+    background: var(--surface); border: 1px solid var(--border-strong);
+    color: var(--text); border-radius: var(--r); padding: 10px 12px;
+    font-family: var(--font-ui); font-size: var(--step-0);
 }
-.gh-box input:focus { outline: none; border-color: #f0d17a; box-shadow: 0 0 8px rgba(240, 209, 122, .3); }
-.gh-nota { font-size: .74rem; color: #f0c56b; margin-top: 12px; }
-.gh-status { font-size: .82rem; margin-top: 10px; min-height: 18px; color: #cfe1f0; }
-.gh-status.ok { color: #8fe0a0; }
-.gh-status.err { color: #ff9b9b; }
-.gh-acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
-.gh-btn { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; transition: .2s; }
-.gh-btn:hover { filter: brightness(1.12); }
-.gh-btn.ouro { background: #f0d17a; color: #14202e; }
-.gh-btn.fantasma { background: transparent; color: #cfe1f0; border: 1px solid #58A0C8; }
+.gh-box input:focus { outline: none; border-color: var(--royal); box-shadow: 0 0 0 3px var(--glow); }
+.gh-nota { font-size: var(--step--1); color: var(--text-2); margin-top: var(--sp-3); }
+.gh-acoes { display: flex; gap: var(--sp-2); justify-content: flex-end; margin-top: var(--sp-4); flex-wrap: wrap; }
+.gh-btn {
+    border: none; border-radius: var(--r); padding: 9px 18px;
+    font-family: var(--font-ui); font-weight: 600; font-size: var(--step-0); cursor: pointer;
+    background: var(--royal); color: var(--text-on-royal);
+}
+.gh-btn.fantasma { background: transparent; color: var(--text-2); border: 1px solid var(--border-strong); }
+.gh-btn:hover { filter: brightness(1.08); }
+.gh-status { font-size: var(--step--1); color: var(--text-2); margin-top: var(--sp-2); }
 
-/* --- Botão "Criar Personagem" na navbar --- */
-.nav-links li a.nav-cta {
-    background: var(--cor-dourada, #c5a059);
-    color: #14100a !important;
-    padding: 8px clamp(8px, .9vw, 16px);
-    border-radius: 20px;
-    font-weight: 700;
+/* Rodapé padrão */
+.lux-footer {
+    margin-top: var(--sp-8); padding: var(--sp-6) var(--sp-4);
+    border-top: 1px solid var(--border);
+    text-align: center; color: var(--text-2); font-size: var(--step--1);
 }
-.nav-links li a.nav-cta:hover {
-    color: #000 !important;
-    box-shadow: 0 0 14px rgba(230, 198, 139, 0.6);
-    text-shadow: none;
-}
+.lux-footer strong { color: var(--gold); }

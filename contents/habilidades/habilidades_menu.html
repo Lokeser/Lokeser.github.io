@@ -3,184 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades - Luxsandoria</title>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Árvore de Habilidades</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        body { background: radial-gradient(circle at top, #1d4267, var(--c1, #113F67) 70%); min-height: 100vh; color: #eaf2fa; }
-        .hab-container { max-width: 1200px; margin: 0 auto; padding: 45px 20px 70px; }
-        .hab-hero { text-align: center; margin-bottom: 30px; }
-        .hab-hero h1 { font-family: 'Cinzel', serif; color: #FDF5AA; letter-spacing: 4px; }
-        .hab-hero p { color: #9fc0da; }
-        .pilar-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-        .pilar-nav a { border: 1px solid; border-radius: 20px; padding: 7px 20px; text-decoration: none; font-weight: 700; font-size: .88rem; transition: .25s; }
-        .pilar-nav a:hover { transform: translateY(-2px); filter: brightness(1.3); }
-        .pilar { margin-top: 45px; border-top: 3px solid var(--pilar); border-radius: 14px; background: rgba(0,0,0,.22); padding: 22px 22px 26px; }
-        .pilar-cabecalho { font-family: 'Cinzel', serif; color: var(--pilar); font-size: 1.5rem; display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
-        .pilar-icone { font-size: 1.6rem; }
-        .pilar-total { margin-left: auto; font-family: sans-serif; font-size: .72rem; background: var(--pilar); color: #0d1117; border-radius: 16px; padding: 3px 12px; font-weight: 700; }
-        .estagio-label { color: var(--pilar); font-size: .78rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin: 22px 4px 10px; }
-        .estagio-label .qtd { opacity: .55; }
-        .hab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
-        .hab-card { display: flex; flex-direction: column; gap: 5px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-left: 4px solid var(--pilar); border-radius: 10px; padding: 12px 14px; text-decoration: none; transition: .2s; }
-        .hab-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.11); box-shadow: 0 8px 18px rgba(0,0,0,.4); }
-        .hab-nome { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.25; }
-        .hab-tag { color: var(--pilar); font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; opacity: .85; }
+        /* ---- Três pilares, progressão por estágios.
+               A página inteira é montada a partir de
+               contents/sistema/habilidades.md — uma fonte só de verdade. ---- */
+
+        /* Escolha do pilar */
+        .pilares { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+        .pilar-card {
+            position: relative; text-align: left; cursor: pointer;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--r-lg); padding: var(--sp-5);
+            font-family: inherit; color: inherit;
+            transition: all var(--t) var(--ease);
+        }
+        .pilar-card::before {
+            content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+            border-radius: var(--r-lg) var(--r-lg) 0 0;
+            background: linear-gradient(90deg, transparent, var(--pilar), transparent);
+        }
+        .pilar-card:hover { transform: translateY(-3px); border-color: var(--pilar); box-shadow: var(--shadow); }
+        .pilar-card[aria-pressed="true"] {
+            border-color: var(--pilar);
+            box-shadow: 0 0 0 1px var(--pilar), var(--shadow);
+            background: color-mix(in srgb, var(--pilar) 7%, var(--surface));
+        }
+        .pilar-topo { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-2); }
+        .pilar-sigilo {
+            width: 42px; height: 42px; flex: 0 0 auto; border-radius: 50%;
+            display: grid; place-items: center; color: var(--pilar);
+            border: 1px solid var(--pilar);
+            background: color-mix(in srgb, var(--pilar) 12%, transparent);
+        }
+        .pilar-sigilo svg { width: 22px; height: 22px; }
+        .pilar-card h2 { font-size: var(--step-1); margin: 0; color: var(--pilar); }
+        .pilar-card p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.5; }
+        .pilar-qtd {
+            margin-left: auto; font-family: var(--font-display); font-weight: 700;
+            font-size: var(--step-2); color: var(--pilar); font-variant-numeric: tabular-nums;
+        }
+
+        /* Barra de filtros */
+        .filtros {
+            display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+            margin: var(--sp-6) 0 var(--sp-4);
+            padding-bottom: var(--sp-4); border-bottom: 1px solid var(--border);
+        }
+        .filtros .rotulo {
+            font-size: var(--step--1); font-weight: 600; letter-spacing: .1em;
+            text-transform: uppercase; color: var(--text-2); margin-right: var(--sp-1);
+        }
+        .filtros .busca-wrap { margin-left: auto; min-width: 230px; flex: 0 1 300px; }
+
+        /* Estágios */
+        .estagio { margin-bottom: var(--sp-6); }
+        .estagio-head {
+            display: flex; align-items: center; gap: var(--sp-3);
+            margin-bottom: var(--sp-2);
+        }
+        .estagio-num {
+            width: 30px; height: 30px; flex: 0 0 auto; border-radius: 50%;
+            display: grid; place-items: center;
+            background: var(--surface-2); border: 1px solid var(--border-strong);
+            font-family: var(--font-display); font-weight: 700; font-size: .85rem;
+            color: var(--text); font-variant-numeric: tabular-nums;
+        }
+        .estagio-head h3 { font-size: var(--step-1); margin: 0; }
+        .estagio-head .count-badge { margin-left: auto; }
+        .estagio-req {
+            font-size: var(--step--1); color: var(--text-2);
+            margin: 0 0 var(--sp-3) 42px;
+        }
+        @media (max-width: 560px) { .estagio-req { margin-left: 0; } }
+
+        .hab-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); }
+
+        .hab {
+            display: flex; align-items: center; gap: 10px;
+            padding: 11px 13px; text-decoration: none; color: inherit;
+            background: var(--surface); border: 1px solid var(--border);
+            border-left: 3px solid var(--pilar, var(--royal));
+            border-radius: var(--r);
+            transition: all var(--t) var(--ease);
+        }
+        .hab:hover {
+            border-color: var(--pilar); background: var(--surface-2);
+            transform: translateX(3px); color: inherit;
+        }
+        .hab-runa {
+            width: 26px; height: 26px; flex: 0 0 auto; border-radius: var(--r-sm);
+            display: grid; place-items: center;
+            background: color-mix(in srgb, var(--pilar) 14%, transparent);
+            color: var(--pilar); font-family: var(--font-display);
+            font-size: .72rem; font-weight: 700;
+        }
+        .hab-nome { font-size: var(--step--1); font-weight: 600; line-height: 1.3; }
+
+        .oculto { display: none !important; }
+        .busca-meta { font-size: var(--step--1); color: var(--text-2); margin-top: var(--sp-2); min-height: 1.3em; }
+
+        /* Cores dos pilares nos dois temas */
+        .p-corpo { --pilar: #C2452F; }
+        .p-mente { --pilar: #7B4FD0; }
+        .p-alma  { --pilar: #2E8FA8; }
+        :root[data-theme="dark"] .p-corpo { --pilar: #FF7A5E; }
+        :root[data-theme="dark"] .p-mente { --pilar: #B18BFF; }
+        :root[data-theme="dark"] .p-alma  { --pilar: #5FD0E8; }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .p-corpo { --pilar: #FF7A5E; }
+            :root:not([data-theme="light"]) .p-mente { --pilar: #B18BFF; }
+            :root:not([data-theme="light"]) .p-alma  { --pilar: #5FD0E8; }
+        }
     </style>
 </head>
 <body>
+
     <div id="navbar-placeholder"></div>
 
-    <div class="hab-container">
-        <header class="hab-hero">
-            <h1>GRIMÓRIO DE HABILIDADES</h1>
-            <p>Os três pilares do poder — Corpo, Mente e Alma — divididos por estágio.</p>
-            <div class="pilar-nav">
-                <a href="#corpo" style="color:#ff4500;border-color:#ff4500">💪 Corpo</a>
-                <a href="#mente" style="color:#9d00ff;border-color:#9d00ff">🧠 Mente</a>
-                <a href="#alma" style="color:#00d4ff;border-color:#00d4ff">🔮 Alma</a>
-            </div>
+    <div class="lux-wrap">
+        <header class="page-head">
+            <p class="eyebrow">Grimório · Poderes</p>
+            <h1>Árvore de Habilidades</h1>
+            <p class="lede">
+                Toda técnica nasce de um dos três pilares e sobe por estágios.
+                Escolha um pilar para focar, ou busque a habilidade pelo nome.
+            </p>
         </header>
 
-        <section class="pilar" id="corpo" style="--pilar:#ff4500">
-            <h2 class="pilar-cabecalho"><span class="pilar-icone">💪</span> Pilar de Corpo <span class="pilar-total">26 habilidades</span></h2>
-            <div class="estagio-label" style="--pilar:#ff4500">1º Estágio <span class="qtd">7</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ArremessoFukujin.md"><span class="hab-nome">Arremesso Fukujin</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Bloquear.md"><span class="hab-nome">Bloquear</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/Esquivar.md"><span class="hab-nome">Esquivar</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/ExplosaoMana.md"><span class="hab-nome">Explosao Mana</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/MegaSalto.md"><span class="hab-nome">Mega Salto</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/PassoVeloz.md"><span class="hab-nome">Passo Veloz</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/1_Estagio/RespiracaoRegenerativa.md"><span class="hab-nome">Respiracao Regenerativa</span><span class="hab-tag">1º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#ff4500">2º Estágio <span class="qtd">10</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/ArmaImprovisada.md"><span class="hab-nome">Arma Improvisada</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtaqueInjusto.md"><span class="hab-nome">Ataque Injusto</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AtletismoSuperior.md"><span class="hab-nome">Atletismo Superior</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/AuraIntimidadora.md"><span class="hab-nome">Aura Intimidadora</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Boomboost.md"><span class="hab-nome">Boomboost</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/CaminhoVeloz.md"><span class="hab-nome">Caminho Veloz</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/DeterminacaoCombate.md"><span class="hab-nome">Determinacao Combate</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/Inarcana.md"><span class="hab-nome">Inarcana</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SaltoSuperior.md"><span class="hab-nome">Salto Superior</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/2_Estagio/SalvaGuarda.md"><span class="hab-nome">Salva Guarda</span><span class="hab-tag">2º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#ff4500">3º Estágio <span class="qtd">5</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/ArmaduraNatural.md"><span class="hab-nome">Armadura Natural</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/DeterminacaoSuperior.md"><span class="hab-nome">Determinacao Superior</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaLinear.md"><span class="hab-nome">Inarcana Linear</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/InarcanaManatio.md"><span class="hab-nome">Inarcana Manatio</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/3_Estagio/SedeSanguinea.md"><span class="hab-nome">Sede Sanguinea</span><span class="hab-tag">3º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#ff4500">4º Estágio <span class="qtd">1</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/4_Estagio/Suplex.md"><span class="hab-nome">Suplex</span><span class="hab-tag">4º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#ff4500">5º Estágio <span class="qtd">3</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AdaptabilidadeTatica.md"><span class="hab-nome">Adaptabilidade Tatica</span><span class="hab-tag">5º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/AgarraoCelestial.md"><span class="hab-nome">Agarrao Celestial</span><span class="hab-tag">5º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#ff4500" href="../../viewer.html?file=contents/habilidades/Habilidades_Corpo/5_Estagio/TrueParry.md"><span class="hab-nome">True Parry</span><span class="hab-tag">5º Estágio</span></a>
-            </div>
-        </section>
+        <section class="pilares" id="pilares" aria-label="Pilares"></section>
 
-        <section class="pilar" id="mente" style="--pilar:#9d00ff">
-            <h2 class="pilar-cabecalho"><span class="pilar-icone">🧠</span> Pilar de Mente <span class="pilar-total">25 habilidades</span></h2>
-            <div class="estagio-label" style="--pilar:#9d00ff">Ultimatrix <span class="qtd">2</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Mente.md"><span class="hab-nome">A Mente</span><span class="hab-tag">Ultimatrix</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/Ultimatrix/Vida.md"><span class="hab-nome">A Vida</span><span class="hab-tag">Ultimatrix</span></a>
+        <div class="filtros">
+            <span class="rotulo">Estágio</span>
+            <div id="filtros-estagio" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+            <div class="busca-wrap">
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                        </svg>
+                    </span>
+                    <input type="search" id="busca" class="field" placeholder="Buscar habilidade…"
+                           autocomplete="off" aria-label="Buscar habilidade" aria-describedby="busca-meta">
+                </div>
             </div>
-            <div class="estagio-label" style="--pilar:#9d00ff">1º Estágio <span class="qtd">7</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/ConectarNucleoMana.md"><span class="hab-nome">Conectar Nucleo Mana</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/EsconderAparencia.md"><span class="hab-nome">Esconder Aparencia</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Flutuar.md"><span class="hab-nome">Flutuar</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/Magifeito.md"><span class="hab-nome">Magifeito</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/SuprimirAlma.md"><span class="hab-nome">Suprimir Alma</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/TiroMana.md"><span class="hab-nome">Tiro Mana</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/1_Estagio/VeuMana.md"><span class="hab-nome">Veu Mana</span><span class="hab-tag">1º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#9d00ff">2º Estágio <span class="qtd">7</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Addere.md"><span class="hab-nome">Addere</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/AmarrasImutaveis.md"><span class="hab-nome">Amarras Imutaveis</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/BarreiraMagica.md"><span class="hab-nome">Barreira Mágica</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/ConstrutoMana.md"><span class="hab-nome">Construto de Mana</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/Exarcana.md"><span class="hab-nome">Exarcana</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/SeloReducaoArcana.md"><span class="hab-nome">Selo de Redução Arcana</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/2_Estagio/VisitarNucleoMana.md"><span class="hab-nome">Visitar Mundo Interior</span><span class="hab-tag">2º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#9d00ff">3º Estágio <span class="qtd">5</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaFantasma.md"><span class="hab-nome">Exarcana Fantasma</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/ExarcanaMistica.md"><span class="hab-nome">Exarcana Mística</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/InarcanaCristal.md"><span class="hab-nome">Inarcana de Cristal (Rank 7)</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/MisseisMagicos.md"><span class="hab-nome">Mísseis Mágicos</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/3_Estagio/SelosMagicos.md"><span class="hab-nome">Selos Mágicos</span><span class="hab-tag">3º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#9d00ff">4º Estágio <span class="qtd">4</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/AuraControl.md"><span class="hab-nome">Aura Control</span><span class="hab-tag">4º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/EscudosMagicos.md"><span class="hab-nome">Escudo Mágico</span><span class="hab-tag">4º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/MagicaVelum.md"><span class="hab-nome">Magica Velum</span><span class="hab-tag">4º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#9d00ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Mente/4_Estagio/PacotsMagicos.md"><span class="hab-nome">Sistema de Pactos: Restrições e Benefícios</span><span class="hab-tag">4º Estágio</span></a>
-            </div>
-        </section>
+        </div>
+        <p class="busca-meta" id="busca-meta" role="status" aria-live="polite"></p>
 
-        <section class="pilar" id="alma" style="--pilar:#00d4ff">
-            <h2 class="pilar-cabecalho"><span class="pilar-icone">🔮</span> Pilar de Alma <span class="pilar-total">24 habilidades</span></h2>
-            <div class="estagio-label" style="--pilar:#00d4ff">1º Estágio <span class="qtd">6</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/FaceAssustadora.md"><span class="hab-nome">Face Assustadora</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/MagicEye.md"><span class="hab-nome">Magic Eye</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ManaCharge.md"><span class="hab-nome">Mana Charge</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SextoSentido.md"><span class="hab-nome">Sexto Sentido</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/ShadowArts.md"><span class="hab-nome">Shadow Arts</span><span class="hab-tag">1º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/1_Estagio/SpiritBlade.md"><span class="hab-nome">Spirit Blade</span><span class="hab-tag">1º Estágio</span></a>
+        <main id="catalogo" style="padding-bottom:var(--sp-8)">
+            <div class="empty-state" id="carregando">
+                <p class="empty-title">Abrindo o índice…</p>
             </div>
-            <div class="estagio-label" style="--pilar:#00d4ff">2º Estágio <span class="qtd">7</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/AbsorverMana.md"><span class="hab-nome">Absorver Mana</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ArcaneEye.md"><span class="hab-nome">Arcane Eye</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/Beastification.md"><span class="hab-nome">Beastification</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/DemaginationEye.md"><span class="hab-nome">Demagination Eye</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/ElevenEye.md"><span class="hab-nome">Elven Eye</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/EvolucaoAtaque.md"><span class="hab-nome">Evolução de Ataque</span><span class="hab-tag">2º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/2_Estagio/VestirPecado.md"><span class="hab-nome">Vestir Pecado</span><span class="hab-tag">2º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#00d4ff">3º Estágio <span class="qtd">6</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/DungeonMagica.md"><span class="hab-nome">Dungeon Magica</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/FormaEvo.md"><span class="hab-nome">Forma Evo</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/Inexarcana.md"><span class="hab-nome">Inexarcana</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/ModoAtaque.md"><span class="hab-nome">Modo Ataque</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SecondTrigger.md"><span class="hab-nome">Second Trigger</span><span class="hab-tag">3º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/3_Estagio/SpiritEdge.md"><span class="hab-nome">Spirit Edge</span><span class="hab-tag">3º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#00d4ff">4º Estágio <span class="qtd">3</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/DeathBlade.md"><span class="hab-nome">Death Blade</span><span class="hab-tag">4º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/FormaLiber.md"><span class="hab-nome">Forma Liber</span><span class="hab-tag">4º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/4_Estagio/SacredEye.md"><span class="hab-nome">Sacred Eye</span><span class="hab-tag">4º Estágio</span></a>
-            </div>
-            <div class="estagio-label" style="--pilar:#00d4ff">5º Estágio <span class="qtd">2</span> <span style="text-transform:none;letter-spacing:0;font-weight:400;opacity:.75">— Requer até duas habilidades do estágio passado.</span></div>
-            <div class="hab-grid">
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Ascendentialismo.md"><span class="hab-nome">Ascendentialismo</span><span class="hab-tag">5º Estágio</span></a>
-                <a class="hab-card" style="--pilar:#00d4ff" href="../../viewer.html?file=contents/habilidades/Habilidades_Alma/5_Estagio/Demoncarnation.md"><span class="hab-nome">Demoncarnation</span><span class="hab-tag">5º Estágio</span></a>
-            </div>
-        </section>
-
+        </main>
     </div>
 
-    <footer class="text-center py-4" style="border-top:1px solid rgba(255,255,255,.15);color:#9fc0da">
-        <p>Luxsandoria — Sistema de autoria de <strong style="color:#FDF5AA">Lokeser</strong></p>
+    <footer class="lux-footer">
+        <p>Luxsandoria — sistema de autoria de <strong>Lokeser</strong></p>
     </footer>
 
     <script src="../../js/menu.js"></script>
+    <script>
+    (async function () {
+        const PILARES = {
+            corpo: { nome: 'Corpo', classe: 'p-corpo',
+                     desc: 'Força, reflexo e o que o músculo aprende a fazer sozinho.',
+                     svg: '<path d="M12 3.2a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8z"/><path d="M8 21v-5l-2-2.6V10a3 3 0 013-3h6a3 3 0 013 3v3.4L16 16v5"/>' },
+            mente: { nome: 'Mente', classe: 'p-mente',
+                     desc: 'Leitura, cálculo e a vontade que dobra o que é visto.',
+                     svg: '<path d="M12 3.5c-3.6 0-6.5 2.6-6.5 5.9 0 1.8.9 3.4 2.3 4.5V20h8.4v-6.1c1.4-1.1 2.3-2.7 2.3-4.5 0-3.3-2.9-5.9-6.5-5.9z"/><path d="M9.6 9.4a2.4 2.4 0 014.8 0"/>' },
+            alma:  { nome: 'Alma', classe: 'p-alma',
+                     desc: 'Mana, espírito e aquilo que responde antes do corpo.',
+                     svg: '<path d="M12 3.5l2.2 5 5.3.5-4 3.6 1.2 5.2L12 15.2 7.3 17.8l1.2-5.2-4-3.6 5.3-.5z"/>' }
+        };
+
+        const cat = document.getElementById('catalogo');
+        let habilidades = [];
+
+        // ---- Fonte única: o índice que o Criador de Personagem também usa ----
+        try {
+            const md = await (await fetch('../sistema/habilidades.md')).text();
+            const m = md.match(/```json\r?\n([\s\S]*?)```/);
+            habilidades = JSON.parse(m[1]);
+        } catch (e) {
+            cat.innerHTML = '<div class="empty-state"><p class="empty-title">Não consegui abrir o índice de habilidades</p>' +
+                '<p>O arquivo <code>contents/sistema/habilidades.md</code> não pôde ser lido.</p></div>';
+            return;
+        }
+
+        let pilarAtivo = 'todos', estagioAtivo = 'todos', termo = '';
+        const normalizar = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+        const contar = (f) => habilidades.filter(f).length;
+
+        // ---- Pilares ----
+        document.getElementById('pilares').innerHTML = Object.entries(PILARES).map(([id, p]) =>
+            '<button type="button" class="pilar-card ' + p.classe + '" data-pilar="' + id + '" aria-pressed="false">' +
+            '<div class="pilar-topo">' +
+                '<span class="pilar-sigilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">' + p.svg + '</svg></span>' +
+                '<h2>' + p.nome + '</h2>' +
+                '<span class="pilar-qtd">' + contar(h => h.tipo === id) + '</span>' +
+            '</div><p>' + p.desc + '</p></button>').join('');
+
+        // ---- Estágios presentes nos dados ----
+        const estagios = [...new Set(habilidades.map(h => h.estagio))].sort((a, b) => a - b);
+        document.getElementById('filtros-estagio').innerHTML =
+            '<button type="button" class="chip" data-estagio="todos" aria-pressed="true">Todos</button>' +
+            estagios.map(e => '<button type="button" class="chip" data-estagio="' + e + '" aria-pressed="false">' +
+                (e === 0 ? 'Base' : e + 'º') + '</button>').join('');
+
+        // ---- Render ----
+        function render() {
+            const q = normalizar(termo);
+            const vistos = habilidades.filter(h =>
+                (pilarAtivo === 'todos' || h.tipo === pilarAtivo) &&
+                (estagioAtivo === 'todos' || String(h.estagio) === estagioAtivo) &&
+                (!q || normalizar(h.nome).includes(q)));
+
+            document.getElementById('busca-meta').textContent = vistos.length
+                ? vistos.length + (vistos.length === 1 ? ' habilidade' : ' habilidades')
+                : '';
+
+            if (!vistos.length) {
+                cat.innerHTML = '<div class="empty-state"><p class="empty-title">Nenhuma habilidade com esses filtros</p>' +
+                    '<p>Tente outro termo, ou <button class="btn btn--ghost btn--sm" id="limpar">limpar os filtros</button>.</p></div>';
+                document.getElementById('limpar').onclick = () => {
+                    termo = ''; pilarAtivo = 'todos'; estagioAtivo = 'todos';
+                    document.getElementById('busca').value = '';
+                    sincronizarBotoes(); render();
+                };
+                return;
+            }
+
+            // Agrupa por pilar e, dentro dele, por estágio
+            const porPilar = {};
+            vistos.forEach(h => {
+                (porPilar[h.tipo] = porPilar[h.tipo] || {});
+                (porPilar[h.tipo][h.estagio] = porPilar[h.tipo][h.estagio] || []).push(h);
+            });
+
+            cat.innerHTML = Object.keys(PILARES).filter(id => porPilar[id]).map(id => {
+                const p = PILARES[id];
+                const grupos = porPilar[id];
+                const blocos = Object.keys(grupos).sort((a, b) => a - b).map(est => {
+                    const lista = grupos[est].slice().sort((a, b) => a.nome.localeCompare(b.nome, 'pt'));
+                    const rotulo = lista[0].estagio_rotulo || (est + 'º Estágio');
+                    // A regra de progressão vem do próprio sistema, e só aparece onde vale
+                    const req = Number(est) >= 2
+                        ? '<p class="estagio-req">Requer até duas habilidades do estágio passado.</p>' : '';
+                    return '<section class="estagio">' +
+                        '<div class="estagio-head">' +
+                            '<span class="estagio-num">' + (est === '0' ? '·' : est) + '</span>' +
+                            '<h3>' + esc(rotulo) + '</h3>' +
+                            '<span class="count-badge">' + lista.length + '</span>' +
+                        '</div>' + req +
+                        '<div class="hab-grid">' + lista.map(h =>
+                            '<a class="hab" href="../../viewer.html?file=' + encodeURI(h.arquivo) + '">' +
+                            '<span class="hab-runa">' + esc(h.nome.trim()[0]) + '</span>' +
+                            '<span class="hab-nome">' + esc(h.nome) + '</span></a>').join('') +
+                        '</div></section>';
+                }).join('');
+
+                return '<div class="' + p.classe + '" style="margin-bottom:var(--sp-7)">' +
+                    '<div class="rule-ornate"><span>Pilar ' + p.nome + '</span></div>' + blocos + '</div>';
+            }).join('');
+        }
+
+        function sincronizarBotoes() {
+            document.querySelectorAll('[data-pilar]').forEach(b =>
+                b.setAttribute('aria-pressed', String(b.dataset.pilar === pilarAtivo)));
+            document.querySelectorAll('[data-estagio]').forEach(b =>
+                b.setAttribute('aria-pressed', String(b.dataset.estagio === estagioAtivo)));
+        }
+
+        document.getElementById('pilares').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-pilar]'); if (!b) return;
+            pilarAtivo = (pilarAtivo === b.dataset.pilar) ? 'todos' : b.dataset.pilar;  // clicar de novo volta a todos
+            sincronizarBotoes(); render();
+        });
+        document.getElementById('filtros-estagio').addEventListener('click', (e) => {
+            const b = e.target.closest('[data-estagio]'); if (!b) return;
+            estagioAtivo = b.dataset.estagio;
+            sincronizarBotoes(); render();
+        });
+        document.getElementById('busca').addEventListener('input', (e) => { termo = e.target.value; render(); });
+
+        sincronizarBotoes();
+        render();
+    })();
+    </script>
 </body>
 </html>

@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha de Personagem - Luxsandoria</title>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root { --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA; }
+        :root { --c1: var(--bg); --c2: var(--surface-2); --c3: var(--border-strong); --c4: var(--gold); }
         body {
-            background: radial-gradient(circle at top, #1d4267, var(--c1) 70%);
-            min-height: 100vh; color: #eaf2fa; font-family: 'Lato', sans-serif;
+            background: radial-gradient(circle at top, var(--bg-alt), var(--c1) 70%);
+            min-height: 100vh; color: var(--text); font-family: 'Lato', sans-serif;
         }
-        html[data-theme="dark"] body { background: radial-gradient(circle at top, #16202c, #0b0d12 70%); }
+        html[data-theme="dark"] body { background: radial-gradient(circle at top, #16202c, var(--bg) 70%); }
 
         .ficha-wrap { max-width: 1150px; margin: 0 auto; padding: 24px 16px 90px; }
         .secao {
@@ -36,7 +36,7 @@
         .topo { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
         .topo h1 { font-family: 'Cinzel', serif; color: var(--c4); font-size: 1.6rem; letter-spacing: 3px; margin: 0; }
         .badge-rank {
-            background: var(--c4); color: #14202e; font-weight: 800;
+            background: var(--c4); color: var(--text-on-gold); font-weight: 800;
             border-radius: 20px; padding: 6px 16px; font-size: 1rem; letter-spacing: 1px;
         }
         .topo .direita { margin-left: auto; display: flex; gap: 10px; flex-wrap: wrap; }
@@ -46,11 +46,11 @@
             cursor: pointer; transition: .2s; font-size: .92rem;
         }
         .btn-wnj:hover { transform: translateY(-2px); filter: brightness(1.12); }
-        .btn-wnj.ouro { background: var(--c4); color: #14202e; }
-        .btn-wnj.azul { background: var(--c3); color: #0b1626; }
+        .btn-wnj.ouro { background: var(--c4); color: var(--text-on-gold); }
+        .btn-wnj.azul { background: var(--c3); color: var(--text-on-royal); }
         .btn-wnj.verde { background: #3aa76d; color: #06170e; }
-        .btn-wnj.fantasma { background: transparent; color: #cfe1f0; border: 1px solid var(--c3); }
-        .btn-wnj.perigo { background: #7a1f1f; color: #ffd9d9; }
+        .btn-wnj.fantasma { background: transparent; color: var(--text); border: 1px solid var(--c3); }
+        .btn-wnj.perigo { background: #7a1f1f; color: var(--text); }
         .btn-wnj:disabled { opacity: .45; cursor: not-allowed; transform: none; }
 
         /* Identidade */
@@ -64,20 +64,20 @@
         }
         .foto:hover { border-color: var(--c4); }
         .foto img { width: 100%; height: 100%; object-fit: cover; }
-        .foto-box small { color: #8fb3cf; display: block; margin-top: 6px; }
+        .foto-box small { color: var(--text-2); display: block; margin-top: 6px; }
         .campos { flex: 1 1 340px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; align-content: start; }
-        .campo label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: #9fc0da; margin-bottom: 4px; }
+        .campo label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); margin-bottom: 4px; }
         .campo input, .campo select {
             width: 100%; background: rgba(0,0,0,.32); border: 1px solid var(--c2);
-            color: #fff; border-radius: 8px; padding: 9px 11px; font-size: .95rem;
+            color: var(--text); border-radius: 8px; padding: 9px 11px; font-size: .95rem;
         }
-        .campo input:focus, .campo select:focus { outline: none; border-color: var(--c4); box-shadow: 0 0 8px rgba(253,245,170,.25); }
-        .campo select option { background: #14202e; }
+        .campo input:focus, .campo select:focus { outline: none; border-color: var(--c4); box-shadow: 0 0 8px color-mix(in srgb, var(--gold) 25%, transparent); }
+        .campo select option { background: var(--text-on-gold); }
         .equipados { margin-top: 12px; }
-        .equipados .rotulo { font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: #f0c56b; margin-bottom: 6px; }
+        .equipados .rotulo { font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 6px; }
         .chip-artefato {
             display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(240,197,107,.14); border: 1px solid #f0c56b; color: #f0d99a;
+            background: rgba(240,197,107,.14); border: 1px solid var(--gold); color: #f0d99a;
             border-radius: 14px; padding: 3px 11px; font-size: .78rem; margin: 0 6px 6px 0;
         }
 
@@ -87,14 +87,14 @@
             background: rgba(0,0,0,.25); border: 1px solid var(--c2); border-top: 3px solid var(--c3);
             border-radius: 10px; padding: 12px 10px; text-align: center;
         }
-        .auto-card .rotulo { font-size: .66rem; text-transform: uppercase; letter-spacing: 1px; color: #9fc0da; }
+        .auto-card .rotulo { font-size: .66rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); }
         .auto-card .valor { font-size: 1.55rem; font-weight: 800; color: var(--c4); line-height: 1.25; }
         .auto-card input {
             width: 64px; background: rgba(0,0,0,.35); border: 1px solid var(--c2);
             color: var(--c4); border-radius: 6px; text-align: center; font-weight: 800; font-size: 1.15rem; padding: 3px;
         }
         .auto-card .par { display: flex; align-items: center; justify-content: center; gap: 5px; color: var(--c4); font-weight: 800; }
-        .auto-card small { color: #8fb3cf; font-size: .68rem; display: block; margin-top: 3px; }
+        .auto-card small { color: var(--text-2); font-size: .68rem; display: block; margin-top: 3px; }
 
         /* Atributos */
         .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
@@ -102,7 +102,7 @@
         .attr-card .nome { font-size: .72rem; letter-spacing: 1.5px; font-weight: 700; }
         .attr-card input {
             width: 74px; margin: 8px 0 4px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.25);
-            color: #fff; border-radius: 8px; text-align: center; font-size: 1.35rem; font-weight: 800; padding: 4px;
+            color: var(--text); border-radius: 8px; text-align: center; font-size: 1.35rem; font-weight: 800; padding: 4px;
         }
         .attr-card .mod { font-size: .78rem; opacity: .95; }
         .attr-card .total { font-size: .95rem; font-weight: 800; margin-top: 3px; }
@@ -112,7 +112,7 @@
 
         /* ===== Linhagem (sub-raça) ===== */
         .aviso-subraca {
-            margin-top: 6px; font-size: .76rem; color: #f0c56b;
+            margin-top: 6px; font-size: .76rem; color: var(--gold);
             background: rgba(240,197,107,.1); border: 1px solid rgba(240,197,107,.4);
             border-radius: 8px; padding: 6px 10px;
         }
@@ -124,11 +124,11 @@
             display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
             background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16);
             border-left: 3px solid var(--c4); border-radius: 8px;
-            color: #eaf2fa; padding: 11px 14px; margin-bottom: 7px; cursor: pointer; font-size: .92rem;
+            color: var(--text); padding: 11px 14px; margin-bottom: 7px; cursor: pointer; font-size: .92rem;
         }
         .subraca-op:hover { background: rgba(255,255,255,.12); }
         .subraca-op span { flex: 1; }
-        .subraca-op small { color: #8fb3cf; font-size: .72rem; }
+        .subraca-op small { color: var(--text-2); font-size: .72rem; }
         .subraca-op small.ok { color: #8fe0a0; font-weight: 700; }
         .subraca-op.wip { border-left-color: #8fa3b5; opacity: .82; }
 
@@ -140,7 +140,7 @@
             background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.14);
             border-left: 3px solid var(--rescor, #8fa3b5);
             border-radius: 8px; padding: 9px 11px; cursor: pointer;
-            color: #e8f0f8; font-size: .86rem; text-align: left; transition: .2s;
+            color: var(--text); font-size: .86rem; text-align: left; transition: .2s;
         }
         .res-chip:hover { background: rgba(255,255,255,.08); }
         .res-chip .res-nivel {
@@ -148,7 +148,7 @@
             background: var(--rescor, #8fa3b5); color: #10161f;
             border-radius: 10px; padding: 2px 8px; white-space: nowrap;
         }
-        .res-chip .res-reducao { display: block; font-size: .68rem; color: #9fc0da; margin-top: 2px; }
+        .res-chip .res-reducao { display: block; font-size: .68rem; color: var(--text-2); margin-top: 2px; }
         .res-painel {
             position: absolute; z-index: 40; top: calc(100% + 4px); left: 0; right: 0;
             background: #10192a; border: 1px solid var(--c3); border-radius: 10px;
@@ -158,23 +158,23 @@
         .res-painel button {
             display: flex; justify-content: space-between; gap: 8px; width: 100%;
             background: none; border: none; border-bottom: 1px solid rgba(255,255,255,.07);
-            color: #e8f0f8; padding: 8px 12px; cursor: pointer; font-size: .82rem; text-align: left;
+            color: var(--text); padding: 8px 12px; cursor: pointer; font-size: .82rem; text-align: left;
         }
         .res-painel button:hover { background: rgba(255,255,255,.1); }
-        .res-painel button small { color: #9fc0da; }
+        .res-painel button small { color: var(--text-2); }
         .pericia {
             display: flex; align-items: center; gap: 8px;
             background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.1);
             border-radius: 9px; padding: 7px 11px;
         }
-        .pericia .pnome { flex: 1; font-size: .87rem; color: #dce8f2; }
-        .pericia .escala { font-size: .62rem; color: #8fb3cf; background: rgba(255,255,255,.08); border-radius: 10px; padding: 1px 7px; }
+        .pericia .pnome { flex: 1; font-size: .87rem; color: var(--text); }
+        .pericia .escala { font-size: .62rem; color: var(--text-2); background: rgba(255,255,255,.08); border-radius: 10px; padding: 1px 7px; }
         .pericia input {
             width: 56px; background: rgba(0,0,0,.35); border: 1px solid var(--c2);
             color: var(--c4); border-radius: 6px; text-align: center; font-weight: 700; padding: 3px;
         }
-        .pericia.editada input { border-color: #f0c56b; }
-        .pericia .reset { cursor: pointer; color: #f0c56b; font-size: .8rem; display: none; border: none; background: none; }
+        .pericia.editada input { border-color: var(--gold); }
+        .pericia .reset { cursor: pointer; color: var(--gold); font-size: .8rem; display: none; border: none; background: none; }
         .pericia.editada .reset { display: inline; }
 
         /* Boards (poderes / ataques / inventário) */
@@ -189,7 +189,7 @@
             text-transform: uppercase; color: #0d1520; background: var(--tag, var(--c3));
             border-radius: 10px; padding: 2px 9px; margin-bottom: 7px;
         }
-        .tcard h4 { font-size: .98rem; color: #fff; font-family: 'Cinzel', serif; margin: 0 0 6px; }
+        .tcard h4 { font-size: .98rem; color: var(--text); font-family: 'Cinzel', serif; margin: 0 0 6px; }
         .tcard .resumo { color: var(--c4); font-weight: 700; font-size: .86rem; margin-bottom: 6px; }
         .tcard .efeito { font-size: .82rem; color: #c9d9e8; line-height: 1.45; max-height: 150px; overflow-y: auto; }
         .tcard .efeito p { margin-bottom: 6px; }
@@ -199,10 +199,10 @@
         .tcard .auto-selo { font-size: .62rem; color: #7fd08a; letter-spacing: 1px; }
         .filtros { display: flex; gap: 7px; flex-wrap: wrap; }
         .filtro {
-            border: 1px solid var(--c3); background: transparent; color: #b9d3e6;
+            border: 1px solid var(--c3); background: transparent; color: var(--text-2);
             border-radius: 14px; padding: 3px 12px; font-size: .74rem; cursor: pointer; transition: .2s;
         }
-        .filtro.ativo { background: var(--c4); color: #14202e; border-color: var(--c4); font-weight: 700; }
+        .filtro.ativo { background: var(--c4); color: var(--text-on-gold); border-color: var(--c4); font-weight: 700; }
 
         /* Cargas */
         .cargas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 640px; }
@@ -217,7 +217,7 @@
         .carga .valores { display: flex; align-items: center; justify-content: center; gap: 4px; }
         .carga .valores input {
             width: 54px; background: rgba(0,0,0,.35); border: 1px solid var(--c2);
-            color: #fff; border-radius: 6px; text-align: center; font-weight: 700; padding: 2px;
+            color: var(--text); border-radius: 6px; text-align: center; font-weight: 700; padding: 2px;
         }
         .carga .rm { position: absolute; top: 4px; right: 7px; background: none; border: none; color: #ff9b9b; cursor: pointer; font-size: .8rem; }
 
@@ -237,31 +237,31 @@
         }
         html[data-theme="dark"] .modal-wnj { background: #12151c; }
         .modal-wnj h3 { font-family: 'Cinzel', serif; color: var(--c4); font-size: 1.2rem; margin-bottom: 14px; }
-        .modal-wnj label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: #9fc0da; margin: 10px 0 4px; }
+        .modal-wnj label { display: block; font-size: .74rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); margin: 10px 0 4px; }
         .modal-wnj input, .modal-wnj select {
             width: 100%; background: rgba(0,0,0,.32); border: 1px solid var(--c2);
-            color: #fff; border-radius: 8px; padding: 9px 11px;
+            color: var(--text); border-radius: 8px; padding: 9px 11px;
         }
-        .modal-wnj select option { background: #14202e; }
+        .modal-wnj select option { background: var(--text-on-gold); }
         .rt-bar { display: flex; gap: 5px; margin-bottom: 4px; }
         .rt-bar button {
-            background: rgba(255,255,255,.1); border: 1px solid var(--c2); color: #dce8f2;
+            background: rgba(255,255,255,.1); border: 1px solid var(--c2); color: var(--text);
             border-radius: 6px; width: 32px; height: 28px; cursor: pointer; font-size: .8rem;
         }
         .rt-editor {
             min-height: 110px; background: rgba(0,0,0,.32); border: 1px solid var(--c2);
-            border-radius: 8px; padding: 10px 12px; color: #fff; font-size: .9rem;
+            border-radius: 8px; padding: 10px 12px; color: var(--text); font-size: .9rem;
         }
         .rt-editor:focus { outline: none; border-color: var(--c4); }
         .modal-acoes { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
 
         /* Popup de evolução */
         .evo-pop { text-align: center; }
-        .evo-pop .estrelas { font-size: 2.2rem; color: var(--c4); text-shadow: 0 0 18px rgba(253,245,170,.6); }
+        .evo-pop .estrelas { font-size: 2.2rem; color: var(--c4); text-shadow: 0 0 18px color-mix(in srgb, var(--gold) 60%, transparent); }
         .evo-pop h3 { margin-top: 6px; }
         .evo-pop .ganhos {
             text-align: left; background: rgba(0,0,0,.25); border: 1px solid var(--c2);
-            border-radius: 10px; padding: 14px 16px; margin: 14px 0; font-size: .88rem; color: #dce8f2;
+            border-radius: 10px; padding: 14px 16px; margin: 14px 0; font-size: .88rem; color: var(--text);
             max-height: 300px; overflow-y: auto;
         }
         .evo-pop .ganhos strong { color: var(--c4); }
@@ -269,7 +269,7 @@
 
         .rodape-criar { text-align: center; margin-top: 10px; }
         .rodape-criar .btn-wnj { font-size: 1.05rem; padding: 14px 44px; }
-        .aviso-inline { color: #8fb3cf; font-size: .8rem; }
+        .aviso-inline { color: var(--text-2); font-size: .8rem; }
 
         /* Foto maior no modo edição (Usar personagem) */
         body.modo-edicao .foto-box { flex-basis: 240px; }
@@ -286,7 +286,7 @@
             border-radius: 18px; overflow: hidden;
             position: relative; display: flex; flex-direction: column;
             border: 6px solid var(--vc-acento, var(--c3));
-            background: linear-gradient(170deg, var(--vc-f1, #113F67), var(--vc-f2, #081e33));
+            background: linear-gradient(170deg, var(--vc-f1, var(--bg)), var(--vc-f2, #081e33));
             box-shadow: 0 24px 70px rgba(0,0,0,.7), 0 0 40px var(--vc-brilho, rgba(88,160,200,.35));
         }
         .view-card.animado {
@@ -313,11 +313,11 @@
         .view-titulo {
             font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700;
             color: var(--vc-acento, var(--c4)); letter-spacing: 1px;
-            text-shadow: 0 0 14px var(--vc-brilho, rgba(253,245,170,.5));
+            text-shadow: 0 0 14px var(--vc-brilho, color-mix(in srgb, var(--gold) 50%, transparent));
         }
-        .view-nome { color: #fff; font-size: .98rem; margin-top: 3px; letter-spacing: .5px; }
-        .view-nome.destaque { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: var(--vc-acento, var(--c4)); text-shadow: 0 0 14px var(--vc-brilho, rgba(253,245,170,.5)); }
-        .view-rank { color: #cfe1f0; font-size: .78rem; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
+        .view-nome { color: var(--text); font-size: .98rem; margin-top: 3px; letter-spacing: .5px; }
+        .view-nome.destaque { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: var(--vc-acento, var(--c4)); text-shadow: 0 0 14px var(--vc-brilho, color-mix(in srgb, var(--gold) 50%, transparent)); }
+        .view-rank { color: var(--text); font-size: .78rem; letter-spacing: 2px; margin-top: 6px; text-transform: uppercase; }
         .view-attrs { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
         .view-attrs span {
             border: 1px solid; border-radius: 14px; padding: 4px 14px;
@@ -366,7 +366,7 @@
                         <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
                         <div class="campo"><label>Título</label>
                             <div style="display:flex;gap:6px">
-                                <select id="f-titulo-artigo" style="flex:0 0 84px;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px 6px">
+                                <select id="f-titulo-artigo" style="flex:0 0 84px;background:rgba(0,0,0,.32);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:9px 6px">
                                     <option value="">Nada</option>
                                     <option value="O">O</option>
                                     <option value="A">A</option>
@@ -635,15 +635,15 @@
     <div class="overlay" id="ov-evo-menu">
         <div class="modal-wnj">
             <h3>⭐ Evoluir</h3>
-            <p style="color:#9fc0da;font-size:.88rem;margin-bottom:14px">Atual: <strong id="evo-atual" style="color:#fff"></strong></p>
+            <p style="color:var(--text-2);font-size:.88rem;margin-bottom:14px">Atual: <strong id="evo-atual" style="color: var(--text)"></strong></p>
             <button class="btn-wnj verde" id="evo-mais1" style="width:100%;justify-content:center">⭐ Subir 1 Estrela</button>
-            <div style="margin:18px 0 8px;color:#8fb3cf;font-size:.76rem;text-transform:uppercase;letter-spacing:2px;text-align:center">— ou salte direto para —</div>
+            <div style="margin:18px 0 8px;color:var(--text-2);font-size:.76rem;text-transform:uppercase;letter-spacing:2px;text-align:center">— ou salte direto para —</div>
             <div style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap">
                 <label style="flex:1;min-width:110px">Rank
-                    <select id="evo-rank" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px"></select>
+                    <select id="evo-rank" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:9px"></select>
                 </label>
                 <label style="flex:1;min-width:110px">Estrela
-                    <select id="evo-estrela" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:9px"></select>
+                    <select id="evo-estrela" style="width:100%;background:rgba(0,0,0,.32);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:9px"></select>
                 </label>
                 <button class="btn-wnj ouro" id="evo-saltar">Ir →</button>
             </div>

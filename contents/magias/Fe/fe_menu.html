@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caminho da Fé - Luxsandoria</title>
@@ -15,9 +16,9 @@
 
         .fe-header {
             padding: 70px 0;
-            background: linear-gradient(180deg, #ffffff 0%, #fdf5aa 100%);
-            border-bottom: 4px solid #fdf5aa;
-            text-shadow: 0 0 10px rgba(253, 245, 170, 0.8);
+            background: linear-gradient(180deg, #ffffff 0%, var(--gold) 100%);
+            border-bottom: 4px solid var(--gold);
+            text-shadow: 0 0 10px color-mix(in srgb, var(--gold) 80%, transparent);
             color: #8b6d11;
         }
 
@@ -25,13 +26,13 @@
         .fe-base-card {
             display: flex;
             background: #ffffff;
-            border: 2px solid #fdf5aa;
+            border: 2px solid var(--gold);
             border-radius: 20px;
             overflow: hidden;
             text-decoration: none;
             transition: all 0.5s ease;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(253, 245, 170, 0.2);
+            box-shadow: 0 10px 30px color-mix(in srgb, var(--gold) 20%, transparent);
             min-height: 280px;
         }
 
@@ -56,7 +57,7 @@
         .fe-base-card:hover {
             border-color: #ffd700;
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(253, 245, 170, 0.4);
+            box-shadow: 0 15px 40px color-mix(in srgb, var(--gold) 40%, transparent);
         }
 
         .fe-base-card:hover .fe-base-img { filter: sepia(0) brightness(1.2); }
@@ -64,7 +65,7 @@
         /* Divisor Celestial */
         .fe-divider {
             height: 4px;
-            background: linear-gradient(90deg, transparent, #fdf5aa, #ffd700, #fdf5aa, transparent);
+            background: linear-gradient(90deg, transparent, var(--gold), #ffd700, var(--gold), transparent);
             margin: 50px auto;
             width: 80%;
             border-radius: 50%;
@@ -73,7 +74,7 @@
         /* Botão de Orações */
         .prayer-btn {
             background: #ffffff;
-            border: 2px solid #fdf5aa;
+            border: 2px solid var(--gold);
             color: #8b6d11;
             padding: 20px;
             border-radius: 12px;
@@ -86,8 +87,8 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .prayer-btn:hover {
-            background: #fdf5aa;
-            color: #113F67;
+            background: var(--gold);
+            color: var(--bg);
             transform: scale(1.02);
         }
 
@@ -96,8 +97,8 @@
             position: relative;
             display: block;
             aspect-ratio: 9 / 16;
-            background-color: #fff;
-            border: 1px solid #fdf5aa;
+            background-color: var(--surface);
+            border: 1px solid var(--gold);
             border-radius: 15px;
             overflow: hidden;
             text-decoration: none;
@@ -115,7 +116,7 @@
             position: absolute;
             bottom: 0; width: 100%;
             padding: 25px 10px;
-            background: linear-gradient(to top, rgba(253, 245, 170, 1) 10%, rgba(255,255,255,0.8) 60%, transparent);
+            background: linear-gradient(to top, color-mix(in srgb, var(--gold) 100%, transparent) 10%, rgba(255,255,255,0.8) 60%, transparent);
             text-align: center;
         }
 
@@ -130,7 +131,7 @@
         .rank-card:hover {
             transform: scale(1.05);
             border-color: #ffd700;
-            box-shadow: 0 0 25px rgba(253, 245, 170, 0.6);
+            box-shadow: 0 0 25px color-mix(in srgb, var(--gold) 60%, transparent);
         }
 
         .rank-card:hover .rank-img { opacity: 1; transform: scale(1.1); }

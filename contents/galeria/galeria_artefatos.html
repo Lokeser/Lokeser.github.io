@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artefatos - Luxsandoria</title>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        :root { --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA; }
+        :root { --c1: var(--bg); --c2: var(--surface-2); --c3: var(--border-strong); --c4: var(--gold); }
         body { background-color: var(--c1) !important; color: var(--c4); }
 
         /* Estilos do Filtro */
@@ -33,7 +33,7 @@
             overflow: hidden; position: relative; text-decoration: none; display: block; transition: 0.4s;
             background-size: cover; background-position: center;
         }
-        .artifact-card:hover { transform: translateY(-5px); border-color: var(--c4); box-shadow: 0 0 20px rgba(253, 245, 170, 0.2); }
+        .artifact-card:hover { transform: translateY(-5px); border-color: var(--c4); box-shadow: 0 0 20px color-mix(in srgb, var(--gold) 20%, transparent); }
 
         /* Overlay para o texto ficar legível sobre a imagem de fundo */
         .artifact-overlay {
@@ -45,7 +45,7 @@
             position: absolute; bottom: 0; width: 100%; padding: 15px; text-align: center; z-index: 2;
         }
         .artifact-name { color: var(--c4); font-family: 'Cinzel', serif; font-size: 1rem; margin: 0; text-shadow: 0 2px 4px #000; }
-        .artifact-tag { font-size: 0.65rem; color: #fff; text-transform: uppercase; text-shadow: 0 1px 2px #000; }
+        .artifact-tag { font-size: 0.65rem; color: var(--text-sobre-arte); text-transform: uppercase; text-shadow: 0 1px 2px #000; }
         .hidden { display: none; }
     </style>
 </head>

@@ -4,47 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Personagem - Luxsandoria</title>
-    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);document.documentElement.setAttribute('data-theme', m?decodeURIComponent(m[1]):'blue');})();</script>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA; }
+        :root { --c1: var(--bg); --c2: var(--surface-2); --c3: var(--border-strong); --c4: var(--gold); }
         body {
-            background: radial-gradient(circle at top, #1d4267, var(--c1) 70%);
+            background: radial-gradient(circle at top, var(--bg-alt), var(--c1) 70%);
             min-height: 100vh;
-            color: #eaf2fa;
+            color: var(--text);
             font-family: 'Lato', sans-serif;
         }
         html[data-theme="dark"] body {
-            background: radial-gradient(circle at top, #16202c, #0b0d12 70%);
+            background: radial-gradient(circle at top, #16202c, var(--bg) 70%);
         }
         .hub-hero { text-align: center; padding: 55px 20px 25px; }
         .hub-hero h1 {
             font-family: 'Cinzel', serif; color: var(--c4);
             letter-spacing: 5px; font-size: clamp(1.8rem, 5vw, 3rem);
-            text-shadow: 0 0 20px rgba(253,245,170,.35);
+            text-shadow: 0 0 20px color-mix(in srgb, var(--gold) 35%, transparent);
         }
-        .hub-hero p { color: #b9d3e6; }
+        .hub-hero p { color: var(--text-2); }
 
         .hub-options { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 20px; max-width: 900px; margin: 0 auto; }
         .hub-option {
             flex: 1 1 300px; max-width: 420px; text-align: center;
             background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
             border-top: 4px solid var(--c4); border-radius: 16px; padding: 40px 24px;
-            color: #eaf2fa; text-decoration: none; transition: .3s;
+            color: var(--text); text-decoration: none; transition: .3s;
             box-shadow: 0 10px 30px rgba(0,0,0,.35);
         }
-        .hub-option:hover { transform: translateY(-6px); border-color: var(--c4); color: #fff; box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 25px rgba(253,245,170,.2); }
+        .hub-option:hover { transform: translateY(-6px); border-color: var(--c4); color: var(--text); box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 25px color-mix(in srgb, var(--gold) 20%, transparent); }
         .hub-option .icone { font-size: 3rem; display: block; margin-bottom: 12px; }
         .hub-option h2 { font-family: 'Cinzel', serif; color: var(--c4); font-size: 1.4rem; }
-        .hub-option p { color: #9fc0da; font-size: .92rem; margin: 0; }
+        .hub-option p { color: var(--text-2); font-size: .92rem; margin: 0; }
 
         .galeria-titulo {
             font-family: 'Cinzel', serif; color: var(--c4); text-align: center;
             margin: 55px 0 8px; letter-spacing: 2px;
         }
-        .galeria-sub { text-align: center; color: #8fb3cf; margin-bottom: 28px; font-size: .9rem; }
+        .galeria-sub { text-align: center; color: var(--text-2); margin-bottom: 28px; font-size: .9rem; }
         .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
 
         .pcard {
@@ -63,7 +63,7 @@
         }
         .pcard .prank {
             position: absolute; top: 10px; right: 10px;
-            background: var(--c4); color: #14202e; font-weight: 700; font-size: .72rem;
+            background: var(--c4); color: var(--text-on-gold); font-weight: 700; font-size: .72rem;
             border-radius: 12px; padding: 3px 10px;
         }
         .pcard .acoes {
@@ -77,11 +77,11 @@
             font-weight: 700; cursor: pointer; transition: .2s; font-size: .9rem;
         }
         .acoes button:hover { transform: scale(1.06); }
-        .btn-usar { background: var(--c4); color: #14202e; }
-        .btn-baixar { background: var(--c3); color: #0b1626; }
-        .btn-excluir { background: #7a1f1f; color: #ffd9d9; }
+        .btn-usar { background: var(--c4); color: var(--text-on-gold); }
+        .btn-baixar { background: var(--c3); color: var(--text-on-royal); }
+        .btn-excluir { background: #7a1f1f; color: var(--text); }
 
-        .vazio { text-align: center; color: #8fb3cf; padding: 40px 20px; grid-column: 1 / -1; }
+        .vazio { text-align: center; color: var(--text-2); padding: 40px 20px; grid-column: 1 / -1; }
         .vazio .icone { font-size: 3rem; display: block; margin-bottom: 10px; opacity: .6; }
 
         /* ===== Barra da nuvem / recuperação ===== */
@@ -89,14 +89,14 @@
             max-width: 1100px; margin: 0 auto 22px; padding: 12px 18px;
             display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
             background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
-            border-radius: 12px; font-size: .86rem; color: #cfe1f0;
+            border-radius: 12px; font-size: .86rem; color: var(--text);
         }
         .barra-nuvem .barra-acoes { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
         .mini-btn {
-            background: transparent; border: 1px solid var(--c3); color: #cfe1f0;
+            background: transparent; border: 1px solid var(--c3); color: var(--text);
             border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: .8rem; font-weight: 700;
         }
-        .mini-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+        .mini-btn:hover { background: rgba(255,255,255,.12); color: var(--text); }
         .mini-btn.ativo { border-color: #4caf50; color: #8fe0a0; }
 
         .pcard .selo-nuvem {
@@ -104,33 +104,33 @@
             background: rgba(6,14,24,.85); border: 1px solid #4caf50; color: #8fe0a0;
             border-radius: 10px; padding: 2px 8px; font-size: .64rem; font-weight: 700;
         }
-        .acoes button.btn-nuvem { background: #2f6f4f; color: #dfffe9; }
+        .acoes button.btn-nuvem { background: #2f6f4f; color: var(--text); }
 
         /* ===== Modal ===== */
         .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .ov.aberto { display: flex; }
         .box {
-            width: 100%; max-width: 560px; background: #101a2b; border: 1px solid #3a63d2;
+            width: 100%; max-width: 560px; background: var(--surface-raised); border: 1px solid var(--royal);
             border-top: 4px solid var(--c4); border-radius: 14px; padding: 24px;
             box-shadow: 0 20px 60px rgba(0,0,0,.7);
         }
         .box h3 { font-family: 'Cinzel', serif; color: var(--c4); margin: 0 0 8px; }
-        .box .sub { color: #9fc0da; font-size: .84rem; margin-bottom: 14px; }
+        .box .sub { color: var(--text-2); font-size: .84rem; margin-bottom: 14px; }
         .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
         .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; }
         .b:hover { filter: brightness(1.12); }
-        .b.ouro { background: var(--c4); color: #14202e; }
-        .b.fantasma { background: transparent; color: #cfe1f0; border: 1px solid var(--c3); }
+        .b.ouro { background: var(--c4); color: var(--text-on-gold); }
+        .b.fantasma { background: transparent; color: var(--text); border: 1px solid var(--c3); }
         .rec-item {
             display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px;
             background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; font-size: .86rem;
         }
-        .rec-item small { color: #8fb3cf; margin-left: auto; font-size: .72rem; }
+        .rec-item small { color: var(--text-2); margin-left: auto; font-size: .72rem; }
 
         /* ===== Grupos e arraste ===== */
         .grupo-barra {
             grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
-            background: var(--gcor, #f0d17a); color: #14202e;
+            background: var(--gcor, var(--gold)); color: var(--text-on-gold);
             border-radius: 10px; padding: 9px 16px; cursor: grab;
             font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.05rem;
             box-shadow: 0 4px 14px rgba(0,0,0,.35); margin-top: 6px;
@@ -154,8 +154,8 @@
             background: #0d1b2c; color: var(--c4); border: 1px solid var(--c4);
             border-radius: 10px; padding: 11px 22px; cursor: pointer; font-weight: 700; font-size: .9rem;
         }
-        .btn-add-grupo:hover { background: var(--c4); color: #14202e; }
-        .dica-arraste { text-align: center; color: #8fb3cf; font-size: .78rem; margin: 0 0 14px; }
+        .btn-add-grupo:hover { background: var(--c4); color: var(--text-on-gold); }
+        .dica-arraste { text-align: center; color: var(--text-2); font-size: .78rem; margin: 0 0 14px; }
     </style>
 </head>
 <body>
@@ -196,11 +196,11 @@
     <div class="ov" id="ov-grupo">
         <div class="box" style="max-width:420px">
             <h3 id="grupo-titulo">Novo Grupo</h3>
-            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Nome do grupo</label>
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-2);margin:12px 0 5px">Nome do grupo</label>
             <input type="text" id="grupo-nome" placeholder="Ex: Grupo um"
-                   style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--c2);color:#fff;border-radius:8px;padding:10px 12px;font-size:.9rem">
-            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#8fb3cf;margin:12px 0 5px">Cor</label>
-            <input type="color" id="grupo-cor" value="#f0d17a"
+                   style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:10px 12px;font-size:.9rem">
+            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-2);margin:12px 0 5px">Cor</label>
+            <input type="color" id="grupo-cor" value="var(--gold)"
                    style="width:64px;height:40px;background:none;border:1px solid var(--c2);border-radius:8px;cursor:pointer">
             <div class="acoes">
                 <button class="b fantasma" data-fechar>Cancelar</button>
@@ -287,7 +287,7 @@
         function criarBarraGrupo(gr, idx) {
             const barra = document.createElement('div');
             barra.className = 'grupo-barra';
-            barra.style.setProperty('--gcor', gr.cor || '#f0d17a');
+            barra.style.setProperty('--gcor', gr.cor || 'var(--gold)');
             barra.draggable = true;
             barra.dataset.idx = idx;
             barra.innerHTML = '<span class="g-nome">' + (gr.nome || 'Grupo').replace(/</g, '&lt;') + '</span>' +
@@ -406,7 +406,7 @@
             const gr = idx != null ? layout[idx] : null;
             $('grupo-titulo').textContent = gr ? 'Editar Grupo' : 'Novo Grupo';
             $('grupo-nome').value = gr ? (gr.nome || '') : '';
-            $('grupo-cor').value = gr ? (gr.cor || '#f0d17a') : '#f0d17a';
+            $('grupo-cor').value = gr ? (gr.cor || 'var(--gold)') : 'var(--gold)';
             $('ov-grupo').classList.add('aberto');
         }
         $('btn-add-grupo').onclick = () => abrirGrupo(null);

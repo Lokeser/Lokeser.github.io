@@ -1,7 +1,7 @@
 <!--#poder id="hb_shadowarts" fonte="habilidade" estrela="1" nome="Shadow Arts"-->
 # Shadow Arts
 
-**Pré-Requisitos:** 7+ Mana & 3+ Inteligência  
+**Pré-Requisitos:** 7+ Mana & 3+ Intelecto  
 
 Habilidade focada na manipulação da **Mana Residual da Sombra**.
 

@@ -15,7 +15,7 @@
 
 ### Treino Solar
 - +5 em todas as perícias de Carisma  
-- +4 em Força
+- +4 em Corpo
 
 ### Conexão com o Sol
 - Como **Ação Bônus**, realize um teste de Carisma (CD = 18)  

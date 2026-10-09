@@ -1,4 +1,4 @@
-Pré-Requisitos: Des 3+
+Pré-Requisitos: Técnica 3+
 Como ação bônus, se move rapidamente para uma área desocupada.
 Distância: MAN Metros
 

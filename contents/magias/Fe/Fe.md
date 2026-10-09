@@ -56,7 +56,7 @@ Arredonde sempre para cima.
 
 * DR: d22
 * Fé: 7
-* Força: 6
+* Corpo: 6
 
 ******
 (22 + 7 + 6) / 2 = 17,5 → 18

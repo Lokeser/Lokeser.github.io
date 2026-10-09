@@ -1,7 +1,7 @@
 # Classe Avançada — Atirador Instintivo
 
 **Pré-Requisitos:**  
-*Destreza 7+* **ou** *Classe Combativo (Arqueiro) Avançado*
+*Técnica 7+* **ou** *Classe Combativo (Arqueiro) Avançado*
 
 **Ranks:** 8 a 4
 
@@ -43,11 +43,11 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 
 <!--#fim-->
 
-<!--#poder id="ca_atirador_instintivo_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Destreza de Flechas"-->
-### 2 Estrelas — Destreza de Flechas
+<!--#poder id="ca_atirador_instintivo_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Técnica de Flechas"-->
+### 2 Estrelas — Técnica de Flechas
 
 * Você **ignora a propriedade de recarga** das armas de longo alcance.
-* Recebe **+2 em Perícias de Destreza**.
+* Recebe **+2 em Perícias de Técnica**.
 
 ---
 
@@ -91,7 +91,7 @@ Escolha **apenas um**:
 ### 2 Estrelas — Patrulheiro Parkour
 
 * Recebe **+5 em Acrobacia**.
-* Caso possua **Destreza 8+**:
+* Caso possua **Técnica 8+**:
   * Pode subir em estruturas **sem gastar ação de movimento**.
 
 ---
@@ -261,7 +261,7 @@ Se passar:
 ## Tiro Voador (1I)
 
 Ataque à distância.  
-O alvo faz um teste de **Força** (CD = 10 + 1 por Rank + Destreza).
+O alvo faz um teste de **Corpo** (CD = 10 + 1 por Rank + Técnica).
 
 * Falha: fica **Caído** até o fim do seu próximo turno.
 
@@ -278,30 +278,30 @@ Se o ataque acertar:
 
 No turno em que atacar à distância:
 * Antes do disparo, pode realizar um ataque corpo-a-corpo como ação bônus.
-* Dano base: **d4 por 2 Destreza + Destreza**.
+* Dano base: **ERd4 + Técnica**.
 
 ---
 
 ## Tiro Pesado (1I)
 
 Ataque à distância.  
-Teste de **Força** do alvo (CD = 10 + 1 por Rank + Destreza).
+Teste de **Corpo** do alvo (CD = 10 + 1 por Rank + Técnica).
 
-* Falha: é arremessado **1 + Destreza metros**.
+* Falha: é arremessado **1 + Técnica metros**.
 
 ---
 
 ## Tiro de Cobertura (3I)
 
 Teste de **Acrobacia** contra inimigo em cobertura possível de atingir.  
-Se passar na CD de Destreza:
+Se passar na CD de Técnica:
 * O tiro **ignora a cobertura**.
 
 ---
 
 ## Saraivada (?I)
 
-Escolha inimigos dentro de um raio igual à sua **Destreza**.
+Escolha inimigos dentro de um raio igual à sua **Técnica**.
 * Cada inimigo custa **2 Pontos de Feitos**.
 * Todos podem ser atingidos no mesmo turno.
 
@@ -312,7 +312,7 @@ Escolha inimigos dentro de um raio igual à sua **Destreza**.
 Como ação bônus:
 * Dispare uma flecha aos céus mirando um quadrado.
 * Ao final do turno:
-  * Inimigos na área fazem teste de Destreza com **-1D**.
+  * Inimigos na área fazem teste de Técnica com **-1D**.
   * Falha: sofrem dano normal da flecha.
 * Você pode avisar o local como ação livre para remover a desvantagem.
 
@@ -329,7 +329,7 @@ Ataque intimidador que **não causa dano**.
 ## Tiro Desorientador (1I)
 
 Se acertar:
-* Teste de **Sabedoria** (CD = 10 + ER + Destreza).
+* Teste de **Sabedoria** (CD = 10 + ER + Técnica).
 * Falha: **Ofuscado por 1d4 rodadas**.
 * Desprevenido: +1 rodada.
 
@@ -339,7 +339,7 @@ Se acertar:
 
 Se acertar:
 * Dano normal
-* Teste de Destreza:
+* Teste de Técnica:
   * Falha: **Enredado**
   * Inimigos Lentos têm **-1DR**.
 
@@ -348,7 +348,7 @@ Se acertar:
 ## Tiro Ricochete (1I)
 
 Ignora cobertura parcial.
-* Dano: normal + **1d4 por ER**.
+* Dano: normal + **ERd4**.
 * Pode atingir segundo alvo próximo causando metade do dano.
 
 ---
@@ -356,7 +356,7 @@ Ignora cobertura parcial.
 ## Flecha Relâmpago (1I)
 
 * **+2DR no Acerto**
-* Falha no teste de Constituição:
+* Falha no teste de Corpo:
   * **Tonto por 1 rodada**.
 
 ---
@@ -364,7 +364,7 @@ Ignora cobertura parcial.
 ## Tiro Supressivo (2I)
 
 Área de **3m de raio**.
-* Falha no teste de Destreza:
+* Falha no teste de Técnica:
   * Sofre dano normal
   * **Lento por 1 rodada**
 
@@ -377,14 +377,14 @@ Como ação bônus:
 * Falha:
   * Fica **Desprevenido** contra seu próximo ataque.
 * Se acertar:
-  * **+1d6 por ER**.
+  * **+ERd6**.
 
 ---
 
 ## Tiro Ancestral (2I)
 
 * Ignora **Resistência I**
-* Dano: normal + **1d8 por ER**
+* Dano: normal + **ERd8**
 * Projétil é **mágico**.
 
 ---
@@ -395,7 +395,7 @@ Teste de Acrobacia (CD 15):
 * Move-se **6m** sem ataques de oportunidade.
 * Próximo ataque:
   * **+1 no Acerto**
-  * **+1d4 por ER**.
+  * **+ERd4**.
 
 ---
 
@@ -403,7 +403,7 @@ Teste de Acrobacia (CD 15):
 
 * **-2 na Margem Crítica**
 * Crítico:
-  * **+1d8 por ER**
+  * **+ERd8**
   * **Sangrando I**
 
 ---
@@ -413,6 +413,6 @@ Teste de Acrobacia (CD 15):
 Aliados em **6m**:
 * **+1DR em Ataques e Percepção**
 * Inimigos:
-  * Teste de Destreza ou sofrem dano normal.
+  * Teste de Técnica ou sofrem dano normal.
 
 ---

@@ -27,6 +27,7 @@ A Magia de Água não vence pela força do golpe, e sim pelo **fluxo de Magícul
 | **Manipulação Livre** | O ataque básico do elemento. Custa **1 Magícula**, ignorado em acerto crítico. |
 | **Foco de Mana** | Um ponto de mana do elemento, criado no campo a partir do Rank 8. |
 | **SuperConjurar** | Pague o **dobro** de Magículas de uma técnica para ativar o efeito *SuperConjurar* dela. |
+| **Dado Máximo** | Cada dado do **ERdX** que tirar o valor máximo soma a **Mana** de novo no dano. |
 | **Artes da Magia** | No Rank 9 você escolhe a sua **Arte** — a subclasse que define o seu estilo. |
 
 > Nenhum poder desta magia altera o Dado de Magia ou a CD Mágica. Bônus aumentam dano, área, duração e efeitos — a regra de acerto e de resistência é sempre esta.
@@ -54,7 +55,7 @@ Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, pe
 - **Custo:** 1 Magícula *(ignorado em acerto crítico)*
 - **Teste:** Dado de Magia
 - **Alcance:** Médio (6m)
-- **Dano:** **1d6 por 2 Mana + Mana** (Água)
+- **Dano:** **ERd6 + Mana** (Água)
 
 **Ao acertar:** drena **1 Magícula** do alvo para o seu **Reservatório da Maré**.  
 **Crítico:** drena **1d3 + ER** Magículas em vez disso.

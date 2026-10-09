@@ -19,3 +19,5 @@ Rano 5: DR =  28, 29 ou 30
 Rano 4: DR =  30, 31 ou 32
 
 Rano 3: DR =  33, 34 ou 35
+
+**Ordem de resolução:** some os dados, some o bônus de **Dado Máximo** (veja Eficiência de Rank) e só então dobre o total, caso seja um crítico.

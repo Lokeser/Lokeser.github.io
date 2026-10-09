@@ -14,7 +14,7 @@ Após acertar:
 
 ### DeathSteal
 Reação:
-- Teste de Destreza ou Mana
+- Teste de Técnica ou Mana
 - Executa o alvo se passar
 - Alcance curto
 

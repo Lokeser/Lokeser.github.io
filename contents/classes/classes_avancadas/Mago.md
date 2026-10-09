@@ -1,7 +1,7 @@
 # Mago  
 *Classe Avançada*
 
-**Pré-Requisitos:** 5+ em Mana, 5+ em Inteligência **OU** Acadêmico Avançado  
+**Pré-Requisitos:** 5+ em Mana, 5+ em Intelecto **OU** Acadêmico Avançado  
 
 O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apenas da Mana, mas da capacidade de **entender, reorganizar e executar múltiplos processos mágicos simultaneamente**, transformando conhecimento em supremacia arcana.
 
@@ -21,7 +21,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 
 <!--#poder id="ca_mago_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐ 2 Estrelas — Conhecimento Arcano"-->
 ### ⭐⭐ 2 Estrelas — Conhecimento Arcano
-- Suas magias causam **dano adicional igual à sua Inteligência**.
+- Suas magias causam **dano adicional igual ao seu Intelecto**.
 
 ---
 
@@ -50,10 +50,10 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 
 <!--#poder id="ca_mago_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Reorganizar Conhecimento"-->
 ### ⭐ 1 Estrela — Reorganizar Conhecimento
-- Quando tirar **1 a 5** em um teste de **Inteligência, Sabedoria ou Carisma**, você pode:
-  - Re-rolar o dado usando **Inteligência no lugar do atributo original**
+- Quando tirar **1 a 5** em um teste de **Intelecto, Sabedoria ou Carisma**, você pode:
+  - Re-rolar o dado usando **Intelecto no lugar do atributo original**
   - Deve aceitar o novo resultado.
-- **Usos por dia:** iguais à sua **Inteligência**.
+- **Usos por dia:** iguais ao seu **Intelecto**.
 
 ---
 
@@ -73,7 +73,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 ### ⭐ 1 Estrela — Sabedoria Desbalanceada
 - **Vezes por dia:** iguais à sua **Mana**.  
 - Sempre que realizar um **teste de perícia de Sabedoria**, pode adicionar:
-  - **Bônus = metade da sua Inteligência + 1** *(mínimo 2)*.
+  - **Bônus = metade do seu Intelecto + 1** *(mínimo 2)*.
 
 ---
 
@@ -125,7 +125,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 <!--#poder id="ca_mago_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="⭐⭐ 2 Estrelas — Eterno Aluno"-->
 ### ⭐⭐ 2 Estrelas — Eterno Aluno
 - Sempre que **qualquer atributo** seu aumentar **permanentemente**, sua:
-  - **Inteligência também aumenta permanentemente**
+  - **Intelecto também aumenta permanentemente**
   - O valor acompanha o aumento original.
 
 ---

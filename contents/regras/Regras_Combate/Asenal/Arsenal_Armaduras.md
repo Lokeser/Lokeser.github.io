@@ -6,13 +6,13 @@ As Armaduras fornecem proteção defensiva aos personagens, aumentando a Classe 
 
 ## Armadura Leve
 
-**Pré-Requisitos:** Força 1  
+**Pré-Requisitos:** Corpo 1  
 
 **Penalidades:**  
-- Não perde Destreza  
+- Não perde Técnica  
 - Nenhuma penalidade de deslocamento  
 
-A Armadura Leve favorece mobilidade e agilidade, sendo ideal para personagens focados em Destreza.
+A Armadura Leve favorece mobilidade e agilidade, sendo ideal para personagens focados em Técnica.
 
 ### Classe de Armadura por Qualidade
 
@@ -21,16 +21,16 @@ A Armadura Leve favorece mobilidade e agilidade, sendo ideal para personagens fo
 - **Ornamentada:** +3 CA  
 - **Superior:** +4 CA  
 - **Lendária:**  
-  - Concede CA e outros bônus baseados na **Destreza** do usuário  
+  - Concede CA e outros bônus baseados na **Técnica** do usuário  
 
 ---
 
 ## Armadura Média
 
-**Pré-Requisitos:** Força 2  
+**Pré-Requisitos:** Corpo 2  
 
 **Penalidades:**  
-- –3 em Destreza  
+- –3 em Técnica  
 - –3m de Deslocamento  
 
 A Armadura Média equilibra proteção e mobilidade, oferecendo também **redução de dano**.
@@ -56,16 +56,16 @@ A Armadura Média equilibra proteção e mobilidade, oferecendo também **reduç
   - –4 de Dano  
 
 - **Lendária:**  
-  - Concede CA e outros bônus baseados em **Constituição ou Força**  
+  - Concede CA e outros bônus baseados em **Corpo**  
 
 ---
 
 ## Armadura Pesada
 
-**Pré-Requisitos:** Força 3  
+**Pré-Requisitos:** Corpo 3  
 
 **Penalidades:**  
-- –5 em Destreza  
+- –5 em Técnica  
 - –10m de Deslocamento  
 
 A Armadura Pesada oferece máxima proteção física, ao custo severo de mobilidade.
@@ -91,12 +91,12 @@ A Armadura Pesada oferece máxima proteção física, ao custo severo de mobilid
   - –10 de Dano  
 
 - **Lendária:**  
-  - Concede CA e outros bônus baseados em **Constituição**  
+  - Concede CA e outros bônus baseados em **Corpo**  
 
 ---
 
 ## Observações Gerais
 
 - Reduções de dano concedidas por armaduras **não se aplicam a Dano Anômalo**.  
-- Penalidades de Destreza afetam testes, perícias e qualquer mecânica dependente desse atributo.  
+- Penalidades de Técnica afetam testes, perícias e qualquer mecânica dependente desse atributo.  
 - Armaduras Lendárias podem possuir efeitos únicos adicionais definidos pelo Mestre ou pelo sistema.

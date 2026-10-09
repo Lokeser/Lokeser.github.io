@@ -14,8 +14,8 @@ Você assume uma **Forma Vampírica**.
 - Seus ataques curam **1 + Raça**
 - Recebe:
   - +2 Mana
-  - +2 Força
-  - +2 Destreza
+  - +2 Corpo
+  - +2 Técnica
 
 ---
 

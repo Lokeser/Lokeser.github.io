@@ -12,7 +12,7 @@
 
 **Categoria:** Espadão Colossal
 **Tipo de Dano:** Magi-Cortante
-**Atributo de Escala:** Mana & Força
+**Atributo de Escala:** Mana & Corpo
 
 ---
 
@@ -22,13 +22,13 @@ Uma arma colossal e assimétrica, forjada a partir da carapaça de uma serpe pri
 ---
 
 ## ⚙️ Atributos e Estatísticas
-* **Atributo Base (Modo Montante):** Força
-* **Atributo Base (Modo Chicote):** Mana & Força
+* **Atributo Base (Modo Montante):** Corpo
+* **Atributo Base (Modo Chicote):** Mana & Corpo
 * **Alcance:** Curto (Montante) / Longo (Chicote)
 
 ## 🗡️ Corte Pesado
-* **Acerto** DR+FOR+ER
-* **Dano** ERd18+18+FOR
+* **Acerto** DR+CORPO+ER
+* **Dano** ERd18+18+CORPO
 * **CARREGAR GOLPE** Como uma ação de ataque, pode carregar seu próximo ataque neste turno. Seu próximo ataque causa dano igual ao dobro do dano original. 
 * Isso pode ser repetido até 4x o Dano Original(Se tiver 4 ações de ataque).
 
@@ -62,10 +62,10 @@ Após a descarga de energia, a carapaça sofre fadiga e as juntas se separam, ma
 * **Recuperação:** A arma **não gera anticorpos** enquanto exausta. Ao fim da duração, as fibras se contraem e a arma volta ao Modo Montante com 0 cargas.
 
 ## 🗡️ Chicotada Pesado
-* **Acerto** **DR+FOR+MANA**
-* **Dano** **ERd12+MANA+FOR**
+* **Acerto** **DR+CORPO+MANA**
+* **Dano** **ERd12+MANA+CORPO**
 * **PÁ-PÁ-PÁ** Cada ataque que acertar em um alvo, role 1d4, em um 4, ele fica Tonto. Caso o alvo já esteja Tonto, ele fica Atordoado.
-* **Endureçendo** Quando faltar um turno para a arma se enrijescer novamente, seu dado de dano se torna **ERd18+18+MANA+FOR.**
+* **Endureçendo** Quando faltar um turno para a arma se enrijescer novamente, seu dado de dano se torna **ERd18+18+MANA+CORPO.**
 
 ---
 

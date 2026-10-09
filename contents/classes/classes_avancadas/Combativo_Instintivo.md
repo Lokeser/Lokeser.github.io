@@ -1,7 +1,7 @@
 # Classe Avançada — Combativo Instintivo
 
 **Pré-Requisitos:**  
-*10+ em Força ou Classe Combativo*
+*10+ em Corpo ou Classe Combativo*
 
 ---
 
@@ -203,7 +203,7 @@ O mestre de combate instintivo chega a um nível de poder onde sua presença no 
   Realize um **ataque com arma** como **Reação** para interceptar um ataque.
 
 - **Segunda Onda (1I):**  
-  Um corte libera uma **onda**, atingindo **2 inimigos** dentro do alcance, sem bônus de **Força ou Destreza**.
+  Um corte libera uma **onda**, atingindo **2 inimigos** dentro do alcance, sem bônus de **Corpo ou Técnica**.
 
 - **Montanha da Morte (2I):**  
   Causa **metade do dano original**, mas **retira resistência** do inimigo por **1d12 turnos**.

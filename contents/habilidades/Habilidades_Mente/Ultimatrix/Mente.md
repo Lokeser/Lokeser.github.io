@@ -1,7 +1,7 @@
 <!--#poder id="hb_mente" fonte="habilidade" nome="A Mente"-->
 # A Mente
 **Pré-requisitos:**  
-- Domínio da Inteligência  
+- Domínio do Intelecto  
 - Rank 3  
 
 ## Efeito

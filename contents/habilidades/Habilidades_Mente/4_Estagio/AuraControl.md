@@ -8,10 +8,10 @@ Permite manipular a aura de forma avançada:
 - **Sentir Aura:** Adiciona Aura à Percepção Passiva.  
 - **Intensificar Aura (2 turnos ou d4 turnos):** Intensifica ao máximo a aura usando Mana, causando efeitos mentais e debuffs:  
   - Dano mental a inimigos de Rank inferior com Magic Eye = Aura  
-  - Inimigos de Rank igual ou inferior: desvantagem em Destreza, Inteligência e Carisma  
+  - Inimigos de Rank igual ou inferior: desvantagem em Técnica, Intelecto e Carisma  
   - Monstros de Rank inferior fogem  
   - Criação de tremores:  
-    - Rank 6: escala 3,5 – falha em teste de CON = cair  
+    - Rank 6: escala 3,5 – falha em teste de CORPO = cair  
     - Rank 5: escala 5,5 – dano = 4x Aura  
     - Rank 4: escala 7 – destruição de construções até 1km, tremor em 100km, dano 8x Aura em 500m
 

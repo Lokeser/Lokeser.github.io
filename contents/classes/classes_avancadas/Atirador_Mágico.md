@@ -1,7 +1,7 @@
 # Classe Avançada — Atirador Mágico
 
 **Pré-Requisitos:**  
-*Mana 5+*, *Destreza 5+* **ou** *Classe Ladino*  
+*Mana 5+*, *Técnica 5+* **ou** *Classe Ladino*  
 *Mínimo de Mana: 2+*
 
 **Ranks:** 8 a 4
@@ -27,12 +27,12 @@ Enquanto outros atiram para acertar, o Atirador Mágico atira para **reescrever 
   * Fogo, Gelo, Fé, Anômalo, etc.
 
 **Acerto da Flecha Mágica:**
-DR + (Mana ÷ 2) + (Destreza ÷ 2)
+DR + (Mana ÷ 2) + (Técnica ÷ 2)
 
 make
 
 **Dano:**
-1d6 por 2 de Mana + Mana
+ERd6 + Mana
 
 
 
@@ -43,8 +43,8 @@ make
 
 <!--#fim-->
 
-<!--#poder id="ca_atirador_magico_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Destreza de Flechas"-->
-### 2 Estrelas — Destreza de Flechas
+<!--#poder id="ca_atirador_magico_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="2 Estrelas — Técnica de Flechas"-->
+### 2 Estrelas — Técnica de Flechas
 
 * Você **ignora a propriedade de recarga** das armas de longo alcance.
 * Recebe **+4 em testes com propósito de Prestidigitação**.
@@ -237,7 +237,7 @@ Evoluções **Ativas** exigem ativação prévia; Evoluções **Passivas** estã
 Ao acertar um tiro:
 * O alvo explode.
 * Inimigos em uma área igual à **Metade da sua Mana**:
-  * Teste de Destreza contra sua **CD de Mana**
+  * Teste de Técnica contra sua **CD de Mana**
   * Sucesso: metade do dano
   * Crítico: nenhum dano
 * Explosão causa dano igual a:
@@ -265,7 +265,7 @@ Metade do dano causado
 1d8 por Rank
 
 * Se acertar:
-  * Alvo faz teste de Constituição contra sua **CD Mágica**
+  * Alvo faz teste de Corpo contra sua **CD Mágica**
   * Falha: é arremessado
 2 + Mana metros
 
@@ -287,7 +287,7 @@ Metade do dano causado
 ## Tiro de Desarme (Evolução Ativa)
 
 * Disparo preciso para remover equipamento.
-* O alvo faz teste de Constituição:
+* O alvo faz teste de Corpo:
   * Falha: o item equipado é **derrubado no chão**.
 
 ---

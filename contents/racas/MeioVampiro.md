@@ -88,7 +88,7 @@ Escolha **uma** característica:
 
 * **Garras Naturais**  
   Ataques naturais leves que causam  
-  **1d6 a cada 2 Técnica + Mana**.  
+  **ERd6 + Mana**.  
   Críticos deixam o alvo **Tonto** e **Sangrando**.
 
 * **Charme Vampírico**  

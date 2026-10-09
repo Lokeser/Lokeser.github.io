@@ -1,1 +1,1 @@
-1 Vez por dia, para cada Rank par. Sempre que você cair com 0 ou menos de vida, pode realizar um teste de Constituição, a Cd é 16(ela aumenta em +4 para cada vez adicional que cair), caso passe, você se levanta com uma quantidade de vida igual a sua constituição.
+1 Vez por dia, para cada Rank par. Sempre que você cair com 0 ou menos de vida, pode realizar um teste de Corpo, a Cd é 16(ela aumenta em +4 para cada vez adicional que cair), caso passe, você se levanta com uma quantidade de vida igual a seu Corpo.

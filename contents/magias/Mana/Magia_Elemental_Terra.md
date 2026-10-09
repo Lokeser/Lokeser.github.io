@@ -26,6 +26,7 @@ A Magia de Terra é o elemento de quem **segura a linha**. Cada golpe pesa nos p
 | **Manipulação Livre** | O ataque básico do elemento. Custa **1 Magícula**, ignorado em acerto crítico. |
 | **Foco de Mana** | Um ponto de mana do elemento, criado no campo a partir do Rank 8. |
 | **SuperConjurar** | Pague o **dobro** de Magículas de uma técnica para ativar o efeito *SuperConjurar* dela. |
+| **Dado Máximo** | Cada dado do **ERdX** que tirar o valor máximo soma a **Mana** de novo no dano. |
 | **Artes da Magia** | No Rank 9 você escolhe a sua **Arte** — a subclasse que define o seu estilo. |
 
 > Nenhum poder desta magia altera o Dado de Magia ou a CD Mágica. Bônus aumentam dano, área, duração e efeitos — a regra de acerto e de resistência é sempre esta.
@@ -52,7 +53,7 @@ Utiliza seu Núcleo para externar sua forma mágica. Após externar, você pode 
 - **Teste:** Dado de Magia
 - **Alcance:** Médio (6m)
 - **Componente:** Um punhado de terra
-- **Dano:** **1d8 por 2 Mana + Mana** (Terra, Concussório)
+- **Dano:** **ERd8 + Mana** (Terra, Concussório)
 
 **Ao acertar:** o deslocamento do alvo cai **ER x 2** metros até o fim do seu próximo turno.  
 **Crítico:** o alvo fica **Tonto** até o fim do seu próximo turno.

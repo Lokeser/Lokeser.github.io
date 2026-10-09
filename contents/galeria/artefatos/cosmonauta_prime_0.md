@@ -31,14 +31,14 @@ Ao ativar o MK-0, o usuário (Loke) tem seus atributos físicos e status vitais 
 ### 📊 1. STATUS DO CHASSI (Substituição Total)
 Enquanto pilotar a Cosmonauta Prime, ignore sua Ficha de Personagem original para os seguintes status. Use os valores abaixo:
 
-* **Força:** 14 (+1 por Turno de Combate Ativo, máx. 26)
-* **Constituição:** 20
-* **Destreza:** 12 (+1 a cada 5 Cargas Yura acumuladas)
+* **Corpo:** 14 (+1 por Turno de Combate Ativo, máx. 26)
+* **Corpo:** 20
+* **Técnica:** 12 (+1 a cada 5 Cargas Yura acumuladas)
 * **Vida Temporária (Blindagem):** 5000 PV (A armadura não cura; ela precisa ser reparada).
 * **CA (Classe de Armadura):** 35 Base (Escala com Cargas Azura).
 * **Deslocamento:** 28m (Voo/Terrestre).
 
-> **Protocolo de Sincronização:** A cada rodada que Loke mantém o combate (realiza pelo menos 1 ataque), a **Força** da armadura aumenta em **+1* e a **VT Atual** regenera **50 PV** (Auto-reparo da Tinta).
+> **Protocolo de Sincronização:** A cada rodada que Loke mantém o combate (realiza pelo menos 1 ataque), o **Corpo** da armadura aumenta em **+1* e a **VT Atual** regenera **50 PV** (Auto-reparo da Tinta).
 
 ---
 
@@ -82,7 +82,7 @@ A Cosmonauta Prime é pesada demais para o fluxo de tempo normal. Ela não usa A
 * **Custo:** 3 Ações Prime (Reduz com cargas).
 * **Dano:** **14d14** (Ânomalo) + **ER**.
 * **Geração:** Ganha **1 Carga Azura** e **1d4 Cargas Yura**.
-* **Efeito:** O alvo deve passar num Teste de Força (CD 10 + Força da Armadura) ou ser **Derrubado** e ficar **Imóvel** até o próximo turno dele.
+* **Efeito:** O alvo deve passar num Teste de Corpo (CD 10 + Corpo da Armadura) ou ser **Derrubado** e ficar **Imóvel** até o próximo turno dele.
 
 #### **Passiva: Horizonte de Eventos (Buffs por Carga Azura)**
 * **1+ Cargas:** +4m de Deslocamento de Voo por carga.
@@ -99,7 +99,7 @@ Como o piloto é um gênio tático sem mana, ele usa o combate para calcular pro
 
 #### **Habilidade: Cálculo de Probabilidade Real**
 * **Custo:** 0 Ações Prime (1 vez por rodada).
-* **Efeito:** Realize um teste de **Inteligência** (CD igual à CA do inimigo).
+* **Efeito:** Realize um teste de **Intelecto** (CD igual à CA do inimigo).
 * **Sucesso:** Você encontra uma falha na defesa ou padrão do inimigo. Escolha um efeito para durar até o início do seu próximo turno:
     * **Previsão de Movimento:** Recebe **+5 na CA** contra este inimigo específico.
     * **Ponto Cego:** Seus ataques contra este inimigo ignoram **Resistência** e margem de Crítico reduz em 1.
@@ -112,7 +112,7 @@ O verdadeiro poder da Cosmonauta Prime surge ao misturar as cargas vermelhas e r
 #### **Combo A: "Ciclotron Saphstar" (Ressonância)**
 * **Sequência:** Acertar *Punho Elétrico* ➔ Acertar *Punho Gravitacional* no mesmo turno.
 * **Efeito Automático:** Gera uma explosão de repulsão magnética. Todos os inimigos a 3m recebem **5d6 de Dano Anômalo** e são empurrados 6m.
-* **Bônus de Stats:** Aumenta a **Constituição** da armadura em **+2** permanentemente pela duração do combate.
+* **Bônus de Stats:** Aumenta o **Corpo** da armadura em **+2** permanentemente pela duração do combate.
 
 #### **Combo B: "Aperto da Singularidade"**
 * **Requisito:** Ter o inimigo Agarrado.
@@ -148,7 +148,7 @@ A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno s
 *Os pistões nas manoplas recuam e explodem para frente com força cinética.*
 * **Alcance:** Corpo a corpo.
 * **Dano:** **8d10** (Contundente) + **4d6** (Elemental do Cristal de Carga).
-* **Efeito:** O alvo deve passar num Teste de Defesa (**Constituição CD 25**) ou ser arremessado **2d100 metros** para trás.
+* **Efeito:** O alvo deve passar num Teste de Defesa (**Corpo CD 25**) ou ser arremessado **2d100 metros** para trás.
 
 #### **Lâmina Fantasma (Vibro-Corte)**
 *Uma lâmina vibratória invisível que corta ligações moleculares.*
@@ -175,7 +175,7 @@ A armadura não tem "Reação" padrão, ela reserva Ações Prime do seu turno s
 * **Custo:** **Toda a ⚡ Carga Yura restante** (Mínimo 5 para ativar).
 * **Área:** Raio de 10m.
 * **Dano:** **1d10** (Elétrico) por ponto de Carga gasto.
-* **Efeito:** Teste de Defesa (Constituição) ou alvo fica **Atordoado** e **Vulneráveis**.
+* **Efeito:** Teste de Defesa (Corpo) ou alvo fica **Atordoado** e **Vulneráveis**.
 
 ---
 

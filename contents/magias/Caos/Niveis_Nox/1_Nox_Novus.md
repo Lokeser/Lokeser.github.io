@@ -54,7 +54,7 @@ Aprenda **2 Rituais de Bruxa** que atendam aos pré-requisitos.
 
 Uma vez por dia, como uma ação, você libera uma explosão caótica em um raio de **10 metros**.
 
-* Todos os alvos realizam um **Teste de Defesa de Destreza**.
+* Todos os alvos realizam um **Teste de Defesa de Técnica**.
 * **Falha:** sofrem dano igual a **1d20 para cada 2 pontos de Caos**.
 
 Após o dano, role na **Tabela de Caos (d50)** e aplique o efeito a **todos os alvos**, incluindo você.
@@ -63,7 +63,7 @@ Após o dano, role na **Tabela de Caos (d50)** e aplique o efeito a **todos os a
 
 ### **40 PA — Corpo de Caos I**
 
-Você recebe **Vida adicional igual a d10 por ponto de Constituição**.
+Você recebe **Vida adicional igual a ERd10 + Corpo**.
 
 ---
 

@@ -11,7 +11,7 @@ Dedicou a vida a uma arte marcial esotérica que transcende o físico. Projeta s
 <!--#poder id="cs_combimag_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Técnica da Lâmina Imaginária"-->
 ### Técnica da Lâmina Imaginária
 
-Como Ação Padrão, manifesta uma lâmina invisível (forma à sua escolha). Alvos com ao menos −2 de Intelecto podem vê-la. O alvo faz teste de Mana contra sua CD Mágica (DR + Mana + ER); se falhar, perde ER d3 Magículas e fica **Desprevenido** até o fim do próximo turno. Se estiver **Machucado**, seus ataques aniquilam escudos mágicos e causam d10 per 2 Mana de dano em **Vida Temporária**.
+Como Ação Padrão, manifesta uma lâmina invisível (forma à sua escolha). Alvos com ao menos −2 de Intelecto podem vê-la. O alvo faz teste de Mana contra sua CD Mágica (DR + Mana + ER); se falhar, perde ER d3 Magículas e fica **Desprevenido** até o fim do próximo turno. Se estiver **Machucado**, seus ataques aniquilam escudos mágicos e causam ERd10 + Mana de dano em **Vida Temporária**.
 <!--#fim-->
 
 <!--#poder id="cs_combimag_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Postura de Reflexão"-->
@@ -42,7 +42,7 @@ Escolha o tipo de Lâmina:
 <!--#poder id="cs_combimag_r7e4" fonte="classe_avancada" rank="7" estrela="4" nome="Evolução da Lâmina Imaginária"-->
 ### Evolução da Lâmina Imaginária
 
-Consuma 5 Magículas e funda sua Aura à Lâmina: ganha um **ataque extra** e o alvo perde Vida Temporária igual a d10 per 2 Mana + ER (Machucado ainda aplica).
+Consuma 5 Magículas e funda sua Aura à Lâmina: ganha um **ataque extra** e o alvo perde Vida Temporária igual a ERd10 + Mana + ER (Machucado ainda aplica).
 <!--#fim-->
 
 ---

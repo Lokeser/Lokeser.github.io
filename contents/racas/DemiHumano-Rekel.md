@@ -84,7 +84,7 @@ Escolha **duas** características raciais:
   No **Rank 7**, o deslocamento em paredes torna‑se total.
 
 * **Chifres**
-  Ataque de perfuração causando **1d10 a cada 2 Corpo + Corpo**.
+  Ataque de perfuração causando **ERd10 + Corpo**.
   No turno do inimigo, ele pode realizar um **teste de Corpo** para se soltar.
   Se você errar o ataque, deve andar seu deslocamento em linha reta.
 
@@ -97,11 +97,11 @@ Escolha **duas** características raciais:
   Recebe **+2 pontos** para distribuir entre seus atributos.
 
 * **Garras Afiadas**
-  Ataques básicos tornam‑se **1d6 a cada 2 Corpo + Corpo** (Corte).
+  Ataques básicos tornam‑se **ERd6 + Corpo** (Corte).
   Acertos críticos causam **Sangramento**.
 
 * **Dentes Afiados**
-  Pode morder causando **1d4 a cada 1 Corpo + Corpo** (Perfuração).
+  Pode morder causando **ERd4 + Corpo** (Perfuração).
 
 * **Cauda**
   Pode tentar **derrubar** inimigos com um teste de Técnica ou utilizá‑la como ataque básico usando Técnica no acerto e no dano.

@@ -46,7 +46,7 @@ Aprenda esse ritual imediatamente.
 ---
 
 ### **140 PA — Corpo de Caos II**
-Receba **Vida igual a d12 por Constituição**.
+Receba **Vida igual a ERd12 + Corpo**.
 
 ---
 

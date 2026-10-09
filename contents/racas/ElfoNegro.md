@@ -79,7 +79,7 @@ Escolha **uma** das características abaixo:
   Esse movimento **não gera contra‑ataques**.
 
 * **Bestificação**
-  Suas presas causam dano igual a **1d8 a cada 2 Corpo + Corpo**.
+  Suas presas causam dano igual a **ERd8 + Corpo**.
   Recebe bônus em **Intimidação** igual à sua **ER**.
 
 ---

@@ -1,7 +1,7 @@
 # Classe Avançada — Combativo Mágico
 
 **Pré-Requisitos:**  
-*5+ em Mana* **e** *5+ em Destreza ou Força* **ou** *Classe Combativo*
+*5+ em Mana* **e** *5+ em Técnica ou Corpo* **ou** *Classe Combativo*
 
 ---
 
@@ -53,10 +53,10 @@
 ### 1 Estrela
 
 **Espada da Luz | Espada das Sombras:**
-* Se sua **Destreza > Força**:
+* Se sua **Técnica > Corpo**:
   * Recebe a **Espada da Luz**.
     * Pode realizar **um segundo ataque como Ação Bônus** enquanto empunhar sua Arma Favorita do Mago.
-* Se sua **Força > Destreza**:
+* Se seu **Corpo > Técnica**:
   * Recebe a **Espada das Sombras**.
     * Ataques com sua Arma Favorita do Mago causam **+1D de dano por ER**.
 
@@ -162,7 +162,7 @@ Escolha conforme o histórico de combate do personagem.
 
 Como **Ação de Movimento**, entra em uma postura de foco absoluto:
 * Até o fim do próximo turno:
-  * Só pode usar **Força, Destreza ou Mana**.
+  * Só pode usar **Corpo, Técnica ou Mana**.
   * Ataques com arma recebem **+1DR**.
   * Você recebe **+2 de CA**.
 
@@ -301,7 +301,7 @@ Como **Ação de Movimento**, entra em uma postura de foco absoluto:
 *(Reações rápidas)*
 
 * Como **Reação**, gaste **2 Mana**:
-  * Faça teste de Destreza contra o acerto do inimigo.
+  * Faça teste de Técnica contra o acerto do inimigo.
   * Se passar, evita o ataque e se move **2m**.
 * 1 vez por combate.
 

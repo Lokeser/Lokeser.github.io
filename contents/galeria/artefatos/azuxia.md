@@ -26,7 +26,7 @@ Azuxia não é apenas um objeto, é uma entidade com seus próprios atributos e 
 | **HP (Vida)** | **2XXX** | A tinta se regenera constantemente. |
 | **CA (Defesa)** | **CA do Portador + Reação** | Utiliza a CA base de Loke. |
 | **Mana** | **14** | Fonte de energia própria. |
-| **Inteligência** | **1** | Instinto protetor primitivo. |
+| **Intelecto** | **1** | Instinto protetor primitivo. |
 | **Sabedoria** | **4** | Percepção e autonomia. |
 
 ---
@@ -110,7 +110,7 @@ Tentáculos de tinta formam uma lança colossal que avança.
 
 #### ➤ Vórtice Lunar
 * **Efeito:** Gera uma singularidade que atrai inimigos em um raio de **3m** para o centro.
-* **Resistência:** Teste de Força (**CD 30**) para resistir.
+* **Resistência:** Teste de Corpo (**CD 30**) para resistir.
 * **Recarga:** Azura recebe **4 Cargas Gravitas** para cada alvo puxado com sucesso.
 
 #### ➤ Defesa Possessiva

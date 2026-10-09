@@ -57,7 +57,7 @@ A Manipulação Livre do Ki: o corpo inteiro concentrado em um único impacto.
 - **Ação:** Ataque
 - **Teste:** Dado de Magia
 - **Alcance:** Corpo a corpo
-- **Dano:** **1d8 por 2 Mana + Mana** (Ki)
+- **Dano:** **ERd8 + Mana** (Ki)
 
 **Crítico:** você recupera **1 Accel**.
 <!--#fim-->

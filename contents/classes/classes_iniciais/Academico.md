@@ -11,7 +11,7 @@
 ### Conhecimento Teórico I
 
 * Recebe **10 Pontos de Perícia** para distribuir entre:
-  * Inteligência
+  * Intelecto
   * Sabedoria
   * Carisma
 * Caso uma perícia receba **4 ou mais pontos** dessa habilidade:
@@ -49,7 +49,7 @@
 ### Fruto do Esforço
 
 * Escolha **um**:
-  * **+1 Inteligência**
+  * **+1 Intelecto**
   * **+1 Sabedoria**
   * **+1 Carisma**
 

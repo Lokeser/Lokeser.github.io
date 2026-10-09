@@ -27,7 +27,7 @@ num único corpo: seu maior tormento e sua mais terrível arma.
 
 > **Escala do sangue dourado:** a linhagem é **primariamente de Mana**, com a
 > **Técnica** governando a precisão de garras, voo e sopro (no lugar da antiga
-> Força/Destreza). O **Corpo** entra apenas como **terciário** — o corpo humano é
+> Corpo/Técnica). O **Corpo** entra apenas como **terciário** — o corpo humano é
 > frágil, e é a Forma Dracônica que o compensa.
 
 > A **Sabedoria** não é upável — cresce **+1 por Saga**. Os pontos raciais **não contam** para o teto de 20.
@@ -211,7 +211,7 @@ Você aprende a transformar **partes específicas do corpo**, mantendo o control
 
 | Parte | Efeito |
 | --- | --- |
-| **Braços/Garras** | Ataques desarmados causam **d6 per Mana** de dano Anômalo. |
+| **Braços/Garras** | Ataques desarmados causam **ERd6 + Mana** de dano Anômalo. |
 | **Asas** | Voo de 12 m. Não pode usar armaduras pesadas. |
 | **Olhos** | Visão no escuro perfeita (60 m), visão de calor (30 m), imune a ilusões visuais. |
 | **Garganta/Boca** | Usa o Jato de Ouro Derretido sem a Forma Completa. Recarga: 1 a cada 5 turnos. |

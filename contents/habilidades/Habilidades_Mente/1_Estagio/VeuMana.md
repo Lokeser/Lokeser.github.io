@@ -1,6 +1,6 @@
 ## Véu de Mana
 **Descrição:** Defesa mágica utilizando Manipulação Livre.  
-- **Vezes por dia:** Igual à Inteligência  
+- **Vezes por dia:** Igual ao Intelecto  
 - **Ativação:** Reação a ataque mágico  
 - **Custo:** 3 Magículas  
 - **Efeito:** Gire DR de Manipulação Livre + Mana e receba o valor como Vida Temporária até o final do próximo turno.  

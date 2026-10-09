@@ -7,52 +7,52 @@ Armas Exóticas são raras, culturais ou experimentais. Elas costumam possuir me
 ## Katana (Wohali)
 
 Tipo: Cortante, Perfurante  
-Atributo: Força, Destreza(*)  
+Atributo: Corpo, Técnica(*)  
 Requisitos para usar: Nenhum  
 
 Efeito:  
 Crítico causa **Sangramento**.  
-Caso seu tipo de classe seja Combate, utilize **Força** como bônus de dano.
+Caso seu tipo de classe seja Combate, utilize **Corpo** como bônus de dano.
 
 **Corte Forte**  
-Acerto: DR + For  
-Dano: d11 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd11 + Corpo  
 
 **Corte Rápido**  
-Acerto: DR + Des  
-Dano: d9 por 2 Des + Des  
+Acerto: DR + Técnica  
+Dano: ERd9 + Técnica  
 
 **Estocada Precisa**  
-Acerto: DR + (For/2 + Des/2)  
-Dano: d9 por 2 Des + Des  
+Acerto: DR + (Corpo/2 + Técnica/2)  
+Dano: ERd9 + Técnica  
 Efeito: Se o ataque superar a Defesa em 5 ou mais, ignora 2 de CA do alvo.
 
-(*) Destreza só se aplica à Estocada.
+(*) Técnica só se aplica à Estocada.
 
 ---
 
 ## Foice Longa
 
 Tipo: Cortante  
-Atributo: Força  
-Requisitos: Classe de Combate ou 10+ em Força  
+Atributo: Corpo  
+Requisitos: Classe de Combate ou 10+ em Corpo  
 
 Efeito:  
 Alcance: Curto  
 **Colheita Mortal:** Ataques visam causar terror e exaustão.
 
 **Golpe do Ceifador**  
-Acerto: DR + For  
-Dano: d12 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd12 + Corpo  
 Efeito: Crítico aplica **Apavorado** (1d3 turnos) e **Sangramento**.
 
 **Ceifada Ampla**  
 Vezes por dia: igual à sua Eficiência de Rank  
-Requisitos: 8+ For  
+Requisitos: 8+ Corpo  
 
 Como Ação Padrão, ataca todos os inimigos em um cone de 3m.  
-Teste: Defesa de Destreza contra CD (10 + For + ER)  
-Dano: d10 por 2 For + For (metade em sucesso)  
+Teste: Defesa de Técnica contra CD (10 + Corpo + ER)  
+Dano: ERd10 + Corpo (metade em sucesso)  
 Crítico: Aplica **Caído**.
 
 **Marca da Morte**  
@@ -64,14 +64,14 @@ Ao acertar Ceifada Ampla, pode gastar 2 magículas para realizar um Golpe do Cei
 ## Glaive (Wohali)
 
 Tipo: Cortante  
-Atributo: Força  
+Atributo: Corpo  
 Requisitos: Classe de Combate  
 
 Efeito: Ataques têm **Alcance Curto**.
 
 **Corte de Glaive**  
-Acerto: DR + For  
-Dano: d7 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd7 + Corpo  
 Efeito: Crítico aplica Sangramento e permite atingir um segundo inimigo a até 3m.
 
 **Corte Meia-Lua**  
@@ -87,20 +87,20 @@ Quando um inimigo errar um ataque corpo a corpo contra você, pode realizar imed
 ## Espada da Aliança Norte
 
 Tipo: Cortante, Perfurante  
-Atributo: Força  
+Atributo: Corpo  
 Requisitos: Classe de Combate  
 
 Descrição:  
 Espada curta e robusta, inspirada nas lâminas romanas, feita para combates fechados e formações.
 
 **Estocada de Formação**  
-Acerto: DR + For  
-Dano: d10 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd10 + Corpo  
 Efeito: Se houver um aliado adjacente ao alvo, causa +1 dado de dano.
 
 **Corte de Escudo**  
-Acerto: DR + For  
-Dano: d8 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd8 + Corpo  
 Efeito: Reduz a CA do alvo em 2 até o início do próximo turno.
 
 ---
@@ -120,7 +120,7 @@ Efeito: Permite mineração, escavação ou quebra de estruturas.
 
 **Ataque Adaptável**  
 Acerto: DR + Atributo  
-Dano: d8 por Atributo + Atributo  
+Dano: ERd8 + Atributo  
 
 Efeito Especial:  
 Cada Picareta possui **1 Modificador Único**, como:  
@@ -133,39 +133,39 @@ Cada Picareta possui **1 Modificador Único**, como:
 ## Fura-Ossos (Tribo Paruá)
 
 Tipo: Perfurante  
-Atributo: Força  
+Atributo: Corpo  
 Requisitos: Classe de Combate  
 
 Descrição:  
 Lança ritualística feita para dilacerar carne e ossos após a perfuração.
 
 **Perfuração Brutal**  
-Acerto: DR + For  
-Dano: d10 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd10 + Corpo  
 Efeito: Crítico aplica **Dilacerado** (Sangramento que ignora resistência).
 
 **Rasgar ao Retirar**  
-Se o alvo tentar se mover após ser atingido, sofre dano adicional de d6 por For.
+Se o alvo tentar se mover após ser atingido, sofre dano adicional de ERd6 + Corpo.
 
 ---
 
 ## Caça-Troglodita (Verrdan de Tundra)
 
 Tipo: Cortante, Perfurante  
-Atributo: Destreza, Força  
-Requisitos: 9+ Destreza  
+Atributo: Técnica, Corpo  
+Requisitos: 9+ Técnica  
 
 Descrição:  
 Espada longa e fina, usada para caçar Orcs. Extremamente precisa e mortal.
 
 **Estocada de Caça**  
-Acerto: DR + Des  
-Dano: d12 por 2 Des + Des  
+Acerto: DR + Técnica  
+Dano: ERd12 + Técnica  
 Efeito: Contra Orcs ou criaturas Grandes, causa +1 dado de dano.
 
 **Corte Longilíneo**  
-Acerto: DR + For  
-Dano: d10 por 2 For + For  
+Acerto: DR + Corpo  
+Dano: ERd10 + Corpo  
 Efeito: Se o alvo estiver em fuga, aplica Sangramento automático.
 
 **Arma Indisponível**  

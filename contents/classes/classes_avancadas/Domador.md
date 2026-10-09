@@ -132,7 +132,7 @@ Este animal recebe:
 <!--#poder id="ca_domador_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐ 2 Estrelas — Aspecto da Fera"-->
 ### ⭐⭐ 2 Estrelas — Aspecto da Fera
 - Como **Ação Bônus**, manifeste os instintos do animal:
-  - Recebe **+ER em Força ou Destreza** (à escolha) por **1 minuto**.
+  - Recebe **+ER em Corpo ou Técnica** (à escolha) por **1 minuto**.
   - Testes de Percepção baseados em sentidos recebem **+2DR**.
 - **Uso:** Vezes por dia iguais ao seu **Carisma**.
 
@@ -179,7 +179,7 @@ Escolha **um** dos poderes abaixo:
 Você aprofunda a ligação com seu primeiro animal, tornando-o lendário.
 
 #### Companheiro Lendário (Passivo)
-- O animal recebe **+2 em dois atributos** à escolha (Força, Destreza ou Constituição).
+- O animal recebe **+2 em dois atributos** à escolha (Corpo ou Técnica).
 - Aprende **2 Habilidades Animais adicionais**, sem contar para o limite.
 
 #### União Primeva (Ativo)
@@ -195,7 +195,7 @@ Você aprofunda a ligação com seu primeiro animal, tornando-o lendário.
 
 ## Habilidades Animais
 
-- **Mordida Aprimorada:** Dano extra **1d5 por 2 Destreza** do animal + Carisma do Domador. Crítico causa **dano verdadeiro**.
+- **Mordida Aprimorada:** Dano extra **ERd5 + Técnica** do animal + Carisma do Domador. Crítico causa **dano verdadeiro**.
 - **Ataque Combinado:** Ao acertar corpo a corpo, o animal pode atacar como **Reação**.
 - **Distração:** (Fora de combate) Inimigos em 6m testam Sabedoria ou focam no animal.
 - **Bicho de Rinha:** +5 Acerto e Dano contra Bestas ou Animais.

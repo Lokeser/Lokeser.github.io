@@ -1,5 +1,5 @@
 ## Agarrão Celestial
-**Pré-requisitos:** Domínio da Força, Suplex, Determinação de Combate, Determinação de Combate Superior, Atletismo Superior  
+**Pré-requisitos:** Domínio do Corpo, Suplex, Determinação de Combate, Determinação de Combate Superior, Atletismo Superior  
 
 ### Uso
 - Pode ser utilizado **vezes por semana igual a 1/3 da Eficiência de Rank (ER)**, arredondado para baixo.  
@@ -14,7 +14,7 @@
 - Capacidade de levantar, empurrar e puxar o alvo multiplicada por **7**  
 - Redução de dano sofrido do alvo: **7d7**  
 - Ataques corpo a corpo contra o alvo causam **dano adicional de 7d7**  
-- Alvo sofre **-7 em todos os testes de Força** para se soltar do agarrão  
+- Alvo sofre **-7 em todos os testes de Corpo** para se soltar do agarrão  
 
 ### Limitações
 - O poder e todos os efeitos cessam imediatamente se o alvo se soltar do agarrão por qualquer meio  

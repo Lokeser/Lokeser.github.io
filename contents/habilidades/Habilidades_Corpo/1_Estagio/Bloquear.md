@@ -1,2 +1,2 @@
-Pré-Requisitos: Con 3+
-Vezes por dia igual a sua Constituição, como uma reação a um golpe, pode consumir 2 Magículas e escolher bloquear, fazendo isso, você reduz o dano igual a seu valor de Constituição+Mana, o valor aumenta em 2 per ER
+Pré-Requisitos: Corpo 3+
+Vezes por dia igual a seu Corpo, como uma reação a um golpe, pode consumir 2 Magículas e escolher bloquear, fazendo isso, você reduz o dano igual a seu valor de Corpo+Mana, o valor aumenta em 2 per ER

@@ -29,7 +29,7 @@ Ao ativar o Elven Eye, você recebe:
   - Se passar na CD do inimigo, descobre **uma informação mágica** (a critério do Mestre)
 
 - Durante o combate, pode consumir **1 Magícula** para:
-  - Realizar um teste de **Mana, Inteligência ou Sabedoria** como **Ação Livre**
+  - Realizar um teste de **Mana, Intelecto ou Sabedoria** como **Ação Livre**
 
 
 <!--#fim-->

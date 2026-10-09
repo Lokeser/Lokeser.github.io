@@ -20,7 +20,7 @@ Se ficar abalado novamente, em vez disso fica **Apavorado**.
 ### Desprevenido
 O personagem está despreparado para reagir.  
 - –2 na CA  
-- –1DR em testes de Destreza para Reflexo  
+- –1DR em testes de Técnica para Reflexo  
 
 Você fica desprevenido contra inimigos que não possa perceber.  
 **Tipo:** Corpo
@@ -35,7 +35,7 @@ O custo em magículas, habilidades e artefatos aumenta em +2.
 
 ### Asfixiado
 O personagem não pode respirar.  
-Pode prender o fôlego por um número de rodadas igual a **Constituição +1**.  
+Pode prender o fôlego por um número de rodadas igual o **Corpo +1**.  
 Cada vez que sofre dano enquanto estiver asfixiado, reduz esse valor em 1.  
 Ao final da última rodada, o personagem fica **Morrendo**.
 
@@ -79,7 +79,7 @@ O personagem pode realizar **apenas uma ação** (padrão ou movimento) por roda
 ---
 
 ### Fraco
-O personagem sofre –1DR em testes de Destreza, Físico e Constituição.  
+O personagem sofre –1DR em testes de Técnica, Físico e Corpo.  
 Se ficar fraco novamente, em vez disso fica **Debilitado**.  
 **Tipo:** Corpo
 
@@ -133,7 +133,7 @@ O personagem está em combustão.
 No início de seus turnos, sofre **1d9 + Mana da Fonte** de dano de fogo.
 
 Pode gastar uma ação padrão para tentar apagar:
-- Teste de Defesa de Destreza (CD 10 + Mana do alvo)
+- Teste de Defesa de Técnica (CD 10 + Mana do alvo)
 
 Imersão em água apaga automaticamente.  
 **Tipo:** Corpo / Mana
@@ -141,7 +141,7 @@ Imersão em água apaga automaticamente.
 ---
 
 ### Tonto
-No início do turno, faça um teste de Constituição:  
+No início do turno, faça um teste de Corpo:  
 **CD 15 +2 para cada Rank acima do 10**
 
 - Sucesso: remove a condição  
@@ -155,7 +155,7 @@ No início do turno, faça um teste de Constituição:
 ---
 
 ### Sangrando
-No início do turno, faça um teste de Constituição:  
+No início do turno, faça um teste de Corpo:  
 **CD 18 +2 para cada Rank acima do 10**
 
 - Sucesso: estabiliza e remove a condição  
@@ -168,7 +168,7 @@ No início do turno, faça um teste de Constituição:
 ## Condições Adversas Graves
 
 ### Debilitado
-O personagem sofre –2DR em testes de Destreza, Força e Constituição.  
+O personagem sofre –2DR em testes de Técnica, Corpo.  
 Se ficar debilitado novamente, em vez disso fica **Inconsciente**.  
 **Tipo:** Corpo
 
@@ -176,7 +176,7 @@ Se ficar debilitado novamente, em vez disso fica **Inconsciente**.
 
 ### Esmorecido
 O personagem sofre:
-- –1DR em testes de Inteligência e Sabedoria  
+- –1DR em testes de Intelecto e Sabedoria  
 - –3 adicionais nesses testes  
 
 **Tipo:** Mente
@@ -210,7 +210,7 @@ O personagem fica desprevenido e não pode realizar ações.
 ### Cego
 O personagem fica desprevenido e lento.  
 - Não pode fazer testes de Percepção visual  
-- –1DR em perícias baseadas em Agilidade ou Força  
+- –1DR em perícias baseadas em Agilidade ou Corpo  
 - Alvos de seus ataques recebem camuflagem total  
 
 **Tipo:** Alma
@@ -229,7 +229,7 @@ No início do turno, role 1d6:
 ---
 
 ### Enfurecido
-Inteligência e Sabedoria são reduzidas a 0.  
+Intelecto e Sabedoria são reduzidas a 0.  
 Ataques corpo a corpo recebem +1DR no acerto.  
 **Tipo:** Mente
 

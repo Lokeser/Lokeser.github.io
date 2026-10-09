@@ -1,7 +1,7 @@
 # Classe Avançada — Berserker
 
 **Pré-Requisitos:**  
-*+5 em Força*, *+5 em Constituição* **ou** *Classe Combativo* **e** *2+ em Constituição*
+*+5 em Corpo* **ou** *Classe Combativo* **e** *2+ em Corpo*
 
 ---
 
@@ -27,7 +27,7 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 **Sede de Sangue:**
 * A cada **acerto consecutivo** no mesmo alvo:
   * Recebe **+3 no próximo teste de dano**.
-* Acumula até um máximo igual ao **dobro da sua Força**.
+* Acumula até um máximo igual ao **dobro do seu Corpo**.
   * *(Mínimo: +9)*
 
 ---
@@ -65,8 +65,8 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 **AVANÇAR:**
 * Recebe **+1D em testes para resistir a efeitos debilitantes**.
 * Ao se mover **12 metros ou mais** em direção ao alvo:
-  * Adiciona sua **Força ao dano do golpe**.
-  * Caso já adicione Força, **dobre esse valor**.
+  * Adiciona seu **Corpo ao dano do golpe**.
+  * Caso já adicione Corpo, **dobre esse valor**.
 
 ---
 
@@ -111,8 +111,8 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 * Ao ativá-lo:
   * Recebe **1 ataque extra** como **Ação Livre**.
   * Melhora a cura por ataque:
-    * **1d4 de cura a cada 3 pontos de Força**.
-    * **+1 de cura adicional a cada 4 pontos de Constituição**.
+    * **1d4 de cura a cada 3 pontos de Corpo**.
+    * **+1 de cura adicional a cada 4 pontos de Corpo**.
 
 ---
 
@@ -128,11 +128,11 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 ---
 
-**Força Sem Limites:**
+**Corpo Sem Limites:**
 * Armas que exigiriam **duas mãos** podem ser usadas com **uma mão**.
 * Se empunhar **uma arma em cada mão**:
   * Pode realizar **1 ataque como Ação Bônus**.
-  * Esse ataque **não adiciona Força ao dano**.
+  * Esse ataque **não adiciona Corpo ao dano**.
 
 ---
 
@@ -206,9 +206,9 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 <!--#poder id="ca_berserker_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="O Cérebro é um Músculo"-->
 ### O Cérebro é um Músculo
-* Vezes por dia iguais a **Força ÷ 2**:
-  * Ao realizar um teste de **Inteligência, Sabedoria ou Carisma**:
-    * Adicione sua **Força ao teste**.
+* Vezes por dia iguais o **Corpo ÷ 2**:
+  * Ao realizar um teste de **Intelecto, Sabedoria ou Carisma**:
+    * Adicione seu **Corpo ao teste**.
 
 ---
 

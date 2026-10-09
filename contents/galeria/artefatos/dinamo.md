@@ -1,8 +1,8 @@
 # Lâmina Dínamo
 
 **Tipo:** Arma Tecnológica Transformável (Complexa)
-**Requisito:** Força 3+, Destreza 2+, Mana 2+
-**Escalamento:** Força (Físico), Constituição (Bloqueio), Mana (Explosões)
+**Requisito:** Corpo 3+, Técnica 2+, Mana 2+
+**Escalamento:** Corpo (Físico), Corpo (Bloqueio), Mana (Explosões)
 
 ![Dinamo](assets/images/dinamo.png)
 
@@ -99,7 +99,7 @@ Aqui a Lâmina Dínamo brilha. Você tem dois caminhos de destruição: O "Nuke"
 * **Execução:** Ação Completa. Você carrega toda a energia da arma e bate o machado no chão, liberando uma onda de choque linear.
 * **Custo:** Consome **TODOS** os seus Núcleoídes e a Carga do Escudo.
 * **Área:** Linha reta de 15m x 3m de largura.
-* **Dano Físico:** O golpe do machado causa **1d20 per 2 Força + Força**. (Alvo único).
+* **Dano Físico:** O golpe do machado causa **ERd12 + Corpo**. (Alvo único).
 * **Dano da Onda de Choque:** Todos na área recebem:
     * **Fórmula:** **(Dano do Núcleóide) x (Número de Núcleoídes Gastos) + (ER x 5)**.
     * *Exemplo Rank 6 com 5 Núcleoídes e 8 de Mana (d10):* 5d10 + 30 de dano mágico puro em área.

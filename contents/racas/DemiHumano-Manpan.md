@@ -46,8 +46,8 @@ Em cada marco, a raça evolui por uma escolha:
 Durante o combate:
 
 * **Sabedoria, Intelecto e Carisma** são reduzidos em **−2**.
-* Recebe **+1DR** em testes de **Corpo** e **Corpo**.
-* Ataques desarmados causam dano igual a **1d4 a cada 2 Corpo + Corpo**.
+* Recebe **+1DR** em testes de **Corpo**.
+* Ataques desarmados causam dano igual a **ERd4 + Corpo**.
 
 ---
 
@@ -74,7 +74,7 @@ Escolha **uma** característica racial:
   Acertos críticos causam **Sangramento**.
 
 * **Mãos Pesadas**
-  Ataques desarmados tornam‑se **1d8 a cada 2 Corpo + Corpo**.
+  Ataques desarmados tornam‑se **ERd8 + Corpo**.
   Acertos críticos deixam o alvo **Tonto**.
 
 * **Dentes Afiados**

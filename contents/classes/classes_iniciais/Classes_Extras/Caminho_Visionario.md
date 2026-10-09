@@ -18,8 +18,8 @@
 - Recebe +3 em todas as perícias de Sabedoria
 
 ### Sacrifício Sagrado
-- Força e Constituição se tornam fixas e não podem ser aumentadas  
-- Recebe +3 em Sabedoria, Inteligência e Carisma
+- Corpo se tornam fixas e não podem ser aumentadas  
+- Recebe +3 em Sabedoria, Intelecto e Carisma
 
 ---
 

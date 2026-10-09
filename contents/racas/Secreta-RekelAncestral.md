@@ -65,8 +65,8 @@ Escolha **3 características** da sua raça (em vez de 2):
 * **Chifres Ofensivos:** 1º ataque de chifre no turno recebe +1DR. Ao acertar conjurador, drena 1d6 de magículas (CD 15).
 * **Reflexos Instintivos:** como ação, teste de Intuição contra inimigo (CD 15 + ER do inimigo) para +2 de CA contra ele.
 * **Sangue Humano Inferior:** +2 pontos de atributo.
-* **Garras Afiadas:** ataques básicos viram 1d8 per 2 Corpo + Corpo (Corte); crítico causa sangramento.
-* **Dentes Afiados:** morde 1×/turno, 1d6 per Corpo + Corpo (Perfuração).
+* **Garras Afiadas:** ataques básicos viram ERd8 + Corpo (Corte); crítico causa sangramento.
+* **Dentes Afiados:** morde 1×/turno, ERd6 + Corpo (Perfuração).
 * **Cauda Poderosa:** derruba com teste de Técnica ou usa como ataque básico (Técnica no acerto/dano).
 * **Pele Rígida Ancestral:** Resistência Adaptativa (Corpo) contra dano físico. No Rank 8, vira Redução de Dano Adaptativa II.
 * **Capacidade Aquática:** nada igual ao deslocamento; segura a respiração por horas iguais ao Corpo. No Rank 7, nado dobra.
@@ -117,7 +117,7 @@ Pode utilizar a Ulkanalização vezes por dia igual à sua **Mana**.
 <!--#poder id="rc_rekelanc_r4_2" fonte="raca" rank="4" estrela="1" nome="O Rekel Ancestral"-->
 ### O Rekel Ancestral
 
-Sua **Constituição (Corpo)** aumenta em **4**.
+Seu **Corpo** aumenta em **4**.
 <!--#fim-->
 
 <!--#poder id="rc_rekelanc_r4_3" fonte="raca" rank="4" estrela="1" nome="O Rei das Escamas"-->

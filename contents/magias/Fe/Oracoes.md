@@ -73,7 +73,7 @@ Inspirada por **Santa Teresa**, esta oração canaliza amor, restauração e al�
 * **Sucesso:**
 
   * Você e até **2 aliados** a 5m recuperam **Fé × 2 VS**.
-  * Ganham **vantagem** no próximo teste de Constituição ou Sabedoria (1 minuto).
+  * Ganham **vantagem** no próximo teste de Corpo ou Sabedoria (1 minuto).
 * **Falha:**
 
   * Cura reduzida para **Fé × 1 VS**.

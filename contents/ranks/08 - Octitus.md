@@ -42,7 +42,7 @@ Neste Rank, a evolução deixa de ser instintiva. Cada avanço exige confronto, 
 * Sua **Vida Máxima** aumenta em:  
   **1d4 + (ER × 2) + Valor de Vida da Raça**
 
-* Recebe **+2** em **Força, Destreza ou Constituição**.
+* Recebe **+2** em **Corpo ou Técnica**.
 
 ---
 

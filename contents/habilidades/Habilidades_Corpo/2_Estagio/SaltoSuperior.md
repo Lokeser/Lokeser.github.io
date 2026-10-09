@@ -4,7 +4,7 @@ Requer: Mega Salto
 
 Em qualquer tipo de local que consiga ficas estável, como uma ação bônus, pode se impulsionar para qualquer direção á todo vapor!
 
-Você se impulsiona em uma distância igual a Metade do seu Deslocamento + Força.
+Você se impulsiona em uma distância igual a Metade do seu Deslocamento + Corpo.
 
 
 

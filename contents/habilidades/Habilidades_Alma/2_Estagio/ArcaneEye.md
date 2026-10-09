@@ -19,7 +19,7 @@ Evolução que ignora a casca física da realidade para enxergar a **verdade int
 - ERd4 em Intuição
 
 **Barreira da Mente**
-- Pode substituir **Destreza ou Constituição** por **Mana** em Testes de Defesa contra efeitos mágicos ou sobrenaturais.
+- Pode substituir **Técnica ou Corpo** por **Mana** em Testes de Defesa contra efeitos mágicos ou sobrenaturais.
 
 **Dissipação**
 - 1 vez por rodada, ao ser alvo de uma magia:
@@ -57,7 +57,7 @@ Evolução que ignora a casca física da realidade para enxergar a **verdade int
 
 **Negação da Realidade**
 - Vezes por dia igual à ER:
-  - Força re-rolagem de um sucesso inimigo (fica com o pior)
+  - Corpo re-rolagem de um sucesso inimigo (fica com o pior)
   - Ou re-rola sua própria falha (fica com o melhor)
 
 

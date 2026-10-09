@@ -49,7 +49,7 @@ Escolha um atributo para ser seu **Atributo Insectum** — todos os testes desta
 
 Escolha **3 características** de Insectum:
 
-* **Força Primitiva:** +10 de dano em ataques corpo a corpo.
+* **Corpo Primitiva:** +10 de dano em ataques corpo a corpo.
 * **Reflexos Instintivos:** como ação, teste de Intuição (CD 15 + 3 per ER do inimigo) para +3 de CA contra ele (1×/ser vivo).
 * **Garras Afiadas:** desarmados viram 1d6 + Insectum (cortante) e ignoram Resistência I e II.
 * **Mãos Pesadas:** desarmados viram d8 + Insectum (contundente).

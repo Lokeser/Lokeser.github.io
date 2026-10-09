@@ -6,24 +6,24 @@
 
 ### 1–10
 1. Todos os seres dentro de 10m são enviados para ##### ###### por **1 minuto**.  
-2. Seu poder explode: todos em um raio de 2m (incluindo você) fazem um teste de Destreza  
+2. Seu poder explode: todos em um raio de 2m (incluindo você) fazem um teste de Técnica  
    **CD:** 15 + Caos + 2 por Estágio Nox além de Novus.  
    **Falha:** Dano do seu golpe crítico ×3 | **Sucesso:** Metade do dano.  
 3. Você se torna um **Elfo** por **1d6 horas**; seus atributos base passam a ser os da raça.  
-4. Você perde **7 de Força** por **1d100 minutos**.  
-5. Você ganha **7 de Força** por **1d100 minutos**.  
-6. Você perde **7 de Destreza** por **1d100 minutos**.  
-7. Você ganha **7 de Destreza** por **1d100 minutos**.  
-8. Você perde **7 de Constituição** por **1d100 minutos**.  
-9. Você ganha **7 de Constituição** por **1d100 minutos**.  
-10. Seu poder explode: todos em um raio de 10m (incluindo você) fazem um teste de Destreza  
+4. Você perde **7 de Corpo** por **1d100 minutos**.  
+5. Você ganha **7 de Corpo** por **1d100 minutos**.  
+6. Você perde **7 de Técnica** por **1d100 minutos**.  
+7. Você ganha **7 de Técnica** por **1d100 minutos**.  
+8. Você perde **7 de Corpo** por **1d100 minutos**.  
+9. Você ganha **7 de Corpo** por **1d100 minutos**.  
+10. Seu poder explode: todos em um raio de 10m (incluindo você) fazem um teste de Técnica  
     **Falha:** Dano do seu golpe | **Sucesso:** Metade do dano.
 
 ---
 
 ### 11–20
-11. Você perde **7 de Inteligência** por **1d100 minutos**.  
-12. Você ganha **7 de Inteligência** por **1d100 minutos**.  
+11. Você perde **7 de Intelecto** por **1d100 minutos**.  
+12. Você ganha **7 de Intelecto** por **1d100 minutos**.  
 13. Você perde **7 de Sabedoria** por **1d100 minutos**.  
 14. Você ganha **7 de Sabedoria** por **1d100 minutos**.  
 15. Você perde **7 de Mana** por **1d100 minutos**.  

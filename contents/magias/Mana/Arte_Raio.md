@@ -32,8 +32,8 @@ Caso possua um **Foco de Mana** a até **20m**, como uma ação você pode canal
 
 **Explosão:**
 - Área: **5m**
-- Dano: **1d14 por 2 Mana + Mana**
-- Teste de Destreza contra sua CD Mágica
+- Dano: **ERd12 + Mana**
+- Teste de Técnica contra sua CD Mágica
   - Sucesso: metade do dano
 
 **SuperConjurar:**  
@@ -175,10 +175,10 @@ Seu ataque se torna uma lança elétrica concentrada:
 O alvo:
 
 - Tem deslocamento reduzido em valor igual à sua **Mana**
-- Sofre **-2** em testes de Destreza
+- Sofre **-2** em testes de Técnica
 
 **SuperConjurar:**  
-O alvo perde **1 ponto de Destreza**  
+O alvo perde **1 ponto de Técnica**  
 *(Máximo igual à sua Mana)*
 
 ---
@@ -224,7 +224,7 @@ Como ação, realiza um ataque:
   - O alvo fica **Paralisado** até o fim do próximo turno
 
 **SuperConjurar:**  
-O alvo recebe **1d6 por 2 Mana + Mana** como:
+O alvo recebe **ERd6 + Mana** como:
 - Vida Temporária  
 - Ou metade em Vida normal se não possuir VT
 
@@ -373,7 +373,7 @@ Aumenta a duração do Ícor Bestial para 1d6 Turnos
 
 Como uma ação, extenda sua mão em direção á um Foco de Mana de Raio em alcance curto, pode absorve-lo, Se o fizer, recebe efeitos no turno atual e no turno seguinte;
 Turno Atual:
-- O Foco de Mana viaja até você em uma velocidade absurda, deixando traços de raio, todos os alvos em uma linha reta entre você e o Foco realizam um Teste de Destreza(CD de Magia), recebem Dano igual á ERd7+Mana se falharem e ficam Imóveis até o fim do seu próximo turno. Recebe metade do dano se falhar
+- O Foco de Mana viaja até você em uma velocidade absurda, deixando traços de raio, todos os alvos em uma linha reta entre você e o Foco realizam um Teste de Técnica(CD de Magia), recebem Dano igual á ERd7+Mana se falharem e ficam Imóveis até o fim do seu próximo turno. Recebe metade do dano se falhar
 Turno Seguinte:
 - Absorve o Foco de Mana de uma vez só, explodindo seus instintos. Imediatamente no íncio de seu turno, realize um ataque extra em qualquer alvo em alcance curto, automaticamente utiliza **Foco de Mana Royal**.
 
@@ -388,7 +388,7 @@ Turno Seguinte:
 Como uma ação, sobrecarregue um Foco de Mana em alcance curto, infundindo-o com uma quantidade de Magículas extras igual ao custo desta habilidade. O Foco recebe essas Magículas imediatamente, ultrapassando seu limite normal.
 
 - Caso o Foco seja um **Foco de Mana Royal**, ele perde sua natureza Royal e se torna um Foco de Mana comum.
-- Enquanto estiver sobrecarregado desta forma, ao final de cada turno, o Foco explode em uma descarga de raio. Todas as criaturas em um raio de 3m realizam um Teste de Resistência de Destreza (CD de Magia).
+- Enquanto estiver sobrecarregado desta forma, ao final de cada turno, o Foco explode em uma descarga de raio. Todas as criaturas em um raio de 3m realizam um Teste de Resistência de Técnica (CD de Magia).
 - Em caso de falha, recebem dano de raio igual a **ERd4 + Mana**. Em caso de sucesso, recebem metade do dano.
 - Após a explosão, ao final do turno, o Foco perde Magículas equivalentes a 1/4 de sua quantidade total de Magículas, arredondado para baixo (mínimo de 1).
 - A técnica termina quando o Foco perde todas as suas Magículas ou é destruído.
@@ -412,7 +412,7 @@ Esta é uma Técnica de **Suporte à Transformação**. Só pode ser ativada enq
 O símbolo do Grande Dragão Restero manifesta-se em suas costas, e suas veias mágicas liberam correntes de mana elétrica que se expandem em duas asas bestiais. Cada movimento de suas asas deixa rastros de relâmpagos, enquanto sua presença evoca a ferocidade de uma tempestade viva.
 
 - Recebe **Voo** com deslocamento igual à sua Mana.
-- Recebe 3 de Destreza Temporária.
+- Recebe 3 de Técnica Temporária.
 - Caso já possua Voo, seu deslocamento de Voo aumenta em um valor igual à sua Mana.
 - Enquanto estiver Voando, durante sua Ação de Movimento, pode criar Focos de Mana em qualquer parte do trajeto, incluindo em você.
 - Sempre que utilizar uma Técnica Royal, sua CA aumenta em 1 até o Fim da Cena, em um máximo igual sua ER.
@@ -444,7 +444,7 @@ O símbolo do Grande Dragão Restero manifesta-se em suas costas, e suas veias m
 Como uma ação, dispare um feixe em linha reta de **Mana × 2** metros.
 
 - Criaturas na linha fazem um **Teste de Técnica** contra sua **CD Mágica**. **Condutores** fazem o teste com **−1 DR**.
-  - **Falha:** sofrem **1d8 por 2 Mana + Mana** de dano de Raio.
+  - **Falha:** sofrem **ERd8 + Mana** de dano de Raio.
   - **Sucesso:** metade do dano.
 
 **SuperConjurar:**  
@@ -489,7 +489,7 @@ O alvo fica **Em Chamas II**.
 Como uma ação, crie uma esfera de plasma em um ponto a até **18m**, com raio igual à sua **Mana** (em metros). Ela dura **3 turnos**.
 
 - No início de cada turno seu, criaturas na área fazem um **Teste de Técnica** contra sua **CD Mágica**.
-  - **Falha:** sofrem **1d12 por 2 Mana** de dano de Raio e se tornam **Condutores**.
+  - **Falha:** sofrem **ERd12 + Mana** de dano de Raio e se tornam **Condutores**.
   - **Sucesso:** metade do dano.
 
 **SuperConjurar:**  

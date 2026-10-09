@@ -17,7 +17,7 @@ Como Ação Bônus, conecta-se à Títere a até Alcance Médio (18m). Manter cu
 <!--#poder id="cs_marionetes_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="A Títere Arcana"-->
 ### A Títere Arcana
 
-A Títere ganha vida (Ficha de Monstro, 0 em atributos mentais, 10 pontos entre Corpo/Técnica/Mana). **Ataque Títere:** acerto com seu Intelecto (DR + Intelecto + ER), dano escala com os atributos físicos dela (ex: 1d8 per 2 Corpo da Títere). Ela age no seu turno. **Recebe sua 1ª Atualização de Títere.**
+A Títere ganha vida (Ficha de Monstro, 0 em atributos mentais, 10 pontos entre Corpo/Técnica/Mana). **Ataque Títere:** acerto com seu Intelecto (DR + Intelecto + ER), dano escala com os atributos físicos dela (ex: ERd8 + Corpo da Títere). Ela age no seu turno. **Recebe sua 1ª Atualização de Títere.**
 <!--#fim-->
 
 <!--#poder id="cs_marionetes_r8e5" fonte="classe_avancada" rank="8" estrela="5" nome="Mestre das Ferramentas"-->

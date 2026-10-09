@@ -35,13 +35,13 @@ Estas são as limitações que você pode impor a si mesmo para ganhar Pontos de
 * **Toque Inseguro (4 PP):** Seus ataques mágicos não podem causar Acertos Críticos.
 * **Exaustão Somática (2 PP):** O esforço físico atrapalha sua magia. Se você se mover mais que a metade do seu deslocamento, não pode conjurar magias neste turno.
 * **Instinto Primitivo (3 PP):** Você não pode conjurar magias a menos que tenha realizado um ataque com arma corpo a corpo ou desarmado na mesma rodada (ou na rodada anterior).
-* **Armadura Estática (3 PP):** Você perde qualquer bônus de Destreza na sua CA.
+* **Armadura Estática (3 PP):** Você perde qualquer bônus de Técnica na sua CA.
 * **Gesto Amplificado (4 PP):** Conjurar magias estando adjacente a um inimigo provoca Ataques de Oportunidade (impede conjuração defensiva).
 
 ## Restrições Médias
 
-* **Enfraquecimento Mágico (5 PP):** Escolha um atributo físico (Força, Destreza ou Constituição). Ele é reduzido em 2 pontos.
-* **Distorção Mental (6 PP):** Escolha um atributo mental (Inteligência ou Carisma). Ele é reduzido em 2 pontos.
+* **Enfraquecimento Mágico (5 PP):** Escolha um atributo físico (Corpo ou Técnica). Ele é reduzido em 2 pontos.
+* **Distorção Mental (6 PP):** Escolha um atributo mental (Intelecto ou Carisma). Ele é reduzido em 2 pontos.
 * **Lâmina Cega (6 PP):** Você não pode causar dano do tipo Cortante ou Perfurante (seja por meios físicos ou mágicos).
 * **Ponto Fraco Exposto (7 PP):** Escolha um tipo de dano (ex: Fogo, Contundente). Você ganha vulnerabilidade a esse dano, sofrendo 50% a mais de dano.
 * **Armadura Fútil (7 PP):** Você perde o benefício de qualquer Resistência a Dano que possua. Imunidades não são afetadas.
@@ -62,9 +62,9 @@ Estas são as limitações que você pode impor a si mesmo para ganhar Pontos de
 * **Voto de Limitação (13 PP):** Escolha uma de suas Classes (Inicial ou Avançada). Você perde acesso a todas as habilidades concedidas por ela.
 * **Âncora Arcana (14 PP):** Seu deslocamento se torna 0. Você não pode ser movido de seu lugar por meios normais.
 * **Magia Instável (15 PP):** Sempre que conjurar uma magia, role um d10. Com resultado 1 ou 2, a magia falha, as Magículas são gastas e você sofre dano Anômalo igual à sua Eficiência de Rank.
-* **Nulidade Física (16 PP):** Seus atributos de Força e Constituição se tornam 1 temporariamente (ignore bônus de outras fontes).
+* **Nulidade Física (16 PP):** Seus atributos de Corpo se tornam 1 temporariamente (ignore bônus de outras fontes).
 * **Fardo do Conjurador (17 PP):** Toda vez que você causa dano com uma magia, você perde Pontos de Vida igual a 25% do dano total causado.
-* **Nulidade da Mente (18 PP):** Seus atributos de Inteligência e Carisma se tornam 1 temporariamente.
+* **Nulidade da Mente (18 PP):** Seus atributos de Intelecto e Carisma se tornam 1 temporariamente.
 * **Sacrifício de Vontade (20 PP):** Seu atributo de Sabedoria se torna 0 temporariamente. Você não pode realizar Testes de Defesa baseados em Sabedoria.
 * **Caminho Solitário (22 PP):** Você não pode receber os efeitos de nenhuma habilidade, magia ou item usado por seus aliados.
 * **Confinamento Cinético (12 PP):** O alcance de todas as suas magias torna-se "Toque" (ou Pessoal). Você deve tocar o alvo para afetá-lo.
@@ -79,7 +79,7 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 ## Benefícios Simples
 
 * **Potência Sutil (2 PP):** Suas magias causam dano adicional igual à sua Eficiência de Rank.
-* **Vontade Fortificada (2 PP):** Você ganha +1DR em todos os Testes de Defesa de Constituição ou Inteligência, escolha 1.
+* **Vontade Fortificada (2 PP):** Você ganha +1DR em todos os Testes de Defesa de Corpo ou Intelecto, escolha 1.
 * **Olhar Penetrante (3 PP):** Seus ataques mágicos têm seu acerto aumentado em 2.
 * **Foco Preciso (3 PP):** Você ganha um bônus de +2 em todos os testes de acerto com ataques mágicos.
 * **Mente Resiliente (3 PP):** Você ganha +1DR para resistir a condições de mente (Abalado, Apavorado, Confuso, etc.).
@@ -88,9 +88,9 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Alcance Estendido (4 PP):** O alcance de todas as suas magias aumenta em um estágio (ex: Médio para Longo).
 * **Recuperação Acelerada (4 PP):** Uma vez por combate, você pode recuperar Magículas igual ao seu atributo de Mana como uma Ação Bônus.
 * **Golpe Certeiro (4 PP):** Uma vez por combate, você pode adicionar +1DR a um único teste de acerto mágico.
-* **Pele de Mana (3 PP):** Você pode somar seu atributo de **Mana** em vez de Destreza para calcular sua CA (Armadura de Combate).
-* **Infusão de Impacto (4 PP):** Ao acertar um ataque físico, você pode gastar 2 Magícula como reação para adicionar sua **Força** ou **Constituição** ao dano novamente.
-* **Reflexo Arcano (4 PP):** Você usa seu atributo de **Mana** em vez de Destreza para Testes de Defesa de Reflexos.
+* **Pele de Mana (3 PP):** Você pode somar seu atributo de **Mana** em vez de Técnica para calcular sua CA (Armadura de Combate).
+* **Infusão de Impacto (4 PP):** Ao acertar um ataque físico, você pode gastar 2 Magícula como reação para adicionar seu **Corpo** ao dano novamente.
+* **Reflexo Arcano (4 PP):** Você usa seu atributo de **Mana** em vez de Técnica para Testes de Defesa de Reflexos.
 * **Golpe Drenante (5 PP):** Seus acertos críticos com ataques físicos recuperam Magículas igual à sua Eficiência de Rank.
 
 ## Benefícios Médios
@@ -105,8 +105,8 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Aura de Pavor (9 PP):** Inimigos que começam seu turno a uma distância Curta (6m) de você devem passar em um Teste de Defesa de Sabedoria (CD 10 + sua Mana) ou ficarão Abalados por 1 rodada.
 * **Distorção Crítica (10 PP):** A margem de ameaça de suas magias de ataque é reduzida em 2 (ex: crita com 28-30 em um d30 em vez de apenas 30).
 * **Reação Arcana (10 PP):** Você pode conjurar uma magia de Manipulação Livre como uma Reação a ser atacado.
-* **Arma de Fluxo (8 PP):** Você pode usar seu atributo de **Mana** para os testes de Acerto e Dano com armas corpo a corpo, substituindo Força ou Destreza.
-* **Escudo de Reação (9 PP):** Uma vez por rodada, ao sofrer dano físico, você pode reduzir o dano em um valor igual à (Sua Constituição + Mana).
+* **Arma de Fluxo (8 PP):** Você pode usar seu atributo de **Mana** para os testes de Acerto e Dano com armas corpo a corpo, substituindo Corpo ou Técnica.
+* **Escudo de Reação (9 PP):** Uma vez por rodada, ao sofrer dano físico, você pode reduzir o dano em um valor igual à (Seu Corpo + Mana).
 
 ## Benefícios Avançados
 
@@ -120,8 +120,8 @@ Estes são os poderes que você pode "comprar" com os Pontos de Pacto acumulados
 * **Vingança Absoluta (19 PP):** Se seus Pontos de Vida caírem para menos da metade, sua próxima magia de ataque causará o dobro do dano total.
 * **Domínio da Realidade (20 PP):** Uma vez por combate, você pode forçar a falha automática de um inimigo em um Teste de Defesa contra uma de suas magias.
 * **Eco Arcano (22 PP):** Após conjurar uma magia que custa uma Ação Padrão, você pode conjurá-la novamente como uma Ação Bônus no mesmo turno, mirando no mesmo ou em outro alvo (as Magículas são gastas para ambas as conjurações).
-* **Titã Arcano (12 PP):** Seu tamanho aumenta em uma categoria (ex: Médio para Grande). Você ganha +2 em Força e Constituição e suas armas causam um dado de dano extra devido ao tamanho.
+* **Titã Arcano (12 PP):** Seu tamanho aumenta em uma categoria (ex: Médio para Grande). Você ganha +2 em Corpo e suas armas causam um dado de dano extra devido ao tamanho.
 * **Convergência Marcial (15 PP):** Quando você usa a ação Conjurar Magia, você pode realizar um ataque corpo a corpo como uma Ação Bônus. Se o ataque acertar, a magia conjurada tem sua CD aumentada em +2 contra aquele alvo.
-* **Avatar da Guerra (55 PP):** Seus atributos de Força, Destreza e Constituição tornam-se temporariamente iguais ao seu atributo de **Mana** (caso sejam menores). Além disso, você soma sua Mana ao seu Dano Físico passivamente.
+* **Avatar da Guerra (55 PP):** Seus atributos de Corpo e Técnica tornam-se temporariamente iguais ao seu atributo de **Mana** (caso sejam menores). Além disso, você soma sua Mana ao seu Dano Físico passivamente.
 
 <!--#fim-->

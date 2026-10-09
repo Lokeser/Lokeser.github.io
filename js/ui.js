@@ -235,12 +235,81 @@ const LuxUI = (() => {
                 usados.add(chave);
             }
         }
+        marcarCondicoes(container);
+    }
+
+    // ---- Condições: lidas do próprio Tipos_Condicoes.md (fonte única) ----
+    // Cada "### Nome" vira um termo; toda menção ao nome (com gênero/plural) ganha o balão.
+    const ARQ_COND = 'contents/regras/Regras_Combate/Tipos_Condicoes.md';
+    const GRUPO = { 'Condições Adversas': 'Condição Adversa', 'Condições Adversas Graves': 'Condição Adversa Grave', 'Condições Especiais': 'Condição Especial' };
+    // Substantivos que o texto usa no lugar do nome da condição
+    const ALIAS = { 'Sangrando': 'Sangramento', 'Envenenado': 'Envenenamento', 'Agarrado': 'Agarrão', 'Atordoado': 'Atordoamento', 'Paralisado': 'Paralisia', 'Petrificado': 'Petrificação' };
+    let condicoes = null;   // Promise<[{chave, forma}]>
+
+    function carregarCondicoes() {
+        if (condicoes) return condicoes;
+        condicoes = fetch(BASE + ARQ_COND).then(r => r.ok ? r.text() : '').then(md => {
+            const lista = [];
+            let grupo = '';
+            for (const bloco of md.replace(/\r/g, '').split(/^(?=##+ )/m)) {
+                const g = bloco.match(/^## (.+)/);
+                if (g) { grupo = GRUPO[g[1].trim()] || ''; continue; }
+                const h = bloco.match(/^### (.+)\n([\s\S]*)/);
+                if (!h || !grupo) continue;
+                const nome = h[1].trim();
+                const def = h[2].split('\n')
+                    .map(l => l.replace(/\*\*|\*|`/g, '').replace(/^\s*(?:[-*]|\d+\.)\s+/, '').trim())
+                    .filter(l => l && l !== '---' && !/^Tipo:/.test(l))
+                    .map(l => /[.:;!?)]$/.test(l) ? l : l + '.')
+                    .join(' ').replace(/\s+/g, ' ');
+                const tipo = (h[2].match(/\*\*Tipo:\*\*\s*(.+)/) || [])[1];
+                const chave = 'cond-' + nome.toLowerCase().normalize('NFD').replace(/[^a-z]/g, '');
+                TERMOS[chave] = { nome: nome + ' — ' + grupo + (tipo ? ' (' + tipo.trim() + ')' : ''), def, link: 'viewer.html?file=' + ARQ_COND };
+                // Abalado → Abalada/Abalados; Doente → Doentes. Sem "-as": "Lentas" costuma ser adjetivo de arma.
+                const raiz = nome;   // nomes de condição não têm caracteres especiais de regex
+                let forma = /o$/.test(nome) ? raiz.slice(0, -1) + '(?:o|a|os)' : /[ae]$/.test(nome) ? raiz + 's?' : raiz;
+                if (ALIAS[nome]) forma += '|' + ALIAS[nome];
+                lista.push({ chave, forma });
+            }
+            return lista;
+        }).catch(() => []);
+        return condicoes;
+    }
+
+    // Marca TODAS as menções (não só a primeira), fora de links, títulos e código
+    function marcarCondicoes(container) {
+        carregarCondicoes().then(lista => {
+            if (!lista.length || !container) return;
+            const re = new RegExp('(?<![\\p{L}])(?:' + lista.map(c => '(' + c.forma + ')').join('|') + ')(?![\\p{L}])', 'gu');
+            const pular = 'a, code, pre, h1, h2, h3, h4, h5, h6, .lux-term, script, style, button';
+            const nos = [];
+            const andar = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+                acceptNode: n => n.parentElement && !n.parentElement.closest(pular) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+            });
+            while (andar.nextNode()) { re.lastIndex = 0; if (re.test(andar.currentNode.data)) nos.push(andar.currentNode); }
+            for (const no of nos) {
+                const frag = document.createDocumentFragment();
+                let ult = 0;
+                no.data.replace(re, (m, ...g) => {
+                    const pos = g[lista.length];
+                    const i = g.slice(0, lista.length).findIndex(x => x !== undefined);
+                    frag.append(no.data.slice(ult, pos));
+                    const s = document.createElement('span');
+                    s.className = 'lux-term'; s.dataset.termo = lista[i].chave; s.tabIndex = 0; s.textContent = m;
+                    frag.append(s);
+                    ult = pos + m.length;
+                    return m;
+                });
+                frag.append(no.data.slice(ult));
+                no.replaceWith(frag);
+            }
+        });
     }
 
     function init() {
         criarBalao(); ligar();
         // Avisa quem carregou antes (o loader do viewer, por exemplo)
-        document.dispatchEvent(new CustomEvent('lux-ui-pronto'));
+        setTimeout(() => document.dispatchEvent(new CustomEvent('lux-ui-pronto')));   // depois de LuxUI existir
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
     else init();

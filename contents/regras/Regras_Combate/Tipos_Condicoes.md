@@ -12,7 +12,7 @@ As Condições representam estados físicos, mentais, espirituais ou anômalos q
 
 ### Abalado
 O personagem sofre –1DR em testes de perícia.  
-Se ficar abalado novamente, em vez disso fica **Apavorado**.  
+Se ficar Abalado novamente, em vez disso fica **Apavorado**.  
 **Tipo:** Mente
 
 ---
@@ -22,7 +22,7 @@ O personagem está despreparado para reagir.
 - –2 na CA  
 - –1DR em testes de Técnica para Reflexo  
 
-Você fica desprevenido contra inimigos que não possa perceber.  
+Você fica Desprevenido contra inimigos que não possa perceber.  
 **Tipo:** Corpo
 
 ---
@@ -36,7 +36,7 @@ O custo em magículas, habilidades e artefatos aumenta em +2.
 ### Asfixiado
 O personagem não pode respirar.  
 Pode prender o fôlego por um número de rodadas igual o **Corpo +1**.  
-Cada vez que sofre dano enquanto estiver asfixiado, reduz esse valor em 1.  
+Cada vez que sofre dano enquanto estiver Asfixiado, reduz esse valor em 1.  
 Ao final da última rodada, o personagem fica **Morrendo**.
 
 ---
@@ -80,14 +80,14 @@ O personagem pode realizar **apenas uma ação** (padrão ou movimento) por roda
 
 ### Fraco
 O personagem sofre –1DR em testes de Técnica, Físico e Corpo.  
-Se ficar fraco novamente, em vez disso fica **Debilitado**.  
+Se ficar Fraco novamente, em vez disso fica **Debilitado**.  
 **Tipo:** Corpo
 
 ---
 
 ### Frustrado
 O personagem sofre –1DR em testes de Intelecto e Presença.  
-Se ficar frustrado novamente, em vez disso fica **Esmorecido**.  
+Se ficar Frustrado novamente, em vez disso fica **Esmorecido**.  
 **Tipo:** Mente
 
 ---
@@ -100,7 +100,7 @@ Todos os acertos contra o personagem recebem +2DR.
 ---
 
 ### Indefeso
-O personagem é considerado desprevenido.  
+O personagem é considerado Desprevenido.  
 - –3 na CA  
 - Todas as defesas são reduzidas em 1  
 
@@ -169,7 +169,7 @@ No início do turno, faça um teste de Corpo:
 
 ### Debilitado
 O personagem sofre –2DR em testes de Técnica, Corpo.  
-Se ficar debilitado novamente, em vez disso fica **Inconsciente**.  
+Se ficar Debilitado novamente, em vez disso fica **Inconsciente**.  
 **Tipo:** Corpo
 
 ---
@@ -184,7 +184,7 @@ O personagem sofre:
 ---
 
 ### Agarrado
-O personagem fica desprevenido e imóvel.  
+O personagem fica Desprevenido e Imóvel.  
 - –1DR em testes de ataque  
 - Só pode atacar com armas leves  
 
@@ -202,13 +202,13 @@ Não pode se aproximar voluntariamente da fonte.
 ---
 
 ### Atordoado
-O personagem fica desprevenido e não pode realizar ações.  
+O personagem fica Desprevenido e não pode realizar ações.  
 **Tipo:** Mente
 
 ---
 
 ### Cego
-O personagem fica desprevenido e lento.  
+O personagem fica Desprevenido e Lento.  
 - Não pode fazer testes de Percepção visual  
 - –1DR em perícias baseadas em Agilidade ou Corpo  
 - Alvos de seus ataques recebem camuflagem total  
@@ -236,7 +236,7 @@ Ataques corpo a corpo recebem +1DR no acerto.
 ---
 
 ### Enredado
-O personagem fica lento e vulnerável.  
+O personagem fica Lento e Vulnerável.  
 - –1DR em testes de ataque  
 
 **Tipo:** Corpo
@@ -244,7 +244,7 @@ O personagem fica lento e vulnerável.
 ---
 
 ### Exausto
-O personagem fica debilitado, lento e vulnerável.  
+O personagem fica Debilitado, Lento e Vulnerável.  
 Se aplicado novamente, fica **Inconsciente**.  
 **Tipo:** Corpo / Alma
 
@@ -260,14 +260,14 @@ Qualquer ação hostil remove a condição.
 ---
 
 ### Fatigado
-O personagem fica fraco e vulnerável.  
+O personagem fica Fraco e Vulnerável.  
 Se aplicado novamente, fica **Exausto**.  
 **Tipo:** Alma
 
 ---
 
 ### Inconsciente
-O personagem fica indefeso e não pode realizar ações ou reações.  
+O personagem fica Indefeso e não pode realizar ações ou reações.  
 Acordar exige uma ação padrão.  
 **Tipo:** Corpo / Alma
 
@@ -282,7 +282,7 @@ Remove-se ao recuperar ao menos 1 PV.
 ---
 
 ### Paralisado
-O personagem fica imóvel e indefeso.  
+O personagem fica Imóvel e Indefeso.  
 Só pode realizar ações puramente mentais.  
 **Tipo:** Corpo / Alma
 
@@ -295,7 +295,7 @@ O personagem não pode realizar ações.
 ---
 
 ### Petrificado
-O personagem fica inconsciente e recebe **Resistência a Dano 10**.  
+O personagem fica Inconsciente e recebe **Resistência a Dano 10**.  
 **Tipo:** Corpo / Alma
 
 ---

@@ -388,7 +388,7 @@ Turno Seguinte:
 Como uma ação, sobrecarregue um Foco de Mana em alcance curto, infundindo-o com uma quantidade de Magículas extras igual ao custo desta habilidade. O Foco recebe essas Magículas imediatamente, ultrapassando seu limite normal.
 
 - Caso o Foco seja um **Foco de Mana Royal**, ele perde sua natureza Royal e se torna um Foco de Mana comum.
-- Enquanto estiver sobrecarregado desta forma, ao final de cada turno, o Foco explode em uma descarga de raio. Todas as criaturas em um raio de 3m realizam um Teste de Resistência de Técnica (CD de Magia).
+- Enquanto estiver Sobrecarregado desta forma, ao final de cada turno, o Foco explode em uma descarga de raio. Todas as criaturas em um raio de 3m realizam um Teste de Resistência de Técnica (CD de Magia).
 - Em caso de falha, recebem dano de raio igual a **ERd4 + Mana**. Em caso de sucesso, recebem metade do dano.
 - Após a explosão, ao final do turno, o Foco perde Magículas equivalentes a 1/4 de sua quantidade total de Magículas, arredondado para baixo (mínimo de 1).
 - A técnica termina quando o Foco perde todas as suas Magículas ou é destruído.

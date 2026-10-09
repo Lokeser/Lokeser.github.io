@@ -69,30 +69,29 @@
 
         .elementos {
             display: grid; gap: var(--sp-3);
-            grid-template-columns: repeat(6, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));   /* 3 por linha: 2 linhas de cards largos */
+            gap: var(--sp-5) var(--sp-4);
             padding-bottom: var(--sp-7);
         }
-        @media (max-width: 1000px) { .elementos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-        @media (max-width: 560px)  { .elementos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 900px) { .elementos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 560px) { .elementos { grid-template-columns: 1fr; } }
 
         .elemento { display: flex; flex-direction: column; gap: 8px; min-width: 0; container-type: inline-size; }
 
         /* A coluna do elemento: alta, ocupando ~60% da altura da tela */
         .el-card {
             position: relative; display: block; overflow: hidden;
-            height: clamp(380px, 60vh, 660px);
+            aspect-ratio: 4 / 3; max-width: 100%;      /* largos: mais largura que altura */
             border-radius: var(--r-xl); text-decoration: none;
             background: var(--surface-2);
             border: 1px solid var(--border);
             box-shadow: var(--shadow-sm);
             transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
         }
-        @media (max-width: 1000px) { .el-card { height: clamp(340px, 52vh, 560px); } }
-        @media (max-width: 560px)  { .el-card { height: auto; aspect-ratio: 2 / 3; } }
 
         .el-card img {
             position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: cover; object-position: center 40%;
+            object-fit: cover; object-position: center 38%;
             transition: transform var(--t-slow) var(--ease), filter var(--t-slow) var(--ease);
         }
         .el-card::after {
@@ -116,10 +115,10 @@
         }
         .el-nome {
             display: block; font-family: var(--font-display); font-weight: 700;
-            font-size: clamp(1.2rem, 1.1vw + .7rem, 1.75rem); letter-spacing: .12em;
+            font-size: clamp(1.6rem, 1.6vw + .8rem, 2.4rem); letter-spacing: .14em;
             text-shadow: 0 2px 14px rgba(0, 0, 0, .75);
         }
-        .el-papel { display: block; margin-top: 6px; font-size: .8rem; line-height: 1.4; opacity: .9; }
+        .el-papel { display: block; margin-top: 6px; font-size: .92rem; line-height: 1.4; opacity: .92; }
         .el-meta {
             display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
             margin-top: var(--sp-3); padding-top: var(--sp-2);
@@ -133,11 +132,11 @@
         /* Faixa da Arte: mesma largura, altura pequena */
         .el-arte {
             display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
-            min-height: 40px; padding: 0 var(--sp-3);
+            min-height: 44px; padding: 0 var(--sp-4);
             border-radius: var(--r); text-decoration: none;
             background: var(--surface); border: 1px solid var(--border);
             border-left: 3px solid var(--el);
-            font-family: var(--font-display); font-size: .72rem; font-weight: 700;
+            font-family: var(--font-display); font-size: .82rem; font-weight: 700;
             letter-spacing: .08em; color: var(--text); white-space: nowrap;
             transition: background var(--t) var(--ease), border-color var(--t) var(--ease);
         }

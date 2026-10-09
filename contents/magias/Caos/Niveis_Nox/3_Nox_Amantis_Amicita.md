@@ -61,7 +61,7 @@ Aprenda **2 Rituais de Bruxa** que atendam aos requisitos.
 ---
 
 ### **330 PA — Corpo de Caos III**
-Receba **Vida igual a d14 por Constituição**.
+Receba **Vida igual a ERd12 + Corpo**.
 
 ---
 

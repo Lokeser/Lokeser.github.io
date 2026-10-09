@@ -55,7 +55,7 @@ O mestre pode exigir **testes de Acrobacia** para ações que demandem precisão
 
 Suas garras são **ataques naturais**, causando dano igual a:
 
-* **1d6 a cada 2 pontos de Técnica + Técnica**
+* **ERd6 + Técnica**
 
 ---
 
@@ -102,7 +102,7 @@ Escolha **duas** características raciais:
 
 * **Ataque de Asa**
   Sua asa se torna uma arma natural que causa dano **Contundente** igual a:
-  **1d2 a cada 2 Corpo + Técnica**.
+  **ERd4 + Técnica**.
   O inimigo deve passar em um teste de **Corpo** contra sua **CD de Técnica** ou ficará **Tonto**.
 
 ---

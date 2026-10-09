@@ -26,7 +26,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - Aprende o segundo poder da Lenda escolhida.
 
 ### ✭✭✭ Atributo Lendário
-- Escolha um atributo entre Força, Destreza, Constituição, Mana ou Sabedoria.
+- Escolha um atributo entre Corpo, Técnica, Mana ou Sabedoria.
 - Aumente-o em +4 OU para 20 se ainda não possuir.
 
 ### Lenda III
@@ -82,7 +82,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - 1x/dia, Ação Bônus, duração = ER + Sabedoria.  
 - Trocar armas = Ação Gratuita.  
 - Movimento imune a Ataques de Oportunidade.  
-- Ataques causam +1d10 per ER de dano adicional.
+- Ataques causam +ERd10 de dano adicional.
 
 **Lenda IV (Avatar da Guerra)**  
 - Bônus da Maestria Adaptável máximo (+4DR/+4MC) permanente.  
@@ -97,7 +97,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - +2 CA base sem armadura/escudo.
 
 **Lenda II (Fluxo Impenetrável)**  
-- Reação: teste Destreza/Sabedoria + ER contra ataque; se vencer, ataque erra.  
+- Reação: teste Técnica/Sabedoria + ER contra ataque; se vencer, ataque erra.  
 - Uso: ERx/combate.
 
 **Lenda III (Aura Protetora Indomável)**  
@@ -108,8 +108,8 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - 1x/dia, 1 minuto:  
   - Imune a dano físico não-mágico.  
   - Resistência V a dano mágico.  
-  - Ataques desarmados: +1d6 per 2 Constituição.  
-  - Inimigos que errarem teste corpo a corpo: Teste de Força (CD = 10 + Força + ER) ou Caído.
+  - Ataques desarmados: +ERd6 + Corpo.  
+  - Inimigos que errarem teste corpo a corpo: Teste de Corpo (CD = 10 + Corpo + ER) ou Caído.
 
 ---
 
@@ -124,8 +124,8 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 
 **Lenda III (Explosão Arcana Convergente)**  
 - 1x/dia, Ação Padrão: ataque devastador.  
-- Acerto causa dano normal + dano mágico 1d12 per 2 Mana (mínimo 1d12).  
-- Inimigos em 3m do alvo: teste Destreza (CD = 10 + Mana + ER) ou metade do dano mágico adicional.
+- Acerto causa dano normal + dano mágico ERd12 + Mana (mínimo 1d12).  
+- Inimigos em 3m do alvo: teste Técnica (CD = 10 + Mana + ER) ou metade do dano mágico adicional.
 
 **Lenda IV (Avatar da Magia de Batalha)**  
 - Até 10 magias ativas simultâneas (1 deve imbuir arma ou efeito defensivo).  

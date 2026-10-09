@@ -63,9 +63,9 @@ Graças à Mana, seu corpo se regenera durante o descanso.
 
 Enquanto estiver **dormindo**, você cura:
 
-* **1d12 a cada 2 pontos de Mana**
-* **1d12 por Eficiência de Rank**
-* **1d12 a cada 2 pontos de Constituição**
+* **ERd12 + Mana**
+* **ERd12**
+* **ERd12 + Corpo**
 
 Metade do valor total curado é convertida em **Magículas**.
 

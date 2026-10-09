@@ -17,7 +17,7 @@ Você assume uma forma bestial primitiva.
 
 ### Atributo Base por Raça
 
-- Manpan: Constituição
+- Manpan: Corpo
 - Fada: Mana
 - Meio-Vampiro: Carisma
 
@@ -26,7 +26,7 @@ Você assume uma forma bestial primitiva.
 ### Efeitos
 
 - Vida Temporária: Maior atributo × 3
-- Ataques Desarmados: +d11 per 2 do atributo base
+- Ataques Desarmados: +ERd11 + atributo base
 - Deslocamento: +atributo base
 
 ---

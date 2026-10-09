@@ -75,7 +75,7 @@ Fauna: criaturas Rank 6. Flora: plantas Rank 6.
 Fauna: criaturas Rank 6 e **Polimorfia** (transforma-se em animais com Maestria III+; atributos viram os da criatura, menos Intelecto/Sabedoria; usa Magia mas não Poderes; usos/dia = Mana, +1 por Maestria V+).
 
 Flora: plantas Rank 6 e **Corpo Selvagem** (fotossíntese; vida extra = Sobrevivência + Adestramento). Mimetiza elementos:
-* **Braço de Raiz:** desarmados d4 per 2 Mana + d14 per Sabedoria, raio 8 + Sabedoria (m); ataque extra como bônus; 1 min; usos/dia = Mana.
+* **Braço de Raiz:** desarmados ERd4 + Mana, além de ERd12 + Sabedoria, raio 8 + Sabedoria (m); ataque extra como bônus; 1 min; usos/dia = Mana.
 * **Pele de Pedra:** Resistência V contra dano não-mágico e +3 CA por 1 min; usos/dia = Mana.
 <!--#fim-->
 
@@ -88,7 +88,7 @@ Flora: plantas Rank 6 e **Corpo Selvagem** (fotossíntese; vida extra = Sobreviv
 
 Torna-se a Natureza Pura: +3 de Sabedoria; todos os Biomas viram seu Bioma Nato; estuda criaturas/plantas do seu próprio rank; Passos Destinados vira +30m; Trilha Espiritual sobe para +10; aprende **Forma Liber**.
 
-**Fim da Trilha Flora (Xamã Superior):** Braço de Raiz vira d6/d18 e dobra distância, sem limite de uso; Pele de Pedra vira Resistência VI (não-mágico) e V (mágico), +6 CA.
+**Fim da Trilha Flora (Xamã Superior):** Braço de Raiz vira d6/d12 e dobra distância, sem limite de uso; Pele de Pedra vira Resistência VI (não-mágico) e V (mágico), +6 CA.
 
 **Fim da Trilha Fauna (Polimorfia Verdadeira):** usos/dia = 3 + Sabedoria; mescla até 6 criaturas ao mesmo tempo (Habilidade I-IV, Atributo I Corpo, Atributo II Mana/Carisma); remove o uso diário de Polimorfia.
 <!--#fim-->

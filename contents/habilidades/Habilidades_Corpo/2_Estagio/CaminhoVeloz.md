@@ -1,12 +1,12 @@
 ## Caminho Veloz
-**Pré-Requisitos:** Passo Veloz, DES 5+, MAN 5+  
+**Pré-Requisitos:** Passo Veloz, TÉCNICA 5+, MAN 5+  
 **Custo:** 3 Magículas  
 
 O conceito do **Caminho Veloz** existe em várias culturas, com nomes diferentes, mas com o mesmo efeito base.
 
 ### Ativação
 **Ação Bônus**:  
-- Movimento de **DES + Arcana** metros  
+- Movimento de **TÉCNICA + Arcana** metros  
 - Ignora qualquer obstáculo  
 - Pode atravessar fendas ou buracos em que o personagem cabe naturalmente  
 

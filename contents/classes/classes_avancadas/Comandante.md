@@ -248,7 +248,7 @@ Até o seu próximo turno, o aliado pode usar sua **Reação** para impor **-2DR
 
 **Efeito:**  
 No próximo ataque acertado:
-- O inimigo testa **Constituição**  
+- O inimigo testa **Corpo**  
   **CD = 10 + Carisma + ER**
 - Falha: sofre **Lento por 1 rodada**.
 

@@ -20,7 +20,7 @@
 - Consome 1 Magícula  
 - **Acerto**: DR + Mana + ER  
 - **Distância**: Média  
-- **Dano**: d8 per 2 Mana + Mana  
+- **Dano**: ERd8 + Mana  
 - **Efeito de Carregar**: Pode, como **Ação Bônus** e 1 Magícula adicional, carregar o ataque.  
   - Ao carregar, o ataque recebe +1D no Acerto e +ER no Dano
 

@@ -1,6 +1,6 @@
 <!--#poder id="hb_barreiramagica" fonte="habilidade" estrela="2" nome="Barreira Mágica"-->
 # Barreira Mágica
-**Pré-Requisitos:** Mana 5+, Inteligência 5+  
+**Pré-Requisitos:** Mana 5+, Intelecto 5+  
 
 - **Vezes por dia:** Igual à sua Mana  
 - **Ativação:** Ação  

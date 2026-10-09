@@ -32,7 +32,7 @@ Cria uma área de pedras soltas com tamanho igual à sua **Mana (em metros)**.
 - Ao ativar a Área Pedreira:
   - Seu deslocamento se torna **igual à sua Mana**.
   - Inimigos perdem deslocamento igual à sua Mana.
-  - A cada turno, inimigos realizam um **Teste de Destreza**:
+  - A cada turno, inimigos realizam um **Teste de Técnica**:
     - **Falha:** Sofrem dano igual à **metade da sua Mana**.
 
 ---
@@ -113,15 +113,15 @@ Cria um **Golem de Terra**.
 Cria um tremor violento no solo.
 
 - **Raio:** **Mana + Eficiência de Rank** (em metros)
-- Inimigos realizam um **Teste de Destreza**.
+- Inimigos realizam um **Teste de Técnica**.
 
 **Falha:**
 - O inimigo cai **no chão**.
-- Precisa realizar um **Teste de Força** para se levantar  
+- Precisa realizar um **Teste de Corpo** para se levantar  
   **ou** sofre **-5 de CA**.
 
 **Ação Bônus:**
-- Você pode aplicar **Desvantagem** no Teste de Força do inimigo.
+- Você pode aplicar **Desvantagem** no Teste de Corpo do inimigo.
 
 **Readquirir:**
 - Aumenta o raio em **+10m**.
@@ -230,7 +230,7 @@ O atacante sofre o **dano total**.
 Como uma ação, lance uma chuva de lâminas em um cone de **Mana** metros.
 
 - Criaturas no cone fazem um **Teste de Técnica** contra sua **CD Mágica**.
-  - **Falha:** sofrem **1d8 por 2 Mana + Mana** de dano Cortante e ficam **Sangrando**.
+  - **Falha:** sofrem **ERd8 + Mana** de dano Cortante e ficam **Sangrando**.
   - **Sucesso:** metade do dano.
 
 **SuperConjurar:**  

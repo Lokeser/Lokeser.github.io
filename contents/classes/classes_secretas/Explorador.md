@@ -124,12 +124,12 @@ Sobrevivência + 2 perícias com +3; aprenda 1 Estilo de Exploração.
 * **Descobridor:** mapeia áreas; gire 1DR de Investigação para benefícios no local. *(4+ Investigação)*
 * **Escondedor:** rank×/dia, ao ser atacado fora de combate, teste de Técnica para correr o dobro e se esconder. *(4+ Furtividade)*
 * **Analista:** analisa Artefatos com Arcanismo (preço 10+, efeito 15+). *(4+ Arcanismo)*
-* **Mochileiro:** carrega o dobro da Força sem penalidade. *(4+ Atletismo)*
+* **Mochileiro:** carrega o dobro do Corpo sem penalidade. *(4+ Atletismo)*
 * **Cavernólogo:** +1DR em Percepção e detecta seres vivos (1m per rank) em ambientes fechados. *(4+ Percepção)*
 * **Detetive:** teste de Investigação revela dados do monstro (escala 10→40+). *(6+ Investigação)*
 * **Medo Monstruoso:** intimidação dobrada contra criaturas com 1/4 de vida. *(Intimidador, 15+ Intimidação)*
 * **Cozinheiro:** +3 per rank para Cozinhar; 1×/dia refeição mágica. *(7+ Sobrevivência)*
-* **DASH v2:** ganha um novo DASH — **Break** (investida ofensiva, 7+ Força), **Space** (qualquer direção sem reações, 7+ Técnica) ou **Rock** (Resistência I per rank a dano mágico, 7+ Constituição).
+* **DASH v2:** ganha um novo DASH — **Break** (investida ofensiva, 7+ Corpo), **Space** (qualquer direção sem reações, 7+ Técnica) ou **Rock** (Resistência I per rank a dano mágico, 7+ Corpo).
 * **Minerador:** +2 per rank para minerar; +1DR de acerto com Picareta. *(6+ Atletismo)*
 * **Por um Fio:** 1×/dia rerola 1DR após ver o resultado; +1 em perícia enquanto não usar. *(critar com 3− de vida)*
 * **Furtivista:** Furtividade como ação bônus em combate / ação livre fora. *(Escondedor, 10+ Furtividade)*

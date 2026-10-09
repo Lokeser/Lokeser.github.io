@@ -1,10 +1,10 @@
 ## True Parry
-**Pré-Requisitos:** Domínio da Destreza, Double Jump, Ataque Injusto, Determinação de Combate, Determinação Superior de Combate, Não ter habilidades mágicas, Mana 5 ou menos  
+**Pré-Requisitos:** Domínio da Técnica, Double Jump, Ataque Injusto, Determinação de Combate, Determinação Superior de Combate, Não ter habilidades mágicas, Mana 5 ou menos  
 
 ### Ativação
 - Quando estiver prestes a sofrer qualquer tipo de dano (pessoas, queda, magia, efeitos, etc.)  
 - **Custo:** 5 Magículas  
-- Realize um **teste de Destreza**:  
+- Realize um **teste de Técnica**:  
   - CD = 35 + ER do atacante  
   - Dano de condições ou seres inanimados possui ER baseada no dano recebido  
 

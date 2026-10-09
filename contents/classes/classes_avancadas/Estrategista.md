@@ -1,7 +1,7 @@
 # Estrategista  
 *Classe Avançada*
 
-**Pré-Requisitos:** 8+ em Inteligência e 5+ em Percepção **ou** Percepção Mágica  
+**Pré-Requisitos:** 8+ em Intelecto e 5+ em Percepção **ou** Percepção Mágica  
 
 O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo de batalha**. Ele observa padrões, antecipa decisões e transforma informação em vantagem inevitável, controlando o fluxo do combate como um tabuleiro vivo.
 
@@ -22,7 +22,7 @@ O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo 
 ### ⭐⭐⭐ 3 Estrelas — Percepção Híbrida
 - Você pode fundir **Percepção** e **Percepção Mágica** em um único recurso: **Percepção Híbrida**.
 - Some seus pontos de **Percepção + Percepção Mágica** e aloque em **Percepção Híbrida**.
-- **Limite máximo:** Inteligência × ER.
+- **Limite máximo:** Intelecto × ER.
 - Pode ser utilizada no lugar de **Percepção** ou **Percepção Mágica**, desde que haja **ao menos 1 ponto de cada** alocado.
 
 ---
@@ -39,15 +39,15 @@ Se passar, escolha **um** dos efeitos abaixo:
 
 - **Descobrir Ataques Mágicos**  
   Descobre informações sobre um ataque mágico do alvo.  
-  Recebe **CA = metade da sua Inteligência** contra esse ataque e o mesmo valor em testes de defesa exigidos por ele.
+  Recebe **CA = metade do seu Intelecto** contra esse ataque e o mesmo valor em testes de defesa exigidos por ele.
 
 - **Descobrir Habilidades Físicas**  
   Descobre todas as Habilidades Físicas do alvo, exceto Supremas.  
-  Recebe **metade da sua Inteligência** para resistir a elas.
+  Recebe **metade do seu Intelecto** para resistir a elas.
 
 - **Descobrir Habilidades Mágicas**  
   Descobre todas as Habilidades Mágicas do alvo, exceto Supremas.  
-  Recebe **metade da sua Inteligência** para resistir a elas.
+  Recebe **metade do seu Intelecto** para resistir a elas.
 
 - **Descobrir Resistências**  
   Revela todas as Resistências do alvo.
@@ -85,8 +85,8 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 <!--#poder id="ca_estrategista_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Compartilhar Informações"-->
 ### ⭐ 1 Estrela — Compartilhar Informações
 - A cada turno, como **ação bônus**, se tiver informações obtidas via **Meta Vision**, pode compartilhar **uma** delas.
-- Número de aliados afetados: **igual à sua Inteligência**.
-- Aliados recebem **(Inteligência ÷ 4) + ER deles** para resistir a ataques e efeitos.
+- Número de aliados afetados: **igual ao seu Intelecto**.
+- Aliados recebem **(Intelecto ÷ 4) + ER deles** para resistir a ataques e efeitos.
 
 ---
 
@@ -95,7 +95,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 <!--#poder id="ca_estrategista_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐ 2 Estrelas — Multi-Análise"-->
 ### ⭐⭐ 2 Estrelas — Multi-Análise
 - **Meta Vision** pode ser usada em múltiplos alvos.
-- Número máximo de alvos: **metade da sua Inteligência**.
+- Número máximo de alvos: **metade do seu Intelecto**.
 
 ---
 
@@ -161,8 +161,8 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 <!--#poder id="ca_estrategista_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐ 2 Estrelas — Star Buff"-->
 ### ⭐⭐ 2 Estrelas — Star Buff
-- Force um alvo visível a realizar um teste de **Inteligência**.  
-- **CD:** **10 + ER + sua Inteligência**
+- Force um alvo visível a realizar um teste de **Intelecto**.  
+- **CD:** **10 + ER + seu Intelecto**
 - Se falhar:
   - No próximo turno, o alvo gasta **todo o deslocamento** para ir até você e atacar, se possível.
 - Se for atacado por esse efeito:
@@ -185,7 +185,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 <!--#poder id="ca_estrategista_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Aprimoramento Mental"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Aprimoramento Mental
 - Ao obter um **acerto crítico** em um teste de **Percepção Híbrida**:
-  - Recebe **+1 Inteligência** até o fim do combate  
+  - Recebe **+1 Intelecto** até o fim do combate  
   - Ou por **10 minutos**, se fora de combate.
 
 ---
@@ -197,7 +197,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 <!--#poder id="ca_estrategista_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ — Reprodução Absoluta Física"-->
 ### ⭐ — Reprodução Absoluta Física
 - Ao descobrir uma **Habilidade Física** com **Meta Vision**, pode tentar reproduzi-la.
-- Teste de **Inteligência**:
+- Teste de **Intelecto**:
   - **CD 10** — Básica  
   - **CD 15** — Avançada  
   - **CD 20** — Superior  

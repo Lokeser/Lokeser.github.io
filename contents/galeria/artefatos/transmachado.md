@@ -9,8 +9,8 @@
 ### MECÂNICA E EFEITOS
 # Transmachado
 
-**Requisito:** Força 12+, Destreza 2+, Inteligência 2+ (Para manuseio do mecanismo)
-**Escalamento Principal:** Força (Dano Físico) e Mana (Explosões de Núcleo Artificial)
+**Requisito:** Corpo 12+, Técnica 2+, Intelecto 2+ (Para manuseio do mecanismo)
+**Escalamento Principal:** Corpo (Dano Físico) e Mana (Explosões de Núcleo Artificial)
 
 
 
@@ -26,7 +26,7 @@ Para operar esta arma com eficiência máxima, o usuário deve gerenciar três p
 O coração do Transmachado. O tipo de Núcleo Artificial define o efeito extra no **Modo Espada**.
 * **Núcleo Artificial do Poder:** Aumenta o dano físico do Modo Espada em +1 estágio de dado (ex: d10 vira d12).
 * **Núcleo Artificial Elemental:** Adiciona dano mágico á arma. **Dano:** ERd6+ER (Anômalo).
-* **Núcleo Artificial de Status:** Aplica acúmulo de status (Veneno/Paralisia). Se causar dano, o alvo faz um Teste de Defesa (Con). Falha aplica 1 acúmulo.
+* **Núcleo Artificial de Status:** Aplica acúmulo de status (Veneno/Paralisia). Se causar dano, o alvo faz um Teste de Defesa (Corpo). Falha aplica 1 acúmulo.
 * **Núcleo Artificial de Exaustão:** Dano *Magi-Contundente*. Rouba Magículas do alvo e pode causar a condição **Fatigado**.
 
 ### 2. 🔋 Barra de Transição (Energia)
@@ -47,8 +47,8 @@ Quando a arma atinge o pico de ressonância no Modo Espada.
 ## 🪓 Modo Machado (Axe Mode)
 *Foco: Alcance, Mobilidade e Regeneração de Energia.*
 
-* **Acerto:** DR+FOR+ER
-* **Dano Base:** ERd12+FOR
+* **Acerto:** DR+CORPO+ER
+* **Dano Base:** ERd12+CORPO
 * **Deslocamento:** Normal.
 
 ### Ações de Machado
@@ -66,7 +66,7 @@ Você utiliza a inércia para girar o machado continuamente ao redor do corpo.
 **🔹 Pancada Pesada / Heavy Slam (Ação Bônus)**
 *Requisito: Usar após Giro Selvagem.*
 Um golpe vertical descendente que utiliza a força centrífuga.
-* **Dano:** ERd16 + Força + ER.
+* **Dano:** ERd16 + Corpo + ER.
 * **Buff:** Ativa o **Modo Machado Potente** por 2 rodadas.
     * *Machado Potente:* Aumenta a geração de Energia em +1 por ataque e causa dano extra em alvos com a condição Machucados.
 
@@ -78,7 +78,7 @@ Um golpe vertical descendente que utiliza a força centrífuga.
 ## 🗡️ Modo Espada (Sword Mode)
 *Foco: DPS Massivo, Precisão e Consumo.*
 
-* **Dano Base:** ERd14+FOR+MANA
+* **Dano Base:** ERd14+CORPO+MANA
 * **Dano Extra:** Aplica o efeito do Núcleo Artificial em todo acerto.
 * **Deslocamento:** Reduzido em -3m.
 * **Custo:** Todo ataque consome **-1 Ponto de Energia**.
@@ -96,8 +96,8 @@ Um combo de dois cortes seguidos de um gancho giratório. Custa **-3 Energia**.
 
 **🔸 Descarga Elemental / ED (Ação Padrão + Concentração)**
 Você perfura o alvo e canaliza energia pura.
-1.  **Perfurar:** Ataque corpo a corpo. Dano ERd4. O inimigo fica *Agarrado* (Teste de Força oposto).
-2.  **Canalizar (Pulsos):** Você gasta seus turnos ou ações bônus subsequentes pulsando dano (1d6 per 2 Mana por pulso).
+1.  **Perfurar:** Ataque corpo a corpo. Dano ERd4. O inimigo fica *Agarrado* (Teste de Corpo oposto).
+2.  **Canalizar (Pulsos):** Você gasta seus turnos ou ações bônus subsequentes pulsando dano (ERd6 + Mana por pulso).
 3.  **Finalizador:** Uma explosão massiva. Dano ERd22+MANA. A arma volta para Modo Machado e você é empurrado para trás.
 
 **🔸 Contra-golpe de Espada**
@@ -130,9 +130,9 @@ A qualquer momento, durante uma Ação de Ataque, você pode declarar uma Transf
 
 | Ação | Dano Principal (Fórmula) | Recurso (Energia) |
 | :--- | :--- | :--- |
-| **Machado Básico** | ERd12+FOR | 🟢 +2 |
-| **Machado Pancada** | ERd16+FOR+ER | 🟢 Buff Machado |
-| **Espada Básico** | ERd14+FOR+MANA++ Núcleo Artificial | 🔴 -1 |
+| **Machado Básico** | ERd12+CORPO | 🟢 +2 |
+| **Machado Pancada** | ERd16+CORPO+ER | 🟢 Buff Machado |
+| **Espada Básico** | ERd14+CORPO+MANA++ Núcleo Artificial | 🔴 -1 |
 | **Dano do Núcleo Artificial** | ERd6+ER | N/A |
 | **ZSD (Final)** | Explosão de ER x (d22+MANA) | 🔴 Zera Tudo |
 

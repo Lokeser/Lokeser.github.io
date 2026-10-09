@@ -1,7 +1,7 @@
 # Classe Avançada — Assassino
 
 **Pré-Requisitos:**
-*Destreza 10+* **ou** *Classe Ladino*
+*Técnica 10+* **ou** *Classe Ladino*
 
 **Ranks:** 8 a 4
 
@@ -149,7 +149,7 @@ Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:
 
 Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 
-* Pode gastar **7m do Deslocamento** para realizar um teste de Destreza.
+* Pode gastar **7m do Deslocamento** para realizar um teste de Técnica.
 * **CD:**
 
 ******
@@ -186,7 +186,7 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 <!--#poder id="ca_assassino_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Mestre Assassino"-->
 ### Mestre Assassino
 
-* Recebe a **Forma Liber (Destreza)**.
+* Recebe a **Forma Liber (Técnica)**.
 
 ---
 
@@ -200,7 +200,7 @@ Quando reduzir um alvo a **0 de Vida** com um ataque **furtivo**:
 Raio de 6m: inimigos ficam **Cegos**. Você recebe **+8m de Deslocamento** se estiver na fumaça.
 
 **Estrelas de Ferro** *(2+ INT ou 16MC)*
-Ataques arremessados. Cada estrela consome 4m de deslocamento. Dano: **ERd3 por estrela + Destreza**.
+Ataques arremessados. Cada estrela consome 4m de deslocamento. Dano: **ERd3 por estrela + Técnica**.
 
 **Cordas** *(5+ INT ou 22MC)*
 Pode usar **Acrobacia** no lugar de Atletismo para agarrar.
@@ -236,7 +236,7 @@ Recebe *Double Jump*. Pode usar Acrobacia no segundo salto.
 Recebe *Rasteira Tática*. Contra alvos caídos, **+2 Margem Crítica**.
 
 **Passos do Ladrão**
-Ação bônus: mova-se **Mana em metros**. Se furtivo, adicione Destreza. Pode se ocultar novamente após ataque furtivo.
+Ação bônus: mova-se **Mana em metros**. Se furtivo, adicione Técnica. Pode se ocultar novamente após ataque furtivo.
 
 **Técnicas de Arremesso**
 Ataques furtivos com armas arremessadas **não quebram Furtividade**, mas o alvo recebe **+3 para te localizar**.

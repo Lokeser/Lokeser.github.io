@@ -21,14 +21,14 @@
 ## ⚡ Cristal de Raio
 | Rank | Dano | Crítico |
 | :--- | :--- | :--- |
-| **Rank 10** | 1d6+2 | 3x Dano & -2 de Destreza por 4 Turnos |
-| **Rank 9** | 2d6+2 | 3x Dano & -2 de Destreza por 4 Turnos |
-| **Rank 8** | 3d6+4 | 3x Dano & -4 de Destreza por 4 Turnos |
-| **Rank 7** | 4d6+4 | 4x Dano & -4 de Destreza por 4 Turnos |
-| **Rank 6** | 5d6+6 | 4x Dano & -6 de Destreza por 4 Turnos |
-| **Rank 5** | 6d6+6 | 4x Dano & -6 de Destreza por 4 Turnos |
-| **Rank 4** | 7d6+8 | 5x Dano & -8 de Destreza por 4 Turnos |
-| **Rank 3** | 8d6+8 | 6x Dano & -10 de Destreza por 4 Turnos |
+| **Rank 10** | 1d6+2 | 3x Dano & -2 de Técnica por 4 Turnos |
+| **Rank 9** | 2d6+2 | 3x Dano & -2 de Técnica por 4 Turnos |
+| **Rank 8** | 3d6+4 | 3x Dano & -4 de Técnica por 4 Turnos |
+| **Rank 7** | 4d6+4 | 4x Dano & -4 de Técnica por 4 Turnos |
+| **Rank 6** | 5d6+6 | 4x Dano & -6 de Técnica por 4 Turnos |
+| **Rank 5** | 6d6+6 | 4x Dano & -6 de Técnica por 4 Turnos |
+| **Rank 4** | 7d6+8 | 5x Dano & -8 de Técnica por 4 Turnos |
+| **Rank 3** | 8d6+8 | 6x Dano & -10 de Técnica por 4 Turnos |
 
 ---
 

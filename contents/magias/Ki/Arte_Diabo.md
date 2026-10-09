@@ -62,7 +62,7 @@ Sempre que causar **Dano de Ki**, pode gastar **1 Accel**:
 <!--#poder id="mg_arte_diabo_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Ki Corrompido II"-->
 ### Ki Corrompido II
 
-* Ataques corpo a corpo causam **+1d5 por 2 Ki**
+* Ataques corpo a corpo causam **+ERd5 + Mana**
 * Crítico aplica o efeito do Ki Corrompido
 
 <!--#fim-->
@@ -152,7 +152,7 @@ Ao acertar um ataque:
 <!--#poder id="mg_arte_diabo_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
-* Dano aumenta em **d10 por 2 Ki**
+* Dano aumenta em **ERd10 + Mana**
 * Deslocamento +7m
 * +7 Intimidação e Percepção
 

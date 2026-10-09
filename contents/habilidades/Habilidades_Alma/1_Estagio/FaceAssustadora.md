@@ -1,7 +1,7 @@
 <!--#poder id="hb_faceassustadora" fonte="habilidade" estrela="1" nome="Face Assustadora"-->
 # Face Assustadora
 
-**Pré-Requisitos:** 2+ Mana **ou** Força  
+**Pré-Requisitos:** 2+ Mana **ou** Corpo  
 
 Como uma **Ação Bônus**, escolha uma criatura que possa vê-lo a até **6m**.
 

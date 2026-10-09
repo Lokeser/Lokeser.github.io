@@ -75,10 +75,10 @@ Se for crítico real:
 **Ação:** Ação Padrão  
 
 Até 3 alvos em 18m:
-- Dano: 3d10 + Inteligência (cada)
+- Dano: 3d10 + Intelecto (cada)
 
 Ou 1 alvo:
-- Dano: 10d10 + Inteligência
+- Dano: 10d10 + Intelecto
 
 ### 6. Disco Espectral Debilitante
 **Custo:** 3 Magículas do Disco  
@@ -108,7 +108,7 @@ Não reutilizável no mesmo alvo no mesmo dia.
 Por 3 turnos:
 - +6d12 Dano Físico (Contundente)
 - Primeiro acerto por turno:
-  - Teste de Força ou empurrão de 3m
+  - Teste de Corpo ou empurrão de 3m
 
 ### 9. Manto Fantasma: Refração de Discos
 **Custo:** 6 Magículas do Disco  

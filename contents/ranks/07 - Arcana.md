@@ -62,10 +62,9 @@ Ao completar o vínculo:
   **1d4 + (ER × 2) + Valor de Vida da Raça**
 
 * Aumenta **+2** em:
-  * Força
-  * Destreza
-  * Constituição
-  * Inteligência
+  * Corpo
+  * Técnica
+  * Intelecto
   * Carisma
 
 * Recebe **5 pontos no Atributo Arcana**.

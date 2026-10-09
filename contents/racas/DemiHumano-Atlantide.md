@@ -58,10 +58,10 @@ Escolha **duas** características raciais:
   Aumenta sua velocidade de nado em **+15m**.
 
 * **Pedúnculo Potente**
-  Seu rabo causa dano de **Concussão** igual a **1d6 a cada 2 Corpo + Mana**.
+  Seu rabo causa dano de **Concussão** igual a **ERd6 + Mana**.
 
 * **Presas de Tubarão**
-  Seus dentes causam dano **Perfuração** igual a **1d8 a cada 2 Corpo + Corpo**.
+  Seus dentes causam dano **Perfuração** igual a **ERd8 + Corpo**.
 
 * **Consenso Marítimo**
   Testes de **Adestramento** são inúteis.

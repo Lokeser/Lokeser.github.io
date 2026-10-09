@@ -1,6 +1,6 @@
 # Humano Variante — Corpo Mágico
 
-> *Um humano modificado pelo método Títere Arcanus, tornado uma casca que vive através da mana. O corpo não segue mais necessidades naturais; toda modificação parte do Núcleo de Mana. Pode escolher qualquer aparência, mesmo sem Constituição ou Carisma.*
+> *Um humano modificado pelo método Títere Arcanus, tornado uma casca que vive através da mana. O corpo não segue mais necessidades naturais; toda modificação parte do Núcleo de Mana. Pode escolher qualquer aparência, mesmo sem Corpo ou Carisma.*
 
 ---
 

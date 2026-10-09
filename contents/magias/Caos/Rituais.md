@@ -95,7 +95,7 @@ Misture os ingredientes, sangre a mão dominante e recite:
 
 **Efeito:** Ataque elemental de Terra (Rank 9).
 
-* Falha em Força: alvo **Caído**
+* Falha em Corpo: alvo **Caído**
 
 **Falha Crítica:** Tabela de Caos **-3**
 
@@ -109,7 +109,7 @@ Misture os ingredientes, sangre a mão dominante e recite:
 
 **Efeito:** Ataque de água (Rank 9).
 
-* Falha em Destreza: alvo escorregadio
+* Falha em Técnica: alvo escorregadio
 
 ---
 
@@ -121,7 +121,7 @@ Misture os ingredientes, sangre a mão dominante e recite:
 
 **Efeito:** Corte aéreo (Rank 9).
 
-* Falha em Força: empurra **1 + ⌊ER/2⌋ m**
+* Falha em Corpo: empurra **1 + ⌊ER/2⌋ m**
 
 ---
 
@@ -133,7 +133,7 @@ Misture os ingredientes, sangre a mão dominante e recite:
 
 **Efeito:** Explosão ígnea (Rank 9).
 
-* Falha em Destreza: **2dCaos+ER** + Chamas
+* Falha em Técnica: **2dCaos+ER** + Chamas
 
 ---
 

@@ -50,7 +50,7 @@ Evolução focada na **antecipação do movimento físico** e leitura do futuro 
 
 **Quebra de Causalidade**
 - Vezes por dia igual à ER:
-  - Força re-rolagem de um ataque ou defesa bem-sucedido do inimigo
+  - Corpo re-rolagem de um ataque ou defesa bem-sucedido do inimigo
 
 
 <!--#fim-->

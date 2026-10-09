@@ -1,6 +1,6 @@
 <!--#poder id="hb_selosmagicos" fonte="habilidade" estrela="3" nome="Selos Mágicos"-->
 # Selos Mágicos
-**Pré-Requisitos:** 1+ Inteligência, 1+ Mana  
+**Pré-Requisitos:** 1+ Intelecto, 1+ Mana  
 
 Utilizando o papel Mancharta, você pode transmitir uma Magia ou um Cristal de Mana para ele.  
 

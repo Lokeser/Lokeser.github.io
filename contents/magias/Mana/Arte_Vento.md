@@ -131,7 +131,7 @@ Afeta até **2 criaturas**.
 Um tufão nasce ao seu redor, com raio de **Mana × 2** metros, por **3 turnos**.
 
 - No início de cada turno seu, inimigos na área fazem um **Teste de Corpo** contra sua **CD Mágica**.
-  - **Falha:** sofrem **1d10 por 2 Mana** de dano de Vento, são movidos até **Mana** metros na direção que você escolher e ficam **Caídos**.
+  - **Falha:** sofrem **ERd10 + Mana** de dano de Vento, são movidos até **Mana** metros na direção que você escolher e ficam **Caídos**.
 - Cada inimigo movido conta para o seu Ímpeto.
 
 **SuperConjurar:**  
@@ -192,7 +192,7 @@ A área dura um número de turnos igual à sua **Mana**.
 
 Como uma ação, esmague o ar em volta de uma criatura **Asfixiada** pela sua magia. Ela faz um **Teste de Corpo** contra sua **CD Mágica**.
 
-- **Falha:** sofre **1d12 por 2 Mana + Mana** de dano de Vento e fica **Atordoada** até o fim do próximo turno dela.
+- **Falha:** sofre **ERd12 + Mana** de dano de Vento e fica **Atordoada** até o fim do próximo turno dela.
 - **Sucesso:** metade do dano.
 
 **SuperConjurar:**  

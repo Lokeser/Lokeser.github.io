@@ -6,7 +6,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 ---
 
 ## Pré-Requisitos
-- **Constituição 6+** **OU**
+- **Corpo 6+** **OU**
 - **Classe Trabalhador**
 
 **Progressão de Rank:** 8 → 4
@@ -21,9 +21,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 #### Bloquear
 - Você aprende a habilidade **Bloquear**.
 - Permite reduzir o dano de um ataque contra você:
-  - **Teste:** Constituição  
+  - **Teste:** Corpo  
   - **CD:** dano recebido  
-  - **Redução:** Constituição ÷ 2
+  - **Redução:** Corpo ÷ 2
 - Pode bloquear um ataque contra um aliado a até **3m**, consumindo **1 Magícula**.
 
 #### Resistência Adaptável
@@ -32,7 +32,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 - Como **Ação Bônus**, gaste **1 Magícula** para trocar um tipo de resistência por outro (não mágico ou mágico).
 
 #### Voto de Proteção
-- Recebe **+1d8 de Vida** para cada **2 pontos de Constituição**.
+- Recebe **+1d8 de Vida** para cada **2 pontos de Corpo**.
 - Você é **imune a doenças naturais** e à condição **Doente**.
 
 ---
@@ -44,7 +44,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 #### Vida Temporária
 - No início do combate, se houver um aliado a até **6m**:
-  - Ganhe **Vida Temporária = Constituição + (Mana ÷ 2)** *(arredondado para baixo)*.
+  - Ganhe **Vida Temporária = Corpo + (Mana ÷ 2)** *(arredondado para baixo)*.
 - Dura até o fim do combate.
 
 #### Bloqueio Curativo
@@ -67,11 +67,11 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
   - **+2 CA**
   - Reduz o dano recebido em **Sabedoria ÷ 2** *(arredondado para baixo)*.
 - Inimigos que atacarem aliados a até **3m**:
-  - Teste de **Força**
-  - **CD = 10 + Constituição**
+  - Teste de **Corpo**
+  - **CD = 10 + Corpo**
   - Falha: ficam **Desprevenidos por 1 rodada**.
 
-**Uso:** Vezes por dia iguais a **Constituição ÷ 2**.
+**Uso:** Vezes por dia iguais o **Corpo ÷ 2**.
 
 ---
 
@@ -97,7 +97,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 - Como **Reação**, quando um aliado a até **6m** for atacado:
   - Gaste **1 Magícula** para absorver o ataque.
   - Você recebe o dano, mas:
-    - Reduz em **Constituição ÷ 2**
+    - Reduz em **Corpo ÷ 2**
     - Pode realizar **1 ataque desarmado** contra o atacante com **+1DR**.
 
 **Uso:** 1 vez por combate.
@@ -125,7 +125,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 <!--#poder id="ca_guardiao_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Muralha Viva II"-->
 ### ⭐ 1 Estrela — Muralha Viva II
-- **Bloquear** agora reduz o dano em **Constituição** (em vez de Constituição ÷ 2).
+- **Bloquear** agora reduz o dano em **Corpo** (em vez de Corpo ÷ 2).
 - Se proteger um aliado com menos de **50% de Vida**, não consome Magícula.
 - Seus ataques desarmados contra inimigos que atacaram aliados no último turno causam **+1d6 de dano por ER**.
 
@@ -151,7 +151,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 - Até o fim do seu próximo turno:
   - Ataques contra ele têm **50% de chance** de atingir você.
   - Se atingir você:
-    - Reduza o dano em **Constituição ÷ 2**
+    - Reduza o dano em **Corpo ÷ 2**
     - O aliado recebe **Vida Temporária = Mana ÷ 2**
 
 **Uso:** Vezes por dia iguais a **Mana ÷ 2**.
@@ -195,7 +195,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Resistência Suprema
 - Aumente em **+3** o estágio de resistência de **todos os tipos escolhidos** em Resistência Adaptável.
 - Quando sofrer dano que causaria **Sangrando** ou **Tonto**:
-  - Teste de **Constituição**
+  - Teste de **Corpo**
   - **CD = 10 + Rank do atacante**
   - Sucesso: ignora a condição.
 
@@ -207,9 +207,9 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 <!--#poder id="ca_guardiao_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="⭐ 1 Estrela — Mestre Guardião"-->
 ### ⭐ 1 Estrela — Mestre Guardião
-- Sua Vida aumenta em **1d10 por Constituição**.
+- Sua Vida aumenta em **ERd10 + Corpo**.
 - **Bloquear** agora reduz o dano em:
-  - **Constituição + (Mana ÷ 2)**
+  - **Corpo + (Mana ÷ 2)**
 - Recebe **+5 em Percepção Mágica**.
   - Pode identificar ameaças a aliados:
     - **CD = 15 + Rank do inimigo**

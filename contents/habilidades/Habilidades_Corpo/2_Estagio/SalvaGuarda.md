@@ -1,1 +1,1 @@
-Quando um inimigo atacar um aliado e você estiver em até 10 metros de distância, antes do inimigo rolar um dado, você pode realizar uma rolagem de Destreza e, quando o inimigo lançar o ataque, se o seu numero for maior, você bloqueia, mas você perde sua ação principal no seu turno.
+Quando um inimigo atacar um aliado e você estiver em até 10 metros de distância, antes do inimigo rolar um dado, você pode realizar uma rolagem de Técnica e, quando o inimigo lançar o ataque, se o seu numero for maior, você bloqueia, mas você perde sua ação principal no seu turno.

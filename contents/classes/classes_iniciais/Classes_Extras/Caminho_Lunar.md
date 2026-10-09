@@ -14,18 +14,18 @@
 - Aprende a habilidade principal de sua Classe Inicial de Origem
 
 ### Treino Lunar
-- +5 em todas as perícias de Inteligência
+- +5 em todas as perícias de Intelecto
 
 ### Conexão com a Lua
-- Como **Ação Bônus**, realize um teste de Inteligência (CD = 18)  
-- Se passar, recebe bônus = Inteligência em todos os testes realizados neste turno
+- Como **Ação Bônus**, realize um teste de Intelecto (CD = 18)  
+- Se passar, recebe bônus = Intelecto em todos os testes realizados neste turno
 
 ---
 
 ## Intermediário
 
 ### Guiado pela Lua
-- Durante a noite, bônus = Inteligência em Acrobacia, Furtividade e Deslocamento
+- Durante a noite, bônus = Intelecto em Acrobacia, Furtividade e Deslocamento
 
 ### Movimentação Banhada ao Luar
 - Como Ação Bônus, mova-se em um espaço desocupado igual ao seu Deslocamento  

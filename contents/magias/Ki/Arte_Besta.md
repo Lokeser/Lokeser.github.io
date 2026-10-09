@@ -23,10 +23,10 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**
 **Substitui os efeitos normais de Accel por:**
 
 * Vida Temporária = **Ki × Eficiência de Rank × 2**
-* Força e Destreza +2 (sem Domínio)
+* Corpo e Técnica +2 (sem Domínio)
 * Resistência II a todos os danos
-* Ataques desarmados: **1d4 por Ki + 1d4 por 2 Força**
-* Deslocamento e Pulo = **Força × 4m**
+* Ataques desarmados: **ERd4 + Corpo**
+* Deslocamento e Pulo = **Corpo × 4m**
 * Aprende **Bloquear** ou aumenta seu estágio
 
 ---
@@ -38,9 +38,9 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**
 <!--#poder id="mg_arte_besta_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
-* Vida Temporária +**Xd4** (X = Constituição)
+* Vida Temporária +**Xd4** (X = Corpo)
 * Resistência III a todos os danos
-* Força +2 (total 4, sem Domínio)
+* Corpo +2 (total 4, sem Domínio)
 * Deslocamento e Pulo +5m
 
 <!--#fim-->
@@ -62,7 +62,7 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 ### Evolução de Accel
 
 * Vida Temporária +**Xd7** (X = Eficiência de Rank)
-* Força +2 (total 6, sem Domínio)
+* Corpo +2 (total 6, sem Domínio)
 * Deslocamento e Pulo +5m
 
 ---
@@ -74,7 +74,7 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 <!--#poder id="mg_arte_besta_r6e1_1" fonte="magia" rank="6" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
-* Vida Temporária +**Xd8** (X = Constituição)
+* Vida Temporária +**Xd8** (X = Corpo)
 * Aprende **Aura Intimidadora** sem pré-requisitos
 * Deslocamento e Pulo +20m
 
@@ -88,7 +88,7 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 ### Evolução de Accel
 
 * Resistência IV a todos os danos
-* Força +2 (total 8, **pode adquirir Domínio**)
+* Corpo +2 (total 8, **pode adquirir Domínio**)
 
 ---
 
@@ -99,9 +99,9 @@ Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:
 <!--#poder id="mg_arte_besta_r4e1_1" fonte="magia" rank="4" estrela="1" nome="Evolução de Accel"-->
 ### Evolução de Accel
 
-* Vida Temporária +**Xd10** (X = Constituição)
+* Vida Temporária +**Xd10** (X = Corpo)
 * Resistência V a todos os danos
-* Força +2 (total 10, **pode adquirir Domínio**)
+* Corpo +2 (total 10, **pode adquirir Domínio**)
 * Deslocamento e Pulo +10m
 
 

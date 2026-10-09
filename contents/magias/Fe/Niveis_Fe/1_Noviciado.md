@@ -32,8 +32,8 @@ Sempre que atingir um marco de Adoração, você recebe um aumento em sua **Vida
 
 Escolha **uma** das opções:
 
-* **Constituição + Fé**
-* **Constituição × 2**
+* **Corpo + Fé**
+* **Corpo × 2**
 
 ---
 

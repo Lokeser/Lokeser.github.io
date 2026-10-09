@@ -1,7 +1,7 @@
 # Classe Avançada — Artista Marcial
 
 **Pré-Requisitos:**  
-*Força 6+*, *Destreza 6+* **ou** *Classe Combativo (Lutador)*  
+*Corpo 6+*, *Técnica 6+* **ou** *Classe Combativo (Lutador)*  
 
 **Ranks:** 8 a 4
 
@@ -25,7 +25,7 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 * Seus ataques desarmados aumentam em **+1 Estágio de Dano** *(ex.: d4 → d6)*.
 * Escolha:
   * **Tipo de Dano**: Contundente, Cortante ou Perfurante.
-  * **Atributo Principal** para acerto e dano: **Força ou Destreza**.
+  * **Atributo Principal** para acerto e dano: **Corpo ou Técnica**.
 
 ---
 
@@ -148,7 +148,7 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 * Estágio de Dano desarmado aumenta em **+1** *(ex.: d8 → d10)*.
 * Contra alvos **Ofuscados ou Tontos**:
   * Aplica **Sangrando I**  
-  *(Teste de Constituição CD 18 ou sofre 1d6 por turno)*.
+  *(Teste de Corpo CD 18 ou sofre 1d6 por turno)*.
 
 ---
 
@@ -171,7 +171,7 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 * **CD 35:**  
   * **+6m deslocamento**
-  * **+1DR em Destreza**
+  * **+1DR em Técnica**
   * Recebe **Esquiva I** (ou +1 Estágio).
 
 ---
@@ -193,13 +193,13 @@ Durante a meditação, o mestre pode conceder **visões, presságios ou pistas n
 
 Escolha um benefício conforme o atributo principal:
 
-* **Força:**  
+* **Corpo:**  
   * +1d8 de dano por ER.
 
-* **Destreza:**  
+* **Técnica:**  
   * Acertos críticos aplicam **Sangrando II** *(CD 20)*.
 
-* **Constituição:**  
+* **Corpo:**  
   * **+5 CA** enquanto desarmado.
 
 * Ataques desarmados tornam-se **mágicos**.
@@ -254,15 +254,15 @@ Escolha um benefício conforme o atributo principal:
 
 Escolha conforme o atributo principal:
 
-* **Força:**  
+* **Corpo:**  
   * +2DR em ataques
   * +1d6 de dano por ER
 
-* **Destreza:**  
+* **Técnica:**  
   * +6m deslocamento
   * Ignora Lento e Imóvel
 
-* **Constituição:**  
+* **Corpo:**  
   * +3 CA
   * Resistência I a dano mágico
 
@@ -284,19 +284,19 @@ As Técnicas Marciais são habilidades desarmadas personalizáveis que definem o
 <!--#fim-->
 
 ## Golpe Devastador
-**Pré-Requisito:** Força 6+  
-Ataque desarmado com **+1d6 por ER**.  
-Empurra e derruba o alvo se falhar em teste de Força.  
-**Uso:** Força ÷ 2
+**Pré-Requisito:** Corpo 6+  
+Ataque desarmado com **+ERd6**.  
+Empurra e derruba o alvo se falhar em teste de Corpo.  
+**Uso:** Corpo ÷ 2
 
 ## Esquiva Rápida
-**Pré-Requisito:** Destreza 6+  
+**Pré-Requisito:** Técnica 6+  
 Reação defensiva com deslocamento livre.  
-**Uso:** Destreza ÷ 3
+**Uso:** Técnica ÷ 3
 
 ## Postura Inabalável
-**Pré-Requisito:** Constituição 6+  
+**Pré-Requisito:** Corpo 6+  
 Reduz dano recebido e concede Resistência I.  
-**Uso:** Constituição ÷ 2
+**Uso:** Corpo ÷ 2
 
 *(demais técnicas seguem o mesmo padrão)*  

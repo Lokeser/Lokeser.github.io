@@ -2,7 +2,7 @@
 
 ### Pré-Requisito
 - Possuir o Pergaminho das Notas Mágicas  
-- Ser ensinado por um mestre ou aprender sozinho (Teste: 10 + Inteligência)
+- Ser ensinado por um mestre ou aprender sozinho (Teste: 10 + Intelecto)
 
 > Esta Classe se torna sua Classe Inicial, substituindo a Classe Inicial de Origem.  
 > Ao atingir o Rank 8, você pode aprender a Classe Especial **Oráculo**.

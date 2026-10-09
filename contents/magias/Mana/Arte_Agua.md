@@ -82,7 +82,7 @@ Enquanto estiver com água até a cintura:
 Vezes por dia igual à sua Mana, como uma ação, cria um redemoinho em um **Foco Aquático** visível.
 
 * Área igual à sua Mana
-* Inimigos fazem teste de **Constituição vs CD Mágica**
+* Inimigos fazem teste de **Corpo vs CD Mágica**
 
   * Falha: ficam **Agarrados**
 * Inimigos até 2m da área também testam, com **+1 DR**
@@ -128,7 +128,7 @@ Vezes por dia igual à sua Mana, como uma ação, cria um redemoinho em um **Foc
 
 Como uma ação, cria um pilar de água de **3m de área**.
 
-* Inimigos testam **Constituição vs CD Mágica**
+* Inimigos testam **Corpo vs CD Mágica**
 * Falha: são lançados ao ar em **Mana (m)**
 
 **SuperConjurar

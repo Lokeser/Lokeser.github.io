@@ -26,14 +26,14 @@ Ele estava presente quando o **Trono do Sábio** foi esculpido — e o utiliza a
 Como uma ação, cria fagulhas de fogo na palma da mão e as lança à frente.  
 As fagulhas se espalham em um **cone de 4m** e explodem ao contato com **núcleos de mana próximos**.
 
-- Inimigos na área realizam um **Teste de Destreza**
+- Inimigos na área realizam um **Teste de Técnica**
   - Sucesso: metade do dano  
   - Falha: **(2 por Rank + Mana)** de dano
 - Inimigos atingidos ficam **Cegos** até o final do próprio turno
 
 **SuperConjurar:**  
 O cone passa a ter tamanho igual à sua **Mana** e o dano se torna:  
-**1d8 por 2 Mana + 1 por Rank + Mana**
+**ERd8 + ER + Mana**
 
 ---
 
@@ -44,7 +44,7 @@ O cone passa a ter tamanho igual à sua **Mana** e o dano se torna:
 
 Vezes por dia igual à sua **Mana**, ao arremessar uma esfera de fogo ao alto, ela explode em múltiplas fagulhas.
 
-- Inimigos em um raio de **5m** realizam um Teste de Destreza contra sua CD de Mana
+- Inimigos em um raio de **5m** realizam um Teste de Técnica contra sua CD de Mana
 - Falha: recebem **Em Chamas II** por **1d4 Turnos**
 
 **SuperConjurar:**  
@@ -65,7 +65,7 @@ Como ação bônus, marca um inimigo com o símbolo do seu núcleo de mana.
 - Ao alcançar **5 cargas**, a marca explode causando **5d12** de dano
 
 **SuperConjurar:**  
-A explosão afeta inimigos em **3m**, que realizam Teste de Destreza  
+A explosão afeta inimigos em **3m**, que realizam Teste de Técnica  
 - Falha: recebem **2d12** de dano
 
 ---
@@ -86,7 +86,7 @@ Como ação bônus, seus punhos se tornam armas flamejantes.
 
 - Ataques desarmados:
   - +2 no Acerto
-  - +1d7 por 2 Mana de Dano de Fogo
+  - +ERd7 + Mana de Dano de Fogo
 - Crítico aplica **Em Chamas**
 
 **SuperConjurar:**  
@@ -104,7 +104,7 @@ Um soco devastador envolto em chamas.
 - Requer causar **dano mágico** com ataques desarmados
 - Dano:
   - Ataque Desarmado + buffs
-  - +1d12 por ER + ER
+  - +ERd12 + ER
 
 **SuperConjurar:**  
 Pode acertar **um alvo adicional**
@@ -118,7 +118,7 @@ Pode acertar **um alvo adicional**
 
 Uma combinação feroz de ataques.
 
-- Inimigo realiza Teste de Destreza
+- Inimigo realiza Teste de Técnica
   - Sucesso: metade do dano
   - Falha: dano total + **1d5** para cada dado rolado no ataque
 
@@ -191,10 +191,10 @@ Cria uma auréola flamejante no céu:
 - Raio: **Mana x 2**
 - Área até **20m** de distância
 - +1d6 em testes envolvendo Fogo
-- Plantas e Peixes: -1D em Mana e Constituição
+- Plantas e Peixes: -1D em Mana e Corpo
 
 Após 5 turnos:
-- Teste de Con + Mana
+- Teste de Corpo + Mana
 - Falha: **Desmaiam por 1d6 Turnos**
 
 **SuperConjurar:**  
@@ -233,14 +233,14 @@ Cria pequenos seres flamejantes.
 
 - Quantidade: igual à sua **Mana**
 - Podem colidir com inimigos:
-  - Teste de Destreza
+  - Teste de Técnica
   - Falha: **Em Chamas III**
 - Dois diabretes no mesmo alvo:
   - Dano = **Mana**
 
 **SuperConjurar:**  
 - Diabretes voam
-- Dano: **1d4 por 2 Mana + Mana**
+- Dano: **ERd4 + Mana**
 
 ---
 
@@ -262,11 +262,11 @@ Cria pequenos seres flamejantes.
 Como uma ação, derrame magma em um ponto a até **12m**, criando uma poça com raio de **Mana / 2** metros (mínimo 2m). Ela dura até o fim da Cena.
 
 - A poça é **Terreno Difícil**.
-- Inimigos que entrarem nela ou começarem o turno nela sofrem **1d6 por 2 Mana** de dano de Fogo e fazem um **Teste de Técnica** contra sua **CD Mágica**.
+- Inimigos que entrarem nela ou começarem o turno nela sofrem **ERd6 + Mana** de dano de Fogo e fazem um **Teste de Técnica** contra sua **CD Mágica**.
   - **Falha:** ficam **Em Chamas**.
 
 **SuperConjurar:**  
-O raio passa a ser igual à sua **Mana** e o dano sobe para **1d10 por 2 Mana**.
+O raio passa a ser igual à sua **Mana** e o dano sobe para **ERd10 + Mana**.
 
 ---
 
@@ -293,7 +293,7 @@ A poça formada tem **3m** de raio.
 Como uma ação, faça uma poça de magma sua entrar em erupção. A poça permanece depois.
 
 - Criaturas sobre ela fazem um **Teste de Técnica** contra sua **CD Mágica**.
-  - **Falha:** sofrem **1d12 por 2 Mana + Mana** de dano de Fogo, são arremessadas **3m** e ficam **Caídas**.
+  - **Falha:** sofrem **ERd12 + Mana** de dano de Fogo, são arremessadas **3m** e ficam **Caídas**.
   - **Sucesso:** metade do dano.
 
 **SuperConjurar:**  

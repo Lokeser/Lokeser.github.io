@@ -22,61 +22,61 @@ As Resistências seguem os mesmos tipos de dano existentes:
 
 ### Resistência I
 Reduz Dano igual a:
-3 + Eficiência de Rank + Constituição
+3 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência II
 Reduz Dano igual a:
-6 + Eficiência de Rank + Constituição
+6 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência III
 Reduz Dano igual a:
-8 + Eficiência de Rank + Constituição
+8 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência IV
 Reduz Dano igual a:
-10 + Eficiência de Rank + Constituição
+10 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência V
 Reduz Dano igual a:
-12 + Eficiência de Rank + Constituição
+12 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência VI
 Reduz Dano igual a:
-14 + Eficiência de Rank + Constituição
+14 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência VII
 Reduz Dano igual a:
-16 + Eficiência de Rank + Constituição
+16 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência VIII+
 Reduz Dano igual a:
-18 + Eficiência de Rank + Constituição
+18 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência IX
 Reduz Dano igual a:
-20 + Eficiência de Rank + Constituição
+20 + Eficiência de Rank + Corpo
 
 ---
 
 ### Resistência X
 Reduz Dano igual a:
-25 + Eficiência de Rank + Constituição
+25 + Eficiência de Rank + Corpo
 
 ---
 
@@ -106,7 +106,7 @@ Resistência Adaptado (Mana) contra Dano de Fogo
 Combina Resistência padrão com um atributo adicional.
 
 **Exemplo:**
-Resistência II+ Adaptado (Força) contra Dano Físico
+Resistência II+ Adaptado (Corpo) contra Dano Físico
 
 Redução total:
-3 + Eficiência de Rank + Constituição + Força
+3 + Eficiência de Rank + Corpo + Corpo

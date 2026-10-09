@@ -111,7 +111,7 @@ Quando um inimigo dentro do alcance da sua **Eficiência de Rank** errar um ataq
 
 * Gaste **2 Accels** e faça um teste de Sabedoria (+1 por 2 Ki) contra a CA do inimigo
 * Se passar, o inimigo fica **Agarrado**
-* No turno dele, pode tentar escapar com Força
+* No turno dele, pode tentar escapar com Corpo
 * Você pode gastar **1 Accel** para aplicar **-1 DR** no teste dele
 
 ---

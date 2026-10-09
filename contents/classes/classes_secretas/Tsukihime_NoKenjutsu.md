@@ -120,9 +120,9 @@ Aprenda uma nova Técnica da Princesa da Lua.
 * **Ricochete Lunar** (10 mgc, Ação Padrão): até 3 ataques em 3 alvos (−1DR cumulativo).
 * **Campo de Pressão Lunar** (12 mgc, Ação Padrão): zona 15m por ER rodadas; Defesa de Corpo ou Lento.
 * **Troca Sideral** (12 mgc, Ação Bônus): troca de lugar com criatura a 18m (inimigo resiste com Defesa de Carisma).
-* **Órbita da Lâmina Lunar** (15 mgc, Ação Padrão): atinge todos em 3m; Magi-Cortante 1d6 per 2 Técnica + Técnica.
-* **Lança da Estrela Polar** (18 mgc, Ação Completa): ataque único −1DR; Magi-Perfurante 1d12 per 2 Mana + Mana.
+* **Órbita da Lâmina Lunar** (15 mgc, Ação Padrão): atinge todos em 3m; Magi-Cortante ERd6 + Técnica.
+* **Lança da Estrela Polar** (18 mgc, Ação Completa): ataque único −1DR; Magi-Perfurante ERd12 + Mana.
 * **Presença da Lua Tirana** (R6, 15 mgc): raio 9m; Defesa de Sabedoria ou Apavorado 1d4 rodadas (Abalado se passar).
-* **Resplendor Lunar** (R5, 20 mgc, Ação Completa): linha 162m; d16 per 2 Mana + Mana (metade Sagrado/Anômalo) + Cego.
-* **Divine Road** (R5, 30 mgc + 20 Marcas): cone 18m; d20 per Mana Magi-Cortante automático + arremesso 3d100m + Atordoado (você sofre 5d10 e fica Fraco).
-* **Corte que Divide a Noite** (R4, 15 mgc): linha 54m; Defesa de Técnica; d10 per Mana + Mana Magi-Cortante; ignora Resistência ≤ VI.
+* **Resplendor Lunar** (R5, 20 mgc, Ação Completa): linha 162m; ERd12 + Mana (metade Sagrado/Anômalo) + Cego.
+* **Divine Road** (R5, 30 mgc + 20 Marcas): cone 18m; ERd12 + Mana Magi-Cortante automático + arremesso 3d100m + Atordoado (você sofre 5d10 e fica Fraco).
+* **Corte que Divide a Noite** (R4, 15 mgc): linha 54m; Defesa de Técnica; ERd10 + Mana Magi-Cortante; ignora Resistência ≤ VI.

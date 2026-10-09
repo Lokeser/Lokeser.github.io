@@ -22,7 +22,7 @@
 <!--#poder id="ci_trabalhador_r10e1_2" fonte="classe_inicial" rank="10" estrela="1" nome="Sistema Imunológico Potente"-->
 ### Sistema Imunológico Potente
 
-* Recebe **ER + 5** em testes de **Constituição** para resistir a condições adversas do corpo.
+* Recebe **ER + 5** em testes de **Corpo** para resistir a condições adversas do corpo.
 
 ---
 
@@ -67,7 +67,7 @@
 <!--#poder id="ci_trabalhador_r9e2_3" fonte="classe_inicial" rank="9" estrela="2" nome="Corpo de Ferro"-->
 ### Corpo de Ferro
 
-* Recebe **+1DR** em **Testes de Constituição**.
+* Recebe **+1DR** em **Testes de Corpo**.
 
 
 <!--#fim-->

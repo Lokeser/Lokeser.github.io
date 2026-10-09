@@ -374,16 +374,17 @@
     <script src="js/menu.js"></script>
     <script>
     // ---- O palco do portal ----
-    // A cada visita (ou no botão ↻): um cenário + três dos doze personagens.
+    // A cada visita (ou no botão ↻): um cenário + três dos vinte e quatro personagens.
     // Cada personagem sorteia o seu emoji no primeiro clique e mantém até a próxima troca.
     (function () {
         // chao: onde fica a borda do chão em cada cenário (fração da altura da imagem, de cima)
         const CENARIOS = [
             { src: 'c01', chao: .815 }, { src: 'c02', chao: .785 }, { src: 'c03', chao: .79 },
             { src: 'c04', chao: .815 }, { src: 'c05', chao: .81 },  { src: 'c06', chao: .80 },
-            { src: 'c07', chao: .83 },  { src: 'c08', chao: .815 }
+            { src: 'c07', chao: .83 },  { src: 'c08', chao: .815 }, { src: 'c09', chao: .69 },
+            { src: 'c10', chao: .82 }
         ];
-        const HEROIS = Array.from({ length: 12 }, (_, i) => 'p' + String(i + 1).padStart(2, '0'));
+        const HEROIS = Array.from({ length: 24 }, (_, i) => 'p' + String(i + 1).padStart(2, '0'));
         const EMOJIS = ['😊', '😆', '😎', '🥺', '😤', '🤔', '😴', '😍', '🤩', '😈', '👀', '✨',
                         '🔥', '💖', '⚔️', '🍖', '🎲', '😳', '💤', '🙄', '🥳', '😭', '🫡', '👑'];
         const IMG_W = 1672, IMG_H = 941;

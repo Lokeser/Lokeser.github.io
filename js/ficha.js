@@ -972,8 +972,15 @@
         if (!file) return;
         const img = new Image();
         img.onload = () => {
-            // Mantém a qualidade da original: só reduz se for muito grande.
-            const MAX = 1400;
+            // Imagem em HD: o arquivo original é guardado sem recompressão.
+            // Só reduz (para 2560px) o que for gigante, para caber no armazenamento do navegador.
+            const MAX = 2560, LIMITE_BYTES = 3 * 1024 * 1024;
+            if (Math.max(img.width, img.height) <= MAX && file.size <= LIMITE_BYTES) {
+                const fr = new FileReader();
+                fr.onload = () => { char.img = fr.result; renderIdentidade(); };
+                fr.readAsDataURL(file);
+                return;
+            }
             const escala = Math.min(1, MAX / Math.max(img.width, img.height));
             const cv = document.createElement('canvas');
             cv.width = Math.round(img.width * escala);
@@ -981,7 +988,8 @@
             const cx = cv.getContext('2d');
             cx.imageSmoothingQuality = 'high';
             cx.drawImage(img, 0, 0, cv.width, cv.height);
-            char.img = cv.toDataURL('image/jpeg', 0.92);
+            const webp = cv.toDataURL('image/webp', 0.95);
+            char.img = webp.startsWith('data:image/webp') ? webp : cv.toDataURL('image/jpeg', 0.95);
             renderIdentidade();
         };
         img.src = URL.createObjectURL(file);

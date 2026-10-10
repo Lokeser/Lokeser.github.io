@@ -1019,8 +1019,15 @@
                     } else dados = JSON.parse(txt);
                     const lista = Array.isArray(dados) ? dados : dados.personagens || [dados];
                     const validos = lista.filter(c => c && typeof c === 'object' && c.id && ('rank' in c || 'nome' in c));
-                    const n = WNJ.restaurar(validos);
-                    novos += n; ignorados += validos.length - n;
+                    const jaTinha = new Set(WNJ.listar().map(x => x.id));
+                    novos += WNJ.restaurar(validos);
+                    // ficha jogada fora daqui (sessão salva no .html) e mais nova que a da biblioteca
+                    for (const c of validos.filter(x => jaTinha.has(x.id))) {
+                        const atual = WNJ.obter(c.id);
+                        if (String(c.atualizado || '') > String(atual.atualizado || '') &&
+                            confirm('“' + nomeDe(c) + '” no arquivo é mais recente que a da biblioteca. Atualizar com a versão do arquivo?')) { WNJ.salvar(c); novos++; }
+                        else ignorados++;
+                    }
                     // grupos de um backup completo: entram os que ainda não existem, com seus personagens
                     if (dados.layout && Array.isArray(dados.layout)) {
                         const existentes = new Set(layout.map(i => i.id));

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha — Luxsandoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;1,400&family=Alegreya+Sans:wght@400;500;700;800&family=Cinzel:wght@500;700&family=Cinzel+Decorative:wght@700&family=Marcellus&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   FICHA JOGÁVEL — LUXSANDORIA
+   Cores: vêm da magia do personagem (paleta do sistema), injetadas em
+   --ac/--ac2/--f1/--f2. Arquitetura: body[data-arq] muda moldura,
+   tipografia dos títulos e posição do retrato.
+   ===================================================================== */
+:root {
+    --ac: #58A0C8; --ac2: #58A0C8; --f1: #113F67; --f2: #081e33; --metal: #d7b66d;
+    --vida: #d8424f; --vida-2: #8e1d2b; --alerta: #ff6b6b;
+    --tinta: #efe9dc; --tinta-2: #b9b2a4; --tinta-3: #8d877b;
+    --painel: rgba(6, 8, 14, .42); --painel-2: rgba(255, 255, 255, .045);
+    --linha: color-mix(in srgb, var(--ac) 34%, transparent);
+    --linha-metal: color-mix(in srgb, var(--metal) 45%, transparent);
+    --titulo: 'Cinzel', Georgia, serif;
+    --dados: 'Alegreya Sans', 'Segoe UI', system-ui, sans-serif;
+    --prosa: 'Alegreya', Georgia, serif;
+    --r: 10px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body { overflow-x: clip; }
+body {
+    margin: 0; color: var(--tinta); font: 400 16px/1.5 var(--dados);
+    background:
+        radial-gradient(1200px 700px at 30% -10%, color-mix(in srgb, var(--f1) 92%, var(--ac) 8%), transparent 70%),
+        radial-gradient(900px 600px at 100% 100%, color-mix(in srgb, var(--f1) 70%, transparent), transparent 70%),
+        var(--f2);
+    background-attachment: fixed; min-height: 100vh;
+}
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+svg.g { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ---------- barra superior ---------- */
+.topo {
+    position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 12px;
+    padding: 8px clamp(10px, 3vw, 28px); background: color-mix(in srgb, var(--f2) 86%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha);
+}
+.topo .marca { display: flex; align-items: center; gap: 8px; min-width: 0; font-family: var(--titulo); color: var(--metal); }
+.topo .marca span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topo .marca svg { font-size: 1.3rem; color: var(--ac); }
+.mini-vida { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.mini-vida.vis { opacity: 1; pointer-events: auto; }
+.mini-vida .barra { flex: 1; max-width: 360px; height: 10px; }
+.mini-vida b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.topo .acoes { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.estado { font-size: .82rem; color: var(--tinta-2); white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #6fcf97; }
+.estado.sujo::before { background: #f2c14e; }
+.estado.erro::before { background: var(--alerta); }
+
+.bt {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 8px;
+    border: 1px solid var(--linha-metal); background: rgba(255,255,255,.04); padding: 7px 12px;
+    font-weight: 700; font-size: .86rem; color: var(--tinta); white-space: nowrap; transition: background .15s, border-color .15s;
+}
+.bt:hover { background: rgba(255,255,255,.09); border-color: var(--metal); }
+.bt.forte { background: var(--ac); border-color: var(--ac); color: #0b0b0d; }
+.bt.forte:hover { background: color-mix(in srgb, var(--ac) 82%, white); }
+.bt.ic { padding: 6px; width: 32px; height: 32px; }
+.bt.ic svg { font-size: 1rem; }
+.bt.mini { padding: 4px 9px; font-size: .78rem; }
+.bt.perigo:hover { border-color: var(--alerta); color: var(--alerta); }
+.bt:disabled { opacity: .45; cursor: default; }
+
+/* ---------- folha ---------- */
+.folha { max-width: 1240px; margin: 0 auto; padding: clamp(14px, 3vw, 34px) clamp(10px, 3vw, 28px) 80px; }
+
+/* Cabeçalho: retrato + painel de combate */
+.cabeca { display: grid; grid-template-columns: minmax(260px, 400px) minmax(0, 1fr); gap: clamp(18px, 3vw, 40px); align-items: start; }
+body[data-arq="gotico"] .cabeca { grid-template-columns: minmax(0, 1fr) minmax(260px, 400px); }
+body[data-arq="gotico"] .cabeca .retrato-col { order: 2; }
+body[data-arq="mistico"] .cabeca { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+body[data-arq="mistico"] .combate { width: 100%; max-width: 860px; text-align: left; }
+
+.retrato-col { position: relative; width: 100%; }
+.moldura { position: relative; aspect-ratio: 3 / 4; padding: 7px; background: linear-gradient(160deg, var(--metal), color-mix(in srgb, var(--metal) 40%, #000) 60%, var(--metal)); }
+.moldura .arte { position: absolute; inset: 7px; overflow: hidden; background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--ac) 30%, var(--f1)), var(--f2)); }
+.moldura img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
+.moldura .sem-arte { width: 100%; height: 100%; display: grid; place-items: center; font-size: 7rem; color: color-mix(in srgb, var(--ac) 60%, transparent); }
+.moldura .arte::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 60px rgba(0,0,0,.55); pointer-events: none; }
+.canto { position: absolute; width: 34px; height: 34px; color: var(--metal); z-index: 2; display: grid; place-items: center; font-size: 15px; }
+.canto::before { content: ''; position: absolute; inset: 0; border: 2px solid var(--metal); }
+.canto.c1 { top: -6px; left: -6px; } .canto.c1::before { border-right: 0; border-bottom: 0; }
+.canto.c2 { top: -6px; right: -6px; } .canto.c2::before { border-left: 0; border-bottom: 0; }
+.canto.c3 { bottom: -6px; left: -6px; } .canto.c3::before { border-right: 0; border-top: 0; }
+.canto.c4 { bottom: -6px; right: -6px; } .canto.c4::before { border-left: 0; border-top: 0; }
+.canto svg { opacity: .7; }
+.medalhao {
+    position: absolute; left: 50%; top: -22px; translate: -50% 0; z-index: 3; width: 52px; height: 52px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 26px; color: var(--metal);
+    background: radial-gradient(circle, color-mix(in srgb, var(--ac) 35%, var(--f2)), var(--f2));
+    border: 2px solid var(--metal); box-shadow: 0 0 0 4px var(--f2), 0 0 22px color-mix(in srgb, var(--ac) 50%, transparent);
+}
+.medalhao.suprema { width: 62px; height: 62px; top: -28px; font-size: 32px; box-shadow: 0 0 0 4px var(--f2), 0 0 0 6px var(--ac), 0 0 30px var(--ac); }
+
+/* grimório: janela em arco */
+body[data-arq="grimorio"] .moldura, body[data-arq="grimorio"] .moldura .arte { border-radius: 50% 50% 6px 6px / 26% 26% 6px 6px; }
+body[data-arq="grimorio"] .canto.c1, body[data-arq="grimorio"] .canto.c2 { display: none; }
+/* gótico: ogiva */
+body[data-arq="gotico"] .moldura, body[data-arq="gotico"] .moldura .arte { clip-path: polygon(50% 0, 100% 16%, 100% 100%, 0 100%, 0 16%); }
+body[data-arq="gotico"] .canto.c1, body[data-arq="gotico"] .canto.c2 { display: none; }
+body[data-arq="gotico"] .medalhao { top: -30px; }
+/* metal: chanfro com rebites */
+body[data-arq="metal"] .moldura, body[data-arq="metal"] .moldura .arte { clip-path: polygon(7% 0, 93% 0, 100% 5%, 100% 95%, 93% 100%, 7% 100%, 0 95%, 0 5%); }
+body[data-arq="metal"] .moldura { background:
+    radial-gradient(circle, var(--metal) 2px, transparent 2.5px) 0 0 / 22px 22px,
+    linear-gradient(160deg, color-mix(in srgb, var(--metal) 70%, #222), #1b1b1f 55%, color-mix(in srgb, var(--metal) 70%, #222)); padding: 10px; }
+body[data-arq="metal"] .moldura .arte { inset: 10px; }
+body[data-arq="metal"] .canto { display: none; }
+/* místico: círculo dentro de um diagrama */
+body[data-arq="mistico"] .retrato-col { width: min(380px, 80vw); }
+body[data-arq="mistico"] .moldura { aspect-ratio: 1; border-radius: 50%; }
+body[data-arq="mistico"] .moldura .arte { border-radius: 50%; }
+body[data-arq="mistico"] .canto { display: none; }
+.diagrama { position: absolute; inset: -12%; pointer-events: none; color: var(--metal); opacity: .5; display: none; }
+body[data-arq="mistico"] .diagrama { display: block; animation: girar 160s linear infinite; }
+@keyframes girar { to { rotate: 360deg; } }
+
+.ident { margin: 0 0 14px; }
+body[data-arq="mistico"] .ident { text-align: center; margin-top: 22px; }
+.titulo-pers { font-family: var(--titulo); color: var(--ac); letter-spacing: .06em; font-size: 1.05rem; margin: 0 0 2px; }
+.nome {
+    font-family: var(--titulo); font-weight: 700; color: var(--tinta); margin: 0; line-height: 1.02;
+    font-size: clamp(2rem, 4.6vw, 3.6rem); letter-spacing: .01em; text-wrap: balance;
+    text-shadow: 0 2px 24px color-mix(in srgb, var(--ac) 45%, transparent);
+}
+.linhagem { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-top: 10px; color: var(--tinta-2); font-size: .98rem; }
+body[data-arq="mistico"] .linhagem { justify-content: center; }
+.linhagem .li { display: inline-flex; align-items: center; gap: 6px; }
+.linhagem .li svg { color: var(--metal); font-size: 1.05rem; }
+.rank-selo {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px; border-radius: 6px; font-weight: 800; letter-spacing: .04em;
+    color: #0b0b0d; background: linear-gradient(120deg, var(--ac), var(--ac2), var(--ac)); background-size: 300% 100%;
+}
+body[data-animado="1"] .rank-selo { animation: fluxo 5s linear infinite; }
+@keyframes fluxo { to { background-position: 300% 0; } }
+.principais { display: inline-flex; gap: 6px; }
+.principais span { border: 1px solid; border-radius: 6px; padding: 1px 9px; font-size: .82rem; font-weight: 700; background: rgba(0,0,0,.3); }
+
+/* ---------- painéis ---------- */
+.painel { position: relative; background: var(--painel); border: 1px solid var(--linha); border-radius: var(--r); padding: 16px; }
+body[data-arq="grimorio"] .painel { outline: 1px solid color-mix(in srgb, var(--metal) 22%, transparent); outline-offset: 3px; }
+body[data-arq="gotico"] .painel { border-radius: 2px; clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%, 0 14px); border-top: 2px solid var(--ac); }
+body[data-arq="metal"] .painel { border-radius: 4px; border-color: var(--linha-metal); background: linear-gradient(180deg, rgba(255,255,255,.06), transparent 40px), var(--painel); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--metal) 40%, transparent); }
+body[data-arq="mistico"] .painel { border-radius: 18px; }
+
+/* ---------- combate ---------- */
+.combate { display: grid; gap: 14px; }
+.vida-painel { padding: 18px 18px 16px; border-color: color-mix(in srgb, var(--vida) 45%, transparent); }
+.rec-cab { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.rec-nome { font-family: var(--titulo); font-size: 1.05rem; color: var(--tinta-2); margin: 0; display: flex; align-items: center; gap: 7px; }
+.vida-painel .rec-nome svg { color: var(--vida); }
+.numeros { margin-left: auto; display: flex; align-items: baseline; gap: 4px; font-variant-numeric: tabular-nums; }
+.num { background: transparent; border: 1px solid transparent; border-radius: 6px; text-align: right; padding: 0 4px; width: 3.4ch; -moz-appearance: textfield; }
+.num::-webkit-inner-spin-button, .num::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.num:hover, .num:focus { border-color: var(--linha); background: rgba(0,0,0,.25); }
+.vida-painel .num.atual { font: 800 clamp(2.6rem, 6vw, 3.6rem)/1 var(--dados); color: #fff; width: 4.2ch; }
+.vida-painel .num.max { font: 700 1.5rem/1 var(--dados); color: var(--tinta-2); width: 3.6ch; text-align: left; }
+.vida-painel .barra-div { font-size: 1.5rem; color: var(--tinta-3); }
+.barra { position: relative; height: 20px; border-radius: 999px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.08); overflow: hidden; margin: 12px 0 10px; }
+.barra .enche { position: absolute; inset: 0 auto 0 0; width: 100%; border-radius: inherit; transition: width .35s ease; background: linear-gradient(90deg, var(--vida-2), var(--vida)); box-shadow: 0 0 16px color-mix(in srgb, var(--vida) 60%, transparent); }
+.barra .marca13 { position: absolute; top: 0; bottom: 0; left: 33.33%; width: 2px; background: rgba(255,255,255,.35); }
+.vida-painel.baixa .enche { background: repeating-linear-gradient(-45deg, var(--vida), var(--vida) 10px, var(--vida-2) 10px, var(--vida-2) 20px); animation: pulsar 1.2s ease-in-out infinite alternate; }
+.vida-painel.baixa { box-shadow: 0 0 0 1px var(--vida), 0 0 28px color-mix(in srgb, var(--vida) 35%, transparent); }
+.vida-painel.zero .num.atual { color: var(--alerta); }
+@keyframes pulsar { from { opacity: 1; } to { opacity: .55; } }
+.aviso-vida { font-size: .86rem; color: #ffb4b4; min-height: 1.3em; margin: 0 0 8px; }
+.controles { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.controles .grupo { display: inline-flex; border: 1px solid var(--linha-metal); border-radius: 8px; overflow: hidden; }
+.controles .grupo button { background: rgba(255,255,255,.03); border: 0; padding: 6px 10px; font-weight: 800; min-width: 38px; font-variant-numeric: tabular-nums; }
+.controles .grupo button + button { border-left: 1px solid var(--linha-metal); }
+.controles .grupo button:hover { background: rgba(255,255,255,.1); }
+.controles .rot { font-size: .78rem; color: var(--tinta-3); margin-right: 2px; }
+.rapido { display: inline-flex; gap: 4px; margin-left: auto; }
+.rapido input { width: 70px; background: rgba(0,0,0,.35); border: 1px solid var(--linha-metal); border-radius: 8px; padding: 6px 8px; text-align: center; }
+.rapido .dano { border-color: color-mix(in srgb, var(--vida) 60%, transparent); }
+.rapido .cura { border-color: color-mix(in srgb, #6fcf97 60%, transparent); }
+
+.recursos-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.recurso .num.atual { font: 800 1.9rem/1 var(--dados); color: #fff; }
+.recurso .num.max { font: 700 1.05rem/1 var(--dados); color: var(--tinta-2); text-align: left; }
+.recurso .barra { height: 12px; margin: 10px 0 10px; }
+.recurso.magica .enche { background: repeating-linear-gradient(90deg, var(--ac) 0 18px, color-mix(in srgb, var(--ac) 55%, #000) 18px 20px); box-shadow: 0 0 14px color-mix(in srgb, var(--ac) 55%, transparent); }
+.recurso.magica .rec-nome svg { color: var(--ac); }
+.recurso.mag .enche { background: linear-gradient(90deg, color-mix(in srgb, var(--ac2) 60%, #000), var(--ac2)); }
+.recurso.mag .rec-nome svg { color: var(--ac2); }
+.recurso .rec-nome { font-size: .95rem; }
+
+.selos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.selo { text-align: center; padding: 8px 4px; border-radius: 8px; background: var(--painel-2); border: 1px solid var(--linha); }
+.selo .v { font: 800 1.35rem/1.1 var(--dados); color: var(--ac); font-variant-numeric: tabular-nums; }
+.selo .r { font-size: .74rem; color: var(--tinta-2); }
+
+.cond-cab { display: flex; align-items: center; gap: 10px; }
+.cond-cab .rec-nome { margin-right: auto; }
+.conds { display: grid; gap: 8px; margin-top: 10px; }
+.conds:empty::before { content: 'Nenhuma condição ativa.'; color: var(--tinta-3); font-size: .88rem; }
+.cond { border: 1px solid color-mix(in srgb, var(--alerta) 40%, transparent); border-left: 3px solid var(--alerta); background: rgba(80, 10, 16, .25); border-radius: 8px; padding: 9px 11px; }
+.cond.grave { border-left-color: #ff3048; background: rgba(110, 8, 20, .32); }
+.cond.especial { border-left-color: var(--ac); border-color: var(--linha); background: var(--painel-2); }
+.cond-topo { display: flex; align-items: center; gap: 8px; }
+.cond-topo strong { font-size: 1rem; }
+.cond-topo small { color: var(--tinta-3); }
+.cond-topo .bt { margin-left: auto; }
+.cond p { margin: 4px 0 6px; font: .9rem/1.45 var(--prosa); color: var(--tinta); }
+.cond input { width: 100%; background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 4px 8px; font-size: .84rem; }
+
+/* ---------- seções ---------- */
+.secao { margin-top: 38px; }
+.secao-cab { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
+.secao-cab h2 { font-family: var(--titulo); font-weight: 700; font-size: clamp(1.3rem, 2.4vw, 1.7rem); margin: 0; color: var(--tinta); letter-spacing: .02em; }
+.secao-cab .sig { color: var(--ac); font-size: 1.4rem; }
+.secao-cab .fio { flex: 1; height: 1px; background: linear-gradient(90deg, var(--linha-metal), transparent); }
+.secao-cab .bt { flex: none; }
+.divisor { display: flex; align-items: center; gap: 14px; margin: 42px auto 0; color: var(--metal); max-width: 520px; }
+.divisor::before, .divisor::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--linha-metal), transparent); }
+.divisor svg { font-size: 1.5rem; opacity: .8; }
+.vazio { color: var(--tinta-3); font-size: .9rem; padding: 6px 2px; }
+
+/* atributos */
+.atributos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.atr { position: relative; text-align: center; padding: 12px 6px 10px; border-radius: var(--r); border: 1px solid; background: rgba(0,0,0,.28); }
+.atr .r { font-size: .86rem; font-weight: 800; letter-spacing: .02em; }
+.atr .v { font: 800 2.1rem/1.1 var(--dados); color: #fff; font-variant-numeric: tabular-nums; }
+.atr .b { font-size: .76rem; color: var(--tinta-2); min-height: 1.2em; }
+.atr.temp { border-style: dashed; }
+.atr .delta { position: absolute; top: 6px; right: 6px; font-size: .74rem; font-weight: 800; border-radius: 5px; padding: 0 5px; background: rgba(0,0,0,.5); }
+.pos { color: #8fe0a0; } .neg { color: #ff9a9a; }
+.temps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
+.temp-chip { display: inline-flex; align-items: center; gap: 8px; border: 1px dashed var(--linha-metal); border-radius: 8px; padding: 4px 6px 4px 10px; font-size: .86rem; background: rgba(0,0,0,.25); }
+.temp-chip .d { color: var(--tinta-2); }
+.temp-chip button { background: none; border: 0; color: var(--tinta-3); padding: 2px 5px; border-radius: 4px; }
+.temp-chip button:hover { color: var(--alerta); }
+
+/* cartões (ataques, poderes, itens, pensamentos) */
+.lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 12px; }
+.cartao { position: relative; border-radius: var(--r); padding: 13px 14px 12px; background: var(--painel); border: 1px solid rgba(255,255,255,.09); border-left: 3px solid var(--cor, var(--ac)); }
+body[data-arq="metal"] .cartao { border-radius: 4px; }
+body[data-arq="gotico"] .cartao { border-radius: 2px; }
+.cartao-topo { display: flex; align-items: flex-start; gap: 8px; }
+.cartao h3 { font-family: var(--titulo); font-size: 1.08rem; margin: 0; line-height: 1.2; flex: 1; min-width: 0; }
+.etiqueta { display: inline-block; font-size: .72rem; font-weight: 800; color: #0b0b0d; background: var(--cor, var(--ac)); border-radius: 4px; padding: 1px 7px; margin-bottom: 6px; }
+.rk { font-size: .72rem; color: var(--tinta-2); border: 1px solid rgba(255,255,255,.15); border-radius: 4px; padding: 0 6px; margin-left: 4px; }
+.cartao .ferr { display: flex; gap: 2px; opacity: .55; transition: opacity .15s; }
+.cartao:hover .ferr, .cartao:focus-within .ferr { opacity: 1; }
+@media (hover: none) { .cartao .ferr { opacity: 1; } }
+.ferr button { background: none; border: 0; color: var(--tinta-2); width: 30px; height: 30px; border-radius: 6px; display: grid; place-items: center; }
+.ferr button:hover { background: rgba(255,255,255,.08); color: var(--tinta); }
+.ferr button.rm:hover { color: var(--alerta); }
+.efeito { font: .93rem/1.55 var(--prosa); color: #e2dccf; margin-top: 6px; overflow-wrap: anywhere; }
+.efeito p { margin: 0 0 6px; } .efeito ul { margin: 4px 0; padding-left: 20px; } .efeito table { font-size: .82rem; border-collapse: collapse; } .efeito td, .efeito th { border: 1px solid rgba(255,255,255,.12); padding: 2px 6px; }
+.efeito.longo { max-height: 9.3em; overflow: hidden; -webkit-mask-image: linear-gradient(#000 65%, transparent); mask-image: linear-gradient(#000 65%, transparent); }
+.ler { background: none; border: 0; color: var(--ac); font-weight: 700; font-size: .84rem; padding: 4px 0 0; }
+
+.atq-linha { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.atq-linha .teste { color: var(--ac); font-weight: 800; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 6px; }
+.atq-linha .dano { color: var(--tinta); font-weight: 700; }
+.atq-linha .crit { color: var(--tinta-2); font-size: .9rem; }
+
+/* poderes: arrastáveis */
+.poderes .cartao { touch-action: auto; }
+.alca { cursor: grab; touch-action: none; }
+.cartao.arrastando { opacity: .55; outline: 2px dashed var(--ac); outline-offset: 2px; }
+body.movendo { cursor: grabbing; user-select: none; }
+
+/* perícias */
+.pericias { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 6px 10px; }
+.per { display: flex; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px; background: rgba(0,0,0,.24); border: 1px solid rgba(255,255,255,.06); }
+.per .ponto { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.per .n { flex: 1; min-width: 0; }
+.per .v { font-weight: 800; color: var(--ac); font-variant-numeric: tabular-nums; font-size: 1.05rem; }
+.per .det { font-size: .74rem; color: var(--tinta-2); display: block; }
+.per.temp { border-style: dashed; border-color: var(--linha-metal); }
+
+/* resistências */
+.resis { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 6px 10px; }
+
+/* inventário */
+.inv { display: grid; gap: 8px; }
+.item { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; padding: 9px 12px; border-radius: 8px; background: var(--painel); border: 1px solid rgba(255,255,255,.08); border-left: 3px solid var(--cor); }
+.item .nm { font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
+.item .tg { font-size: .72rem; color: var(--cor); border: 1px solid var(--cor); border-radius: 4px; padding: 0 6px; font-weight: 700; }
+.item .eq { font-size: .72rem; color: #0b0b0d; background: var(--metal); border-radius: 4px; padding: 0 6px; font-weight: 800; }
+.item .lado { display: flex; align-items: center; gap: 4px; }
+.qtd { display: inline-flex; align-items: center; border: 1px solid var(--linha-metal); border-radius: 7px; overflow: hidden; }
+.qtd button { background: none; border: 0; width: 28px; height: 28px; font-weight: 800; }
+.qtd button:hover { background: rgba(255,255,255,.08); }
+.qtd span { min-width: 2.4ch; text-align: center; font-weight: 800; font-variant-numeric: tabular-nums; }
+.item details { grid-column: 1 / -1; }
+.item summary { cursor: pointer; color: var(--tinta-2); font-size: .84rem; }
+
+/* cargas */
+.cargas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 10px; }
+.carga { position: relative; padding: 12px; border-radius: var(--r); background: var(--painel); border: 1px solid var(--linha); text-align: center; }
+.carga input.cn { width: 100%; background: none; border: 1px solid transparent; border-radius: 6px; text-align: center; color: var(--ac); font-weight: 800; padding: 2px; }
+.carga input.cn:hover, .carga input.cn:focus { border-color: var(--linha); }
+.carga .cv { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+.carga .cv .num { font-weight: 800; font-size: 1.3rem; width: 3ch; text-align: center; }
+.carga .pips { display: flex; gap: 3px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
+.carga .pips i { width: 9px; height: 9px; border-radius: 2px; rotate: 45deg; border: 1px solid var(--ac); }
+.carga .pips i.on { background: var(--ac); }
+.carga .rm { position: absolute; top: 4px; right: 4px; }
+
+footer { margin-top: 60px; text-align: center; color: var(--tinta-3); font-size: .84rem; display: grid; justify-items: center; gap: 8px; }
+footer svg { font-size: 1.8rem; color: var(--metal); opacity: .7; }
+
+/* ---------- modais ---------- */
+dialog { border: 1px solid var(--linha-metal); border-radius: 14px; padding: 0; background: color-mix(in srgb, var(--f2) 94%, var(--ac) 6%); color: var(--tinta); width: min(560px, calc(100vw - 24px)); max-height: calc(100vh - 40px); box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+dialog::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(2px); }
+.dlg { padding: 20px; display: grid; gap: 12px; }
+.dlg h3 { margin: 0; font-family: var(--titulo); color: var(--ac); font-size: 1.25rem; }
+.dlg label { display: grid; gap: 4px; font-size: .84rem; color: var(--tinta-2); }
+.dlg input, .dlg select, .editor { background: rgba(0,0,0,.35); border: 1px solid var(--linha-metal); border-radius: 8px; padding: 8px 10px; color: var(--tinta); width: 100%; }
+.editor { min-height: 110px; max-height: 300px; overflow: auto; font: .95rem/1.5 var(--prosa); }
+.linha2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dlg .acoes { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.busca-cond { position: sticky; top: 0; }
+.lista-cond { display: grid; gap: 4px; max-height: 52vh; overflow: auto; padding-right: 4px; }
+.lista-cond h4 { margin: 10px 0 2px; font-family: var(--titulo); font-size: .95rem; color: var(--tinta-2); }
+.op-cond { text-align: left; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 8px 10px; display: grid; gap: 2px; }
+.op-cond:hover, .op-cond:focus-visible { border-color: var(--ac); background: rgba(255,255,255,.07); }
+.op-cond strong { font-size: .98rem; }
+.op-cond span { font: .84rem/1.4 var(--prosa); color: var(--tinta-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.op-cond.ativa { opacity: .45; }
+
+.toasts { position: fixed; z-index: 90; right: 16px; bottom: 16px; display: grid; gap: 8px; justify-items: end; }
+.toast { background: color-mix(in srgb, var(--f2) 90%, #fff 4%); border: 1px solid var(--linha-metal); border-left: 3px solid #6fcf97; border-radius: 8px; padding: 9px 14px; box-shadow: 0 10px 30px rgba(0,0,0,.5); font-size: .9rem; max-width: min(380px, calc(100vw - 32px)); }
+.toast.erro { border-left-color: var(--alerta); }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 900px) {
+    .cabeca, body[data-arq="gotico"] .cabeca { grid-template-columns: minmax(0, 1fr); }
+    body[data-arq="gotico"] .cabeca .retrato-col { order: 0; }
+    .retrato-col { max-width: 420px; margin: 0 auto; }
+    .atributos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .selos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+    .topo .estado span, .topo .rotulo-bt { display: none; }
+    .mini-vida .barra, .mini-vida .controles { display: none; }
+    .topo { gap: 8px; }
+    .rapido { margin-left: 0; width: 100%; }
+    .rapido input { flex: 1; }
+    .atributos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .linha2 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+    .topo, .ferr, .bt, .controles, .rapido, .toasts { display: none !important; }
+    body { background: #fff; color: #000; }
+}
+</style>
+</head>
+<body data-arq="grimorio">
+<script type="application/json" id="wnj-ficha">{}</script>
+<script type="application/json" id="wnj-sistema">{}</script>
+
+<header class="topo" id="topo">
+    <div class="marca" id="topo-marca"></div>
+    <div class="mini-vida" id="mini-vida" aria-hidden="true"></div>
+    <div class="acoes">
+        <span class="estado" id="estado" role="status"><span>Sem alterações</span></span>
+        <button class="bt forte" id="bt-salvar" title="Salvar neste navegador (Ctrl+S)">
+            <svg class="g" viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6"/></svg><span class="rotulo-bt">Salvar</span></button>
+        <button class="bt" id="bt-baixar" title="Baixar a ficha atualizada (.html)">
+            <svg class="g" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span class="rotulo-bt">Baixar ficha</span></button>
+    </div>
+</header>
+
+<main class="folha" id="app"></main>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<dialog id="dlg"></dialog>
+
+<script>
+(function () {
+'use strict';
+// =====================================================================
+//  DADOS: a ficha (personagem) e o contexto do sistema calculado na
+//  exportação. A interface só lê daqui e grava de volta em `ch`.
+// =====================================================================
+const MOLDE = document.documentElement.outerHTML;   // cópia limpa para "Baixar ficha"
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const int = (v, d) => { const n = parseInt(v, 10); return isNaN(n) ? (d || 0) : n; };
+
+let ch, S;
+try { ch = JSON.parse($('#wnj-ficha').textContent); S = JSON.parse($('#wnj-sistema').textContent); } catch (e) { ch = {}; S = {}; }
+if (!ch || !ch.id || !S || !S.atributos) {
+    $('#app').innerHTML = '<p class="vazio" style="padding:40px;text-align:center">Este é o modelo da ficha. Baixe uma ficha pela Biblioteca de Personagens para jogar.</p>';
+    $('#topo').hidden = true;
+    return;
+}
+
+// Campos da sessão (opcionais; ficam no próprio personagem)
+ch.ataques = ch.ataques || []; ch.poderes = ch.poderes || []; ch.inventario = ch.inventario || [];
+ch.cargas = ch.cargas || []; ch.pensamentos = ch.pensamentos || [];
+ch.temporarios = ch.temporarios || {};
+ch.temporarios.atributos = ch.temporarios.atributos || [];
+ch.temporarios.pericias = ch.temporarios.pericias || [];
+ch.condicoes = ch.condicoes || [];
+
+const CHAVE = 'wnj_sessao_' + ch.id + '_' + (S.exportado || '');
+let sujo = false;
+
+// Progresso salvo neste navegador para ESTE arquivo
+try {
+    const salvo = JSON.parse(localStorage.getItem(CHAVE) || 'null');
+    if (salvo && salvo.ch && salvo.ch.id === ch.id) { ch = salvo.ch; setTimeout(() => toast('Progresso salvo em ' + new Date(salvo.em).toLocaleString('pt-BR') + ' restaurado.'), 300); }
+} catch (e) { /* armazenamento indisponível: segue com os dados do arquivo */ }
+
+const ATR = {}; S.atributos.forEach(a => ATR[a.id] = a);
+const TAGP = {}; (S.tagsPoder || []).forEach(t => TAGP[t.id] = t);
+const TAGI = {}; (S.tagsInv || []).forEach(t => TAGI[t.id] = t);
+
+// =====================================================================
+//  CORES (paleta da magia vinda do sistema) + metal complementar
+// =====================================================================
+const pal = S.paleta || {};
+const METAL = { fogo: '#e3a35c', agua: '#c9d6e3', terra: '#c4925a', vento: '#c3dccb', raio: '#cdbdf0', anomala: '#cfd9e6', ki: '#d9b35b', fe: '#f1dc9a', caos: '#b9a7d9', neutro: '#d7b66d' };
+// Os tons vêm da paleta do sistema. Paletas animadas (Ki, Caos...) têm um tom
+// quase preto feito para gradiente; ele vira fundo, não destaque de texto/botão.
+const luz = (hex) => { const n = parseInt(String(hex).slice(1), 16); return ((n >> 16 & 255) * .299 + (n >> 8 & 255) * .587 + (n & 255) * .114) / 255; };
+const tons = (pal.acentos || ['#58A0C8']).filter(c => /^#[0-9a-f]{6}$/i.test(c));
+const claros = tons.filter(c => luz(c) > .22);
+const ac = claros.length ? claros : ['#58A0C8'];
+const raiz = document.documentElement.style;
+raiz.setProperty('--ac', ac[0]);
+raiz.setProperty('--ac2', ac[1] || ac[0]);
+raiz.setProperty('--f1', pal.fundo1 || '#113F67');
+raiz.setProperty('--f2', pal.fundo2 || '#081e33');
+raiz.setProperty('--metal', METAL[pal.chave] || METAL.neutro);
+if (pal.chave === 'fogo' || pal.chave === 'ki') raiz.setProperty('--alerta', '#ffd166');
+document.body.dataset.animado = pal.animado ? '1' : '0';
+
+// =====================================================================
+//  SÍMBOLOS: o sistema não tem um conjunto oficial; cada raça e classe
+//  ganha um sigilo pelo nome. Sem correspondência, um sigilo geométrico
+//  é gerado do próprio nome (sempre o mesmo para o mesmo nome).
+// =====================================================================
+const GLIFO = {
+    sol: '<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+    folha: '<path d="M12 3c5 4 6 10 0 18-6-8-5-14 0-18zM12 7v13"/>',
+    presas: '<path d="M4 7c3 7 13 7 16 0M9 9l1.4 5L12 9.6M12 9.6l1.6 4.4L15 9"/>',
+    presa: '<path d="M7 3c0 8 2 13 5 18M17 3c0 8-2 13-5 18M7 9h3M17 9h-3"/>',
+    olhoDragao: '<path d="M2.5 12c4-6.5 15-6.5 19 0-4 6.5-15 6.5-19 0z"/><path d="M12 7.5c-1.6 2.8-1.6 6.2 0 9 1.6-2.8 1.6-6.2 0-9z"/>',
+    cauda: '<path d="M12 21c-6 0-8-6-6-12 2 4 4 5 6 5s4-1 6-5c2 6 0 12-6 12zM9 4l3 4 3-4"/>',
+    chama: '<path d="M12 21c-4 0-6.5-3-6.5-6.5 0-4 4-6 4-11 3 2 5 5 5 8 1-1 1.2-2 1.2-3 2 2 2.3 4 2.3 6 0 3.5-2.5 6.5-6 6.5z"/>',
+    tentaculo: '<path d="M4 19c3 0 4-3 4-6.5S9 6 12 6s4 3 4 6.5 1 6.5 4 6.5M8 13c2.5 1.2 5.5 1.2 8 0"/><circle cx="10.5" cy="9.5" r=".6"/><circle cx="13.5" cy="9.5" r=".6"/>',
+    colmeia: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 8l4 2.3v4.4L12 17l-4-2.3v-4.4z"/>',
+    pena: '<path d="M19 3C11 4 6 10 6 19l2-2M19 3c-1 6-5 10-12 13M10 10h5M8 13.5h4"/>',
+    tres: '<circle cx="12" cy="6" r="2.6"/><circle cx="6" cy="16.5" r="2.6"/><circle cx="18" cy="16.5" r="2.6"/><path d="M12 8.6v3.4M8.2 15l2.3-2M15.8 15l-2.3-2"/>',
+    olho: '<path d="M2.5 12c4-6 15-6 19 0-4 6-15 6-19 0z"/><circle cx="12" cy="12" r="3"/>',
+    tridente: '<path d="M12 21V5M6.5 4v4a5.5 5.5 0 0011 0V4M12 3v2M10 19h4"/>',
+    estrela: '<path d="M12 2.5l2.2 6.3 6.7.2-5.3 4.1 1.9 6.4L12 15.7l-5.5 3.8 1.9-6.4L3.1 9l6.7-.2z"/>',
+    lua: '<path d="M15.5 3.5a8.5 8.5 0 100 17 7 7 0 010-17z"/>',
+    livro: '<path d="M4 5h6a2 2 0 012 2v12a2 2 0 00-2-2H4zM20 5h-6a2 2 0 00-2 2v12a2 2 0 012-2h6z"/>',
+    bussola: '<circle cx="12" cy="12" r="9"/><path d="M12 5l2.5 7L12 19l-2.5-7z"/>',
+    espadas: '<path d="M5 5l14 14M19 5L5 19M4 9l5-5M15 20l5-5M20 9l-5-5M9 20l-5-5"/>',
+    adaga: '<path d="M12 2l2.2 10h-4.4zM8 12h8M12 14v5M10 21h4"/>',
+    mascara: '<path d="M3 8.5c3-2 6-2 9 0 3-2 6-2 9 0 0 5.5-3 8-5.5 8-1.8 0-2.7-1.8-3.5-3-.8 1.2-1.7 3-3.5 3C6 16.5 3 14 3 8.5z"/><path d="M7 11h2.5M14.5 11H17"/>',
+    centelha: '<path d="M12 2l2 7.5 7.5 2.5-7.5 2.5L12 22l-2-7.5L2.5 12 10 9.5z"/>',
+    martelo: '<path d="M4 9l5.5-5.5 4 4L8 13zM10.5 10.5L20 20l-1.5 1.5-9.5-9.5"/>',
+    orbe: '<circle cx="12" cy="12" r="5"/><ellipse cx="12" cy="12" rx="10" ry="3.6" transform="rotate(-25 12 12)"/>',
+    torii: '<path d="M3 6.5c6 1.2 12 1.2 18 0M5 10h14M7 7.2V21M17 7.2V21"/>',
+    flecha: '<path d="M4 20L20 4M14 4h6v6M4 20l1-4 3 3z"/>',
+    flechaEstrela: '<path d="M4 20L16 8M13 4l1.2 2.8L17 8l-2.8 1.2L13 12l-1.2-2.8L9 8l2.8-1.2z"/>',
+    machado: '<path d="M9 21L18 3M13.5 6.5c4.5-.5 7 2.5 7 6-3.5.5-7-1.5-8.5-4"/>',
+    estandarte: '<path d="M6 21V3M6 4h12l-3 4 3 4H6"/>',
+    pata: '<ellipse cx="12" cy="16" rx="4" ry="3.5"/><circle cx="6" cy="10" r="1.8"/><circle cx="18" cy="10" r="1.8"/><circle cx="9.5" cy="6" r="1.8"/><circle cx="14.5" cy="6" r="1.8"/>',
+    torre: '<path d="M7 21h10M8 17h8l-1-8H9zM8 9V4h2v2h1.3V4h1.4v2H14V4h2v5"/>',
+    escudo: '<path d="M12 3l8 3v6c0 5-3.6 8-8 9-4.4-1-8-4-8-9V6z"/>',
+    runa: '<circle cx="12" cy="12" r="9"/><path d="M12 4.5l6.5 11.2h-13zM12 19.5V15.7"/>',
+    nota: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+    katana: '<path d="M5 19L19 5c1 2 0 4-2 5L7 20zM4 20l2.5-2.5"/>',
+    espiral: '<path d="M12 12a2 2 0 112 2 4 4 0 11-4-4 6 6 0 116 6 8 8 0 11-8-8"/>',
+    fio: '<path d="M6 3v6M12 3v4M18 3v6M6 9c0 4 2 6 6 6s6-2 6-6M12 15v6"/>',
+    folhagem: '<path d="M12 21V11M12 11c-4 0-7-3-7-7 4 0 7 3 7 7zM12 11c4 0 7-3 7-7-4 0-7 3-7 7z"/>'
+};
+const MAPA = [
+    ['vampir', 'presas'], ['elfo negro', 'lua'], ['meio-elfo', 'folha'], ['elfo', 'folha'], ['orc', 'presa'], ['oni', 'presa'],
+    ['amazon', 'flecha'], ['dragao', 'olhoDragao'], ['kitsune', 'cauda'], ['fenix', 'chama'], ['kraken', 'tentaculo'], ['insect', 'colmeia'],
+    ['grifo', 'pena'], ['cerbero', 'tres'], ['ciclope', 'olho'], ['quimera', 'tres'], ['atlant', 'tridente'], ['mitolog', 'estrela'],
+    ['hypnor', 'espiral'], ['arkhumano', 'centelha'], ['convertido', 'espiral'], ['humano', 'sol'],
+    ['academico', 'livro'], ['aventureiro', 'bussola'], ['explorador', 'bussola'], ['combativo magico', 'runa'], ['combativo imaginario', 'katana'],
+    ['combativo', 'espadas'], ['ladino', 'adaga'], ['assassino', 'adaga'], ['malandro', 'mascara'], ['prodigio', 'centelha'], ['trabalhador', 'martelo'],
+    ['vidente', 'olho'], ['astral', 'estrela'], ['lunar', 'lua'], ['solar', 'sol'], ['embaixador', 'orbe'], ['entidade', 'orbe'],
+    ['artista marcial', 'torii'], ['atirador magico', 'flechaEstrela'], ['atirador', 'flecha'], ['berserker', 'machado'], ['comandante', 'estandarte'],
+    ['domador', 'pata'], ['estrategista', 'torre'], ['guardiao', 'escudo'], ['ecomago', 'folhagem'], ['mago', 'runa'], ['musicista', 'nota'],
+    ['marionete', 'fio'], ['kenjutsu', 'katana'], [' ken', 'katana'], ['supremo', 'centelha'], ['tsukihime', 'lua']
+];
+function sigiloGerado(nome) {
+    let h = 2166136261; for (const c of norm(nome)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); }
+    const n = 3 + (Math.abs(h) % 4), r = 8, pts = [], gira = (Math.abs(h >> 4) % 60) * Math.PI / 180;
+    for (let i = 0; i < n; i++) { const a = gira + i * 2 * Math.PI / n - Math.PI / 2; pts.push((12 + r * Math.cos(a)).toFixed(1) + ' ' + (12 + r * Math.sin(a)).toFixed(1)); }
+    const salto = n > 4 ? 2 : 1;
+    const estrela = pts.map((_, i) => pts[(i * salto) % n]).join(' L');
+    return '<path d="M' + pts.join(' L') + 'z"/><path d="M' + estrela + 'z" opacity=".55"/><circle cx="12" cy="12" r="' + (1.4 + (Math.abs(h >> 8) % 3) * .6) + '"/>';
+}
+function glifo(nome) {
+    if (!nome) return null;
+    const n = ' ' + norm(nome);
+    for (const [k, g] of MAPA) if (n.includes(k)) return GLIFO[g];
+    return sigiloGerado(nome);
+}
+const svg = (inner, cls) => inner ? '<svg class="g' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + inner + '</svg>' : '';
+const classeSuprema = ch.classeSuprema || ch.classeAbsoluta || '';
+const SIG = {
+    raca: glifo(ch.raca) || GLIFO.sol,
+    inicial: glifo(ch.classeInicial) || GLIFO.estrela,
+    avancada: glifo(ch.classeAvancada),
+    suprema: glifo(classeSuprema)
+};
+
+// =====================================================================
+//  ARQUITETURA VISUAL: escolhida pelos dados do personagem
+// =====================================================================
+const ARQS = {
+    gotico: ['vampir', 'elfo negro', 'hypnor', 'convertido', 'assassino', 'ladino', 'malandro', 'marionete', 'caos', 'diabo', 'cerbero', 'tsukihime'],
+    metal: ['combativo', 'berserk', 'guardi', 'comandante', 'marcial', 'trabalhador', 'aventureiro', 'explorador', 'domador', 'atirador instintivo', 'orc', 'oni', 'amazon', 'rekel', 'manpan', 'ken', 'supremo'],
+    mistico: ['caminho', 'entidade', 'embaixador', 'vidente', 'astral', 'lunar', 'solar', 'dragao', 'kitsune', 'fenix', 'kraken', 'grifo', 'quimera', 'ciclope', 'mitolog', 'celestial', 'anomala', 'fe'],
+    grimorio: ['academico', 'prodigio', 'mago', 'ecomago', 'atirador magico', 'combativo magico', 'musicista', 'elfo', 'estrategista', 'atlant', 'loomian']
+};
+function escolherArq() {
+    const fontes = [[classeSuprema, 4], [ch.classeAvancada, 3], [ch.classeInicial, 2], [ch.raca, 1.5], [ch.magia, 1]];
+    const pontos = { grimorio: .1, gotico: 0, metal: 0, mistico: 0 };
+    fontes.forEach(([txt, peso]) => {
+        if (!txt) return;
+        const t = ' ' + norm(txt) + ' ';
+        for (const [arq, chaves] of Object.entries(ARQS)) {
+            if (chaves.some(k => k === 'fe' ? /(^|\s)fe(\s|$)/.test(t) : t.includes(k))) pontos[arq] += peso;
+        }
+    });
+    if (pal.chave === 'caos') pontos.gotico += 1; if (pal.chave === 'fe') pontos.mistico += 1;
+    return Object.entries(pontos).sort((a, b) => b[1] - a[1])[0][0];
+}
+const ARQ = escolherArq();
+document.body.dataset.arq = ARQ;
+const FONTE = { grimorio: "'Cinzel Decorative', 'Cinzel', serif", gotico: "'Pirata One', 'Cinzel', serif", metal: "'Cinzel', serif", mistico: "'Marcellus', 'Cinzel', serif" };
+raiz.setProperty('--titulo', FONTE[ARQ]);
+
+// =====================================================================
+//  CÁLCULOS: valores do sistema + modificadores temporários (nunca
+//  sobrescrevem o valor base)
+// =====================================================================
+const vidaMax = () => ch.vidaMaxManual != null ? ch.vidaMaxManual : S.vidaMax;
+const vidaAtual = () => ch.vidaAtual != null ? ch.vidaAtual : vidaMax();
+const magMax = () => ch.magiculasMax != null ? ch.magiculasMax : S.magMax;
+const magAtual = () => ch.magiculasAtual != null ? ch.magiculasAtual : magMax();
+const tempAtr = (id) => ch.temporarios.atributos.filter(t => t.id === id).reduce((s, t) => s + t.valor, 0);
+const atrEfetivo = (id) => (S.attrs[id] || 0) + tempAtr(id);
+function periciaInfo(p) {
+    const doAtr = Object.entries(p.pesos || {}).reduce((s, [id, peso]) => s + peso * tempAtr(id), 0);
+    const doTemp = ch.temporarios.pericias.filter(t => t.nome === p.nome).reduce((s, t) => s + t.valor, 0);
+    return { base: p.valor, doAtr, doTemp, total: p.valor + doAtr + doTemp };
+}
+const sinal = (n) => (n > 0 ? '+' : '') + n;
+
+// =====================================================================
+//  RENDER
+// =====================================================================
+const ICO = {
+    coracao: '<path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>',
+    cristal: '<path d="M12 3l6 6-6 12L6 9zM6 9h12M12 3v18"/>',
+    gota: '<path d="M12 3c3 4.5 6 7.6 6 11a6 6 0 01-12 0c0-3.4 3-6.5 6-11z"/>',
+    caveira: '<path d="M12 3a7 7 0 00-7 7c0 2.6 1.4 4 2.5 5v3h9v-3c1.1-1 2.5-2.4 2.5-5a7 7 0 00-7-7z"/><circle cx="9.5" cy="11" r="1.4"/><circle cx="14.5" cy="11" r="1.4"/>',
+    editar: '<path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/>',
+    copiar: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3"/>',
+    lixo: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    alca: '<circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/>',
+    dado: '<path d="M12 2.5l8.5 5v9L12 21.5 3.5 16.5v-9z"/><path d="M12 2.5v19M3.5 7.5l17 9M20.5 7.5l-17 9"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    mais: '<path d="M12 5v14M5 12h14"/>'
+};
+const ic = (n) => svg(ICO[n]);
+const nomeCompleto = [ch.nome, ch.sobrenome].filter(Boolean).join(' ') || 'Sem nome';
+const tituloPers = ch.titulo ? ((ch.tituloArtigo ? ch.tituloArtigo + ' ' : '') + ch.titulo) : '';
+document.title = nomeCompleto + ' · Ficha Luxsandoria';
+
+function render() {
+    const app = $('#app');
+    const est = ch.rank < 10 && ch.estrela ? ' ' + '★'.repeat(ch.estrela) : '';
+    const [p1, p2] = S.principais || [];
+    const medalhao = SIG.suprema ? '<div class="medalhao suprema" title="' + esc(classeSuprema) + '">' + svg(SIG.suprema) + '</div>'
+        : '<div class="medalhao" title="' + esc(ch.classeAvancada || ch.classeInicial || '') + '">' + svg(SIG.avancada || SIG.inicial) + '</div>';
+    const diagrama = '<svg class="diagrama" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width=".35">' +
+        '<circle cx="50" cy="50" r="49"/><circle cx="50" cy="50" r="45" stroke-dasharray="1 2"/>' +
+        Array.from({ length: 12 }, (_, i) => { const a = i * Math.PI / 6; return '<path d="M' + (50 + 45 * Math.cos(a)).toFixed(2) + ' ' + (50 + 45 * Math.sin(a)).toFixed(2) + 'L' + (50 + 49 * Math.cos(a)).toFixed(2) + ' ' + (50 + 49 * Math.sin(a)).toFixed(2) + '"/>'; }).join('') +
+        '<path d="M50 1L92.4 75.5H7.6zM50 99L7.6 24.5h84.8z" opacity=".5"/></svg>';
+
+    const ident =
+        '<div class="ident">' +
+        (tituloPers ? '<p class="titulo-pers">' + esc(tituloPers) + '</p>' : '') +
+        '<h1 class="nome">' + esc(nomeCompleto) + '</h1>' +
+        '<div class="linhagem">' +
+        '<span class="rank-selo">Rank ' + esc(ch.rank) + esc(est) + '</span>' +
+        (ch.raca ? '<span class="li">' + svg(SIG.raca) + esc(ch.raca + (ch.subRaca ? ' (' + ch.subRaca + ')' : '')) + '</span>' : '') +
+        (ch.classeInicial ? '<span class="li">' + svg(SIG.inicial) + esc(ch.classeInicial + (ch.subClasseInicial ? ' (' + ch.subClasseInicial + ')' : '')) + '</span>' : '') +
+        (ch.classeAvancada ? '<span class="li">' + svg(SIG.avancada) + esc(ch.classeAvancada + (ch.subClasseAvancada ? ' (' + ch.subClasseAvancada + ')' : '')) + '</span>' : '') +
+        (classeSuprema ? '<span class="li">' + svg(SIG.suprema) + esc(classeSuprema) + '</span>' : '') +
+        (ch.magia ? '<span class="li" style="color:var(--ac)">' + esc(ch.magia) + '</span>' : '') +
+        '</div>' +
+        (p1 ? '<div class="linhagem"><span class="principais"><span style="color:' + p1.cor + ';border-color:' + p1.cor + '">' + esc(p1.nome) + '</span>' +
+            (p2 ? '<span style="color:' + p2.cor + ';border-color:' + p2.cor + '">' + esc(p2.nome) + '</span>' : '') + '</span></div>' : '') +
+        '</div>';
+
+    app.innerHTML =
+        '<section class="cabeca">' +
+            '<div class="retrato-col">' +
+                (ARQ === 'mistico' ? diagrama : '') +
+                '<div class="moldura">' +
+                    '<div class="arte">' + (ch.img ? '<img src="' + esc(ch.img) + '" alt="Retrato de ' + esc(nomeCompleto) + '">' : '<div class="sem-arte">' + svg(SIG.raca) + '</div>') + '</div>' +
+                '</div>' +
+                ['c1', 'c2', 'c3', 'c4'].map(c => '<span class="canto ' + c + '">' + svg(SIG.raca) + '</span>').join('') +
+                medalhao +
+            '</div>' +
+            '<div class="combate">' +
+                (ARQ === 'mistico' ? '' : ident) +
+                '<div class="painel vida-painel" id="p-vida"></div>' +
+                '<div class="recursos-2"><div class="painel recurso magica" id="p-vmag"></div><div class="painel recurso mag" id="p-magic"></div></div>' +
+                '<div class="selos">' + selo('DR', 'd' + S.dr) + selo('ER', S.er) + selo('CA', S.ca) + selo('Desloc.', S.desloc + 'm') + selo('Arcana', S.arcana) + '</div>' +
+                '<div class="painel"><div class="cond-cab"><h2 class="rec-nome">' + svg(ICO.caveira) + 'Condições</h2>' +
+                    '<button class="bt mini" data-acao="add-cond">' + ic('mais') + 'Adicionar condição</button></div><div class="conds" id="conds"></div></div>' +
+            '</div>' +
+        '</section>' +
+        secao('atributos', 'Atributos', '<button class="bt mini" data-acao="add-temp-atr">+ Atributo temporário</button>', '<div class="atributos" id="atributos"></div><div class="temps" id="temps-atr"></div>') +
+        secao('ataques', 'Ataques', '<button class="bt mini" data-acao="add-atq">+ Ataque</button>', '<div class="lista" id="ataques"></div>') +
+        divisor() +
+        secao('poderes', 'Poderes', '<button class="bt mini" data-acao="add-poder">+ Poder</button>', '<p class="vazio" style="margin:-6px 0 10px">Arraste pela alça para reorganizar. No teclado: foque a alça e use as setas.</p><div class="lista poderes" id="poderes"></div>') +
+        secao('pericias', 'Perícias', '<button class="bt mini" data-acao="add-temp-per">+ Perícia temporária</button>', '<div class="pericias" id="pericias"></div><div class="temps" id="temps-per"></div>') +
+        (S.resistencias && S.resistencias.length ? secao('resist', 'Resistências', '', '<div class="resis">' + S.resistencias.map(r => '<div class="per"><span class="ponto" style="background:var(--ac)"></span><span class="n">' + esc(r.tipo) + '<span class="det">' + esc(r.rotulo) + '</span></span><span class="v" style="font-size:.86rem">' + esc(r.reducao) + '</span></div>').join('') + '</div>') : '') +
+        divisor() +
+        secao('inventario', 'Inventário', '<button class="bt mini" data-acao="add-item">+ Item</button>', '<div class="inv" id="inventario"></div>') +
+        secao('cargas', 'Cargas', '<button class="bt mini" data-acao="add-carga">+ Carga</button>', '<div class="cargas" id="cargas"></div>') +
+        secao('pensamentos', 'Pensamentos e opiniões', '<button class="bt mini" data-acao="add-pens">+ Registro</button>', '<div class="lista" id="pensamentos"></div>') +
+        '<footer>' + svg(SIG.raca) + '<span>' + esc(nomeCompleto) + ' · Luxsandoria, Watashi no Jinsei</span><span>Ficha gerada em ' + new Date(S.exportado || Date.now()).toLocaleDateString('pt-BR') + '</span></footer>';
+
+    if (ARQ === 'mistico') $('.combate').insertAdjacentHTML('afterbegin', ident);
+    $('#topo-marca').innerHTML = svg(SIG.inicial) + '<span>' + esc(nomeCompleto) + '</span>';
+    renderVida(); renderVMag(); renderMagiculas(); renderConds(); renderAtributos(); renderAtaques(); renderPoderes(); renderPericias(); renderInventario(); renderCargas(); renderPensamentos();
+    observarVida();
+}
+const selo = (r, v) => '<div class="selo"><div class="v">' + esc(v) + '</div><div class="r">' + r + '</div></div>';
+const secao = (id, titulo, acao, corpo) =>
+    '<section class="secao" id="s-' + id + '"><div class="secao-cab">' + svg(SIG.inicial, 'sig') + '<h2>' + titulo + '</h2><span class="fio"></span>' + acao + '</div>' + corpo + '</section>';
+const divisor = () => '<div class="divisor" aria-hidden="true">' + svg(SIG.avancada || SIG.raca) + '</div>';
+
+// ---------- Vida ----------
+function renderVida() {
+    const max = Math.max(1, vidaMax()), at = vidaAtual(), pct = Math.max(0, Math.min(100, at / max * 100));
+    const p = $('#p-vida');
+    p.classList.toggle('baixa', at > 0 && at <= max / 3);
+    p.classList.toggle('zero', at <= 0);
+    const aviso = at <= 0 ? 'Vida em 0: a condição Morrendo se aplica.' : at <= max / 3 ? 'Em 1/3 da Vida Máxima ou menos: a condição Machucado se aplica.' : '';
+    p.innerHTML =
+        '<div class="rec-cab"><h2 class="rec-nome">' + ic('coracao') + 'Vida</h2>' +
+        '<div class="numeros"><input class="num atual" type="number" inputmode="numeric" min="0" value="' + at + '" data-campo="vida" aria-label="Vida atual">' +
+        '<span class="barra-div">/</span><input class="num max" type="number" inputmode="numeric" min="1" value="' + vidaMax() + '" data-campo="vidamax" aria-label="Vida máxima"></div></div>' +
+        '<div class="barra" role="meter" aria-label="Vida restante" aria-valuemin="0" aria-valuemax="' + max + '" aria-valuenow="' + at + '"><div class="enche" style="width:' + pct + '%"></div><span class="marca13" title="1/3 da Vida Máxima"></span></div>' +
+        '<p class="aviso-vida" role="status">' + aviso + '</p>' +
+        '<div class="controles">' +
+            '<span class="rot">Vida</span><span class="grupo">' + ['-5', '-1', '+1', '+5'].map(d => '<button data-vida="' + d + '" aria-label="' + (d[0] === '-' ? 'Diminuir' : 'Aumentar') + ' vida em ' + d.slice(1) + '">' + d.replace('-', '−') + '</button>').join('') + '</span>' +
+            '<span class="rot">Máx.</span><span class="grupo"><button data-vidamax="-1" aria-label="Diminuir vida máxima">−</button><button data-vidamax="+1" aria-label="Aumentar vida máxima">+</button></span>' +
+            '<button class="bt mini" data-acao="restaurar" title="Vida atual volta ao máximo">Restaurar</button>' +
+            '<span class="rapido"><input id="v-rapido" type="number" inputmode="numeric" min="0" placeholder="Valor" aria-label="Valor de dano ou cura">' +
+            '<button class="bt mini dano" data-acao="dano">Sofrer dano</button><button class="bt mini cura" data-acao="cura">Curar</button></span>' +
+        '</div>';
+    renderMiniVida();
+}
+function setVida(v) { ch.vidaAtual = Math.max(0, Math.min(vidaMax(), v)); mudou(); renderVida(); }
+function setVidaMax(v) {
+    ch.vidaMaxManual = Math.max(1, v);
+    if (vidaAtual() > ch.vidaMaxManual) ch.vidaAtual = ch.vidaMaxManual;   // só corta o que passou do novo máximo
+    mudou(); renderVida();
+}
+function renderMiniVida() {
+    const max = Math.max(1, vidaMax()), at = vidaAtual();
+    $('#mini-vida').innerHTML = '<span style="color:var(--vida);display:flex">' + ic('coracao') + '</span><b>' + at + ' / ' + max + '</b>' +
+        '<div class="barra" style="margin:0"><div class="enche" style="width:' + Math.max(0, Math.min(100, at / max * 100)) + '%"></div></div>' +
+        '<span class="controles"><span class="grupo"><button data-vida="-1" aria-label="Diminuir vida">−</button><button data-vida="+1" aria-label="Aumentar vida">+</button></span></span>';
+}
+// A barra de Vida do topo aparece quando o painel principal sai da tela por cima
+function observarVida() {
+    const checar = () => { const p = $('#p-vida'); if (p) $('#mini-vida').classList.toggle('vis', p.getBoundingClientRect().bottom < $('#topo').offsetHeight); };
+    window.addEventListener('scroll', checar, { passive: true });
+    window.addEventListener('resize', checar);
+    checar();
+}
+
+// ---------- Vida mágica e Magículas ----------
+function recurso(alvo, nome, icone, atual, max, chaveA, chaveM) {
+    const pct = max > 0 ? Math.max(0, Math.min(100, atual / max * 100)) : 0;
+    $(alvo).innerHTML =
+        '<div class="rec-cab"><h2 class="rec-nome">' + ic(icone) + nome + '</h2>' +
+        '<div class="numeros"><input class="num atual" type="number" inputmode="numeric" min="0" value="' + atual + '" data-campo="' + chaveA + '" aria-label="' + nome + ' atual">' +
+        '<span class="barra-div" style="color:var(--tinta-3)">/</span><input class="num max" type="number" inputmode="numeric" min="0" value="' + max + '" data-campo="' + chaveM + '" aria-label="' + nome + ' máxima"></div></div>' +
+        '<div class="barra" role="meter" aria-label="' + nome + ' restante" aria-valuemin="0" aria-valuemax="' + max + '" aria-valuenow="' + atual + '"><div class="enche" style="width:' + pct + '%"></div></div>' +
+        '<div class="controles"><span class="grupo">' + ['-1', '+1'].map(d => '<button data-rec="' + chaveA + '" data-d="' + d + '" aria-label="' + (d[0] === '-' ? 'Diminuir' : 'Aumentar') + ' ' + nome + '">' + d.replace('-', '−') + '</button>').join('') + '</span>' +
+        '<span class="rot">Máx.</span><span class="grupo">' + ['-1', '+1'].map(d => '<button data-rec="' + chaveM + '" data-d="' + d + '" aria-label="' + (d[0] === '-' ? 'Diminuir' : 'Aumentar') + ' ' + nome + ' máxima">' + d.replace('-', '−') + '</button>').join('') + '</span>' +
+        '<button class="bt mini" data-encher="' + chaveA + '">Encher</button></div>';
+}
+const renderVMag = () => recurso('#p-vmag', 'Vida Mágica', 'cristal', ch.vidaMagicaAtual || 0, ch.vidaMagicaMax || 0, 'vmag', 'vmagmax');
+const renderMagiculas = () => recurso('#p-magic', 'Magículas', 'gota', magAtual(), magMax(), 'mag', 'magmax');
+function ajustarRecurso(chave, valor) {
+    const v = Math.max(0, valor);
+    if (chave === 'vmag') ch.vidaMagicaAtual = Math.min(v, ch.vidaMagicaMax || 0);
+    else if (chave === 'vmagmax') { ch.vidaMagicaMax = v; if ((ch.vidaMagicaAtual || 0) > v) ch.vidaMagicaAtual = v; }
+    else if (chave === 'mag') ch.magiculasAtual = Math.min(v, magMax());
+    else if (chave === 'magmax') { ch.magiculasMax = v; if (magAtual() > v) ch.magiculasAtual = v; }
+    mudou();
+    if (chave.startsWith('vmag')) renderVMag(); else renderMagiculas();
+}
+const valorRecurso = (k) => ({ vmag: ch.vidaMagicaAtual || 0, vmagmax: ch.vidaMagicaMax || 0, mag: magAtual(), magmax: magMax() })[k];
+
+// ---------- Condições ----------
+const condDef = (nome) => (S.condicoes || []).find(c => c.nome === nome);
+function renderConds() {
+    $('#conds').innerHTML = ch.condicoes.map((c, i) => {
+        const d = condDef(c.nome) || {};
+        const cls = /Grave/.test(d.grupo || '') ? ' grave' : /Especial/.test(d.grupo || '') ? ' especial' : '';
+        return '<div class="cond' + cls + '"><div class="cond-topo"><strong>' + esc(c.nome) + '</strong><small>' + esc([d.grupo, d.tipo].filter(Boolean).join(', ')) + '</small>' +
+            '<button class="bt ic mini perigo" data-rm-cond="' + i + '" aria-label="Remover ' + esc(c.nome) + '" title="Remover">' + ic('x') + '</button></div>' +
+            '<p>' + esc(d.def || 'Descrição não encontrada no sistema.') + '</p>' +
+            '<input type="text" value="' + esc(c.nota || '') + '" data-nota-cond="' + i + '" placeholder="Nota (ex.: duração, origem)" aria-label="Nota da condição ' + esc(c.nome) + '"></div>';
+    }).join('');
+}
+function abrirCondicoes() {
+    const grupos = {};
+    (S.condicoes || []).forEach(c => (grupos[c.grupo] = grupos[c.grupo] || []).push(c));
+    abrirDialogo('<div class="dlg"><h3>Adicionar condição</h3>' +
+        '<input type="search" class="busca-cond" id="busca-cond" placeholder="Buscar condição" aria-label="Buscar condição" autocomplete="off">' +
+        '<div class="lista-cond" id="lista-cond">' + Object.entries(grupos).map(([g, lista]) => '<h4>' + esc(g) + '</h4>' + lista.map(c =>
+            '<button class="op-cond' + (ch.condicoes.some(x => x.nome === c.nome) ? ' ativa' : '') + '" data-cond="' + esc(c.nome) + '" data-busca="' + esc(norm(c.nome + ' ' + c.def)) + '"><strong>' + esc(c.nome) + '</strong><span>' + esc(c.def) + '</span></button>').join('')).join('') +
+        (S.condicoes && S.condicoes.length ? '' : '<p class="vazio">Esta ficha foi gerada sem a lista de condições.</p>') +
+        '</div><div class="acoes"><button class="bt" data-fechar>Fechar</button></div></div>');
+    const busca = $('#busca-cond');
+    busca.addEventListener('input', () => {
+        const q = norm(busca.value.trim());
+        $$('#lista-cond .op-cond').forEach(b => b.hidden = q && !b.dataset.busca.includes(q));
+        $$('#lista-cond h4').forEach(h => { let n = h.nextElementSibling, vis = false; while (n && n.tagName !== 'H4') { if (!n.hidden) vis = true; n = n.nextElementSibling; } h.hidden = !vis; });
+    });
+    $('#lista-cond').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-cond]'); if (!b) return;
+        if (ch.condicoes.some(x => x.nome === b.dataset.cond)) { toast(b.dataset.cond + ' já está ativa.'); return; }
+        ch.condicoes.push({ nome: b.dataset.cond, nota: '' });
+        b.classList.add('ativa'); mudou(); renderConds(); toast(b.dataset.cond + ' adicionada.');
+    });
+    busca.focus();
+}
+
+// ---------- Atributos ----------
+function renderAtributos() {
+    $('#atributos').innerHTML = S.atributos.map(a => {
+        const t = tempAtr(a.id), base = S.attrs[a.id] || 0;
+        return '<div class="atr' + (t ? ' temp' : '') + '" style="border-color:' + a.cor + ';background:' + a.cor + '14">' +
+            (t ? '<span class="delta ' + (t > 0 ? 'pos' : 'neg') + '">' + sinal(t) + '</span>' : '') +
+            '<div class="r" style="color:' + a.cor + '">' + esc(a.nome) + '</div><div class="v">' + (base + t) + '</div>' +
+            '<div class="b">' + (t ? 'base ' + base : '') + '</div></div>';
+    }).join('');
+    $('#temps-atr').innerHTML = ch.temporarios.atributos.map((t, i) =>
+        '<span class="temp-chip"><b style="color:' + (ATR[t.id] || {}).cor + '">' + esc((ATR[t.id] || {}).nome || t.id) + ' ' + sinal(t.valor) + '</b>' +
+        (t.desc ? '<span class="d">' + esc(t.desc) + '</span>' : '') +
+        '<button data-rm-temp-atr="' + i + '" aria-label="Remover modificador" title="Remover">' + ic('x') + '</button></span>').join('');
+}
+function dialogoTemp(tipo) {
+    const atr = tipo === 'atr';
+    const opcoes = atr ? S.atributos.map(a => '<option value="' + a.id + '">' + esc(a.nome) + '</option>').join('')
+        : S.pericias.map(p => '<option value="' + esc(p.nome) + '">' + esc(p.nome) + '</option>').join('');
+    abrirDialogo('<form class="dlg" id="f-temp"><h3>' + (atr ? 'Atributo temporário' : 'Perícia temporária') + '</h3>' +
+        '<div class="linha2"><label>' + (atr ? 'Atributo' : 'Perícia') + '<select name="alvo">' + opcoes + '</select></label>' +
+        '<label>Modificador<input name="valor" type="number" inputmode="numeric" required placeholder="+2 ou -1"></label></div>' +
+        '<label>Descrição (opcional)<input name="desc" type="text" maxlength="80" placeholder="De onde vem o efeito"></label>' +
+        '<div class="acoes"><button type="button" class="bt" data-fechar>Cancelar</button><button class="bt forte">Adicionar</button></div></form>');
+    $('#f-temp').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const f = new FormData(e.target), valor = int(f.get('valor'));
+        if (!valor) { toast('Informe um modificador diferente de zero.', true); return; }
+        if (atr) ch.temporarios.atributos.push({ id: f.get('alvo'), valor, desc: String(f.get('desc') || '').trim() });
+        else ch.temporarios.pericias.push({ nome: f.get('alvo'), valor, desc: String(f.get('desc') || '').trim() });
+        fecharDialogo(); mudou(); renderAtributos(); renderPericias(); renderAtaques();
+    });
+}
+
+// ---------- Perícias ----------
+function renderPericias() {
+    $('#pericias').innerHTML = S.pericias.map(p => {
+        const i = periciaInfo(p), extra = i.doAtr + i.doTemp;
+        const det = extra ? 'base ' + i.base + (i.doAtr ? ', atributos ' + sinal(i.doAtr) : '') + (i.doTemp ? ', temporário ' + sinal(i.doTemp) : '') : '';
+        return '<div class="per' + (extra ? ' temp' : '') + '"><span class="ponto" style="background:' + p.cor + '"></span>' +
+            '<span class="n">' + esc(p.nome) + (det ? '<span class="det">' + det + '</span>' : '') + '</span><span class="v">' + i.total + '</span></div>';
+    }).join('');
+    $('#temps-per').innerHTML = ch.temporarios.pericias.map((t, i) =>
+        '<span class="temp-chip"><b>' + esc(t.nome) + ' ' + sinal(t.valor) + '</b>' + (t.desc ? '<span class="d">' + esc(t.desc) + '</span>' : '') +
+        '<button data-rm-temp-per="' + i + '" aria-label="Remover modificador" title="Remover">' + ic('x') + '</button></span>').join('');
+}
+
+// ---------- Ataques ----------
+const efeito = (html) => html ? '<div class="efeito">' + html + '</div>' : '';
+function renderAtaques() {
+    $('#ataques').innerHTML = ch.ataques.map((a, i) => {
+        const at = ATR[a.atrAtaque] || {}, dn = ATR[a.atrDano] || {};
+        return '<article class="cartao" style="--cor:' + (at.cor || 'var(--ac)') + '"><div class="cartao-topo"><h3>' + esc(a.nome) + '</h3>' + ferramentas('atq', i, true) + '</div>' +
+            '<div class="atq-linha"><span class="teste" title="Teste de ataque">' + ic('dado') + (a.ndr || 1) + 'd' + S.dr + ' + ' + esc(at.nome || '?') + ' (' + atrEfetivo(a.atrAtaque) + ')</span>' +
+            '<span class="dano">Dano: ' + esc(dn.nome || '?') + ' (' + atrEfetivo(a.atrDano) + ')</span>' +
+            '<span class="crit">Crítico ×' + esc(a.mult || 2) + (a.crit ? ', ' + esc(a.crit) : '') + '</span></div>' + efeito(a.efeitoHTML) + '</article>';
+    }).join('') || '<p class="vazio">Nenhum ataque cadastrado.</p>';
+    encolherLongos('#ataques');
+}
+function ferramentas(tipo, i, duplicar) {
+    return '<div class="ferr">' +
+        '<button data-editar="' + tipo + '" data-i="' + i + '" title="Editar" aria-label="Editar">' + ic('editar') + '</button>' +
+        (duplicar ? '<button data-duplicar="' + tipo + '" data-i="' + i + '" title="Duplicar" aria-label="Duplicar">' + ic('copiar') + '</button>' : '') +
+        '<button class="rm" data-remover="' + tipo + '" data-i="' + i + '" title="Remover" aria-label="Remover">' + ic('lixo') + '</button></div>';
+}
+
+// ---------- Poderes (ordem real = ordem do array; ocultos ficam onde estão) ----------
+const visiveis = () => ch.poderes.map((p, i) => ({ p, i })).filter(x => !x.p.oculto);
+function renderPoderes() {
+    $('#poderes').innerHTML = visiveis().map(({ p, i }) => {
+        const t = TAGP[p.tag] || TAGP.extra || { nome: 'Poder', cor: 'var(--ac)' };
+        return '<article class="cartao" data-poder="' + i + '" style="--cor:' + t.cor + '"><div class="cartao-topo">' +
+            '<button class="bt ic alca" data-alca="' + i + '" title="Arrastar para reordenar" aria-label="Mover ' + esc(p.nome) + ' (setas para reordenar)" style="border:0;background:none;width:28px;height:28px">' + ic('alca') + '</button>' +
+            '<div style="flex:1;min-width:0"><span class="etiqueta">' + esc(t.nome) + '</span>' + (p.rank ? '<span class="rk">R' + esc(p.rank) + (p.estrela > 1 ? ' ★' + esc(p.estrela) : '') + '</span>' : '') +
+            '<h3>' + esc(p.nome) + '</h3></div>' + ferramentas('poder', i, false) + '</div>' + efeito(p.efeitoHTML) + '</article>';
+    }).join('') || '<p class="vazio">Nenhum poder.</p>';
+    encolherLongos('#poderes');
+}
+function encolherLongos(sel) {
+    $$(sel + ' .efeito').forEach(ef => {
+        if (ef.scrollHeight > 170 && !ef.dataset.aberto) {
+            ef.classList.add('longo');
+            const b = document.createElement('button');
+            b.className = 'ler'; b.type = 'button'; b.textContent = 'Ler tudo'; b.setAttribute('aria-expanded', 'false');
+            b.onclick = () => { const ab = ef.classList.toggle('longo'); b.textContent = ab ? 'Ler tudo' : 'Recolher'; b.setAttribute('aria-expanded', String(!ab)); };
+            ef.after(b);
+        }
+    });
+}
+// Arrastar: o cartão se move dentro do fluxo (sem flutuar por cima dos outros)
+let arrasto = null;
+document.addEventListener('pointerdown', (e) => {
+    const alca = e.target.closest('[data-alca]'); if (!alca || e.button > 0) return;
+    e.preventDefault();
+    const card = alca.closest('.cartao');
+    arrasto = { card, id: e.pointerId };
+    card.classList.add('arrastando'); document.body.classList.add('movendo');
+    alca.setPointerCapture(e.pointerId);
+});
+document.addEventListener('pointermove', (e) => {
+    if (!arrasto || e.pointerId !== arrasto.id) return;
+    const sob = document.elementFromPoint(e.clientX, e.clientY);
+    const alvo = sob && sob.closest('#poderes .cartao');
+    if (!alvo || alvo === arrasto.card) { autoRolar(e.clientY); return; }
+    const r = alvo.getBoundingClientRect();
+    const depois = (e.clientY - r.top) > r.height / 2 || (Math.abs(e.clientY - (r.top + r.height / 2)) < r.height / 4 && e.clientX > r.left + r.width / 2);
+    alvo.parentNode.insertBefore(arrasto.card, depois ? alvo.nextSibling : alvo);
+    autoRolar(e.clientY);
+});
+function autoRolar(y) { if (y < 80) scrollBy(0, -14); else if (y > innerHeight - 60) scrollBy(0, 14); }
+function soltar() {
+    if (!arrasto) return;
+    arrasto.card.classList.remove('arrastando'); document.body.classList.remove('movendo');
+    aplicarOrdemPoderes($$('#poderes .cartao').map(c => int(c.dataset.poder)));
+    arrasto = null;
+}
+document.addEventListener('pointerup', soltar);
+document.addEventListener('pointercancel', soltar);
+function aplicarOrdemPoderes(novaOrdemVis) {
+    const atual = visiveis().map(x => x.i);
+    if (novaOrdemVis.join() === atual.join()) return;
+    const objs = novaOrdemVis.map(i => ch.poderes[i]);
+    const novo = ch.poderes.slice(); let k = 0;
+    ch.poderes.forEach((p, i) => { if (!p.oculto) novo[i] = objs[k++]; });   // ocultos mantêm a posição
+    ch.poderes = novo; mudou(); renderPoderes();
+}
+document.addEventListener('keydown', (e) => {
+    const alca = e.target.closest && e.target.closest('[data-alca]');
+    if (!alca || !['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    e.preventDefault();
+    const ordem = visiveis().map(x => x.i), pos = ordem.indexOf(int(alca.dataset.alca));
+    const alvo = pos + (e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 1);
+    if (alvo < 0 || alvo >= ordem.length) return;
+    [ordem[pos], ordem[alvo]] = [ordem[alvo], ordem[pos]];
+    const idMovido = ch.poderes[int(alca.dataset.alca)];
+    aplicarOrdemPoderes(ordem);
+    const novo = $$('#poderes [data-alca]').find(a => ch.poderes[int(a.dataset.alca)] === idMovido);
+    if (novo) novo.focus();
+});
+
+// ---------- Inventário ----------
+function renderInventario() {
+    $('#inventario').innerHTML = ch.inventario.map((it, i) => {
+        const t = TAGI[it.tag] || TAGI.outro || { nome: 'Item', cor: 'var(--ac)' };
+        return '<div class="item" style="--cor:' + t.cor + '"><div class="nm">' + esc(it.nome) + '<span class="tg">' + esc(t.nome) + '</span>' + (it.equipado ? '<span class="eq">Equipado</span>' : '') + '</div>' +
+            '<div class="lado"><span class="qtd"><button data-qtd="' + i + '" data-d="-1" aria-label="Diminuir quantidade">−</button><span>' + (it.qtd || 1) + '</span><button data-qtd="' + i + '" data-d="1" aria-label="Aumentar quantidade">+</button></span>' +
+            ferramentas('item', i, false) + '</div>' +
+            (it.descHTML ? '<details><summary>Descrição</summary>' + efeito(it.descHTML) + '</details>' : '') + '</div>';
+    }).join('') || '<p class="vazio">Inventário vazio.</p>';
+}
+
+// ---------- Cargas ----------
+function renderCargas() {
+    $('#cargas').innerHTML = ch.cargas.map((c, i) => {
+        const pips = c.max > 0 && c.max <= 20 ? '<div class="pips">' + Array.from({ length: c.max }, (_, k) => '<i class="' + (k < c.atual ? 'on' : '') + '"></i>').join('') + '</div>' : '';
+        return '<div class="carga"><button class="bt ic mini perigo rm" data-rm-carga="' + i + '" aria-label="Remover carga" title="Remover" style="border:0;background:none">' + ic('x') + '</button>' +
+            '<input class="cn" type="text" value="' + esc(c.nome) + '" data-carga-nome="' + i + '" aria-label="Nome da carga">' +
+            '<div class="cv"><span class="qtd"><button data-carga="' + i + '" data-d="-1" aria-label="Diminuir carga">−</button></span>' +
+            '<input class="num" type="number" inputmode="numeric" min="0" value="' + (c.atual || 0) + '" data-carga-atual="' + i + '" aria-label="Carga atual">' +
+            '<span style="color:var(--tinta-3)">/</span><input class="num" type="number" inputmode="numeric" min="0" value="' + (c.max || 0) + '" data-carga-max="' + i + '" aria-label="Limite da carga">' +
+            '<span class="qtd"><button data-carga="' + i + '" data-d="1" aria-label="Aumentar carga">+</button></span></div>' + pips + '</div>';
+    }).join('') || '<p class="vazio">Nenhuma carga.</p>';
+}
+
+// ---------- Pensamentos ----------
+function renderPensamentos() {
+    $('#pensamentos').innerHTML = ch.pensamentos.map((p, i) =>
+        '<article class="cartao" style="--cor:var(--metal)"><div class="cartao-topo"><h3>' + esc(p.assunto || 'Sem assunto') + '</h3>' + ferramentas('pens', i, false) + '</div>' + efeito(p.textoHTML) + '</article>'
+    ).join('') || '<p class="vazio">Nenhum registro.</p>';
+    encolherLongos('#pensamentos');
+}
+
+// =====================================================================
+//  EDIÇÃO (mesmos campos da criação de personagem)
+// =====================================================================
+const optsAtr = (sel) => S.atributos.map(a => '<option value="' + a.id + '"' + (a.id === sel ? ' selected' : '') + '>' + esc(a.nome) + '</option>').join('');
+function editar(tipo, i) {
+    const novo = i == null;
+    if (tipo === 'atq') {
+        const a = novo ? { nome: '', ndr: 1, mult: 2, atrAtaque: 'tecnica', atrDano: 'corpo', crit: '', efeitoHTML: '' } : ch.ataques[i];
+        formulario(novo ? 'Novo ataque' : 'Editar ataque',
+            '<label>Nome<input name="nome" required value="' + esc(a.nome) + '"></label>' +
+            '<div class="linha2"><label>Dados de Rank no teste<input name="ndr" type="number" min="1" value="' + esc(a.ndr) + '"></label><label>Multiplicador de crítico<input name="mult" type="number" min="2" value="' + esc(a.mult) + '"></label></div>' +
+            '<div class="linha2"><label>Atributo de ataque<select name="atrAtaque">' + optsAtr(a.atrAtaque) + '</select></label><label>Atributo de dano<select name="atrDano">' + optsAtr(a.atrDano) + '</select></label></div>' +
+            '<label>Efeito do crítico<input name="crit" value="' + esc(a.crit || '') + '"></label>' +
+            '<label>Efeito<div class="editor" contenteditable="true" data-editor>' + (a.efeitoHTML || '') + '</div></label>',
+            (f, html) => {
+                const d = { nome: f.get('nome').trim(), ndr: Math.max(1, int(f.get('ndr'), 1)), mult: Math.max(2, int(f.get('mult'), 2)), atrAtaque: f.get('atrAtaque'), atrDano: f.get('atrDano'), crit: f.get('crit').trim(), efeitoHTML: html };
+                if (novo) ch.ataques.push(d); else Object.assign(ch.ataques[i], d);
+                renderAtaques();
+            });
+    } else if (tipo === 'poder') {
+        const p = novo ? { nome: '', tag: 'extra', efeitoHTML: '' } : ch.poderes[i];
+        formulario(novo ? 'Novo poder' : 'Editar poder',
+            '<label>Nome<input name="nome" required value="' + esc(p.nome) + '"></label>' +
+            '<label>Tipo<select name="tag">' + (S.tagsPoder || []).map(t => '<option value="' + t.id + '"' + (t.id === p.tag ? ' selected' : '') + '>' + esc(t.nome) + '</option>').join('') + '</select></label>' +
+            '<label>Efeito<div class="editor" contenteditable="true" data-editor>' + (p.efeitoHTML || '') + '</div></label>',
+            (f, html) => {
+                const d = { nome: f.get('nome').trim(), tag: f.get('tag'), efeitoHTML: html };
+                if (novo) ch.poderes.push(Object.assign(d, { auto: false })); else Object.assign(ch.poderes[i], d);
+                renderPoderes();
+            });
+    } else if (tipo === 'item') {
+        const it = novo ? { nome: '', tag: 'outro', qtd: 1, descHTML: '', equipado: false } : ch.inventario[i];
+        formulario(novo ? 'Novo item' : 'Editar item',
+            '<label>Nome<input name="nome" required value="' + esc(it.nome) + '"></label>' +
+            '<div class="linha2"><label>Tipo<select name="tag">' + (S.tagsInv || []).map(t => '<option value="' + t.id + '"' + (t.id === it.tag ? ' selected' : '') + '>' + esc(t.nome) + '</option>').join('') + '</select></label>' +
+            '<label>Quantidade<input name="qtd" type="number" min="1" value="' + esc(it.qtd || 1) + '"></label></div>' +
+            '<label style="display:flex;align-items:center;gap:8px"><input type="checkbox" name="equipado" style="width:auto"' + (it.equipado ? ' checked' : '') + '> Equipado</label>' +
+            '<label>Descrição<div class="editor" contenteditable="true" data-editor>' + (it.descHTML || '') + '</div></label>',
+            (f, html) => {
+                const d = { nome: f.get('nome').trim(), tag: f.get('tag'), qtd: Math.max(1, int(f.get('qtd'), 1)), equipado: !!f.get('equipado'), descHTML: html };
+                if (novo) ch.inventario.push(d); else Object.assign(ch.inventario[i], d);
+                renderInventario();
+            });
+    } else if (tipo === 'pens') {
+        const p = novo ? { assunto: '', textoHTML: '' } : ch.pensamentos[i];
+        formulario(novo ? 'Novo registro' : 'Editar registro',
+            '<label>Assunto<input name="assunto" required value="' + esc(p.assunto) + '"></label>' +
+            '<label>Texto<div class="editor" contenteditable="true" data-editor>' + (p.textoHTML || '') + '</div></label>',
+            (f, html) => {
+                const d = { assunto: f.get('assunto').trim(), textoHTML: html };
+                if (novo) ch.pensamentos.push(d); else Object.assign(ch.pensamentos[i], d);
+                renderPensamentos();
+            });
+    }
+}
+function formulario(titulo, campos, aoSalvar) {
+    abrirDialogo('<form class="dlg" id="f-ed"><h3>' + titulo + '</h3>' + campos +
+        '<div class="acoes"><button type="button" class="bt" data-fechar>Cancelar</button><button class="bt forte">Salvar</button></div></form>');
+    const f = $('#f-ed');
+    f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const ed = $('[data-editor]', f);
+        aoSalvar(new FormData(f), ed ? ed.innerHTML.trim() : '');
+        fecharDialogo(); mudou();
+    });
+    const prim = $('input, select', f); if (prim) prim.focus();
+}
+const LISTA = { atq: () => ch.ataques, poder: () => ch.poderes, item: () => ch.inventario, pens: () => ch.pensamentos };
+const RENDER = { atq: renderAtaques, poder: renderPoderes, item: renderInventario, pens: renderPensamentos };
+const ROTULO = { atq: 'ataque', poder: 'poder', item: 'item', pens: 'registro' };
+
+// =====================================================================
+//  EVENTOS
+// =====================================================================
+document.addEventListener('click', (e) => {
+    const t = e.target.closest('button, [data-acao]'); if (!t) return;
+    const d = t.dataset;
+    if (d.vida) return setVida(vidaAtual() + int(d.vida));
+    if (d.vidamax) return setVidaMax(vidaMax() + int(d.vidamax));
+    if (d.rec) return ajustarRecurso(d.rec, valorRecurso(d.rec) + int(d.d));
+    if (d.encher) return ajustarRecurso(d.encher, d.encher === 'vmag' ? (ch.vidaMagicaMax || 0) : magMax());
+    if (d.rmCond != null) { ch.condicoes.splice(int(d.rmCond), 1); mudou(); return renderConds(); }
+    if (d.rmTempAtr != null) { ch.temporarios.atributos.splice(int(d.rmTempAtr), 1); mudou(); renderAtributos(); renderPericias(); return renderAtaques(); }
+    if (d.rmTempPer != null) { ch.temporarios.pericias.splice(int(d.rmTempPer), 1); mudou(); return renderPericias(); }
+    if (d.editar) return editar(d.editar, int(d.i));
+    if (d.duplicar) { const l = LISTA[d.duplicar](), o = JSON.parse(JSON.stringify(l[int(d.i)])); o.nome = (o.nome || '') + ' (cópia)'; l.splice(int(d.i) + 1, 0, o); mudou(); return RENDER[d.duplicar](); }
+    if (d.remover) {
+        const l = LISTA[d.remover](), it = l[int(d.i)];
+        if (!confirm('Remover o ' + ROTULO[d.remover] + ' "' + (it.nome || it.assunto || '') + '"?')) return;
+        l.splice(int(d.i), 1); mudou(); return RENDER[d.remover]();
+    }
+    if (d.qtd != null) { const it = ch.inventario[int(d.qtd)]; it.qtd = Math.max(0, (it.qtd || 1) + int(d.d)); if (it.qtd === 0 && !confirm('Quantidade zerada. Remover "' + it.nome + '" do inventário?')) it.qtd = 1; else if (it.qtd === 0) ch.inventario.splice(int(d.qtd), 1); mudou(); return renderInventario(); }
+    if (d.carga != null) { const c = ch.cargas[int(d.carga)]; c.atual = Math.max(0, (c.atual || 0) + int(d.d)); if (c.max > 0) c.atual = Math.min(c.atual, c.max); mudou(); return renderCargas(); }
+    if (d.rmCarga != null) { if (!confirm('Remover a carga "' + ch.cargas[int(d.rmCarga)].nome + '"?')) return; ch.cargas.splice(int(d.rmCarga), 1); mudou(); return renderCargas(); }
+    if (d.fechar != null) return fecharDialogo();
+    const acoes = {
+        'restaurar': () => setVida(vidaMax()),
+        'dano': () => { const v = int($('#v-rapido').value); if (v > 0) { setVida(vidaAtual() - v); toast('−' + v + ' de Vida'); } },
+        'cura': () => { const v = int($('#v-rapido').value); if (v > 0) { setVida(vidaAtual() + v); toast('+' + v + ' de Vida'); } },
+        'add-cond': abrirCondicoes,
+        'add-temp-atr': () => dialogoTemp('atr'),
+        'add-temp-per': () => dialogoTemp('per'),
+        'add-atq': () => editar('atq'), 'add-poder': () => editar('poder'), 'add-item': () => editar('item'), 'add-pens': () => editar('pens'),
+        'add-carga': () => { if (ch.cargas.length >= (S.maxCargas || 9)) return toast('Limite de ' + (S.maxCargas || 9) + ' cargas.', true); ch.cargas.push({ nome: 'Nova carga', atual: 0, max: 0 }); mudou(); renderCargas(); }
+    };
+    if (d.acao && acoes[d.acao]) acoes[d.acao]();
+});
+document.addEventListener('change', (e) => {
+    const t = e.target, d = t.dataset;
+    if (d.campo === 'vida') return setVida(int(t.value));
+    if (d.campo === 'vidamax') return setVidaMax(int(t.value, 1));
+    if (['vmag', 'vmagmax', 'mag', 'magmax'].includes(d.campo)) return ajustarRecurso(d.campo, int(t.value));
+    if (d.notaCond != null) { ch.condicoes[int(d.notaCond)].nota = t.value; return mudou(); }
+    if (d.cargaNome != null) { ch.cargas[int(d.cargaNome)].nome = t.value.trim() || 'Carga'; return mudou(); }
+    if (d.cargaAtual != null) { const c = ch.cargas[int(d.cargaAtual)]; c.atual = Math.max(0, int(t.value)); if (c.max > 0) c.atual = Math.min(c.atual, c.max); mudou(); return renderCargas(); }
+    if (d.cargaMax != null) { const c = ch.cargas[int(d.cargaMax)]; c.max = Math.max(0, int(t.value)); if (c.max > 0 && c.atual > c.max) c.atual = c.max; mudou(); return renderCargas(); }
+});
+document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); salvar(); }
+    if (e.key === 'Enter' && e.target.id === 'v-rapido') { e.preventDefault(); $('[data-acao="dano"]').click(); }
+});
+
+// ---------- diálogo ----------
+const dlg = $('#dlg');
+function abrirDialogo(html) { dlg.innerHTML = html; if (!dlg.open) dlg.showModal(); }
+function fecharDialogo() { if (dlg.open) dlg.close(); }
+dlg.addEventListener('click', (e) => { if (e.target === dlg) fecharDialogo(); });
+
+// =====================================================================
+//  SALVAR E BAIXAR
+// =====================================================================
+function mudou() { sujo = true; const e = $('#estado'); e.className = 'estado sujo'; e.innerHTML = '<span>Alterações não salvas</span>'; }
+function salvar() {
+    try {
+        localStorage.setItem(CHAVE, JSON.stringify({ em: Date.now(), ch }));
+        sujo = false;
+        const e = $('#estado'); e.className = 'estado'; e.innerHTML = '<span>Salvo às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) + '</span>';
+        toast('Ficha salva neste navegador.');
+    } catch (err) {
+        const e = $('#estado'); e.className = 'estado erro'; e.innerHTML = '<span>Erro ao salvar</span>';
+        toast('Não consegui salvar neste navegador (armazenamento cheio ou bloqueado). Use "Baixar ficha" para guardar o progresso.', true);
+    }
+}
+async function baixar() {
+    const agora = new Date();
+    const dados = JSON.parse(JSON.stringify(ch)); dados.atualizado = agora.toISOString();
+    const sis = Object.assign({}, S, { exportado: agora.toISOString() });
+    const json = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
+    const html = '<!DOCTYPE html>\n' + MOLDE
+        .replace(/(<script type="application\/json" id="wnj-ficha">)[\s\S]*?(<\/script>)/, (m, a, b) => a + json(dados) + b)
+        .replace(/(<script type="application\/json" id="wnj-sistema">)[\s\S]*?(<\/script>)/, (m, a, b) => a + json(sis) + b);
+    const nome = (norm(nomeCompleto).replace(/[^a-z0-9]+/g, '_') || 'personagem') + '_' + agora.toISOString().slice(0, 10) + '.html';
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    try {
+        if (window.showSaveFilePicker) {   // deixa a pessoa escolher onde salvar (e confirmar se for substituir)
+            const h = await window.showSaveFilePicker({ suggestedName: nome, types: [{ description: 'Ficha HTML', accept: { 'text/html': ['.html'] } }] });
+            const w = await h.createWritable(); await w.write(blob); await w.close();
+        } else {
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = nome;
+            document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+        }
+        salvar();
+        toast('Ficha atualizada baixada como ' + nome + '.');
+    } catch (err) {
+        if (err && err.name === 'AbortError') return;
+        toast('Não consegui gerar o arquivo: ' + err.message, true);
+    }
+}
+$('#bt-salvar').onclick = salvar;
+$('#bt-baixar').onclick = baixar;
+window.addEventListener('beforeunload', (e) => { if (sujo) { e.preventDefault(); e.returnValue = ''; } });
+
+function toast(msg, erro) {
+    const t = document.createElement('div'); t.className = 'toast' + (erro ? ' erro' : ''); t.setAttribute('role', erro ? 'alert' : 'status'); t.textContent = msg;
+    $('#toasts').appendChild(t); while ($('#toasts').children.length > 3) $('#toasts').firstChild.remove();
+    setTimeout(() => t.remove(), erro ? 6000 : 3200);
+}
+
+render();
+})();
+</script>
+</body>
+</html>

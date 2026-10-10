@@ -195,7 +195,10 @@ const WNJExport = (() => {
             '<h2>Cargas</h2><div class="cgs">' + cargasHTML + '</div>' +
             '<h2>Pensamentos e Opiniões</h2><div class="cards">' + pensHTML + '</div>' +
             '<footer>Luxsandoria — Watashi no Jinsei · Ficha gerada em ' + new Date().toLocaleDateString('pt-BR') + '</footer>' +
-            '</div></body></html>';
+            '</div>' +
+            // Dados brutos da ficha: permitem importar este .html de volta na Biblioteca
+            '<script type="application/json" id="wnj-ficha">' + dadosFicha(char) + '</script>' +
+            '</body></html>';
 
         const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
         const a = document.createElement('a');
@@ -205,6 +208,13 @@ const WNJExport = (() => {
         document.body.appendChild(a);
         a.click();
         setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+    }
+
+    // JSON seguro dentro de <script>: nada de "</script>" nem "<!--" escapando
+    function dadosFicha(char) {
+        const c = Object.assign({}, char);
+        delete c._nuvem; delete c._sha;
+        return JSON.stringify(c).replace(/</g, '\\u003c');
     }
 
     return { baixar };

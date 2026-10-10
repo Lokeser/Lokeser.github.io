@@ -3,222 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Personagem - Luxsandoria</title>
+    <title>Biblioteca de Personagens — Luxsandoria</title>
     <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
     <style>
-        :root { --c1: var(--bg); --c2: var(--surface-2); --c3: var(--border-strong); --c4: var(--gold); }
-        body {
-            background: radial-gradient(circle at top, var(--bg-alt), var(--c1) 70%);
-            min-height: 100vh;
-            color: var(--text);
-            font-family: 'Lato', sans-serif;
-        }
-        html[data-theme="dark"] body {
-            background: radial-gradient(circle at top, #16202c, var(--bg) 70%);
-        }
-        .hub-hero { text-align: center; padding: 55px 20px 25px; }
-        .hub-hero h1 {
-            font-family: 'Cinzel', serif; color: var(--c4);
-            letter-spacing: 5px; font-size: clamp(1.8rem, 5vw, 3rem);
-            text-shadow: 0 0 20px color-mix(in srgb, var(--gold) 35%, transparent);
-        }
-        .hub-hero p { color: var(--text-2); }
+        /* ================================================================
+           BIBLIOTECA DE PERSONAGENS
+           Tudo lê os tokens do design system (claro e escuro).
+           O ouro marca seleção, foco e título; a cor de cada grupo só
+           aparece em detalhes (fio lateral, ponto, contagem).
+           ================================================================ */
+        [hidden] { display: none !important; }
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); font-family: var(--font-ui); min-height: 100vh; }
 
-        .hub-options { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; padding: 20px; max-width: 900px; margin: 0 auto; }
-        .hub-option {
-            flex: 1 1 300px; max-width: 420px; text-align: center;
-            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
-            border-top: 4px solid var(--c4); border-radius: 16px; padding: 40px 24px;
-            color: var(--text); text-decoration: none; transition: .3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,.35);
-        }
-        .hub-option:hover { transform: translateY(-6px); border-color: var(--c4); color: var(--text); box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 25px color-mix(in srgb, var(--gold) 20%, transparent); }
-        .hub-option .icone { font-size: 3rem; display: block; margin-bottom: 12px; }
-        .hub-option h2 { font-family: 'Cinzel', serif; color: var(--c4); font-size: 1.4rem; }
-        .hub-option p { color: var(--text-2); font-size: .92rem; margin: 0; }
+        .bib { max-width: 1480px; margin: 0 auto; padding: var(--sp-5) clamp(12px, 3vw, 32px) 120px; }
 
-        .galeria-titulo {
-            font-family: 'Cinzel', serif; color: var(--c4); text-align: center;
-            margin: 55px 0 8px; letter-spacing: 2px;
-        }
-        .galeria-sub { text-align: center; color: var(--text-2); margin-bottom: 28px; font-size: .9rem; }
-        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
+        /* ---------- Cabeçalho ---------- */
+        .bib-topo { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; padding-bottom: var(--sp-4); border-bottom: 1px solid var(--border); }
+        .bib-titulo h1 { font-family: var(--font-display); font-size: var(--step-3); color: var(--gold); margin: 0; letter-spacing: .04em; line-height: 1.1; }
+        .bib-resumo { margin: 4px 0 0; color: var(--text-2); font-size: var(--step--1); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .estado { display: inline-flex; align-items: center; gap: 6px; }
+        .estado::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--success); }
+        .estado[data-tipo="ocupado"]::before { background: var(--warning); animation: pulsar 1s infinite alternate; }
+        .estado[data-tipo="erro"]::before { background: var(--error); }
+        @keyframes pulsar { to { opacity: .3; } }
+        .bib-acoes { margin-left: auto; display: flex; gap: var(--sp-2); align-items: center; }
 
-        .pcard {
-            position: relative; border-radius: 14px; overflow: hidden;
-            background: linear-gradient(160deg, var(--c2), var(--c1));
-            border: 2px solid var(--c3); aspect-ratio: 3 / 4; cursor: pointer;
-            transition: .3s;
-        }
-        .pcard:hover { border-color: var(--c4); transform: translateY(-4px); }
-        .pcard img { width: 100%; height: 100%; object-fit: cover; }
-        .pcard .sem-img { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; opacity:.5; }
-        .pcard .pnome {
-            position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 12px 12px;
-            background: linear-gradient(to top, rgba(10,20,35,.95), transparent);
-            font-family: 'Cinzel', serif; font-weight: 700; color: var(--c4); text-align: center;
-        }
-        .pcard .prank {
-            position: absolute; top: 10px; right: 10px;
-            background: var(--c4); color: var(--text-on-gold); font-weight: 700; font-size: .72rem;
-            border-radius: 12px; padding: 3px 10px;
-        }
-        .pcard .acoes {
-            position: absolute; inset: 0; display: flex; flex-direction: column; gap: 10px;
-            align-items: center; justify-content: center;
-            background: rgba(10, 20, 35, .82); opacity: 0; transition: .25s;
-        }
-        .pcard:hover .acoes { opacity: 1; }
-        .acoes button {
-            width: 140px; border: none; border-radius: 8px; padding: 9px 0;
-            font-weight: 700; cursor: pointer; transition: .2s; font-size: .9rem;
-        }
-        .acoes button:hover { transform: scale(1.06); }
-        .btn-usar { background: var(--c4); color: var(--text-on-gold); }
-        .btn-baixar { background: var(--c3); color: var(--text-on-royal); }
-        .btn-excluir { background: #7a1f1f; color: var(--text); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: var(--r); padding: 9px 16px; font: 600 .88rem/1 var(--font-ui);
+               border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); cursor: pointer; text-decoration: none;
+               transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast); white-space: nowrap; }
+        .btn:hover { border-color: var(--gold); color: var(--text); }
+        .btn--ouro { background: var(--gold); border-color: var(--gold); color: var(--text-on-gold); }
+        .btn--ouro:hover { background: var(--gold-light); color: var(--text-on-gold); }
+        .btn--perigo { color: var(--error); }
+        .btn--perigo:hover { border-color: var(--error); color: var(--error); }
+        .btn--icone { padding: 9px 11px; }
+        .btn:disabled { opacity: .5; cursor: default; }
+        :is(.btn, .ic, .item-menu, select, input, .pcard-abrir, .secao-cab button):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
-        .vazio { text-align: center; color: var(--text-2); padding: 40px 20px; grid-column: 1 / -1; }
-        .vazio .icone { font-size: 3rem; display: block; margin-bottom: 10px; opacity: .6; }
+        .nuvem-linha { margin: var(--sp-3) 0 0; font-size: var(--step--1); color: var(--text-2); }
+        .nuvem-linha strong { color: var(--text); }
 
-        /* ===== Barra da nuvem / recuperação ===== */
-        .barra-nuvem {
-            max-width: 1100px; margin: 0 auto 22px; padding: 12px 18px;
-            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14);
-            border-radius: 12px; font-size: .86rem; color: var(--text);
-        }
-        .barra-nuvem .barra-acoes { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
-        .mini-btn {
-            background: transparent; border: 1px solid var(--c3); color: var(--text);
-            border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: .8rem; font-weight: 700;
-        }
-        .mini-btn:hover { background: rgba(255,255,255,.12); color: var(--text); }
-        .mini-btn.ativo { border-color: #4caf50; color: #8fe0a0; }
+        /* ---------- Barra de ferramentas ---------- */
+        .ferramentas { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center;
+                       padding: var(--sp-3) 0; margin-bottom: var(--sp-3); background: color-mix(in srgb, var(--bg) 92%, transparent);
+                       backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+        .busca { position: relative; flex: 1 1 220px; min-width: 0; }
+        .busca input[type="search"] { width: 100%; padding: 9px 30px 9px 34px; }
+        .busca svg { z-index: 1; position: absolute; left: 11px; top: 50%; translate: 0 -50%; width: 15px; height: 15px; color: var(--text-2); pointer-events: none; }
+        .busca kbd { position: absolute; right: 9px; top: 50%; translate: 0 -50%; font: 600 .7rem var(--font-ui); color: var(--text-2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
+        input[type="search"], input[type="text"], select {
+            background: var(--surface-inset); border: 1px solid var(--border); color: var(--text); border-radius: var(--r);
+            padding: 9px 10px; font: 500 .86rem var(--font-ui); min-width: 0; }
+        select { max-width: 170px; cursor: pointer; }
+        input::placeholder { color: var(--text-2); }
+        .filtros { display: contents; }
+        .vistas { display: inline-flex; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+        .vistas button { background: var(--surface); border: 0; color: var(--text-2); padding: 8px 10px; cursor: pointer; display: grid; place-items: center; }
+        .vistas button + button { border-left: 1px solid var(--border); }
+        .vistas button[aria-pressed="true"] { background: var(--gold-wash); color: var(--gold); }
+        .vistas svg { width: 16px; height: 16px; }
+        .densidade { display: inline-flex; align-items: center; gap: 6px; color: var(--text-2); font-size: .78rem; }
+        .densidade input { width: 90px; accent-color: var(--gold); }
+        .aviso-arraste { flex-basis: 100%; margin: 0; font-size: .78rem; color: var(--text-2); }
+        .aviso-arraste[hidden] { display: none; }
 
-        .pcard .selo-nuvem {
-            position: absolute; top: 10px; left: 10px; z-index: 2;
-            background: rgba(6,14,24,.85); border: 1px solid #4caf50; color: #8fe0a0;
-            border-radius: 10px; padding: 2px 8px; font-size: .64rem; font-weight: 700;
-        }
-        .acoes button.btn-nuvem { background: #2f6f4f; color: var(--text); }
+        /* ---------- Seções (grupos) ---------- */
+        .secoes { display: flex; flex-direction: column; gap: var(--sp-5); }
+        .secao { --gcor: var(--gold); position: relative; border-left: 2px solid color-mix(in srgb, var(--gcor) 70%, transparent); padding-left: var(--sp-4); }
+        .secao--livre { border-left-color: var(--border); }
+        .secao[hidden] { display: none; }
+        .secao-cab { display: flex; align-items: center; gap: var(--sp-2); min-height: 40px; margin-bottom: var(--sp-3); }
+        .secao-cab .ponto { width: 10px; height: 10px; border-radius: 3px; background: var(--gcor); flex: none; }
+        .secao-cab h2 { font-family: var(--font-display); font-size: var(--step-1); margin: 0; color: var(--text); letter-spacing: .02em; }
+        .secao--livre h2 { color: var(--text-2); }
+        .secao-cab .conta { font-size: .76rem; font-weight: 600; color: var(--gcor); background: color-mix(in srgb, var(--gcor) 14%, transparent); border-radius: var(--r-pill); padding: 2px 9px; }
+        .secao--livre .conta { color: var(--text-2); background: var(--surface-2); }
+        .secao-cab button { background: none; border: 0; color: var(--text-2); cursor: pointer; border-radius: var(--r-sm); display: grid; place-items: center; width: 32px; height: 32px; }
+        .secao-cab button:hover { color: var(--text); background: var(--surface-2); }
+        .secao-cab .recolher { order: -1; margin-left: -6px; }
+        .secao-cab .recolher svg { width: 14px; height: 14px; transition: rotate var(--t) var(--ease); }
+        .secao.recolhida .recolher svg { rotate: -90deg; }
+        .secao-cab .alca { cursor: grab; margin-left: auto; }
+        .secao-cab .menu-g { margin-left: auto; }
+        .secao-cab .alca ~ .menu-g { margin-left: 0; }
+        .secao.recolhida .grade { display: none; }
+        .secao.alvo { background: linear-gradient(90deg, color-mix(in srgb, var(--gcor) 9%, transparent), transparent 60%); border-radius: 0 var(--r) var(--r) 0; }
+        .secao-fantasma { opacity: .4; }
 
-        /* ===== Modal ===== */
-        .ov { position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,.75); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+        /* ---------- Grade de cards ---------- */
+        .grade { --card-min: 180px; display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fill, minmax(min(var(--card-min), 100%), 1fr)); min-height: 8px; }
+        .grade:not(:has(.pcard)) { grid-template-columns: minmax(0, 1fr); min-height: 76px; border: 1px dashed var(--border-strong); border-radius: var(--r); display: grid; place-items: center; }
+        .grade:not(:has(.pcard))::before { content: attr(data-vazio); color: var(--text-2); font-size: .82rem; padding: 0 16px; text-align: center; }
+        body[data-vista="compacta"] .grade { gap: var(--sp-2); }
+
+        .pcard { position: relative; aspect-ratio: 3 / 4; border-radius: var(--r-lg); overflow: hidden; background: var(--surface-2);
+                 border: 1px solid var(--border); isolation: isolate; content-visibility: auto; contain-intrinsic-size: auto 240px;
+                 transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease), translate var(--t) var(--ease); }
+        .pcard img, .pcard .sem-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: scale var(--t-slow) var(--ease); }
+        .pcard .sem-img { display: grid; place-items: center; font-family: var(--font-display); font-size: 2.6rem; color: var(--text-2);
+                          background: radial-gradient(circle at 50% 35%, var(--surface-raised), var(--surface-2)); }
+        .pcard::after { content: ''; position: absolute; inset: 40% 0 0; background: linear-gradient(to top, rgba(4, 8, 16, .92), rgba(4, 8, 16, .55) 45%, transparent); pointer-events: none; z-index: 1; }
+        .pcard:hover { border-color: color-mix(in srgb, var(--gold) 70%, transparent); translate: 0 -2px; box-shadow: var(--shadow); }
+        .pcard:hover img { scale: 1.04; }
+        .pcard.selecionado { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+        .pcard:has(.pcard-abrir:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+        /* link esticado: clicar em qualquer ponto do card abre a ficha */
+        .pcard-abrir { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+        .pcard-abrir:focus-visible { outline: none; }
+        .pcard-info { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; padding: 12px 12px 11px; pointer-events: none; color: var(--text-sobre-arte); }
+        .pcard-nome { font-family: var(--font-display); font-weight: 700; font-size: 1rem; line-height: 1.2; margin: 0;
+                      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+        .pcard-sub { display: flex; align-items: center; gap: 6px; margin-top: 5px; font-size: .74rem; color: rgba(255,255,255,.78); min-width: 0; }
+        .pcard-sub .txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .selo-rank { flex: none; font: 700 .7rem/1 var(--font-ui); color: #1A1203; background: #E7C77F; border-radius: 5px; padding: 3px 6px; letter-spacing: .02em; }
+        .selo-rank .est { font-size: .62rem; letter-spacing: -1px; margin-left: 2px; }
+        .nuvem-ic { flex: none; margin-left: auto; width: 15px; height: 15px; color: #9fd8b8; }
+
+        .ic { position: absolute; z-index: 4; top: 8px; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; cursor: pointer;
+              background: rgba(6, 12, 24, .72); color: #fff; border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(4px);
+              opacity: 0; transition: opacity var(--t-fast); }
+        .ic svg { width: 16px; height: 16px; }
+        .ic:hover { background: rgba(6, 12, 24, .9); border-color: #E7C77F; }
+        .ic-menu { right: 8px; }
+        .ic-sel { left: 8px; }
+        .ic-sel svg { opacity: 0; }
+        .pcard:hover .ic, .pcard:focus-within .ic, body.selecionando .ic-sel, .pcard.selecionado .ic { opacity: 1; }
+        .pcard.selecionado .ic-sel { background: #E7C77F; border-color: #E7C77F; color: #1A1203; }
+        .pcard.selecionado .ic-sel svg { opacity: 1; }
+        @media (hover: none) { .ic-menu { opacity: 1; } }
+
+        /* Compacta: só o nome e o rank */
+        body[data-vista="compacta"] .pcard-sub .txt { display: none; }
+        body[data-vista="compacta"] .pcard-nome { font-size: .86rem; }
+        body[data-vista="compacta"] .pcard-info { padding: 8px 9px; }
+
+        /* Lista */
+        body[data-vista="lista"] .grade { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+        body[data-vista="lista"] .pcard { aspect-ratio: auto; height: 60px; border-radius: var(--r); background: var(--surface); contain-intrinsic-size: auto 60px; }
+        body[data-vista="lista"] .pcard:hover { translate: none; }
+        body[data-vista="lista"] .pcard::after { display: none; }
+        body[data-vista="lista"] .pcard img, body[data-vista="lista"] .pcard .sem-img { inset: 6px auto 6px 48px; width: 48px; height: 48px; border-radius: 8px; font-size: 1.2rem; }
+        body[data-vista="lista"] .pcard:hover img { scale: 1; }
+        body[data-vista="lista"] .pcard-info { inset: 0 50px 0 110px; display: flex; align-items: center; gap: 14px; padding: 0; color: var(--text); }
+        body[data-vista="lista"] .pcard-nome { text-shadow: none; flex: 0 1 auto; min-width: 0; color: var(--text); }
+        body[data-vista="lista"] .pcard-sub { margin: 0; color: var(--text-2); flex: 1; }
+        body[data-vista="lista"] .nuvem-ic { color: var(--success); }
+        body[data-vista="lista"] .ic { top: 15px; opacity: 1; background: transparent; color: var(--text-2); border-color: var(--border); }
+        body[data-vista="lista"] .ic-sel { left: 9px; }
+        body[data-vista="lista"] .pcard.selecionado .ic-sel { color: #1A1203; }
+        @media (max-width: 560px) { body[data-vista="lista"] .pcard-sub .txt { display: none; } }
+
+        /* Arraste */
+        .card-fantasma { opacity: .35; border-style: dashed; border-color: var(--gold); }
+        .card-fantasma > * { visibility: hidden; }
+        .card-arrastado { box-shadow: var(--shadow-lg) !important; rotate: 1.5deg; }
+        body.arrastando .pcard:hover { translate: none; }
+        body.arrastando .ic { opacity: 0 !important; }
+
+        /* ---------- Estados vazios ---------- */
+        .vazio { text-align: center; padding: var(--sp-7) var(--sp-4); color: var(--text-2); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); }
+        .vazio h2 { font-family: var(--font-display); color: var(--text); font-size: var(--step-2); margin: 0 0 6px; }
+        .vazio p { margin: 0 auto 16px; max-width: 46ch; }
+        .vazio .btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .add-grupo { margin-top: var(--sp-5); }
+
+        /* ---------- Menu flutuante ---------- */
+        .menu { position: fixed; z-index: 3500; min-width: 210px; max-width: min(280px, calc(100vw - 16px)); max-height: calc(100vh - 16px); overflow-y: auto;
+                background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--r); box-shadow: var(--shadow-lg); padding: 5px; }
+        .menu[hidden] { display: none; }
+        .item-menu { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: 0; color: var(--text);
+                     font: 500 .86rem var(--font-ui); padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+        .item-menu:hover, .item-menu:focus-visible { background: var(--surface-2); outline: none; }
+        .item-menu .k { margin-left: auto; color: var(--text-2); font-size: .72rem; }
+        .item-menu .bolinha { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+        .item-menu.perigo { color: var(--error); }
+        .item-menu[aria-checked="true"]::after { content: '✓'; margin-left: auto; color: var(--gold); }
+        .menu hr { border: 0; border-top: 1px solid var(--border); margin: 4px 2px; }
+        .menu .rotulo { font-size: .72rem; color: var(--text-2); padding: 6px 10px 2px; }
+
+        /* ---------- Barra de seleção ---------- */
+        .lote { position: fixed; z-index: 3000; left: 50%; bottom: 18px; translate: -50% 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center;
+                background: var(--surface-raised); border: 1px solid var(--gold); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 8px 10px;
+                max-width: calc(100vw - 20px); }
+        .lote[hidden] { display: none; }
+        .lote .n { font-weight: 700; color: var(--gold); padding: 0 6px; }
+
+        /* ---------- Toasts ---------- */
+        .toasts { position: fixed; z-index: 3600; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; pointer-events: none; }
+        .toast { pointer-events: auto; display: flex; align-items: center; gap: 12px; background: var(--surface-raised); border: 1px solid var(--border-strong);
+                 border-left: 3px solid var(--success); border-radius: var(--r); padding: 10px 12px; box-shadow: var(--shadow); font-size: .86rem; max-width: min(380px, calc(100vw - 32px));
+                 animation: entrar var(--t) var(--ease); }
+        .toast.erro { border-left-color: var(--error); }
+        .toast button { background: none; border: 0; color: var(--gold); font: 700 .82rem var(--font-ui); cursor: pointer; padding: 2px 4px; }
+        @keyframes entrar { from { opacity: 0; translate: 0 8px; } }
+        body:has(.lote:not([hidden])) .toasts { bottom: 86px; }
+
+        /* ---------- Modais ---------- */
+        .ov { position: fixed; inset: 0; z-index: 4000; background: var(--overlay); display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
         .ov.aberto { display: flex; }
-        .box {
-            width: 100%; max-width: 560px; background: var(--surface-raised); border: 1px solid var(--royal);
-            border-top: 4px solid var(--c4); border-radius: 14px; padding: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,.7);
-        }
-        .box h3 { font-family: 'Cinzel', serif; color: var(--c4); margin: 0 0 8px; }
-        .box .sub { color: var(--text-2); font-size: .84rem; margin-bottom: 14px; }
-        .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
-        .b { border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: .86rem; }
-        .b:hover { filter: brightness(1.12); }
-        .b.ouro { background: var(--c4); color: var(--text-on-gold); }
-        .b.fantasma { background: transparent; color: var(--text); border: 1px solid var(--c3); }
-        .rec-item {
-            display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px;
-            background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; font-size: .86rem;
-        }
+        .box { width: 100%; max-width: 520px; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--r-lg); padding: 24px; box-shadow: var(--shadow-lg); }
+        .box h3 { font-family: var(--font-display); color: var(--gold); margin: 0 0 8px; font-size: var(--step-1); }
+        .box .sub { color: var(--text-2); font-size: .86rem; margin: 0 0 14px; }
+        .box label.campo { display: block; font-size: .78rem; color: var(--text-2); margin: 14px 0 6px; }
+        .box input[type="text"] { width: 100%; }
+        .box .acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; flex-wrap: wrap; }
+        .cores { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+        .cores button { width: 28px; height: 28px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; }
+        .cores button[aria-checked="true"] { border-color: var(--text); box-shadow: 0 0 0 2px var(--surface-raised) inset; }
+        .cores input[type="color"] { width: 36px; height: 30px; border: 1px solid var(--border); border-radius: 8px; background: none; cursor: pointer; padding: 2px; }
+        .rec-item { display: flex; align-items: center; gap: 10px; padding: 9px 10px; margin-bottom: 6px; background: var(--surface-inset); border: 1px solid var(--border); border-radius: 8px; font-size: .86rem; }
         .rec-item small { color: var(--text-2); margin-left: auto; font-size: .72rem; }
 
-        /* ===== Grupos e arraste ===== */
-        .grupo-barra {
-            grid-column: 1 / -1; display: flex; align-items: center; gap: 10px;
-            background: var(--gcor, var(--gold)); color: var(--text-on-gold);
-            border-radius: 10px; padding: 9px 16px; cursor: grab;
-            font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.05rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,.35); margin-top: 6px;
+        .fab { display: none; }
+        @media (max-width: 640px) {
+            .bib-acoes .btn--ouro { display: none; }
+            .fab { display: grid; place-items: center; position: fixed; right: 16px; bottom: 16px; z-index: 2900; width: 54px; height: 54px; border-radius: 50%;
+                   background: var(--gold); color: var(--text-on-gold); box-shadow: var(--shadow-lg); text-decoration: none; font-size: 1.7rem; }
+            body:has(.lote:not([hidden])) .fab { display: none; }
+            select { max-width: none; flex: 1 1 40%; }
+            .densidade { display: none; }
+            .ferramentas { position: static; }
+            .grade { grid-template-columns: repeat(auto-fill, minmax(min(var(--card-min), calc(50% - 6px)), 1fr)); }
+            body[data-vista="compacta"] .grade { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .secao { padding-left: var(--sp-3); }
         }
-        .grupo-barra:active { cursor: grabbing; }
-        .grupo-barra .g-nome { flex: 1; }
-        .grupo-barra .g-conta { font-family: 'Lato', sans-serif; font-size: .72rem; opacity: .7; font-weight: 700; }
-        .grupo-barra button {
-            background: rgba(0,0,0,.22); border: none; color: inherit; cursor: pointer;
-            border-radius: 6px; padding: 3px 8px; font-size: .8rem;
+        @media (prefers-reduced-motion: reduce) {
+            .pcard, .pcard img, .toast, .secao-cab .recolher svg { transition: none; animation: none; }
+            .pcard:hover { translate: none; }
+            .pcard:hover img { scale: 1; }
         }
-        .grupo-barra button:hover { background: rgba(0,0,0,.4); }
-
-        .pcard { cursor: grab; }
-        .pcard:active { cursor: grabbing; }
-        .arrastando { opacity: .35; }
-        .alvo-antes { outline: 3px dashed var(--c4); outline-offset: 3px; }
-
-        .rodape-grupos { max-width: 1100px; margin: 0 auto 60px; padding: 0 20px; }
-        .btn-add-grupo {
-            background: #0d1b2c; color: var(--c4); border: 1px solid var(--c4);
-            border-radius: 10px; padding: 11px 22px; cursor: pointer; font-weight: 700; font-size: .9rem;
-        }
-        .btn-add-grupo:hover { background: var(--c4); color: var(--text-on-gold); }
-        .dica-arraste { text-align: center; color: var(--text-2); font-size: .78rem; margin: 0 0 14px; }
     </style>
 </head>
-<body>
+<body data-vista="grade">
     <div id="navbar-placeholder"></div>
 
-    <header class="hub-hero">
-        <h1>CRIAR PERSONAGEM</h1>
-        <p>Forje sua lenda em Luxsandoria — todo destino começa no Rank 10.</p>
-    </header>
+    <main class="bib">
+        <header class="bib-topo">
+            <div class="bib-titulo">
+                <h1>Biblioteca de Personagens</h1>
+                <p class="bib-resumo">
+                    <span id="resumo-contagem">—</span>
+                    <span class="estado" id="estado" role="status">Salvo neste navegador</span>
+                </p>
+            </div>
+            <div class="bib-acoes">
+                <a class="btn btn--ouro" href="ficha.html" title="Novo personagem (N)">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                    Novo personagem</a>
+                <button class="btn" id="btn-novo-grupo">Novo grupo</button>
+                <button class="btn btn--icone" id="btn-mais" aria-haspopup="menu" aria-label="Importar, exportar, sincronizar e recuperar" title="Mais opções">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+                </button>
+            </div>
+            <p class="nuvem-linha" id="nuvem-status" style="flex-basis:100%">☁️ Entre com o GitHub para salvar seus personagens na nuvem.</p>
+        </header>
 
-    <div class="hub-options">
-        <a href="ficha.html" class="hub-option">
-            <span class="icone">✨</span>
-            <h2>Novo Personagem</h2>
-            <p>Crie uma ficha do zero: raça, classe, atributos, poderes e ataques.</p>
-        </a>
-    </div>
-
-    <h2 class="galeria-titulo" id="meus">MEUS PERSONAGENS</h2>
-    <p class="galeria-sub" id="galeria-sub">Salvos neste navegador. Baixe um .html para guardar ou compartilhar.</p>
-
-    <div class="barra-nuvem" id="barra-nuvem">
-        <span id="nuvem-status">☁️ Entre com o GitHub para salvar seus personagens na nuvem.</span>
-        <div class="barra-acoes">
-            <button class="mini-btn" id="btn-sincronizar" style="display:none">🔄 Sincronizar com a nuvem</button>
-            <button class="mini-btn" id="btn-recuperar">🛟 Recuperar personagens</button>
+        <div class="ferramentas" id="ferramentas" role="search">
+            <label class="busca">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                <input type="search" id="f-busca" placeholder="Buscar por nome" aria-label="Buscar personagem por nome" autocomplete="off">
+                <kbd aria-hidden="true">/</kbd>
+            </label>
+            <div class="filtros">
+                <select id="f-grupo" aria-label="Filtrar por grupo"></select>
+                <select id="f-rank" aria-label="Filtrar por rank"></select>
+                <select id="f-raca" aria-label="Filtrar por raça"></select>
+                <select id="f-classe" aria-label="Filtrar por classe"></select>
+                <select id="f-ordem" aria-label="Ordenar">
+                    <option value="manual">Ordem manual</option>
+                    <option value="nome">Nome (A–Z)</option>
+                    <option value="rank">Rank (mais alto primeiro)</option>
+                    <option value="recente">Editados recentemente</option>
+                    <option value="criado">Criados recentemente</option>
+                </select>
+            </div>
+            <div class="vistas" role="group" aria-label="Visualização">
+                <button data-vista="grade" title="Grade confortável" aria-label="Grade confortável" aria-pressed="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></button>
+                <button data-vista="compacta" title="Grade compacta" aria-label="Grade compacta" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h5v5H3zM10 3h4v5h-4zM16 3h5v5h-5zM3 10h5v4H3zM10 10h4v4h-4zM16 10h5v4h-5zM3 16h5v5H3zM10 16h4v5h-4zM16 16h5v5h-5z"/></svg></button>
+                <button data-vista="lista" title="Lista" aria-label="Lista" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg></button>
+            </div>
+            <label class="densidade" title="Tamanho dos cards">Tamanho
+                <input type="range" id="f-tamanho" min="130" max="280" step="10" value="180" aria-label="Tamanho dos cards">
+            </label>
+            <button class="btn" id="btn-limpar" hidden>Limpar filtros</button>
+            <p class="aviso-arraste" id="aviso-arraste" hidden>Arrastar fica desligado enquanto há busca, filtro ou ordenação automática — a ordem manual continua guardada.</p>
         </div>
+
+        <div class="secoes" id="secoes"></div>
+        <button class="btn add-grupo" id="btn-add-grupo">+ Adicionar grupo</button>
+    </main>
+
+    <a class="fab" href="ficha.html" aria-label="Novo personagem">+</a>
+
+    <div class="lote" id="lote" hidden role="region" aria-label="Ações para os selecionados">
+        <span class="n" id="lote-n">0</span>
+        <button class="btn" id="lote-mover" aria-haspopup="menu">Mover para</button>
+        <button class="btn" id="lote-baixar">Baixar .html</button>
+        <button class="btn" id="lote-nuvem" hidden>Enviar à nuvem</button>
+        <button class="btn btn--perigo" id="lote-excluir">Excluir</button>
+        <button class="btn btn--icone" id="lote-fechar" aria-label="Limpar seleção" title="Limpar seleção (Esc)">✕</button>
     </div>
 
-    <p class="dica-arraste" id="dica-arraste">✋ Segure e arraste os cards para reordenar — solte abaixo de um grupo para agrupar.</p>
-    <div class="galeria" id="galeria"></div>
-
-    <div class="rodape-grupos">
-        <button class="btn-add-grupo" id="btn-add-grupo">➕ Adicionar Grupo</button>
-    </div>
+    <div class="menu" id="menu" role="menu" hidden></div>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+    <input type="file" id="arquivo-importar" accept=".json,.html,application/json,text/html" multiple hidden>
 
     <!-- MODAL: GRUPO -->
-    <div class="ov" id="ov-grupo">
+    <div class="ov" id="ov-grupo" role="dialog" aria-modal="true" aria-labelledby="grupo-titulo">
         <div class="box" style="max-width:420px">
-            <h3 id="grupo-titulo">Novo Grupo</h3>
-            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-2);margin:12px 0 5px">Nome do grupo</label>
-            <input type="text" id="grupo-nome" placeholder="Ex: Grupo um"
-                   style="width:100%;box-sizing:border-box;background:rgba(0,0,0,.35);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:10px 12px;font-size:.9rem">
-            <label style="display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-2);margin:12px 0 5px">Cor</label>
-            <input type="color" id="grupo-cor" value="var(--gold)"
-                   style="width:64px;height:40px;background:none;border:1px solid var(--c2);border-radius:8px;cursor:pointer">
+            <h3 id="grupo-titulo">Novo grupo</h3>
+            <label class="campo" for="grupo-nome">Nome do grupo</label>
+            <input type="text" id="grupo-nome" placeholder="Ex: Campanha de Inverno" maxlength="60">
+            <span class="campo" style="display:block;font-size:.78rem;color:var(--text-2);margin:14px 0 6px">Cor de destaque</span>
+            <div class="cores" id="grupo-cores" role="radiogroup" aria-label="Cor do grupo"></div>
             <div class="acoes">
-                <button class="b fantasma" data-fechar>Cancelar</button>
-                <button class="b ouro" id="grupo-salvar">Salvar</button>
+                <button class="btn" data-fechar>Cancelar</button>
+                <button class="btn btn--ouro" id="grupo-salvar">Salvar</button>
             </div>
         </div>
     </div>
 
     <!-- MODAL: RECUPERAÇÃO -->
-    <div class="ov" id="ov-recuperar">
+    <div class="ov" id="ov-recuperar" role="dialog" aria-modal="true" aria-labelledby="rec-titulo">
         <div class="box">
-            <h3>🛟 Recuperar personagens</h3>
+            <h3 id="rec-titulo">Recuperar personagens</h3>
             <p class="sub">Procuro no armazenamento deste navegador por fichas que não estão
             aparecendo na lista — incluindo backups automáticos e a criação que ficou pela metade.</p>
             <div id="rec-resultado"></div>
             <div class="acoes">
-                <button class="b fantasma" data-fechar>Fechar</button>
-                <button class="b ouro" id="rec-restaurar" style="display:none">Restaurar selecionados</button>
+                <button class="btn" data-fechar>Fechar</button>
+                <button class="btn btn--ouro" id="rec-restaurar" style="display:none">Restaurar selecionados</button>
             </div>
         </div>
     </div>
@@ -229,282 +349,760 @@
     <script src="js/nuvem.js"></script>
     <script src="js/exportar.js"></script>
     <script>
+    (function () {
         const $ = (id) => document.getElementById(id);
-        let idsNaNuvem = new Set();
+        const $$ = (sel, raiz) => [...(raiz || document).querySelectorAll(sel)];
+        const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const nomeDe = (c) => [c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem nome';
+        const classeDe = (c) => c.classeAvancada || c.classeInicial || '';
+        const ICONE = {
+            menu: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>',
+            check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+            nuvem: '<svg class="nuvem-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18h10a4 4 0 00.6-7.95A6 6 0 006.2 9.1 4.5 4.5 0 007 18z"/></svg>',
+            seta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+            alca: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></svg>'
+        };
+        const CORES_GRUPO = ['#E7C77F', '#7FA8E7', '#78C2A4', '#C98BD6', '#E58E7A', '#8FC3D9', '#B9B1A0', '#D9A55B'];
 
-        // ===== LAYOUT (ordem dos cards + grupos) =====
-        // Lista unica: {t:'g',id,nome,cor} para grupos e {t:'c',id} para personagens.
-        // A ordem define tudo - um personagem pertence ao grupo da barra acima dele.
+        // ================================================================
+        //  LAYOUT — formato persistido inalterado:
+        //  lista única em 'wnj_layout': {t:'g',id,nome,cor} e {t:'c',id[,pos]}.
+        //  Um personagem pertence ao grupo da barra acima dele; os que vêm
+        //  antes do primeiro grupo ficam "Sem grupo".
+        // ================================================================
         const LAYOUT_KEY = 'wnj_layout';
+        const PREFS_KEY = 'wnj_biblioteca';
         let layout = [];
-        function carregarLayout() {
-            try { const v = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '[]'); layout = Array.isArray(v) ? v : []; }
-            catch (e) { layout = []; }
-        }
+        try { const v = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '[]'); layout = Array.isArray(v) ? v : []; } catch (e) { layout = []; }
         function salvarLayout() {
-            try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch (e) {}
-        }
-        function conciliarLayout(chars) {
-            const existentes = new Set(chars.map(c => c.id));
-            layout = layout.filter(i => i.t === 'g' || existentes.has(i.id));
-            const noLayout = new Set(layout.filter(i => i.t === 'c').map(i => i.id));
-            chars.forEach(c => { if (!noLayout.has(c.id)) layout.push({ t: 'c', id: c.id }); });
+            try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); marcarSalvo(); }
+            catch (e) { estado('Não consegui salvar a organização', 'erro'); }
         }
 
+        let prefs = { vista: 'grade', tamanho: 180, ordem: 'manual', recolhidos: [] };
+        try { Object.assign(prefs, JSON.parse(localStorage.getItem(PREFS_KEY) || '{}')); } catch (e) {}
+        const salvarPrefs = () => { try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch (e) {} };
+
+        let chars = [], porId = {}, idsNaNuvem = new Set();
+        const selecao = new Set();
+
+        function conciliar() {
+            chars = WNJ.listar();
+            porId = {}; chars.forEach(c => porId[c.id] = c);
+            const antes = JSON.stringify(layout);
+            const vistos = new Set();
+            layout = layout.filter(i => {
+                if (i.t === 'g') return true;
+                if (!porId[i.id] || vistos.has(i.id)) return false;   // removido ou duplicado
+                vistos.add(i.id); return true;
+            });
+            // personagem novo entra no fim de "Sem grupo" (antes do primeiro grupo), não no último grupo
+            const novos = chars.filter(c => !vistos.has(c.id)).map(c => ({ t: 'c', id: c.id }));
+            if (novos.length) {
+                const g1 = layout.findIndex(i => i.t === 'g');
+                layout.splice(g1 < 0 ? layout.length : g1, 0, ...novos);
+            }
+            if (JSON.stringify(layout) !== antes) salvarLayout();
+        }
+
+        // layout plano <-> seções
+        function secoes() {
+            const out = [{ g: null, itens: [] }];
+            layout.forEach(i => { if (i.t === 'g') out.push({ g: i, itens: [] }); else out[out.length - 1].itens.push(i); });
+            return out;
+        }
+        function deSecoes(secs) { layout = secs.flatMap(s => (s.g ? [s.g] : []).concat(s.itens)); }
+        const itemDe = (id) => layout.find(i => i.t === 'c' && i.id === id);
+        const grupoDoChar = (id) => { let g = null; for (const i of layout) { if (i.t === 'g') g = i; else if (i.id === id) return g; } return null; };
+
+        // ================================================================
+        //  FILTROS
+        // ================================================================
+        const filtro = { busca: '', grupo: '', rank: '', raca: '', classe: '' };
+        const normal = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        const filtrando = () => !!(filtro.busca || filtro.grupo || filtro.rank || filtro.raca || filtro.classe);
+        const podeArrastar = () => !filtrando() && prefs.ordem === 'manual';
+        function passa(c) {
+            if (filtro.busca && !normal(nomeDe(c)).includes(normal(filtro.busca))) return false;
+            if (filtro.rank && String(c.rank) !== filtro.rank) return false;
+            if (filtro.raca && c.raca !== filtro.raca) return false;
+            if (filtro.classe && classeDe(c) !== filtro.classe) return false;
+            return true;
+        }
+        function ordenar(itens) {
+            const o = prefs.ordem;
+            if (o === 'manual') return itens;
+            const cmp = {
+                nome: (a, b) => nomeDe(a).localeCompare(nomeDe(b), 'pt-BR'),
+                rank: (a, b) => (a.rank - b.rank) || ((b.estrela || 0) - (a.estrela || 0)) || nomeDe(a).localeCompare(nomeDe(b), 'pt-BR'),
+                recente: (a, b) => String(b.atualizado || b.criado || '').localeCompare(String(a.atualizado || a.criado || '')),
+                criado: (a, b) => String(b.criado || '').localeCompare(String(a.criado || ''))
+            }[o];
+            return itens.slice().sort((x, y) => cmp(porId[x.id], porId[y.id]));   // cópia: a ordem manual não muda
+        }
+        function preencherSelect(sel, rotulo, valores, atual) {
+            sel.innerHTML = '<option value="">' + rotulo + '</option>' +
+                valores.map(([v, t]) => '<option value="' + esc(v) + '"' + (v === atual ? ' selected' : '') + '>' + esc(t) + '</option>').join('');
+            sel.hidden = valores.length < 1;
+        }
+        function atualizarFiltros() {
+            const unicos = (f) => [...new Set(chars.map(f).filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), 'pt-BR'));
+            const grupos = layout.filter(i => i.t === 'g');
+            preencherSelect($('f-grupo'), 'Todos os grupos', [['__livre', 'Sem grupo']].concat(grupos.map(g => [g.id, g.nome || 'Grupo'])), filtro.grupo);
+            $('f-grupo').hidden = !grupos.length;
+            preencherSelect($('f-rank'), 'Todos os ranks', unicos(c => c.rank).sort((a, b) => b - a).map(r => [String(r), 'Rank ' + r]), filtro.rank);
+            preencherSelect($('f-raca'), 'Todas as raças', unicos(c => c.raca).map(r => [r, r]), filtro.raca);
+            preencherSelect($('f-classe'), 'Todas as classes', unicos(classeDe).map(r => [r, r]), filtro.classe);
+            $('f-ordem').value = prefs.ordem;
+        }
+
+        // ================================================================
+        //  RENDER
+        // ================================================================
+        const sortables = [];
         function render() {
-            const g = $('galeria');
-            const chars = WNJ.listar();
+            conciliar();
+            atualizarFiltros();
+            sortables.splice(0).forEach(s => s.destroy());
+            const raiz = $('secoes');
+            const grupos = layout.filter(i => i.t === 'g');
+            $('resumo-contagem').textContent = chars.length + (chars.length === 1 ? ' personagem' : ' personagens') +
+                ' · ' + grupos.length + (grupos.length === 1 ? ' grupo' : ' grupos');
+            document.body.dataset.vista = prefs.vista;
+            $$('.vistas button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vista === prefs.vista)));
+            $('f-tamanho').value = prefs.tamanho;
+            $('btn-limpar').hidden = !filtrando() && prefs.ordem === 'manual';
+            $('aviso-arraste').hidden = podeArrastar() || !chars.length;
+
             if (!chars.length) {
-                g.innerHTML = '<div class="vazio"><span class="icone">🕯️</span>Nenhum personagem neste navegador.<br>' +
-                    'Clique em <strong>Novo Personagem</strong> para começar' +
-                    (WNJNuvem.disponivel() ? ', ou em <strong>Sincronizar com a nuvem</strong> para baixar os seus.' : '.') +
-                    '<br><small>Se você já tinha fichas aqui, tente <strong>🛟 Recuperar personagens</strong>.</small></div>';
+                raiz.innerHTML = '<div class="vazio"><h2>Nenhum personagem ainda</h2>' +
+                    '<p>Crie sua primeira ficha' + (WNJNuvem.disponivel() ? ' ou traga as suas da nuvem' : '') +
+                    '. Se você já tinha fichas neste navegador, a recuperação procura por elas.</p><div class="btns">' +
+                    '<a class="btn btn--ouro" href="ficha.html">Novo personagem</a>' +
+                    (WNJNuvem.disponivel() ? '<button class="btn" data-acao="sincronizar">Sincronizar com a nuvem</button>' : '') +
+                    '<button class="btn" data-acao="importar">Importar arquivo</button>' +
+                    '<button class="btn" data-acao="recuperar">Recuperar personagens</button></div></div>';
+                $('btn-add-grupo').hidden = true;
+                atualizarLote();
                 return;
             }
-            conciliarLayout(chars);
-            salvarLayout();
-            const porId = {}; chars.forEach(c => porId[c.id] = c);
-            g.innerHTML = '';
+            $('btn-add-grupo').hidden = false;
 
-            layout.forEach((item, idx) => {
-                if (item.t === 'g') { g.appendChild(criarBarraGrupo(item, idx)); return; }
-                const c = porId[item.id];
-                if (c) g.appendChild(criarCard(c, idx));
+            const frag = document.createDocumentFragment();
+            let visiveis = 0;
+            secoes().forEach(s => {
+                const gid = s.g ? s.g.id : '';
+                if (filtro.grupo && filtro.grupo !== (gid || '__livre')) return;
+                const itens = ordenar(s.itens).filter(i => passa(porId[i.id]));
+                visiveis += itens.length;
+                if (!s.g && !s.itens.length && !filtrando()) return;    // "Sem grupo" vazio some
+                if (filtrando() && !itens.length) return;
+                frag.appendChild(criarSecao(s, itens));
             });
+            raiz.innerHTML = '';
+            if (!visiveis && filtrando()) {
+                raiz.innerHTML = '<div class="vazio"><h2>Nada encontrado</h2><p>' +
+                    (filtro.busca ? 'Nenhum personagem com “' + esc(filtro.busca) + '” no nome' : 'Nenhum personagem combina com esses filtros') +
+                    '.</p><div class="btns"><button class="btn" data-acao="limpar">Limpar filtros</button></div></div>';
+            } else raiz.appendChild(frag);
+
             ligarArraste();
-            $('dica-arraste').style.display = chars.length > 1 ? '' : 'none';
+            atualizarLote();
         }
 
-        function contarNoGrupo(idx) {
-            let n = 0;
-            for (let i = idx + 1; i < layout.length; i++) {
-                if (layout[i].t === 'g') break;
-                n++;
-            }
-            return n;
+        function criarSecao(s, itens) {
+            const sec = document.createElement('section');
+            const g = s.g;
+            const recolhida = g && prefs.recolhidos.includes(g.id) && !filtrando();
+            sec.className = 'secao' + (g ? '' : ' secao--livre') + (recolhida ? ' recolhida' : '');
+            if (g) { sec.dataset.grupo = g.id; sec.style.setProperty('--gcor', g.cor || '#E7C77F'); }
+            const nome = g ? (g.nome || 'Grupo') : (layout.some(i => i.t === 'g') ? 'Sem grupo' : 'Personagens');
+            const idGrade = 'grade-' + (g ? g.id : 'livre');
+            sec.setAttribute('aria-label', nome);
+            sec.innerHTML =
+                '<div class="secao-cab">' +
+                (g ? '<button class="recolher" aria-expanded="' + !recolhida + '" aria-controls="' + idGrade + '" title="' + (recolhida ? 'Expandir' : 'Recolher') + '">' + ICONE.seta + '</button>' : '') +
+                '<span class="ponto" aria-hidden="true"></span><h2>' + esc(nome) + '</h2>' +
+                '<span class="conta">' + (filtrando() ? itens.length + ' de ' + s.itens.length : s.itens.length) + '</span>' +
+                (g && podeArrastar() ? '<button class="alca" title="Arraste para reordenar o grupo" aria-label="Mover grupo ' + esc(nome) + '">' + ICONE.alca + '</button>' : '') +
+                (g ? '<button class="menu-g" aria-haspopup="menu" aria-label="Ações do grupo ' + esc(nome) + '" title="Ações do grupo">' + ICONE.menu + '</button>' : '') +
+                '</div>' +
+                '<div class="grade" id="' + idGrade + '" data-vazio="Grupo vazio — arraste personagens para cá ou use ⋯ → Mover para."></div>';
+            const grade = sec.querySelector('.grade');
+            grade.style.setProperty('--card-min', prefs.tamanho + 'px');
+            itens.forEach(i => grade.appendChild(criarCard(porId[i.id], i)));
+            return sec;
         }
 
-        function criarBarraGrupo(gr, idx) {
-            const barra = document.createElement('div');
-            barra.className = 'grupo-barra';
-            barra.style.setProperty('--gcor', gr.cor || 'var(--gold)');
-            barra.draggable = true;
-            barra.dataset.idx = idx;
-            barra.innerHTML = '<span class="g-nome">' + (gr.nome || 'Grupo').replace(/</g, '&lt;') + '</span>' +
-                '<span class="g-conta">' + contarNoGrupo(idx) + ' personagem(ns)</span>' +
-                '<button data-editar-g="1" title="Editar">✏️</button>' +
-                '<button data-excluir-g="1" title="Remover grupo">✖</button>';
-            barra.querySelector('[data-editar-g]').onclick = (e) => { e.stopPropagation(); abrirGrupo(idx); };
-            barra.querySelector('[data-excluir-g]').onclick = (e) => {
-                e.stopPropagation();
-                if (!confirm('Remover o grupo "' + (gr.nome || '') + '"?\nOs personagens continuam salvos.')) return;
-                layout.splice(idx, 1); salvarLayout(); render();
-            };
-            return barra;
+        function criarCard(c, item) {
+            const card = document.createElement('article');
+            const nome = nomeDe(c);
+            card.className = 'pcard' + (selecao.has(c.id) ? ' selecionado' : '');
+            card.dataset.id = c.id;
+            const est = c.rank < 10 && c.estrela ? '<span class="est">' + '★'.repeat(c.estrela) + '</span>' : '';
+            const sub = [c.raca, classeDe(c)].filter(Boolean).join(' · ');
+            const naNuvem = idsNaNuvem.has(c.id);
+            const pos = item.pos || '50% 22%';
+            card.innerHTML =
+                (c.img ? '<img src="' + esc(c.img) + '" alt="" loading="lazy" decoding="async" style="object-position:' + esc(pos) + '">'
+                       : '<div class="sem-img" aria-hidden="true">' + esc(nome.charAt(0).toUpperCase()) + '</div>') +
+                '<a class="pcard-abrir" href="ficha.html?id=' + encodeURIComponent(c.id) + '" aria-label="' + esc(nome) + ', Rank ' + c.rank + (sub ? ', ' + esc(sub) : '') + (naNuvem ? ', salvo na nuvem' : '') + '"></a>' +
+                '<div class="pcard-info"><p class="pcard-nome">' + esc(nome) + '</p>' +
+                '<div class="pcard-sub"><span class="selo-rank">R' + c.rank + est + '</span><span class="txt">' + esc(sub) + '</span>' +
+                (naNuvem ? '<span title="Salvo na nuvem" style="margin-left:auto;display:flex">' + ICONE.nuvem + '</span>' : '') + '</div></div>' +
+                '<button class="ic ic-sel" role="checkbox" aria-checked="' + selecao.has(c.id) + '" aria-label="Selecionar ' + esc(nome) + '" title="Selecionar">' + ICONE.check + '</button>' +
+                '<button class="ic ic-menu" aria-haspopup="menu" aria-label="Ações de ' + esc(nome) + '" title="Ações">' + ICONE.menu + '</button>';
+            return card;
         }
 
-        function criarCard(c, idx) {
-            {
-                const card = document.createElement('div');
-                card.className = 'pcard';
-                card.draggable = true;
-                card.dataset.idx = idx;
-                const nome = [c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem Nome';
-                const est = c.rank < 10 ? ' ' + '★'.repeat(c.estrela) : '';
-                const naNuvem = idsNaNuvem.has(c.id);
-                card.innerHTML =
-                    (c.img ? '<img src="' + c.img + '" alt="">' : '<div class="sem-img">🎭</div>') +
-                    (naNuvem ? '<div class="selo-nuvem">☁️ NA NUVEM</div>' : '') +
-                    '<div class="prank">R' + c.rank + est + '</div>' +
-                    '<div class="pnome">' + nome.replace(/</g, '&lt;') + '</div>' +
-                    '<div class="acoes">' +
-                    '<button class="btn-usar">▶ Usar</button>' +
-                    (WNJNuvem.disponivel() ? '<button class="btn-nuvem">' + (naNuvem ? '☁️ Atualizar' : '☁️ Enviar') + '</button>' : '') +
-                    '<button class="btn-baixar">⬇ Baixar</button>' +
-                    '<button class="btn-excluir">✖ Excluir</button>' +
-                    '</div>';
-                card.querySelector('.btn-usar').onclick = () => location.href = 'ficha.html?id=' + c.id;
-                card.querySelector('.btn-baixar').onclick = async () => { await WNJExport.baixar(c); };
-                const bn = card.querySelector('.btn-nuvem');
-                if (bn) bn.onclick = async () => {
-                    bn.disabled = true; bn.textContent = '⏳...';
-                    try { await WNJNuvem.enviar(c); idsNaNuvem.add(c.id); render(); }
-                    catch (e) { alert('Erro ao enviar: ' + e.message); bn.disabled = false; render(); }
-                };
-                card.querySelector('.btn-excluir').onclick = async () => {
-                    if (!confirm('Excluir permanentemente "' + nome + '"?')) return;
-                    WNJ.excluir(c.id);
-                    if (idsNaNuvem.has(c.id) && WNJNuvem.disponivel() &&
-                        confirm('Excluir também a cópia na nuvem?')) {
-                        try { await WNJNuvem.excluir(c.id); idsNaNuvem.delete(c.id); } catch (e) { alert('Erro na nuvem: ' + e.message); }
-                    }
-                    render();
-                };
-                return card;
-            }
-        }
-
-        // ===== ARRASTE =====
-        let arrastadoIdx = null;
+        // ================================================================
+        //  ARRASTE (SortableJS): placeholder no fluxo, animação, auto-rolagem,
+        //  toque. A nova ordem é lida do DOM só quando NÃO há filtro — assim
+        //  uma lista filtrada nunca sobrescreve a ordem real.
+        // ================================================================
         function ligarArraste() {
-            const itens = [...document.querySelectorAll('#galeria [data-idx]')];
-            itens.forEach(el => {
-                el.addEventListener('dragstart', (e) => {
-                    arrastadoIdx = parseInt(el.dataset.idx, 10);
-                    el.classList.add('arrastando');
-                    e.dataTransfer.effectAllowed = 'move';
-                    try { e.dataTransfer.setData('text/plain', String(arrastadoIdx)); } catch (err) {}
-                });
-                el.addEventListener('dragend', () => {
-                    el.classList.remove('arrastando');
-                    itens.forEach(x => x.classList.remove('alvo-antes'));
-                    arrastadoIdx = null;
-                });
-                el.addEventListener('dragover', (e) => {
-                    if (arrastadoIdx == null) return;
-                    e.preventDefault();
-                    e.dataTransfer.dropEffect = 'move';
-                    itens.forEach(x => x.classList.remove('alvo-antes'));
-                    el.classList.add('alvo-antes');
-                });
-                el.addEventListener('drop', (e) => {
-                    e.preventDefault(); e.stopPropagation();
-                    if (arrastadoIdx == null) return;
-                    moverItem(arrastadoIdx, parseInt(el.dataset.idx, 10), e, el);
-                });
-            });
-            const g = $('galeria');
-            g.ondragover = (e) => { if (arrastadoIdx != null) e.preventDefault(); };
-            g.ondrop = (e) => {
-                if (arrastadoIdx == null || e.target !== g) return;
-                e.preventDefault();
-                moverItem(arrastadoIdx, layout.length, null, null);
+            if (!window.Sortable || !podeArrastar()) return;
+            const comuns = {
+                animation: 180, forceFallback: true, fallbackTolerance: 4, delay: 180, delayOnTouchOnly: true,
+                scroll: true, scrollSensitivity: 90, scrollSpeed: 14, bubbleScroll: true,
+                onStart: () => { document.body.classList.add('arrastando'); fecharMenu(); },
             };
+            $$('#secoes .grade').forEach(grade => {
+                sortables.push(Sortable.create(grade, Object.assign({}, comuns, {
+                    group: 'personagens', draggable: '.pcard', filter: '.ic', preventOnFilter: false,
+                    ghostClass: 'card-fantasma', dragClass: 'card-arrastado',
+                    onMove: (ev) => { $$('.secao.alvo').forEach(s => s.classList.remove('alvo')); ev.to.closest('.secao').classList.add('alvo'); },
+                    onEnd: (ev) => finalizarArraste(ev.from !== ev.to ? 'Movido para “' + nomeSecao(ev.to) + '”' : null)
+                })));
+            });
+            sortables.push(Sortable.create($('secoes'), Object.assign({}, comuns, {
+                draggable: '.secao[data-grupo]', handle: '.alca', ghostClass: 'secao-fantasma', delay: 0,
+                onMove: (ev) => !(ev.related.classList.contains('secao--livre') && !ev.willInsertAfter),
+                onEnd: () => finalizarArraste(null)
+            })));
+        }
+        const nomeSecao = (grade) => { const h = grade.closest('.secao').querySelector('h2'); return h ? h.textContent : ''; };
+        function finalizarArraste(msg) {
+            document.body.classList.remove('arrastando');
+            $$('.secao.alvo').forEach(s => s.classList.remove('alvo'));
+            const antes = JSON.stringify(layout);
+            const grupos = {}; layout.filter(i => i.t === 'g').forEach(g => grupos[g.id] = g);
+            const novo = [];
+            $$('#secoes > .secao').forEach(sec => {
+                if (sec.dataset.grupo) novo.push(grupos[sec.dataset.grupo]);
+                $$('.grade > .pcard', sec).forEach(card => novo.push(itemDe(card.dataset.id)));
+            });
+            // grupos/cards que não estavam no DOM (ex.: "Sem grupo" vazio) entram de volta
+            const total = (l) => l.filter(Boolean).length;
+            if (total(novo) !== layout.length) { render(); toast('Não consegui aplicar o arraste — nada foi alterado.', 'erro'); return; }
+            if (JSON.stringify(novo) === antes) return;
+            const snap = instantaneo();
+            layout = novo; salvarLayout(); render();
+            if (msg) toast(msg, null, snap);
         }
 
-        function moverItem(de, para, ev, el) {
-            if (de === para) return;
-            // solta na metade de baixo (grupo) ou da direita (card) => entra depois do alvo
-            if (el && ev) {
-                const r = el.getBoundingClientRect();
-                const depois = el.classList.contains('grupo-barra')
-                    ? (ev.clientY - r.top) > r.height / 2
-                    : (ev.clientX - r.left) > r.width / 2;
-                if (depois) para += 1;
+        // ================================================================
+        //  DESFAZER: guarda personagens + layout antes de cada operação
+        // ================================================================
+        function instantaneo() { return { layout: JSON.parse(JSON.stringify(layout)), chars: WNJ.listar() }; }
+        function desfazer(snap) {
+            const atuais = new Set(WNJ.listar().map(c => c.id));
+            const antes = new Set(snap.chars.map(c => c.id));
+            atuais.forEach(id => { if (!antes.has(id)) WNJ.excluir(id); });
+            WNJ.restaurar(snap.chars.filter(c => !atuais.has(c.id)));
+            layout = snap.layout; salvarLayout(); render();
+            toast('Ação desfeita');
+        }
+
+        // ================================================================
+        //  OPERAÇÕES
+        // ================================================================
+        function moverPara(ids, gid) {
+            const snap = instantaneo();
+            const secs = secoes();
+            const alvo = secs.find(s => (s.g ? s.g.id : '') === (gid || ''));
+            if (!alvo) return;
+            const mov = ids.map(itemDe).filter(Boolean);
+            secs.forEach(s => s.itens = s.itens.filter(i => !ids.includes(i.id)));
+            alvo.itens.push(...mov);
+            ids.forEach(id => selecao.delete(id));
+            deSecoes(secs); salvarLayout(); render();
+            toast(mov.length + (mov.length === 1 ? ' personagem movido' : ' personagens movidos') + ' para “' + (alvo.g ? alvo.g.nome : 'Sem grupo') + '”', null, snap);
+        }
+        function moverRelativo(id, passo, entreGrupos) {
+            if (!podeArrastar()) { toast('Limpe a busca, os filtros e volte à ordem manual para reordenar.', 'erro'); return; }
+            const secs = secoes();
+            const si = secs.findIndex(s => s.itens.some(i => i.id === id));
+            const s = secs[si], i = s.itens.findIndex(x => x.id === id);
+            if (entreGrupos) {
+                const destino = secs[si + passo];
+                if (!destino) return;
+                destino.itens.push(...s.itens.splice(i, 1));
+            } else {
+                const j = i + passo;
+                if (j < 0 || j >= s.itens.length) return;
+                [s.itens[i], s.itens[j]] = [s.itens[j], s.itens[i]];
             }
-            const [item] = layout.splice(de, 1);
-            if (de < para) para -= 1;
-            layout.splice(Math.max(0, Math.min(para, layout.length)), 0, item);
-            salvarLayout();
+            deSecoes(secs); salvarLayout(); render();
+            const btn = document.querySelector('.pcard[data-id="' + CSS.escape(id) + '"] .pcard-abrir');
+            if (btn) btn.focus();
+        }
+        function duplicar(id) {
+            const c = porId[id]; if (!c) return;
+            const snap = instantaneo();
+            const copia = JSON.parse(JSON.stringify(c));
+            delete copia._nuvem; delete copia._sha;
+            copia.id = 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+            copia.criado = new Date().toISOString();
+            if (c.sobrenome) copia.sobrenome = c.sobrenome + ' (cópia)'; else copia.nome = (c.nome || 'Sem nome') + ' (cópia)';
+            if (WNJ.salvar(copia) === false) return;
+            const idx = layout.findIndex(i => i.t === 'c' && i.id === id);
+            layout.splice(idx + 1, 0, { t: 'c', id: copia.id, pos: itemDe(id).pos });
+            salvarLayout(); render();
+            toast('“' + nomeDe(copia) + '” criado', null, snap);
+        }
+        async function excluir(ids) {
+            ids = ids.filter(id => porId[id]);
+            if (!ids.length) return;
+            const nomes = ids.map(id => nomeDe(porId[id]));
+            if (!confirm(ids.length === 1 ? 'Excluir “' + nomes[0] + '” deste navegador?' : 'Excluir ' + ids.length + ' personagens deste navegador?\n\n' + nomes.slice(0, 8).join('\n') + (nomes.length > 8 ? '\n…' : ''))) return;
+            const snap = instantaneo();
+            ids.forEach(id => WNJ.excluir(id));
+            ids.forEach(id => selecao.delete(id));
+            const naNuvem = ids.filter(id => idsNaNuvem.has(id));
             render();
+            toast(ids.length === 1 ? '“' + nomes[0] + '” excluído' : ids.length + ' personagens excluídos', null, snap);
+            if (naNuvem.length && WNJNuvem.disponivel() &&
+                confirm((naNuvem.length === 1 ? 'Este personagem também está' : naNuvem.length + ' deles também estão') + ' na nuvem. Excluir a cópia da nuvem? Isso não pode ser desfeito.')) {
+                ocupado(+1);
+                for (const id of naNuvem) {
+                    try { await WNJNuvem.excluir(id); idsNaNuvem.delete(id); }
+                    catch (e) { toast('Erro na nuvem: ' + e.message, 'erro'); }
+                }
+                ocupado(-1);
+            }
+        }
+        async function baixar(ids) {
+            for (const id of ids) {
+                try { await WNJExport.baixar(porId[id]); } catch (e) { toast('Não consegui gerar o .html: ' + e.message, 'erro'); }
+                if (ids.length > 1) await new Promise(r => setTimeout(r, 400));   // navegadores barram downloads em rajada
+            }
+        }
+        async function enviarNuvem(ids) {
+            ocupado(+1);
+            let ok = 0;
+            for (const id of ids) {
+                try { await WNJNuvem.enviar(porId[id]); idsNaNuvem.add(id); ok++; }
+                catch (e) { toast('Erro ao enviar “' + nomeDe(porId[id]) + '”: ' + e.message, 'erro'); }
+            }
+            ocupado(-1);
+            render();
+            if (ok) toast(ok === 1 ? 'Enviado para a nuvem' : ok + ' personagens enviados para a nuvem');
+        }
+        function enquadrar(id, pos) {
+            const it = itemDe(id); if (!it) return;
+            if (pos) it.pos = pos; else delete it.pos;
+            salvarLayout(); render();
         }
 
-        // ===== GRUPOS =====
-        let grupoEditando = null;
-        function abrirGrupo(idx) {
-            grupoEditando = idx;
-            const gr = idx != null ? layout[idx] : null;
-            $('grupo-titulo').textContent = gr ? 'Editar Grupo' : 'Novo Grupo';
-            $('grupo-nome').value = gr ? (gr.nome || '') : '';
-            $('grupo-cor').value = gr ? (gr.cor || 'var(--gold)') : 'var(--gold)';
-            $('ov-grupo').classList.add('aberto');
+        // ---------- grupos ----------
+        let grupoEditando = null, corEscolhida = CORES_GRUPO[0];
+        function abrirGrupo(gid) {
+            grupoEditando = gid || null;
+            const g = gid ? layout.find(i => i.t === 'g' && i.id === gid) : null;
+            $('grupo-titulo').textContent = g ? 'Editar grupo' : 'Novo grupo';
+            $('grupo-nome').value = g ? (g.nome || '') : '';
+            corEscolhida = g && /^#[0-9a-f]{6}$/i.test(g.cor || '') ? g.cor : CORES_GRUPO[layout.filter(i => i.t === 'g').length % CORES_GRUPO.length];
+            pintarCores();
+            abrirModal('ov-grupo', $('grupo-nome'));
         }
-        $('btn-add-grupo').onclick = () => abrirGrupo(null);
+        function pintarCores() {
+            $('grupo-cores').innerHTML = CORES_GRUPO.map(c =>
+                '<button type="button" role="radio" aria-checked="' + (c.toLowerCase() === corEscolhida.toLowerCase()) + '" aria-label="Cor ' + c + '" data-cor="' + c + '" style="background:' + c + '"></button>').join('') +
+                '<input type="color" value="' + corEscolhida + '" aria-label="Outra cor" title="Outra cor">';
+            $$('#grupo-cores [data-cor]').forEach(b => b.onclick = () => { corEscolhida = b.dataset.cor; pintarCores(); });
+            $('grupo-cores').querySelector('input').oninput = (e) => { corEscolhida = e.target.value; $$('#grupo-cores [data-cor]').forEach(b => b.setAttribute('aria-checked', 'false')); };
+        }
         $('grupo-salvar').onclick = () => {
             const nome = $('grupo-nome').value.trim() || 'Grupo';
-            const cor = $('grupo-cor').value;
-            if (grupoEditando != null) { layout[grupoEditando].nome = nome; layout[grupoEditando].cor = cor; }
-            else layout.push({ t: 'g', id: 'g' + Date.now().toString(36), nome, cor });
-            salvarLayout();
-            $('ov-grupo').classList.remove('aberto');
-            render();
+            if (grupoEditando) Object.assign(layout.find(i => i.t === 'g' && i.id === grupoEditando), { nome, cor: corEscolhida });
+            else layout.push({ t: 'g', id: 'g' + Date.now().toString(36), nome, cor: corEscolhida });
+            salvarLayout(); fecharModal(); render();
+            toast(grupoEditando ? 'Grupo atualizado' : 'Grupo “' + nome + '” criado');
+        };
+        $('grupo-nome').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('grupo-salvar').click(); });
+        function excluirGrupo(gid) {
+            const secs = secoes();
+            const i = secs.findIndex(s => s.g && s.g.id === gid);
+            const s = secs[i];
+            if (!confirm('Remover o grupo “' + (s.g.nome || 'Grupo') + '”?' + (s.itens.length ? '\nOs ' + s.itens.length + ' personagens dele vão para “Sem grupo”.' : ''))) return;
+            const snap = instantaneo();
+            secs[0].itens.push(...s.itens);
+            secs.splice(i, 1);
+            deSecoes(secs); salvarLayout(); render();
+            toast('Grupo removido', null, snap);
+        }
+        function moverGrupo(gid, passo) {
+            const secs = secoes();
+            const i = secs.findIndex(s => s.g && s.g.id === gid), j = i + passo;
+            if (j < 1 || j >= secs.length) return;
+            [secs[i], secs[j]] = [secs[j], secs[i]];
+            deSecoes(secs); salvarLayout(); render();
+        }
+        function alternarGrupo(gid) {
+            const r = prefs.recolhidos;
+            const i = r.indexOf(gid);
+            if (i >= 0) r.splice(i, 1); else r.push(gid);
+            salvarPrefs(); render();
+            const b = document.querySelector('.secao[data-grupo="' + CSS.escape(gid) + '"] .recolher');
+            if (b) b.focus();
+        }
+
+        // ================================================================
+        //  MENU flutuante (cards, grupos, "mais", mover em lote)
+        // ================================================================
+        let menuOrigem = null;
+        function abrirMenu(itens, ancora, ponto) {
+            const m = $('menu');
+            m.innerHTML = itens.map((it, k) => {
+                if (it === '-') return '<hr>';
+                if (it.rotulo) return '<div class="rotulo">' + esc(it.rotulo) + '</div>';
+                return '<button class="item-menu' + (it.perigo ? ' perigo' : '') + '" role="' + (it.marcado != null ? 'menuitemradio' : 'menuitem') + '"' +
+                    (it.marcado != null ? ' aria-checked="' + it.marcado + '"' : '') + ' data-k="' + k + '"' + (it.desligado ? ' disabled' : '') + '>' +
+                    (it.cor ? '<span class="bolinha" style="background:' + esc(it.cor) + '"></span>' : '') + esc(it.texto) +
+                    (it.atalho ? '<span class="k">' + esc(it.atalho) + '</span>' : '') + '</button>';
+            }).join('');
+            $$('.item-menu', m).forEach(b => b.onclick = () => { const it = itens[b.dataset.k]; if (!it.manter) fecharMenu(true); it.acao(); });
+            m.hidden = false;
+            menuOrigem = ancora;
+            const r = ponto ? { left: ponto.x, right: ponto.x, top: ponto.y, bottom: ponto.y } : ancora.getBoundingClientRect();
+            const w = m.offsetWidth, h = m.offsetHeight;
+            let x = ponto ? r.left : r.right - w, y = r.bottom + 4;
+            if (y + h > innerHeight - 8) y = r.top - h - 4 >= 8 ? r.top - h - 4 : Math.max(8, innerHeight - h - 8);
+            x = Math.max(8, Math.min(x, innerWidth - w - 8));
+            m.style.left = x + 'px'; m.style.top = y + 'px';
+            const primeiro = m.querySelector('.item-menu:not([disabled])');
+            if (primeiro) primeiro.focus();
+        }
+        function fecharMenu(devolverFoco) {
+            const m = $('menu');
+            if (m.hidden) return;
+            m.hidden = true;
+            if (devolverFoco && menuOrigem && document.contains(menuOrigem)) menuOrigem.focus();
+            menuOrigem = null;
+        }
+        $('menu').addEventListener('keydown', (e) => {
+            const itens = $$('.item-menu:not([disabled])', $('menu'));
+            const i = itens.indexOf(document.activeElement);
+            if (e.key === 'ArrowDown') { e.preventDefault(); itens[(i + 1) % itens.length].focus(); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); itens[(i - 1 + itens.length) % itens.length].focus(); }
+            else if (e.key === 'Home') { e.preventDefault(); itens[0].focus(); }
+            else if (e.key === 'End') { e.preventDefault(); itens[itens.length - 1].focus(); }
+            else if (e.key === 'Escape' || e.key === 'Tab') { e.preventDefault(); fecharMenu(true); }
+        });
+        document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#menu') && !e.target.closest('[aria-haspopup="menu"]')) fecharMenu(); });
+        window.addEventListener('resize', () => fecharMenu());
+
+        function itensMover(ids, ancora, ponto) {
+            const atual = ids.length === 1 ? grupoDoChar(ids[0]) : undefined;
+            const destinos = [{ id: '', nome: 'Sem grupo', cor: 'var(--border-strong)' }].concat(layout.filter(i => i.t === 'g'));
+            return [{ rotulo: 'Mover para' }].concat(destinos.map(g => ({
+                texto: g.nome || 'Grupo', cor: g.cor || '#E7C77F',
+                desligado: atual !== undefined && (atual ? atual.id : '') === g.id,
+                acao: () => moverPara(ids, g.id)
+            })), ['-', { texto: '+ Novo grupo…', acao: () => abrirGrupo(null) }]);
+        }
+        function menuCard(id, ancora, ponto) {
+            const c = porId[id]; if (!c) return;
+            const it = itemDe(id) || {};
+            const nuvem = WNJNuvem.disponivel();
+            const itens = [
+                { texto: 'Abrir ficha', atalho: 'Enter', acao: () => location.href = 'ficha.html?id=' + encodeURIComponent(id) },
+                { texto: 'Duplicar', acao: () => duplicar(id) },
+                { texto: 'Mover para…', manter: true, acao: () => abrirMenu(itensMover([id]), ancora, ponto) },
+                { texto: selecao.has(id) ? 'Desmarcar' : 'Selecionar', atalho: 'Espaço', acao: () => alternarSelecao(id) },
+                '-',
+                nuvem ? { texto: idsNaNuvem.has(id) ? 'Atualizar na nuvem' : 'Enviar à nuvem', acao: () => enviarNuvem([id]) } : null,
+                { texto: 'Baixar .html', acao: () => baixar([id]) }
+            ];
+            if (c.img) itens.push({ texto: 'Enquadrar imagem…', manter: true, acao: () => abrirMenu([
+                { rotulo: 'Enquadramento da imagem' },
+                { texto: 'Topo', marcado: it.pos === '50% 0%', acao: () => enquadrar(id, '50% 0%') },
+                { texto: 'Rosto (padrão)', marcado: !it.pos, acao: () => enquadrar(id, null) },
+                { texto: 'Centro', marcado: it.pos === '50% 50%', acao: () => enquadrar(id, '50% 50%') },
+                { texto: 'Base', marcado: it.pos === '50% 100%', acao: () => enquadrar(id, '50% 100%') }], ancora, ponto) });
+            if (podeArrastar()) itens.push('-',
+                { texto: 'Mover para trás', atalho: 'Alt ←', acao: () => moverRelativo(id, -1) },
+                { texto: 'Mover para frente', atalho: 'Alt →', acao: () => moverRelativo(id, +1) });
+            itens.push('-', { texto: 'Excluir', perigo: true, atalho: 'Del', acao: () => excluir([id]) });
+            abrirMenu(itens.filter(Boolean), ancora, ponto);
+        }
+        function menuGrupo(gid, ancora) {
+            const secs = secoes();
+            const i = secs.findIndex(s => s.g && s.g.id === gid);
+            const recolhido = prefs.recolhidos.includes(gid);
+            abrirMenu([
+                { texto: 'Renomear e mudar cor', acao: () => abrirGrupo(gid) },
+                { texto: recolhido ? 'Expandir' : 'Recolher', acao: () => alternarGrupo(gid) },
+                { texto: 'Selecionar todos do grupo', desligado: !secs[i].itens.length, acao: () => { secs[i].itens.forEach(x => selecao.add(x.id)); render(); } },
+                '-',
+                { texto: 'Mover grupo para cima', desligado: i <= 1, acao: () => moverGrupo(gid, -1) },
+                { texto: 'Mover grupo para baixo', desligado: i >= secs.length - 1, acao: () => moverGrupo(gid, +1) },
+                '-',
+                { texto: 'Remover grupo', perigo: true, acao: () => excluirGrupo(gid) }
+            ], ancora);
+        }
+        $('btn-mais').onclick = (e) => {
+            const nuvem = WNJNuvem.disponivel();
+            abrirMenu([
+                { texto: 'Importar personagens…', acao: () => $('arquivo-importar').click() },
+                { texto: 'Exportar biblioteca (.json)', desligado: !chars.length, acao: exportarTudo },
+                '-',
+                nuvem ? { texto: 'Sincronizar com a nuvem', acao: sincronizar } : { texto: 'Nuvem: entre com o GitHub (🔑 no topo)', desligado: true, acao: () => {} },
+                { texto: 'Recuperar personagens', acao: abrirRecuperacao },
+                '-',
+                { texto: 'Atalhos do teclado', acao: () => toast('/ buscar · N novo · Espaço seleciona · Alt+setas reordena · Shift+F10 menu · Ctrl+A seleciona tudo · Del exclui · Esc limpa') }
+            ].filter(Boolean), e.currentTarget);
         };
 
-        // ---------- NUVEM ----------
-        async function atualizarBarraNuvem() {
+        // ================================================================
+        //  SELEÇÃO E LOTE
+        // ================================================================
+        function alternarSelecao(id, valor) {
+            const sel = valor != null ? valor : !selecao.has(id);
+            if (sel) selecao.add(id); else selecao.delete(id);
+            const card = document.querySelector('.pcard[data-id="' + CSS.escape(id) + '"]');
+            if (card) { card.classList.toggle('selecionado', sel); card.querySelector('.ic-sel').setAttribute('aria-checked', String(sel)); }
+            atualizarLote();
+        }
+        function atualizarLote() {
+            [...selecao].forEach(id => { if (!porId[id]) selecao.delete(id); });
+            const n = selecao.size;
+            $('lote').hidden = !n;
+            document.body.classList.toggle('selecionando', n > 0);
+            $('lote-n').textContent = n + (n === 1 ? ' selecionado' : ' selecionados');
+            $('lote-nuvem').hidden = !WNJNuvem.disponivel();
+        }
+        const limparSelecao = () => { selecao.clear(); $$('.pcard.selecionado').forEach(c => { c.classList.remove('selecionado'); c.querySelector('.ic-sel').setAttribute('aria-checked', 'false'); }); atualizarLote(); };
+        $('lote-fechar').onclick = limparSelecao;
+        $('lote-excluir').onclick = () => excluir([...selecao]);
+        $('lote-baixar').onclick = () => baixar([...selecao]);
+        $('lote-nuvem').onclick = () => enviarNuvem([...selecao]);
+        $('lote-mover').onclick = (e) => abrirMenu(itensMover([...selecao]), e.currentTarget);
+
+        // ================================================================
+        //  EVENTOS DELEGADOS
+        // ================================================================
+        $('secoes').addEventListener('click', (e) => {
+            const acao = e.target.closest('[data-acao]');
+            if (acao) { ({ limpar: limparFiltros, importar: () => $('arquivo-importar').click(), recuperar: abrirRecuperacao, sincronizar })[acao.dataset.acao](); return; }
+            const card = e.target.closest('.pcard');
+            if (card) {
+                const id = card.dataset.id;
+                if (e.target.closest('.ic-sel')) { e.preventDefault(); alternarSelecao(id); return; }
+                if (e.target.closest('.ic-menu')) { e.preventDefault(); menuCard(id, e.target.closest('.ic-menu')); return; }
+                // com seleção ativa (ou Ctrl/Shift), clicar no card seleciona em vez de abrir
+                if (selecao.size || e.ctrlKey || e.metaKey || e.shiftKey) { e.preventDefault(); alternarSelecao(id); }
+                return;
+            }
+            const sec = e.target.closest('.secao');
+            if (!sec) return;
+            if (e.target.closest('.recolher')) alternarGrupo(sec.dataset.grupo);
+            else if (e.target.closest('.menu-g')) menuGrupo(sec.dataset.grupo, e.target.closest('.menu-g'));
+        });
+        $('secoes').addEventListener('contextmenu', (e) => {
+            const card = e.target.closest('.pcard');
+            if (!card) return;
+            e.preventDefault();
+            menuCard(card.dataset.id, card.querySelector('.ic-menu'), { x: e.clientX, y: e.clientY });
+        });
+        $('secoes').addEventListener('keydown', (e) => {
+            const card = e.target.closest('.pcard');
+            if (!card || !e.target.classList.contains('pcard-abrir')) return;
+            const id = card.dataset.id;
+            if (e.key === ' ') { e.preventDefault(); alternarSelecao(id); }
+            else if ((e.shiftKey && e.key === 'F10') || e.key === 'ContextMenu') { e.preventDefault(); menuCard(id, card.querySelector('.ic-menu')); }
+            else if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { e.preventDefault(); moverRelativo(id, e.key === 'ArrowLeft' ? -1 : 1); }
+            else if (e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { e.preventDefault(); moverRelativo(id, e.key === 'ArrowUp' ? -1 : 1, true); }
+            else if (e.key === 'Enter' && selecao.size) { e.preventDefault(); alternarSelecao(id); }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const emCampo = e.target.closest('input, textarea, select, [contenteditable]');
+            const modal = document.querySelector('.ov.aberto');
+            if (e.key === 'Escape') {
+                if (modal) { fecharModal(); return; }
+                if (!$('menu').hidden) return;
+                if (e.target === $('f-busca') && filtro.busca) { $('f-busca').value = ''; filtro.busca = ''; render(); return; }
+                if (selecao.size) limparSelecao();
+                return;
+            }
+            if (emCampo || modal || e.altKey) return;
+            if (e.key === '/') { e.preventDefault(); $('f-busca').focus(); }
+            else if (e.key.toLowerCase() === 'n' && !e.ctrlKey && !e.metaKey) location.href = 'ficha.html';
+            else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'a' && chars.length) {
+                e.preventDefault();
+                $$('#secoes .pcard').forEach(c => alternarSelecao(c.dataset.id, true));   // só os visíveis
+            }
+            else if (e.key === 'Delete' && selecao.size) { e.preventDefault(); excluir([...selecao]); }
+        });
+
+        // ---------- barra de ferramentas ----------
+        let tBusca = null;
+        $('f-busca').addEventListener('input', (e) => { clearTimeout(tBusca); tBusca = setTimeout(() => { filtro.busca = e.target.value.trim(); render(); }, 90); });
+        [['f-grupo', 'grupo'], ['f-rank', 'rank'], ['f-raca', 'raca'], ['f-classe', 'classe']].forEach(([id, k]) => $(id).onchange = (e) => { filtro[k] = e.target.value; render(); });
+        $('f-ordem').onchange = (e) => { prefs.ordem = e.target.value; salvarPrefs(); render(); };
+        $$('.vistas button').forEach(b => b.onclick = () => { prefs.vista = b.dataset.vista; salvarPrefs(); render(); });
+        $('f-tamanho').oninput = (e) => { prefs.tamanho = +e.target.value; $$('#secoes .grade').forEach(g => g.style.setProperty('--card-min', prefs.tamanho + 'px')); };
+        $('f-tamanho').onchange = salvarPrefs;
+        function limparFiltros() {
+            Object.keys(filtro).forEach(k => filtro[k] = '');
+            $('f-busca').value = '';
+            prefs.ordem = 'manual'; salvarPrefs();
+            render();
+        }
+        $('btn-limpar').onclick = limparFiltros;
+        $('btn-novo-grupo').onclick = () => abrirGrupo(null);
+        $('btn-add-grupo').onclick = () => abrirGrupo(null);
+
+        // ================================================================
+        //  MODAIS, ESTADO E TOASTS
+        // ================================================================
+        let focoAntes = null;
+        function abrirModal(id, focar) { focoAntes = document.activeElement; $(id).classList.add('aberto'); (focar || $(id).querySelector('button, input')).focus(); }
+        function fecharModal() { $$('.ov.aberto').forEach(o => o.classList.remove('aberto')); if (focoAntes && document.contains(focoAntes)) focoAntes.focus(); }
+        $$('[data-fechar]').forEach(b => b.onclick = fecharModal);
+        $$('.ov').forEach(ov => ov.addEventListener('click', e => { if (e.target === ov) fecharModal(); }));
+
+        function toast(msg, tipo, snap) {
+            const t = document.createElement('div');
+            t.className = 'toast' + (tipo === 'erro' ? ' erro' : '');
+            t.setAttribute('role', tipo === 'erro' ? 'alert' : 'status');
+            t.innerHTML = '<span>' + esc(msg) + '</span>' + (snap ? '<button>Desfazer</button>' : '');
+            if (snap) t.querySelector('button').onclick = () => { t.remove(); desfazer(snap); };
+            $('toasts').appendChild(t);
+            while ($('toasts').children.length > 3) $('toasts').firstChild.remove();
+            setTimeout(() => t.remove(), snap ? 8000 : 4500);
+        }
+        let pendentes = 0;
+        function ocupado(d) { pendentes += d; if (pendentes > 0) estado('Sincronizando com a nuvem…', 'ocupado'); else marcarSalvo(); }
+        function estado(txt, tipo) { const e = $('estado'); e.textContent = txt; e.dataset.tipo = tipo || ''; }
+        function marcarSalvo() { if (pendentes > 0) return; estado('Salvo neste navegador às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })); }
+        window.addEventListener('beforeunload', (e) => { if (pendentes > 0) { e.preventDefault(); e.returnValue = ''; } });
+
+        // ================================================================
+        //  IMPORTAR / EXPORTAR
+        // ================================================================
+        function exportarTudo() {
+            const dados = { formato: 'wnj-biblioteca', versao: 1, exportado: new Date().toISOString(),
+                            personagens: WNJ.listar().map(c => { const x = Object.assign({}, c); delete x._nuvem; delete x._sha; return x; }), layout };
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([JSON.stringify(dados, null, 2)], { type: 'application/json' }));
+            a.download = 'biblioteca_luxsandoria_' + new Date().toISOString().slice(0, 10) + '.json';
+            document.body.appendChild(a); a.click();
+            setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+            toast('Biblioteca exportada com ' + dados.personagens.length + ' personagens');
+        }
+        $('arquivo-importar').onchange = async (e) => {
+            const arquivos = [...e.target.files];
+            e.target.value = '';
+            const snap = instantaneo();
+            let novos = 0, ignorados = 0, falhas = 0;
+            for (const f of arquivos) {
+                try {
+                    const txt = await f.text();
+                    let dados;
+                    if (/\.html?$/i.test(f.name) || /^\s*</.test(txt)) {
+                        const m = new DOMParser().parseFromString(txt, 'text/html').getElementById('wnj-ficha');
+                        if (!m) throw new Error('este .html é de antes da importação existir — baixe a ficha de novo');
+                        dados = JSON.parse(m.textContent);
+                    } else dados = JSON.parse(txt);
+                    const lista = Array.isArray(dados) ? dados : dados.personagens || [dados];
+                    const validos = lista.filter(c => c && typeof c === 'object' && c.id && ('rank' in c || 'nome' in c));
+                    const n = WNJ.restaurar(validos);
+                    novos += n; ignorados += validos.length - n;
+                    // grupos de um backup completo: entram os que ainda não existem, com seus personagens
+                    if (dados.layout && Array.isArray(dados.layout)) {
+                        const existentes = new Set(layout.map(i => i.id));
+                        dados.layout.forEach(i => { if (i && (i.t === 'g' || i.t === 'c') && i.id && !existentes.has(i.id)) layout.push(i); });
+                        salvarLayout();
+                    }
+                } catch (err) { falhas++; toast('“' + f.name + '”: ' + err.message, 'erro'); }
+            }
+            render();
+            if (novos || ignorados) toast(novos + ' importado(s)' + (ignorados ? ', ' + ignorados + ' já existia(m)' : ''), null, novos ? snap : null);
+            else if (!falhas) toast('Nenhum personagem encontrado nos arquivos.', 'erro');
+        };
+
+        // ================================================================
+        //  NUVEM
+        // ================================================================
+        async function atualizarNuvem() {
             const st = $('nuvem-status');
-            const btn = $('btn-sincronizar');
             if (!WNJNuvem.disponivel()) {
                 const c = (typeof WNJAuth !== 'undefined') ? WNJAuth.credenciais() : {};
                 st.innerHTML = c.token
-                    ? '☁️ Conectado como <strong>' + (c.user || '—') + '</strong>, mas sem permissão de escrita no repositório — seus personagens ficam salvos só neste navegador.'
-                    : '☁️ <strong>Entre com o GitHub</strong> (botão 🔑 na barra de cima) para salvar seus personagens no repositório e acessá-los de qualquer PC.';
-                btn.style.display = 'none';
+                    ? '☁️ Conectado como <strong>' + esc(c.user || '—') + '</strong>, sem permissão de escrita no repositório — os personagens ficam só neste navegador.'
+                    : '☁️ <strong>Entre com o GitHub</strong> (🔑 na barra de cima) para guardar seus personagens na nuvem e abrir em qualquer PC.';
                 return;
             }
-            btn.style.display = '';
-            st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong> — carregando...';
+            st.innerHTML = '☁️ Nuvem de <strong>' + esc(WNJNuvem.login()) + '</strong> — carregando…';
+            ocupado(+1);
             try {
                 const naNuvem = await WNJNuvem.listar();
                 idsNaNuvem = new Set(naNuvem.map(c => c.id));
-                st.innerHTML = '☁️ Nuvem de <strong>' + WNJNuvem.login() + '</strong>: ' +
-                    naNuvem.length + ' personagem(ns) salvos em <code>' + WNJNuvem.pasta() + '</code>';
+                st.innerHTML = '☁️ Nuvem de <strong>' + esc(WNJNuvem.login()) + '</strong>: ' + naNuvem.length + ' personagem(ns) em <code>' + esc(WNJNuvem.pasta()) + '</code>';
                 render();
-            } catch (e) {
-                st.innerHTML = '☁️ Não consegui ler a nuvem: ' + e.message;
-            }
+            } catch (e) { st.textContent = '☁️ Não consegui ler a nuvem: ' + e.message; estado('Erro ao ler a nuvem', 'erro'); }
+            finally { ocupado(-1); }
         }
-
-        $('btn-sincronizar').onclick = async () => {
-            const b = $('btn-sincronizar');
-            b.disabled = true; b.textContent = '⏳ Sincronizando...';
+        async function sincronizar() {
+            ocupado(+1);
             try {
                 const r = await WNJNuvem.sincronizar();
-                alert('✓ Sincronizado!\n\n' +
-                      '⬇ Baixados da nuvem: ' + r.baixados + '\n' +
-                      '⬆ Enviados para a nuvem: ' + r.enviados + '\n' +
-                      '🔄 Atualizados: ' + r.atualizados);
-                await atualizarBarraNuvem();
-                render();
-            } catch (e) {
-                alert('Erro ao sincronizar: ' + e.message);
-            } finally {
-                b.disabled = false; b.textContent = '🔄 Sincronizar com a nuvem';
-            }
-        };
+                toast('Sincronizado: ' + r.baixados + ' baixado(s), ' + r.enviados + ' enviado(s), ' + r.atualizados + ' atualizado(s)');
+                await atualizarNuvem();
+            } catch (e) { toast('Erro ao sincronizar: ' + e.message, 'erro'); }
+            finally { ocupado(-1); render(); }
+        }
 
-        // ---------- RECUPERAÇÃO ----------
+        // ================================================================
+        //  RECUPERAÇÃO (inalterada)
+        // ================================================================
         let achados = [];
-        $('btn-recuperar').onclick = () => {
+        function abrirRecuperacao() {
             achados = WNJ.varrerRecuperaveis();
             const box = $('rec-resultado');
             if (!achados.length) {
-                box.innerHTML = '<p class="sub">Não encontrei nenhuma ficha perdida neste navegador. ' +
-                    'Se os personagens foram criados em outro computador, navegador ou aba anônima, ' +
-                    'eles ficaram no armazenamento <em>daquele</em> navegador — não há como buscá-los daqui. ' +
-                    'Use a nuvem para não depender mais de um único dispositivo.</p>';
+                box.innerHTML = '<p class="sub">Não encontrei nenhuma ficha perdida neste navegador. Se os personagens foram criados em outro computador, navegador ou aba anônima, ' +
+                    'eles ficaram no armazenamento <em>daquele</em> navegador — não há como buscá-los daqui. Use a nuvem para não depender de um único dispositivo.</p>';
                 $('rec-restaurar').style.display = 'none';
             } else {
                 box.innerHTML = '<p class="sub">Encontrei <strong>' + achados.length + '</strong> ficha(s) fora da lista:</p>' +
-                    achados.map((a, i) => {
-                        const n = [a.char.nome, a.char.sobrenome].filter(Boolean).join(' ') || '(sem nome)';
-                        return '<label class="rec-item"><input type="checkbox" checked data-i="' + i + '">' +
-                            '<span>' + n.replace(/</g, '&lt;') + ' — R' + (a.char.rank || '?') + '</span>' +
-                            '<small>' + a.origem + '</small></label>';
-                    }).join('');
+                    achados.map((a, i) => '<label class="rec-item"><input type="checkbox" checked data-i="' + i + '">' +
+                        '<span>' + esc(nomeDe(a.char)) + ' — R' + esc(a.char.rank || '?') + '</span><small>' + esc(a.origem) + '</small></label>').join('');
                 $('rec-restaurar').style.display = '';
             }
-            $('ov-recuperar').classList.add('aberto');
-        };
+            abrirModal('ov-recuperar');
+        }
         $('rec-restaurar').onclick = () => {
-            const sel = [...document.querySelectorAll('#rec-resultado input:checked')]
-                .map(i => achados[parseInt(i.dataset.i, 10)].char);
+            const snap = instantaneo();
+            const sel = $$('#rec-resultado input:checked').map(i => achados[+i.dataset.i].char);
             const n = WNJ.restaurar(sel);
-            alert(n ? '✓ ' + n + ' personagem(ns) restaurado(s)!' : 'Nada novo para restaurar.');
-            $('ov-recuperar').classList.remove('aberto');
-            render();
+            fecharModal(); render();
+            toast(n ? n + ' personagem(ns) restaurado(s)' : 'Nada novo para restaurar.', n ? null : 'erro', n ? snap : null);
         };
-        document.querySelectorAll('[data-fechar]').forEach(b => {
-            b.onclick = () => b.closest('.ov').classList.remove('aberto');
-        });
-        document.querySelectorAll('.ov').forEach(ov => {
-            ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('aberto'); });
-        });
 
-        carregarLayout();
+        // ================================================================
         render();
-        atualizarBarraNuvem();
-        document.addEventListener('wnj-auth', () => { atualizarBarraNuvem(); render(); });
+        atualizarNuvem();
+        document.addEventListener('wnj-auth', () => { atualizarNuvem(); render(); });
+        // outra aba mexeu nos personagens ou na organização
+        window.addEventListener('storage', (e) => {
+            if (e.key === LAYOUT_KEY) { try { layout = JSON.parse(e.newValue || '[]'); } catch (err) {} render(); }
+            else if (e.key && e.key.startsWith('wnj_personagens')) render();
+        });
+    })();
     </script>
 </body>
 </html>

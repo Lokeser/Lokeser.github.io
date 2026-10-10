@@ -7,7 +7,7 @@
   "raca": "Manpan",
   "subRaca": "",
   "classeInicial": "Aventureiro",
-  "classeAvancada": "",
+  "classeAvancada": "Guardião",
   "magia": "Elemental — Vento",
   "rank": 8,
   "estrela": 1,
@@ -32,7 +32,7 @@
       "refId": "rc_demihumano_manpan_r10_1",
       "nome": "Instinto Manpan",
       "tag": "raca",
-      "efeitoHTML": "<p>Durante o combate:</p>\n<ul>\n<li><strong>Sabedoria, Intelecto e Carisma</strong> são reduzidos em <strong>−2</strong>.</li>\n<li>Recebe <strong>+1DR</strong> em testes de <strong>Corpo</strong> e <strong>Corpo</strong>.</li>\n<li>Ataques desarmados causam dano igual a <strong>1d4 a cada 2 Corpo + Corpo</strong>.</li>\n</ul>\n",
+      "efeitoHTML": "<p>Durante o combate:</p>\n<ul>\n<li><strong>Sabedoria, Intelecto e Carisma</strong> são reduzidos em <strong>−2</strong>.</li>\n<li>Recebe <strong>+1DR</strong> em testes de <strong>Corpo</strong>.</li>\n<li>Ataques desarmados causam dano igual a <strong>ERd4 + Corpo</strong>.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
       "estrela": 1
@@ -41,7 +41,7 @@
       "refId": "rc_demihumano_manpan_r10_2",
       "nome": "Anatomia Manpan",
       "tag": "raca",
-      "efeitoHTML": "<p>Escolha <strong>uma</strong> característica racial:</p>\n<ul>\n<li><p><strong>Corpo Primitiva</strong>\nRecebe <strong>+5</strong> no dano de ataques corpo a corpo.</p>\n</li>\n<li><p><strong>Sangue Humano Inferior</strong>\nRecebe <strong>+2 pontos</strong> para distribuir entre seus atributos.</p>\n</li>\n<li><p><strong>Reflexos Instintivos</strong>\nComo uma ação, pode realizar um teste de <strong>Intuição</strong> contra um inimigo.\n<strong>CD:</strong> <strong>15 + 1 para cada Rank acima do 10</strong>.\nEm sucesso, recebe <strong>+2 CA</strong> contra esse inimigo.</p>\n</li>\n<li><p><strong>Garras Afiadas</strong>\nAtaques desarmados tornam‑se <strong>1d6 + Técnica</strong>.\nAcertos críticos causam <strong>Sangramento</strong>.</p>\n</li>\n<li><p><strong>Mãos Pesadas</strong>\nAtaques desarmados tornam‑se <strong>1d8 a cada 2 Corpo + Corpo</strong>.\nAcertos críticos deixam o alvo <strong>Tonto</strong>.</p>\n</li>\n<li><p><strong>Dentes Afiados</strong>\nPode realizar ataques de mordida causando <strong>1d8 + Corpo</strong>.</p>\n</li>\n<li><p><strong>Cauda</strong>\nPode tentar <strong>derrubar</strong> inimigos com um teste de Técnica ou utilizá‑la como ataque desarmado usando Técnica no acerto e no dano.</p>\n</li>\n<li><p><strong>Pele Rígida</strong>\nRecebe <strong>Resistência I</strong> contra dano físico (Corte, Concussão e Perfuração).</p>\n</li>\n<li><p><strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.</p>\n</li>\n<li><p><strong>Lado Humano</strong>\nSua <strong>Sabedoria não é reduzida</strong> durante o Instinto Manpan.\nNão pode ser escolhida caso possua <strong>Bestial Eye</strong>.</p>\n</li>\n</ul>\n",
+      "efeitoHTML": "<p>Escolha <strong>uma</strong> característica racial:</p>\n<ul>\n<li><p><strong>Corpo Primitiva</strong>\nRecebe <strong>+5</strong> no dano de ataques corpo a corpo.</p>\n</li>\n<li><p><strong>Sangue Humano Inferior</strong>\nRecebe <strong>+2 pontos</strong> para distribuir entre seus atributos.</p>\n</li>\n<li><p><strong>Reflexos Instintivos</strong>\nComo uma ação, pode realizar um teste de <strong>Intuição</strong> contra um inimigo.\n<strong>CD:</strong> <strong>15 + 1 para cada Rank acima do 10</strong>.\nEm sucesso, recebe <strong>+2 CA</strong> contra esse inimigo.</p>\n</li>\n<li><p><strong>Garras Afiadas</strong>\nAtaques desarmados tornam‑se <strong>1d6 + Técnica</strong>.\nAcertos críticos causam <strong>Sangramento</strong>.</p>\n</li>\n<li><p><strong>Mãos Pesadas</strong>\nAtaques desarmados tornam‑se <strong>ERd8 + Corpo</strong>.\nAcertos críticos deixam o alvo <strong>Tonto</strong>.</p>\n</li>\n<li><p><strong>Dentes Afiados</strong>\nPode realizar ataques de mordida causando <strong>1d8 + Corpo</strong>.</p>\n</li>\n<li><p><strong>Cauda</strong>\nPode tentar <strong>derrubar</strong> inimigos com um teste de Técnica ou utilizá‑la como ataque desarmado usando Técnica no acerto e no dano.</p>\n</li>\n<li><p><strong>Pele Rígida</strong>\nRecebe <strong>Resistência I</strong> contra dano físico (Corte, Concussão e Perfuração).</p>\n</li>\n<li><p><strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.</p>\n</li>\n<li><p><strong>Lado Humano</strong>\nSua <strong>Sabedoria não é reduzida</strong> durante o Instinto Manpan.\nNão pode ser escolhida caso possua <strong>Bestial Eye</strong>.</p>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
       "estrela": 1,
@@ -81,7 +81,7 @@
       "refId": "mg_magia_elemental_vento_r10_nucleo",
       "nome": "Núcleo de Mana Ventuoso",
       "tag": "magia",
-      "efeitoHTML": "<p>Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.</p>\n<ul>\n<li>Recebe <strong>Resistência Adaptativa (Mana + ER)</strong> contra <strong>Dano de Vento</strong> (Mágico e Natural).</li>\n<li>Recebe <strong>Bônus de Velocidade de Movimento</strong> igual a <strong>ER x 2</strong>.</li>\n<li>Sua <strong>Distância de Pulo</strong> aumenta em um valor igual à sua <strong>ER (em metros)</strong>.</li>\n</ul>\n",
+      "efeitoHTML": "<p>Ao nascer com este núcleo, a Magia do Vento molda seu corpo de forma natural.</p>\n<ul>\n<li>Recebe <strong>Resistência Adaptativa (Mana + ER)</strong> contra <strong>Dano de Vento</strong> (Mágico e Natural).</li>\n<li>Recebe <strong>Bônus de Velocidade de Movimento</strong> igual a <strong>ER x 2</strong>.</li>\n<li>Sua <strong>Distância de Pulo</strong> aumenta em um valor igual à sua <strong>ER</strong> (em metros).</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
       "estrela": 1
@@ -90,7 +90,7 @@
       "refId": "mg_magia_elemental_vento_r10_ml",
       "nome": "Manipulação Livre",
       "tag": "magia",
-      "efeitoHTML": "<p>Você se torna capaz de externar sua Mana em vento puro, moldando correntes, impulsos e pressões conforme sua vontade.</p>\n<h3>Peso Mágico</h3>\n<p>Representa o quanto você consegue mover com sua Magia.</p>\n<ul>\n<li><strong>Valor Base:</strong> <strong>Mana x 2</strong> (em Kg)</li>\n<li>A cada <strong>Rank acima</strong>, o valor <strong>dobra sobre si mesmo</strong>.</li>\n</ul>\n<p><strong>Exemplo:</strong><br>Mana 5  </p>\n<ul>\n<li>Rank 10 → 10 kg  </li>\n<li>Rank 9 → 20 kg  </li>\n<li>Rank 8 → 40 kg  </li>\n<li>Rank 7 → 80 kg<br><em>(e assim por diante)</em></li>\n</ul>\n<hr>\n<h3>Atacar</h3>\n<ul>\n<li><strong>Ação:</strong> Ataque  </li>\n<li><strong>Alcance:</strong> Médio  </li>\n<li><strong>Acerto:</strong> <strong>DR + Mana</strong>  </li>\n<li><strong>Dano:</strong> <strong>1d6 para cada 2 de Mana</strong></li>\n</ul>\n<p><strong>Crítico:</strong>  </p>\n<ul>\n<li>Pode mover o inimigo em até <strong>5 metros</strong>, em qualquer direção.</li>\n</ul>\n<hr>\n<h3>Levantar Objetos</h3>\n<p>Como Manipulação Livre, você pode mover objetos até o limite do seu <strong>Peso Mágico</strong>.</p>\n<ul>\n<li>Ao atingir um valor igual ao <strong>seu próprio peso</strong>, você se torna capaz de <strong>voar</strong>.</li>\n<li><strong>Deslocamento de Voo:</strong> igual à sua <strong>Mana</strong>.</li>\n</ul>\n<hr>\n<h3>Marca da Tontura</h3>\n<p>Sempre que causar dano com a Manipulação Livre:</p>\n<ul>\n<li>Aplica <strong>1 Marca da Tontura</strong> no alvo.</li>\n<li>Ao atingir <strong>3 Marcas</strong>, o alvo fica <strong>Tonto por 1d2 turnos</strong>.</li>\n</ul>\n",
+      "efeitoHTML": "<p>Você se torna capaz de externar sua Mana em vento puro, moldando correntes, impulsos e pressões conforme sua vontade.</p>\n<h4>Rajada</h4>\n<ul>\n<li><strong>Ação:</strong> Ataque Mágico</li>\n<li><strong>Custo:</strong> 1 Magícula <em>(ignorado em acerto crítico)</em></li>\n<li><strong>Teste:</strong> Dado de Magia</li>\n<li><strong>Alcance:</strong> Médio (6m)</li>\n<li><strong>Dano:</strong> <strong>ERd6 + Mana</strong> (Vento)</li>\n</ul>\n<p><strong>Ao acertar:</strong> empurra o alvo até <strong>ER x 2</strong> metros (mínimo 2m), na direção que você escolher.<br><strong>Crítico:</strong> empurra <strong>5 metros a mais</strong>.</p>\n<h4>Sopro Favorável</h4>\n<ul>\n<li><strong>Ação:</strong> Bônus</li>\n<li><strong>Custo:</strong> 1 Magícula</li>\n<li>Mova um <strong>aliado</strong> a até 9m em até <strong>Mana</strong> metros, <strong>sem provocar reações</strong>.</li>\n</ul>\n<h4>Peso Mágico</h4>\n<p>Representa o quanto você consegue mover com sua Magia.</p>\n<ul>\n<li><strong>Valor Base:</strong> <strong>Mana x 2</strong> (em Kg)</li>\n<li>A cada <strong>Rank acima</strong>, o valor <strong>dobra sobre si mesmo</strong>.</li>\n</ul>\n<blockquote>\n<p><strong>Exemplo — Mana 5:</strong> Rank 10 → 10 kg · Rank 9 → 20 kg · Rank 8 → 40 kg · Rank 7 → 80 kg <em>(e assim por diante)</em></p>\n</blockquote>\n<h4>Levantar Objetos</h4>\n<p>Você pode mover objetos até o limite do seu <strong>Peso Mágico</strong>.</p>\n<ul>\n<li>Ao atingir um valor igual ao <strong>seu próprio peso</strong>, você se torna capaz de <strong>voar</strong>.</li>\n<li><strong>Deslocamento de Voo:</strong> igual à sua <strong>Mana</strong>.</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
       "estrela": 1,
@@ -163,46 +163,82 @@
       "estrela": 1
     },
     {
-      "refId": "mg_magia_elemental_vento_r9e1_1",
-      "nome": "Formulação Elemental",
-      "tag": "magia",
-      "efeitoHTML": "<p>Você aprende uma <strong>Técnica da Magia de Vento</strong>, alterando sua Manipulação Livre.</p>\n<ul>\n<li>Requer <strong>Livro de Formulação</strong> ou ensino direto.</li>\n<li>Técnicas avançadas exigem conhecimento das básicas.</li>\n<li>Existem inúmeras formulações não oficiais a serem descobertas durante o RPG.</li>\n</ul>\n<blockquote>\n<p>Referência: <a href=\"https://trello.com/c/wGhsFydU\">https://trello.com/c/wGhsFydU</a></p>\n</blockquote>\n",
-      "auto": true,
-      "rank": 9,
-      "estrela": 1
-    },
-    {
-      "refId": "mg_magia_elemental_vento_r9e3_1",
-      "nome": "Extensão de Foco",
-      "tag": "magia",
-      "efeitoHTML": "<p>Enquanto estiver a <strong>até 5m</strong> de um <strong>Foco de Vento</strong>:</p>\n<ul>\n<li>Recebe <strong>+5m de Alcance</strong> em Manipulação Livre.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 9,
-      "estrela": 3
-    },
-    {
-      "refId": "mg_magia_elemental_vento_r9e1_2",
-      "nome": "Vento a Favor",
-      "tag": "magia",
-      "efeitoHTML": "<p><strong>Custo:</strong> 5 Magículas<br><strong>Ação:</strong> Ação</p>\n<ul>\n<li>Escolha um alvo dentro do alcance da sua Manipulação Livre.</li>\n<li>O alvo recebe <strong>Bônus de Deslocamento</strong> igual à sua <strong>Mana (em metros)</strong>.</li>\n</ul>\n",
-      "auto": true,
-      "rank": 9,
-      "estrela": 1
-    },
-    {
       "refId": "mg_magia_elemental_vento_r9e4_1",
-      "nome": "Manipulação Livre II",
+      "nome": "Manipulação Livre II — Mover Alvos",
       "tag": "magia",
-      "efeitoHTML": "<p>Desbloqueia novos estágios da Manipulação Livre.</p>\n<h4>Mover Alvos</h4>\n<ul>\n<li>Pode mover alvos com peso até <strong>2x o Peso Mágico</strong>.</li>\n<li>Inimigos podem resistir com um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>:<ul>\n<li><strong>CD = 10 + Mana + ER</strong></li>\n</ul>\n</li>\n</ul>\n<p><strong>Efeitos ao mover:</strong></p>\n<ul>\n<li>O alvo tem <strong>Deslocamento reduzido pela metade</strong> até o final do próximo turno.</li>\n<li>Em <strong>Crítico</strong>, o alvo também fica <strong>Tonto</strong>.</li>\n</ul>\n",
+      "efeitoHTML": "<ul>\n<li><strong>Ação:</strong> Ação</li>\n<li><strong>Custo:</strong> 2 Magículas</li>\n</ul>\n<p>Erga e mova uma criatura com peso até <strong>2x o seu Peso Mágico</strong>, em até <strong>Mana</strong> metros.</p>\n<ul>\n<li>Inimigos podem resistir com um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>.</li>\n<li>O alvo movido tem o <strong>deslocamento reduzido pela metade</strong> até o fim do próximo turno dele.</li>\n</ul>\n",
       "auto": true,
       "rank": 9,
       "estrela": 4
     },
     {
-      "refId": "mg_magia_elemental_vento_r8e1_1",
-      "nome": "Formulação Elemental",
+      "refId": "mg_magia_elemental_vento_r10_impeto",
+      "nome": "Ímpeto",
       "tag": "magia",
-      "efeitoHTML": "<p>Aprenda mais uma <strong>Técnica da Magia de Vento</strong><br><em>(requer livro ou ensino direto)</em></p>\n",
+      "efeitoHTML": "<p>O coração da Magia de Vento: <strong>todo movimento vira força</strong>.</p>\n<p><strong>Ganhar Ímpeto</strong></p>\n<ul>\n<li>Sempre que sua Magia de Vento <strong>mover uma criatura</strong> — aliada ou inimiga — você ganha <strong>1 Ímpeto</strong>.</li>\n<li>Cada criatura só gera Ímpeto <strong>uma vez por turno</strong>.</li>\n<li>Máximo de Ímpeto: sua <strong>Mana</strong>. Todo o Ímpeto se perde ao fim da Cena.</li>\n</ul>\n<p><strong>Gastar Ímpeto</strong> — sem ação extra, ao mover uma criatura com sua magia:</p>\n<table>\n<thead>\n<tr>\n<th>Manobra</th>\n<th>Custo</th>\n<th>Efeito</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><strong>Impulso</strong></td>\n<td>1 Ímpeto</td>\n<td>O <strong>aliado</strong> que você moveu ganha <strong>+Mana metros</strong> de deslocamento até o fim do próximo turno dele.</td>\n</tr>\n<tr>\n<td><strong>Arrasto</strong></td>\n<td>2 Ímpeto</td>\n<td>O <strong>inimigo</strong> que você moveu fica <strong>Lento</strong> até o fim do seu próximo turno.</td>\n</tr>\n<tr>\n<td><strong>Colisão</strong></td>\n<td>2 Ímpeto</td>\n<td>Se a criatura que você empurrou bater em outra criatura ou em um obstáculo, <strong>as duas</strong> sofrem dano igual à sua <strong>Mana</strong> e fazem um <strong>Teste de Corpo</strong> contra sua <strong>CD Mágica</strong>. <strong>Falha:</strong> ficam <strong>Caídas</strong>.</td>\n</tr>\n</tbody></table>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e1_artes",
+      "nome": "Artes da Magia",
+      "tag": "magia",
+      "efeitoHTML": "<p>A Arte da Magia é a escolha do <strong>seu jeito de mover o mundo</strong>. Cada Arte é uma <strong>subclasse oficial</strong> da Magia de Vento e muda o que o seu <strong>Ímpeto</strong> é capaz de fazer.</p>\n<ul>\n<li>Escolha <strong>1 Arte do Vento</strong> e aprenda <strong>1 técnica</strong> dela que atenda aos pré-requisitos.</li>\n<li>Nos próximos ranks, a cada nova técnica, você aprende mais uma da sua Arte.</li>\n<li>Técnicas de <strong>outras Artes</strong> só podem ser aprendidas com <strong>livro</strong> ou <strong>ensino direto</strong>.</li>\n<li><strong>Artes Superiores</strong> exigem <strong>5+ de Mana</strong>.</li>\n</ul>\n<table>\n<thead>\n<tr>\n<th>Arte</th>\n<th>Estilo</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><strong>Zéfiro</strong></td>\n<td>Suporte: acelera, protege e reposiciona aliados.</td>\n</tr>\n<tr>\n<td><strong>Ciclone</strong> <em>(Superior · 5+ Mana)</em></td>\n<td>Controle de grupo: puxa e gira o campo inteiro para um ponto.</td>\n</tr>\n<tr>\n<td><strong>Vácuo</strong> <em>(Superior · 5+ Mana)</em></td>\n<td>Debuff: rouba o ar de quem você prende e silencia magias.</td>\n</tr>\n</tbody></table>\n<p>→ <a href=\"viewer.html?file=contents/magias/Mana/Arte_Vento.md\">Ver as Artes do Vento</a></p>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r9e2_favor",
+      "nome": "Vento a Favor",
+      "tag": "magia",
+      "efeitoHTML": "<p><strong>Custo:</strong> 5 Magículas<br><strong>Ação:</strong> Ação</p>\n<ul>\n<li>Escolha até <strong>ER</strong> aliados dentro do alcance da sua Manipulação Livre.</li>\n<li>Cada um recebe <strong>+Mana metros</strong> de deslocamento até o fim do próximo turno dele.</li>\n<li>Você ganha <strong>1 Ímpeto</strong> por aliado afetado.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 9,
+      "estrela": 2
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r8e1_arte",
+      "nome": "Arte do Vento — Nova Técnica",
+      "tag": "magia",
+      "efeitoHTML": "<p>Aprenda <strong>mais uma técnica</strong> da sua Arte do Vento.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elemental_vento_r8e1_corrente",
+      "nome": "Foco Elemental — Corrente",
+      "tag": "magia",
+      "efeitoHTML": "<p>No Vento, o Foco de Mana é uma <strong>Corrente</strong>: uma faixa de vento constante que corta o campo.</p>\n<ul>\n<li><strong>Ação:</strong> Bônus</li>\n<li><strong>Custo:</strong> 5 Magículas</li>\n<li><strong>Forma:</strong> uma linha reta de até <strong>Mana x 2</strong> metros, a até 20m de você</li>\n<li><strong>Duração:</strong> até o fim da Cena</li>\n</ul>\n<p><strong>Efeitos:</strong></p>\n<ul>\n<li>Um <strong>aliado</strong> que comece o turno ou entre na Corrente pode ser levado até <strong>Mana</strong> metros ao longo dela, sem gastar deslocamento.</li>\n<li>Um <strong>inimigo</strong> que se mova <strong>contra</strong> a Corrente gasta <strong>o dobro</strong> de deslocamento.</li>\n<li>Toda criatura levada pela Corrente conta como <strong>movida pela sua magia</strong> (gera Ímpeto).</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_guardiao_r8e1_1",
+      "nome": "⭐ 1 Estrela — Muralha Viva",
+      "tag": "classe",
+      "efeitoHTML": "<h4>Bloquear</h4>\n<ul>\n<li>Você aprende a habilidade <strong>Bloquear</strong>.</li>\n<li>Permite reduzir o dano de um ataque contra você:<ul>\n<li><strong>Teste:</strong> Corpo  </li>\n<li><strong>CD:</strong> dano recebido  </li>\n<li><strong>Redução:</strong> Corpo ÷ 2</li>\n</ul>\n</li>\n<li>Pode bloquear um ataque contra um aliado a até <strong>3m</strong>, consumindo <strong>1 Magícula</strong>.</li>\n</ul>\n<h4>Resistência Adaptável</h4>\n<ul>\n<li>Escolha <strong>2 tipos de dano não mágico</strong> (ex.: Cortante, Contundente).</li>\n<li>Aumente em <strong>+2</strong> o estágio de resistência contra eles.</li>\n<li>Como <strong>Ação Bônus</strong>, gaste <strong>1 Magícula</strong> para trocar um tipo de resistência por outro (não mágico ou mágico).</li>\n</ul>\n<h4>Voto de Proteção</h4>\n<ul>\n<li>Recebe <strong>+1d8 de Vida</strong> para cada <strong>2 pontos de Corpo</strong>.</li>\n<li>Você é <strong>imune a doenças naturais</strong> e à condição <strong>Doente</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_guardiao_r8e1_2",
+      "nome": "⭐⭐⭐ 3 Estrelas — Escudo Leal",
+      "tag": "classe",
+      "efeitoHTML": "<h4>Vida Temporária</h4>\n<ul>\n<li>No início do combate, se houver um aliado a até <strong>6m</strong>:<ul>\n<li>Ganhe <strong>Vida Temporária = Corpo + (Mana ÷ 2)</strong> <em>(arredondado para baixo)</em>.</li>\n</ul>\n</li>\n<li>Dura até o fim do combate.</li>\n</ul>\n<h4>Bloqueio Curativo</h4>\n<ul>\n<li>Ao usar <strong>Bloquear</strong> para proteger um aliado:<ul>\n<li><strong>Você e o aliado</strong> recuperam <strong>1d6 de Vida por ER</strong>.</li>\n</ul>\n</li>\n</ul>\n<h4>Supressão de Condições</h4>\n<ul>\n<li>Se bloquear um ataque que causaria <strong>Sangrando</strong> ou <strong>Em Chamas</strong>:<ul>\n<li>Reduza a duração da condição em <strong>1 rodada</strong> <em>(mínimo 1)</em>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_guardiao_r8e1_3",
+      "nome": "⭐⭐⭐⭐⭐ 5 Estrelas — Postura de Guardião",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Como <strong>Ação Bônus</strong>, entre em uma postura defensiva.</li>\n<li>Até o fim do seu próximo turno:<ul>\n<li><strong>+2 CA</strong></li>\n<li>Reduz o dano recebido em <strong>Sabedoria ÷ 2</strong> <em>(arredondado para baixo)</em>.</li>\n</ul>\n</li>\n<li>Inimigos que atacarem aliados a até <strong>3m</strong>:<ul>\n<li>Teste de <strong>Corpo</strong></li>\n<li><strong>CD = 10 + Corpo</strong></li>\n<li>Falha: ficam <strong>Desprevenidos por 1 rodada</strong>.</li>\n</ul>\n</li>\n</ul>\n<p><strong>Uso:</strong> Vezes por dia iguais o <strong>Corpo ÷ 2</strong>.</p>\n",
       "auto": true,
       "rank": 8,
       "estrela": 1
@@ -244,6 +280,8 @@
   },
   "titulo": "Carneiro das Correntes Brancas",
   "tituloArtigo": "O",
-  "atualizado": "2026-09-22T01:29:34.301Z",
-  "dono": "Lokeser"
+  "atualizado": "2026-10-10T19:32:11.062Z",
+  "dono": "Lokeser",
+  "subClasseInicial": "",
+  "subClasseAvancada": ""
 }

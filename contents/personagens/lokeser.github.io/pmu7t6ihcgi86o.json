@@ -488,7 +488,7 @@
     {
       "nome": "Evolução de Ataque",
       "tag": "habilidade",
-      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 2º Estágio</p><!--#poder id=\"hb_evolucaoataque\" fonte=\"habilidade\" estrela=\"2\" nome=\"Evolução de Ataque\"-->\n<h1>Evolução de Ataque</h1>\n<p>Sempre que você realizar um ataque em um turno:</p>\n<ul>\n<li>Você pode realizar <strong>um segundo ataque</strong> como parte do primeiro.</li>\n</ul>\n<h1>Ataques EX</h1>\n<p><strong>Pré-Requisito:</strong> Evolução de Ataque  </p>\n<p>Ao adquirir esta evolução:</p>\n<ul>\n<li>Você passa a poder realizar um <strong>terceiro ataque</strong> durante sua ação de ataque.</li>\n</ul>\n<h1>Ataques ÚLTIMA</h1>\n<p><strong>Pré-Requisitos:</strong> Ataques EX  </p>\n<p>Ao adquirir esta evolução:</p>\n<ul>\n<li>Você se torna capaz de realizar um <strong>quarto ataque</strong> durante sua ação de ataque.</li>\n</ul>\n<!--#fim-->",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 2º Estágio</p><h1>Ataques ÚLTIMA</h1>\n<p><strong>Pré-Requisitos:</strong> Ataques EX  </p>\n<p>Ao adquirir esta evolução:</p>\n<ul>\n<li>Você se torna capaz de realizar um <strong>quarto ataque</strong> durante sua ação de ataque.</li>\n</ul>\n<!--#fim-->",
       "auto": false
     },
     {
@@ -529,7 +529,7 @@
     },
     {
       "nome": "SOUL-DRIVE EX",
-      "tag": "extra",
+      "tag": "habilidade",
       "efeitoHTML": "Variante Vasto II<br>Etapa X.5<br><br>Bater no peito com tudo, pulsando sua alma por todo seu corpo e gritar \"REKEEEEEEL!\"<br><br><b>Coração Espiritual I</b><br><ul><li>Como uma ação bônus enquanto estiver em Soul-Drive, bata em seu Orcond, aplicando um imbuimento de Alma, que pulsa por todo seu corpo. Neste caso, você recebe:</li><li>Resistência Adaptativa (MANAxER) contra Dano de Ordem.</li><li>Seus ataques ignoram CA provida por Defesa no Plano Físico, como Armaduras, Escudos, Carapaças, etc.</li><li>Aumente o dano de Queimar Alma em 1 Estágio de Dano á mais.</li></ul>Escolha um momento da sua vida, se torne aquele momento, proteja aquelas pessoas, você é a guardiã da sua família.<br><br><b>Manipulação de Vontade I</b><br><div>Quando ativar o Soul-Drive, pode escolher usar ataques de vontade, eles causam Dano de Ordem e Dano da sua Magia(Elemento da Mana, Caos, Fé, etc). Escolha um ataque que possa realizar, e transforme-o em um Ataque de Vontade, neste caso, todo o dano do ataque causa dano metade Ordem e metade Magia. Esta técnica só muda o tipo de dano causado ao ataque. Este poder não consome Magículas.&nbsp;</div><div><br></div><b>Alma de Vasto'Rex I</b><br>Você recupera os poderes de seu ante passado, recebendo:<br>Rugido de Ventos Cortantes<br>Azura solta um rugido que manipula a pressão atmosférica ao redor.<ul><li>Alcance: Médio (18m) em cone.</li><li>Efeito: Todos na área realizam um Teste de Defesa de Destreza (CD 10+MANA+ER). Falha causa ERd15+MANA de Dano Anômalo e empurra os alvos 6d10 metros para trás. Sucesso reduz o dano à metade e ignora o empurrão.</li></ul><br>",
       "auto": false
     }
@@ -654,6 +654,6 @@
     "Perfurante": "acostumado",
     "Contundente": "acostumado"
   },
-  "atualizado": "2026-10-03T07:47:04.048Z",
+  "atualizado": "2026-10-10T00:49:53.213Z",
   "dono": "Lokeser.github.io"
 }

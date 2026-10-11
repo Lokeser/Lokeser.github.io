@@ -1101,13 +1101,13 @@
         };
 
         // ================================================================
-        render();
-        atualizarNuvem();
+        // personagens vêm do IndexedDB: espera o banco abrir (e migrar o localStorage antigo)
+        WNJ.pronto().then(() => { render(); atualizarNuvem(); });
+        WNJ.aoMudar(render);   // outra aba salvou personagens
         document.addEventListener('wnj-auth', () => { atualizarNuvem(); render(); });
         // outra aba mexeu nos personagens ou na organização
         window.addEventListener('storage', (e) => {
             if (e.key === LAYOUT_KEY) { try { layout = JSON.parse(e.newValue || '[]'); } catch (err) {} render(); }
-            else if (e.key && e.key.startsWith('wnj_personagens')) render();
         });
     })();
     </script>

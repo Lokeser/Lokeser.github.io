@@ -288,88 +288,167 @@ const WNJ = (() => {
     }
 
     // ---------- ARMAZENAMENTO LOCAL ----------
-    // IMPORTANTE: antes, um JSON corrompido fazia listar() devolver [] em silêncio
-    // e o salvar() seguinte sobrescrevia TUDO — perdendo todos os personagens.
-    // Agora a leitura sinaliza falha, a gravação nunca apaga o que não conseguiu
-    // ler e cada gravação deixa um backup da versão anterior.
-    const KEY = 'wnj_personagens';
+    // Os personagens ficam no IndexedDB (centenas de MB) e não mais no
+    // localStorage (~5 MB, que enchia com poucas imagens em HD). Uma cópia em
+    // memória mantém listar()/obter()/salvar() síncronos; cada página chama
+    // "await WNJ.pronto()" antes de ler. A gravação no disco é assíncrona;
+    // "await WNJ.gravado()" antes de sair da página quando importa.
+    // Segurança mantida: leitura ruim nunca vira gravação destrutiva, e cada
+    // gravação guarda a versão anterior como backup.
+    const KEY = 'wnj_personagens';                        // chaves antigas (localStorage)
     const KEY_BAK = 'wnj_personagens_backup';
     const KEY_BAK2 = 'wnj_personagens_backup2';
-    let leituraFalhou = false;
+    const BANCO = 'wnj', LOJA = 'dados';
+    let cache = [], backupIdb = null, leituraFalhou = false, semBanco = false;
+    let ultimaGravacao = Promise.resolve(true), _pronto = null;
+    const canal = ('BroadcastChannel' in window) ? new BroadcastChannel('wnj_personagens') : null;
+    const ouvintes = [];
 
-    function listar() {
-        const bruto = localStorage.getItem(KEY);
-        if (bruto == null || bruto === '') { leituraFalhou = false; return []; }
-        try {
-            const v = JSON.parse(bruto);
-            if (!Array.isArray(v)) throw new Error('formato inesperado');
-            leituraFalhou = false;
-            return v;
-        } catch (e) {
-            leituraFalhou = true;   // trava gravações destrutivas
-            console.error('Lista de personagens corrompida. Tentando backup...', e);
-            for (const k of [KEY_BAK, KEY_BAK2]) {
-                try {
-                    const b = JSON.parse(localStorage.getItem(k) || 'null');
-                    if (Array.isArray(b) && b.length) {
-                        console.warn('Recuperado do backup ' + k + ': ' + b.length + ' personagem(ns).');
-                        return b;
-                    }
-                } catch (e2) { /* tenta o próximo */ }
-            }
-            return [];
-        }
+    function abrirBanco() {
+        return new Promise((ok, erro) => {
+            const req = indexedDB.open(BANCO, 1);
+            req.onupgradeneeded = () => req.result.createObjectStore(LOJA);
+            req.onsuccess = () => ok(req.result);
+            req.onerror = () => erro(req.error);
+        });
     }
+    async function idb(modo, fn) {
+        const db = await abrirBanco();
+        return new Promise((ok, erro) => {
+            const tx = db.transaction(LOJA, modo);
+            const req = fn(tx.objectStore(LOJA));
+            tx.oncomplete = () => { db.close(); ok(req ? req.result : undefined); };
+            tx.onerror = tx.onabort = () => { db.close(); erro(tx.error); };
+        });
+    }
+    const idbLer = (k) => idb('readonly', l => l.get(k));
+    const idbGravar = (k, v) => idb('readwrite', l => l.put(v, k));
+    const idbApagar = (k) => idb('readwrite', l => l.delete(k));
+
+    function lerLocalStorage() {
+        for (const k of [KEY, KEY_BAK, KEY_BAK2]) {
+            try { const v = JSON.parse(localStorage.getItem(k) || 'null'); if (Array.isArray(v) && v.length) return v; } catch (e) {}
+        }
+        return null;
+    }
+    // Abre o banco, migra o que estava no localStorage (uma vez) e libera aquele espaço
+    function pronto() {
+        if (_pronto) return _pronto;
+        _pronto = (async () => {
+            try {
+                let lista = await idbLer('personagens');
+                backupIdb = (await idbLer('personagens_backup')) || null;
+                const antigos = lerLocalStorage();
+                if (!Array.isArray(lista)) {
+                    lista = antigos || [];
+                    if (antigos) await idbGravar('personagens', antigos);
+                } else if (antigos) {
+                    // junta o que só existia no localStorage: nada se perde na migração
+                    const ids = new Set(lista.map(c => c.id));
+                    const faltam = antigos.filter(c => c && c.id && !ids.has(c.id));
+                    if (faltam.length) { lista = lista.concat(faltam); await idbGravar('personagens', lista); }
+                }
+                if (antigos) [KEY, KEY_BAK, KEY_BAK2].forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+                cache = lista;
+                if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+            } catch (e) {
+                // Sem IndexedDB (alguns modos privados): segue com o localStorage, como antes
+                console.warn('IndexedDB indisponível; usando localStorage.', e);
+                semBanco = true;
+                cache = lerLocalStorage() || [];
+            }
+        })();
+        return _pronto;
+    }
+    // Outra aba gravou: recarrega o cache e avisa a página
+    if (canal) canal.onmessage = async () => {
+        try { cache = (await idbLer('personagens')) || cache; } catch (e) {}
+        ouvintes.forEach(fn => { try { fn(); } catch (e) {} });
+    };
+    function aoMudar(fn) { ouvintes.push(fn); }
+
+    // Cópia para quem chama: mexer no objeto não altera o cache até salvar().
+    // A imagem (string grande e imutável) é reaproveitada em vez de copiada.
+    function copia(c) {
+        if (!c || typeof c !== 'object') return c;
+        const o = JSON.parse(JSON.stringify(Object.assign({}, c, { img: undefined })));
+        if (c.img) o.img = c.img;
+        return o;
+    }
+
+    function listar() { return cache.map(copia); }
 
     function gravar(lista) {
-        // roda os backups antes de sobrescrever
-        try {
-            const atual = localStorage.getItem(KEY);
-            if (atual) {
-                const bak = localStorage.getItem(KEY_BAK);
-                if (bak) localStorage.setItem(KEY_BAK2, bak);
-                localStorage.setItem(KEY_BAK, atual);
+        const anterior = cache;
+        cache = lista.map(copia);
+        if (semBanco) {
+            try { localStorage.setItem(KEY, JSON.stringify(cache)); return true; }
+            catch (e) {
+                cache = anterior;
+                alert('⚠️ Não consegui salvar: o armazenamento deste navegador encheu.\n\n' +
+                      'Seus personagens antigos continuam salvos. Baixe as fichas em .html ou envie para a nuvem.');
+                return false;
             }
-        } catch (e) { /* backup é melhor-esforço */ }
-
-        try {
-            localStorage.setItem(KEY, JSON.stringify(lista));
-            return true;
-        } catch (e) {
-            // quota estourada (normalmente por imagens em base64)
-            console.error('Falha ao gravar personagens', e);
-            alert('⚠️ Não consegui salvar: o armazenamento deste navegador encheu.\n\n' +
-                  'Seus personagens antigos continuam salvos. Para liberar espaço, baixe as fichas ' +
-                  'em .html (ou envie para a nuvem, se você estiver logado) e remova imagens muito grandes.');
-            return false;
         }
+        ultimaGravacao = ultimaGravacao.then(async () => {
+            try {
+                await idbGravar('personagens_backup', anterior);
+                await idbGravar('personagens', cache);
+                backupIdb = anterior;
+                if (canal) canal.postMessage('mudou');
+                return true;
+            } catch (e) {
+                console.error('Falha ao gravar personagens', e);
+                alert('⚠️ Não consegui salvar os personagens neste navegador (' + ((e && e.name) || 'erro') + ').\n\n' +
+                      'O disco pode estar cheio. Baixe as fichas em .html ou envie para a nuvem.');
+                return false;
+            }
+        });
+        return true;
     }
+    const gravado = () => ultimaGravacao;
 
     function salvar(char) {
+        if (leituraFalhou) return false;
         const todos = listar();
-        if (leituraFalhou) {
-            alert('⚠️ Não salvei para não apagar seus outros personagens: a lista salva neste ' +
-                  'navegador está ilegível.\n\nAbra "Meus Personagens" → Recuperar personagens ' +
-                  'para restaurar antes de continuar.');
-            return false;
-        }
         const i = todos.findIndex(c => c.id === char.id);
         char.atualizado = new Date().toISOString();
         if (i >= 0) todos[i] = char; else todos.push(char);
         return gravar(todos);
     }
     function excluir(id) {
-        const todos = listar();
         if (leituraFalhou) return false;
-        return gravar(todos.filter(c => c.id !== id));
+        return gravar(listar().filter(c => c.id !== id));
     }
     function obter(id) {
-        return listar().find(c => c.id === id) || null;
+        const c = cache.find(x => x.id === id);
+        return c ? copia(c) : null;
+    }
+
+    // ---------- RASCUNHO DA CRIAÇÃO ----------
+    // O texto continua no localStorage (o botão "Voltar à criação" lê de lá);
+    // a imagem vai para o IndexedDB para não estourar a cota.
+    function guardarRascunho(char) {
+        const semImg = Object.assign({}, char, { img: null, _temImg: !!char.img });
+        try { localStorage.setItem('wnj_draft', JSON.stringify(semImg)); } catch (e) {}
+        if (!semBanco) idbGravar('rascunho_img', char.img || null).catch(() => {});
+    }
+    async function lerRascunho() {
+        let r = null;
+        try { r = JSON.parse(localStorage.getItem('wnj_draft') || 'null'); } catch (e) {}
+        if (!r) return null;
+        if (r._temImg && !semBanco) { try { r.img = await idbLer('rascunho_img'); } catch (e) {} }
+        delete r._temImg;
+        return r;
+    }
+    function apagarRascunho() {
+        ['wnj_draft', 'wnj_draft_oculto'].forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+        if (!semBanco) idbApagar('rascunho_img').catch(() => {});
     }
 
     // ---------- RECUPERAÇÃO ----------
-    // Varre TODO o localStorage procurando qualquer coisa que pareça personagem:
-    // a chave principal, os backups, o rascunho da criação e chaves antigas.
+    // Procura fichas fora da lista: backup do banco, chaves antigas do
+    // localStorage e o rascunho da criação.
     function pareceFicha(o) {
         return o && typeof o === 'object' && !Array.isArray(o) &&
             (o.atributos || o.pericias || o.periciasDelta) &&
@@ -377,19 +456,21 @@ const WNJ = (() => {
     }
     function varrerRecuperaveis() {
         const achados = [];
-        const vistos = new Set(listar().map(c => c.id));
+        const vistos = new Set(cache.map(c => c.id));
+        const considerar = (origem, v) => {
+            (Array.isArray(v) ? v : [v]).forEach(c => {
+                if (!pareceFicha(c)) return;
+                if (!c.id) c.id = 'rec' + Math.random().toString(36).slice(2, 9);
+                if (vistos.has(c.id)) return;
+                vistos.add(c.id);
+                achados.push({ origem, char: c });
+            });
+        };
+        if (backupIdb) considerar('backup automático', backupIdb);
         for (let i = 0; i < localStorage.length; i++) {
             const k = localStorage.key(i);
             if (!k) continue;
-            let v;
-            try { v = JSON.parse(localStorage.getItem(k)); } catch (e) { continue; }
-            const candidatos = Array.isArray(v) ? v : [v];
-            candidatos.forEach(c => {
-                if (!pareceFicha(c)) return;
-                if (!c.id) c.id = 'rec' + Math.random().toString(36).slice(2, 9);
-                if (vistos.has(c.id)) return;      // já está na lista ativa
-                achados.push({ origem: k, char: c });
-            });
+            try { considerar(k, JSON.parse(localStorage.getItem(k))); } catch (e) {}
         }
         return achados;
     }
@@ -468,6 +549,7 @@ const WNJ = (() => {
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
         paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca, arquivosClasse,
-        varrerRecuperaveis, restaurar
+        varrerRecuperaveis, restaurar, pronto, gravado, aoMudar,
+        guardarRascunho, lerRascunho, apagarRascunho
     };
 })();

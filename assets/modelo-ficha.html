@@ -95,7 +95,6 @@ body[data-arq="mistico"] .combate { width: 100%; max-width: 860px; text-align: l
     body:not([data-arq="mistico"]) .moldura { flex: 1; aspect-ratio: auto; min-height: 520px; }
 }
 .moldura img { image-rendering: auto; }
-.aviso-img { margin: 10px 0 0; font-size: .8rem; color: var(--tinta-3); text-align: center; }
 .moldura { position: relative; aspect-ratio: 3 / 4; padding: 7px; background: linear-gradient(160deg, var(--metal), color-mix(in srgb, var(--metal) 40%, #000) 60%, var(--metal)); }
 .moldura .arte { position: absolute; inset: 7px; overflow: hidden; background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--ac) 30%, var(--f1)), var(--f2)); }
 .moldura img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; display: block; }
@@ -666,20 +665,6 @@ function render() {
     $('#topo-marca').innerHTML = svg(SIG.inicial) + '<span>' + esc(nomeCompleto) + '</span>';
     renderVida(); renderVMag(); renderMagiculas(); renderConds(); renderAtributos(); renderAtaques(); renderPoderes(); renderPericias(); renderInventario(); renderCargas(); renderPensamentos();
     observarVida();
-    avisarResolucao();
-}
-// Foto pequena demais para a moldura fica borrada: avisa em vez de esconder o problema
-function avisarResolucao() {
-    const img = $('.moldura img'); if (!img) return;
-    const checar = () => {
-        const r = img.getBoundingClientRect();
-        if (!img.naturalWidth || !r.width) return;
-        // quanto a imagem é ampliada para cobrir a moldura (object-fit: cover)
-        const ampliacao = Math.max(r.width / img.naturalWidth, r.height / img.naturalHeight) * (window.devicePixelRatio || 1);
-        if (ampliacao > 1.5 && !$('.aviso-img'))
-            $('.retrato-col').insertAdjacentHTML('beforeend', '<p class="aviso-img">Esta imagem tem ' + img.naturalWidth + 'px de largura e pode parecer borrada. Envie a imagem de novo na ficha do site para guardá-la em alta resolução.</p>');
-    };
-    if (img.complete) checar(); else img.addEventListener('load', checar);
 }
 const selo = (r, v) => '<div class="selo"><div class="v">' + esc(v) + '</div><div class="r">' + r + '</div></div>';
 const secao = (id, titulo, acao, corpo) =>

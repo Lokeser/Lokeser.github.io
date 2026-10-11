@@ -18,13 +18,14 @@
         return;
     }
 
+    await WNJ.pronto();   // personagens vêm do IndexedDB
     let char = modoEdicao ? WNJ.obter(editId) : WNJ.novoPersonagem();
     if (modoEdicao && !char) { alert('Personagem não encontrado.'); location.href = 'personagem.html'; return; }
     // Rascunho: restaura a criação anterior se o usuário saiu no meio
     if (!modoEdicao) {
         try {
-            const rasc = localStorage.getItem('wnj_draft');
-            if (rasc) char = Object.assign(WNJ.novoPersonagem(), JSON.parse(rasc), { id: char.id });
+            const rasc = await WNJ.lerRascunho();
+            if (rasc) char = Object.assign(WNJ.novoPersonagem(), rasc, { id: char.id });
         } catch (e) {}
     }
     // Compatibilidade e blindagem: uma ficha vinda da nuvem (ou editada a mao)
@@ -1126,7 +1127,7 @@
     }
     // Salva local e, se estiver logado com permissão, também na nuvem do usuário
     async function salvarTudo() {
-        const okLocal = WNJ.salvar(char);
+        const okLocal = WNJ.salvar(char) && await WNJ.gravado();
         let nuvem = null;
         if (typeof WNJNuvem !== 'undefined' && WNJNuvem.disponivel()) {
             try { await WNJNuvem.enviar(char); nuvem = true; }
@@ -1152,8 +1153,7 @@
         const r = await salvarTudo();
         btn.disabled = false; btn.innerHTML = '✨ Criar Personagem';
         if (!r.okLocal) return;   // avisos já foram mostrados
-        localStorage.removeItem('wnj_draft');
-        localStorage.removeItem('wnj_draft_oculto');
+        WNJ.apagarRascunho();
         location.href = 'personagem.html#meus';
     };
 
@@ -1162,8 +1162,7 @@
     $('btn-reset-criacao').onclick = () => {
         if (!confirm('Tem certeza que deseja resetar a criação de personagem?\nTudo que foi preenchido será excluído.')) return;
         resetandoCriacao = true; // impede o auto-save de regravar o rascunho ao sair
-        localStorage.removeItem('wnj_draft');
-        localStorage.removeItem('wnj_draft_oculto');
+        WNJ.apagarRascunho();
         location.href = 'ficha.html'; // recarrega limpo, sem restaurar rascunho
     };
 
@@ -1173,10 +1172,8 @@
         const salvarRascunho = () => {
             if (resetandoCriacao) return;
             coletarIdentidade();
-            try {
-                localStorage.setItem('wnj_draft', JSON.stringify(char));
-                localStorage.removeItem('wnj_draft_oculto'); // atividade nova reexibe o botão
-            } catch (e) {}
+            WNJ.guardarRascunho(char);   // texto no localStorage, imagem no IndexedDB
+            try { localStorage.removeItem('wnj_draft_oculto'); } catch (e) {} // atividade nova reexibe o botão
         };
         const agendar = () => { clearTimeout(draftTimer); draftTimer = setTimeout(salvarRascunho, 800); };
         document.addEventListener('input', agendar, true);

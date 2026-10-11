@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criatura — Bestiário de Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bestiario.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); font-family: var(--font-ui); }
+        [hidden] { display: none !important; }
+        .pg { max-width: 1040px; margin: 0 auto; padding: var(--sp-6) clamp(12px, 3vw, 28px) var(--sp-8); }
+        .pg-barra { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin-bottom: var(--sp-5); }
+        .pg-barra .trilha { margin-right: auto; font-size: .88rem; color: var(--text-2); }
+        .pg-barra .trilha a { color: var(--text-2); }
+        .vazio { text-align: center; padding: var(--sp-8) var(--sp-4); color: var(--text-2); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <main class="pg">
+        <div class="pg-barra">
+            <span class="trilha"><a href="contents/bestiario/bestiario_menu.html">Bestiário</a> / <span id="trilha-nome">Criatura</span></span>
+            <a class="btn btn--secondary" id="bt-editar" hidden>Editar</a>
+            <button class="btn btn--ghost" id="bt-excluir" hidden>Excluir</button>
+        </div>
+        <div id="conteudo"><p class="vazio">Carregando…</p></div>
+    </main>
+
+    <script src="js/menu.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bestiario.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s);
+        const params = new URLSearchParams(location.search);
+        const id = params.get('id'), fonte = params.get('fonte') === 'privada' ? 'privada' : 'publica';
+        await WNJ.pronto();
+        let c = null;
+        try { c = id ? await WNJBest.ler(id, fonte) : null; } catch (e) { console.error(e); }
+        if (!c) {
+            $('#conteudo').innerHTML = '<p class="vazio">Não encontrei esta criatura' + (fonte === 'privada' ? ' neste navegador. Criaturas privadas ficam só no navegador onde foram criadas.' : '. Se ela acabou de ser publicada, o site pode levar um minuto para atualizar.') + '</p>';
+            return;
+        }
+        document.title = c.nome + ' — Bestiário de Luxsandoria';
+        $('#trilha-nome').textContent = c.nome;
+        $('#conteudo').innerHTML = WNJBest.ficha(c);
+        $('#conteudo').addEventListener('click', (e) => {
+            if (!e.target.closest('[data-rolar-loot]')) return;
+            e.target.closest('.cf-rolar').querySelector('.cf-resultado').innerHTML = WNJBest.htmlLoot(WNJBest.rolarLoot(c));
+        });
+
+        // Editar: privadas sempre; públicas, só editores (ou como cópia privada)
+        function botoes() {
+            const pode = fonte === 'privada' || WNJBest.podePublicar();
+            const ed = $('#bt-editar');
+            ed.hidden = false;
+            ed.href = 'criador-criatura.html?id=' + encodeURIComponent(c.id) + '&fonte=' + fonte;
+            ed.textContent = pode ? 'Editar' : 'Criar cópia privada';
+            $('#bt-excluir').hidden = !pode;
+        }
+        botoes();
+        document.addEventListener('wnj-auth', botoes);
+        $('#bt-excluir').onclick = async () => {
+            if (!confirm('Excluir "' + c.nome + '"' + (fonte === 'publica' ? ' do Bestiário público' : '') + '?')) return;
+            try { await WNJBest.excluir(c, fonte); location.href = 'contents/bestiario/bestiario_menu.html'; }
+            catch (e) { alert('Não consegui excluir: ' + e.message); }
+        };
+    })();
+    </script>
+</body>
+</html>

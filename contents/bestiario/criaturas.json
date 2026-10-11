@@ -1,0 +1,17 @@
+{
+  "tipos": [],
+  "criaturas": [
+    {
+      "id": "goblin_das_brasas",
+      "nome": "Goblin das Brasas",
+      "reino": "animal",
+      "tipo": "Goblinoide",
+      "natureza": "criatura",
+      "rank": 9,
+      "papel": "padrao",
+      "img": null,
+      "resumo": "Um bando que cresceu ao pé de um vulcão adormecido. Três gerações comendo lagartos de lava e o fogo já mora na garganta deles.",
+      "atualizado": "2026-10-11T12:00:00.000Z"
+    }
+  ]
+}

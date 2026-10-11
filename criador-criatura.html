@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Criaturas — Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bestiario.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); font-family: var(--font-ui); }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="cc">
+        <div class="cc-topo">
+            <h1 id="titulo">Criar criatura</h1>
+            <a class="btn btn--ghost" href="contents/viewer-redirect" id="link-regras">Regras de monstros</a>
+            <a class="btn btn--secondary" href="contents/bestiario/bestiario_menu.html">Voltar ao Bestiário</a>
+        </div>
+
+        <div class="cc-corpo">
+            <form class="cc-form" id="form" novalidate>
+                <!-- IDENTIDADE -->
+                <section class="cc-sec">
+                    <h2>Identidade</h2>
+                    <label>Nome<input type="text" data-c="nome" maxlength="80" required placeholder="Ex.: Lobo das Cinzas"></label>
+                    <div class="campo">Imagem
+                        <div class="cc-img"><img id="img-previa" alt="" hidden>
+                            <input type="file" id="img-arquivo" accept="image/*" aria-label="Escolher imagem">
+                            <button type="button" class="btn btn--ghost" id="img-remover" hidden>Remover</button></div>
+                    </div>
+                    <div class="campo">Natureza
+                        <div class="cc-opcoes">
+                            <label><input type="radio" name="natureza" value="criatura" data-c="natureza"> Criatura</label>
+                            <label><input type="radio" name="natureza" value="monstro" data-c="natureza"> Monstro (Desejo Voraz)</label>
+                        </div>
+                    </div>
+                    <div class="campo">Reino
+                        <div class="cc-opcoes">
+                            <label><input type="radio" name="reino" value="animal" data-c="reino"> Animal</label>
+                            <label><input type="radio" name="reino" value="etereo" data-c="reino"> Etéreo</label>
+                        </div>
+                    </div>
+                    <div class="cc-linha">
+                        <label>Tipo<select id="tipo"></select></label>
+                        <label id="tipo-novo-rot" hidden>Novo tipo<input type="text" id="tipo-novo" maxlength="40" placeholder="Ex.: Fúngico"></label>
+                        <label>Papel sugerido<select data-c="papel" id="papel"></select></label>
+                        <label>Teto de Núcleo<select data-c="teto" data-num id="teto"></select></label>
+                    </div>
+                    <label>Habitat<input type="text" data-c="habitat" maxlength="140" placeholder="Onde vive"></label>
+                    <label>Descrição<textarea data-c="descricao" placeholder="Aparência, origem, o que a torna única. A primeira linha vira o resumo no Bestiário."></textarea></label>
+                </section>
+
+                <!-- NÚCLEO -->
+                <section class="cc-sec">
+                    <h2>Núcleo</h2>
+                    <p class="ajuda">As Magículas máximas definem o Rank, quantos Poderes de Núcleo a criatura tem e quantos pontos de atributo ela ganhou comendo.</p>
+                    <label style="max-width:220px">Magículas máximas<input type="number" min="0" data-c="magMax" data-num inputmode="numeric"></label>
+                    <div class="cc-nucleo" id="nucleo"></div>
+                    <div class="cc-acoes"><button type="button" class="btn btn--secondary" id="bt-nascer">Rolar nascimento (1d6 + Mana)</button></div>
+                    <div class="campo">Simular refeição
+                        <div class="cc-refeicao">
+                            <label>Rank da presa<select id="ref-rank"></select></label>
+                            <label>Mana da presa<input type="number" id="ref-mana" value="2" inputmode="numeric"></label>
+                            <label>Mana de quem come<input type="number" id="ref-propria" readonly></label>
+                            <button type="button" class="btn btn--secondary" id="bt-refeicao">Rolar</button>
+                        </div>
+                        <div class="cc-resultado" id="ref-resultado" aria-live="polite"></div>
+                    </div>
+                </section>
+
+                <!-- ATRIBUTOS -->
+                <section class="cc-sec">
+                    <h2>Atributos</h2>
+                    <p class="ajuda">5 pontos iniciais, mais 1 a cada 25 Magículas máximas (criatura) ou a cada 50 (monstro). Teto 20.</p>
+                    <div class="cc-atrs" id="atrs"></div>
+                    <p class="cc-pontos" id="pontos" aria-live="polite"></p>
+                </section>
+
+                <!-- COMBATE -->
+                <section class="cc-sec">
+                    <h2>Combate</h2>
+                    <p class="ajuda">Os valores vêm do Rank, dos atributos e do papel. Deixe em branco para usar a sugestão; preencha para sobrescrever.</p>
+                    <div class="cc-linha">
+                        <label>Vida<input type="number" min="1" data-s="vida" inputmode="numeric"></label>
+                        <label>CA<input type="number" data-s="ca" inputmode="numeric"></label>
+                        <label>CD Mágica<input type="number" data-s="cd" inputmode="numeric"></label>
+                        <label>Deslocamento (m)<input type="number" min="0" data-c="deslocamento" data-num inputmode="numeric"></label>
+                    </div>
+                </section>
+
+                <!-- ATAQUES -->
+                <section class="cc-sec">
+                    <h2>Ataques naturais</h2>
+                    <p class="ajuda">Dano no formato ERdX + Atributo, com Dado Máximo. Monstros somam a Mordida Voraz.</p>
+                    <div class="cc-acoes" id="presets"></div>
+                    <div id="lista-ataques" class="cc-form"></div>
+                </section>
+
+                <!-- PODERES -->
+                <section class="cc-sec">
+                    <h2>Poderes de Núcleo</h2>
+                    <p class="ajuda" id="poderes-ajuda"></p>
+                    <div id="lista-poderes" class="cc-form"></div>
+                    <div class="cc-acoes"><button type="button" class="btn btn--secondary" data-add="poderes">+ Poder</button></div>
+                </section>
+
+                <!-- COMPORTAMENTO -->
+                <section class="cc-sec">
+                    <h2>Comportamento</h2>
+                    <label class="sr-only" for="comp">Comportamento</label>
+                    <textarea id="comp" data-c="comportamento" placeholder="Como caça, como luta, quando foge, o que a faz negociar."></textarea>
+                </section>
+
+                <!-- LOOT -->
+                <section class="cc-sec">
+                    <h2>Loot</h2>
+                    <p class="ajuda">O Cristal de Núcleo cai sempre (carga de 1/10 das Magículas máximas, 1/5 nos Etéreos). Cada linha abaixo cai se 1d100 for igual ou menor que a chance.</p>
+                    <div id="lista-loot" class="cc-form"></div>
+                    <div class="cc-acoes"><button type="button" class="btn btn--secondary" data-add="loot">+ Item de loot</button></div>
+                </section>
+
+                <div class="cc-salvar">
+                    <div class="cc-opcoes" role="radiogroup" aria-label="Visibilidade">
+                        <label><input type="radio" name="vis" value="privada" checked> Privada</label>
+                        <label id="vis-publica-rot"><input type="radio" name="vis" value="publica"> Pública</label>
+                    </div>
+                    <button type="submit" class="btn btn--special" id="bt-salvar">Salvar criatura</button>
+                    <span class="estado" id="estado" role="status"></span>
+                </div>
+            </form>
+
+            <aside class="cc-previa" aria-label="Prévia da ficha">
+                <p class="rot">Prévia da ficha</p>
+                <div id="previa"></div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="js/menu.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bestiario.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+        const B = WNJBest, esc = B.esc;
+        $('#link-regras').href = 'viewer.html?file=contents/bestiario/Monstro.md';
+        await WNJ.pronto();
+
+        const params = new URLSearchParams(location.search);
+        let fonteOriginal = params.get('fonte') || 'privada';
+        let sujo = false;
+        let c = B.nova();
+        if (params.get('id')) {
+            const lida = await B.ler(params.get('id'), fonteOriginal);
+            if (lida) { c = Object.assign(B.nova(), lida); $('#titulo').textContent = 'Editar criatura'; document.title = 'Editar ' + c.nome + ' — Luxsandoria'; }
+            else $('#estado').textContent = 'Criatura não encontrada. Começando uma nova.';
+        }
+        if (c.deslocamento == null) c.deslocamento = 9;
+
+        // ---------- opções fixas ----------
+        $('#papel').innerHTML = B.PAPEIS.map(([v, t]) => '<option value="' + v + '">' + t + '</option>').join('');
+        const opRanks = Object.keys(B.RANKS).map(Number).sort((a, b) => b - a).map(r => '<option value="' + r + '">Rank ' + r + ' ' + B.RANKS[r] + '</option>').join('');
+        $('#teto').innerHTML = opRanks;
+        $('#ref-rank').innerHTML = opRanks;
+        $('#presets').innerHTML = B.PRESETS.map((p, i) => '<button type="button" class="btn btn--secondary" data-preset="' + i + '">+ ' + esc(p.nome) + '</button>').join('') +
+            '<button type="button" class="btn btn--ghost" data-add="ataques">+ Ataque próprio</button>';
+
+        let tipos = await B.todosTipos();
+        function montarTipos() {
+            if (c.tipo && !tipos.includes(c.tipo)) tipos.push(c.tipo);
+            $('#tipo').innerHTML = tipos.map(t => '<option' + (t === c.tipo ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '<option value="__novo">+ Novo tipo…</option>';
+        }
+        montarTipos();
+
+        // ---------- preencher campos simples ----------
+        $$('[data-c]').forEach(el => {
+            const v = c[el.dataset.c];
+            if (el.type === 'radio') el.checked = String(v) === el.value;
+            else el.value = v == null ? '' : v;
+        });
+        $$('[data-s]').forEach(el => { const v = (c.sobrescritas || {})[el.dataset.s]; el.value = v == null ? '' : v; });
+        $('#atrs').innerHTML = B.ATRS.map(a => '<label style="--c:' + a.cor + '">' + a.nome +
+            '<input type="number" min="-3" max="20" data-atr="' + a.id + '" value="' + (+(c.atributos || {})[a.id] || 0) + '" inputmode="numeric"></label>').join('');
+        if (c.publica) document.querySelector('input[name="vis"][value="publica"]').checked = true;
+        mostrarImg();
+
+        // ---------- listas ----------
+        const ATR_OPTS = (sel) => B.ATRS.map(a => '<option value="' + a.id + '"' + (a.id === sel ? ' selected' : '') + '>' + a.nome + '</option>').join('');
+        function renderListas() {
+            $('#lista-ataques').innerHTML = c.ataques.map((a, i) =>
+                '<div class="cc-item"><div class="cc-item-topo"><label>Nome<input type="text" data-l="ataques" data-i="' + i + '" data-k="nome" value="' + esc(a.nome) + '"></label>' +
+                '<button type="button" class="cc-x" data-rm="ataques" data-i="' + i + '" aria-label="Remover ataque" title="Remover">✕</button></div>' +
+                '<div class="cc-linha"><label>Dado<select data-l="ataques" data-i="' + i + '" data-k="dado" data-num>' + [4, 6, 8, 10, 12].map(n => '<option value="' + n + '"' + (n === +a.dado ? ' selected' : '') + '>d' + n + '</option>').join('') + '</select></label>' +
+                '<label>Atributo de dano<select data-l="ataques" data-i="' + i + '" data-k="atr">' + ATR_OPTS(a.atr) + '</select></label>' +
+                '<label>Atributo do teste<select data-l="ataques" data-i="' + i + '" data-k="atrAtaque">' + ATR_OPTS(a.atrAtaque || 'tecnica') + '</select></label></div>' +
+                '<label>Observação<input type="text" data-l="ataques" data-i="' + i + '" data-k="obs" value="' + esc(a.obs || '') + '"></label></div>').join('') ||
+                '<p class="ajuda">Nenhum ataque. Use os modelos acima ou crie um próprio.</p>';
+            $('#lista-poderes').innerHTML = c.poderes.map((p, i) =>
+                '<div class="cc-item"><div class="cc-item-topo"><label>Nome<input type="text" data-l="poderes" data-i="' + i + '" data-k="nome" value="' + esc(p.nome) + '"></label>' +
+                '<button type="button" class="cc-x" data-rm="poderes" data-i="' + i + '" aria-label="Remover poder" title="Remover">✕</button></div>' +
+                '<div class="cc-linha"><label>Estágio<select data-l="poderes" data-i="' + i + '" data-k="estagio" data-num>' + [1, 2, 3, 4].map(n => '<option value="' + n + '"' + (n === +p.estagio ? ' selected' : '') + '>' + n + '</option>').join('') + '</select></label>' +
+                '<label>Custo (Magículas; 0 = passivo)<input type="number" min="0" data-l="poderes" data-i="' + i + '" data-k="custo" data-num value="' + esc(p.custo || 0) + '"></label></div>' +
+                '<label>Efeito<textarea data-l="poderes" data-i="' + i + '" data-k="efeito">' + esc(p.efeito || '') + '</textarea></label></div>').join('');
+            $('#lista-loot').innerHTML = c.loot.map((l, i) =>
+                '<div class="cc-item"><div class="cc-item-topo"><label>Item<input type="text" data-l="loot" data-i="' + i + '" data-k="item" value="' + esc(l.item) + '"></label>' +
+                '<button type="button" class="cc-x" data-rm="loot" data-i="' + i + '" aria-label="Remover item" title="Remover">✕</button></div>' +
+                '<div class="cc-linha"><label>Tipo<select data-l="loot" data-i="' + i + '" data-k="tag">' + B.TAGS.map(t => '<option value="' + t.id + '"' + (t.id === l.tag ? ' selected' : '') + '>' + t.nome + '</option>').join('') + '</select></label>' +
+                '<label>Chance (%)<input type="number" min="0" max="100" data-l="loot" data-i="' + i + '" data-k="chance" data-num value="' + esc(l.chance) + '"></label></div>' +
+                '<label>Observação<input type="text" data-l="loot" data-i="' + i + '" data-k="obs" value="' + esc(l.obs || '') + '" placeholder="Ex.: coleta com Sobrevivência"></label></div>').join('');
+        }
+
+        // ---------- cálculo ao vivo ----------
+        function atualizar() {
+            const k = B.calcular(c);
+            $('#nucleo').innerHTML = [
+                ['Rank', k.rank + ' ' + k.nomeRank], ['Dado de Rank', 'd' + k.dr], ['ER', k.er],
+                ['Poderes', c.poderes.length + ' / ' + k.poderesMax], ['Estágio máx.', k.estagioMax],
+                ['Próximo patamar', k.proximo ? k.proximo.min + ' (R' + k.proximo.rank + ')' : (k.noTeto ? 'teto da espécie' : 'Rank máximo')]
+            ].concat(k.monstro ? [['Voracidade', k.gv]] : []).map(([r, v]) => '<div>' + r + '<b>' + esc(v) + '</b></div>').join('');
+            const p = $('#pontos');
+            p.textContent = 'Pontos usados: ' + k.usados + ' de ' + k.pontos + (k.usados > k.pontos ? '. Acima do que o núcleo permite (vale como sobrescrita do Mestre).' : '.');
+            p.classList.toggle('erro', k.usados > k.pontos);
+            $('#poderes-ajuda').textContent = 'Este núcleo comporta ' + k.poderesMax + ' poder(es), até o Estágio ' + k.estagioMax + '.' +
+                (c.poderes.length > k.poderesMax ? ' Há poderes a mais.' : '') +
+                (c.poderes.some(x => +x.estagio > k.estagioMax) ? ' Há poder acima do estágio permitido.' : '');
+            $('[data-s="vida"]').placeholder = 'sugestão ' + k.sug.vida;
+            $('[data-s="ca"]').placeholder = 'sugestão ' + k.sug.ca;
+            $('[data-s="cd"]').placeholder = 'sugestão ' + k.sug.cd;
+            $('#ref-propria').value = +(c.atributos.mana || 0);
+            $('#previa').innerHTML = B.ficha(c);
+        }
+
+        // ---------- eventos ----------
+        const form = $('#form');
+        form.addEventListener('input', (e) => {
+            const el = e.target;
+            const num = (v) => v === '' ? '' : +v;
+            if (el.dataset.c) { c[el.dataset.c] = el.dataset.num != null ? num(el.value) : el.value; }
+            else if (el.dataset.s) { c.sobrescritas = c.sobrescritas || {}; if (el.value === '') delete c.sobrescritas[el.dataset.s]; else c.sobrescritas[el.dataset.s] = +el.value; }
+            else if (el.dataset.atr) { c.atributos[el.dataset.atr] = Math.max(-3, Math.min(20, +el.value || 0)); }
+            else if (el.dataset.l) { c[el.dataset.l][+el.dataset.i][el.dataset.k] = el.dataset.num != null ? num(el.value) : el.value; }
+            else return;
+            sujo = true; atualizar();
+        });
+        form.addEventListener('change', (e) => {
+            if (e.target.type === 'radio' && e.target.dataset.c) { c[e.target.dataset.c] = e.target.value; sujo = true; atualizar(); }
+            if (e.target.id === 'tipo') {
+                const novo = e.target.value === '__novo';
+                $('#tipo-novo-rot').hidden = !novo;
+                if (novo) $('#tipo-novo').focus(); else { c.tipo = e.target.value; atualizar(); }
+            }
+        });
+        $('#tipo-novo').addEventListener('input', (e) => { c.tipo = e.target.value.trim(); atualizar(); });
+        form.addEventListener('click', (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.dataset.preset != null) { const p = B.PRESETS[+b.dataset.preset]; c.ataques.push({ nome: p.nome, dado: p.dado, atr: p.atr, atrAtaque: 'tecnica', obs: p.obs }); }
+            else if (b.dataset.add === 'ataques') c.ataques.push({ nome: 'Ataque', dado: 6, atr: 'corpo', atrAtaque: 'tecnica', obs: '' });
+            else if (b.dataset.add === 'poderes') c.poderes.push({ nome: '', estagio: 1, custo: 0, efeito: '' });
+            else if (b.dataset.add === 'loot') c.loot.push({ item: '', tag: 'outro', chance: 25, obs: '' });
+            else if (b.dataset.rm) c[b.dataset.rm].splice(+b.dataset.i, 1);
+            else return;
+            sujo = true; renderListas(); atualizar();
+        });
+        $('#bt-nascer').onclick = () => {
+            const r = 1 + Math.floor(Math.random() * 6), mana = +(c.atributos.mana || 0);
+            c.magMax = r + mana; $('[data-c="magMax"]').value = c.magMax; sujo = true;
+            $('#ref-resultado').textContent = 'Nascimento: 1d6 [' + r + '] + Mana ' + mana + ' = ' + c.magMax + ' Magículas máximas.';
+            atualizar();
+        };
+        let ultimaRefeicao = null;
+        $('#bt-refeicao').onclick = () => {
+            const r = B.rolarRefeicao(+$('#ref-rank').value, +$('#ref-mana').value || 0, +(c.atributos.mana || 0));
+            ultimaRefeicao = r.total;
+            $('#ref-resultado').innerHTML = esc(r.texto) + ' = <b>' + r.total + '</b> <button type="button" class="btn btn--ghost" id="bt-somar">Somar às Magículas</button>';
+            $('#bt-somar').onclick = () => {
+                c.magMax = (+c.magMax || 0) + ultimaRefeicao; $('[data-c="magMax"]').value = c.magMax; sujo = true;
+                $('#ref-resultado').textContent = '+' + ultimaRefeicao + ' Magículas máximas. Agora: ' + c.magMax + '.';
+                atualizar();
+            };
+        };
+        $('#previa').addEventListener('click', (e) => {
+            if (!e.target.closest('[data-rolar-loot]')) return;
+            e.target.closest('.cf-rolar').querySelector('.cf-resultado').innerHTML = B.htmlLoot(B.rolarLoot(c));
+        });
+
+        // ---------- imagem em HD (mesma regra da ficha de personagem) ----------
+        function mostrarImg() {
+            const i = $('#img-previa');
+            i.hidden = !c.img; $('#img-remover').hidden = !c.img;
+            if (c.img) i.src = B.imgSrc(c);
+        }
+        $('#img-arquivo').onchange = (e) => {
+            const file = e.target.files[0]; if (!file) return;
+            const img = new Image();
+            img.onload = () => {
+                const MAX = 2560;
+                if (Math.max(img.width, img.height) <= MAX && file.size <= 3 * 1024 * 1024) {
+                    const fr = new FileReader(); fr.onload = () => { c.img = fr.result; sujo = true; mostrarImg(); atualizar(); }; fr.readAsDataURL(file); return;
+                }
+                const esc2 = MAX / Math.max(img.width, img.height), cv = document.createElement('canvas');
+                cv.width = Math.round(img.width * esc2); cv.height = Math.round(img.height * esc2);
+                const cx = cv.getContext('2d'); cx.imageSmoothingQuality = 'high'; cx.drawImage(img, 0, 0, cv.width, cv.height);
+                const w = cv.toDataURL('image/webp', 0.95);
+                c.img = w.startsWith('data:image/webp') ? w : cv.toDataURL('image/jpeg', 0.95);
+                sujo = true; mostrarImg(); atualizar();
+            };
+            img.src = URL.createObjectURL(file);
+        };
+        $('#img-remover').onclick = () => { c.img = null; $('#img-arquivo').value = ''; sujo = true; mostrarImg(); atualizar(); };
+
+        // ---------- visibilidade e salvar ----------
+        function atualizarPublicar() {
+            const pode = B.podePublicar();
+            const r = document.querySelector('input[name="vis"][value="publica"]');
+            r.disabled = !pode;
+            $('#vis-publica-rot').title = pode ? 'Publica no Bestiário para todos' : 'Entre com o GitHub (com permissão de edição) para publicar';
+            if (!pode && r.checked) document.querySelector('input[name="vis"][value="privada"]').checked = true;
+            if (!pode && !$('#estado').textContent) $('#estado').textContent = 'Para publicar no Bestiário, entre com o GitHub como editor.';
+        }
+        atualizarPublicar();
+        document.addEventListener('wnj-auth', atualizarPublicar);
+
+        window.addEventListener('beforeunload', (e) => { if (sujo) { e.preventDefault(); e.returnValue = ''; } });
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!String(c.nome || '').trim()) { $('#estado').className = 'estado erro'; $('#estado').textContent = 'Dê um nome à criatura.'; $('[data-c="nome"]').focus(); return; }
+            if (!String(c.tipo || '').trim()) { $('#estado').className = 'estado erro'; $('#estado').textContent = 'Escolha ou crie um Tipo.'; return; }
+            const vis = document.querySelector('input[name="vis"]:checked').value;
+            const bt = $('#bt-salvar'); bt.disabled = true;
+            $('#estado').className = 'estado'; $('#estado').textContent = vis === 'publica' ? 'Publicando no Bestiário…' : 'Salvando…';
+            try {
+                let salva;
+                if (vis === 'publica') salva = await B.publicar(c);
+                else {
+                    if (fonteOriginal === 'publica') { c = Object.assign({}, c, { id: '' }); }   // cópia privada de uma criatura pública
+                    salva = await B.salvarPrivada(c);
+                }
+                sujo = false;
+                location.href = 'criatura.html?id=' + encodeURIComponent(salva.id) + '&fonte=' + vis;
+            } catch (err) {
+                $('#estado').className = 'estado erro'; $('#estado').textContent = 'Não salvei: ' + err.message;
+                bt.disabled = false;
+            }
+        });
+
+        renderListas();
+        atualizar();
+    })();
+    </script>
+</body>
+</html>

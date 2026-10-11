@@ -425,6 +425,19 @@ const WNJ = (() => {
         return c ? copia(c) : null;
     }
 
+    // ---------- DADOS GENÉRICOS (Bestiário e afins) ----------
+    // Mesmo banco dos personagens; sem IndexedDB, cai no localStorage.
+    async function lerDado(chave) {
+        await pronto();
+        if (semBanco) { try { return JSON.parse(localStorage.getItem('wnj_' + chave) || 'null'); } catch (e) { return null; } }
+        return idbLer(chave);
+    }
+    async function gravarDado(chave, valor) {
+        await pronto();
+        if (semBanco) { localStorage.setItem('wnj_' + chave, JSON.stringify(valor)); return; }
+        return idbGravar(chave, valor);
+    }
+
     // ---------- RASCUNHO DA CRIAÇÃO ----------
     // O texto continua no localStorage (o botão "Voltar à criação" lê de lá);
     // a imagem vai para o IndexedDB para não estourar a cota.
@@ -550,6 +563,6 @@ const WNJ = (() => {
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
         paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca, arquivosClasse,
         varrerRecuperaveis, restaurar, pronto, gravado, aoMudar,
-        guardarRascunho, lerRascunho, apagarRascunho
+        guardarRascunho, lerRascunho, apagarRascunho, lerDado, gravarDado
     };
 })();

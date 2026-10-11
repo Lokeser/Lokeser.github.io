@@ -50,6 +50,13 @@
         .marca.criatura { border-color: color-mix(in srgb, var(--success) 60%, transparent); color: var(--success); }
         .especie.exemplo { border-color: var(--gold); }
 
+        .filtros { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+        .filtros input, .filtros select { background: var(--surface-inset); border: 1px solid var(--border); color: var(--text); border-radius: var(--r); padding: 8px 10px; font: 500 .88rem var(--font-ui); min-width: 0; }
+        .filtros input { flex: 1 1 220px; }
+        .especie .capa { aspect-ratio: 16 / 9; margin: calc(var(--sp-5) * -1) calc(var(--sp-5) * -1) 4px; border-radius: var(--r-lg) var(--r-lg) 0 0; overflow: hidden; background: var(--surface-2); }
+        .especie .capa img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; display: block; }
+        .marca.privada { border-style: dashed; }
+        .cat-vazio { grid-column: 1 / -1; color: var(--text-2); padding: var(--sp-5); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); text-align: center; }
         .breve { margin-top: var(--sp-7); padding: var(--sp-5) var(--sp-6); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); color: var(--text-2); font-size: var(--step--1); line-height: 1.6; }
         .breve strong { color: var(--text); }
 
@@ -104,17 +111,25 @@
         </section>
 
         <section class="bloco" aria-labelledby="t-catalogo">
-            <div class="bloco-cab"><h2 id="t-catalogo">Catálogo</h2><span>Espécies e fichas registradas</span></div>
+            <div class="bloco-cab"><h2 id="t-catalogo">Catálogo</h2><span id="cat-conta">Carregando…</span>
+                <a class="btn btn--special" href="../../criador-criatura.html" style="margin-left:auto">+ Criar criatura</a></div>
+            <div class="filtros" role="search">
+                <input type="search" id="f-busca" placeholder="Buscar por nome" aria-label="Buscar criatura por nome">
+                <select id="f-natureza" aria-label="Filtrar por natureza"><option value="">Criaturas e monstros</option><option value="criatura">Só criaturas</option><option value="monstro">Só monstros</option></select>
+                <select id="f-reino" aria-label="Filtrar por reino"><option value="">Todos os reinos</option><option value="animal">Animal</option><option value="etereo">Etéreo</option></select>
+                <select id="f-tipo" aria-label="Filtrar por tipo"><option value="">Todos os tipos</option></select>
+                <select id="f-vis" aria-label="Filtrar por visibilidade"><option value="">Públicas e privadas</option><option value="publica">Só públicas</option><option value="privada">Só as minhas privadas</option></select>
+            </div>
+            <div class="catalogo" id="catalogo"></div>
+        </section>
+
+        <section class="bloco" aria-labelledby="t-especies">
+            <div class="bloco-cab"><h2 id="t-especies">Espécies nas regras</h2><span>Descritas no documento de Monstros e Criaturas</span></div>
             <div class="catalogo">
-                <a class="especie exemplo" href="../../viewer.html?file=contents/bestiario/criaturas/Goblin_das_Brasas.md">
-                    <h3>Goblin das Brasas</h3>
-                    <p>Bando que cresceu ao pé de um vulcão. Ficha completa, com núcleo, combate, poderes e loot.</p>
-                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Rank 9</span><span class="marca">Goblinoide</span><span class="marca">Ficha de exemplo</span></div>
-                </a>
                 <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
                     <h3>Animais Deceris</h3>
                     <p>Raposas, cachorros, insetos: tudo o que existe no nosso mundo. O núcleo nunca passa do Rank 10.</p>
-                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Teto: Rank 10</span><span class="marca">Besta</span></div>
+                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Teto: Rank 10</span></div>
                 </a>
                 <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
                     <h3>Goblins</h3>
@@ -124,14 +139,51 @@
                 <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
                     <h3>Orcs</h3>
                     <p>Carregam o Desejo Voraz no sangue, e o couro deles resiste à magia.</p>
-                    <div class="marcas"><span class="marca monstro">Monstro</span><span class="marca">Besta</span></div>
+                    <div class="marcas"><span class="marca monstro">Monstro</span></div>
                 </a>
             </div>
         </section>
-
-        <p class="breve"><strong>Em breve: o criador de criaturas.</strong> Você vai montar uma criatura pelo site (núcleo, atributos, poderes e tabela de loot), escolher se ela fica <strong>pública</strong>, no Bestiário para todos, ou <strong>privada</strong>, só para você, e registrar Tipos novos na hora.</p>
     </main>
 
     <script src="../../js/menu.js"></script>
+    <script src="../../js/sistema.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/bestiario.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s);
+        const B = WNJBest, esc = B.esc;
+        const PAPEL = Object.fromEntries(B.PAPEIS);
+        let lista = [];
+        async function carregar() {
+            await WNJ.pronto();
+            const [cat, priv] = await Promise.all([B.catalogo(), B.privadas()]);
+            lista = cat.criaturas.map(x => Object.assign({ fonte: 'publica' }, x))
+                .concat(priv.map(c => Object.assign({ fonte: 'privada', rank: B.calcular(c).rank, resumo: String(c.descricao || '').split('\n')[0].slice(0, 160) }, c)));
+            const tipos = [...new Set(lista.map(x => x.tipo).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+            $('#f-tipo').innerHTML = '<option value="">Todos os tipos</option>' + tipos.map(t => '<option>' + esc(t) + '</option>').join('');
+            render();
+        }
+        function render() {
+            const q = $('#f-busca').value.trim().toLowerCase(), nat = $('#f-natureza').value, reino = $('#f-reino').value, tipo = $('#f-tipo').value, vis = $('#f-vis').value;
+            const vis_ = lista.filter(x => (!q || String(x.nome).toLowerCase().includes(q)) && (!nat || x.natureza === nat) && (!reino || x.reino === reino) && (!tipo || x.tipo === tipo) && (!vis || x.fonte === vis))
+                .sort((a, b) => (b.rank - a.rank) || String(a.nome).localeCompare(String(b.nome), 'pt-BR'));
+            const nPriv = lista.filter(x => x.fonte === 'privada').length;
+            $('#cat-conta').textContent = lista.length + (lista.length === 1 ? ' criatura' : ' criaturas') + (nPriv ? ', ' + nPriv + ' privada(s) neste navegador' : '');
+            $('#catalogo').innerHTML = vis_.map(x =>
+                '<a class="especie" href="../../criatura.html?id=' + encodeURIComponent(x.id) + '&fonte=' + x.fonte + '">' +
+                (x.img ? '<div class="capa"><img src="' + esc(B.imgSrc(x)) + '" alt="" loading="lazy"></div>' : '') +
+                '<h3>' + esc(x.nome) + '</h3><p>' + esc(x.resumo || '') + '</p><div class="marcas">' +
+                '<span class="marca ' + (x.natureza === 'monstro' ? 'monstro">Monstro' : 'criatura">Criatura') + '</span>' +
+                '<span class="marca">Rank ' + esc(x.rank) + '</span><span class="marca">' + esc(x.tipo || '') + '</span>' +
+                '<span class="marca">' + esc(PAPEL[x.papel] || '') + '</span>' + (x.fonte === 'privada' ? '<span class="marca privada">Privada</span>' : '') +
+                '</div></a>').join('') ||
+                '<p class="cat-vazio">' + (lista.length ? 'Nenhuma criatura com esses filtros.' : 'O catálogo está vazio. Crie a primeira criatura.') + '</p>';
+        }
+        ['f-busca', 'f-natureza', 'f-reino', 'f-tipo', 'f-vis'].forEach(id => $('#' + id).addEventListener('input', render));
+        document.addEventListener('wnj-auth', carregar);
+        carregar();
+    })();
+    </script>
 </body>
 </html>

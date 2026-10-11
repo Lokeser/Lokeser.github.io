@@ -270,7 +270,7 @@ Goblins são **criaturas**, não monstros. Vieram dos **Elfos** e não sentem o 
 São criaturas sujas, mas **extremamente adaptáveis à mana**, herança do sangue élfico. A memória de sabor age forte neles: um bando que vive perto de um vulcão vira um bando de goblins de fogo em poucas gerações. Por isso existem **goblins de todos os elementos**.
 
 * Reino **Animal**, Tipo **Goblinoide**.
-* Veja um exemplo completo em [Goblin das Brasas](viewer.html?file=contents/bestiario/criaturas/Goblin_das_Brasas.md).
+* Veja um exemplo completo em [Goblin das Brasas](criatura.html?id=goblin_das_brasas&fonte=publica).
 
 ### Orcs
 
@@ -282,7 +282,7 @@ Orcs são **monstros**: carregam o Desejo Voraz no sangue. O couro deles resiste
 
 ## 12. Ficha de uma criatura
 
-Toda criatura do Bestiário é descrita com estes campos:
+O [Criador de Criaturas](criador-criatura.html) monta a ficha e faz as contas desta página sozinho. Toda criatura do Bestiário é descrita com estes campos:
 
 * **Nome**, **Reino**, **Tipo**, **Criatura ou Monstro**
 * **Teto de Núcleo** (o Rank máximo da espécie)

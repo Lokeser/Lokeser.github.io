@@ -1,0 +1,34 @@
+{
+  "id": "goblin_das_brasas",
+  "nome": "Goblin das Brasas",
+  "img": null,
+  "reino": "animal",
+  "tipo": "Goblinoide",
+  "natureza": "criatura",
+  "teto": 6,
+  "magMax": 46,
+  "papel": "padrao",
+  "deslocamento": 9,
+  "habitat": "Encostas vulcânicas, minas abandonadas, cavernas quentes.",
+  "descricao": "Um bando que cresceu ao pé de um vulcão adormecido. Três gerações comendo lagartos de lava e o fogo já mora na garganta deles.\n\nA memória de sabor fez o resto: a pele ficou cinzenta e quente ao toque, e os mais velhos cospem brasas quando gritam.",
+  "comportamento": "Andam em bandos de 4 a 8, liderados pelo goblin mais velho, que costuma ter a maior Sabedoria do grupo. Preferem emboscar em túneis estreitos, onde o cone de brasas acerta vários alvos.\n\nFogem quando o líder cai, e negociam se o grupo carregar comida ou cristais.",
+  "atributos": { "corpo": 0, "tecnica": 2, "intelecto": 1, "carisma": 0, "sabedoria": 1, "mana": 2 },
+  "sobrescritas": {},
+  "ataques": [
+    { "nome": "Faca de osso", "dado": 4, "atr": "tecnica", "atrAtaque": "tecnica", "obs": "Arma leve." },
+    { "nome": "Garras", "dado": 6, "atr": "tecnica", "atrAtaque": "tecnica", "obs": "Arma leve: funciona mesmo Agarrado." }
+  ],
+  "poderes": [
+    { "nome": "Brasa na Garganta", "estagio": 1, "custo": 2, "efeito": "Como ação padrão, cospe brasas num cone de 3m. Quem estiver no cone testa Técnica contra a CD Mágica. Na falha, sofre ERd6 + Mana de dano de fogo; no sucesso, metade." },
+    { "nome": "Pele de Cinza", "estagio": 1, "custo": 0, "efeito": "Resistência I contra dano de fogo." }
+  ],
+  "loot": [
+    { "item": "Glândula de Brasa", "tag": "consumivel", "chance": 35, "obs": "Coleta: Sobrevivência CD 38 (Médio do Rank 9)." },
+    { "item": "Faca de osso", "tag": "arma", "chance": 60, "obs": "ERd4 + Técnica." },
+    { "item": "Bolsa de bugigangas", "tag": "outro", "chance": 25, "obs": "1d6 moedas e um objeto curioso." },
+    { "item": "Pedra Ígnea", "tag": "artefato", "chance": 8, "obs": "Incomum. Mantém o calor por uma semana." }
+  ],
+  "publica": true,
+  "autor": "Lokeser",
+  "atualizado": "2026-10-11T12:00:00.000Z"
+}

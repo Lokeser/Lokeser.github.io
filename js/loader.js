@@ -58,7 +58,8 @@ const SECOES = {
     'classes':     ['Classes',     'contents/classes/classes_menu.html'],
     'magias':      ['Magias',      'contents/magias/magias_menu.html'],
     'habilidades': ['Habilidades', 'contents/habilidades/habilidades_menu.html'],
-    'galeria':     ['Galeria',     'contents/galeria/galeria_menu.html']
+    'galeria':     ['Galeria',     'contents/galeria/galeria_menu.html'],
+    'bestiario':   ['Bestiário',   'contents/bestiario/bestiario_menu.html']
 };
 // Dentro de Magias, "voltar" leva ao menu da fonte de onde o arquivo veio
 const FONTES_MAGIA = {

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiário — Luxsandoria</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); }
+        .bst { max-width: 1120px; margin: 0 auto; padding: var(--sp-7) clamp(14px, 4vw, 32px) var(--sp-8); }
+
+        .bst-topo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--sp-6); align-items: end; padding-bottom: var(--sp-6); border-bottom: 1px solid var(--border); }
+        .bst-topo h1 { font-family: var(--font-display); color: var(--gold); font-size: var(--step-4); margin: 0 0 var(--sp-3); line-height: 1.05; }
+        .bst-topo p { color: var(--text-2); font-family: var(--font-text); font-size: var(--step-0); line-height: 1.6; margin: 0; max-width: 56ch; }
+        .bst-topo blockquote { margin: 0; padding: var(--sp-4) var(--sp-5); border-left: 2px solid var(--gold); font-family: var(--font-text); font-style: italic; color: var(--text); line-height: 1.6; background: var(--surface); border-radius: 0 var(--r) var(--r) 0; }
+
+        .bloco { margin-top: var(--sp-7); }
+        .bloco-cab { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-4); flex-wrap: wrap; }
+        .bloco-cab h2 { font-family: var(--font-display); font-size: var(--step-2); margin: 0; color: var(--text); }
+        .bloco-cab span { color: var(--text-2); font-size: var(--step--1); }
+
+        /* Leitura principal: o documento de regras */
+        .tomo { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: var(--sp-5); align-items: center; padding: var(--sp-5) var(--sp-6);
+                background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-lg); text-decoration: none; color: var(--text);
+                transition: border-color var(--t) var(--ease), translate var(--t) var(--ease); }
+        .tomo:hover { border-color: var(--gold); translate: 0 -2px; color: var(--text); }
+        .tomo svg { width: 96px; height: 96px; color: var(--gold); }
+        .tomo h3 { font-family: var(--font-display); font-size: var(--step-2); margin: 0 0 6px; }
+        .tomo p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.55; }
+        .tomo .ir { color: var(--gold); font-weight: 700; font-size: var(--step--1); white-space: nowrap; }
+
+        /* Reinos */
+        .reinos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); }
+        .reino { padding: var(--sp-5); border-radius: var(--r-lg); border: 1px solid var(--border); background: var(--surface); }
+        .reino h3 { font-family: var(--font-display); margin: 0 0 6px; font-size: var(--step-1); display: flex; align-items: center; gap: 10px; }
+        .reino h3 svg { width: 26px; height: 26px; color: var(--gold); }
+        .reino p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.55; }
+
+        /* Catálogo */
+        .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: var(--sp-4); }
+        .especie { position: relative; display: flex; flex-direction: column; gap: 8px; padding: var(--sp-5); border-radius: var(--r-lg); border: 1px solid var(--border);
+                   background: var(--surface); text-decoration: none; color: var(--text); transition: border-color var(--t) var(--ease); }
+        .especie:hover { border-color: var(--gold); color: var(--text); }
+        .especie h3 { font-family: var(--font-display); font-size: var(--step-1); margin: 0; }
+        .especie p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.5; }
+        .marcas { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+        .marca { font-size: .74rem; font-weight: 700; border-radius: 6px; padding: 2px 8px; border: 1px solid var(--border-strong); color: var(--text-2); }
+        .marca.monstro { border-color: color-mix(in srgb, var(--error) 60%, transparent); color: var(--error); }
+        .marca.criatura { border-color: color-mix(in srgb, var(--success) 60%, transparent); color: var(--success); }
+        .especie.exemplo { border-color: var(--gold); }
+
+        .breve { margin-top: var(--sp-7); padding: var(--sp-5) var(--sp-6); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); color: var(--text-2); font-size: var(--step--1); line-height: 1.6; }
+        .breve strong { color: var(--text); }
+
+        @media (max-width: 760px) {
+            .bst-topo, .reinos { grid-template-columns: minmax(0, 1fr); }
+            .tomo { grid-template-columns: minmax(0, 1fr); text-align: left; }
+            .tomo svg { width: 56px; height: 56px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="bst">
+        <header class="bst-topo">
+            <div>
+                <h1>Bestiário</h1>
+                <p>As criaturas mágicas e os monstros de Luxsandoria: de onde vêm, como crescem devorando umas às outras e o que deixam quando caem.</p>
+            </div>
+            <blockquote>"Uma pessoa refina o próprio núcleo até ele virar uma obra. Uma criatura não refina nada: ela come, e o que comeu passa a fazer parte dela."</blockquote>
+        </header>
+
+        <section class="bloco" aria-labelledby="t-regras">
+            <div class="bloco-cab"><h2 id="t-regras">Comece por aqui</h2><span>As regras valem para toda criatura do Bestiário</span></div>
+            <a class="tomo" href="../../viewer.html?file=contents/bestiario/Monstro.md">
+                <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M48 10l30 17v34L48 86 18 61V27z"/>
+                    <path d="M48 26l16 9v18L48 70 32 53V35z" opacity=".75"/>
+                    <path d="M48 10v16M78 27l-14 8M78 61l-14-8M48 86V70M18 61l14-8M18 27l14 8" opacity=".55"/>
+                    <circle cx="48" cy="48" r="5"/>
+                </svg>
+                <div>
+                    <h3>Monstros e Criaturas</h3>
+                    <p>Pessoas e as duas Calamidades, o Núcleo de Monstro e por que ele cristaliza, o Desejo Voraz, como uma criatura cresce comendo, combate, poderes, loot e companheiros.</p>
+                </div>
+                <span class="ir">Ler as regras</span>
+            </a>
+        </section>
+
+        <section class="bloco" aria-labelledby="t-reinos">
+            <div class="bloco-cab"><h2 id="t-reinos">Reinos</h2><span>Do que o corpo da criatura é feito</span></div>
+            <div class="reinos">
+                <div class="reino">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><ellipse cx="12" cy="15.5" rx="4.2" ry="3.6"/><circle cx="6" cy="10" r="1.8"/><circle cx="18" cy="10" r="1.8"/><circle cx="9.5" cy="6" r="1.8"/><circle cx="14.5" cy="6" r="1.8"/></svg>Animal</h3>
+                    <p>Carne, osso e sangue com o núcleo dentro. Ao morrer, deixa o corpo, as partes que podem ser coletadas e o Cristal de Núcleo.</p>
+                </div>
+                <div class="reino">
+                    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3c4 3 6 6.5 6 10a6 6 0 01-12 0c0-3.5 2-7 6-10z"/><path d="M9 14c1 1.5 2 2 3 2s2-.5 3-2" opacity=".7"/></svg>Etéreo</h3>
+                    <p>Mana condensada, sem carne: o núcleo é o corpo. Não sangra, não respira, não adoece. Ao morrer, só resta um cristal maior e mais puro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bloco" aria-labelledby="t-catalogo">
+            <div class="bloco-cab"><h2 id="t-catalogo">Catálogo</h2><span>Espécies e fichas registradas</span></div>
+            <div class="catalogo">
+                <a class="especie exemplo" href="../../viewer.html?file=contents/bestiario/criaturas/Goblin_das_Brasas.md">
+                    <h3>Goblin das Brasas</h3>
+                    <p>Bando que cresceu ao pé de um vulcão. Ficha completa, com núcleo, combate, poderes e loot.</p>
+                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Rank 9</span><span class="marca">Goblinoide</span><span class="marca">Ficha de exemplo</span></div>
+                </a>
+                <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
+                    <h3>Animais Deceris</h3>
+                    <p>Raposas, cachorros, insetos: tudo o que existe no nosso mundo. O núcleo nunca passa do Rank 10.</p>
+                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Teto: Rank 10</span><span class="marca">Besta</span></div>
+                </a>
+                <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
+                    <h3>Goblins</h3>
+                    <p>Vieram dos Elfos e não sentem o Desejo Voraz. Adaptáveis à mana, existem de todos os elementos.</p>
+                    <div class="marcas"><span class="marca criatura">Criatura</span><span class="marca">Goblinoide</span></div>
+                </a>
+                <a class="especie" href="../../viewer.html?file=contents/bestiario/Monstro.md">
+                    <h3>Orcs</h3>
+                    <p>Carregam o Desejo Voraz no sangue, e o couro deles resiste à magia.</p>
+                    <div class="marcas"><span class="marca monstro">Monstro</span><span class="marca">Besta</span></div>
+                </a>
+            </div>
+        </section>
+
+        <p class="breve"><strong>Em breve: o criador de criaturas.</strong> Você vai montar uma criatura pelo site (núcleo, atributos, poderes e tabela de loot), escolher se ela fica <strong>pública</strong>, no Bestiário para todos, ou <strong>privada</strong>, só para você, e registrar Tipos novos na hora.</p>
+    </main>
+
+    <script src="../../js/menu.js"></script>
+</body>
+</html>

@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <div class="conta-grupo">
                             <p class="conta-rotulo">Universo</p>
+                            <a class="conta-item" href="${finalPrefix}contents/bestiario/bestiario_menu.html">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7.5 4.3v9.4L12 21l-7.5-4.3V7.3z"/><path d="M12 8l3.5 2v4L12 16l-3.5-2v-4z"/></svg>
+                                Bestiário
+                            </a>
                             <a class="conta-item" href="${finalPrefix}eras.html">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M12 7.2v5.2l3.3 2"/></svg>
                                 Eras

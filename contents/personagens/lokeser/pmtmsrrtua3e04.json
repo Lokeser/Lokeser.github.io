@@ -12,11 +12,11 @@
   "estrela": 1,
   "atributos": {
     "corpo": 0,
-    "tecnica": 2,
+    "tecnica": 0,
     "intelecto": 1,
     "carisma": 4,
     "sabedoria": 2,
-    "mana": 5
+    "mana": 4
   },
   "vidaAtual": 20,
   "vidaMaxManual": 131,
@@ -256,7 +256,7 @@
   },
   "titulo": "Sacerdotisa da Flor Solar",
   "tituloArtigo": "A",
-  "atualizado": "2026-10-11T04:53:53.932Z",
+  "atualizado": "2026-10-11T06:14:07.040Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

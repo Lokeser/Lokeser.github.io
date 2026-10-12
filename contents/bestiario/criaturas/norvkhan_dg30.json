@@ -19,7 +19,11 @@
     "sabedoria": 6,
     "mana": 7
   },
-  "sobrescritas": {},
+  "sobrescritas": {
+    "vida": 2500,
+    "ca": 39,
+    "cd": 38
+  },
   "ataques": [
     {
       "nome": "Garras",
@@ -59,7 +63,7 @@
     }
   ],
   "publica": true,
-  "deslocamento": 9,
-  "atualizado": "2026-10-12T18:33:58.302Z",
+  "deslocamento": 30,
+  "atualizado": "2026-10-12T18:34:55.997Z",
   "autor": "Lokeser"
 }

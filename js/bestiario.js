@@ -122,10 +122,9 @@ const WNJBest = (() => {
     function ficha(c) {
         const k = calcular(c);
         const a = c.atributos || {};
-        const s = c.sobrescritas || {};
         const marca = (txt, cls) => '<span class="cf-marca' + (cls ? ' ' + cls : '') + '">' + esc(txt) + '</span>';
-        const val = (rot, v, sugerido, def) => '<div class="cf-val"><span class="r">' + rot + '</span><b>' + esc(v) + '</b>' +
-            (def ? '<small>definido (sugestão ' + esc(sugerido) + ')</small>' : '') + '</div>';
+        // A ficha mostra só o valor final; a sugestão aparece apenas no criador
+        const val = (rot, v) => '<div class="cf-val"><span class="r">' + rot + '</span><b>' + esc(v) + '</b></div>';
         const ataques = (c.ataques || []).map(at => {
             const atr = +a[at.atr] || 0, atrA = +a[at.atrAtaque || 'tecnica'] || 0;
             const voraz = k.monstro ? ' + ' + k.gv + ' (Mordida Voraz)' : '';
@@ -154,8 +153,7 @@ const WNJBest = (() => {
                     val('Poderes', (c.poderes || []).length + ' / ' + k.poderesMax) + val('Estágio máx.', k.estagioMax) +
                 '</div>' + (k.noTeto ? '<p class="cf-aviso">O núcleo chegou ao teto da espécie: comer mais não sobe o Rank.</p>' : '') + '</section>' +
                 '<section class="cf-bloco"><h2>Combate</h2><div class="cf-vals">' +
-                    val('Vida', k.vida, k.sug.vida, s.vida != null && s.vida !== '') + val('CA', k.ca, k.sug.ca, s.ca != null && s.ca !== '') +
-                    val('CD Mágica', k.cd, k.sug.cd, s.cd != null && s.cd !== '') + val('Deslocamento', (c.deslocamento || 9) + 'm') +
+                    val('Vida', k.vida) + val('CA', k.ca) + val('CD Mágica', k.cd) + val('Deslocamento', (c.deslocamento || 9) + 'm') +
                 '</div></section>' +
             '</div>' +
             '<section class="cf-bloco"><h2>Atributos</h2><div class="cf-atrs">' + ATRS.map(x =>

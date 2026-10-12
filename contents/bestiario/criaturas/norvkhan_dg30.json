@@ -1,7 +1,7 @@
 {
   "id": "norvkhan_dg30",
   "nome": "Norvkhan",
-  "img": null,
+  "img": "contents/bestiario/criaturas/img/norvkhan_dg30.png",
   "reino": "animal",
   "tipo": "Besta",
   "natureza": "criatura",
@@ -60,6 +60,6 @@
   ],
   "publica": true,
   "deslocamento": 9,
-  "atualizado": "2026-10-12T18:33:11.464Z",
+  "atualizado": "2026-10-12T18:33:31.792Z",
   "autor": "Lokeser"
 }

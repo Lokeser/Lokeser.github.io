@@ -14,7 +14,7 @@
     "corpo": 1,
     "tecnica": 1,
     "intelecto": 1,
-    "carisma": 9,
+    "carisma": 10,
     "sabedoria": 2,
     "mana": 11
   },
@@ -229,7 +229,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-12T01:53:55.481Z",
+  "atualizado": "2026-10-12T01:54:07.900Z",
   "vidaMagicaAtual": 75,
   "dono": "Lokeser.github.io",
   "vidaMagicaMax": 75,

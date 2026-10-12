@@ -12,6 +12,18 @@
       "img": null,
       "resumo": "Um bando que cresceu ao pé de um vulcão adormecido. Três gerações comendo lagartos de lava e o fogo já mora na garganta deles.",
       "atualizado": "2026-10-11T12:00:00.000Z"
+    },
+    {
+      "id": "norvkhan_dg30",
+      "nome": "Norvkhan",
+      "reino": "animal",
+      "tipo": "Besta",
+      "natureza": "criatura",
+      "rank": 5,
+      "papel": "padrao",
+      "img": null,
+      "resumo": "Uma armadura negra, com detalhes de um tigre, este ser conta a história de um formidável guerreiro do passado, que pereceu devido a Tinta. E agora, através dela",
+      "atualizado": "2026-10-12T18:33:11.464Z"
     }
   ]
 }

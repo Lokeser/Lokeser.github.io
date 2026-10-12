@@ -1,0 +1,65 @@
+{
+  "id": "norvkhan_dg30",
+  "nome": "Norvkhan",
+  "img": null,
+  "reino": "animal",
+  "tipo": "Besta",
+  "natureza": "criatura",
+  "teto": 3,
+  "magMax": 621,
+  "papel": "padrao",
+  "habitat": "Cavernas da Perdição",
+  "comportamento": "Um bárbaro que ataca tudo que se mexe",
+  "descricao": "Uma armadura negra, com detalhes de um tigre, este ser conta a história de um formidável guerreiro do passado, que pereceu devido a Tinta. E agora, através dela, encontrou proposito novamente dilacerando seus inimigos.",
+  "atributos": {
+    "corpo": 15,
+    "tecnica": 6,
+    "intelecto": -3,
+    "carisma": -2,
+    "sabedoria": 6,
+    "mana": 7
+  },
+  "sobrescritas": {},
+  "ataques": [
+    {
+      "nome": "Garras",
+      "dado": 6,
+      "atr": "tecnica",
+      "atrAtaque": "tecnica",
+      "obs": "Arma leve: funciona mesmo Agarrado."
+    },
+    {
+      "nome": "Espada da Perdição de Tinta",
+      "dado": 12,
+      "atr": "corpo",
+      "atrAtaque": "corpo",
+      "obs": "Causa dano extra em usuários de Mana, o dano extra é equivalente á Mana do usuário"
+    }
+  ],
+  "poderes": [
+    {
+      "nome": "Mão de Tinta",
+      "estagio": 2,
+      "custo": 50,
+      "efeito": "Expele tinta da mão e tinge seus inimigos com a morte."
+    }
+  ],
+  "loot": [
+    {
+      "item": "Espada da Perdição de Tinta",
+      "tag": "artefato",
+      "chance": 100,
+      "obs": "Ela vai tentar te comer"
+    },
+    {
+      "item": "Akarins",
+      "tag": "dinheiro",
+      "chance": 51,
+      "obs": "10000 Akarins"
+    }
+  ],
+  "publica": true,
+  "deslocamento": 9,
+  "atualizado": "2026-10-12T18:33:11.464Z",
+  "autor": "Lokeser"
+}

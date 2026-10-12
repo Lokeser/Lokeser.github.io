@@ -16,14 +16,14 @@
     {
       "id": "norvkhan_dg30",
       "nome": "Norvkhan",
-      "reino": "animal",
-      "tipo": "Besta",
+      "reino": "etereo",
+      "tipo": "Espectral",
       "natureza": "criatura",
       "rank": 5,
-      "papel": "padrao",
+      "papel": "elite",
       "img": "contents/bestiario/criaturas/img/norvkhan_dg30.png",
       "resumo": "Uma armadura negra, com detalhes de um tigre, este ser conta a história de um formidável guerreiro do passado, que pereceu devido a Tinta. E agora, através dela",
-      "atualizado": "2026-10-12T18:33:31.792Z"
+      "atualizado": "2026-10-12T18:33:58.302Z"
     }
   ]
 }

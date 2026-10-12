@@ -9,19 +9,19 @@
   "classeAvancada": "",
   "magia": "Anômala",
   "rank": 8,
-  "estrela": 3,
+  "estrela": 5,
   "atributos": {
     "corpo": 1,
     "tecnica": 1,
     "intelecto": 1,
     "carisma": 9,
     "sabedoria": 2,
-    "mana": 9
+    "mana": 11
   },
-  "vidaAtual": 197,
-  "vidaMaxManual": 197,
-  "magiculasAtual": 127,
-  "magiculasMax": 127,
+  "vidaAtual": 208,
+  "vidaMaxManual": 215,
+  "magiculasAtual": 121,
+  "magiculasMax": 147,
   "arcanaManual": null,
   "caManual": 14,
   "deslocManual": 13,
@@ -206,7 +206,7 @@
     {
       "nome": "Sorte",
       "tag": "outro",
-      "qtd": 3,
+      "qtd": 1,
       "descHTML": "",
       "equipado": false
     }
@@ -229,7 +229,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-04T18:15:00.014Z",
+  "atualizado": "2026-10-12T01:53:55.481Z",
   "vidaMagicaAtual": 75,
   "dono": "Lokeser.github.io",
   "vidaMagicaMax": 75,

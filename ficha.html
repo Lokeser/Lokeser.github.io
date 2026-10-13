@@ -271,9 +271,71 @@
         .rodape-criar .btn-wnj { font-size: 1.05rem; padding: 14px 44px; }
         .aviso-inline { color: var(--text-2); font-size: .8rem; }
 
-        /* Foto maior no modo edição (Usar personagem) */
-        body.modo-edicao .foto-box { flex-basis: 240px; }
-        body.modo-edicao .foto { width: 240px; height: 240px; font-size: 4.4rem; }
+        /* ===== Identidade: foto + escolhas em botões ===== */
+        .foto-col { flex: 0 0 230px; display: grid; gap: 8px; align-content: start; text-align: center; }
+        .foto-col .foto { width: 230px; height: 230px; }
+        .foto-col small { color: var(--text-2); }
+        body.modo-edicao .foto-col { flex-basis: 260px; }
+        body.modo-edicao .foto-col .foto { width: 260px; height: 260px; font-size: 4.4rem; }
+        .ident-campos { flex: 1 1 340px; min-width: 0; }
+        .campo-largo { grid-column: 1 / -1; }
+        .escolhas { display: grid; gap: 8px; margin-top: 4px; }
+        .escolha {
+            display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; cursor: pointer;
+            background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+            border: 1px solid var(--c3); border-left: 3px solid var(--acento, var(--c4)); border-radius: 10px;
+            padding: 7px 10px 7px 7px; color: var(--text); transition: border-color .2s, background .2s, transform .2s;
+        }
+        .escolha:hover { border-color: var(--c4); background: rgba(255,255,255,.09); transform: translateX(2px); }
+        .escolha:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+        .escolha .mini { width: 42px; height: 42px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center;
+            background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.12); font-size: 1.2rem; }
+        .escolha .mini img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+        .escolha .txt { display: grid; min-width: 0; flex: 1; }
+        .escolha .rot { font-size: .7rem; color: var(--text-2); letter-spacing: .04em; }
+        .escolha .val { font-family: 'Cinzel', serif; font-weight: 700; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .escolha .val.vazio { color: var(--text-2); font-family: inherit; font-weight: 500; font-style: italic; }
+        .escolha .seta { color: var(--c4); font-size: 1rem; }
+        .escolha.nova { border-left-color: var(--c4); box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 45%, transparent), 0 0 18px color-mix(in srgb, var(--gold) 22%, transparent); }
+
+        /* ===== Pop-up de cards ===== */
+        .modal-wnj.seletor { max-width: 1120px; width: 100%; max-height: calc(100vh - 40px); display: flex; flex-direction: column; }
+        .seletor-topo { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .seletor-topo h3 { margin: 0; margin-right: auto; user-select: none; }
+        .seletor-topo input { background: rgba(0,0,0,.32); border: 1px solid var(--c2); color: var(--text); border-radius: 8px; padding: 8px 10px; min-width: 0; flex: 0 1 220px; }
+        #seletor-ajuda { margin: 8px 0 12px; }
+        .seletor-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); grid-auto-rows: max-content; gap: 14px; overflow-y: auto; padding: 4px 4px 8px; flex: 1 1 auto; min-height: 0; }
+        .sel-card { position: relative; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden;
+            background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.14); transition: border-color .2s, transform .2s, box-shadow .2s; }
+        .sel-card:hover { border-color: var(--c4); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.4); }
+        .sel-card.atual { border-color: var(--c4); box-shadow: 0 0 0 2px var(--c4); }
+        .sel-card.bloqueada { opacity: .55; }
+        .sel-escolher { all: unset; cursor: pointer; display: flex; flex-direction: column; flex: 1; }
+        .sel-escolher:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+        .sel-arte { aspect-ratio: 3 / 4; background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.08), rgba(0,0,0,.4)); display: grid; place-items: center; font-size: 2.6rem; color: var(--text-2); overflow: hidden; }
+        .sel-arte img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
+        .sel-corpo { padding: 10px 12px 6px; display: grid; gap: 6px; }
+        .sel-nome { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1rem; color: var(--text); line-height: 1.2; }
+        .sel-foco { display: flex; flex-wrap: wrap; gap: 5px; }
+        .sel-foco span { font-size: .7rem; font-weight: 700; border: 1px solid; border-radius: 6px; padding: 1px 7px; }
+        .sel-foco .sec { opacity: .75; border-style: dashed; }
+        .sel-req { font-size: .76rem; color: var(--text-2); line-height: 1.4; }
+        .sel-req strong { color: var(--text); }
+        .sel-selos { position: absolute; top: 8px; left: 8px; display: flex; gap: 4px; flex-wrap: wrap; }
+        .sel-selos span { font-size: .66rem; font-weight: 700; border-radius: 6px; padding: 2px 7px; background: rgba(0,0,0,.72); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+        .sel-pe { display: flex; justify-content: flex-end; padding: 0 10px 10px; }
+        .sel-detalhes { font-size: .74rem; font-weight: 700; color: var(--c4); text-decoration: none; border: 1px solid var(--c3); border-radius: 6px; padding: 3px 9px; }
+        .sel-detalhes:hover { border-color: var(--c4); color: var(--c4); }
+
+        /* ===== Arte do Ki (acima dos poderes) ===== */
+        .ki-arte { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; padding: 10px 14px; border-radius: 10px;
+            border: 1px solid color-mix(in srgb, #ff8a80 55%, transparent); background: rgba(255, 138, 128, .08); }
+        .ki-arte .txt { flex: 1; min-width: 200px; font-size: .9rem; }
+        .ki-arte strong { color: #ff8a80; }
+
+        /* ===== Dados Sagrados ===== */
+        .sagrados { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 10px; margin-top: 6px; font-size: .78rem; text-align: left; }
+        .sagrados b { float: right; }
 
         /* Botão olhinho (ocultar poder) */
         .olho { background: none; border: none; cursor: pointer; font-size: .8rem; opacity: .45; }
@@ -346,27 +408,19 @@
         <section class="secao">
             <div class="secao-titulo">🎭 Identidade</div>
             <div class="identidade">
-                <div class="foto-box">
+                <div class="foto-col">
                     <div class="foto" id="foto" title="Clique para escolher a imagem">🖼️</div>
                     <input type="file" id="foto-input" accept="image/*" style="display:none">
                     <small>Clique para escolher a imagem</small>
+                    <div class="escolhas" id="escolhas"></div>
                 </div>
-                <div style="flex:1 1 340px">
+                <div class="ident-campos">
                     <div class="campos">
-                        <div class="campo"><label>Nome</label><input id="f-nome" placeholder="Ex: Nichole"></div>
-                        <div class="campo"><label>Sobrenome</label><input id="f-sobrenome" placeholder="Ex: Cali"></div>
-                        <div class="campo"><label>Raça</label><select id="f-raca"><option value="">— escolher —</option></select>
-                            <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
-                        </div>
-                        <div class="campo"><label>Classe Inicial</label><select id="f-classe1"><option value="">- escolher -</option></select></div>
-                        <div id="campo-subclasse1" class="campo" style="display:none"><label>Entidade do Pacto</label>
-                            <div id="aviso-subclasse1" class="aviso-subraca" style="display:none"></div>
-                        </div>
-                        <div class="campo"><label>Classe Avançada <span class="aviso-inline" id="aviso-ca">(Rank 8+)</span></label><select id="f-classe2" disabled><option value="">— escolher —</option></select></div>
-                        <div class="campo"><label>Magia</label><select id="f-magia"><option value="">— escolher —</option></select></div>
-                        <div class="campo"><label>Título</label>
+                        <div class="campo"><label for="f-nome">Nome</label><input id="f-nome" placeholder="Ex: Nichole"></div>
+                        <div class="campo"><label for="f-sobrenome">Sobrenome</label><input id="f-sobrenome" placeholder="Ex: Cali"></div>
+                        <div class="campo campo-largo"><label for="f-titulo">Título</label>
                             <div style="display:flex;gap:6px">
-                                <select id="f-titulo-artigo" style="flex:0 0 84px;background:rgba(0,0,0,.32);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:9px 6px">
+                                <select id="f-titulo-artigo" aria-label="Artigo do título" style="flex:0 0 84px;background:rgba(0,0,0,.32);border:1px solid var(--c2);color: var(--text);border-radius:8px;padding:9px 6px">
                                     <option value="">Nada</option>
                                     <option value="O">O</option>
                                     <option value="A">A</option>
@@ -374,6 +428,18 @@
                                 <input id="f-titulo" placeholder="Ex: Espadachim de Fogo" style="flex:1">
                             </div>
                         </div>
+                    </div>
+                    <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
+                    <div id="campo-subclasse1" class="campo" style="display:none;margin-top:10px"><label>Entidade do Pacto</label>
+                        <div id="aviso-subclasse1" class="aviso-subraca" style="display:none"></div>
+                    </div>
+                    <!-- Os seletores de verdade continuam aqui, escondidos: os botões acima preenchem eles -->
+                    <div hidden>
+                        <select id="f-raca"><option value="">— escolher —</option></select>
+                        <select id="f-classe1"><option value="">— escolher —</option></select>
+                        <select id="f-classe2"><option value="">— escolher —</option></select>
+                        <select id="f-magia"><option value="">— escolher —</option></select>
+                        <span id="aviso-ca"></span>
                     </div>
                     <div class="equipados" id="equipados" style="display:none">
                         <div class="rotulo">⚜ Artefatos Equipados</div>
@@ -415,6 +481,7 @@
                     <button class="btn-wnj ouro" id="btn-novo-poder">+ Novo Poder</button>
                 </div>
             </div>
+            <div class="ki-arte" id="ki-arte" hidden></div>
             <div class="filtros" id="filtros-poder" style="margin-bottom:14px"></div>
             <div class="board" id="board-poderes"></div>
         </section>
@@ -539,6 +606,19 @@
                 <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
                 <button class="btn-wnj ouro" id="item-salvar">Salvar Item</button>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL: SELETOR DE CARDS (raça, magia, classes, Arte do Ki) -->
+    <div class="overlay" id="ov-seletor" role="dialog" aria-modal="true" aria-labelledby="seletor-titulo">
+        <div class="modal-wnj seletor">
+            <div class="seletor-topo">
+                <h3 id="seletor-titulo">Escolha</h3>
+                <input type="search" id="seletor-busca" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn-wnj fantasma" data-fechar>Fechar</button>
+            </div>
+            <p class="aviso-inline" id="seletor-ajuda"></p>
+            <div class="seletor-grade" id="seletor-grade"></div>
         </div>
     </div>
 

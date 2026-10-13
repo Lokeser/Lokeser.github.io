@@ -33,7 +33,9 @@ const WNJExport = (() => {
 
     async function baixar(char) {
         const cfg = await WNJ.config();
-        const CORES = {}; cfg.atributos.forEach(a => CORES[a.id] = a.cor);
+        // Mana aparece como Ki, Caos ou Fé conforme a magia
+        const atrs = WNJ.atributosComSkin(cfg.atributos, char.magia);
+        const CORES = {}; atrs.forEach(a => CORES[a.id] = a.cor);
 
         // ---- paleta pela magia (lógica do sistema, inalterada) ----
         const pal = WNJ.paletaMagia(char.magia);
@@ -64,7 +66,7 @@ const WNJExport = (() => {
                 : p.valor + ((char.periciasDelta || {})[p.nome] || 0), // atual (delta)
             cor: CORES[Object.entries(p.pesos).sort((a, b) => b[1] - a[1])[0][0]]
         }));
-        const principais = WNJ.atributosPrincipais(cfg, attrs).filter(Boolean).map(a => ({ nome: a.nome, cor: a.cor }));
+        const principais = WNJ.atributosPrincipais({ atributos: atrs }, attrs).filter(Boolean).map(a => ({ nome: a.nome, cor: a.cor }));
 
         // ---- resistências ----
         const NIVEIS_RES = {
@@ -91,7 +93,9 @@ const WNJExport = (() => {
             paleta: { chave: pal.chave, nome: pal.nome, acentos: pal.acentos, fundo1: pal.fundo1, fundo2: pal.fundo2, animado: pal.animado },
             dr, er, ca, desloc, arcana, vidaMax, magMax,
             attrs, principais, pericias, resistencias, condicoes,
-            atributos: cfg.atributos.map(a => ({ id: a.id, nome: a.nome, cor: a.cor })),
+            atributos: atrs.map(a => ({ id: a.id, nome: a.nome, cor: a.cor })),
+            familiaMagia: (WNJ.skinMagia(char.magia) || {}).familia || 'mana',
+            magiaExibida: WNJ.nomeMagiaExibido(char.magia),
             tagsPoder: cfg.tags_poder, tagsInv: cfg.tags_inventario, maxCargas: cfg.max_cargas || 9
         };
 

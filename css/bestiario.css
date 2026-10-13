@@ -29,6 +29,7 @@
 .cf-atr { text-align: center; border: 1px solid var(--c); border-radius: var(--r); padding: 8px 4px; background: color-mix(in srgb, var(--c) 9%, transparent); }
 .cf-atr span { display: block; font-size: .78rem; font-weight: 700; color: var(--c); }
 .cf-atr b { font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.cf-atr small { display: block; font-size: .7rem; color: var(--text-2); }
 .cf-voraz { border-color: color-mix(in srgb, var(--error) 45%, transparent); }
 .cf-voraz p { margin: 0; line-height: 1.6; }
 .cf-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }

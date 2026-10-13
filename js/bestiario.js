@@ -33,6 +33,10 @@ const WNJBest = (() => {
         { id: 'intelecto', nome: 'Intelecto', cor: '#3a63d2' }, { id: 'carisma', nome: 'Carisma', cor: '#e6c15a' },
         { id: 'sabedoria', nome: 'Sabedoria', cor: '#a86af0' }, { id: 'mana', nome: 'Mana', cor: '#5ec8f0' }
     ];
+    // Fonte de magia da criatura: muda o nome e a cor do atributo de magia
+    const FONTES = [['mana', 'Mana'], ['ki', 'Ki'], ['caos', 'Caos'], ['fe', 'Fé']];
+    const SKIN = { ki: { nome: 'Ki', cor: '#ff8a80' }, caos: { nome: 'Caos', cor: '#7b3fe4' }, fe: { nome: 'Fé', cor: '#fff0a0' } };
+    const atrsDe = (c) => ATRS.map(a => a.id === 'mana' && SKIN[c && c.fonteMagia] ? Object.assign({}, a, SKIN[c.fonteMagia]) : a);
     const PRESETS = [
         { nome: 'Garras', dado: 6, atr: 'tecnica', obs: 'Arma leve: funciona mesmo Agarrado.' },
         { nome: 'Mordida', dado: 8, atr: 'corpo', obs: '' },
@@ -115,7 +119,7 @@ const WNJBest = (() => {
     // ---------- ficha em HTML ----------
     const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
     const paragrafos = (t) => String(t || '').trim().split(/\n{2,}/).filter(Boolean).map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>').join('');
-    const atrNome = (id) => (ATRS.find(a => a.id === id) || { nome: id }).nome;
+    const atrNome = (id, c) => (atrsDe(c).find(a => a.id === id) || { nome: id }).nome;
     const tag = (id) => TAGS.find(t => t.id === id) || TAGS[TAGS.length - 1];
     const imgSrc = (c) => !c.img ? '' : (/^data:/.test(c.img) ? c.img : BASE + c.img);
 
@@ -129,7 +133,7 @@ const WNJBest = (() => {
             const atr = +a[at.atr] || 0, atrA = +a[at.atrAtaque || 'tecnica'] || 0;
             const voraz = k.monstro ? ' + ' + k.gv + ' (Mordida Voraz)' : '';
             return '<li><div class="cf-li-topo"><b>' + esc(at.nome) + '</b><span class="cf-mono">d' + k.dr + ' + ' + (atrA + k.er) + ' para acertar</span></div>' +
-                '<div>Dano <b>' + k.er + 'd' + at.dado + ' + ' + atr + '</b> (ERd' + at.dado + ' + ' + esc(atrNome(at.atr)) + ')' + voraz + '</div>' +
+                '<div>Dano <b>' + k.er + 'd' + at.dado + ' + ' + atr + '</b> (ERd' + at.dado + ' + ' + esc(atrNome(at.atr, c)) + ')' + voraz + '</div>' +
                 (at.obs ? '<div class="cf-obs">' + esc(at.obs) + '</div>' : '') + '</li>';
         }).join('');
         const poderes = (c.poderes || []).map(p =>
@@ -156,8 +160,13 @@ const WNJBest = (() => {
                     val('Vida', k.vida) + val('CA', k.ca) + val('CD Mágica', k.cd) + val('Deslocamento', (c.deslocamento || 9) + 'm') +
                 '</div></section>' +
             '</div>' +
-            '<section class="cf-bloco"><h2>Atributos</h2><div class="cf-atrs">' + ATRS.map(x =>
-                '<div class="cf-atr" style="--c:' + x.cor + '"><span>' + x.nome + '</span><b>' + (+a[x.id] || 0) + '</b></div>').join('') + '</div></section>' +
+            '<section class="cf-bloco"><h2>Atributos</h2><div class="cf-atrs">' + atrsDe(c).map(x => {
+                const v = +a[x.id] || 0;
+                // Caos: testes viram DR + 2dAtributo. Fé: Dados Sagrados = (DR + Fé + atributo) ÷ 2
+                const extra = c.fonteMagia === 'caos' ? (v > 0 ? 'd' + k.dr + ' + 2d' + v : 'só o DR')
+                            : c.fonteMagia === 'fe' ? 'Sagrado ' + Math.ceil((k.dr + (+a.mana || 0) + v) / 2) : '';
+                return '<div class="cf-atr" style="--c:' + x.cor + '"><span>' + esc(x.nome) + '</span><b>' + v + '</b>' + (extra ? '<small>' + extra + '</small>' : '') + '</div>';
+            }).join('') + '</div></section>' +
             (k.monstro ? '<section class="cf-bloco cf-voraz"><h2>Desejo Voraz</h2>' +
                 '<p>Grau de Voracidade <b>' + k.gv + '</b>. Faro de Núcleo a <b>' + (k.gv * 10) + 'm</b>. Ataques naturais: <b>+' + k.gv + '</b> Saciado, <b>+' + (2 * k.gv) + '</b> Faminto, <b>+' + (3 * k.gv) + '</b> Voraz.</p></section>' : '') +
             (ataques ? '<section class="cf-bloco"><h2>Ataques</h2><ul class="cf-lista">' + ataques + '</ul></section>' : '') +
@@ -262,7 +271,7 @@ const WNJBest = (() => {
     }
 
     return {
-        BASE, TIPOS_BASE, RANKS, PAPEIS, ATRS, PRESETS, TAGS, ER,
+        BASE, TIPOS_BASE, RANKS, PAPEIS, ATRS, PRESETS, TAGS, ER, FONTES, atrsDe,
         nova, calcular, rolarRefeicao, rolarLoot, ficha, htmlLoot, esc,
         catalogo, privadas, todosTipos, ler, salvarPrivada, publicar, excluir, podePublicar, imgSrc
     };

@@ -49,6 +49,13 @@
 
     const CORES = {}; cfg.atributos.forEach(a => CORES[a.id] = a.cor);
     const NOMES = {}; cfg.atributos.forEach(a => NOMES[a.id] = a.nome);
+    // Mana aparece como Ki, Caos ou Fé conforme a magia (nome e cor)
+    const ATR_BASE = cfg.atributos.map(a => Object.assign({}, a));
+    function aplicarSkin() {
+        cfg.atributos = WNJ.atributosComSkin(ATR_BASE, char.magia);
+        cfg.atributos.forEach(a => { CORES[a.id] = a.cor; NOMES[a.id] = a.nome; });
+    }
+    aplicarSkin();
     const TAGS = {}; cfg.tags_poder.forEach(t => TAGS[t.id] = t);
     const TAGS_INV = {}; cfg.tags_inventario.forEach(t => TAGS_INV[t.id] = t);
 
@@ -179,10 +186,7 @@
         $('btn-reset-criacao').style.display = modoEdicao ? 'none' : '';
         $('rodape-criar').style.display = modoEdicao ? 'none' : '';
         $('secao-inventario').style.display = modoEdicao ? '' : 'none';
-        // classe avancada libera no rank 8
-        const libera = char.rank <= 8;
-        $('f-classe2').disabled = !libera;
-        $('aviso-ca').textContent = libera ? '' : '(Rank 8+)';
+        renderEscolhas();   // Classe Avançada (Rank 8) e Absoluta (Rank 4) aparecem quando liberam
     }
 
     function renderIdentidade() {
@@ -198,6 +202,8 @@
         renderSubRacaAviso();
         renderSubClasseInicialAviso();
         renderEquipados();
+        renderEscolhas();
+        renderKiArte();
     }
 
     function renderEquipados() {
@@ -246,8 +252,16 @@
             '<div class="auto-card"><div class="rotulo">Vida</div><div class="par"><input id="in-vida-atual" type="number" value="' + char.vidaAtual + '"> / <input id="in-vida-max" type="number" value="' + vidaMax + '"></div><small>inicial: ' + vidaAuto + ' · VR ' + racaInfo.vidaRacial + (formulaEstrela('vida_por_estrela') ? ' · por ★: ' + formulaEstrela('vida_por_estrela') : '') + '</small></div>' +
             '<div class="auto-card" style="border-top-color:#a86af0"><div class="rotulo">Vida Mágica</div><div class="par"><input id="in-vidamag-atual" type="number" value="' + (char.vidaMagicaAtual || 0) + '"> / <input id="in-vidamag-max" type="number" value="' + (char.vidaMagicaMax || 0) + '"></div><small>manual</small></div>' +
             '<div class="auto-card"><div class="rotulo">Arcana</div><div class="valor"><input id="in-arcana" type="number" value="' + arcana + '"></div><small>auto: ' + arcanaAuto + '</small></div>' +
-            '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: Mana + ER = ' + magAuto + (formulaEstrela('magiculas_por_estrela') ? ' · por ★: ' + formulaEstrela('magiculas_por_estrela') : '') + '</small></div>';
+            '<div class="auto-card"><div class="rotulo">Magículas</div><div class="par"><input id="in-mag-atual" type="number" value="' + char.magiculasAtual + '"> / <input id="in-mag-max" type="number" value="' + magMax + '"></div><small>iniciais: ' + NOMES.mana + ' + ER = ' + magAuto + (formulaEstrela('magiculas_por_estrela') ? ' · por ★: ' + formulaEstrela('magiculas_por_estrela') : '') + '</small></div>';
 
+        // Fé: Dados Sagrados = (DR + Fé + atributo) / 2, arredondado para cima
+        if ((WNJ.skinMagia(char.magia) || {}).familia === 'fe') {
+            $('autos').insertAdjacentHTML('beforeend',
+                '<div class="auto-card" style="border-top-color:#fff0a0"><div class="rotulo">Dados Sagrados</div>' +
+                '<div class="sagrados">' + cfg.atributos.map(a => '<span style="color:' + a.cor + '">' + esc(a.nome) + ' <b>' +
+                    Math.ceil((rankInfo.dr + (t.mana || 0) + (t[a.id] || 0)) / 2) + '</b></span>').join('') + '</div>' +
+                '<small>(DR ' + rankInfo.dr + ' + Fé ' + (t.mana || 0) + ' + atributo) ÷ 2</small></div>');
+        }
         $('in-ca').oninput = e => { char.caManual = parseInt(e.target.value) || 0; };
         $('in-desloc').oninput = e => { char.deslocManual = parseInt(e.target.value) || 0; };
         $('in-arcana').oninput = e => { char.arcanaManual = parseInt(e.target.value) || 0; };
@@ -320,7 +334,7 @@
         } else if (id === 'mana') {
             g.push('✨ Magículas: <strong>+' + v + '</strong>');
             if (v >= 10) g.push('🌊 <strong>+1DR</strong> na Manipulação Livre OU no Ataque Principal da Magia');
-            dom('Mana');
+            dom(NOMES.mana);
         }
         return g;
     }
@@ -329,9 +343,16 @@
         const v = attrsTotais()[id] || 0;
         $('attrinfo-titulo').innerHTML = a.nome + ' <span style="font-size:.9rem;color:#9fc0da">— total ' + v + '</span>';
         $('attrinfo-titulo').style.color = a.cor;
+        const ganhos = ganhosAtributo(id, v);
+        const familia = (WNJ.skinMagia(char.magia) || {}).familia;
+        if (familia === 'caos') ganhos.unshift(v > 0
+            ? '🎲 Dado caótico atual: <strong>DR + 2d' + v + '</strong> (d' + rankInfo.dr + ' + 2d' + v + ' + 2dBônus)'
+            : '🎲 Dado caótico atual: <strong>só o DR</strong> (com ' + v + ' neste atributo não há 2dAtributo)');
+        if (familia === 'fe') ganhos.unshift('✨ Dados Sagrados com ' + a.nome + ': <strong>' +
+            Math.ceil((rankInfo.dr + (attrsTotais().mana || 0) + v) / 2) + '</strong>');
         $('attrinfo-ganhos').innerHTML =
             '<div style="font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:' + a.cor + ';margin-bottom:8px">Seus ganhos atuais</div>' +
-            ganhosAtributo(id, v).map(x => '<div style="padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem">' + x + '</div>').join('');
+            ganhos.map(x => '<div style="padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.9rem">' + x + '</div>').join('');
         $('attrinfo-md').innerHTML = '<p class="aviso-inline">Carregando…</p>';
         abrirOverlay('ov-attrinfo');
         try {
@@ -937,6 +958,152 @@
         }, 'image/png');
     };
 
+    // ================= ESCOLHAS EM CARDS (raça, magia, classes) =================
+    const ROTULOS_SEL = {
+        raca:  { titulo: 'Escolha sua raça', chave: 'racas', ajuda: 'A raça define seus modificadores de atributo, sua Vida e seus poderes raciais.' },
+        magia: { titulo: 'Escolha sua magia', chave: null, ajuda: 'A magia define seus poderes de magia e as cores da sua ficha.' },
+        ci:    { titulo: 'Escolha sua Classe Inicial', chave: 'ci', ajuda: 'Por onde todo mundo começa.' },
+        ca:    { titulo: 'Escolha sua Classe Avançada', chave: 'ca', ajuda: 'Disponível a partir do Rank 8. Confira os pré-requisitos de cada classe.' },
+        cabs:  { titulo: 'Escolha sua Classe Absoluta', chave: 'cabs', ajuda: 'Disponível a partir do Rank 4. Confira os pré-requisitos de cada classe.' },
+        arte:  { titulo: 'Escolha sua Arte do Ki', chave: null, ajuda: 'A Arte define o seu estilo de Ki e os poderes que você recebe.' }
+    };
+    const familiaMagia = () => (WNJ.skinMagia(char.magia) || {}).familia;
+    function listaSel(tipo) {
+        return {
+            raca: cfg.racas, ci: cfg.classes_iniciais, ca: cfg.classes_avancadas, cabs: cfg.classes_absolutas || [],
+            magia: (cfg.magias || []).filter(m => !m.arteKi), arte: (cfg.magias || []).filter(m => m.arteKi)
+        }[tipo] || [];
+    }
+    function valorSel(tipo) {
+        if (tipo === 'magia') return familiaMagia() === 'ki' ? 'Ki' : char.magia;
+        return { raca: char.raca, ci: char.classeInicial, ca: char.classeAvancada, cabs: char.classeAbsoluta, arte: char.magia }[tipo] || '';
+    }
+    const entradaSel = (tipo, nome) => listaSel(tipo).find(x => x.nome === nome);
+    const imgSel = (e) => e && e.img ? '<img src="' + esc(e.img) + '" alt="" loading="lazy">' : '';
+
+    function renderEscolhas() {
+        const slots = [['raca', 'Raça', '🧬'], ['magia', 'Magia', '✨'], ['ci', 'Classe Inicial', '⚔️']];
+        if (char.rank <= 8) slots.push(['ca', 'Classe Avançada', '🜂']);
+        if (char.rank <= 4) slots.push(['cabs', 'Classe Absoluta', '👑']);
+        $('escolhas').innerHTML = slots.map(([tipo, rot, icone]) => {
+            const v = valorSel(tipo), e = entradaSel(tipo, v);
+            const mostra = tipo === 'raca' && char.subRaca ? v + ' (' + char.subRaca + ')' : v;
+            const nova = !v && (tipo === 'ca' || tipo === 'cabs');
+            return '<button type="button" class="escolha' + (nova ? ' nova' : '') + '" data-escolher="' + tipo + '">' +
+                '<span class="mini">' + (imgSel(e) || icone) + '</span>' +
+                '<span class="txt"><span class="rot">' + rot + (nova ? ' · liberada!' : '') + '</span>' +
+                '<span class="val' + (v ? '' : ' vazio') + '">' + esc(mostra || 'Escolher') + '</span></span>' +
+                '<span class="seta" aria-hidden="true">›</span></button>';
+        }).join('');
+    }
+    $('escolhas').addEventListener('click', e => {
+        const b = e.target.closest('[data-escolher]');
+        if (b) abrirSeletor(b.dataset.escolher);
+    });
+
+    // Pré-requisitos lidos do próprio .md da classe
+    const reqCache = {};
+    async function preRequisitos(arquivo) {
+        if (arquivo in reqCache) return reqCache[arquivo];
+        let txt = '';
+        try {
+            const md = await WNJ.fetchMD(arquivo);
+            // bloco (título + lista) ou linha única ("Pré-Requisitos: ..."), até a próxima seção ou parágrafo
+            const m = md.replace(/\r/g, '').match(/(?:Pr[ée]-?\s*Requisitos|Requisitos)\s*:?\**\s*([\s\S]+?)(?:\n\s*\n(?=[^\s*-])|\n---|\n#{1,3} |$)/i);
+            if (m) txt = m[1].replace(/\r/g, '').split('\n').map(l => l.replace(/^\s*[-*]\s+/, '').trim()).filter(Boolean).join(' · ');
+        } catch (e) { /* sem arquivo: sem pré-requisito exibido */ }
+        txt = txt.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '$1').replace(/https?:\/\/\S+/g, '').slice(0, 220);
+        return (reqCache[arquivo] = txt);
+    }
+
+    let seletorTipo = null, cliquesTitulo = 0, timerTitulo = null;
+    function abrirSeletor(tipo) {
+        seletorTipo = tipo;
+        const r = ROTULOS_SEL[tipo];
+        $('seletor-titulo').textContent = r.titulo;
+        $('seletor-ajuda').textContent = r.ajuda;
+        $('seletor-busca').value = '';
+        renderSeletor();
+        abrirOverlay('ov-seletor');
+        setTimeout(() => $('seletor-busca').focus(), 30);
+    }
+    function renderSeletor() {
+        const tipo = seletorTipo, r = ROTULOS_SEL[tipo], atual = valorSel(tipo);
+        const q = $('seletor-busca').value.trim().toLowerCase();
+        const lista = listaSel(tipo).filter(x => (!x.secreta || (r.chave && desbloqueado(r.chave)) || x.nome === atual) &&
+                                                (!q || x.nome.toLowerCase().includes(q)));
+        const comReq = tipo === 'ca' || tipo === 'cabs';
+        const limpar = (tipo === 'ca' || tipo === 'cabs') && atual
+            ? '<div class="sel-card"><button type="button" class="sel-escolher" data-sel-nome=""><span class="sel-arte">✕</span>' +
+              '<span class="sel-corpo"><span class="sel-nome">Nenhuma</span><span class="sel-req">Remove a classe escolhida.</span></span></button></div>' : '';
+        $('seletor-grade').innerHTML = lista.map(x => {
+            // na escolha de magia, o atributo de magia aparece com o nome daquela magia (Ki, Caos, Fé)
+            const atrs = tipo === 'magia' || tipo === 'arte' ? WNJ.atributosComSkin(ATR_BASE, x.nome) : cfg.atributos;
+            const foco = (x.foco || []).map((id, i) => {
+                const a = atrs.find(y => y.id === id); if (!a) return '';
+                return '<span class="' + (i ? 'sec' : '') + '" style="color:' + a.cor + ';border-color:' + a.cor + '" title="' + (i ? 'Secundário' : 'Principal') + '">' + esc(a.nome) + '</span>';
+            }).join('');
+            const nome = tipo === 'arte' ? x.nome.replace(/^Ki\s*—\s*/, '') : x.nome;
+            const selos = (x.secreta ? '<span>🔮 Secreta</span>' : '') + (x.wip ? '<span>Em construção</span>' : '') + (x.nome === atual ? '<span>Atual</span>' : '');
+            return '<div class="sel-card' + (x.nome === atual ? ' atual' : '') + '">' +
+                '<button type="button" class="sel-escolher" data-sel-nome="' + esc(x.nome) + '">' +
+                '<span class="sel-arte">' + (imgSel(x) || '🜁') + '</span>' +
+                '<span class="sel-corpo"><span class="sel-nome">' + esc(nome) + '</span>' +
+                (foco ? '<span class="sel-foco">' + foco + '</span>' : '') +
+                (comReq ? '<span class="sel-req" data-req="' + esc(x.arquivo) + '">Carregando pré-requisitos…</span>' : '') +
+                '</span></button>' +
+                (selos ? '<span class="sel-selos">' + selos + '</span>' : '') +
+                '<span class="sel-pe"><a class="sel-detalhes" href="viewer.html?file=' + encodeURI(x.arquivo) + '" target="_blank" rel="noopener" title="Abre a página em outra aba">Detalhes</a></span>' +
+                '</div>';
+        }).join('') + limpar || '<p class="aviso-inline">Nada encontrado.</p>';
+        if (comReq) document.querySelectorAll('#seletor-grade [data-req]').forEach(async el => {
+            const txt = await preRequisitos(el.dataset.req);
+            el.innerHTML = txt ? '<strong>Pré-requisitos:</strong> ' + txt : 'Sem pré-requisitos descritos.';
+        });
+    }
+    $('seletor-busca').addEventListener('input', renderSeletor);
+    // 7 cliques no título revelam as opções secretas (como antes, nos rótulos)
+    $('seletor-titulo').addEventListener('click', () => {
+        const chave = (ROTULOS_SEL[seletorTipo] || {}).chave;
+        if (!chave || desbloqueado(chave)) return;
+        cliquesTitulo++; clearTimeout(timerTitulo); timerTitulo = setTimeout(() => { cliquesTitulo = 0; }, 1600);
+        if (cliquesTitulo >= 7) {
+            localStorage.setItem('wnj_unlock_' + chave, '1'); cliquesTitulo = 0;
+            popularTudo(); renderSeletor();
+            $('seletor-titulo').style.textShadow = '0 0 12px #FDF5AA';
+        }
+    });
+    $('seletor-grade').addEventListener('click', async e => {
+        const b = e.target.closest('[data-sel-nome]'); if (!b) return;
+        const nome = b.dataset.selNome, tipo = seletorTipo;
+        fecharOverlay('ov-seletor');
+        const alvo = { target: { value: nome } };
+        if (tipo === 'raca') await $('f-raca').onchange(alvo);
+        else if (tipo === 'ci') await $('f-classe1').onchange(alvo);
+        else if (tipo === 'ca') await $('f-classe2').onchange(alvo);
+        else if (tipo === 'cabs') { char.classeAbsoluta = nome; await sincronizarPoderes(); renderPoderes(); }
+        else if (tipo === 'arte') await $('f-magia').onchange(alvo);
+        else if (tipo === 'magia') {
+            if (nome === 'Ki' && familiaMagia() === 'ki') return;   // já é Ki: mantém a Arte escolhida
+            await $('f-magia').onchange(alvo);
+            if (nome === 'Ki') abrirSeletor('arte');
+        }
+        renderEscolhas();
+    });
+
+    // Arte do Ki: botão acima dos poderes
+    function renderKiArte() {
+        const box = $('ki-arte');
+        if (familiaMagia() !== 'ki') { box.hidden = true; return; }
+        box.hidden = false;
+        const arte = entradaSel('arte', char.magia);
+        box.innerHTML = '<span class="txt">' + (arte
+            ? 'Arte do Ki: <strong>' + esc(arte.nome.replace(/^Ki\s*—\s*/, '')) + '</strong>. Os poderes dela estão na lista abaixo.'
+            : '<strong>Escolha a sua Arte do Ki</strong> para receber os poderes dela.') + '</span>' +
+            '<button type="button" class="btn-wnj ' + (arte ? 'fantasma' : 'ouro') + '" id="btn-arte-ki">' + (arte ? 'Trocar Arte' : 'Escolher Arte') + '</button>';
+        $('btn-arte-ki').onclick = () => abrirSeletor('arte');
+    }
+
     // ================= CAMPOS DE IDENTIDADE =================
     $('f-nome').oninput = e => char.nome = e.target.value;
     $('f-sobrenome').oninput = e => char.sobrenome = e.target.value;
@@ -959,11 +1126,13 @@
     };
     $('f-classe2').onchange = async e => {
         char.classeAvancada = e.target.value;
-        await sincronizarPoderes(); renderPoderes();
+        await sincronizarPoderes(); renderPoderes(); renderEscolhas();
     };
     $('f-magia').onchange = async e => {
         char.magia = e.target.value;
-        await sincronizarPoderes(); renderPoderes();
+        aplicarSkin();
+        await sincronizarPoderes();
+        renderAutos(); renderAtributos(); renderPericias(); renderAtaques(); renderPoderes(); renderKiArte(); renderEscolhas();
     };
 
     // Imagem: redimensiona para dataURL compacto

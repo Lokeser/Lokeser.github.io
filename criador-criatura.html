@@ -50,6 +50,7 @@
                         <label id="tipo-novo-rot" hidden>Novo tipo<input type="text" id="tipo-novo" maxlength="40" placeholder="Ex.: Fúngico"></label>
                         <label>Papel sugerido<select data-c="papel" id="papel"></select></label>
                         <label>Teto de Núcleo<select data-c="teto" data-num id="teto"></select></label>
+                        <label>Fonte de magia<select data-c="fonteMagia" id="fonte-magia"></select></label>
                     </div>
                     <label>Habitat<input type="text" data-c="habitat" maxlength="140" placeholder="Onde vive"></label>
                     <label>Descrição<textarea data-c="descricao" placeholder="Aparência, origem, o que a torna única. A primeira linha vira o resumo no Bestiário."></textarea></label>
@@ -164,6 +165,8 @@
         if (c.deslocamento == null) c.deslocamento = 9;
 
         // ---------- opções fixas ----------
+        $('#fonte-magia').innerHTML = B.FONTES.map(([v, t]) => '<option value="' + v + '">' + t + '</option>').join('');
+        if (!c.fonteMagia) c.fonteMagia = 'mana';
         $('#papel').innerHTML = B.PAPEIS.map(([v, t]) => '<option value="' + v + '">' + t + '</option>').join('');
         const opRanks = Object.keys(B.RANKS).map(Number).sort((a, b) => b - a).map(r => '<option value="' + r + '">Rank ' + r + ' ' + B.RANKS[r] + '</option>').join('');
         $('#teto').innerHTML = opRanks;
@@ -185,7 +188,7 @@
             else el.value = v == null ? '' : v;
         });
         $$('[data-s]').forEach(el => { const v = (c.sobrescritas || {})[el.dataset.s]; el.value = v == null ? '' : v; });
-        $('#atrs').innerHTML = B.ATRS.map(a => '<label style="--c:' + a.cor + '">' + a.nome +
+        $('#atrs').innerHTML = B.ATRS.map(a => '<label style="--c:' + a.cor + '"><span data-rot-atr="' + a.id + '">' + a.nome + '</span>' +
             '<input type="number" min="-3" max="20" data-atr="' + a.id + '" value="' + (+(c.atributos || {})[a.id] || 0) + '" inputmode="numeric"></label>').join('');
         if (c.publica) document.querySelector('input[name="vis"][value="publica"]').checked = true;
         mostrarImg();
@@ -233,6 +236,8 @@
             $('[data-s="ca"]').placeholder = 'sugestão ' + k.sug.ca;
             $('[data-s="cd"]').placeholder = 'sugestão ' + k.sug.cd;
             $('#ref-propria').value = +(c.atributos.mana || 0);
+            // atributo de magia com o nome e a cor da fonte (Ki, Caos, Fé)
+            B.atrsDe(c).forEach(a => { const s = document.querySelector('[data-rot-atr="' + a.id + '"]'); if (s) { s.textContent = a.nome; s.parentElement.style.setProperty('--c', a.cor); } });
             $('#previa').innerHTML = B.ficha(c);
         }
 

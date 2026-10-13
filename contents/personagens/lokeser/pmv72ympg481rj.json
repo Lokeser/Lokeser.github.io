@@ -1,0 +1,70 @@
+{
+  "id": "pmv72ympg481rj",
+  "criado": "2026-10-13T19:35:00.724Z",
+  "img": null,
+  "nome": "Marianie",
+  "sobrenome": "Vortex",
+  "raca": "Humano",
+  "subRaca": "",
+  "classeInicial": "Acadêmico",
+  "subClasseInicial": "",
+  "classeAvancada": "",
+  "subClasseAvancada": "",
+  "magia": "Caos",
+  "rank": 10,
+  "estrela": 1,
+  "atributos": {
+    "corpo": 2,
+    "tecnica": 0,
+    "intelecto": 0,
+    "carisma": 2,
+    "sabedoria": 1,
+    "mana": 3
+  },
+  "vidaAtual": 20,
+  "vidaMaxManual": null,
+  "magiculasAtual": 1,
+  "magiculasMax": null,
+  "arcanaManual": null,
+  "caManual": null,
+  "deslocManual": null,
+  "cargas": [],
+  "poderes": [
+    {
+      "refId": "rc_humano_r10_1",
+      "nome": "Sangue Humano Puro",
+      "tag": "raca",
+      "efeitoHTML": "<p>Receba <strong>+3 pontos</strong> para distribuir entre seus atributos.</p>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_academico_r10e1_1",
+      "nome": "Conhecimento Teórico I",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe <strong>10 Pontos de Perícia</strong> para distribuir entre:<ul>\n<li>Intelecto</li>\n<li>Sabedoria</li>\n<li>Carisma</li>\n</ul>\n</li>\n<li>Caso uma perícia receba <strong>4 ou mais pontos</strong> dessa habilidade:<ul>\n<li>Você se torna <strong>Entusiasta</strong> nessa perícia.</li>\n<li>A partir de agora, <strong>sempre que evoluir seu Rank</strong>, recebe <strong>+2</strong> nela.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    },
+    {
+      "refId": "ci_academico_r10e1_2",
+      "nome": "Estudar",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li><strong>2 vezes por dia</strong>, pode passar <strong>1 hora estudando</strong> uma perícia.</li>\n<li>Se o fizer:<ul>\n<li>Recebe <strong>+1DR</strong> em testes dessa perícia <strong>até o final do dia</strong>.</li>\n</ul>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 10,
+      "estrela": 1
+    }
+  ],
+  "ataques": [],
+  "inventario": [],
+  "pensamentos": [],
+  "periciasDelta": {},
+  "resistencias": {},
+  "titulo": "",
+  "tituloArtigo": "",
+  "atualizado": "2026-10-13T20:23:53.165Z",
+  "dono": "Lokeser"
+}

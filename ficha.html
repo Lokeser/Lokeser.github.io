@@ -279,7 +279,7 @@
         body.modo-edicao .foto-col .foto { width: 260px; height: 260px; font-size: 4.4rem; }
         .ident-campos { flex: 1 1 340px; min-width: 0; }
         .campo-largo { grid-column: 1 / -1; }
-        .escolhas { display: grid; gap: 8px; margin-top: 4px; }
+        .escolhas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 10px; margin-top: 16px; }
         .escolha {
             display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; cursor: pointer;
             background: linear-gradient(120deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
@@ -412,7 +412,6 @@
                     <div class="foto" id="foto" title="Clique para escolher a imagem">🖼️</div>
                     <input type="file" id="foto-input" accept="image/*" style="display:none">
                     <small>Clique para escolher a imagem</small>
-                    <div class="escolhas" id="escolhas"></div>
                 </div>
                 <div class="ident-campos">
                     <div class="campos">
@@ -429,6 +428,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="escolhas" id="escolhas"></div>
                     <div id="aviso-subraca" class="aviso-subraca" style="display:none"></div>
                     <div id="campo-subclasse1" class="campo" style="display:none;margin-top:10px"><label>Entidade do Pacto</label>
                         <div id="aviso-subclasse1" class="aviso-subraca" style="display:none"></div>

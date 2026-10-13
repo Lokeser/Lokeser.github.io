@@ -257,6 +257,7 @@ const WNJ = (() => {
         const rc = arquivoRaca(cfg, char); if (rc) arquivos.push(rc);
         arquivos.push(...arquivosClasse(cfg, cfg.classes_iniciais, char.classeInicial, char.subClasseInicial));
         arquivos.push(...arquivosClasse(cfg, cfg.classes_avancadas, char.classeAvancada, char.subClasseAvancada));
+        arquivos.push(...arquivosClasse(cfg, cfg.classes_absolutas, char.classeAbsoluta, ''));
         const mg = (cfg.magias || []).find(x => x.nome === char.magia);
         if (mg) {
             arquivos.push(mg.arquivo);
@@ -548,6 +549,28 @@ const WNJ = (() => {
         return Object.assign({ chave }, PALETAS[chave]);
     }
 
+    // ---------- NOME E COR DO ATRIBUTO DE MAGIA ----------
+    // Mana é chamada de Ki, Caos ou Fé conforme a magia escolhida.
+    const SKINS = {
+        ki:   { familia: 'ki',   nome: 'Ki',   cor: '#ff8a80' },
+        caos: { familia: 'caos', nome: 'Caos', cor: '#7b3fe4' },
+        fe:   { familia: 'fe',   nome: 'Fé',   cor: '#fff0a0' }
+    };
+    function skinMagia(nomeMagia) {
+        const n = String(nomeMagia || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        if (n.startsWith('ki')) return SKINS.ki;
+        if (n.startsWith('caos')) return SKINS.caos;
+        if (n === 'fe' || n.startsWith('fe ') || n.startsWith('fe—') || n.startsWith('fe -')) return SKINS.fe;
+        return null;
+    }
+    // Lista de atributos com o de magia renomeado (não altera a original)
+    function atributosComSkin(atributos, nomeMagia) {
+        const s = skinMagia(nomeMagia);
+        return atributos.map(a => a.id === 'mana' && s ? Object.assign({}, a, { nome: s.nome, cor: s.cor }) : Object.assign({}, a));
+    }
+    // Nome exibido da magia: as Artes do Ki aparecem só como "Ki"
+    const nomeMagiaExibido = (nome) => skinMagia(nome) === SKINS.ki ? 'Ki' : (nome || '');
+
     // Dois maiores atributos (para "Atributo Principal + Secundário")
     function atributosPrincipais(cfg, atributosTotais) {
         const ordenados = cfg.atributos
@@ -562,7 +585,7 @@ const WNJ = (() => {
         calcDeslocamento, calcMagiculas, poderesAutomaticos, textoEstrela,
         tagDaFonte, listar, salvar, excluir, obter, novoPersonagem,
         paletaMagia, atributosPrincipais, rolarFormula, arquivoRaca, arquivosClasse,
-        varrerRecuperaveis, restaurar, pronto, gravado, aoMudar,
+        varrerRecuperaveis, restaurar, pronto, gravado, aoMudar, skinMagia, atributosComSkin, nomeMagiaExibido,
         guardarRascunho, lerRascunho, apagarRascunho, lerDado, gravarDado
     };
 })();

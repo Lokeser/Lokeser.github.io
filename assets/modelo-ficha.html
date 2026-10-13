@@ -624,7 +624,8 @@ function render() {
         (ch.classeInicial ? '<span class="li">' + svg(SIG.inicial) + esc(ch.classeInicial + (ch.subClasseInicial ? ' (' + ch.subClasseInicial + ')' : '')) + '</span>' : '') +
         (ch.classeAvancada ? '<span class="li">' + svg(SIG.avancada) + esc(ch.classeAvancada + (ch.subClasseAvancada ? ' (' + ch.subClasseAvancada + ')' : '')) + '</span>' : '') +
         (classeSuprema ? '<span class="li">' + svg(SIG.suprema) + esc(classeSuprema) + '</span>' : '') +
-        (ch.magia ? '<span class="li" style="color:var(--ac)">' + esc(ch.magia) + '</span>' : '') +
+        (ch.magia ? '<span class="li" style="color:var(--ac)">' + esc(S.magiaExibida || ch.magia) +
+            (S.familiaMagia === 'ki' && /—/.test(ch.magia) ? ' <small style="color:var(--tinta-2)">(' + esc(ch.magia.replace(/^Ki\s*—\s*/, '')) + ')</small>' : '') + '</span>' : '') +
         '</div>' +
         (p1 ? '<div class="linhagem"><span class="principais"><span style="color:' + p1.cor + ';border-color:' + p1.cor + '">' + esc(p1.nome) + '</span>' +
             (p2 ? '<span style="color:' + p2.cor + ';border-color:' + p2.cor + '">' + esc(p2.nome) + '</span>' : '') + '</span></div>' : '') +
@@ -781,12 +782,18 @@ function renderAtributos() {
         return '<div class="atr' + (t ? ' temp' : '') + '" style="border-color:' + a.cor + ';background:' + a.cor + '14">' +
             (t ? '<span class="delta ' + (t > 0 ? 'pos' : 'neg') + '">' + sinal(t) + '</span>' : '') +
             '<div class="r" style="color:' + a.cor + '">' + esc(a.nome) + '</div><div class="v">' + (base + t) + '</div>' +
-            '<div class="b">' + (t ? 'base ' + base : '') + '</div></div>';
+            '<div class="b">' + (t ? 'base ' + base : '') + '</div>' + extraAtributo(base + t) + '</div>';
     }).join('');
     $('#temps-atr').innerHTML = ch.temporarios.atributos.map((t, i) =>
         '<span class="temp-chip"><b style="color:' + (ATR[t.id] || {}).cor + '">' + esc((ATR[t.id] || {}).nome || t.id) + ' ' + sinal(t.valor) + '</b>' +
         (t.desc ? '<span class="d">' + esc(t.desc) + '</span>' : '') +
         '<button data-rm-temp-atr="' + i + '" aria-label="Remover modificador" title="Remover">' + ic('x') + '</button></span>').join('');
+}
+// Caos: todo teste de atributo vira DR + 2dAtributo. Fé: Dados Sagrados = (DR + Fé + atributo) ÷ 2
+function extraAtributo(v) {
+    if (S.familiaMagia === 'caos') return '<div class="b" title="Dado caótico">' + (v > 0 ? 'd' + S.dr + ' + 2d' + v : 'só o DR') + '</div>';
+    if (S.familiaMagia === 'fe') return '<div class="b" title="Dados Sagrados">Sagrado ' + Math.ceil((S.dr + atrEfetivo('mana') + v) / 2) + '</div>';
+    return '';
 }
 function dialogoTemp(tipo) {
     const atr = tipo === 'atr';

@@ -92,6 +92,8 @@
     { "nome": "Meio-Elfo",          "arquivo": "contents/racas/MeioElfo.md", "img": "assets/images/raca_meioelfo.jpeg", "foco": ["mana", "carisma"] },
     { "nome": "Meio-Vampiro",       "arquivo": "contents/racas/MeioVampiro.md", "img": "assets/images/raca_vampiro.png", "foco": ["carisma", "tecnica"] },
     { "nome": "Meio-Orc",           "arquivo": "contents/racas/MeioOrc.md", "img": "assets/images/raca_orc.png", "foco": ["corpo", "tecnica"] },
+    { "nome": "Meio-Goblin",        "arquivo": "contents/racas/MeioGoblin.md", "img": "assets/images/raca_meiogoblin.webp", "foco": ["corpo", "sabedoria"] },
+    { "nome": "Meio-Fada",          "arquivo": "contents/racas/MeioFada.md", "img": "assets/images/raca_meiofada.webp", "foco": ["mana"] },
     { "nome": "Manpan",             "arquivo": "contents/racas/DemiHumano-Manpan.md", "img": "assets/images/raca_manpan.png", "foco": ["corpo", "tecnica"] },
     { "nome": "Rekel",              "arquivo": "contents/racas/DemiHumano-Rekel.md", "img": "assets/images/raca_rekel.png", "foco": ["corpo", "intelecto"] },
     { "nome": "Atlântide",          "arquivo": "contents/racas/DemiHumano-Atlantide.md", "img": "assets/images/raca_atlantide.jpg", "foco": ["mana", "sabedoria"] },

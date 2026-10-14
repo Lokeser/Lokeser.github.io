@@ -25,13 +25,15 @@ Os cinco elementos formam um ciclo: cada um oprime o seguinte e é oprimido pelo
 
 **Fogo → Vento → Raio → Terra → Água → Fogo**
 
+Cada elemento é a forma que a mana assume quando sai do Núcleo por um ponto intermutativo. O jeito como cada um nasce no corpo mágico explica quem vence quem.
+
 | Relação | Por quê |
 | --- | --- |
-| **Fogo oprime Vento** | O vento alimenta as chamas com ar e as espalha; quanto mais sopra, mais o fogo cresce. |
-| **Vento oprime Raio** | A mana do vento é cortante e penetrante: ela dispersa e desvia a descarga antes que ela se feche. |
-| **Raio oprime Terra** | A descarga atravessa a matéria e racha as estruturas de pedra por dentro. |
-| **Terra oprime Água** | A terra ergue barreiras, represa e prende o fluxo da água. |
-| **Água oprime Fogo** | A água resfria e apaga as chamas. |
+| **Fogo oprime Vento** | O vento manipula as magículas soltas ao redor de quem o conjura. Diante do fogo, ele faz o oposto do que pretende: arrasta mana nova para dentro das chamas e as espalha, e o fogo cresce na mesma medida em que o vento é usado. |
+| **Vento oprime Raio** | O raio é o fenômeno da mana explodindo em eletricidade, e só existe em **impulsos**: descargas que precisam de um caminho contínuo de magículas para viajar. A natureza agressiva do vento é justamente manipular magículas; ele as arranca e dispersa no meio do trajeto, e os impulsos morrem antes de chegar. |
+| **Raio oprime Terra** | A terra é mana condensada até virar matéria, presa em estruturas paradas. Os impulsos do raio correm pelas magículas que mantêm essa matéria unida e rompem as ligações por dentro, rachando a pedra. |
+| **Terra oprime Água** | A água é mana em fluxo constante, que depende de se mover para existir. A terra fixa as magículas no lugar: represa, ergue barreiras e prende o fluxo até a água perder a força. |
+| **Água oprime Fogo** | O fogo é mana consumindo magículas para queimar. A água as envolve e as resfria, roubando o que o fogo precisa para continuar aceso. |
 
 * Um elemento atacando o que ele oprime é **Super Efetivo**.
 * Um elemento atacando quem o oprime é **Resistente**.

@@ -105,7 +105,7 @@ Pode aprofundar relações com maior facilidade. Pessoas que já são favorávei
 <!--#poder id="rc_humano_r5_1" fonte="raca" rank="5" estrela="1" nome="Falibilidade"-->
 ### Rank 5 — Falibilidade
 
-**1 vez por dia**, ao girar **1DR**, você pode receber **+1DR** nesse teste.
+**1 vez por Retiro**, ao girar **1DR**, você pode receber **+1DR** nesse teste.
 Essa decisão deve ser tomada **antes de saber se o teste foi bem-sucedido ou não**.
 
 ---

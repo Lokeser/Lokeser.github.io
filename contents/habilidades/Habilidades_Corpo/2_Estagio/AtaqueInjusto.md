@@ -1,1 +1,1 @@
-Vezes por dia igual a sua Sabedoria, ao receber dano de um inimigo, gire um dado de ataque enquanto no turno dele, se acertar, cause dano sem modificadores
+Vezes por Retiro igual a sua Sabedoria, ao receber dano de um inimigo, gire um dado de ataque enquanto no turno dele, se acertar, cause dano sem modificadores

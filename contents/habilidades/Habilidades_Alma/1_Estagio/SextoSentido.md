@@ -3,7 +3,7 @@
 
 **Pré-Requisitos:** 2+ Sabedoria  
 
-Você pode usar esta habilidade um número de vezes por dia igual à sua **ER**.
+Você pode usar esta habilidade um número de vezes por Retiro igual à sua **ER**.
 
 ---
 

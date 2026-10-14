@@ -85,7 +85,7 @@ VS = Fé × 10
 
 ### Regeneração
 
-Durante um **Descanso Longo**, você recupera:
+Durante um **Retiro**, você recupera:
 
 ******
 Fé × 5 pontos de VS

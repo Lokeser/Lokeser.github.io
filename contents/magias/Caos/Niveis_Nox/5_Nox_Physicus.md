@@ -17,7 +17,7 @@ Suas emoções reverberam no tecido da realidade, e sua fúria pode alterar leis
 ### **500 PA — Vínculos de Caos**
 Você acessa contratos íntimos do Caos.
 
-- **1x por semana**, consumindo **100 VT**
+- **1x por Recesso**, consumindo **100 VT**
 - Pode criar uma **versão alterada de um ritual conhecido**
 - Substitui **1 ingrediente** por outro similar, porém mais acessível
 - O mestre apresenta opções possíveis; você escolhe a ideal
@@ -51,14 +51,14 @@ Você desenvolve **1 Bruxaria exclusiva**, baseada em sua trajetória.
 Além disso:
 - Recebe **1 Melhoria Permanente** nessa bruxaria  
   *(dano, efeitos paralelos ou área/tempo)*
-- **1x por dia**, o uso da bruxaria **não consome VT**
+- **1x por Retiro**, o uso da bruxaria **não consome VT**
 
 ---
 
 ### **580 PA — Imposição**
 Você impõe sua vontade Caótica ao mundo.
 
-- **1x por semana**
+- **1x por Recesso**
 - Anula completamente um ritual ou habilidade de outra criatura
 - Teste: **DR + Caos vs CD (20 + Mana do alvo)**
 
@@ -78,6 +78,6 @@ Benefícios finais:
 - Pode usar o **Ritual de Ascensão Caótica**
 - Ganha uma **Habilidade de Arma especial**, representando sua conexão física com o Caos
 - Áreas em **5m ao seu redor** recebem **+10 CD** contra rituais Caóticos adversários
-- **1x por semana**, pode absorver um **Ritual Falho**, convertendo-o em:
+- **1x por Recesso**, pode absorver um **Ritual Falho**, convertendo-o em:
   - **2dCaos de cura**, ou
   - **+1dCaos de dano** no próximo ritual

@@ -23,7 +23,7 @@ Cria um selo de magia que se move em até 1m de você e permite lançar magias a
 - **Ação Bônus:** Explodir Examarks no alvo  
   - Teste de Mana do alvo vs sua CD mágica  
   - Se falhar, recebe metade do dano: 1d6 por contador  
-- **Limitação:** Só pode ser usado uma vez por alvo por dia
+- **Limitação:** Só pode ser usado uma vez por alvo por Retiro
 
 
 <!--#fim-->

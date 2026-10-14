@@ -1,2 +1,2 @@
 Pré-Requisitos: Corpo 3+
-Vezes por dia igual a seu Corpo, como uma reação a um golpe, pode consumir 2 Magículas e escolher bloquear, fazendo isso, você reduz o dano igual a seu valor de Corpo+Mana, o valor aumenta em 2 per ER
+Vezes por Retiro igual a seu Corpo, como uma reação a um golpe, pode consumir 2 Magículas e escolher bloquear, fazendo isso, você reduz o dano igual a seu valor de Corpo+Mana, o valor aumenta em 2 per ER

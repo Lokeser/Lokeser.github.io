@@ -29,7 +29,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 
 <!--#poder id="ca_mago_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Estudo Avançado"-->
 ### ⭐⭐⭐ 3 Estrelas — Estudo Avançado
-- **1 vez por dia**, pode receber **+1DR em um teste de perícia**.  
+- **1 vez por Retiro**, pode receber **+1DR em um teste de perícia**.  
 - Deve ser declarado **antes** de rolar o dado.
 
 ---
@@ -53,7 +53,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 - Quando tirar **1 a 5** em um teste de **Intelecto, Sabedoria ou Carisma**, você pode:
   - Re-rolar o dado usando **Intelecto no lugar do atributo original**
   - Deve aceitar o novo resultado.
-- **Usos por dia:** iguais ao seu **Intelecto**.
+- **Usos por Retiro:** iguais ao seu **Intelecto**.
 
 ---
 
@@ -71,7 +71,7 @@ O **Mago** é o arquétipo do estudo absoluto da magia. Seu poder não vem apena
 
 <!--#poder id="ca_mago_r6e1_1" fonte="classe_avancada" rank="6" estrela="1" nome="⭐ 1 Estrela — Sabedoria Desbalanceada"-->
 ### ⭐ 1 Estrela — Sabedoria Desbalanceada
-- **Vezes por dia:** iguais à sua **Mana**.  
+- **Vezes por Retiro:** iguais à sua **Mana**.  
 - Sempre que realizar um **teste de perícia de Sabedoria**, pode adicionar:
   - **Bônus = metade do seu Intelecto + 1** *(mínimo 2)*.
 

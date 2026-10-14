@@ -81,7 +81,7 @@ Este animal recebe:
   - O Animal Favorito se joga na frente do ataque.
   - O animal recebe **todo o dano e efeitos**, entrando automaticamente em **Morrendo**.
   - O Domador **não sofre dano algum**.
-- **Uso:** 1 vez por dia.
+- **Uso:** 1 vez por Retiro.
 
 ---
 
@@ -134,7 +134,7 @@ Este animal recebe:
 - Como **Ação Bônus**, manifeste os instintos do animal:
   - Recebe **+ER em Corpo ou Técnica** (à escolha) por **1 minuto**.
   - Testes de Percepção baseados em sentidos recebem **+2DR**.
-- **Uso:** Vezes por dia iguais ao seu **Carisma**.
+- **Uso:** Vezes por Retiro iguais ao seu **Carisma**.
 
 ---
 
@@ -142,7 +142,7 @@ Este animal recebe:
 
 <!--#poder id="ca_domador_r5e1_3" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Fúria Coordenada"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Fúria Coordenada
-- **1 vez por dia**, como **Ação Livre**, você e o animal entram em fúria sinérgica por **ER rodadas**.
+- **1 vez por Retiro**, como **Ação Livre**, você e o animal entram em fúria sinérgica por **ER rodadas**.
 - Durante o efeito:
   - Margem de crítico de ambos é reduzida em **2**.
   - Ambos causam **dano extra igual ao Carisma** em todos os ataques.
@@ -183,7 +183,7 @@ Você aprofunda a ligação com seu primeiro animal, tornando-o lendário.
 - Aprende **2 Habilidades Animais adicionais**, sem contar para o limite.
 
 #### União Primeva (Ativo)
-- **1 vez por dia**, como **Ação Bônus**, unifique suas forças por **ER rodadas**:
+- **1 vez por Retiro**, como **Ação Bônus**, unifique suas forças por **ER rodadas**:
   - Ambos agem no **mesmo turno** (sua iniciativa).
   - Todos os ataques **aplicam e estouram a Marca Feral** no mesmo golpe.
   - Ambos usam o **maior valor de CA** entre os dois.

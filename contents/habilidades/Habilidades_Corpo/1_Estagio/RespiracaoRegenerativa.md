@@ -1,4 +1,4 @@
-Durante uma luta, vezes por dia igual a sua Sabedoria, como uma ação bônus, você controla o fluxo da sua respiração para se acalmar em batalha, você cura 1d4+1 per Rank e pode realizar um teste de Sabedoria como ação principal, o resultado no teste adiciona um bônus na sua cura
+Durante uma luta, vezes por Retiro igual a sua Sabedoria, como uma ação bônus, você controla o fluxo da sua respiração para se acalmar em batalha, você cura 1d4+1 per Rank e pode realizar um teste de Sabedoria como ação principal, o resultado no teste adiciona um bônus na sua cura
 
 1: Não cura nada
 

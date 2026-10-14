@@ -47,7 +47,7 @@ Dano: ERd12 + Corpo
 Efeito: Crítico aplica **Apavorado** (1d3 turnos) e **Sangramento**.
 
 **Ceifada Ampla**  
-Vezes por dia: igual à sua Eficiência de Rank  
+Vezes por Retiro: igual à sua Eficiência de Rank  
 Requisitos: 8+ Corpo  
 
 Como Ação Padrão, ataca todos os inimigos em um cone de 3m.  

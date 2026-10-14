@@ -52,7 +52,7 @@ Aprenda **2 Rituais de Bruxa** que atendam aos pré-requisitos.
 
 ### **30 PA — Onda de Fluxo Destrutiva**
 
-Uma vez por dia, como uma ação, você libera uma explosão caótica em um raio de **10 metros**.
+Uma vez por Retiro, como uma ação, você libera uma explosão caótica em um raio de **10 metros**.
 
 * Todos os alvos realizam um **Teste de Defesa de Técnica**.
 * **Falha:** sofrem dano igual a **1d20 para cada 2 pontos de Caos**.

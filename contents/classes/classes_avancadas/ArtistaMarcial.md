@@ -59,7 +59,7 @@ Seja esmagando inimigos com golpes devastadores, desviando com graça absoluta o
 <!--#poder id="ca_artistamarcial_r8e1_4" fonte="classe_avancada" rank="8" estrela="1" nome="5 Estrelas — Meditação"-->
 ### 5 Estrelas — Meditação
 
-**Uso:** Vezes por dia iguais a **Sabedoria ÷ 2** *(mín. 1)*  
+**Uso:** Vezes por Retiro iguais a **Sabedoria ÷ 2** *(mín. 1)*  
 **Ação:** Ação padrão, 1 minuto de meditação.
 
 Faça um **teste de Sabedoria**:
@@ -212,7 +212,7 @@ Escolha um benefício conforme o atributo principal:
 ### 5 Estrelas — Resiliência Suprema
 
 * Recebe **Resistência III** contra dano não mágico.
-* 1 vez por dia, ao cair abaixo de **25% de Vida**:
+* 1 vez por Retiro, ao cair abaixo de **25% de Vida**:
   * **+2 CA**
   * **+1DR em ataques desarmados** até o fim do combate.
 
@@ -249,7 +249,7 @@ Escolha um benefício conforme o atributo principal:
 <!--#poder id="ca_artistamarcial_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="Forma Líber (Combate)"-->
 ### Forma Líber (Combate)
 
-**Uso:** 1 vez por dia — **Ação Bônus**  
+**Uso:** 1 vez por Retiro — **Ação Bônus**  
 **Duração:** 1 minuto
 
 Escolha conforme o atributo principal:

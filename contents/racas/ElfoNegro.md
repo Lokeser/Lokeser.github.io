@@ -101,7 +101,7 @@ Seu Núcleo de Mana passa a ser conhecido como **Dupla Frequência**.
 <!--#poder id="rc_elfonegro_r8_1" fonte="raca" rank="8" estrela="1" nome="Maldito Poder"-->
 ### Rank 8 — Maldito Poder
 
-Um número de vezes por dia igual à sua **Mana**, você pode utilizar um poder que consuma **1 magícula sem gastá‑la**.
+Um número de vezes por Retiro igual à sua **Mana**, você pode utilizar um poder que consuma **1 magícula sem gastá‑la**.
 
 ---
 

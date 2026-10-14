@@ -2,7 +2,7 @@
 # Barreira Mágica
 **Pré-Requisitos:** Mana 5+, Intelecto 5+  
 
-- **Vezes por dia:** Igual à sua Mana  
+- **Vezes por Retiro:** Igual à sua Mana  
 - **Ativação:** Ação  
 - **Efeito:**  
   - Cria uma barreira, recebendo Vida Temporária igual ao DR de Manipulação Livre  

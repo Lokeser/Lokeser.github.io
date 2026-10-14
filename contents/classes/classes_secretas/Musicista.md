@@ -27,7 +27,7 @@ Como Ação Bônus, toque uma das 7 Notas (ver tabela abaixo). Faça um **Teste 
 <!--#poder id="cs_musicista_r7e1" fonte="classe_avancada" rank="7" estrela="1" nome="Composição Arcana"-->
 ### Composição Arcana
 
-Aprende a juntar Notas Mágicas em **composições** (usos/dia = 1 per Rank + Sabedoria). Composições exigem 2+ Notas; teste com o atributo das duas Notas.
+Aprende a juntar Notas Mágicas em **composições** (usos/Retiro = 1 per Rank + Sabedoria). Composições exigem 2+ Notas; teste com o atributo das duas Notas.
 <!--#fim-->
 
 <!--#poder id="cs_musicista_r7e1b" fonte="classe_avancada" rank="7" estrela="1" nome="Músico II"-->

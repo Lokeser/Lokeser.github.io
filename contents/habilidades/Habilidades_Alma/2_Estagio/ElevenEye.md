@@ -22,7 +22,7 @@ Ao ativar o Elven Eye, você recebe:
 
 ### Efeitos em Combate
 
-- **Vezes por dia igual ao seu Rank**, como **Ação Bônus**, recebe:
+- **Vezes por Retiro igual ao seu Rank**, como **Ação Bônus**, recebe:
   - Bônus de Acerto igual à **metade da sua Mana**
 
 - Pode realizar um **Teste de Percepção Mágica** como **Ação Bônus**  

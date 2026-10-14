@@ -59,7 +59,7 @@
 ### 1 Estrela
 
 **Explosão de Vontade:**
-* **1 vez por dia**, você pode **receber uma ação extra** após realizar todas as suas ações no turno.
+* **1 vez por Retiro**, você pode **receber uma ação extra** após realizar todas as suas ações no turno.
 
 ---
 
@@ -94,7 +94,7 @@
 ### 1 Estrela
 
 **Instintivo II:**
-* **1 vez por dia**, como **Ação**, afie seus instintos em combate usando sua Mana.
+* **1 vez por Retiro**, como **Ação**, afie seus instintos em combate usando sua Mana.
 * Você pode **converter Magículas em Instinto**.
   * Consuma **X Magículas** para obter **1dX Instinto**.
   * Exemplo: **3 Magículas para 1d3 Instinto** (máximo de **10** Instintos).
@@ -107,7 +107,7 @@
 ### 2 Estrelas
 
 **Esquiva de Emergência:**
-* **Vezes por dia igual à sua Sabedoria**:
+* **Vezes por Retiro igual à sua Sabedoria**:
   * Como **Reação**, você pode descarregar um alto nível de adrenalina.
   * Recebe **+10 de CA** contra **um ataque corpo a corpo**.
 * Caso ainda seja atingido, o dano será **dobrado**.

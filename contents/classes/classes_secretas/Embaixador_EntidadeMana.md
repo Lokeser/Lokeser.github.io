@@ -17,7 +17,7 @@ Uma vez por turno, quando lançar uma magia ou acertar com a Arma de Pacto, marq
 <!--#poder id="ci_emb_mana_r8e3" fonte="classe_inicial" rank="8" estrela="3" nome="Arquivo da Entidade"-->
 ### Arquivo da Entidade
 
-Recebe **+6 em Erudição ou Arcanismo**, escolhido ao despertar a arma. Uma vez por Descanso Longo, a entidade pode apontar uma conexão, fraqueza ou ponto de interação mágica que seu personagem consiga perceber; a resposta permanece uma informação narrativa do Mestre.
+Recebe **+6 em Erudição ou Arcanismo**, escolhido ao despertar a arma. Uma vez por Retiro, a entidade pode apontar uma conexão, fraqueza ou ponto de interação mágica que seu personagem consiga perceber; a resposta permanece uma informação narrativa do Mestre.
 <!--#fim-->
 
 <!--#poder id="ci_emb_mana_r7e3" fonte="classe_inicial" rank="7" estrela="3" nome="Evolução — Recursão em Cadeia"-->

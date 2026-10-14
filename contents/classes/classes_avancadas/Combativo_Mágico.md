@@ -249,7 +249,7 @@ Como **Ação de Movimento**, entra em uma postura de foco absoluto:
 ### Passo Etéreo  
 *(Evita confrontos diretos)*
 
-* Vezes por dia = **Mana ÷ 2**.
+* Vezes por Retiro = **Mana ÷ 2**.
 * Como Ação de Movimento:
   * Teleporte-se **3m** sem provocar ataques de oportunidade.
   * Se terminar adjacente a um inimigo, recebe **+2 no dano** no próximo ataque.
@@ -273,7 +273,7 @@ Como **Ação de Movimento**, entra em uma postura de foco absoluto:
   * Ataques contra ele sofrem **-2 no acerto**.
   * Você recebe **+1 de CA**.
 * Dura até o fim do combate ou até o aliado cair.
-* 1 vez por dia.
+* 1 vez por Retiro.
 
 ---
 
@@ -310,7 +310,7 @@ Como **Ação de Movimento**, entra em uma postura de foco absoluto:
 ### Chama Interior  
 *(Paixão em combate)*
 
-* 1 vez por dia, como Ação Bônus:
+* 1 vez por Retiro, como Ação Bônus:
   * Recebe **Vida Temporária = Mana + ER**.
   * Recebe **+1 no Acerto** até o fim do próximo turno.
 

@@ -45,7 +45,7 @@ Em cada marco, a raça evolui por uma escolha:
 <!--#poder id="rc_elfo_r10_1" fonte="raca" rank="10" estrela="1" nome="Dieta Mágica"-->
 ### Rank 10 — Dieta Mágica
 
-Um número de vezes por dia igual à sua **Eficiência de Rank (ER)**, você pode consumir **cristais de mana** para ampliar sua reserva.
+Um número de vezes por Retiro igual à sua **Eficiência de Rank (ER)**, você pode consumir **cristais de mana** para ampliar sua reserva.
 
 Seu **próximo teste que utilize Mana** recebe um bônus igual à sua **ER**.
 
@@ -99,7 +99,7 @@ Escolha **uma** característica racial:
   Além disso, pode se mover de uma árvore para outra **sem gastar ação**, utilizando apenas o deslocamento em metros entre elas.
 
 * **Cativar**
-  Um número de vezes por dia igual à sua **ER**, você pode **dobrar o PA** obtido em uma interação com um ser.
+  Um número de vezes por Retiro igual à sua **ER**, você pode **dobrar o PA** obtido em uma interação com um ser.
 
 ---
 
@@ -154,7 +154,7 @@ Recebe **+1 Mana imediatamente** e **+1 Mana adicional ao alcançar o Rank 4**.
 <!--#poder id="rc_elfo_r5_2" fonte="raca" rank="5" estrela="1" nome="Comando Imperial (Elfo)"-->
 ### Rank 5 — Comando Imperial (Elfo)
 
-Um número de vezes por dia igual à sua **ER**, consumindo **15 magículas**, você pode, como uma ação, exalar uma voz imbuída de autoridade arcana.
+Um número de vezes por Retiro igual à sua **ER**, consumindo **15 magículas**, você pode, como uma ação, exalar uma voz imbuída de autoridade arcana.
 
 Um alvo que você possa ver deve realizar um **teste de Mana** contra sua **CD de Mana**:
 

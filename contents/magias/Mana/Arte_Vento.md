@@ -126,7 +126,7 @@ Afeta até **2 criaturas**.
 
 **Pré-Requisito:** Rank 4+  
 **Custo:** 20 Mgc  
-**Uso:** 1 vez por dia
+**Uso:** 1 vez por Retiro
 
 Um tufão nasce ao seu redor, com raio de **Mana × 2** metros, por **3 turnos**.
 

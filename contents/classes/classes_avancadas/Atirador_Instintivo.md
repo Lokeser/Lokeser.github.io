@@ -72,13 +72,13 @@ Seja com arco, besta ou armas de recarga, o Atirador Instintivo domina o campo d
 Escolha **apenas um**:
 
 **Instinto Cauteloso**
-* Vezes por dia: **1 por Rank**.
+* Vezes por Retiro: **1 por Rank**.
 * Pode **rerrolar um dado de Acerto** de tiro.
 * Se o ataque for **Crítico** com esta habilidade:
   * Recebe **+1 Ponto de Instinto**.
 
 **Instinto Confiante**
-* Vezes por dia: **1 por Rank**.
+* Vezes por Retiro: **1 por Rank**.
 * Pode aumentar o dano de um projétil em **+2D**.
 * Se matar o inimigo com esta habilidade:
   * Recebe **+1 Ponto de Instinto**.
@@ -154,7 +154,7 @@ Escolha **apenas um**:
 <!--#poder id="ca_atirador_instintivo_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="1 Estrela — Aguçar Instinto"-->
 ### 1 Estrela — Aguçar Instinto
 
-* Vezes por dia = **Sabedoria**.
+* Vezes por Retiro = **Sabedoria**.
 * Como ação:
   * Pode **Mirar como ação livre** no turno.
   * Recebe:

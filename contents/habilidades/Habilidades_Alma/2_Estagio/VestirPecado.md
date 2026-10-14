@@ -5,7 +5,7 @@
 
 Você assume uma **Forma Vampírica**.
 
-- **1 vez por dia**, consuma um Cristal Carmesim
+- **1 vez por Retiro**, consuma um Cristal Carmesim
 
 ---
 

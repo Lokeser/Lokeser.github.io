@@ -1,7 +1,7 @@
 <!--#poder id="hb_manacharge" fonte="habilidade" estrela="1" nome="Mana Charge"-->
 # Mana Charge
 
-Você pode utilizar esta habilidade um número de vezes por dia igual à sua **ER**.
+Você pode utilizar esta habilidade um número de vezes por Retiro igual à sua **ER**.
 
 ---
 

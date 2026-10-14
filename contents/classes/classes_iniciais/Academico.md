@@ -25,7 +25,7 @@
 <!--#poder id="ci_academico_r10e1_2" fonte="classe_inicial" rank="10" estrela="1" nome="Estudar"-->
 ### Estudar
 
-* **2 vezes por dia**, pode passar **1 hora estudando** uma perícia.
+* **2 vezes por Retiro**, pode passar **1 hora estudando** uma perícia.
 * Se o fizer:
   * Recebe **+1DR** em testes dessa perícia **até o final do dia**.
 

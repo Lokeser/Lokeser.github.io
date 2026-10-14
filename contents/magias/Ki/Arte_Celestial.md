@@ -137,7 +137,7 @@ Após aplicar Contra-Fluxo, pode gastar **+3 Accels** para forçar um **acerto c
 <!--#poder id="mg_arte_celestial_r5e1_3" fonte="magia" rank="5" estrela="1" nome="Condition Counter"-->
 ### Condition Counter
 
-1 vez por dia, ao sofrer uma condição adversa **evoluída**:
+1 vez por Retiro, ao sofrer uma condição adversa **evoluída**:
 
 * Consuma **3 Accels** e ataque um alvo
 * Se acertar, ao invés de dano, transfere a condição para o alvo

@@ -122,7 +122,7 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 ### 4 Estrelas
 
 **Não Sinto Dor:**
-* **1 vez por dia**, ao cair a **0 PV**:
+* **1 vez por Retiro**, ao cair a **0 PV**:
   * Continue lutando.
   * Recebe **Vida Temporária igual à metade da sua Vida Máxima**.
 
@@ -206,7 +206,7 @@ Se dependesse apenas da carne, lutariam **até o fim dos tempos**.
 
 <!--#poder id="ca_berserker_r4e1_3" fonte="classe_avancada" rank="4" estrela="1" nome="O Cérebro é um Músculo"-->
 ### O Cérebro é um Músculo
-* Vezes por dia iguais o **Corpo ÷ 2**:
+* Vezes por Retiro iguais o **Corpo ÷ 2**:
   * Ao realizar um teste de **Intelecto, Sabedoria ou Carisma**:
     * Adicione seu **Corpo ao teste**.
 

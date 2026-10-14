@@ -32,5 +32,5 @@
 - Enquanto estiver em um plano não físico, recebe bônus = Mana em Acrobacia, Furtividade e Deslocamento
 
 ### Conexão com o Astro
-- 1 vez por dia, como **Ação Bônus**, realize um teste de Mana (CD = 18)  
+- 1 vez por Retiro, como **Ação Bônus**, realize um teste de Mana (CD = 18)  
 - Se passar, suas habilidades e técnicas neste turno recebem +1 em qualquer Estágio possível

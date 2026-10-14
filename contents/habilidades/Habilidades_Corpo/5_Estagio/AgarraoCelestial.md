@@ -2,7 +2,7 @@
 **Pré-requisitos:** Domínio do Corpo, Suplex, Determinação de Combate, Determinação de Combate Superior, Atletismo Superior  
 
 ### Uso
-- Pode ser utilizado **vezes por semana igual a 1/3 da Eficiência de Rank (ER)**, arredondado para baixo.  
+- Pode ser utilizado **vezes por Recesso igual a 1/3 da Eficiência de Rank (ER)**, arredondado para baixo.  
 - **Ativação:** O personagem deve estar agarrado ao alvo.  
   - Gaste **uma ação livre** para invocar o poder.  
 

@@ -3,7 +3,7 @@
 
 **Pré-Requisitos:** Mana 12+  
 
-**2 vezes por dia**, como **Ação de Toque**, absorve Mana do alvo.
+**2 vezes por Retiro**, como **Ação de Toque**, absorve Mana do alvo.
 
 ---
 

@@ -29,6 +29,6 @@
 - Como **Reação**, quando for alvo de um ataque, adicione sua Sabedoria na CA
 
 ### Clarividência Menor
-- Vezes por dia = Sabedoria  
+- Vezes por Retiro = Sabedoria  
 - Como **Ação Bônus**, sempre que girar 1DR, após o resultado, você pode girar +1DR  
 - Deve ser feito antes de descobrir se o teste foi um sucesso ou acerto

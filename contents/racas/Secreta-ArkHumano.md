@@ -40,7 +40,7 @@ Seu núcleo de mana se torna anômalo e sua magia vira uma **Anomalia**. Além d
 <!--#poder id="rc_arkhumano_r10_2" fonte="raca" rank="10" estrela="1" nome="Forma Pálida — Dawn"-->
 ### Forma Pálida — Dawn
 
-**ER× por dia.** Ao fazer um teste que envolva Mana (conjuração ou resistência mágica), sobrecarregue seus circuitos e some seu **Intelecto** ao resultado. Seus olhos brilham num branco intenso por um turno.
+**ER× por Retiro.** Ao fazer um teste que envolva Mana (conjuração ou resistência mágica), sobrecarregue seus circuitos e some seu **Intelecto** ao resultado. Seus olhos brilham num branco intenso por um turno.
 <!--#fim-->
 
 ---
@@ -70,7 +70,7 @@ Quando seu ataque tira o **dado máximo**, o alvo tem **1 de Mana e um atributo 
 <!--#poder id="rc_arkhumano_r7_1" fonte="raca" rank="7" estrela="1" nome="Sincronia Perfeita (Overclock)"-->
 ### Sincronia Perfeita (Overclock)
 
-1×/dia, entre em **Sincronia**: todos os atributos se tornam iguais ao seu mais alto por 3 turnos. Ao fim, fica **Atordoado por 5 turnos** por superaquecimento.
+1×/Retiro, entre em **Sincronia**: todos os atributos se tornam iguais ao seu mais alto por 3 turnos. Ao fim, fica **Atordoado por 5 turnos** por superaquecimento.
 <!--#fim-->
 
 ---

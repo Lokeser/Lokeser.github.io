@@ -58,7 +58,7 @@ Recebe **+2 pontos** para distribuir entre os seus atributos.
 
 #### Proto-Despertar
 
-Você ganha **asas de energia** etéreas, que não podem ser danificadas. Pode ativá-las um número de vezes por dia igual à sua **Sabedoria** (**Ação Padrão**, duração de 1 minuto). Enquanto ativas, recebe **+1 Mana** e escolhe **um** efeito a cada ativação:
+Você ganha **asas de energia** etéreas, que não podem ser danificadas. Pode ativá-las um número de vezes por Retiro igual à sua **Sabedoria** (**Ação Padrão**, duração de 1 minuto). Enquanto ativas, recebe **+1 Mana** e escolhe **um** efeito a cada ativação:
 
 * **Brilho Etéreo:** emite luz fraca em 3m e concede **+3** em testes de **Carisma** (como Charme e Intimidação).
 * **Pulso de Mana:** concede **+2** em testes de **Mana**, como conjurar e resistir a efeitos mágicos.
@@ -75,7 +75,7 @@ Você ganha **asas de energia** etéreas, que não podem ser danificadas. Pode a
 
 #### Asas Despertas
 
-As asas se tornam **físicas**. Elas têm **Vida igual a Mana × 5** e **CA 10 + Mana**; se forem destruídas, não podem ser usadas até o próximo descanso longo. Manifestar ou recolher as asas é uma **Ação Bônus**.
+As asas se tornam **físicas**. Elas têm **Vida igual a Mana × 5** e **CA 10 + Mana**; se forem destruídas, não podem ser usadas até o próximo Retiro. Manifestar ou recolher as asas é uma **Ação Bônus**.
 
 Escolha **um** poder permanente para as asas:
 
@@ -167,6 +167,6 @@ Escolha **um** novo poder para as asas:
 <!--#poder id="rc_meiofada_r4_2" fonte="raca" rank="4" estrela="1" nome="Fenda Estelar"-->
 #### Fenda Estelar
 
-Como **Ação** e por **5 Magículas**, abre por 1 turno uma fenda para o Plano Astral num raio de 5m (teste de **Mana**, CD 16 + Mana). Os alvos na área sofrem **ERd12 + Mana** de dano mágico, e você pode se teleportar com até **4 aliados** para um ponto a até 15m. Pode ser usada **1 vez por dia**; cada uso extra deixa você **Fatigado** (ou **Exausto**, se já estiver Fatigado). *(As asas crescem.)*
+Como **Ação** e por **5 Magículas**, abre por 1 turno uma fenda para o Plano Astral num raio de 5m (teste de **Mana**, CD 16 + Mana). Os alvos na área sofrem **ERd12 + Mana** de dano mágico, e você pode se teleportar com até **4 aliados** para um ponto a até 15m. Pode ser usada **1 vez por Retiro**; cada uso extra deixa você **Fatigado** (ou **Exausto**, se já estiver Fatigado). *(As asas crescem.)*
 
 <!--#fim-->

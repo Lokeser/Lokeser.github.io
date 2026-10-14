@@ -94,7 +94,7 @@ Suas ações passam a ecoar acima do comum, e suas habilidades se destacam entre
   O poder com **Prestígio** tem seus valores **duplicados**, exemplos:
   * **XdX + 2 por Rank** → **XdX por Rank**
   * **+3 por Rank** → **+6 por Rank**
-  * **X vezes por dia igual ao Rank** → **2 × Rank vezes por dia**
+  * **X vezes por Retiro igual ao Rank** → **2 × Rank vezes por Retiro**
 
 
 <!--#fim-->

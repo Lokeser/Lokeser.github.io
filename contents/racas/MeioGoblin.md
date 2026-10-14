@@ -117,7 +117,7 @@ Receba uma habilidade conforme o seu **maior atributo** (contando os bônus dos 
   * **Mordida Suja:** uma vez por turno, faz um ataque desarmado de **ERd4 + Corpo** (cortante). Se acertar, o alvo testa **Corpo** (CD 10 + seu Corpo) ou sofre **−1** em testes de ataque por 1 turno.
   * **Estômago de Ferro:** recebe **+1DR em Testes de Tenacidade** contra venenos e ignora as penalidades de comida estragada e água suja.
 * **Técnica — Reflexo de Rato:** recebe **+ER** em testes de **Técnica** para evitar armadilhas e ataques em área.
-* **Intelecto — Plano Improvisado:** uma vez por dia, declara um plano (distrair, sabotar, fugir…). Nos próximos 10 minutos, recebe **+2** em um teste de perícia ligado a ele, como **Lábia** ou **Análise**.
+* **Intelecto — Plano Improvisado:** uma vez por Retiro, declara um plano (distrair, sabotar, fugir…). Nos próximos 10 minutos, recebe **+2** em um teste de perícia ligado a ele, como **Lábia** ou **Análise**.
 * **Carisma — Grito da Horda:** como **Ação Bônus** e por **1 Magícula**, inspira até 3 aliados a até 5m: eles recebem **+1** em testes de ataque ou perícia por 1 turno.
 * **Sabedoria — Faro para Encrenca:** recebe **+ER** em testes de **Percepção** e **Intuição** para notar ameaças.
 * **Mana — Centelha Persistente:** quando as suas Magículas chegam a zero, você não desmaia; apenas fica sem poder usar poderes que custam Magículas até recuperá-las.
@@ -149,7 +149,7 @@ Escolha **uma** das duas perícias do seu Hiperfoco. Sempre que tirar de **1 a 5
 <!--#poder id="rc_meiogoblin_r7_2" fonte="raca" rank="7" estrela="1" nome="Fuga da Morte"-->
 #### Fuga da Morte
 
-**Uma vez por Arco**, ao entrar em **Morrendo**, pode usar a sua **Reação** para se mover todo o seu Deslocamento em uma direção.
+**Uma vez por Recesso**, ao entrar em **Morrendo**, pode usar a sua **Reação** para se mover todo o seu Deslocamento em uma direção.
 
 ---
 
@@ -212,7 +212,7 @@ Conforme a sua magia:
 
 Escolha um caminho:
 
-* **Caminho Humano — Hiperfoco V:** um número de vezes por Arco igual à sua **ER**, escolha uma perícia do mesmo atributo do seu Hiperfoco; até o fim da cena, ela também recebe o bônus do Hiperfoco.
-* **Caminho Selvagem — Corpo Adaptativo V:** um número de vezes por Arco igual à sua **ER**, até o fim da cena, reduza **Intelecto, Sabedoria e Carisma em −2** (mínimo −4) para aumentar em **1 estágio** o seu dano elemental, a sua Resistência ao próprio elemento e a sua Resistência ao elemento que o seu oprime.
+* **Caminho Humano — Hiperfoco V:** um número de vezes por Recesso igual à sua **ER**, escolha uma perícia do mesmo atributo do seu Hiperfoco; até o fim da cena, ela também recebe o bônus do Hiperfoco.
+* **Caminho Selvagem — Corpo Adaptativo V:** um número de vezes por Recesso igual à sua **ER**, até o fim da cena, reduza **Intelecto, Sabedoria e Carisma em −2** (mínimo −4) para aumentar em **1 estágio** o seu dano elemental, a sua Resistência ao próprio elemento e a sua Resistência ao elemento que o seu oprime.
 
 <!--#fim-->

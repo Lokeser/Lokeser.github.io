@@ -29,7 +29,7 @@ Seu método de obtenção de PA muda com base nessa escolha.
 ## Relacionamento com o Caos
 
 ### **Nox Amantis — Sussurros**
-Ao aceitar uma **Vontade dos Sussurros**, uma vez por dia você pode perguntar:
+Ao aceitar uma **Vontade dos Sussurros**, uma vez por Retiro você pode perguntar:
 
 > *“O que o Caos deseja de mim?”*
 
@@ -88,7 +88,7 @@ Sempre que atingir e manter um nível relevante de PA com uma pessoa por alguns 
 ---
 
 ### **360 PA — Toque do Caos**
-Uma vez por dia, toque um alvo, objeto ou a si mesmo e aplique **1 efeito da Tabela do Caos**.
+Uma vez por Retiro, toque um alvo, objeto ou a si mesmo e aplique **1 efeito da Tabela do Caos**.
 
 ---
 
@@ -112,7 +112,7 @@ Se o Amor for destruído, você deve realizar um **Ritual de Luto** ou perde **4
 Escolha **1 Ritual** que você conheça:
 
 - Tempo de execução reduzido pela metade  
-- 1 vez por dia, role **dois dados de efeito** e escolha o melhor
+- 1 vez por Retiro, role **dois dados de efeito** e escolha o melhor
 
 ---
 

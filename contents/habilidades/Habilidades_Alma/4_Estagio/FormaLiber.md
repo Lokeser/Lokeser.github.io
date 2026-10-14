@@ -22,5 +22,5 @@ Aumenta seu Multiplicador de Crítico em 1
 Diminui sua Margem de Ameaça em 2
 
 A Transformação dura 10 Rodadas, após este tempo, seu HP é reduzido a 10 e você se torna incapaz de utilizar Magia por 24 Horas.
-Essa forma pode ser utilizada uma vez por Ano
+Essa forma pode ser utilizada uma vez por Recesso
 Você tambem pode utilizar esta transformação sem respeitar o prazo, mas você reseta seus PA com a Entidade (Ela esquece tudo sobre você, mas vai se lembrar que possui o pacto)

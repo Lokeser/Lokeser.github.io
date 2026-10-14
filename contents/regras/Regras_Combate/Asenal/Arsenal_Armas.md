@@ -215,7 +215,7 @@ Para evitar repetições, todas as armas abaixo seguem estas fórmulas base, sal
     * *Crítico:* Aplica **Sangramento** e **Queda**.
 * **Tornado da Morte (Habilidade Especial)**
     * *Requisitos:* Corpo 5+.
-    * *Limite:* Vezes por dia igual ao Corpo.
+    * *Limite:* Vezes por Retiro igual ao Corpo.
     * *Efeito:* Gira atingindo todos em raio de 2m.
     * *Acerto:* Inimigos fazem Teste de Defesa (Dex) contra sua CD de Corpo.
     * *Acerto:* **DR + Corpo**

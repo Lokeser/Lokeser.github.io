@@ -49,7 +49,7 @@ Evolução focada na **antecipação do movimento físico** e leitura do futuro 
 - CA passa a ser igual à sua Mana
 
 **Quebra de Causalidade**
-- Vezes por dia igual à ER:
+- Vezes por Retiro igual à ER:
   - Corpo re-rolagem de um ataque ou defesa bem-sucedido do inimigo
 
 

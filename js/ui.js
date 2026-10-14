@@ -116,6 +116,21 @@ const LuxUI = (() => {
             nome: 'Valor de Vida da Raça (VR)',
             def: 'O valor que sua raça acrescenta às rolagens de Vida ao subir de estrela.'
         },
+        recanto: {
+            nome: 'Recanto',
+            def: 'Descanso curto de 1 a 3 horas. Rende de 0 a 3 Ações R conforme o conforto do lugar. No máximo dois por dia.',
+            link: 'viewer.html?file=contents/regras/Regras_Gerais/Descanso.md'
+        },
+        retiro: {
+            nome: 'Retiro',
+            def: 'A noite inteira, de 6 a 8 horas. Recupera os usos "por Retiro", remove Fatigado e rende de 1 a 24 Ações R conforme o conforto.',
+            link: 'viewer.html?file=contents/regras/Regras_Gerais/Descanso.md'
+        },
+        recesso: {
+            nome: 'Recesso',
+            def: 'O intervalo entre aventuras, de 7 dias ou mais. Recupera os usos "por Recesso" e rende de 50 a 200 Ações R por semana.',
+            link: 'viewer.html?file=contents/regras/Regras_Gerais/Descanso.md'
+        },
         estagio: {
             nome: 'Estágio',
             def: 'O degrau de uma habilidade dentro do seu pilar. A partir do 2º estágio, exige até duas habilidades do estágio anterior.',
@@ -218,7 +233,8 @@ const LuxUI = (() => {
         [/\bMag[íi]culas?\b/i, 'magiculas'],
         [/\bPontos de Afei[çc][ãa]o\b/i, 'pa'],
         [/\bClasse de Armadura\b/i, 'ca'],
-        [/\bResist[êe]ncia\b/i, 'resistencia']
+        [/\bResist[êe]ncia\b/i, 'resistencia'],
+        [/\bRecanto\b/, 'recanto'], [/\bRetiro\b/, 'retiro'], [/\bRecesso\b/, 'recesso']
     ];
     function marcar(container) {
         if (!container) return;

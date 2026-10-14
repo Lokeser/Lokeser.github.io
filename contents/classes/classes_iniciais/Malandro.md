@@ -29,7 +29,7 @@ Escolha uma das opções:
 <!--#poder id="ci_malandro_r10e1_2" fonte="classe_inicial" rank="10" estrela="1" nome="Cara-a-Cara"-->
 ### Cara-a-Cara
 
-* Um número de vezes por dia igual ao seu **Carisma**:
+* Um número de vezes por Retiro igual ao seu **Carisma**:
   * Ao realizar um teste de perícia contra uma pessoa:
     * Faça um **Teste de Enganação** no lugar.
 * Se o alvo falhar:
@@ -78,7 +78,7 @@ Como **Ação Bônus**, durante o combate:
 ### Se Explicar
 
 * Sempre que **falhar** em um teste de **Cara-a-Cara**:
-  * Pode gastar **1 uso diário** para **refazer o teste**.
+  * Pode gastar **1 uso por Retiro** para **refazer o teste**.
   * A **CD aumenta em +2**.
 
 ---

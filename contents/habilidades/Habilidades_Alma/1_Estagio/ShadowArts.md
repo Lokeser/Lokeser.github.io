@@ -43,7 +43,7 @@ Como uma **Ação Bônus**:
 
 ## Shadow Absorb
 
-**1 vez por dia**, você absorve totalmente a Mana residual da sua sombra.
+**1 vez por Retiro**, você absorve totalmente a Mana residual da sua sombra.
 
 - Ganha **1d3 + 1 de Mana por Rank**
 

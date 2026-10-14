@@ -49,7 +49,7 @@ Alternativamente, pode manter a pele da semana anterior, mas perde **1/4 das Mag
 <!--#poder id="rc_rekelanc_r10_2" fonte="raca" rank="10" estrela="1" nome="Chifres de Absorção de Mana"-->
 ### Chifres de Absorção de Mana
 
-1 vez por dia, quando é alvo de uma magia ou habilidade mágica, gaste uma reação para um teste de **Corpo** (CD: 10 + Mana do alvo). Se passar, reduz o dano original em **3× sua Mana** e recupera Magículas iguais a **1/3 do valor reduzido** (perdidas ao fim do combate).
+1 vez por Retiro, quando é alvo de uma magia ou habilidade mágica, gaste uma reação para um teste de **Corpo** (CD: 10 + Mana do alvo). Se passar, reduz o dano original em **3× sua Mana** e recupera Magículas iguais a **1/3 do valor reduzido** (perdidas ao fim do combate).
 
 *Contra efeitos em área, a absorção afeta apenas você.*
 <!--#fim-->
@@ -95,7 +95,7 @@ Ao usar Habilidades Mágicas ou Magias, pode escolher seu chifre como ponto de i
 <!--#poder id="rc_rekelanc_r6_1" fonte="raca" rank="6" estrela="1" nome="Ulkanalização"-->
 ### Ulkanalização
 
-Uma vez por dia, pode utilizar **Ulkanalização** como uma ação completa.
+Uma vez por Retiro, pode utilizar **Ulkanalização** como uma ação completa.
 <!--#fim-->
 
 <!--#poder id="rc_rekelanc_r6_2" fonte="raca" rank="6" estrela="1" nome="Mutação Reptiliana Ancestral"-->
@@ -111,7 +111,7 @@ Escolha mais uma característica de Rekel.
 <!--#poder id="rc_rekelanc_r4_1" fonte="raca" rank="4" estrela="1" nome="Chifre Supremo"-->
 ### Chifre Supremo
 
-Pode utilizar a Ulkanalização vezes por dia igual à sua **Mana**.
+Pode utilizar a Ulkanalização vezes por Retiro igual à sua **Mana**.
 <!--#fim-->
 
 <!--#poder id="rc_rekelanc_r4_2" fonte="raca" rank="4" estrela="1" nome="O Rekel Ancestral"-->

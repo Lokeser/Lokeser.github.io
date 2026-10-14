@@ -105,7 +105,7 @@ Aprenda uma nova Técnica da Princesa da Lua.
 <!--#poder id="cs_tsukihime_r4e1" fonte="classe_avancada" rank="4" estrela="1" nome="Dungeon Mágica: Era das Estrelas"-->
 ### Dungeon Mágica: Era das Estrelas
 
-1×/dia · Ação Completa. Sobrepõe a realidade com o céu noturno (raio Mana × 10 m) — imunidade a efeitos externos e todos os efeitos base de Dungeon Mágica. Ganha dois poderes: **Julgamento das Estrelas** (2×; Ação Padrão; Defesa de Sabedoria CD 15 + Mana + ER; 10d12 Anômalo + marcado/Vulnerável; metade se passar) e **Pulsar Lunar** (início do turno: aliados ganham VT igual aos acúmulos de Marca; inimigos perdem 1 estágio de Resistência ao seu dano mágico, cumulativo; ao zerar, perdem Vida Máxima igual à sua Mana por pulso).
+1×/Retiro · Ação Completa. Sobrepõe a realidade com o céu noturno (raio Mana × 10 m) — imunidade a efeitos externos e todos os efeitos base de Dungeon Mágica. Ganha dois poderes: **Julgamento das Estrelas** (2×; Ação Padrão; Defesa de Sabedoria CD 15 + Mana + ER; 10d12 Anômalo + marcado/Vulnerável; metade se passar) e **Pulsar Lunar** (início do turno: aliados ganham VT igual aos acúmulos de Marca; inimigos perdem 1 estágio de Resistência ao seu dano mágico, cumulativo; ao zerar, perdem Vida Máxima igual à sua Mana por pulso).
 <!--#fim-->
 
 ## Técnicas da Princesa da Lua *(escolha ao receber um Treino Lunar)*

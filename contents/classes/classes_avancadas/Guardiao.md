@@ -71,7 +71,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
   - **CD = 10 + Corpo**
   - Falha: ficam **Desprevenidos por 1 rodada**.
 
-**Uso:** Vezes por dia iguais o **Corpo ÷ 2**.
+**Uso:** Vezes por Retiro iguais o **Corpo ÷ 2**.
 
 ---
 
@@ -154,7 +154,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
     - Reduza o dano em **Corpo ÷ 2**
     - O aliado recebe **Vida Temporária = Mana ÷ 2**
 
-**Uso:** Vezes por dia iguais a **Mana ÷ 2**.
+**Uso:** Vezes por Retiro iguais a **Mana ÷ 2**.
 
 ---
 
@@ -221,7 +221,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 <!--#poder id="ca_guardiao_r4e1_2" fonte="classe_avancada" rank="4" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Forma Líber (Guardião)"-->
 ### ⭐⭐⭐ 3 Estrelas — Forma Líber (Guardião)
 
-**Uso:** 1 vez por dia  
+**Uso:** 1 vez por Retiro  
 **Ativação:** Ação Bônus  
 **Duração:** 1 minuto
 

@@ -118,7 +118,7 @@ const WNJ = (() => {
         'sabedoria': 'sabedoria', 'mana': 'mana'
     };
     function parseRaca(text) {
-        const r = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaRacial: 6, md: 0, livre: false };
+        const r = { mods: {}, vidaBase: 20, vidaPasso: 6, vidaDivisor: 2, vidaRacial: 6, md: 0, livre: false };
         const mods = text.match(/\*\*Modificadores raciais:\*\*\s*(.+)/);
         if (mods) {
             const tokenRe = /([+\-−])\s*(\d+)\s+([A-Za-zÀ-ÿ]+)/g;
@@ -130,8 +130,8 @@ const WNJ = (() => {
         } else if (/Molde 100% flex/i.test(text)) {
             r.livre = true; // Humano: jogador distribui os proprios mods
         }
-        const vida = text.match(/\*\*Vida Base:\*\*\s*\*{0,2}(\d+)\s*\+\s*(\d+)\s*a cada 2 pontos/i);
-        if (vida) { r.vidaBase = parseInt(vida[1], 10); r.vidaPasso = parseInt(vida[2], 10); }
+        const vida = text.match(/\*\*Vida Base:\*\*\s*\*{0,2}(\d+)\s*\+\s*(\d+)\s*a cada (\d+) pontos?/i);
+        if (vida) { r.vidaBase = parseInt(vida[1], 10); r.vidaPasso = parseInt(vida[2], 10); r.vidaDivisor = Math.max(1, parseInt(vida[3], 10)); }
         const vr = text.match(/\*\*Valor de Vida da Raça:\*\*\s*\*{0,2}(\d+)/i);
         if (vr) r.vidaRacial = parseInt(vr[1], 10);
         const md = text.match(/Magia Inicial \(MD\):\s*\*\*(\d+)/i);
@@ -171,7 +171,7 @@ const WNJ = (() => {
     }
 
     function calcVida(raca, corpoTotal) {
-        return raca.vidaBase + raca.vidaPasso * Math.floor(Math.max(0, corpoTotal) / 2);
+        return raca.vidaBase + raca.vidaPasso * Math.floor(Math.max(0, corpoTotal) / (raca.vidaDivisor || 2));
     }
 
     function calcArcana(cfg, rankN) {

@@ -240,7 +240,7 @@ Você pode **iniciar a transformação voluntariamente** como ação bônus, sem
 <!--#poder id="rc_mito_dragaoouro_r6_1" fonte="raca" rank="6" estrela="1" nome="Falibilidade"-->
 ### Falibilidade
 
-**1 vez por dia**, ao rolar **1DR**, você pode receber **+1DR** no teste. Deve ser declarado **antes** de saber o resultado.
+**1 vez por Retiro**, ao rolar **1DR**, você pode receber **+1DR** no teste. Deve ser declarado **antes** de saber o resultado.
 <!--#fim-->
 
 <!--#poder id="rc_mito_dragaoouro_r6_2" fonte="raca" rank="6" estrela="1" nome="Forma Ilimitada"-->
@@ -284,7 +284,7 @@ Você recebe **+1 de Sabedoria** agora e **+1 de Sabedoria adicional** ao atingi
 
 Seu Rugido Primordial evolui: agora atinge um **raio de 69 + Mana metros** (não mais um cone). Quem falhar fica **Apavorado** (não pode se aproximar; −3 em todos os testes) por **1d4 rodadas**.
 
-**1 vez por dia** você pode usar a versão **Suprema**: no início do turno seguinte do alvo, o ouro explode causando **ERd12** a todos num raio de 6 m; quem falhar no teste fica **Paralisado** por 1 rodada.
+**1 vez por Retiro** você pode usar a versão **Suprema**: no início do turno seguinte do alvo, o ouro explode causando **ERd12** a todos num raio de 6 m; quem falhar no teste fica **Paralisado** por 1 rodada.
 <!--#fim-->
 
 <!--#poder id="rc_mito_dragaoouro_r5_3" fonte="raca" rank="5" estrela="1" nome="Sangue de Ouro"-->
@@ -316,7 +316,7 @@ Você recebe o **+1 de Sabedoria** prometido no Rank 5, totalizando **+2** por e
 <!--#poder id="rc_mito_dragaoouro_r4_2" fonte="raca" rank="4" estrela="1" nome="Herança da Humanidade"-->
 ### Herança da Humanidade
 
-Sua essência humana se iguala à dracônica. **1 vez por dia** você pode converter sua penalidade de sono em uma **visão profética**: dorme normalmente e recebe um **Presságio** do Mestre sobre um evento futuro próximo.
+Sua essência humana se iguala à dracônica. **1 vez por Retiro** você pode converter sua penalidade de sono em uma **visão profética**: dorme normalmente e recebe um **Presságio** do Mestre sobre um evento futuro próximo.
 <!--#fim-->
 
 <!--#poder id="rc_mito_dragaoouro_r4_3" fonte="raca" rank="4" estrela="1" nome="Soberania Dracônica"-->

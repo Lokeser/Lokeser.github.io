@@ -74,7 +74,7 @@ Sua magia deixa de ser apenas poderosa — ela se torna **inegável**.
   **4d4 + 1**
 
 * **Verus Primi:**  
-  Duas vezes por dia, no início do combate:
+  Duas vezes por Retiro, no início do combate:
   * Role **dois dados de Iniciativa**
   * Você pode agir em **dois turnos na mesma rodada**.
 

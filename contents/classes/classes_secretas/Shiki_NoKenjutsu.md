@@ -119,7 +119,7 @@ O ataque extra de Cortes Migratórios passa a causar o dano completo da Shikimar
 <!--#poder id="cs_shiki_r5e5" fonte="classe_avancada" rank="5" estrela="5" nome="Ritual das Estações"-->
 ### Ritual das Estações
 
-1×/dia, Ação Padrão: recarrega os cristais de mana da Shikimaru e recupera Magículas iguais à Sabedoria + ER.
+1×/Retiro, Ação Padrão: recarrega os cristais de mana da Shikimaru e recupera Magículas iguais à Sabedoria + ER.
 <!--#fim-->
 
 ---
@@ -129,7 +129,7 @@ O ataque extra de Cortes Migratórios passa a causar o dano completo da Shikimar
 <!--#poder id="cs_shiki_r4e1" fonte="classe_avancada" rank="4" estrela="1" nome="A Imperatriz do Ciclo Planetário"-->
 ### A Imperatriz do Ciclo Planetário
 
-Aprenda 1 Técnica Avançada + 1 Suprema. Mana +2; +8 pontos em Percepção Mágica e Aura. Inazuma no Kaidan 2×/dia sem custo (bônus +1D no turno, até 3 ataques). Marca das Estações vira 3d8 + Sabedoria×2 + ER×3 e deixa o alvo Vulnerável. 1×/dia imbui a Shikimaru com um elemento por 1 min (+Sabedoria de dano, ignora Resistência I). Desbloqueia **Forma Liber (Dama da 2ª Calamidade)**.
+Aprenda 1 Técnica Avançada + 1 Suprema. Mana +2; +8 pontos em Percepção Mágica e Aura. Inazuma no Kaidan 2×/Retiro sem custo (bônus +1D no turno, até 3 ataques). Marca das Estações vira 3d8 + Sabedoria×2 + ER×3 e deixa o alvo Vulnerável. 1×/Retiro imbui a Shikimaru com um elemento por 1 min (+Sabedoria de dano, ignora Resistência I). Desbloqueia **Forma Liber (Dama da 2ª Calamidade)**.
 <!--#fim-->
 
 ## Técnicas do Shiki no Kenjutsu *(escolha ao ganhar acesso)*

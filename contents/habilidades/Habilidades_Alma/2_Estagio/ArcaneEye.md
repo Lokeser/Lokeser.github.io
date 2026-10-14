@@ -56,7 +56,7 @@ Evolução que ignora a casca física da realidade para enxergar a **verdade int
 - Soma **metade da Mana** na CD ou Ataques Mágicos
 
 **Negação da Realidade**
-- Vezes por dia igual à ER:
+- Vezes por Retiro igual à ER:
   - Corpo re-rolagem de um sucesso inimigo (fica com o pior)
   - Ou re-rola sua própria falha (fica com o melhor)
 

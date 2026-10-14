@@ -159,7 +159,7 @@ Suas escolhas moldam sua forma final.
 
 #### Caminho Vampiro
 
-Pode se transformar em **Morcego** um número de vezes por dia igual à **Eficiência de Rank**.
+Pode se transformar em **Morcego** um número de vezes por Retiro igual à **Eficiência de Rank**.
 
 Na forma de Morcego:
 

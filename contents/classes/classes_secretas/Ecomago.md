@@ -72,11 +72,11 @@ Fauna: criaturas Rank 6. Flora: plantas Rank 6.
 <!--#poder id="cs_ecomago_r5e1" fonte="classe_avancada" rank="5" estrela="1" nome="Estudante IV & Poder da Trilha"-->
 ### Estudante IV & Poder da Trilha
 
-Fauna: criaturas Rank 6 e **Polimorfia** (transforma-se em animais com Maestria III+; atributos viram os da criatura, menos Intelecto/Sabedoria; usa Magia mas não Poderes; usos/dia = Mana, +1 por Maestria V+).
+Fauna: criaturas Rank 6 e **Polimorfia** (transforma-se em animais com Maestria III+; atributos viram os da criatura, menos Intelecto/Sabedoria; usa Magia mas não Poderes; usos/Retiro = Mana, +1 por Maestria V+).
 
 Flora: plantas Rank 6 e **Corpo Selvagem** (fotossíntese; vida extra = Sobrevivência + Adestramento). Mimetiza elementos:
-* **Braço de Raiz:** desarmados ERd4 + Mana, além de ERd12 + Sabedoria, raio 8 + Sabedoria (m); ataque extra como bônus; 1 min; usos/dia = Mana.
-* **Pele de Pedra:** Resistência V contra dano não-mágico e +3 CA por 1 min; usos/dia = Mana.
+* **Braço de Raiz:** desarmados ERd4 + Mana, além de ERd12 + Sabedoria, raio 8 + Sabedoria (m); ataque extra como bônus; 1 min; usos/Retiro = Mana.
+* **Pele de Pedra:** Resistência V contra dano não-mágico e +3 CA por 1 min; usos/Retiro = Mana.
 <!--#fim-->
 
 ---
@@ -90,6 +90,6 @@ Torna-se a Natureza Pura: +3 de Sabedoria; todos os Biomas viram seu Bioma Nato;
 
 **Fim da Trilha Flora (Xamã Superior):** Braço de Raiz vira d6/d12 e dobra distância, sem limite de uso; Pele de Pedra vira Resistência VI (não-mágico) e V (mágico), +6 CA.
 
-**Fim da Trilha Fauna (Polimorfia Verdadeira):** usos/dia = 3 + Sabedoria; mescla até 6 criaturas ao mesmo tempo (Habilidade I-IV, Atributo I Corpo, Atributo II Mana/Carisma); remove o uso diário de Polimorfia.
+**Fim da Trilha Fauna (Polimorfia Verdadeira):** usos/Retiro = 3 + Sabedoria; mescla até 6 criaturas ao mesmo tempo (Habilidade I-IV, Atributo I Corpo, Atributo II Mana/Carisma); remove o uso por Retiro de Polimorfia.
 <!--#fim-->
 

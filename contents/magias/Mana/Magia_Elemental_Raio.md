@@ -201,7 +201,7 @@ Aprenda **mais uma técnica** da sua Arte do Raio.
 
 <!--#poder id="mg_magia_elemental_raio_r5e3_1" fonte="magia" rank="5" estrela="3" nome="Reanimação"-->
 ### ★★★ Reanimação
-**Uso:** 1 vez por semana
+**Uso:** 1 vez por Recesso
 
 - Quando chegar a **0 de Vida**, pode consumir **30 Magículas**.
 - Realize um **Teste de Mana (CD 20)**.

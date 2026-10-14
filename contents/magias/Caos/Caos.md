@@ -39,7 +39,7 @@ Bruxas do Caos não possuem Vida fixa.
 
 * Utilizam **Vida Temporária (VT)**
 * A VT é regenerada completamente ao dormir
-* Em cada Descanso Longo, recebe VT igual a **4dPA com Caos**
+* Em cada Retiro, recebe VT igual a **4dPA com Caos**
 
 ---
 

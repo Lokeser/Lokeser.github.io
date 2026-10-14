@@ -81,7 +81,7 @@ Maldições de níveis superiores (40–60 de Corrupção).
 <!--#poder id="cs_explorador_r6e1c" fonte="classe_avancada" rank="6" estrela="1" nome="Encontro Inesperado"-->
 ### Encontro Inesperado
 
-1×/dia em área selvagem, escolha um número de 1–20 e gire 1d20; se tirar o número (±1), encontra um Artefato na área.
+1×/Retiro em área selvagem, escolha um número de 1–20 e gire 1d20; se tirar o número (±1), encontra um Artefato na área.
 <!--#fim-->
 
 <!--#poder id="cs_explorador_r6e1d" fonte="classe_avancada" rank="6" estrela="1" nome="Espírito & Estilos (Preta)"-->
@@ -119,18 +119,18 @@ Sobrevivência + 2 perícias com +3; aprenda 1 Estilo de Exploração.
 * **Enganador:** +1DR para esconder objetos e enganar quem tem 100+ PA. *(4+ Enganação)*
 * **Intimidador:** intimidação afeta monstros. *(7+ Intimidação)*
 * **Historiador:** investiga construções ancestrais com Erudição (escala 10→35+). *(4+ Erudição)*
-* **Astuto:** refaz testes de Acrobacia falhos (Técnica×/dia); sem penalidade em terreno difícil. *(4+ Acrobacia)*
+* **Astuto:** refaz testes de Acrobacia falhos (Técnica×/Retiro); sem penalidade em terreno difícil. *(4+ Acrobacia)*
 * **Adestramento:** usa Adestramento em Monstros. *(7+ Adestramento)*
 * **Descobridor:** mapeia áreas; gire 1DR de Investigação para benefícios no local. *(4+ Investigação)*
-* **Escondedor:** rank×/dia, ao ser atacado fora de combate, teste de Técnica para correr o dobro e se esconder. *(4+ Furtividade)*
+* **Escondedor:** rank×/Retiro, ao ser atacado fora de combate, teste de Técnica para correr o dobro e se esconder. *(4+ Furtividade)*
 * **Analista:** analisa Artefatos com Arcanismo (preço 10+, efeito 15+). *(4+ Arcanismo)*
 * **Mochileiro:** carrega o dobro do Corpo sem penalidade. *(4+ Atletismo)*
 * **Cavernólogo:** +1DR em Percepção e detecta seres vivos (1m per rank) em ambientes fechados. *(4+ Percepção)*
 * **Detetive:** teste de Investigação revela dados do monstro (escala 10→40+). *(6+ Investigação)*
 * **Medo Monstruoso:** intimidação dobrada contra criaturas com 1/4 de vida. *(Intimidador, 15+ Intimidação)*
-* **Cozinheiro:** +3 per rank para Cozinhar; 1×/dia refeição mágica. *(7+ Sobrevivência)*
+* **Cozinheiro:** +3 per rank para Cozinhar; 1×/Retiro refeição mágica. *(7+ Sobrevivência)*
 * **DASH v2:** ganha um novo DASH — **Break** (investida ofensiva, 7+ Corpo), **Space** (qualquer direção sem reações, 7+ Técnica) ou **Rock** (Resistência I per rank a dano mágico, 7+ Corpo).
 * **Minerador:** +2 per rank para minerar; +1DR de acerto com Picareta. *(6+ Atletismo)*
-* **Por um Fio:** 1×/dia rerola 1DR após ver o resultado; +1 em perícia enquanto não usar. *(critar com 3− de vida)*
+* **Por um Fio:** 1×/Retiro rerola 1DR após ver o resultado; +1 em perícia enquanto não usar. *(critar com 3− de vida)*
 * **Furtivista:** Furtividade como ação bônus em combate / ação livre fora. *(Escondedor, 10+ Furtividade)*
 * **Sombra Viva:** move-se sem revelar furtividade. *(Furtivista, 18+ Furtividade)*

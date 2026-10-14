@@ -21,7 +21,7 @@ Até hoje, seus ensinamentos moldam todos os usuários do elemento.
 ### ✦ Explosão de Foco
 
 **Custo:** 5 Mgc  
-**Uso:** Vezes por dia igual à sua Mana  
+**Uso:** Vezes por Retiro igual à sua Mana  
 
 Caso possua um **Foco de Mana** a até **20m**, como uma ação você pode canalizar sua mana nele, sobrecarregando-o.
 
@@ -254,7 +254,7 @@ Críticos deixam o inimigo **Imóvel por 1d4 turnos**
 
 **Custo:** 2 Mgc  
 **Pré-Requisito:** Rank 9+  
-**Uso:** Vezes por dia igual à sua Mana  
+**Uso:** Vezes por Retiro igual à sua Mana  
 
 Como ação livre:
 
@@ -295,7 +295,7 @@ Pode aplicar o manto a um aliado corpo-a-corpo.
 ### ✦ Aquecimento Elétrico
 
 **Custo:** 4 Mgc  
-**Uso:** Vezes por dia igual à sua Mana  
+**Uso:** Vezes por Retiro igual à sua Mana  
 
 Como ação bônus:
 
@@ -338,7 +338,7 @@ Aplica uma **Marca Elétrica**:
 ### ✦ Foco de Mana Royal
 
 **Custo:** 7+ Mgc  
-**Uso:** Vezes por dia igual à sua Mana  
+**Uso:** Vezes por Retiro igual à sua Mana  
 
 Como ação bônus, pode criar um Foco de Mana em você ou um artefato equipado, pode escolher quantas magículas ele terá(Max.Sua Mana).
 - Ele permanece alí até o final da Cena
@@ -484,7 +484,7 @@ O alvo fica **Em Chamas II**.
 
 **Pré-Requisito:** Rank 5+  
 **Custo:** 18 Mgc  
-**Uso:** 1 vez por dia
+**Uso:** 1 vez por Retiro
 
 Como uma ação, crie uma esfera de plasma em um ponto a até **18m**, com raio igual à sua **Mana** (em metros). Ela dura **3 turnos**.
 

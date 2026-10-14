@@ -79,7 +79,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - Alternar tipos de arma: +1DR e +1 Margem Crítica por ataque (cumulativo até +3). Reseta se repetir arma.
 
 **Lenda III (Êxtase do Arsenal)**  
-- 1x/dia, Ação Bônus, duração = ER + Sabedoria.  
+- 1x/Retiro, Ação Bônus, duração = ER + Sabedoria.  
 - Trocar armas = Ação Gratuita.  
 - Movimento imune a Ataques de Oportunidade.  
 - Ataques causam +ERd10 de dano adicional.
@@ -105,7 +105,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - 1x/rodada: acerto crítico sofrido por você ou aliado? Forçar rolagem novamente.
 
 **Lenda IV (Vontade Indômita Manifesta)**  
-- 1x/dia, 1 minuto:  
+- 1x/Retiro, 1 minuto:  
   - Imune a dano físico não-mágico.  
   - Resistência V a dano mágico.  
   - Ataques desarmados: +ERd6 + Corpo.  
@@ -123,7 +123,7 @@ Esta Classe representa o ápice absoluto do combate físico e mágico, um guerre
 - Ação Padrão de magia: ataque com Arma Favorita do Mago como Ação Bônus.
 
 **Lenda III (Explosão Arcana Convergente)**  
-- 1x/dia, Ação Padrão: ataque devastador.  
+- 1x/Retiro, Ação Padrão: ataque devastador.  
 - Acerto causa dano normal + dano mágico ERd12 + Mana (mínimo 1d12).  
 - Inimigos em 3m do alvo: teste Técnica (CD = 10 + Mana + ER) ou metade do dano mágico adicional.
 

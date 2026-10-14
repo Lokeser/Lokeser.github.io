@@ -50,7 +50,7 @@ A lâmina é feita de uma substância anômala que consome a existência do alvo
 ### ⚫ Ações de Tinta (Recurso)
 Ao empunhar Azuxia, o portador recebe um conjunto de movimentos especiais que coordenam a vontade da arma com a do usuário.
 * **Custo:** Consomem a **Ação Principal** do portador.
-* **Limite:** 10 Usos por dia.
+* **Limite:** 10 Usos por Retiro.
 * **Prioridade:** Poderes de Ação de Tinta são resolvidos **antes** dos Ataques Automáticos da Ação Bônus.
 
 ---
@@ -116,12 +116,12 @@ Tentáculos de tinta formam uma lança colossal que avança.
 #### ➤ Defesa Possessiva
 * **Gatilho:** Pode ser ativado quando a passiva *Defesa Instintiva* intercepta um ataque.
 * **Efeito:** Azuxia contra-ataca imediatamente como parte da mesma reação.
-* **Custo:** Consome 1 uso diário de Ação de Tinta.
+* **Custo:** Consome 1 uso por Retiro de Ação de Tinta.
 
 ---
 
 ## ☄️ Ultimate: Resplendor da Vida
-**(1 Uso por Dia)**
+**(1 Uso por Retiro)**
 
 Azuxia transcende sua forma de objeto.
 * **Duração:** 5 Turnos.

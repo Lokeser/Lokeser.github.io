@@ -20,7 +20,7 @@
 
 **Custo:** 4 Mgc
 
-Vezes por dia igual à sua **ER**, como uma ação, cria **duas esferas d’água** orbitando você.
+Vezes por Retiro igual à sua **ER**, como uma ação, cria **duas esferas d’água** orbitando você.
 
 * Contam como **Fonte de Água** e **Foco de Magia Aquática**
 * Concede **+1 CA por Esfera**
@@ -42,7 +42,7 @@ Vezes por dia igual à sua **ER**, como uma ação, cria **duas esferas d’águ
 
 **Custo:** 3 Mgc
 
-Vezes por dia igual à sua **Mana**, como uma ação, cria uma poça de água com tamanho igual à sua Mana.
+Vezes por Retiro igual à sua **Mana**, como uma ação, cria uma poça de água com tamanho igual à sua Mana.
 
 * Aumenta seu deslocamento em **Mana / 2**
 * Conta como **Fonte Aquática**
@@ -79,7 +79,7 @@ Enquanto estiver com água até a cintura:
 **Requisitos:** 1 técnica da Arte de Poseidon
 **Custo:** 5 Mgc
 
-Vezes por dia igual à sua Mana, como uma ação, cria um redemoinho em um **Foco Aquático** visível.
+Vezes por Retiro igual à sua Mana, como uma ação, cria um redemoinho em um **Foco Aquático** visível.
 
 * Área igual à sua Mana
 * Inimigos fazem teste de **Corpo vs CD Mágica**
@@ -100,7 +100,7 @@ Vezes por dia igual à sua Mana, como uma ação, cria um redemoinho em um **Foc
 **Requisitos:** Rank 4**, Área Molhada, 1 técnica da Arte de Poseidon
 **Custo:** 15 Mgc
 
-**1 vez por semana**, inunda uma área de **Mana em quilômetros**.
+**1 vez por Recesso**, inunda uma área de **Mana em quilômetros**.
 
 * Conta como **Área Molhada Superconjurada**
 * Conta como **Foco de Mana Aquática**
@@ -204,7 +204,7 @@ Em vez de Imóvel, o alvo fica **Paralisado**.
 
 **Pré-Requisito:** Rank 4+  
 **Custo:** 20 Mgc  
-**Uso:** 1 vez por semana
+**Uso:** 1 vez por Recesso
 
 Uma nevasca cobre uma área com raio de **Mana × 10** metros, por um número de turnos igual à sua **Mana**.
 

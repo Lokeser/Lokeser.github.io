@@ -57,7 +57,7 @@
 <!--#poder id="ci_trabalhador_r9e2_2" fonte="classe_inicial" rank="9" estrela="2" nome="Sistema Imunológico Reforçado"-->
 ### Sistema Imunológico Reforçado
 
-* **1 vez por dia**, como **Ação Completa**, pode remover:
+* **1 vez por Retiro**, como **Ação Completa**, pode remover:
   * Uma **condição adversa não-evoluída**.
 
 ---

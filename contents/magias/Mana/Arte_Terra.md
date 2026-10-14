@@ -16,7 +16,7 @@
 
 
 ### ✦ Área Pedreira
-**Uso:** Vezes por dia igual à sua **Mana**  
+**Uso:** Vezes por Retiro igual à sua **Mana**  
 **Ação:** Ação
 
 Cria uma área de pedras soltas com tamanho igual à sua **Mana (em metros)**.
@@ -38,7 +38,7 @@ Cria uma área de pedras soltas com tamanho igual à sua **Mana (em metros)**.
 ---
 
 ### ✦ Inarcana de Terra
-**Uso:** Vezes por dia igual à sua **Mana**  
+**Uso:** Vezes por Retiro igual à sua **Mana**  
 **Ação:** Reação
 
 Ao ativar Inarcana:
@@ -53,7 +53,7 @@ Ao ativar Inarcana:
 ---
 
 ### ✦ Endurecer Magia
-**Uso:** Vezes por dia igual à sua **Mana**
+**Uso:** Vezes por Retiro igual à sua **Mana**
 
 Gire um **Dado de Manipulação** à sua escolha.
 
@@ -76,7 +76,7 @@ Sempre que dormir, seu corpo absorve Mana do ambiente para reforçar sua estrutu
 
 ### ✦ Geolocalizar
 **Pré-Requisito:** Rank 9+  
-**Uso:** Vezes por dia igual à sua **Mana**
+**Uso:** Vezes por Retiro igual à sua **Mana**
 
 Realiza um **Teste de Mana**:
 - **CD:** **8 + Furtividade do Alvo** (se estiver escondido)
@@ -93,7 +93,7 @@ Realiza um **Teste de Mana**:
 
 ### ✦ Modelar Golem
 **Pré-Requisito:** Rank 8+  
-**Uso:** Vezes por dia igual à sua **Mana**
+**Uso:** Vezes por Retiro igual à sua **Mana**
 
 Cria um **Golem de Terra**.
 
@@ -101,7 +101,7 @@ Cria um **Golem de Terra**.
 - Duração: **4d12 minutos**.
 
 **Readquirir:**
-- Permite modelar golems **Mana vezes por dia**.
+- Permite modelar golems **Mana vezes por Retiro**.
 - **Readquirir uma segunda vez:** permite criar um Golem **do seu Rank atual**.
 
 ---
@@ -131,7 +131,7 @@ Cria um tremor violento no solo.
 
 ### ✦ Manipulação Livre de Lama
 **Pré-Requisito:** Rank 7+  
-**Uso:** Vezes por dia igual à sua **Mana**
+**Uso:** Vezes por Retiro igual à sua **Mana**
 
 Ao utilizar **Manipulação Livre**:
 - Pode alterar o **Tipo de Dano** para **Água**, caso exista uma **Fonte de Água próxima**.
@@ -154,7 +154,7 @@ Ao utilizar **Manipulação Livre**:
 
 ### ✦ Terraformação
 **Pré-Requisito:** Rank 4+  
-**Uso:** 1 vez por semana
+**Uso:** 1 vez por Recesso
 
 Manipula uma quantidade massiva de terra:
 
@@ -242,7 +242,7 @@ O cone dobra de tamanho.
 
 **Pré-Requisito:** Rank 5+  
 **Custo:** 12 Mgc  
-**Uso:** 1 vez por dia
+**Uso:** 1 vez por Retiro
 
 Até o fim da Cena, você se torna uma muralha:
 

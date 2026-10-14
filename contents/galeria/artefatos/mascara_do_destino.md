@@ -61,7 +61,7 @@ Ao vestir a máscara, a "Persona" assume. Uma aura de terror cósmico e masculin
 #### 2. AS RECOMPENSAS (Presentes das Profundezas)
 Ao concluir uma missão, Cthulhu presenteia seu Avatar. O Diretor deve escolher ou rolar uma recompensa apropriada ao nível da dificuldade:
 
-**Tipo a: Buffs Temporários (Duração: Até o próximo descanso longo)**
+**Tipo a: Buffs Temporários (Duração: Até o próximo Retiro)**
 
 **Tipo b: Artefatos Menores (Itens Consumíveis ou Acessórios)**
 

@@ -141,7 +141,7 @@ ERd6 + Mana
 <!--#poder id="ca_atirador_magico_r6e1_3" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Explosão de Movimento"-->
 ### 3 Estrelas — Explosão de Movimento
 
-* Vezes por dia: **1 por Rank**.
+* Vezes por Retiro: **1 por Rank**.
 * Como **ação bônus**, realiza um salto ultra-rápido:
   * Distância = **Metade do Deslocamento Base**
   * Não provoca **Contra-Ataques**
@@ -175,7 +175,7 @@ Valor do seu maior atributo
 <!--#poder id="ca_atirador_magico_r6e1_4" fonte="classe_avancada" rank="6" estrela="1" nome="5 Estrelas — Flechas Portanplexas"-->
 ### 5 Estrelas — Flechas Portanplexas
 
-* Vezes por dia = **Mana**.
+* Vezes por Retiro = **Mana**.
 * Pode realizar um ataque especial:
   * Remove o **Dado de Mana** do dano
   * Recebe **+5 na Margem Crítica**

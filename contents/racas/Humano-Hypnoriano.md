@@ -87,7 +87,7 @@ Recebe a habilidade **Visitar Mundo Interior**.
 <!--#poder id="rc_humano_hypnoriano_r8_2" fonte="raca" rank="8" estrela="1" nome="Sonho Mágico"-->
 ### Rank 8 — Sonho Mágico
 
-Vezes por dia iguais à sua **Eficiência de Rank (ER)**:
+Vezes por Retiro iguais à sua **Eficiência de Rank (ER)**:
 
 * Ao utilizar **Conectar Núcleo de Mana** em um alvo, pode, como **ação bônus no mesmo turno**, forçá-lo a realizar um **teste de Corpo** contra sua **CD Mágica**.
 * Em caso de falha, o alvo **adormece** por um número de **minutos igual à sua Mana**, ou até sofrer dano.

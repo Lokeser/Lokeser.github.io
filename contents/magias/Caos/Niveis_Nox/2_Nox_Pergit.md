@@ -20,7 +20,7 @@ Você manifesta um traço físico permanente de instabilidade mágica
 *(ex.: olhos brilhantes, sombras que se movem sozinhas, voz com eco etéreo).*  
 
 **Efeito:**  
-Uma vez por dia, ao lançar um Ritual, role **3d4**.  
+Uma vez por Retiro, ao lançar um Ritual, role **3d4**.  
 Você pode substituir o **primeiro dado do ritual** pelo valor obtido.
 
 ---

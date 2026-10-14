@@ -118,11 +118,11 @@ Modificações instaláveis na Títere Arcana:
 * **Sistema de Propulsão:** +3m de Deslocamento e bônus em Acrobacia igual à ER.
 * **Lançador de Fios/Rede:** Ação Padrão, alcance Curto; alvo faz Defesa de Técnica ou fica Enredado/Imóvel 1d4 rodadas.
 * **Mecanismo de Impacto Pesado:** dano Contundente força Defesa de Corpo; falha empurra 3m e deixa Tonto.
-* **Núcleo de Auto-Reparo:** recupera ER PV por turno; 1×/dia como Reação, 2d10 + Intelecto.
+* **Núcleo de Auto-Reparo:** recupera ER PV por turno; 1×/Retiro como Reação, 2d10 + Intelecto.
 * **Canalizador Elemental:** gaste 2 Magículas para +1d10 de dano elemental à escolha.
 * **Camuflagem Adaptativa:** bônus em Furtividade igual à Técnica + ER; pode esconder-se observada.
-* **Gerador de Escudo Arcano:** como Reação, VT igual a 3× Intelecto (ER usos/dia).
-* **Transpositor de Posição:** ER×/dia, troca de lugar com a Títere como Ação Bônus, sem ataques de oportunidade.
+* **Gerador de Escudo Arcano:** como Reação, VT igual a 3× Intelecto (ER usos/Retiro).
+* **Transpositor de Posição:** ER×/Retiro, troca de lugar com a Títere como Ação Bônus, sem ataques de oportunidade.
 * **Perfurador de Blindagem Cinético:** ignora Resistência a Dano igual a 2× ER (ou +1d10 se não houver).
 * **Dispersor de Gás Nocivo:** nuvem de 3m; quem começar o turno nela faz Defesa de Corpo (CD 10 + Intelecto) ou fica Fraco.
 * **Sifão de Mana:** 1×/turno, alvo faz Defesa de Mana ou perde 1d6 Magículas (você recupera metade).
@@ -130,5 +130,5 @@ Modificações instaláveis na Títere Arcana:
 * **Membros Múltiplos de Combate:** dois ataques com −1DR cada.
 * **Reator de Sobrecarga:** +1DR nos ataques e +5m por 1d3 rodadas; ao fim, 2d12 de dano e Debilitado.
 * **Sistema de Armas Modular:** duas armas; troca o tipo de dano como Ação Bônus.
-* **Anulador de Magia Ressonante:** Reação, teste de Intelecto + ER vs CD da magia inimiga para dissipá-la (1×/dia).
+* **Anulador de Magia Ressonante:** Reação, teste de Intelecto + ER vs CD da magia inimiga para dissipá-la (1×/Retiro).
 * **Protocolo Guardião:** +2 CA ao mestre adjacente; 1×/combate a Títere recebe o 1º golpe no lugar dele sem gastar reação.

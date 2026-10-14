@@ -42,7 +42,7 @@ O cone passa a ter tamanho igual à sua **Mana** e o dano se torna:
 **Pré-Requisito:** Rank 8+  
 **Custo:** 4 Mgc  
 
-Vezes por dia igual à sua **Mana**, ao arremessar uma esfera de fogo ao alto, ela explode em múltiplas fagulhas.
+Vezes por Retiro igual à sua **Mana**, ao arremessar uma esfera de fogo ao alto, ela explode em múltiplas fagulhas.
 
 - Inimigos em um raio de **5m** realizam um Teste de Técnica contra sua CD de Mana
 - Falha: recebem **Em Chamas II** por **1d4 Turnos**
@@ -257,7 +257,7 @@ Cria pequenos seres flamejantes.
 
 **Pré-Requisito:** Rank 9+  
 **Custo:** 4 Mgc  
-**Uso:** Vezes por dia igual à sua **Mana**
+**Uso:** Vezes por Retiro igual à sua **Mana**
 
 Como uma ação, derrame magma em um ponto a até **12m**, criando uma poça com raio de **Mana / 2** metros (mínimo 2m). Ela dura até o fim da Cena.
 
@@ -321,7 +321,7 @@ Você também fica **imune a Em Chamas**.
 
 **Pré-Requisito:** Rank 5+  
 **Custo:** 15 Mgc  
-**Uso:** 1 vez por dia
+**Uso:** 1 vez por Retiro
 
 Por um número de turnos igual à sua **Mana**:
 

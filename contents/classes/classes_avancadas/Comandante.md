@@ -76,7 +76,7 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
   - Você pode mantê-la **sem custo de Magículas**.
 
 #### Discurso Inspirador
-- **1 vez por dia**, gaste **1 minuto** discursando.
+- **1 vez por Retiro**, gaste **1 minuto** discursando.
 - Aliados que ouvirem recebem **PV Temporários = Carisma × 2**.
 
 ---
@@ -129,7 +129,7 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 - Como **Reação**, quando um aliado que possa te ver for alvo de um ataque:
   - Você se declara o novo alvo.
   - Recebe **Resistência IV** contra o dano desse ataque.
-- **Uso:** Vezes por dia iguais à sua **ER**.
+- **Uso:** Vezes por Retiro iguais à sua **ER**.
 
 #### Logística de Tempo
 - Sempre que **Comandar um Aliado**, você recebe **1 Carga de Comando**.

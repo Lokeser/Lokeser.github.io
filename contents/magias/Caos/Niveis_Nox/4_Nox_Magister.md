@@ -39,7 +39,7 @@ Você cria seu **Grimoire Vivo**, um tomo de pergaminhos sussurrantes.
 
 - Serve como foco para rituais
 - Registra automaticamente anomalias presenciadas
-- Uma vez por semana, você pode:
+- Uma vez por Recesso, você pode:
   - Registrar **1 Ritual Caótico**
   - Criar **variações experimentais** dele  
 *(sempre com auxílio do mestre)*
@@ -76,7 +76,7 @@ Recebe:
 - A habilidade única **Reversão de Causa e Efeito**
 
 **Reversão de Causa e Efeito:**  
-Uma vez por semana, você pode desfazer ou inverter um ritual realizado nas últimas **24 horas**, mesmo que tenha sido lançado por outra bruxa.
+Uma vez por Recesso, você pode desfazer ou inverter um ritual realizado nas últimas **24 horas**, mesmo que tenha sido lançado por outra bruxa.
 
 Além disso:
 - Pode conduzir **Rituais Coletivos** com até **4 bruxas**, mesmo de Nox diferentes

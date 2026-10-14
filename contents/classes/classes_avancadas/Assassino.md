@@ -65,7 +65,7 @@ Se você estiver **Furtivo** **ou** o alvo estiver sob uma **Condição Adversa 
 Sabedoria + ER
 ******
 
-* **1 vez por dia**, também durante a noite, pode utilizar **Aura Intimidadora** mesmo sem tê-la aprendida.
+* **1 vez por Retiro**, também durante a noite, pode utilizar **Aura Intimidadora** mesmo sem tê-la aprendida.
 
 ---
 

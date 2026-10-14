@@ -19,7 +19,7 @@ Ao selar o pacto, você passa pelo **Renascimento**: pode realocar seus atributo
 
 Como uma Ação Livre, manifeste sua entidade em uma **arma comum Pequena ou Média** escolhida no momento do pacto. A arma é uma extensão da alma: pode ser invocada ou dissipada em sua mão e não pode ser empunhada por outra criatura sem sua permissão.
 
-Ela usa as estatísticas normais de uma arma comum, acrescidas do **Aspecto da Entidade** escolhido na subclasse. Se for destruída, retorna após um Descanso Longo.
+Ela usa as estatísticas normais de uma arma comum, acrescidas do **Aspecto da Entidade** escolhido na subclasse. Se for destruída, retorna após um Retiro.
 <!--#fim-->
 
 <!--#poder id="ci_emb_r10e3" fonte="classe_inicial" rank="10" estrela="3" nome="Vínculo de Representação"-->
@@ -141,7 +141,7 @@ As habilidades abaixo são desbloqueadas pelo **PA com a entidade**. Esse PA é 
 * **Manifestar Entidade (50 PA):** com teste de Arcana (CD 15 + 1 por Rank acima do 10), manifeste a entidade como objeto não mágico de até Arcana m². A manifestação é Ação Livre, usa Arcana em seus testes e consome 1 PA.
 * **Combater com Entidade (150 PA):** uma entidade manifestada pode agir como aliado com ficha própria; ambos compartilham poderes e telecinese comunicativa. Se a entidade chegar a 0 PV, você perde 20 PA.
 * **Sincronizado (200 PA):** ao cair a 0 PV com a entidade em campo, teste Arcana (CD 15 + 5 para cada queda). Em sucesso, levante com VT igual à Arcana. Cada uso reduz 10 PA.
-* **Adaptação Mágica Definitiva (500 PA):** uma vez por dia, use uma Habilidade Básica ou Avançada ignorando seus pré-requisitos.
+* **Adaptação Mágica Definitiva (500 PA):** uma vez por Retiro, use uma Habilidade Básica ou Avançada ignorando seus pré-requisitos.
 * **Fábula Fusion (999 PA, Rank 3+):** você e a entidade se tornam um só ser e acessam Ascendentialism, Demoncarnation ou Forma Liber, conforme a entidade; ignora os pré-requisitos.
 
 Seu método de evolução é estabelecido pelo vínculo de PA e pelas missões da entidade.

@@ -374,9 +374,39 @@
         const PREFS_KEY = 'wnj_biblioteca';
         let layout = [];
         try { const v = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '[]'); layout = Array.isArray(v) ? v : []; } catch (e) { layout = []; }
-        function salvarLayout() {
-            try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); marcarSalvo(); }
-            catch (e) { estado('Não consegui salvar a organização', 'erro'); }
+        // A organização também vai para a nuvem, para os grupos aparecerem em todo aparelho
+        const LAYOUT_T_KEY = 'wnj_layout_t';
+        let timerLayoutNuvem = null;
+        function salvarLayout(daNuvem) {
+            try {
+                localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout));
+                if (!daNuvem) localStorage.setItem(LAYOUT_T_KEY, new Date().toISOString());
+                marcarSalvo();
+            } catch (e) { estado('Não consegui salvar a organização', 'erro'); }
+            if (daNuvem || !WNJNuvem.disponivel()) return;
+            clearTimeout(timerLayoutNuvem);
+            timerLayoutNuvem = setTimeout(enviarLayoutNuvem, 2000);
+        }
+        async function enviarLayoutNuvem() {
+            try { await WNJNuvem.enviarBiblioteca({ layout, atualizado: localStorage.getItem(LAYOUT_T_KEY) || new Date().toISOString() }); }
+            catch (e) { console.warn('Falha ao enviar os grupos', e); }
+        }
+        // Na abertura: traz da nuvem os personagens novos e a organização mais recente
+        async function puxarDaNuvem() {
+            if (!WNJNuvem.disponivel()) return;
+            try {
+                const r = await WNJNuvem.sincronizar({ enviarLocais: false });
+                const bib = await WNJNuvem.lerBiblioteca();
+                const tLocal = new Date(localStorage.getItem(LAYOUT_T_KEY) || 0).getTime();
+                if (bib && Array.isArray(bib.layout) && new Date(bib.atualizado || 0).getTime() > tLocal) {
+                    layout = bib.layout;
+                    localStorage.setItem(LAYOUT_T_KEY, bib.atualizado);
+                    salvarLayout(true);
+                } else if (layout.some(i => i.t === 'g') && (!bib || tLocal > new Date(bib.atualizado || 0).getTime())) {
+                    enviarLayoutNuvem();
+                }
+                if (r.baixados || r.atualizados) toast('Da nuvem: ' + r.baixados + ' novo(s), ' + r.atualizados + ' atualizado(s)');
+            } catch (e) { console.warn('Falha ao puxar da nuvem', e); }
         }
 
         let prefs = { vista: 'grade', tamanho: 180, ordem: 'manual', recolhidos: [] };
@@ -1068,6 +1098,7 @@
             try {
                 const r = await WNJNuvem.sincronizar();
                 toast('Sincronizado: ' + r.baixados + ' baixado(s), ' + r.enviados + ' enviado(s), ' + r.atualizados + ' atualizado(s)');
+                await puxarDaNuvem();   // grupos
                 await atualizarNuvem();
             } catch (e) { toast('Erro ao sincronizar: ' + e.message, 'erro'); }
             finally { ocupado(-1); render(); }
@@ -1102,9 +1133,9 @@
 
         // ================================================================
         // personagens vêm do IndexedDB: espera o banco abrir (e migrar o localStorage antigo)
-        WNJ.pronto().then(() => { render(); atualizarNuvem(); });
+        WNJ.pronto().then(async () => { render(); await puxarDaNuvem(); render(); atualizarNuvem(); });
         WNJ.aoMudar(render);   // outra aba salvou personagens
-        document.addEventListener('wnj-auth', () => { atualizarNuvem(); render(); });
+        document.addEventListener('wnj-auth', async () => { await puxarDaNuvem(); render(); atualizarNuvem(); });
         // outra aba mexeu nos personagens ou na organização
         window.addEventListener('storage', (e) => {
             if (e.key === LAYOUT_KEY) { try { layout = JSON.parse(e.newValue || '[]'); } catch (err) {} render(); }

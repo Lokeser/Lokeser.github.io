@@ -40,6 +40,11 @@
     char.estrela = char.estrela || 1;
     char.subClasseInicial = char.subClasseInicial || '';
     char.subClasseAvancada = char.subClasseAvancada || '';
+    // Fichas antigas: o Embaixador Cósmico era Classe Inicial e virou Avançada
+    if (char.classeInicial === 'Embaixador Cósmico') {
+        if (!char.classeAvancada) { char.classeAvancada = char.classeInicial; char.subClasseAvancada = char.subClasseInicial; }
+        char.classeInicial = ''; char.subClasseInicial = '';
+    }
     char.titulo = char.titulo || '';
     char.tituloArtigo = char.tituloArtigo || '';
     if (modoEdicao) document.body.classList.add('modo-edicao');
@@ -116,8 +121,8 @@
         $('btn-trocar-sub').onclick = abrirSubRaca;
     }
 
-    // ---------- ENTIDADES DE PACTO (subclasses da classe inicial) ----------
-    function entradaClasseInicial() { return (cfg.classes_iniciais || []).find(c => c.nome === char.classeInicial); }
+    // ---------- ENTIDADES DE PACTO (subclasses da classe avançada) ----------
+    function entradaClasseInicial() { return (cfg.classes_avancadas || []).find(c => c.nome === char.classeAvancada); }
     function abrirSubClasseInicial() {
         const e = entradaClasseInicial();
         if (!e || !e.subclasses) return;
@@ -127,7 +132,7 @@
             '<span>' + esc(s.nome) + '</span><small class="ok">Disponível</small></button>').join('');
         document.querySelectorAll('#subclasse1-lista .subraca-op').forEach(b => {
             b.onclick = async () => {
-                char.subClasseInicial = b.dataset.subclasse;
+                char.subClasseAvancada = b.dataset.subclasse;
                 fecharOverlay('ov-subclasse1');
                 await sincronizarPoderes();
                 renderIdentidade(); renderPoderes();
@@ -142,7 +147,7 @@
         if (!e || !e.subclasses) { campo.style.display = 'none'; return; }
         campo.style.display = '';
         box.style.display = '';
-        const s = char.subClasseInicial ? e.subclasses.find(x => x.nome === char.subClasseInicial) : null;
+        const s = char.subClasseAvancada ? e.subclasses.find(x => x.nome === char.subClasseAvancada) : null;
         box.innerHTML = s
             ? '✦ Entidade: <strong>' + esc(s.nome) + '</strong> <button type="button" id="btn-trocar-subclasse1">trocar</button>'
             : '✦ <strong>Escolha sua entidade de pacto</strong>. <button type="button" id="btn-trocar-subclasse1">escolher</button>';
@@ -1120,13 +1125,14 @@
     $('f-classe1').onchange = async e => {
         char.classeInicial = e.target.value;
         char.subClasseInicial = '';
-        await sincronizarPoderes(); renderPoderes(); renderSubClasseInicialAviso();
-        const ent = entradaClasseInicial();
-        if (ent && ent.subclasses) abrirSubClasseInicial();
+        await sincronizarPoderes(); renderPoderes();
     };
     $('f-classe2').onchange = async e => {
         char.classeAvancada = e.target.value;
-        await sincronizarPoderes(); renderPoderes(); renderEscolhas();
+        char.subClasseAvancada = '';
+        await sincronizarPoderes(); renderPoderes(); renderEscolhas(); renderSubClasseInicialAviso();
+        const ent = entradaClasseInicial();
+        if (ent && ent.subclasses) abrirSubClasseInicial();
     };
     $('f-magia').onchange = async e => {
         char.magia = e.target.value;

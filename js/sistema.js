@@ -409,11 +409,12 @@ const WNJ = (() => {
     }
     const gravado = () => ultimaGravacao;
 
-    function salvar(char) {
+    // manterData: cópia vinda da nuvem conserva a data original
+    function salvar(char, manterData) {
         if (leituraFalhou) return false;
         const todos = listar();
         const i = todos.findIndex(c => c.id === char.id);
-        char.atualizado = new Date().toISOString();
+        if (!manterData || !char.atualizado) char.atualizado = new Date().toISOString();
         if (i >= 0) todos[i] = char; else todos.push(char);
         return gravar(todos);
     }

@@ -28,14 +28,16 @@ const WNJNuvem = (() => {
         });
         if (res.status === 404) return [];               // usuário ainda não tem pasta
         if (!res.ok) throw new Error('Erro ' + res.status + ' ao listar a nuvem.');
-        const arquivos = (await res.json()).filter(f => f.name.endsWith('.json'));
+        // "_biblioteca.json" guarda os grupos, não é personagem
+        const arquivos = (await res.json()).filter(f => f.name.endsWith('.json') && !f.name.startsWith('_'));
 
         const chars = [];
         for (const f of arquivos) {
             try {
-                const rr = await fetch(f.download_url + '?t=' + Date.now());
-                if (!rr.ok) continue;
-                const ch = await rr.json();
+                // Pela API, não pelo raw: o raw fica até 5 min em cache e devolve versões velhas
+                const { texto } = await WNJAuth.lerArquivo(pasta() + '/' + f.name);
+                if (!texto) continue;
+                const ch = JSON.parse(texto);
                 ch._nuvem = true;
                 ch._sha = f.sha;
                 chars.push(ch);
@@ -96,16 +98,32 @@ const WNJNuvem = (() => {
             if (local && !nuvem) {
                 if (enviarLocais) { await enviar(local); enviados++; }
             } else if (!local && nuvem) {
-                WNJ.salvar(nuvem); baixados++;
+                WNJ.salvar(limpa(nuvem), true); baixados++;
             } else if (local && nuvem) {
                 const tl = new Date(local.atualizado || 0).getTime();
                 const tn = new Date(nuvem.atualizado || 0).getTime();
-                if (tn > tl) { WNJ.salvar(nuvem); atualizados++; }
+                if (tn > tl) { WNJ.salvar(limpa(nuvem), true); atualizados++; }
                 else if (tl > tn && enviarLocais) { await enviar(local); atualizados++; }
             }
         }
+        await WNJ.gravado();
         return { baixados, enviados, atualizados, totalNuvem: naNuvem.length };
     }
+    // Baixado guarda a data da nuvem; sem isso o próximo sync reenviaria tudo
+    function limpa(ch) { const c = Object.assign({}, ch); delete c._nuvem; delete c._sha; return c; }
 
-    return { disponivel, login, listar, enviar, excluir, sincronizar, pasta };
+    // ---------- GRUPOS DA BIBLIOTECA ----------
+    // { layout, atualizado } em <pasta>/_biblioteca.json
+    async function lerBiblioteca() {
+        if (!disponivel()) return null;
+        const { texto } = await WNJAuth.lerArquivo(pasta() + '/_biblioteca.json');
+        try { return texto ? JSON.parse(texto) : null; } catch (e) { return null; }
+    }
+    async function enviarBiblioteca(dados) {
+        if (!disponivel()) return;
+        await WNJAuth.salvarArquivo(pasta() + '/_biblioteca.json', JSON.stringify(dados, null, 2),
+            'Biblioteca: grupos (' + login() + ')');
+    }
+
+    return { disponivel, login, listar, enviar, excluir, sincronizar, pasta, lerBiblioteca, enviarBiblioteca };
 })();

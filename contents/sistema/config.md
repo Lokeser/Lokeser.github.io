@@ -132,13 +132,7 @@
     { "nome": "Caminho Vidente",  "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md", "img": "assets/images/c_caminho_vidente.png", "foco": ["sabedoria", "mana"], "secreta": true },
     { "nome": "Caminho Astral",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md", "img": "assets/images/c_caminho_astral.png", "foco": ["mana", "sabedoria"],     "secreta": true },
     { "nome": "Caminho Lunar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md", "img": "assets/images/c_caminho_lunar.png", "foco": ["intelecto", "mana"],      "secreta": true },
-    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md", "img": "assets/images/c_caminhosolar.png", "foco": ["carisma", "mana"],      "secreta": true },
-    { "nome": "Embaixador Cósmico", "arquivo": "contents/classes/classes_secretas/Embaixador.md", "foco": ["mana"], "secreta": true, "arcana": "maior_atributo",
-      "subclasses": [
-        { "nome": "Entidade de Mana", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeMana.md" },
-        { "nome": "Entidade de Fé",  "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeFe.md" },
-        { "nome": "Entidade de Caos", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeCaos.md" }
-      ] }
+    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md", "img": "assets/images/c_caminhosolar.png", "foco": ["carisma", "mana"],      "secreta": true }
   ],
 
   "classes_avancadas": [
@@ -154,6 +148,12 @@
     { "nome": "Estrategista",         "arquivo": "contents/classes/classes_avancadas/Estrategista.md", "img": "assets/images/c_estrategista.png", "foco": ["intelecto"] },
     { "nome": "Guardião",             "arquivo": "contents/classes/classes_avancadas/Guardiao.md", "img": "assets/images/c_guardiao.png", "foco": ["corpo"] },
     { "nome": "Mago",                 "arquivo": "contents/classes/classes_avancadas/Mago.md", "img": "assets/images/c_mago.png", "foco": ["mana", "intelecto"] },
+    { "nome": "Embaixador Cósmico", "arquivo": "contents/classes/classes_secretas/Embaixador.md", "foco": ["mana"], "secreta": true, "arcana": "maior_atributo",
+      "subclasses": [
+        { "nome": "Entidade de Mana", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeMana.md" },
+        { "nome": "Entidade de Fé",  "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeFe.md" },
+        { "nome": "Entidade de Caos", "arquivo": "contents/classes/classes_secretas/Embaixador_EntidadeCaos.md" }
+      ] },
     { "nome": "Combativo Imaginário",   "arquivo": "contents/classes/classes_secretas/Combativo_Imaginario.md", "img": "assets/images/c_combativo_imaginario.png", "foco": ["intelecto", "carisma"], "secreta": true },
     { "nome": "Ecomago",                "arquivo": "contents/classes/classes_secretas/Ecomago.md", "img": "assets/images/c_ecomago.png", "foco": ["sabedoria", "mana"],              "secreta": true },
     { "nome": "Mestre de Marionetes",   "arquivo": "contents/classes/classes_secretas/MestreDasMarionetes.md", "img": "assets/images/c_mestre_marionetes.jpg", "foco": ["intelecto", "mana"],  "secreta": true },

@@ -1,4 +1,6 @@
-# Caminho Lunar
+# Caminho da Lua
+
+> **Classe Única — Expansão *O Sol e a Lua*.** Acompanha o personagem do **Rank 10 ao Rank 3**, ocupando o lugar da Classe Inicial, da Avançada e da Absoluta. No **Rank 8**, o caminho se divide e você escolhe uma subclasse: **Tsukihime no Kenjutsu**, **Tsukihime Akatsuki**, **Mártir Lunar** e **Avatar do Eclipse** (as duas últimas exigem também a expansão *Sagromaldição*).
 
 ### Pré-Requisito
 - Portar um Espírito Lunar  

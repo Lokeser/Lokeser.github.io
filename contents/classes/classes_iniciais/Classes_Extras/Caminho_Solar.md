@@ -1,4 +1,6 @@
-# Caminho Solar
+# Caminho do Sol
+
+> **Classe Única — Expansão *O Sol e a Lua*.** Acompanha o personagem do **Rank 10 ao Rank 3**, ocupando o lugar da Classe Inicial, da Avançada e da Absoluta. No **Rank 8**, o caminho se divide e você escolhe uma subclasse: **Shiki no Kenjutsu**.
 
 ### Pré-Requisito
 - Portar um Espírito Solar  

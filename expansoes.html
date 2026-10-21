@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expansões - Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Cada livro é uma capa escura com a sua própria luz; a página segue o tema. */
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-text, 'Lora', serif); }
+        .estante { max-width: 1000px; margin: 0 auto; padding: 48px 16px 96px; }
+        .estante-topo { margin-bottom: 40px; }
+        .estante-topo h1 { font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0; letter-spacing: .04em; color: var(--text); }
+        .estante-topo p { max-width: 60ch; line-height: 1.65; color: var(--text-2, #8aa0b8); margin: 12px 0 0; font-size: 1.05rem; }
+        .estante-topo .contagem { margin-top: 18px; font-family: 'Cinzel', serif; color: var(--gold); font-size: .95rem; }
+
+        .livros { display: grid; gap: 44px; }
+        .livro {
+            --tinta: #f1ead8; --tinta-2: #b9b2a2; --luz: #E7C77F; --luz2: #C9D6EA; --fundo: #0b1120;
+            position: relative; border-radius: 22px; overflow: hidden; background: var(--fundo); color: var(--tinta);
+            box-shadow: 0 30px 70px rgba(0,0,0,.35); border: 1px solid color-mix(in srgb, var(--luz) 30%, transparent);
+            scroll-margin-top: 90px; transition: border-color .3s, box-shadow .3s;
+        }
+        .livro.ativo { border-color: var(--luz); box-shadow: 0 30px 70px rgba(0,0,0,.35), 0 0 0 1px var(--luz), 0 0 60px color-mix(in srgb, var(--luz) 22%, transparent); }
+        .livro[data-tom="sol-lua"] { --luz: #E7C77F; --luz2: #C9D6EA; --fundo: #0b1120; }
+        .livro[data-tom="sagro"]   { --luz: #b08cff; --luz2: #f0d17a; --fundo: #120b1c; }
+        .livro[data-tom="elfica"]  { --luz: #6fd3a8; --luz2: #d8f2e4; --fundo: #07140f; }
+        .livro[data-tom="bestas"]  { --luz: #e8745a; --luz2: #d4a95a; --fundo: #170b08; }
+        .livro[data-tom="artes"]   { --luz: #93a0ff; --luz2: #e8e2d0; --fundo: #0a0b15; }
+
+        /* Capa: ocupa boa parte do card. Uma imagem em assets/images/expansoes/<id>.webp entra aqui sozinha. */
+        .capa { position: relative; aspect-ratio: 16 / 8; overflow: hidden; background:
+                radial-gradient(120% 90% at 20% 10%, color-mix(in srgb, var(--luz) 38%, transparent), transparent 60%),
+                radial-gradient(90% 80% at 85% 90%, color-mix(in srgb, var(--luz2) 26%, transparent), transparent 65%),
+                linear-gradient(160deg, color-mix(in srgb, var(--fundo) 70%, #000), var(--fundo)); }
+        .capa img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .capa .sigilo { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+        .capa .sigilo span { font-family: 'Cinzel', serif; font-size: clamp(7rem, 22vw, 15rem); line-height: 1; color: transparent;
+                -webkit-text-stroke: 1.5px color-mix(in srgb, var(--luz) 70%, transparent); opacity: .55; }
+        .capa.com-img .sigilo { display: none; }
+        .capa::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(transparent, var(--fundo)); }
+
+        .miolo { position: relative; padding: 0 clamp(20px, 5vw, 56px) clamp(24px, 4vw, 44px); margin-top: -64px; z-index: 1; }
+        .num { font-family: 'Cinzel', serif; color: var(--luz); letter-spacing: .12em; font-size: .95rem; }
+        .livro h2 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5.4vw, 3.3rem); margin: 4px 0 10px; line-height: 1.05; color: var(--tinta); }
+        .frase { font-style: italic; color: var(--luz2); font-size: 1.12rem; line-height: 1.55; margin: 0 0 22px; max-width: 58ch; }
+        .lore p { line-height: 1.75; color: var(--tinta-2); margin: 0 0 14px; max-width: 70ch; font-size: 1.02rem; }
+        .lore strong { color: var(--tinta); font-weight: 600; }
+
+        .conteudo { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px 28px; margin: 26px 0 30px;
+                padding-top: 22px; border-top: 1px solid color-mix(in srgb, var(--luz) 25%, transparent); }
+        .conteudo h3 { font-family: 'Cinzel', serif; font-size: .98rem; color: var(--luz); margin: 0 0 8px; letter-spacing: .03em; }
+        .conteudo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+        .conteudo li { color: var(--tinta); line-height: 1.4; padding-left: 16px; position: relative; }
+        .conteudo li::before { content: ''; position: absolute; left: 0; top: .55em; width: 6px; height: 6px; transform: rotate(45deg); background: var(--luz); }
+        .conteudo .wip li { color: var(--tinta-2); font-style: italic; }
+        .conteudo .wip li::before { background: transparent; border: 1px solid var(--tinta-2); }
+
+        .ativar { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+                padding: 16px 20px; border-radius: 14px; background: color-mix(in srgb, var(--luz) 9%, transparent);
+                border: 1px solid color-mix(in srgb, var(--luz) 30%, transparent); }
+        .ativar .estado { color: var(--tinta-2); line-height: 1.45; max-width: 52ch; }
+        .ativar .estado strong { color: var(--tinta); }
+        .chave { display: inline-flex; align-items: center; gap: 12px; cursor: pointer; font-family: 'Cinzel', serif; color: var(--tinta); font-size: 1rem; user-select: none; }
+        .chave input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .chave .trilho { width: 54px; height: 30px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); position: relative; transition: background .2s; flex: none; }
+        .chave .trilho::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--tinta-2); transition: transform .2s var(--ease, ease), background .2s; }
+        .chave input:checked + .trilho { background: var(--luz); border-color: var(--luz); }
+        .chave input:checked + .trilho::after { transform: translateX(24px); background: var(--fundo); }
+        .chave input:focus-visible + .trilho { outline: 2px solid var(--luz2); outline-offset: 3px; }
+
+        @media (max-width: 600px) {
+            .capa { aspect-ratio: 4 / 3; }
+            .miolo { margin-top: -40px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .chave .trilho, .chave .trilho::after, .livro { transition: none; } }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="estante">
+        <header class="estante-topo">
+            <h1>Expansões</h1>
+            <p>Cada livro abre uma parte do mundo que dorme fora do caminho comum. Marque os livros que a sua mesa usa: o que estiver desmarcado some do site, dos menus e da criação de personagem.</p>
+            <div class="contagem" id="contagem"></div>
+        </header>
+        <div class="livros" id="livros"></div>
+    </main>
+
+    <script src="js/expansoes.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+        const md = s => esc(s).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        const ROMANO = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+        function render() {
+            const at = WNJExp.ativos();
+            document.getElementById('livros').innerHTML = WNJExp.LIVROS.map(l => {
+                const on = at.includes(l.id);
+                return '<article class="livro' + (on ? ' ativo' : '') + '" id="' + l.id + '" data-tom="' + l.tom + '">' +
+                    '<div class="capa"><div class="sigilo" aria-hidden="true"><span>' + ROMANO[l.num] + '</span></div>' +
+                    '<img src="assets/images/expansoes/' + l.id + '.webp" alt="" loading="lazy" hidden></div>' +
+                    '<div class="miolo">' +
+                        '<div class="num">Livro ' + ROMANO[l.num] + '</div>' +
+                        '<h2>' + esc(l.titulo) + '</h2>' +
+                        '<p class="frase">' + esc(l.frase) + '</p>' +
+                        '<div class="lore">' + l.lore.map(p => '<p>' + md(p) + '</p>').join('') + '</div>' +
+                        '<div class="conteudo">' + l.conteudo.map(g =>
+                            '<div class="' + (g.wip ? 'wip' : '') + '"><h3>' + esc(g.grupo) + '</h3><ul>' +
+                            g.itens.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul></div>').join('') + '</div>' +
+                        '<div class="ativar">' +
+                            '<p class="estado">' + (on
+                                ? '<strong>Ativo na sua conta.</strong> O conteúdo deste livro aparece no site e na criação de personagem.'
+                                : '<strong>Desativado.</strong> Marque para liberar as raças, classes e magias deste livro.') + '</p>' +
+                            '<label class="chave"><input type="checkbox" data-livro="' + l.id + '"' + (on ? ' checked' : '') + '>' +
+                            '<span class="trilho" aria-hidden="true"></span>Usar este livro</label>' +
+                        '</div>' +
+                    '</div></article>';
+            }).join('');
+            // A capa aparece quando a imagem existir
+            document.querySelectorAll('.capa img').forEach(img => {
+                img.onload = () => { img.hidden = false; img.parentElement.classList.add('com-img'); };
+            });
+            document.getElementById('contagem').textContent = at.length + ' de ' + WNJExp.LIVROS.length + (at.length === 1 ? ' livro ativo' : ' livros ativos');
+        }
+
+        document.getElementById('livros').addEventListener('change', async e => {
+            const cb = e.target.closest('[data-livro]'); if (!cb) return;
+            await WNJExp.definir(cb.dataset.livro, cb.checked);
+            const y = scrollY; render(); scrollTo(0, y);
+        });
+
+        render();
+        if (location.hash) setTimeout(() => { const el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }, 50);
+        // Com login, traz a escolha feita em outro aparelho
+        document.addEventListener('wnj-auth', async () => { if (await WNJExp.puxar(true)) render(); });
+        setTimeout(async () => { if (typeof WNJAuth !== 'undefined' && await WNJExp.puxar(true)) render(); }, 600);
+    </script>
+</body>
+</html>

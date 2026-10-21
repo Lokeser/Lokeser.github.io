@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <div class="conta-grupo">
                             <p class="conta-rotulo">Universo</p>
+                            <a class="conta-item" href="${finalPrefix}expansoes.html">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5.5C6.5 4 9.5 4 12 5.5v14C9.5 18 6.5 18 4 19.5z"/><path d="M20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></svg>
+                                Expansões
+                            </a>
                             <a class="conta-item" href="${finalPrefix}contents/bestiario/bestiario_menu.html">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7.5 4.3v9.4L12 21l-7.5-4.3V7.3z"/><path d="M12 8l3.5 2v4L12 16l-3.5-2v-4z"/></svg>
                                 Bestiário
@@ -244,11 +248,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Login GitHub: carrega o módulo sob demanda (a navbar existe em todas as páginas)
-    if (typeof WNJAuth === 'undefined') {
+    const authPronto = new Promise(res => {
+        if (typeof WNJAuth !== 'undefined') return res();
         const s = document.createElement('script');
         s.src = finalPrefix + 'js/auth.js';
-        s.onload = () => desenharConta();
+        s.onload = () => { desenharConta(); res(); };
+        s.onerror = res;
         document.head.appendChild(s);
+    });
+
+    // Expansões: esconde em todo o site o conteúdo dos livros desmarcados
+    const iniciarExpansoes = async () => {
+        WNJExp.aplicar();
+        let t = null;
+        new MutationObserver(() => { clearTimeout(t); t = setTimeout(WNJExp.aplicar, 120); })
+            .observe(document.body, { childList: true, subtree: true });
+        await authPronto;
+        if (await WNJExp.puxar()) location.reload();   // outra máquina mudou os livros
+    };
+    if (typeof WNJExp !== 'undefined') iniciarExpansoes();
+    else {
+        const x = document.createElement('script');
+        x.src = finalPrefix + 'js/expansoes.js';
+        x.onload = iniciarExpansoes;
+        document.head.appendChild(x);
     }
 
     // --- LÓGICA DO MENU MOBILE ---

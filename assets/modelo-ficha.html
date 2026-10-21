@@ -259,6 +259,11 @@ body[data-arq="mistico"] .painel { border-radius: 18px; }
 .cartao { position: relative; border-radius: var(--r); padding: 13px 14px 12px; background: var(--painel); border: 1px solid rgba(255,255,255,.09); border-left: 3px solid var(--cor, var(--ac)); }
 body[data-arq="metal"] .cartao { border-radius: 4px; }
 body[data-arq="gotico"] .cartao { border-radius: 2px; }
+.diario-thumb { float: right; width: 72px; height: 72px; padding: 0; margin: 0 0 6px 10px; border: 1px solid var(--linha-metal); border-radius: 8px; overflow: hidden; cursor: zoom-in; background: none; }
+.diario-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.diario-tipo { font-size: .66rem; letter-spacing: 1px; text-transform: uppercase; color: var(--tinta-2); margin: 2px 0 6px; }
+dialog:has(.diario-pop) { width: min(780px, calc(100vw - 24px)); }
+.diario-pop img { display: block; max-width: 100%; max-height: 62vh; margin: 0 auto; border-radius: 10px; }
 .cartao-topo { display: flex; align-items: flex-start; gap: 8px; }
 .cartao h3 { font-family: var(--titulo); font-size: 1.08rem; margin: 0; line-height: 1.2; flex: 1; min-width: 0; }
 .etiqueta { display: inline-block; font-size: .72rem; font-weight: 800; color: #0b0b0d; background: var(--cor, var(--ac)); border-radius: 4px; padding: 1px 7px; margin-bottom: 6px; }
@@ -659,7 +664,7 @@ function render() {
         divisor() +
         secao('inventario', 'Inventário', '<button class="bt mini" data-acao="add-item">+ Item</button>', '<div class="inv" id="inventario"></div>') +
         secao('cargas', 'Cargas', '<button class="bt mini" data-acao="add-carga">+ Carga</button>', '<div class="cargas" id="cargas"></div>') +
-        secao('pensamentos', 'Pensamentos e opiniões', '<button class="bt mini" data-acao="add-pens">+ Registro</button>', '<div class="lista" id="pensamentos"></div>') +
+        secao('pensamentos', 'Diário', '<button class="bt mini" data-acao="add-pens">+ Entrada</button>', '<div class="lista" id="pensamentos"></div>') +
         '<footer>' + svg(SIG.raca) + '<span>' + esc(nomeCompleto) + ' · Luxsandoria, Watashi no Jinsei</span><span>Ficha gerada em ' + new Date(S.exportado || Date.now()).toLocaleDateString('pt-BR') + '</span></footer>';
 
     if (ARQ === 'mistico') $('.combate').insertAdjacentHTML('afterbegin', ident);
@@ -947,7 +952,10 @@ function renderCargas() {
 // ---------- Pensamentos ----------
 function renderPensamentos() {
     $('#pensamentos').innerHTML = ch.pensamentos.map((p, i) =>
-        '<article class="cartao" style="--cor:var(--metal)"><div class="cartao-topo"><h3>' + esc(p.assunto || 'Sem assunto') + '</h3>' + ferramentas('pens', i, false) + '</div>' + efeito(p.textoHTML) + '</article>'
+        '<article class="cartao" style="--cor:var(--metal)">' +
+        (p.img ? '<button class="diario-thumb" data-diario="' + i + '" title="Abrir" aria-label="Abrir ' + esc(p.assunto || '') + '"><img src="' + p.img + '" alt=""></button>' : '') +
+        '<div class="cartao-topo"><h3>' + esc(p.assunto || 'Sem assunto') + '</h3>' + ferramentas('pens', i, false) + '</div>' +
+        '<div class="diario-tipo">' + esc(p.tipo || 'Pensamento') + '</div>' + efeito(p.textoHTML) + '</article>'
     ).join('') || '<p class="vazio">Nenhum registro.</p>';
     encolherLongos('#pensamentos');
 }
@@ -998,10 +1006,11 @@ function editar(tipo, i) {
     } else if (tipo === 'pens') {
         const p = novo ? { assunto: '', textoHTML: '' } : ch.pensamentos[i];
         formulario(novo ? 'Novo registro' : 'Editar registro',
-            '<label>Assunto<input name="assunto" required value="' + esc(p.assunto) + '"></label>' +
+            '<label>Nome<input name="assunto" required value="' + esc(p.assunto) + '"></label>' +
+            '<label>Tipo<input name="tipo" value="' + esc(p.tipo || 'Pensamento') + '"></label>' +
             '<label>Texto<div class="editor" contenteditable="true" data-editor>' + (p.textoHTML || '') + '</div></label>',
             (f, html) => {
-                const d = { assunto: f.get('assunto').trim(), textoHTML: html };
+                const d = { assunto: f.get('assunto').trim(), tipo: f.get('tipo').trim() || 'Pensamento', textoHTML: html };
                 if (novo) ch.pensamentos.push(d); else Object.assign(ch.pensamentos[i], d);
                 renderPensamentos();
             });
@@ -1037,6 +1046,11 @@ document.addEventListener('click', (e) => {
     if (d.rmTempAtr != null) { ch.temporarios.atributos.splice(int(d.rmTempAtr), 1); mudou(); renderAtributos(); renderPericias(); return renderAtaques(); }
     if (d.rmTempPer != null) { ch.temporarios.pericias.splice(int(d.rmTempPer), 1); mudou(); return renderPericias(); }
     if (d.editar) return editar(d.editar, int(d.i));
+    if (d.diario != null) {
+        const p = ch.pensamentos[int(d.diario)];
+        return abrirDialogo('<div class="dlg diario-pop"><img src="' + p.img + '" alt=""><div class="diario-tipo">' + esc(p.tipo || 'Pensamento') + '</div><h3>' + esc(p.assunto || '') + '</h3>' +
+            '<div class="efeito">' + (p.textoHTML || '') + '</div><div class="acoes"><button type="button" class="bt" data-fechar>Fechar</button></div></div>');
+    }
     if (d.duplicar) { const l = LISTA[d.duplicar](), o = JSON.parse(JSON.stringify(l[int(d.i)])); o.nome = (o.nome || '') + ' (cópia)'; l.splice(int(d.i) + 1, 0, o); mudou(); return RENDER[d.duplicar](); }
     if (d.remover) {
         const l = LISTA[d.remover](), it = l[int(d.i)];

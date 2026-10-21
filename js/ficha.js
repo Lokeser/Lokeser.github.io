@@ -609,10 +609,21 @@
         $('board-pensamentos').innerHTML = char.pensamentos.length ? char.pensamentos.map((p, i) =>
             '<div class="tcard" style="--tag:#9fc0da">' +
             '<div class="acoes-card"><button data-editar="' + i + '" title="Editar">✏️</button><button data-remover="' + i + '" title="Remover">🗑️</button></div>' +
-            '<span class="tag" style="background:#9fc0da">Pensamento</span>' +
+            (p.img ? '<img class="diario-thumb" src="' + p.img + '" alt="' + esc(p.assunto) + '" data-ver="' + i + '" title="Abrir">' : '') +
+            '<span class="tag" style="background:#9fc0da">' + esc(p.tipo || 'Pensamento') + '</span>' +
             '<h4>' + esc(p.assunto) + '</h4>' +
             '<div class="efeito">' + (p.textoHTML || '') + '</div>' +
-            '</div>').join('') : '<p class="aviso-inline">O que seu personagem pensa sobre o mundo? Clique em <strong>+ Novo Pensamento</strong>.</p>';
+            '</div>').join('') : '<p class="aviso-inline">O que seu personagem viu, pensa ou lembra? Clique em <strong>+ Nova Entrada</strong>.</p>';
+        document.querySelectorAll('#board-pensamentos [data-ver]').forEach(im => {
+            im.onclick = () => {
+                const p = char.pensamentos[parseInt(im.dataset.ver)];
+                $('dpop-img').src = p.img;
+                $('dpop-tipo').textContent = p.tipo || 'Pensamento';
+                $('dpop-nome').textContent = p.assunto;
+                $('dpop-texto').innerHTML = p.textoHTML || '';
+                abrirOverlay('ov-diario');
+            };
+        });
         document.querySelectorAll('#board-pensamentos [data-remover]').forEach(b => {
             b.onclick = () => { char.pensamentos.splice(parseInt(b.dataset.remover), 1); renderPensamentos(); };
         });
@@ -724,16 +735,32 @@
     function abrirModalPensamento(idx) {
         pensamentoEditando = idx != null ? idx : null;
         const p = pensamentoEditando != null ? char.pensamentos[pensamentoEditando] : null;
-        $('pensamento-titulo').textContent = p ? 'Editar Pensamento' : 'Novo Pensamento';
+        $('pensamento-titulo').textContent = p ? 'Editar Entrada' : 'Nova Entrada';
         $('pen-assunto').value = p ? p.assunto : '';
+        $('pen-tipo').value = p ? (p.tipo || 'Pensamento') : '';
         $('pen-texto').innerHTML = p ? (p.textoHTML || '') : '';
+        penImg = p ? (p.img || '') : '';
+        mostrarPenImg();
         abrirOverlay('ov-pensamento');
     }
+    let penImg = '';
+    function mostrarPenImg() {
+        $('pen-img-prev').hidden = $('pen-img-rm').hidden = !penImg;
+        if (penImg) $('pen-img-prev').src = penImg;
+        $('pen-img-btn').textContent = penImg ? 'Trocar imagem' : 'Escolher imagem';
+    }
+    $('pen-img-btn').onclick = () => $('pen-img-input').click();
+    $('pen-img-rm').onclick = () => { penImg = ''; mostrarPenImg(); };
+    $('pen-img-input').onchange = (e) => {
+        const file = e.target.files[0];
+        e.target.value = '';
+        if (file) lerImagemHD(file, url => { penImg = url; mostrarPenImg(); });
+    };
     $('btn-novo-pensamento').onclick = () => abrirModalPensamento(null);
     $('pen-salvar').onclick = () => {
         const assunto = $('pen-assunto').value.trim();
-        if (!assunto) { alert('Sobre o quê é esse pensamento?'); return; }
-        const dados = { assunto, textoHTML: $('pen-texto').innerHTML };
+        if (!assunto) { alert('Dê um nome para a entrada.'); return; }
+        const dados = { assunto, tipo: $('pen-tipo').value.trim() || 'Pensamento', img: penImg, textoHTML: $('pen-texto').innerHTML };
         if (pensamentoEditando != null) Object.assign(char.pensamentos[pensamentoEditando], dados);
         else char.pensamentos.push(dados);
         fecharOverlay('ov-pensamento'); renderPensamentos();
@@ -1145,15 +1172,17 @@
     $('foto').onclick = () => $('foto-input').click();
     $('foto-input').onchange = (e) => {
         const file = e.target.files[0];
-        if (!file) return;
+        if (file) lerImagemHD(file, url => { char.img = url; renderIdentidade(); });
+    };
+    // Imagem em HD: o arquivo original é guardado sem recompressão.
+    // Só reduz (para 2560px) o que for gigante, para caber no armazenamento do navegador.
+    function lerImagemHD(file, pronto) {
         const img = new Image();
         img.onload = () => {
-            // Imagem em HD: o arquivo original é guardado sem recompressão.
-            // Só reduz (para 2560px) o que for gigante, para caber no armazenamento do navegador.
             const MAX = 2560, LIMITE_BYTES = 3 * 1024 * 1024;
             if (Math.max(img.width, img.height) <= MAX && file.size <= LIMITE_BYTES) {
                 const fr = new FileReader();
-                fr.onload = () => { char.img = fr.result; renderIdentidade(); };
+                fr.onload = () => pronto(fr.result);
                 fr.readAsDataURL(file);
                 return;
             }
@@ -1165,11 +1194,10 @@
             cx.imageSmoothingQuality = 'high';
             cx.drawImage(img, 0, 0, cv.width, cv.height);
             const webp = cv.toDataURL('image/webp', 0.95);
-            char.img = webp.startsWith('data:image/webp') ? webp : cv.toDataURL('image/jpeg', 0.95);
-            renderIdentidade();
+            pronto(webp.startsWith('data:image/webp') ? webp : cv.toDataURL('image/jpeg', 0.95));
         };
         img.src = URL.createObjectURL(file);
-    };
+    }
 
     // ================= CARGAS =================
     $('btn-nova-carga').onclick = () => {

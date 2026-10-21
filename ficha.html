@@ -193,6 +193,15 @@
         .tcard .resumo { color: var(--c4); font-weight: 700; font-size: .86rem; margin-bottom: 6px; }
         .tcard .efeito { font-size: .82rem; color: #c9d9e8; line-height: 1.45; max-height: 150px; overflow-y: auto; }
         .tcard .efeito p { margin-bottom: 6px; }
+        /* Diário: miniatura usa a imagem original (o navegador só reduz na tela) */
+        .diario-thumb { float: right; width: 72px; height: 72px; object-fit: cover; border-radius: 8px; margin: 22px 0 6px 10px; cursor: zoom-in; border: 1px solid rgba(255,255,255,.18); }
+        .diario-img-campo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .diario-img-campo img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+        .diario-pop { max-width: min(92vw, 760px); }
+        .diario-pop #dpop-img { display: block; max-width: 100%; max-height: 62vh; margin: 0 auto 12px; border-radius: 10px; }
+        .diario-pop .tag { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #0d1520; background: #9fc0da; border-radius: 10px; padding: 2px 9px; }
+        .diario-pop h3 { margin: 6px 0 8px; }
+        .diario-pop .efeito { font-size: .9rem; line-height: 1.55; color: #c9d9e8; max-height: 30vh; overflow-y: auto; }
         .tcard .acoes-card { position: absolute; top: 8px; right: 10px; display: flex; gap: 7px; }
         .tcard .acoes-card button { background: none; border: none; cursor: pointer; font-size: .85rem; opacity: .65; }
         .tcard .acoes-card button:hover { opacity: 1; }
@@ -517,11 +526,11 @@
             <div class="cargas-grid" id="cargas-grid"></div>
         </section>
 
-        <!-- PENSAMENTOS E OPINIÕES -->
+        <!-- DIÁRIO -->
         <section class="secao">
-            <div class="secao-titulo">💭 Pensamentos e Opiniões
+            <div class="secao-titulo">📔 Diário
                 <div class="direita">
-                    <button class="btn-wnj ouro" id="btn-novo-pensamento">+ Novo Pensamento</button>
+                    <button class="btn-wnj ouro" id="btn-novo-pensamento">+ Nova Entrada</button>
                 </div>
             </div>
             <div class="board" id="board-pensamentos"></div>
@@ -674,10 +683,20 @@
     <!-- MODAL: PENSAMENTO -->
     <div class="overlay" id="ov-pensamento">
         <div class="modal-wnj">
-            <h3 id="pensamento-titulo">Novo Pensamento</h3>
-            <label>Sobre o quê?</label>
+            <h3 id="pensamento-titulo">Nova Entrada</h3>
+            <label>Nome</label>
             <input id="pen-assunto" placeholder="Ex: A Academia Omnus">
-            <label>Pensamento / Opinião</label>
+            <label>Tipo</label>
+            <input id="pen-tipo" list="pen-tipos" placeholder="Ex: Lugar">
+            <datalist id="pen-tipos"><option value="Pensamento"><option value="Pessoa"><option value="Lugar"><option value="Memória"><option value="Objeto"><option value="Evento"><option value="Criatura"></datalist>
+            <label>Imagem</label>
+            <div class="diario-img-campo">
+                <img id="pen-img-prev" alt="" hidden>
+                <button type="button" class="btn-wnj fantasma" id="pen-img-btn">Escolher imagem</button>
+                <button type="button" class="btn-wnj fantasma" id="pen-img-rm" hidden>Remover</button>
+                <input type="file" id="pen-img-input" accept="image/*" hidden>
+            </div>
+            <label>Texto</label>
             <div class="rt-bar">
                 <button type="button" data-cmd="bold"><b>B</b></button>
                 <button type="button" data-cmd="italic"><i>I</i></button>
@@ -687,8 +706,19 @@
             <div class="rt-editor" id="pen-texto" contenteditable="true"></div>
             <div class="modal-acoes">
                 <button class="btn-wnj fantasma" data-fechar>Cancelar</button>
-                <button class="btn-wnj ouro" id="pen-salvar">Salvar Pensamento</button>
+                <button class="btn-wnj ouro" id="pen-salvar">Salvar Entrada</button>
             </div>
+        </div>
+    </div>
+
+    <!-- POPUP: ENTRADA DO DIÁRIO -->
+    <div class="overlay" id="ov-diario">
+        <div class="modal-wnj diario-pop">
+            <img id="dpop-img" alt="">
+            <span class="tag" id="dpop-tipo"></span>
+            <h3 id="dpop-nome"></h3>
+            <div class="efeito" id="dpop-texto"></div>
+            <div class="modal-acoes"><button class="btn-wnj fantasma" data-fechar>Fechar</button></div>
         </div>
     </div>
 

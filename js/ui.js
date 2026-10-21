@@ -322,8 +322,30 @@ const LuxUI = (() => {
         });
     }
 
+    // Card com um único link: clicar em qualquer parte do card segue o link.
+    // Cards com botões, campos ou mais de um destino ficam como estão.
+    const CARD = '[class*="card"], [class*="cartao"], [class*="pilar"], .tomo, .especie, .hab, .index-row, .portal';
+    function cardsClicaveis() {
+        document.querySelectorAll(CARD).forEach(c => {
+            if (c.dataset.cardLink || c.matches('a') || c.closest('a, button, form, .modal-wnj, dialog')) return;
+            const links = [...c.querySelectorAll('a[href]')].filter(a => !a.getAttribute('href').startsWith('#'));
+            if (!links.length || new Set(links.map(a => a.href)).size !== 1) return;
+            if (c.querySelector('button, input, select, textarea, [contenteditable="true"]')) return;
+            c.dataset.cardLink = '1';
+            c.style.cursor = 'pointer';
+            c.addEventListener('click', e => {
+                if (e.target.closest('a, button, input, select, textarea, .lux-term') || getSelection().toString()) return;
+                links[0].click();
+            });
+        });
+    }
+
     function init() {
         criarBalao(); ligar();
+        cardsClicaveis();
+        let tc = null;
+        new MutationObserver(() => { clearTimeout(tc); tc = setTimeout(cardsClicaveis, 150); })
+            .observe(document.body, { childList: true, subtree: true });
         // Avisa quem carregou antes (o loader do viewer, por exemplo)
         setTimeout(() => document.dispatchEvent(new CustomEvent('lux-ui-pronto')));   // depois de LuxUI existir
     }

@@ -101,6 +101,9 @@
     { "nome": "Elfo",               "arquivo": "contents/racas/Elfo.md", "img": "assets/images/raca_elfo.jpeg", "foco": ["mana", "intelecto"] },
     { "nome": "Elfo Negro",         "arquivo": "contents/racas/ElfoNegro.md", "img": "assets/images/raca_elfonegro.png", "foco": ["mana", "tecnica"] },
     { "nome": "Hypnoriano",         "arquivo": "contents/racas/Humano-Hypnoriano.md", "img": "assets/images/raca_hypno.png", "foco": ["tecnica", "carisma"] },
+    { "nome": "Bruxa",              "arquivo": "contents/racas/Bruxa.md", "foco": ["mana", "sabedoria"] },
+    { "nome": "Devoto",             "arquivo": "contents/racas/Devoto.md", "foco": ["carisma", "sabedoria"] },
+    { "nome": "Elfo Superior",      "arquivo": "contents/racas/ElfoSuperior.md", "img": "assets/images/raca_elfo.jpeg", "foco": ["mana", "intelecto"] },
     { "nome": "Rekel Ancestral",              "arquivo": "contents/racas/Secreta-RekelAncestral.md", "foco": ["corpo", "sabedoria"],  "secreta": true },
     { "nome": "Humano Variante — Convertido", "arquivo": "contents/racas/Secreta-HumanoConvertido.md", "foco": ["mana"], "secreta": true },
     { "nome": "Demi-Humano — Insectoide",     "arquivo": "contents/racas/Secreta-Insectoide.md", "foco": [],       "secreta": true },
@@ -131,8 +134,17 @@
     { "nome": "Trabalhador", "arquivo": "contents/classes/classes_iniciais/Trabalhador.md", "img": "assets/images/c_trabalhador.png", "foco": ["corpo", "tecnica"] },
     { "nome": "Caminho Vidente",  "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Visionario.md", "img": "assets/images/c_caminho_vidente.png", "foco": ["sabedoria", "mana"], "secreta": true },
     { "nome": "Caminho Astral",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Astral.md", "img": "assets/images/c_caminho_astral.png", "foco": ["mana", "sabedoria"],     "secreta": true },
-    { "nome": "Caminho Lunar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md", "img": "assets/images/c_caminho_lunar.png", "foco": ["intelecto", "mana"],      "secreta": true },
-    { "nome": "Caminho Solar",    "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md", "img": "assets/images/c_caminhosolar.png", "foco": ["carisma", "mana"],      "secreta": true }
+    { "nome": "Caminho da Lua",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Lunar.md", "img": "assets/images/c_caminho_lunar.png", "foco": ["intelecto", "mana"], "secreta": true, "unica": true, "rankSub": 8,
+      "subclasses": [
+        { "nome": "Tsukihime no Kenjutsu", "arquivo": "contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md" },
+        { "nome": "Tsukihime Akatsuki",    "arquivo": "contents/classes/classes_absolutas/Tsukihime_Akatsuki.md" },
+        { "nome": "Mártir Lunar",          "arquivo": "contents/classes/classes_absolutas/MartirLunar.md" },
+        { "nome": "Avatar do Eclipse",     "arquivo": "contents/classes/classes_absolutas/Avatar_doEclipse.md" }
+      ] },
+    { "nome": "Caminho do Sol",   "arquivo": "contents/classes/classes_iniciais/Classes_Extras/Caminho_Solar.md", "img": "assets/images/c_caminhosolar.png", "foco": ["carisma", "mana"], "secreta": true, "unica": true, "rankSub": 8,
+      "subclasses": [
+        { "nome": "Shiki no Kenjutsu", "arquivo": "contents/classes/classes_secretas/Shiki_NoKenjutsu.md" }
+      ] }
   ],
 
   "classes_avancadas": [
@@ -159,20 +171,13 @@
     { "nome": "Mestre de Marionetes",   "arquivo": "contents/classes/classes_secretas/MestreDasMarionetes.md", "img": "assets/images/c_mestre_marionetes.jpg", "foco": ["intelecto", "mana"],  "secreta": true },
     { "nome": "Musicista",              "arquivo": "contents/classes/classes_secretas/Musicista.md", "img": "assets/images/c_musicista.jpg", "foco": ["sabedoria", "mana"],            "secreta": true },
     { "nome": "Hikari Ken",             "arquivo": "contents/classes/classes_secretas/HikariKen.md", "img": "assets/images/c_hikari_ken.jpg", "foco": ["tecnica", "corpo"],            "secreta": true },
-    { "nome": "Tsukihime no Kenjutsu",  "arquivo": "contents/classes/classes_secretas/Tsukihime_NoKenjutsu.md", "img": "assets/images/c_tsukihime_kenjutsu.png", "foco": ["mana", "tecnica"], "secreta": true },
-    { "nome": "Shiki no Kenjutsu",      "arquivo": "contents/classes/classes_secretas/Shiki_NoKenjutsu.md", "img": "assets/images/c_shiki_kenjutsu.jpg", "foco": ["tecnica", "sabedoria"],     "secreta": true },
     { "nome": "Explorador",             "arquivo": "contents/classes/classes_secretas/Explorador.md", "img": "assets/images/c_explorador.jpg", "foco": ["tecnica", "corpo"],           "secreta": true },
     { "nome": "Jūryoku Ken",            "arquivo": "contents/classes/classes_secretas/JuryokuKen.md", "foco": ["tecnica", "corpo"],           "secreta": true }
   ],
 
   "classes_absolutas": [
-    { "nome": "Avatar do Eclipse", "arquivo": "contents/classes/classes_absolutas/Avatar_doEclipse.md", "foco": [], "wip": true },
     { "nome": "Combativo Supremo", "arquivo": "contents/classes/classes_absolutas/Combativo_Supremo.md", "img": "assets/images/c_combativo_absoluto.png", "foco": ["corpo", "tecnica"] },
-    { "nome": "Lorde Lunar", "arquivo": "contents/classes/classes_absolutas/Lorde_Lunar.md", "foco": [], "wip": true },
-    { "nome": "Lorde Solar", "arquivo": "contents/classes/classes_absolutas/Lorde_Solar.md", "foco": [], "wip": true },
-    { "nome": "Mártir Lunar", "arquivo": "contents/classes/classes_absolutas/MartirLunar.md", "foco": [], "wip": true },
     { "nome": "Oráculo", "arquivo": "contents/classes/classes_absolutas/Oraculo.md", "foco": [], "wip": true },
-    { "nome": "Tsukihime Akatsuki", "arquivo": "contents/classes/classes_absolutas/Tsukihime_Akatsuki.md", "foco": ["tecnica", "intelecto"], "wip": true },
     { "nome": "Tsukihime Kaminotsuki", "arquivo": "contents/classes/classes_absolutas/Tsukihime_Kaminotsuki.md", "foco": [], "wip": true },
     { "nome": "Yunnuen True Kenjutsu", "arquivo": "contents/classes/classes_absolutas/Yunnuen_TrueKenjutsu.md", "foco": [], "wip": true }
   ],
@@ -188,8 +193,8 @@
     { "nome": "Ki — Arte da Besta",     "arquivo": "contents/magias/Ki/Arte_Besta.md", "img": "assets/images/ki.png", "foco": ["mana", "corpo"], "base": "contents/magias/Ki/Ki.md", "arteKi": true },
     { "nome": "Ki — Arte Celestial",    "arquivo": "contents/magias/Ki/Arte_Celestial.md", "img": "assets/images/ki.png", "foco": ["mana", "corpo"], "base": "contents/magias/Ki/Ki.md", "arteKi": true },
     { "nome": "Ki — Arte do Diabo",     "arquivo": "contents/magias/Ki/Arte_Diabo.md", "img": "assets/images/ki.png", "foco": ["mana", "corpo"], "base": "contents/magias/Ki/Ki.md", "arteKi": true },
-    { "nome": "Fé",                "arquivo": "contents/magias/Fe/Fe.md", "img": "assets/images/fe.png", "foco": ["mana", "carisma"] },
-    { "nome": "Caos",              "arquivo": "contents/magias/Caos/Caos.md", "img": "assets/images/caos.png", "foco": ["mana"] }
+    { "nome": "Fé",                "arquivo": "contents/magias/Fe/Fe.md", "img": "assets/images/fe.png", "foco": ["mana", "carisma"], "requerRaca": "Devoto" },
+    { "nome": "Caos",              "arquivo": "contents/magias/Caos/Caos.md", "img": "assets/images/caos.png", "foco": ["mana"], "requerRaca": "Bruxa" }
   ],
 
   "tags_poder": [

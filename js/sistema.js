@@ -25,7 +25,20 @@ const WNJ = (() => {
         const m = text.match(/```json\s*([\s\S]*?)```/);
         if (!m) throw new Error('Bloco JSON não encontrado em config.md');
         _config = JSON.parse(m[1]);
+        // Livros (expansões) desmarcados tiram suas raças, classes e magias da ficha
+        await carregarExpansoes();
+        if (typeof WNJExp !== 'undefined') WNJExp.filtrarConfig(_config);
         return _config;
+    }
+    const BASE_JS = (document.currentScript && document.currentScript.src || '').replace(/[^/]*$/, '');
+    function carregarExpansoes() {
+        if (typeof WNJExp !== 'undefined' || !BASE_JS) return Promise.resolve();
+        return new Promise(res => {
+            const s = document.createElement('script');
+            s.src = BASE_JS + 'expansoes.js';
+            s.onload = s.onerror = res;
+            document.head.appendChild(s);
+        });
     }
 
     // ---------- PODERES ----------

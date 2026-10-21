@@ -40,6 +40,8 @@
     char.estrela = char.estrela || 1;
     char.subClasseInicial = char.subClasseInicial || '';
     char.subClasseAvancada = char.subClasseAvancada || '';
+    // Fichas antigas: os Caminhos viraram Classes Únicas com nome novo
+    char.classeInicial = { 'Caminho Lunar': 'Caminho da Lua', 'Caminho Solar': 'Caminho do Sol' }[char.classeInicial] || char.classeInicial;
     // Fichas antigas: o Embaixador Cósmico era Classe Inicial e virou Avançada
     if (char.classeInicial === 'Embaixador Cósmico') {
         if (!char.classeAvancada) { char.classeAvancada = char.classeInicial; char.subClasseAvancada = char.subClasseInicial; }
@@ -121,18 +123,31 @@
         $('btn-trocar-sub').onclick = abrirSubRaca;
     }
 
-    // ---------- ENTIDADES DE PACTO (subclasses da classe avançada) ----------
-    function entradaClasseInicial() { return (cfg.classes_avancadas || []).find(c => c.nome === char.classeAvancada); }
+    // ---------- SUBCLASSES ----------
+    // Entidade de pacto (Classe Avançada, ex.: Embaixador) ou subclasse de uma
+    // Classe Única (Caminho da Lua/Sol), que abre no Rank 8.
+    const entradaCI = () => (cfg.classes_iniciais || []).find(c => c.nome === char.classeInicial);
+    const classeUnica = () => { const e = entradaCI(); return e && e.unica ? e : null; };
+    function alvoSub() {
+        const ca = (cfg.classes_avancadas || []).find(c => c.nome === char.classeAvancada);
+        if (ca && ca.subclasses) return { e: ca, campo: 'subClasseAvancada', rot: 'Entidade', rotulo: 'Entidade do Pacto', pedir: 'Escolha sua entidade de pacto', titulo: 'Escolha a entidade - ' };
+        const u = classeUnica();
+        if (u && u.subclasses && char.rank <= (u.rankSub || 8))
+            return { e: u, campo: 'subClasseInicial', rot: 'Subclasse', rotulo: 'Subclasse', pedir: 'O caminho se dividiu: escolha sua subclasse', titulo: 'Escolha a subclasse - ' };
+        return null;
+    }
+    function entradaClasseInicial() { const a = alvoSub(); return a ? a.e : null; }
     function abrirSubClasseInicial() {
-        const e = entradaClasseInicial();
-        if (!e || !e.subclasses) return;
-        $('subclasse1-titulo').textContent = 'Escolha a entidade - ' + e.nome;
+        const a = alvoSub();
+        if (!a) return;
+        const e = a.e;
+        $('subclasse1-titulo').textContent = a.titulo + e.nome;
         $('subclasse1-lista').innerHTML = e.subclasses.map(s =>
             '<button type="button" class="subraca-op" data-subclasse="' + esc(s.nome) + '">' +
             '<span>' + esc(s.nome) + '</span><small class="ok">Disponível</small></button>').join('');
         document.querySelectorAll('#subclasse1-lista .subraca-op').forEach(b => {
             b.onclick = async () => {
-                char.subClasseAvancada = b.dataset.subclasse;
+                char[a.campo] = b.dataset.subclasse;
                 fecharOverlay('ov-subclasse1');
                 await sincronizarPoderes();
                 renderIdentidade(); renderPoderes();
@@ -141,16 +156,18 @@
         abrirOverlay('ov-subclasse1');
     }
     function renderSubClasseInicialAviso() {
-        const e = entradaClasseInicial();
+        const a = alvoSub();
         const campo = $('campo-subclasse1');
         const box = $('aviso-subclasse1');
-        if (!e || !e.subclasses) { campo.style.display = 'none'; return; }
+        if (!a) { campo.style.display = 'none'; return; }
+        const e = a.e;
         campo.style.display = '';
         box.style.display = '';
-        const s = char.subClasseAvancada ? e.subclasses.find(x => x.nome === char.subClasseAvancada) : null;
+        campo.querySelector('label').textContent = a.rotulo;
+        const s = char[a.campo] ? e.subclasses.find(x => x.nome === char[a.campo]) : null;
         box.innerHTML = s
-            ? '✦ Entidade: <strong>' + esc(s.nome) + '</strong> <button type="button" id="btn-trocar-subclasse1">trocar</button>'
-            : '✦ <strong>Escolha sua entidade de pacto</strong>. <button type="button" id="btn-trocar-subclasse1">escolher</button>';
+            ? '✦ ' + a.rot + ': <strong>' + esc(s.nome) + '</strong> <button type="button" id="btn-trocar-subclasse1">trocar</button>'
+            : '✦ <strong>' + a.pedir + '</strong>. <button type="button" id="btn-trocar-subclasse1">escolher</button>';
         $('btn-trocar-subclasse1').onclick = abrirSubClasseInicial;
     }
     async function carregarRank() {
@@ -192,6 +209,7 @@
         $('rodape-criar').style.display = modoEdicao ? 'none' : '';
         $('secao-inventario').style.display = modoEdicao ? '' : 'none';
         renderEscolhas();   // Classe Avançada (Rank 8) e Absoluta (Rank 4) aparecem quando liberam
+        renderSubClasseInicialAviso();   // subclasse da Classe Única abre no Rank 8
     }
 
     function renderIdentidade() {
@@ -609,10 +627,21 @@
         $('board-pensamentos').innerHTML = char.pensamentos.length ? char.pensamentos.map((p, i) =>
             '<div class="tcard" style="--tag:#9fc0da">' +
             '<div class="acoes-card"><button data-editar="' + i + '" title="Editar">✏️</button><button data-remover="' + i + '" title="Remover">🗑️</button></div>' +
-            '<span class="tag" style="background:#9fc0da">Pensamento</span>' +
+            (p.img ? '<img class="diario-thumb" src="' + p.img + '" alt="' + esc(p.assunto) + '" data-ver="' + i + '" title="Abrir">' : '') +
+            '<span class="tag" style="background:#9fc0da">' + esc(p.tipo || 'Pensamento') + '</span>' +
             '<h4>' + esc(p.assunto) + '</h4>' +
             '<div class="efeito">' + (p.textoHTML || '') + '</div>' +
-            '</div>').join('') : '<p class="aviso-inline">O que seu personagem pensa sobre o mundo? Clique em <strong>+ Novo Pensamento</strong>.</p>';
+            '</div>').join('') : '<p class="aviso-inline">O que seu personagem viu, pensa ou lembra? Clique em <strong>+ Nova Entrada</strong>.</p>';
+        document.querySelectorAll('#board-pensamentos [data-ver]').forEach(im => {
+            im.onclick = () => {
+                const p = char.pensamentos[parseInt(im.dataset.ver)];
+                $('dpop-img').src = p.img;
+                $('dpop-tipo').textContent = p.tipo || 'Pensamento';
+                $('dpop-nome').textContent = p.assunto;
+                $('dpop-texto').innerHTML = p.textoHTML || '';
+                abrirOverlay('ov-diario');
+            };
+        });
         document.querySelectorAll('#board-pensamentos [data-remover]').forEach(b => {
             b.onclick = () => { char.pensamentos.splice(parseInt(b.dataset.remover), 1); renderPensamentos(); };
         });
@@ -724,16 +753,32 @@
     function abrirModalPensamento(idx) {
         pensamentoEditando = idx != null ? idx : null;
         const p = pensamentoEditando != null ? char.pensamentos[pensamentoEditando] : null;
-        $('pensamento-titulo').textContent = p ? 'Editar Pensamento' : 'Novo Pensamento';
+        $('pensamento-titulo').textContent = p ? 'Editar Entrada' : 'Nova Entrada';
         $('pen-assunto').value = p ? p.assunto : '';
+        $('pen-tipo').value = p ? (p.tipo || 'Pensamento') : '';
         $('pen-texto').innerHTML = p ? (p.textoHTML || '') : '';
+        penImg = p ? (p.img || '') : '';
+        mostrarPenImg();
         abrirOverlay('ov-pensamento');
     }
+    let penImg = '';
+    function mostrarPenImg() {
+        $('pen-img-prev').hidden = $('pen-img-rm').hidden = !penImg;
+        if (penImg) $('pen-img-prev').src = penImg;
+        $('pen-img-btn').textContent = penImg ? 'Trocar imagem' : 'Escolher imagem';
+    }
+    $('pen-img-btn').onclick = () => $('pen-img-input').click();
+    $('pen-img-rm').onclick = () => { penImg = ''; mostrarPenImg(); };
+    $('pen-img-input').onchange = (e) => {
+        const file = e.target.files[0];
+        e.target.value = '';
+        if (file) lerImagemHD(file, url => { penImg = url; mostrarPenImg(); });
+    };
     $('btn-novo-pensamento').onclick = () => abrirModalPensamento(null);
     $('pen-salvar').onclick = () => {
         const assunto = $('pen-assunto').value.trim();
-        if (!assunto) { alert('Sobre o quê é esse pensamento?'); return; }
-        const dados = { assunto, textoHTML: $('pen-texto').innerHTML };
+        if (!assunto) { alert('Dê um nome para a entrada.'); return; }
+        const dados = { assunto, tipo: $('pen-tipo').value.trim() || 'Pensamento', img: penImg, textoHTML: $('pen-texto').innerHTML };
         if (pensamentoEditando != null) Object.assign(char.pensamentos[pensamentoEditando], dados);
         else char.pensamentos.push(dados);
         fecharOverlay('ov-pensamento'); renderPensamentos();
@@ -987,9 +1032,11 @@
     const imgSel = (e) => e && e.img ? '<img src="' + esc(e.img) + '" alt="" loading="lazy">' : '';
 
     function renderEscolhas() {
-        const slots = [['raca', 'Raça', '🧬'], ['magia', 'Magia', '✨'], ['ci', 'Classe Inicial', '⚔️']];
-        if (char.rank <= 8) slots.push(['ca', 'Classe Avançada', '🜂']);
-        if (char.rank <= 4) slots.push(['cabs', 'Classe Absoluta', '👑']);
+        const unica = classeUnica();
+        const slots = [['raca', 'Raça', '🧬'], ['magia', 'Magia', '✨'], ['ci', unica ? 'Classe Única' : 'Classe Inicial', '⚔️']];
+        // A Classe Única vai do Rank 10 ao 3: ocupa também a Avançada e a Absoluta
+        if (char.rank <= 8 && !unica) slots.push(['ca', 'Classe Avançada', '🜂']);
+        if (char.rank <= 4 && !unica) slots.push(['cabs', 'Classe Absoluta', '👑']);
         $('escolhas').innerHTML = slots.map(([tipo, rot, icone]) => {
             const v = valorSel(tipo), e = entradaSel(tipo, v);
             const mostra = tipo === 'raca' && char.subRaca ? v + ' (' + char.subRaca + ')' : v;
@@ -1049,9 +1096,12 @@
                 return '<span class="' + (i ? 'sec' : '') + '" style="color:' + a.cor + ';border-color:' + a.cor + '" title="' + (i ? 'Secundário' : 'Principal') + '">' + esc(a.nome) + '</span>';
             }).join('');
             const nome = tipo === 'arte' ? x.nome.replace(/^Ki\s*—\s*/, '') : x.nome;
-            const selos = (x.secreta ? '<span>🔮 Secreta</span>' : '') + (x.wip ? '<span>Em construção</span>' : '') + (x.nome === atual ? '<span>Atual</span>' : '');
-            return '<div class="sel-card' + (x.nome === atual ? ' atual' : '') + '">' +
-                '<button type="button" class="sel-escolher" data-sel-nome="' + esc(x.nome) + '">' +
+            // Caos e Fé só para quem nasceu Bruxa ou Devoto
+            const travada = x.requerRaca && x.requerRaca !== char.raca && x.nome !== atual;
+            const selos = (x.secreta ? '<span>🔮 Secreta</span>' : '') + (x.wip ? '<span>Em construção</span>' : '') + (x.nome === atual ? '<span>Atual</span>' : '') +
+                (travada ? '<span>Requer a raça ' + esc(x.requerRaca) + '</span>' : '');
+            return '<div class="sel-card' + (x.nome === atual ? ' atual' : '') + '"' + (travada ? ' style="opacity:.5"' : '') + '>' +
+                '<button type="button" class="sel-escolher" data-sel-nome="' + esc(x.nome) + '"' + (travada ? ' disabled title="Requer a raça ' + esc(x.requerRaca) + '"' : '') + '>' +
                 '<span class="sel-arte">' + (imgSel(x) || '🜁') + '</span>' +
                 '<span class="sel-corpo"><span class="sel-nome">' + esc(nome) + '</span>' +
                 (foco ? '<span class="sel-foco">' + foco + '</span>' : '') +
@@ -1125,7 +1175,9 @@
     $('f-classe1').onchange = async e => {
         char.classeInicial = e.target.value;
         char.subClasseInicial = '';
-        await sincronizarPoderes(); renderPoderes();
+        if (classeUnica()) { char.classeAvancada = ''; char.subClasseAvancada = ''; char.classeAbsoluta = ''; }
+        await sincronizarPoderes(); renderPoderes(); renderEscolhas(); renderSubClasseInicialAviso();
+        if (alvoSub()) abrirSubClasseInicial();
     };
     $('f-classe2').onchange = async e => {
         char.classeAvancada = e.target.value;
@@ -1145,15 +1197,17 @@
     $('foto').onclick = () => $('foto-input').click();
     $('foto-input').onchange = (e) => {
         const file = e.target.files[0];
-        if (!file) return;
+        if (file) lerImagemHD(file, url => { char.img = url; renderIdentidade(); });
+    };
+    // Imagem em HD: o arquivo original é guardado sem recompressão.
+    // Só reduz (para 2560px) o que for gigante, para caber no armazenamento do navegador.
+    function lerImagemHD(file, pronto) {
         const img = new Image();
         img.onload = () => {
-            // Imagem em HD: o arquivo original é guardado sem recompressão.
-            // Só reduz (para 2560px) o que for gigante, para caber no armazenamento do navegador.
             const MAX = 2560, LIMITE_BYTES = 3 * 1024 * 1024;
             if (Math.max(img.width, img.height) <= MAX && file.size <= LIMITE_BYTES) {
                 const fr = new FileReader();
-                fr.onload = () => { char.img = fr.result; renderIdentidade(); };
+                fr.onload = () => pronto(fr.result);
                 fr.readAsDataURL(file);
                 return;
             }
@@ -1165,11 +1219,10 @@
             cx.imageSmoothingQuality = 'high';
             cx.drawImage(img, 0, 0, cv.width, cv.height);
             const webp = cv.toDataURL('image/webp', 0.95);
-            char.img = webp.startsWith('data:image/webp') ? webp : cv.toDataURL('image/jpeg', 0.95);
-            renderIdentidade();
+            pronto(webp.startsWith('data:image/webp') ? webp : cv.toDataURL('image/jpeg', 0.95));
         };
         img.src = URL.createObjectURL(file);
-    };
+    }
 
     // ================= CARGAS =================
     $('btn-nova-carga').onclick = () => {

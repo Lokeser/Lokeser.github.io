@@ -36,11 +36,15 @@
                 radial-gradient(90% 80% at 85% 90%, color-mix(in srgb, var(--luz2) 26%, transparent), transparent 65%),
                 linear-gradient(160deg, color-mix(in srgb, var(--fundo) 70%, #000), var(--fundo)); }
         .capa img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .capa:not(.com-img) img { opacity: 0; }
         .capa .sigilo { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
         .capa .sigilo span { font-family: 'Cinzel', serif; font-size: clamp(7rem, 22vw, 15rem); line-height: 1; color: transparent;
                 -webkit-text-stroke: 1.5px color-mix(in srgb, var(--luz) 70%, transparent); opacity: .55; }
         .capa.com-img .sigilo { display: none; }
         .capa::after { content: ''; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(transparent, var(--fundo)); }
+        /* Com a capa pronta, a arte aparece inteira e só a borda de baixo se funde ao card */
+        .capa.com-img::after { height: 18%; }
+        .livro:has(.capa.com-img) .miolo { margin-top: 0; padding-top: 18px; }
 
         .miolo { position: relative; padding: 0 clamp(20px, 5vw, 56px) clamp(24px, 4vw, 44px); margin-top: -64px; z-index: 1; }
         .num { font-family: 'Cinzel', serif; color: var(--luz); letter-spacing: .12em; font-size: .95rem; }
@@ -103,7 +107,7 @@
                 const on = at.includes(l.id);
                 return '<article class="livro' + (on ? ' ativo' : '') + '" id="' + l.id + '" data-tom="' + l.tom + '">' +
                     '<div class="capa"><div class="sigilo" aria-hidden="true"><span>' + ROMANO[l.num] + '</span></div>' +
-                    '<img src="assets/images/expansoes/' + l.id + '.webp" alt="" loading="lazy" hidden></div>' +
+                    '<img src="assets/images/expansoes/' + l.id + '.webp" alt="" loading="lazy"></div>' +
                     '<div class="miolo">' +
                         '<div class="num">Livro ' + ROMANO[l.num] + '</div>' +
                         '<h2>' + esc(l.titulo) + '</h2>' +
@@ -123,7 +127,8 @@
             }).join('');
             // A capa aparece quando a imagem existir
             document.querySelectorAll('.capa img').forEach(img => {
-                img.onload = () => { img.hidden = false; img.parentElement.classList.add('com-img'); };
+                const ok = () => img.parentElement.classList.add('com-img');
+                if (img.complete && img.naturalWidth) ok(); else img.onload = ok;
             });
             document.getElementById('contagem').textContent = at.length + ' de ' + WNJExp.LIVROS.length + (at.length === 1 ? ' livro ativo' : ' livros ativos');
         }

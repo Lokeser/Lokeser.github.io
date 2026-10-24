@@ -6,15 +6,15 @@
   "raca": "Humano Oni",
   "subRaca": "",
   "classeInicial": "Prodígio",
-  "classeAvancada": "",
+  "classeAvancada": "Estrategista",
   "magia": "Elemental — Fogo",
   "rank": 8,
   "estrela": 2,
   "atributos": {
     "corpo": 0,
     "tecnica": 3,
-    "intelecto": 1,
-    "carisma": 4,
+    "intelecto": 4,
+    "carisma": 2,
     "sabedoria": 2,
     "mana": 4
   },
@@ -232,6 +232,42 @@
       "auto": true,
       "rank": 8,
       "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r8e1_1",
+      "nome": "⭐ 1 Estrela — Zona Temporal",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Recebe uma <strong>Ação de Estrategista</strong>.</li>\n<li>Funciona como uma <strong>Ação Bônus extra</strong>, porém <strong>só pode ser utilizada para Habilidades de Estrategista</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r8e1_2",
+      "nome": "⭐⭐⭐ 3 Estrelas — Percepção Híbrida",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Você pode fundir <strong>Percepção</strong> e <strong>Percepção Mágica</strong> em um único recurso: <strong>Percepção Híbrida</strong>.</li>\n<li>Some seus pontos de <strong>Percepção + Percepção Mágica</strong> e aloque em <strong>Percepção Híbrida</strong>.</li>\n<li><strong>Limite máximo:</strong> Intelecto × ER.</li>\n<li>Pode ser utilizada no lugar de <strong>Percepção</strong> ou <strong>Percepção Mágica</strong>, desde que haja <strong>ao menos 1 ponto de cada</strong> alocado.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r8e1_3",
+      "nome": "⭐⭐⭐⭐ 4 Estrelas — Meta Vision",
+      "tag": "classe",
+      "efeitoHTML": "<p>Como <strong>ação bônus</strong>, realize um teste de <strong>Percepção Híbrida</strong> contra um alvo.  </p>\n<p><strong>CD:</strong> <strong>10 + Sabedoria do Alvo + (ER × 2)</strong></p>\n<p>Se passar, escolha <strong>um</strong> dos efeitos abaixo:</p>\n<ul>\n<li><p><strong>Descobrir Ataques Mágicos</strong><br>Descobre informações sobre um ataque mágico do alvo.<br>Recebe <strong>CA = metade do seu Intelecto</strong> contra esse ataque e o mesmo valor em testes de defesa exigidos por ele.</p>\n</li>\n<li><p><strong>Descobrir Habilidades Físicas</strong><br>Descobre todas as Habilidades Físicas do alvo, exceto Supremas.<br>Recebe <strong>metade do seu Intelecto</strong> para resistir a elas.</p>\n</li>\n<li><p><strong>Descobrir Habilidades Mágicas</strong><br>Descobre todas as Habilidades Mágicas do alvo, exceto Supremas.<br>Recebe <strong>metade do seu Intelecto</strong> para resistir a elas.</p>\n</li>\n<li><p><strong>Descobrir Resistências</strong><br>Revela todas as Resistências do alvo.</p>\n</li>\n<li><p><strong>Descobrir Fraquezas</strong><br>Revela as Vulnerabilidades do alvo.</p>\n</li>\n<li><p><strong>Descobrir Ponto Fraco</strong><br>Identifica uma falha defensiva.<br>Recebe <strong>+ER no próximo ataque</strong> contra o alvo.</p>\n</li>\n<li><p><strong>Analisar Ambiente (em relação ao alvo)</strong><br>Descobre fatores externos que estejam auxiliando o alvo.</p>\n</li>\n<li><p><strong>Analisar Padrão</strong><br>Reduz a <strong>CA do alvo em ER</strong>.</p>\n</li>\n</ul>\n<p>Após usar <strong>Meta Vision</strong> em um alvo, só pode reutilizá-la nele <strong>no próximo turno</strong>.</p>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r8e1_4",
+      "nome": "⭐⭐⭐⭐ 4 Estrelas — Phantom Walk",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Sua <strong>Ação de Movimento</strong> não provoca <strong>Ataques de Oportunidade</strong> ao entrar ou sair do alcance inimigo.</li>\n<li>Recebe <strong>+1D</strong> para resistir a efeitos ou ataques ativados como <strong>Reação</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 1
     }
   ],
   "ataques": [],
@@ -262,7 +298,7 @@
   },
   "titulo": "Sacerdotisa da Flor Solar",
   "tituloArtigo": "A",
-  "atualizado": "2026-10-21T23:11:58.898Z",
+  "atualizado": "2026-10-24T02:48:50.138Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

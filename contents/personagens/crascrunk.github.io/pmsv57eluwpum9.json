@@ -17,10 +17,10 @@
     "sabedoria": 2,
     "mana": 11
   },
-  "vidaAtual": 180,
+  "vidaAtual": 164,
   "vidaMaxManual": 215,
-  "magiculasAtual": 127,
-  "magiculasMax": 154,
+  "magiculasAtual": 120,
+  "magiculasMax": 158,
   "arcanaManual": null,
   "caManual": 16,
   "deslocManual": 13,
@@ -369,7 +369,7 @@
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-24T02:20:59.751Z",
+  "atualizado": "2026-10-24T07:15:15.314Z",
   "vidaMagicaAtual": 85,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 85,

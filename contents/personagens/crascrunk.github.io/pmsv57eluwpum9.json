@@ -7,23 +7,23 @@
   "classeInicial": "Aventureiro",
   "classeAvancada": "Embaixador Cósmico",
   "magia": "Anômala",
-  "rank": 8,
-  "estrela": 5,
+  "rank": 7,
+  "estrela": 3,
   "atributos": {
     "corpo": 1,
     "tecnica": 1,
-    "intelecto": 1,
-    "carisma": 10,
+    "intelecto": 4,
+    "carisma": 12,
     "sabedoria": 2,
     "mana": 11
   },
-  "vidaAtual": 164,
-  "vidaMaxManual": 215,
-  "magiculasAtual": 120,
-  "magiculasMax": 158,
-  "arcanaManual": null,
+  "vidaAtual": 91,
+  "vidaMaxManual": 244,
+  "magiculasAtual": 87,
+  "magiculasMax": 194,
+  "arcanaManual": 5,
   "caManual": 16,
-  "deslocManual": 13,
+  "deslocManual": 20,
   "cargas": [],
   "poderes": [
     {
@@ -311,6 +311,73 @@
       "auto": true,
       "rank": 8,
       "estrela": 3
+    },
+    {
+      "refId": "rc_humano_r7_1",
+      "nome": "Características Raciais do Humano",
+      "tag": "raca",
+      "efeitoHTML": "<p>Receba <strong>uma característica</strong>, baseada em seu <strong>maior atributo</strong>:</p>\n<ul>\n<li><p><strong>Corpo</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Atletismo e <strong>Resistência I</strong> a um tipo de dano à sua escolha.\nAlém disso, sua capacidade de carga aumenta em <strong>2 × ER</strong> (em kg).</p>\n</li>\n<li><p><strong>Técnica</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em Deslocamento.</p>\n</li>\n<li><p><strong>Intelecto</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Erudição ou Arcanismo.</p>\n</li>\n<li><p><strong>Sabedoria</strong>\nRecebe um bônus igual à sua <strong>Eficiência de Rank (ER)</strong> em testes de Intuição.</p>\n</li>\n<li><p><strong>Carisma</strong>\nAumenta em <strong>+1</strong> o PA obtido.\nReduz em <strong>−10</strong> o PA necessário para obter Relacionamento com outro Humano.</p>\n</li>\n<li><p><strong>Mana</strong>\nDobra a cura recebida ao dormir.\nRecebe <strong>+1d4</strong> magículas totais.</p>\n</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1,
+      "oculto": true
+    },
+    {
+      "refId": "ci_emb_r7e1",
+      "nome": "Arma Despertada Masterizada",
+      "tag": "classe",
+      "efeitoHTML": "<p>A Arma Despertada agora dura <strong>Arcana</strong> turnos. Quando esse tempo acaba, você pode mantê-la gastando <strong>3 Magículas por turno adicional</strong>. Se não puder ou não quiser pagar, ela retorna à forma comum no fim do turno.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "nome": "Demagination Eye",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#00d4ff\">🔮 Pilar da Alma · 2º Estágio</p><!--#poder id=\"hb_demaginationeye\" fonte=\"habilidade\" estrela=\"2\" nome=\"Demagination Eye\"-->\n<h1>Demagination Eye</h1>\n<p><em>(O Olho do Mundo Físico)</em></p>\n<p>Evolução focada na <strong>antecipação do movimento físico</strong> e leitura do futuro imediato.</p>\n<p><strong>Foco:</strong> Defesa, Contra-Ataque, Antecipação  </p>\n<ul>\n<li><strong>Custo:</strong> 3 Magículas  </li>\n<li><strong>Duração:</strong> Cena  </li>\n<li><strong>Ativação:</strong> Ação Bônus</li>\n</ul>\n<hr>\n<h2>Rank 7 — Leitura de Vetores</h2>\n<p><strong>Bônus Passivo</strong></p>\n<ul>\n<li>ERd4 Percepção Mágica</li>\n<li>ERd4 Percepção</li>\n<li>Bônus de CA igual à metade da Mana</li>\n</ul>\n<p><strong>Antecipação</strong></p>\n<ul>\n<li>1 vez por combate:<ul>\n<li>Gaste 1 Magícula como Reação</li>\n<li>Faça um Teste de Percepção contra o ataque inimigo</li>\n<li>Se vencer, o ataque erra automaticamente</li>\n</ul>\n</li>\n</ul>\n<hr>\n<h2>Rank 6 — Fantasma Antecipado</h2>\n<p><strong>Bônus Passivo</strong></p>\n<ul>\n<li>ERd5 Percepção Mágica</li>\n<li>ERd5 Percepção</li>\n<li>Imune a Flanqueado e Surpreendido</li>\n</ul>\n<p><strong>Marca do Predador</strong></p>\n<ul>\n<li>Quando um inimigo falha um ataque contra você:<ul>\n<li>Pode realizar um Ataque de Oportunidade</li>\n<li>Se acertar, conhece a localização dele por <strong>1d6 horas</strong></li>\n</ul>\n</li>\n</ul>\n<hr>\n<h2>Rank 5 — Mundo Determinista</h2>\n<p><strong>Bônus Passivo</strong></p>\n<ul>\n<li>ERd6 Percepção Mágica</li>\n<li>ERd6 Percepção</li>\n<li>CA passa a ser igual à sua Mana</li>\n</ul>\n<p><strong>Quebra de Causalidade</strong></p>\n<ul>\n<li>Vezes por Retiro igual à ER:<ul>\n<li>Corpo re-rolagem de um ataque ou defesa bem-sucedido do inimigo</li>\n</ul>\n</li>\n</ul>\n<!--#fim-->",
+      "auto": false
+    },
+    {
+      "refId": "ci_emb_r7e3",
+      "nome": "Evolução do Poder Secundário",
+      "tag": "classe",
+      "efeitoHTML": "<p>O Poder Secundário recebe sua evolução definida pela entidade. A evolução preserva o papel original do poder, mas amplia seu alcance, proteção ou capacidade de alteração.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 3
+    },
+    {
+      "refId": "ci_emb_mana_r7e3",
+      "nome": "Evolução — Recursão em Cadeia",
+      "tag": "classe",
+      "efeitoHTML": "<p>Você pode manter até <strong>ER</strong> marcas simultâneas. Quando uma magia atinge duas ou mais marcas no mesmo turno, recupere <strong>1 Magícula por marca atingida</strong> (máximo Arcana por turno).</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 3
+    },
+    {
+      "refId": "ci_emb_fe_r7e3",
+      "nome": "Evolução — Juramento Compartilhado",
+      "tag": "classe",
+      "efeitoHTML": "<p>Você pode manter Juramento de Guarda em até <strong>ER</strong> aliados. Ao reduzir dano de um aliado, escolha: ele recebe VT igual a <strong>Arcana</strong>, ou você recupera <strong>2 Magículas</strong>. Cada opção pode ocorrer uma vez por turno.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 3
+    },
+    {
+      "refId": "ci_emb_caos_r7e3",
+      "nome": "Evolução — Ruptura em Cascata",
+      "tag": "classe",
+      "efeitoHTML": "<p>Quando usar Ruptura Probabilística, pode escolher <strong>dois efeitos diferentes</strong>. Se ativá-la depois de um crítico, a primeira ativação da cena não custa Magículas.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 3
+    },
+    {
+      "nome": "Suprimir Alma",
+      "tag": "habilidade",
+      "efeitoHTML": "<p style=\"font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:#9d00ff\">🧠 Pilar da Mente · 1º Estágio</p><h2>Suprimir Aura</h2>\n<p><strong>Descrição:</strong> Comprimi sua aura para dificultar detecção e silenciar rastros.  </p>\n<ul>\n<li><strong>Duração:</strong> 4 turnos ou 1d8 turnos  </li>\n<li><strong>Custo:</strong> 1 Magícula  </li>\n<li><strong>Teste:</strong> Furtividade + metade da Aura  </li>\n<li><strong>Expansão:</strong> Após aprender, pode alternar entre suprimir e expandir</li>\n</ul>\n",
+      "auto": false
     }
   ],
   "ataques": [],
@@ -333,7 +400,7 @@
       "nome": "Selos",
       "tag": "outro",
       "qtd": 1,
-      "descHTML": "<div>Mana: 15 - 6 (9)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 6 - 6 (1)</div>",
+      "descHTML": "<div>Mana: 17 - 6 (11)</div><div>Corpo 2 - 6 (1)</div><div>Tecnica 7 - 6 (1)</div>",
       "equipado": false
     },
     {
@@ -341,13 +408,13 @@
       "tag": "artefato",
       "qtd": 1,
       "descHTML": "<div>Raridade: Mítica [Consome 2 Slots de Artefato]</div><div><br></div><div>Passiva:</div><ul><li>Faro Elemental I: É capaz de detectar toda e qualquer mana elemental de vento dentro de 6km, especificando qualidade e quantidade.</li></ul><ul><li>Medo: Caso esteja na em alcance curto de seres com alguns tipos de Anomalia, -100 de PA, usuários de Caos ou Malícia; Wendy fica Amedrontada.</li></ul><br>Ativa:<ul><li>Peso Mágico I: 1/Dia; Como uma ação bônus de Analin, Pode manipular a mana de vento ao redor, sendo capaz de levitar até 34kg, movendo-os em até 30m.</li></ul><ul><li>Sopro Tempestuoso I: 1/Dia; Como uma ação bônus de Analin, É capaz de realizar sopros de mana elemental de vento, estes são considerados ataques de mana, com Acerto: DR(Analin)+6 | Dano:6d4+6[Vento]. Caso acerte, empurra o alvo em 6m. Caso seja um crítico, pode usar Peso Mágica sem consumir o uso e como reação.</li></ul><ul><li>Barreira de Vento: 2/Dia; Como uma ação bônus de Analin, cria uma véu de vento rotatório em até 3m em volta de Analin, este Véu é considerado como construto de mana e fica imóvel no local, possuindo VT=10+Mana. Resistência X a Dano de Vento e Vulnerabilidade á dano de Terra(Recebe 2x). Deste modo, todo inimigo que estiver á corpo-a-corpo com a barreira realiza um Teste de Resistência de Corpo(CD: 10+Mana+ER), caso falhe é empurrado á 6m e fica Caído.</li></ul>",
-      "equipado": true
+      "equipado": false
     },
     {
       "nome": "Sorte",
       "tag": "outro",
       "qtd": 1,
-      "descHTML": "0",
+      "descHTML": "1",
       "equipado": false
     }
   ],
@@ -355,21 +422,34 @@
   "titulo": "Lolimancer",
   "tituloArtigo": "A",
   "periciasDelta": {
-    "Intuição": 5,
-    "Sobrevivência": 5,
-    "Lábia": 3,
-    "Análise": 4,
-    "Charme": 3,
-    "Percepção Mágica": 4,
-    "Arcanismo": 2,
-    "Erudição": 2
+    "Intuição": 7,
+    "Sobrevivência": 7,
+    "Lábia": 8,
+    "Análise": 9,
+    "Charme": 7,
+    "Percepção Mágica": 8,
+    "Arcanismo": 8,
+    "Erudição": 9,
+    "Atletismo": 2,
+    "Furtividade": 2,
+    "Estratégia": 2,
+    "Percepção": 3,
+    "Aura": 4,
+    "Tenacidade": 2,
+    "Iniciativa": 2,
+    "Medicina": 2,
+    "Intimidação": 2,
+    "Deslocamento": 2,
+    "Performance": 2,
+    "Adestramento": 2,
+    "Acrobacia": 2
   },
   "resistencias": {
     "Contundente": "acostumado",
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-24T07:15:15.314Z",
+  "atualizado": "2026-10-25T06:18:44.672Z",
   "vidaMagicaAtual": 85,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 85,

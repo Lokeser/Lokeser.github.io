@@ -22,7 +22,7 @@
   "magiculasAtual": 78,
   "magiculasMax": 78,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 15,
   "deslocManual": 23,
   "cargas": [
     {
@@ -163,7 +163,7 @@
     "Raio": "r1",
     "Água": "r1"
   },
-  "atualizado": "2026-10-26T21:15:13.170Z",
+  "atualizado": "2026-10-26T21:15:40.584Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

@@ -23,7 +23,7 @@
   "magiculasAtual": 60,
   "magiculasMax": 60,
   "arcanaManual": null,
-  "caManual": null,
+  "caManual": 16,
   "deslocManual": null,
   "cargas": [
     {
@@ -345,7 +345,7 @@
   },
   "titulo": "Sacerdotisa da Flor Solar",
   "tituloArtigo": "A",
-  "atualizado": "2026-10-26T21:17:04.041Z",
+  "atualizado": "2026-10-26T21:17:09.942Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

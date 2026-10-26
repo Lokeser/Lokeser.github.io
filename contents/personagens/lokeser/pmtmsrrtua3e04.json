@@ -8,20 +8,20 @@
   "classeInicial": "Prodígio",
   "classeAvancada": "Estrategista",
   "magia": "Elemental — Fogo",
-  "rank": 8,
-  "estrela": 2,
+  "rank": 7,
+  "estrela": 1,
   "atributos": {
-    "corpo": 1,
-    "tecnica": 4,
+    "corpo": 3,
+    "tecnica": 3,
     "intelecto": 4,
     "carisma": 2,
     "sabedoria": 2,
-    "mana": 3
+    "mana": 5
   },
   "vidaAtual": 131,
-  "vidaMaxManual": 131,
+  "vidaMaxManual": 181,
   "magiculasAtual": 1,
-  "magiculasMax": 41,
+  "magiculasMax": 60,
   "arcanaManual": null,
   "caManual": null,
   "deslocManual": null,
@@ -268,6 +268,51 @@
       "auto": true,
       "rank": 8,
       "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r8e3_foco",
+      "nome": "Foco de Fogo",
+      "tag": "magia",
+      "efeitoHTML": "<ul>\n<li>Inimigos que iniciarem o turno a até <strong>5m</strong> de um Foco de Fogo fazem um <strong>Teste de Mana</strong> contra sua <strong>CD Mágica</strong>.<ul>\n<li><strong>Falha:</strong> ficam <strong>Em Chamas</strong>.</li>\n</ul>\n</li>\n<li>Ataques seus contra alvos a até 5m de um Foco de Fogo recebem <strong>+1 Magícula Canalizada gratuita</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 8,
+      "estrela": 3
+    },
+    {
+      "refId": "ca_estrategista_r7e1_1",
+      "nome": "⭐ 1 Estrela — Compartilhar Informações",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>A cada turno, como <strong>ação bônus</strong>, se tiver informações obtidas via <strong>Meta Vision</strong>, pode compartilhar <strong>uma</strong> delas.</li>\n<li>Número de aliados afetados: <strong>igual ao seu Intelecto</strong>.</li>\n<li>Aliados recebem <strong>(Intelecto ÷ 4) + ER deles</strong> para resistir a ataques e efeitos.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r7e1_2",
+      "nome": "⭐⭐ 2 Estrelas — Multi-Análise",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li><strong>Meta Vision</strong> pode ser usada em múltiplos alvos.</li>\n<li>Número máximo de alvos: <strong>metade do seu Intelecto</strong>.</li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "ca_estrategista_r7e1_3",
+      "nome": "⭐⭐⭐ 3 Estrelas — Mestre de Terreno",
+      "tag": "classe",
+      "efeitoHTML": "<ul>\n<li>Como <strong>ação bônus</strong>, faça um teste de <strong>Percepção Híbrida</strong> em uma área de <strong>4m²</strong> visível.  </li>\n<li><strong>CD:</strong> 15.</li>\n<li>Se passar, você <strong>desperta o terreno mágico</strong> naquela área.  </li>\n<li>Consulte: <a href=\"https://trello.com/c/fyI7xsoh\">https://trello.com/c/fyI7xsoh</a></li>\n</ul>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
+    },
+    {
+      "refId": "mg_magia_elmental_fogo_r7e1_arte",
+      "nome": "Arte do Fogo — Nova Técnica",
+      "tag": "magia",
+      "efeitoHTML": "<p>Aprenda <strong>mais uma técnica</strong> da sua Arte do Fogo.</p>\n",
+      "auto": true,
+      "rank": 7,
+      "estrela": 1
     }
   ],
   "ataques": [],
@@ -291,14 +336,16 @@
   "periciasDelta": {
     "Performance": 3,
     "Intuição": 2,
-    "Percepção": 2
+    "Percepção": 2,
+    "Erudição": 2,
+    "Percepção Mágica": 2
   },
   "resistencias": {
     "Fogo": "acostumado"
   },
   "titulo": "Sacerdotisa da Flor Solar",
   "tituloArtigo": "A",
-  "atualizado": "2026-10-24T03:58:45.813Z",
+  "atualizado": "2026-10-26T21:16:51.422Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

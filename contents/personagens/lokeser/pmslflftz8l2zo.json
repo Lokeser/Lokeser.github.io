@@ -17,9 +17,9 @@
     "sabedoria": 2,
     "mana": 9
   },
-  "vidaAtual": 96,
+  "vidaAtual": 165,
   "vidaMaxManual": 165,
-  "magiculasAtual": 41,
+  "magiculasAtual": 78,
   "magiculasMax": 78,
   "arcanaManual": null,
   "caManual": null,
@@ -163,7 +163,7 @@
     "Raio": "r1",
     "Água": "r1"
   },
-  "atualizado": "2026-10-26T21:14:58.216Z",
+  "atualizado": "2026-10-26T21:15:13.170Z",
   "dono": "Lokeser",
   "subClasseInicial": "",
   "subClasseAvancada": "",

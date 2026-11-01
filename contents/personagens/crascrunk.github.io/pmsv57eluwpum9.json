@@ -17,12 +17,12 @@
     "sabedoria": 4,
     "mana": 13
   },
-  "vidaAtual": 58,
+  "vidaAtual": 244,
   "vidaMaxManual": 244,
-  "magiculasAtual": 54,
+  "magiculasAtual": 192,
   "magiculasMax": 192,
   "arcanaManual": 17,
-  "caManual": 16,
+  "caManual": 17,
   "deslocManual": 20,
   "cargas": [],
   "poderes": [
@@ -464,15 +464,15 @@
     "Deslocamento": 2,
     "Performance": 2,
     "Adestramento": 2,
-    "Acrobacia": 2
+    "Acrobacia": 4
   },
   "resistencias": {
     "Contundente": "acostumado",
     "Vento": "acostumado",
     "Cortante": "acostumado"
   },
-  "atualizado": "2026-10-26T21:19:19.565Z",
-  "vidaMagicaAtual": 13,
+  "atualizado": "2026-11-01T04:55:27.288Z",
+  "vidaMagicaAtual": 90,
   "dono": "Crascrunk.github.io",
   "vidaMagicaMax": 90,
   "subClasseInicial": "",

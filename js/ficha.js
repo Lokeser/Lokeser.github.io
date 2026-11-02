@@ -186,7 +186,11 @@
         for (const p of autos) {
             const existente = char.poderes.find(x => x.refId === p.id);
             const html = (typeof marked !== 'undefined') ? marked.parse(p.efeitoMD) : '<pre>' + esc(p.efeitoMD) + '</pre>';
-            if (existente) { existente.nome = p.nome; existente.efeitoHTML = html; existente.rank = p.rank; existente.estrela = p.estrela; }
+            if (existente) {
+                // poder editado pelo jogador guarda o texto dele; só a posição no rank acompanha o arquivo
+                if (!existente.editado) { existente.nome = p.nome; existente.efeitoHTML = html; }
+                existente.rank = p.rank; existente.estrela = p.estrela;
+            }
             else {
                 char.poderes.push({ refId: p.id, nome: p.nome, tag: WNJ.tagDaFonte(p.fonte), efeitoHTML: html, auto: true, rank: p.rank, estrela: p.estrela });
                 novos++;
@@ -526,7 +530,9 @@
             return '<div class="tcard' + (p.oculto ? ' ocultado' : '') + '" style="--tag:' + tag.cor + '">' +
                 '<div class="acoes-card">' +
                 '<button class="olho" data-ocultar="' + idx + '" title="' + (p.oculto ? 'Mostrar poder' : 'Ocultar poder') + '">' + (p.oculto ? '🙈' : '👁') + '</button>' +
-                (p.auto ? '<span class="auto-selo">AUTO</span>' :
+                (p.auto ? '<span class="auto-selo">' + (p.editado ? 'EDITADO' : 'AUTO') + '</span>' +
+                    (p.editado ? '<button data-restaurar="' + idx + '" title="Voltar ao texto original">↺</button>' : '') +
+                    '<button data-editar="' + idx + '" title="Editar só nesta ficha">✏️</button>' :
                     '<button data-editar="' + idx + '" title="Editar">✏️</button><button data-remover="' + idx + '" title="Remover">🗑️</button>') +
                 '</div>' +
                 '<span class="tag">' + tag.nome + '</span>' + rankSelo +
@@ -541,6 +547,13 @@
         });
         document.querySelectorAll('#board-poderes [data-editar]').forEach(b => {
             b.onclick = () => abrirModalPoder(parseInt(b.dataset.editar));
+        });
+        document.querySelectorAll('#board-poderes [data-restaurar]').forEach(b => {
+            b.onclick = async () => {
+                if (!confirm('Voltar este poder ao texto original? A sua edição será perdida.')) return;
+                char.poderes[parseInt(b.dataset.restaurar)].editado = false;
+                await sincronizarPoderes(); renderPoderes();
+            };
         });
         document.querySelectorAll('#board-poderes [data-ocultar]').forEach(b => {
             b.onclick = () => {
@@ -682,7 +695,10 @@
         const nome = $('poder-nome').value.trim();
         if (!nome) { alert('Dê um nome ao poder.'); return; }
         const dados = { nome, tag: $('poder-tag').value, efeitoHTML: $('poder-efeito').innerHTML, auto: false };
-        if (poderEditando != null) Object.assign(char.poderes[poderEditando], dados);
+        const alvo = poderEditando != null ? char.poderes[poderEditando] : null;
+        // poder automático continua automático: a edição vale só nesta ficha
+        if (alvo && alvo.auto) { delete dados.auto; dados.editado = true; }
+        if (alvo) Object.assign(alvo, dados);
         else char.poderes.push(dados);
         fecharOverlay('ov-poder'); renderPoderes();
     };

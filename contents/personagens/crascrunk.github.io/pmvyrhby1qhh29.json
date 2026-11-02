@@ -100,6 +100,13 @@
       "nome": "Anatomia Manpan",
       "tag": "raca",
       "efeitoHTML": "<strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.",
+      "auto": false,
+      "oculto": true
+    },
+    {
+      "nome": "Bestial Eye (PROTOTIPO)",
+      "tag": "raca",
+      "efeitoHTML": "Seus olhos de tornam de um verdadeiro predador!<br>.Você enxerga o Plano Mágico, onde reside a Mana. Além de conseguir focar melhor em seres vivos<br>Com esta habilidade, você é capaz de:<br>&nbsp; &nbsp; Enxergar no escuro em uma quantidade de metros igual sua Sobrevivência + Mana<br>&nbsp; &nbsp; Enxergar focos de Mana<br>&nbsp; &nbsp; Identificar quantidades aproximadas de Mana<br>&nbsp; &nbsp; Ver seres do Plano Mágico, como Fadas e Gnomos<br>&nbsp; &nbsp; Enxergar seres escondidos cujo a Furtividade não seja maior que sua Sobrevivência<br><br>Ativação:<br>Como uma Ação, você pode ativar o Bestial Eye e receber:<br><br>&nbsp; &nbsp; +ERd3 em Percepção Mágica, Sobrevivência e Intuição&nbsp;",
       "auto": false
     }
   ],
@@ -141,6 +148,6 @@
   },
   "titulo": "Quarto Avatar do Abismo",
   "tituloArtigo": "",
-  "atualizado": "2026-11-02T06:24:28.085Z",
+  "atualizado": "2026-11-02T07:40:07.494Z",
   "dono": "Crascrunk.github.io"
 }

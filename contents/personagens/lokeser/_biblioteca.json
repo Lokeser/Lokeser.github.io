@@ -13,10 +13,6 @@
       "id": "pmv72rp3sytzvi"
     },
     {
-      "t": "c",
-      "id": "pmvyrhby1qhh29"
-    },
-    {
       "t": "g",
       "id": "gmtmsqrx6",
       "nome": "Terrastela",
@@ -96,6 +92,10 @@
     },
     {
       "t": "c",
+      "id": "pmvyrhby1qhh29"
+    },
+    {
+      "t": "c",
       "id": "pmvyssoezfo8t8"
     },
     {
@@ -103,5 +103,5 @@
       "id": "pmvysnr8d5166v"
     }
   ],
-  "atualizado": "2026-11-02T05:23:50.541Z"
+  "atualizado": "2026-11-02T05:23:52.694Z"
 }

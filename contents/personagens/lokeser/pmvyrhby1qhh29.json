@@ -20,8 +20,8 @@
     "sabedoria": 2,
     "mana": 6
   },
-  "vidaAtual": 39,
-  "vidaMaxManual": null,
+  "vidaAtual": 35,
+  "vidaMaxManual": 35,
   "magiculasAtual": 11,
   "magiculasMax": 11,
   "arcanaManual": null,
@@ -133,6 +133,6 @@
   },
   "titulo": "Quarto Avatar do Abismo",
   "tituloArtigo": "",
-  "atualizado": "2026-11-02T05:24:39.126Z",
+  "atualizado": "2026-11-02T05:24:49.840Z",
   "dono": "Lokeser"
 }

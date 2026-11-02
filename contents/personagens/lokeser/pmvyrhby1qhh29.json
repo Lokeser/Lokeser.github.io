@@ -1,7 +1,6 @@
 {
   "id": "pmvyrhby1qhh29",
   "criado": "2026-11-02T04:31:10.777Z",
-  "img": null,
   "nome": "Runelei",
   "sobrenome": "",
   "raca": "Manpan",
@@ -14,12 +13,12 @@
   "rank": 10,
   "estrela": 1,
   "atributos": {
-    "corpo": 2,
-    "tecnica": 2,
-    "intelecto": 4,
-    "carisma": 2,
-    "sabedoria": 1,
-    "mana": 5
+    "corpo": 0,
+    "tecnica": 1,
+    "intelecto": 3,
+    "carisma": 1,
+    "sabedoria": 2,
+    "mana": 6
   },
   "vidaAtual": 39,
   "vidaMaxManual": null,
@@ -134,6 +133,6 @@
   },
   "titulo": "Quarto Avatar do Abismo",
   "tituloArtigo": "",
-  "atualizado": "2026-11-02T05:03:31.944Z",
+  "atualizado": "2026-11-02T05:24:39.126Z",
   "dono": "Lokeser"
 }

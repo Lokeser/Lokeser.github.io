@@ -45,7 +45,8 @@
       "efeitoHTML": "<p>Escolha <strong>uma</strong> característica racial:</p>\n<ul>\n<li><p><strong>Corpo Primitiva</strong>\nRecebe <strong>+5</strong> no dano de ataques corpo a corpo.</p>\n</li>\n<li><p><strong>Sangue Humano Inferior</strong>\nRecebe <strong>+2 pontos</strong> para distribuir entre seus atributos.</p>\n</li>\n<li><p><strong>Reflexos Instintivos</strong>\nComo uma ação, pode realizar um teste de <strong>Intuição</strong> contra um inimigo.\n<strong>CD:</strong> <strong>15 + 1 para cada Rank acima do 10</strong>.\nEm sucesso, recebe <strong>+2 CA</strong> contra esse inimigo.</p>\n</li>\n<li><p><strong>Garras Afiadas</strong>\nAtaques desarmados tornam‑se <strong>1d6 + Técnica</strong>.\nAcertos críticos causam <strong>Sangramento</strong>.</p>\n</li>\n<li><p><strong>Mãos Pesadas</strong>\nAtaques desarmados tornam‑se <strong>ERd8 + Corpo</strong>.\nAcertos críticos deixam o alvo <strong>Tonto</strong>.</p>\n</li>\n<li><p><strong>Dentes Afiados</strong>\nPode realizar ataques de mordida causando <strong>1d8 + Corpo</strong>.</p>\n</li>\n<li><p><strong>Cauda</strong>\nPode tentar <strong>derrubar</strong> inimigos com um teste de Técnica ou utilizá‑la como ataque desarmado usando Técnica no acerto e no dano.</p>\n</li>\n<li><p><strong>Pele Rígida</strong>\nRecebe <strong>Resistência I</strong> contra dano físico (Corte, Concussão e Perfuração).</p>\n</li>\n<li><p><strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.</p>\n</li>\n<li><p><strong>Lado Humano</strong>\nSua <strong>Sabedoria não é reduzida</strong> durante o Instinto Manpan.\nNão pode ser escolhida caso possua <strong>Bestial Eye</strong>.</p>\n</li>\n</ul>\n",
       "auto": true,
       "rank": 10,
-      "estrela": 1
+      "estrela": 1,
+      "oculto": true
     },
     {
       "refId": "ci_aventureiro_r10e1_1",
@@ -94,6 +95,12 @@
       "tag": "magia",
       "efeitoHTML": "<div><div><p><span><span><b>Conceito:</b></span></span> <span>O </span><span>conjurador </span><span>materializa </span><span>uma </span><span>pequena </span><span>bússola </span><span>mágica </span><span>que </span><span>flutua </span><span>sobre </span><span>sua </span><span>mão, </span><span>indicando </span><span>os </span><span>pontos </span><span>cardeais </span><span>ou </span><span>uma </span><span>direção </span><span>previamente </span><span>definida.</span></p><p><span><b>Custo: </b>1 Mgc | Dura 2 Turnos.</span></p><p><b><span><span>Efeito:</span></span> </b><span>A </span><span>bússola </span><span>aponta </span><span>para </span><span>o </span><span>norte </span><span>geográfico. </span><span>Alternativamente, </span><span>o </span><span>usuário </span><span>pode </span><span>sintonizá-la </span><span>com </span><span>um </span><span>local </span><span>que </span><span>conheça, </span><span>fazendo </span><span>a </span><span>agulha </span><span>indicar </span><span>a </span><span>direção </span><span>aproximada </span><span>desse </span><span>destino.</span></p></div></div><p><b><span><span>Aplicações</span></span></b></p><ul><li><div><div><p><span>Encontrar </span><span>o </span><span>caminho </span><span>em </span><span>florestas, </span><span>cavernas </span><span>e </span><span>labirintos, caso você pense em um lugar, ele aparece se estiver dentro do range da habilidade.</span></p></div></div></li><li><div><div><p><span>Orientar-se </span><span>em </span><span>ambientes </span><span>sem </span><span>referências </span><span>visuais.</span></p></div></div></li><li><div><div><p><span>Seguir </span><span>a </span><span>direção </span><span>de </span><span>um </span><span>local </span><span>conhecido, </span><span>mesmo </span><span>sem </span><span>enxergá-lo.</span></p></div></div></li></ul><p><span><span><b>Limitações:</b></span></span> <span>A </span><span>bússola </span><span>indica </span><span>direção, </span><span>não </span><span>distância </span><span>nem </span><span>uma </span><span>rota </span><span>segura. </span><span>Barreiras </span><span>dimensionais </span><span>ou </span><span>interferências </span><span>mágicas </span><span>podem </span><span>desorientá-la.</span></p>",
       "auto": false
+    },
+    {
+      "nome": "Anatomia Manpan",
+      "tag": "raca",
+      "efeitoHTML": "<strong>Bestial Eye</strong>\nRecebe uma variação do <strong>Magic Eye</strong>, chamada <strong>Bestial Eye</strong>.\nNão pode ser escolhida caso possua <strong>Lado Humano</strong>.",
+      "auto": false
     }
   ],
   "ataques": [],
@@ -134,6 +141,6 @@
   },
   "titulo": "Quarto Avatar do Abismo",
   "tituloArtigo": "",
-  "atualizado": "2026-11-02T06:20:59.756Z",
+  "atualizado": "2026-11-02T06:24:28.085Z",
   "dono": "Crascrunk.github.io"
 }

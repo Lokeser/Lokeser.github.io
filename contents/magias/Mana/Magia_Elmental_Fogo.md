@@ -44,7 +44,7 @@ Ao nascer com este núcleo, a Magia de Fogo molda seu corpo e espírito naturalm
 - Para cada **10 de Dano** causado a um alvo, você recebe **1 de Vida Temporária**.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elmental_fogo_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
+<!--#poder id="mg_magia_elmental_fogo_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre" custo="1"-->
 ### Manipulação Livre
 Utiliza o Núcleo Flamejante para criar correntes de Magícula incandescente que se moldam em ataques diretos.
 
@@ -108,7 +108,7 @@ O fogo que você acende é mais faminto que o comum.
 Aprenda **mais uma técnica** da sua Arte do Fogo.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elmental_fogo_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
+<!--#poder id="mg_magia_elmental_fogo_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental" custo="5"-->
 ### ★ Foco Elemental
 Você aprende a criar **Focos de Mana de Fogo**.
 

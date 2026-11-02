@@ -15,7 +15,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ## Rank 8
 
-<!--#poder id="ca_guardiao_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Muralha Viva"-->
+<!--#poder id="ca_guardiao_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Muralha Viva" custo="1"-->
 ### ⭐ 1 Estrela — Muralha Viva
 
 #### Bloquear
@@ -79,7 +79,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 ## Rank 7
 
-<!--#poder id="ca_guardiao_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Resiliência Arcana"-->
+<!--#poder id="ca_guardiao_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Resiliência Arcana" custo="1"-->
 ### ⭐ 1 Estrela — Resiliência Arcana
 - Sua **Resistência Adaptável** agora inclui **2 tipos de dano mágico**, com **+2** de estágio.
 - Pode trocar resistências mágicas usando a mesma Ação Bônus de **Muralha Viva**.
@@ -92,7 +92,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 <!--#fim-->
 
-<!--#poder id="ca_guardiao_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Sacrifício Tático"-->
+<!--#poder id="ca_guardiao_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Sacrifício Tático" custo="1"-->
 ### ⭐⭐⭐ 3 Estrelas — Sacrifício Tático
 - Como **Reação**, quando um aliado a até **6m** for atacado:
   - Gaste **1 Magícula** para absorver o ataque.
@@ -106,7 +106,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 <!--#fim-->
 
-<!--#poder id="ca_guardiao_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Aura Protetora"-->
+<!--#poder id="ca_guardiao_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐⭐⭐ 5 Estrelas — Aura Protetora" custo="1"-->
 ### ⭐⭐⭐⭐⭐ 5 Estrelas — Aura Protetora
 - Aliados a até **6m** recebem:
   - **+1 CA**
@@ -178,7 +178,7 @@ O **Guardião** é um bastião de proteção, usando sua resiliência e determin
 
 <!--#fim-->
 
-<!--#poder id="ca_guardiao_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mente Fortificada"-->
+<!--#poder id="ca_guardiao_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mente Fortificada" custo="1"-->
 ### ⭐⭐⭐ 3 Estrelas — Mente Fortificada
 - Você é **imune** a:
   - Pasmo

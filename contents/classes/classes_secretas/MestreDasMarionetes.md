@@ -8,7 +8,7 @@ O cérebro por trás da destruição: não luta diretamente, mas conduz uma **T�
 
 ## Rank 8 — O Início da Conexão
 
-<!--#poder id="cs_marionetes_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Conexão de Mana Estruturada"-->
+<!--#poder id="cs_marionetes_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Conexão de Mana Estruturada" custo="1"-->
 ### Conexão de Mana Estruturada
 
 Como Ação Bônus, conecta-se à Títere a até Alcance Médio (18m). Manter custa **1 Magícula/turno**. Sem conexão, a Títere é um objeto inanimado.
@@ -36,7 +36,7 @@ A Títere ganha vida (Ficha de Monstro, 0 em atributos mentais, 10 pontos entre 
 Mascara os fios de mana. Detectar a conexão exige teste de Percepção Mágica contra CD 10 + seu Intelecto + ER.
 <!--#fim-->
 
-<!--#poder id="cs_marionetes_r7e3" fonte="classe_avancada" rank="7" estrela="3" nome="Reparo de Campo"-->
+<!--#poder id="cs_marionetes_r7e3" fonte="classe_avancada" rank="7" estrela="3" nome="Reparo de Campo" custo="4"-->
 ### Reparo de Campo
 
 Como Ação Padrão, gaste magículas para consertar a Títere à distância (no alcance da conexão): cada **4 Magículas** cura 1d10 + Intelecto de PV. **Recebe sua 3ª Atualização.**
@@ -58,7 +58,7 @@ Use sua Ação Bônus para a Títere fazer um ataque básico, liberando sua Aç�
 Ative armas/ferramentas especiais instaladas por Atualização como Ação Padrão. **Recebe outra Atualização.**
 <!--#fim-->
 
-<!--#poder id="cs_marionetes_r6e4" fonte="classe_avancada" rank="6" estrela="4" nome="Escudo de Marionete"-->
+<!--#poder id="cs_marionetes_r6e4" fonte="classe_avancada" rank="6" estrela="4" nome="Escudo de Marionete" custo="1"-->
 ### Escudo de Marionete
 
 Como Reação, se a Títere estiver a até 3m, force um ataque contra você a mirar nela.
@@ -74,13 +74,13 @@ Alcance da conexão vira **Longo (54m)**. A conexão só custa 1 Magícula no tu
 
 ## Rank 5 — Vontade Estendida
 
-<!--#poder id="cs_marionetes_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Mente Dupla"-->
+<!--#poder id="cs_marionetes_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Mente Dupla" custo="2"-->
 ### Mente Dupla
 
 Como Ação Livre, comande a Títere para usar a própria Ação Padrão, deixando a sua livre. **Custo:** o gasto da Títere dobra (2 Magículas/ação). **Recebe sua 4ª Atualização.**
 <!--#fim-->
 
-<!--#poder id="cs_marionetes_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Percepção Compartilhada"-->
+<!--#poder id="cs_marionetes_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Percepção Compartilhada" custo="1"-->
 ### Percepção Compartilhada
 
 Como Ação Padrão, veja e ouça pela Títere a qualquer distância (com conexão ativa). Fica **Desprevenido** enquanto o faz.

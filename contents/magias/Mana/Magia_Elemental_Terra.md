@@ -44,7 +44,7 @@ Ao nascer com este núcleo de mana, você manifesta características naturais da
 - **Deslocamento Terrestre:** +**ER x 2** metros
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_terra_r10e1_3" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
+<!--#poder id="mg_magia_elemental_terra_r10e1_3" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre" custo="1"-->
 ### Manipulação Livre
 Utiliza seu Núcleo para externar sua forma mágica. Após externar, você pode **controlar a magia mesmo fora do corpo**.
 
@@ -129,7 +129,7 @@ Aprenda **mais uma técnica** da sua Arte da Terra.
 - **Vida Temporária dos Construtos:** **+2d12**
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_terra_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
+<!--#poder id="mg_magia_elemental_terra_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental" custo="5"-->
 ### ★ Foco Elemental
 Você aprende a erguer **Focos de Mana de Terra**: um pilar de rocha que fica no campo.
 
@@ -166,7 +166,7 @@ Se houver uma **Fonte de Terra** próxima:
 - Você recebe este dado extra como **Vida Temporária**
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_terra_r7e3_pele" fonte="magia" rank="7" estrela="3" nome="Pele de Rocha"-->
+<!--#poder id="mg_magia_elemental_terra_r7e3_pele" fonte="magia" rank="7" estrela="3" nome="Pele de Rocha" custo="2"-->
 ### ★★★ Pele de Rocha
 - **Ação:** Reação, ao receber dano
 - **Custo:** 2 Magículas

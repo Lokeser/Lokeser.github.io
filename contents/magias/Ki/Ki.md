@@ -62,7 +62,7 @@ A Manipulação Livre do Ki: o corpo inteiro concentrado em um único impacto.
 **Crítico:** você recupera **1 Accel**.
 <!--#fim-->
 
-<!--#poder id="mg_ki_r10_aceleracao" fonte="magia" rank="10" estrela="1" nome="Aceleração"-->
+<!--#poder id="mg_ki_r10_aceleracao" fonte="magia" rank="10" estrela="1" nome="Aceleração" custo="1" custo_tipo="Accels"-->
 ### Aceleração
 O estado básico do Ki — o "Accel normal" que todas as Artes transformam.
 
@@ -93,7 +93,7 @@ A Arte do Ki é a escolha do **seu jeito de lutar**. Cada Arte é uma **subclass
 
 ## Rank 7
 
-<!--#poder id="mg_ki_r7_concentrado" fonte="magia" rank="7" estrela="1" nome="Golpe Concentrado"-->
+<!--#poder id="mg_ki_r7_concentrado" fonte="magia" rank="7" estrela="1" nome="Golpe Concentrado" custo="1" custo_tipo="Accels"-->
 ### ★ Golpe Concentrado
 - Ao acertar um Golpe de Ki, você pode gastar **1 Accel** para causar **+Mana** de dano.
 <!--#fim-->

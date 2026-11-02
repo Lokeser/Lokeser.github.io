@@ -82,7 +82,7 @@ Sabedoria + ER
 
 <!--#fim-->
 
-<!--#poder id="ca_assassino_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="3 Estrelas — Fuga Vital"-->
+<!--#poder id="ca_assassino_r7e1_2" fonte="classe_avancada" rank="7" estrela="1" nome="3 Estrelas — Fuga Vital" custo="2"-->
 ### 3 Estrelas — Fuga Vital
 
 Quando seus Pontos de Vida estiverem **≤ Sabedoria + ER**:

@@ -28,7 +28,7 @@
 
 <!--#fim-->
 
-<!--#poder id="ca_combativo_instintivo_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas"-->
+<!--#poder id="ca_combativo_instintivo_r8e1_2" fonte="classe_avancada" rank="8" estrela="1" nome="3 Estrelas" custo="2"-->
 ### 3 Estrelas
 
 **Postura de Duelo:**
@@ -103,7 +103,7 @@
 
 <!--#fim-->
 
-<!--#poder id="ca_combativo_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas"-->
+<!--#poder id="ca_combativo_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="2 Estrelas" custo="4"-->
 ### 2 Estrelas
 
 **Esquiva de Emergência:**
@@ -130,7 +130,7 @@
 
 ## Rank 5 — Mestre
 
-<!--#poder id="ca_combativo_instintivo_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrela"-->
+<!--#poder id="ca_combativo_instintivo_r5e1_1" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrela" custo="2"-->
 ### 2 Estrela
 
 **Mestre Instintivo:**

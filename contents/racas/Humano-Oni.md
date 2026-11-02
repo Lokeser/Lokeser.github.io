@@ -99,7 +99,7 @@ Seus ataques **desarmados** aplicam **Queimação** em **Críticos**.
 
 <!--#fim-->
 
-<!--#poder id="rc_humano_oni_r6_1" fonte="raca" rank="6" estrela="1" nome="Pele Extremamente Flamejante"-->
+<!--#poder id="rc_humano_oni_r6_1" fonte="raca" rank="6" estrela="1" nome="Pele Extremamente Flamejante" custo="2"-->
 ### Rank 6 — Pele Extremamente Flamejante
 
 * Ataques **desarmados** causam **Xd6 de Dano de Fogo**.  

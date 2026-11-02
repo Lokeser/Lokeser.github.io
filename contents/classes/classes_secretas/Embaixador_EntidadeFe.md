@@ -8,7 +8,7 @@ Uma Entidade de Fé sustenta ordem, confiança e propósito compartilhado. Seu E
 Escolha um ideal que a entidade representa — proteção, justiça, promessa, cura ou liderança. A Arma de Pacto emite uma presença reconhecível: sempre que você a usa para defender um aliado, recebe **+1 CA** até o início do seu próximo turno. Esse bônus não se acumula.
 <!--#fim-->
 
-<!--#poder id="ci_emb_fe_r9e3" fonte="classe_inicial" rank="9" estrela="3" nome="Poder Secundário — Juramento de Guarda"-->
+<!--#poder id="ci_emb_fe_r9e3" fonte="classe_inicial" rank="9" estrela="3" nome="Poder Secundário — Juramento de Guarda" custo="2"-->
 ### Poder Secundário — Juramento de Guarda
 
 Como Ação Bônus, escolha um aliado que veja a até **Carisma + ER** metros. Até o início do seu próximo turno, quando ele sofrer dano, você pode usar sua Reação para reduzir esse dano em **Arcana + ER**. Se a redução evitar todo o dano, o aliado recebe **+1** no próximo teste de defesa.
@@ -26,7 +26,7 @@ Recebe **+6 em Charme, Performance ou Intuição**, escolhido ao despertar a arm
 Você pode manter Juramento de Guarda em até **ER** aliados. Ao reduzir dano de um aliado, escolha: ele recebe VT igual a **Arcana**, ou você recupera **2 Magículas**. Cada opção pode ocorrer uma vez por turno.
 <!--#fim-->
 
-<!--#poder id="ci_emb_fe_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Círculo de Convergência"-->
+<!--#poder id="ci_emb_fe_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Círculo de Convergência" custo="12"-->
 ### Poder Terciário — Círculo de Convergência
 
 Com a Arma Ascendida ativa, gaste **12 Magículas** como Ação Padrão para criar um círculo de **Arcana** metros por ER turnos. Aliados no círculo recebem **+ER em testes de defesa** e podem escolher dividir o dano entre si. Inimigos que tentem forçar um aliado a agir contra seus aliados fazem teste de Sabedoria contra sua CD Mágica.

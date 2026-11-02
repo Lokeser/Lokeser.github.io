@@ -29,7 +29,7 @@ O **Estrategista** não vence pela força, mas pela **leitura absoluta do campo 
 
 <!--#fim-->
 
-<!--#poder id="ca_estrategista_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Meta Vision"-->
+<!--#poder id="ca_estrategista_r8e1_3" fonte="classe_avancada" rank="8" estrela="1" nome="⭐⭐⭐⭐ 4 Estrelas — Meta Vision" custo="2"-->
 ### ⭐⭐⭐⭐ 4 Estrelas — Meta Vision
 Como **ação bônus**, realize um teste de **Percepção Híbrida** contra um alvo.  
 
@@ -82,7 +82,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 ## Rank 7
 
-<!--#poder id="ca_estrategista_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Compartilhar Informações"-->
+<!--#poder id="ca_estrategista_r7e1_1" fonte="classe_avancada" rank="7" estrela="1" nome="⭐ 1 Estrela — Compartilhar Informações" custo="1"-->
 ### ⭐ 1 Estrela — Compartilhar Informações
 - A cada turno, como **ação bônus**, se tiver informações obtidas via **Meta Vision**, pode compartilhar **uma** delas.
 - Número de aliados afetados: **igual ao seu Intelecto**.
@@ -101,7 +101,7 @@ Após usar **Meta Vision** em um alvo, só pode reutilizá-la nele **no próximo
 
 <!--#fim-->
 
-<!--#poder id="ca_estrategista_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mestre de Terreno"-->
+<!--#poder id="ca_estrategista_r7e1_3" fonte="classe_avancada" rank="7" estrela="1" nome="⭐⭐⭐ 3 Estrelas — Mestre de Terreno" custo="2"-->
 ### ⭐⭐⭐ 3 Estrelas — Mestre de Terreno
 - Como **ação bônus**, faça um teste de **Percepção Híbrida** em uma área de **4m²** visível.  
 - **CD:** 15.

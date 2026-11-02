@@ -21,7 +21,7 @@ Estilo de Luta **Azura Jūryoku Ken**, adaptado por Azura com sua anomalia e pr�
 Ao acertar um desarmado ou chifre, o alvo gera um campo gravitacional: cada golpe consecutivo no mesmo alvo dá **+1 no Acerto e +5 no Dano** cumulativos. Você perde a sequência se não atacar no próximo turno ou falhar num teste contra condição de corpo.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Jūryoku Ken (Inarcana)"-->
+<!--#poder id="cs_juryoku_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Jūryoku Ken (Inarcana)" custo="15"-->
 ### Jūryoku Ken (Inarcana)
 
 Com 5m da Ação de Movimento e **15 Mgc**, ative o Jūryoku Ken:
@@ -43,7 +43,7 @@ Com 5m da Ação de Movimento e **15 Mgc**, ative o Jūryoku Ken:
 Vantagem para agarrar inimigos; um inimigo agarrado por você tem desvantagem para se soltar.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Vambraço Lunar"-->
+<!--#poder id="cs_juryoku_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Vambraço Lunar" custo="10"-->
 ### Vambraço Lunar
 
 No início do turno, como ação bônus, se o alvo estiver sob condição adversa de corpo (Lento, Imóvel, etc.), gaste **10 Mgc** para avançar e prendê-lo com sua magia — ambos só podem se atacar corpo-a-corpo.
@@ -86,13 +86,13 @@ Ao investir contra um inimigo, adiciona seu deslocamento no acerto e no dano do 
 Vantagem em resistências contra empurrões, quedas, levitação forçada ou qualquer efeito que tente mover/derrubar você. Enquanto o Jūryoku Ken estiver ativo, reduz o dano recebido em **Mana + ER**.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Punhos Dizimadores"-->
+<!--#poder id="cs_juryoku_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Punhos Dizimadores" custo="15"-->
 ### Punhos Dizimadores
 
 Ação padrão com o Jūryoku Ken ativo, **15 Mgc**: sequência de até 4 desarmados no mesmo alvo (+1DR cumulativo após o 1º). Se todos acertarem, faça um **5º ataque de chifre** que causa dano em área igual à luminosidade do Jūryoku Ken, dano extra igual a **Cargas Gravitas × 1d10 + Cargas Ulka × 1d10**, e aplica **Enredado**.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r6e4" fonte="classe_avancada" rank="6" estrela="4" nome="Órbita Pessoal"-->
+<!--#poder id="cs_juryoku_r6e4" fonte="classe_avancada" rank="6" estrela="4" nome="Órbita Pessoal" custo="1" custo_tipo="Carga Gravitas"-->
 ### Órbita Pessoal
 
 Gaste 1 Carga Gravitas como reação quando um aliado a 10m for atacado: puxe a trajetória para si (o ataque mira em você com −5 no acerto). Se te acertar, ganha 2 Cargas Gravitas.
@@ -120,13 +120,13 @@ Sua aura inerte de gravitação faz você parecer um porto seguro — pessoas co
 +15 pontos de perícia em Aura e +8 pontos para distribuir entre Acrobacia e Atletismo.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Deflexão de Mana"-->
+<!--#poder id="cs_juryoku_r5e3" fonte="classe_avancada" rank="5" estrela="3" nome="Deflexão de Mana" custo="6"-->
 ### Deflexão de Mana
 
 Com o Jūryoku Ken ativo, use a reação para defletir uma magia lançada contra você: teste de Mana vs CD mágica do inimigo. Se passar, ataques contra sua CA têm **−10**; efeitos que exigem teste têm sua falha tratada como sucesso, e um sucesso anula completamente o efeito.
 <!--#fim-->
 
-<!--#poder id="cs_juryoku_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Queda Estelar"-->
+<!--#poder id="cs_juryoku_r5e4" fonte="classe_avancada" rank="5" estrela="4" nome="Queda Estelar" custo="25"-->
 ### Queda Estelar
 
 **25 Mgc + 15 Cargas Gravitas + ação completa.** Salta e cai como um meteoro gravitacional num ponto a 30m. Inimigos num raio de 15m sofrem **ManaD14 + CorpoD14 + CGd10 + Mana + ER** de impacto e ficam Imóveis e "Esmagados" por 2 rodadas. Você ganha CA igual a ER + 10 até o fim do próximo turno. Aliados na área podem ser puxados para perto sem sofrer dano.

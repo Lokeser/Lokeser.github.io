@@ -14,7 +14,7 @@ A Esgrima das Quatro Estações. Empunha a **Shikimaru**, uma lâmina que troca 
 Escolha uma Espada Longa/Curta, Katana ou Nodachi — ela vira a **Shikimaru**. Ao empunhá-la: bônus no acerto igual à Sabedoria e −1 na Margem de Ameaça.
 <!--#fim-->
 
-<!--#poder id="cs_shiki_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="Cortes Migratórios"-->
+<!--#poder id="cs_shiki_r8e2" fonte="classe_avancada" rank="8" estrela="2" nome="Cortes Migratórios" custo="2"-->
 ### Cortes Migratórios
 
 Após atacar, gaste 2 Magículas para um ataque extra (parte do mesmo ataque), usando só ER + Sabedoria no acerto e só os dados no dano.
@@ -36,7 +36,7 @@ Desbloqueia as 4 Técnicas Iniciais (Verão: Hi no Hōkō, Inverno: Mizu no Tans
 Pode aprender 2 Técnicas Intermediárias de Shiki no Kenjutsu.
 <!--#fim-->
 
-<!--#poder id="cs_shiki_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Inazuma no Kaidan"-->
+<!--#poder id="cs_shiki_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Inazuma no Kaidan" custo="2"-->
 ### Inazuma no Kaidan
 
 2 Magículas · Ação Bônus. Move-se em área igual à Técnica + Arcana, ignorando obstáculos. Depois, o próximo ataque recebe +1D no acerto e dano (1D R9-8, 2D R7-6, 3D R5-3).
@@ -76,7 +76,7 @@ Aprenda 1 Técnica Intermediária E 1 Técnica Avançada.
 Ao atingir um inimigo com os 4 tipos elementais (Fogo/Água/Terra/Vento) da Shikimaru em 2 turnos, ele recebe Dano Anômalo igual ao dado da Shikimaru × ER (5d11 base). 1× por inimigo a cada 1d6 (ou 3) turnos.
 <!--#fim-->
 
-<!--#poder id="cs_shiki_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Kami'o Inazuma no Kaidan"-->
+<!--#poder id="cs_shiki_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Kami'o Inazuma no Kaidan" custo="4"-->
 ### Kami'o Inazuma no Kaidan
 
 4 Magículas após um Inazuma no Kaidan: +2 CA e reduz a taxa crítica pela ER (só no próximo ataque neste turno).

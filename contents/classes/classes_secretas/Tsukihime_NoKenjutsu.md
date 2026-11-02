@@ -8,7 +8,7 @@ A Esgrima da Princesa da Lua, criada por Luna há mais de 13 mil anos — um est
 
 ## Rank 8 — O Despertar do Luar
 
-<!--#poder id="cs_tsukihime_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Espada Banhada em Lua"-->
+<!--#poder id="cs_tsukihime_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Espada Banhada em Lua" custo="4"-->
 ### Espada Banhada em Lua
 
 Custo 4 Magículas · Ação Livre. Imbui corpo e arma: o próximo ataque causa +1d12 de Dano Mágico per 2 Mana (mesmo tipo da sua magia) e aplica 1 acúmulo da Marca do Brilho Lunar em você. O dado aumenta a cada 1ª estrela de rank (d12→d14→…).
@@ -20,7 +20,7 @@ Custo 4 Magículas · Ação Livre. Imbui corpo e arma: o próximo ataque causa 
 *(Passivo)* Ao atingir o limite de Marcas, recupera Magículas iguais à Mana e ganha VT igual ao triplo. Limite: R8=30, R7=28, R6=26, R5=24, R4=22.
 <!--#fim-->
 
-<!--#poder id="cs_tsukihime_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Passo Lunar"-->
+<!--#poder id="cs_tsukihime_r8e3" fonte="classe_avancada" rank="8" estrela="3" nome="Passo Lunar" custo="5"-->
 ### Passo Lunar
 
 Custo 5 Magículas · Ação Bônus. Teleporta-se para trás de um alvo (alcance Mana + ER em m). No resto do turno: +1DR contra ele, +1 no multiplicador de crítico, e seus ataques aplicam 1d6 Marcas em você.
@@ -36,7 +36,7 @@ Aprenda uma **Técnica da Princesa da Lua** (ver lista).
 
 ## Rank 7 — A Dança do Eclipse
 
-<!--#poder id="cs_tsukihime_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Passo Lunar Aprimorado"-->
+<!--#poder id="cs_tsukihime_r7e2" fonte="classe_avancada" rank="7" estrela="2" nome="Passo Lunar Aprimorado" custo="10"-->
 ### Passo Lunar Aprimorado
 
 Pode usar Passo Lunar como reação (dobro de magículas). +5 pontos em Furtividade e Percepção.
@@ -70,7 +70,7 @@ Aprenda uma nova Técnica da Princesa da Lua.
 *(Passivo)* Ao ativar a Marca do Brilho Lunar, além de Magículas e VT, recebe uma **Ação Bônus adicional** no próximo turno.
 <!--#fim-->
 
-<!--#poder id="cs_tsukihime_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Rastro de Cometa"-->
+<!--#poder id="cs_tsukihime_r6e3" fonte="classe_avancada" rank="6" estrela="3" nome="Rastro de Cometa" custo="7"-->
 ### Rastro de Cometa
 
 Custo 7 Magículas. Após um Passo Lunar, se você acertar um crítico, o custo em magículas do poder é recuperado.

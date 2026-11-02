@@ -39,7 +39,7 @@ Escolha uma das opções:
 
 <!--#fim-->
 
-<!--#poder id="ci_malandro_r10e1_3" fonte="classe_inicial" rank="10" estrela="1" nome="Insultar"-->
+<!--#poder id="ci_malandro_r10e1_3" fonte="classe_inicial" rank="10" estrela="1" nome="Insultar" custo="1"-->
 ### Insultar
 
 Como **Ação Bônus**, durante o combate:

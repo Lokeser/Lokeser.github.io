@@ -188,11 +188,11 @@
             const html = (typeof marked !== 'undefined') ? marked.parse(p.efeitoMD) : '<pre>' + esc(p.efeitoMD) + '</pre>';
             if (existente) {
                 // poder editado pelo jogador guarda o texto dele; só a posição no rank acompanha o arquivo
-                if (!existente.editado) { existente.nome = p.nome; existente.efeitoHTML = html; }
+                if (!existente.editado) { existente.nome = p.nome; existente.efeitoHTML = html; existente.custo = p.custo; existente.custoTipo = p.custoTipo; }
                 existente.rank = p.rank; existente.estrela = p.estrela;
             }
             else {
-                char.poderes.push({ refId: p.id, nome: p.nome, tag: WNJ.tagDaFonte(p.fonte), efeitoHTML: html, auto: true, rank: p.rank, estrela: p.estrela });
+                char.poderes.push({ refId: p.id, nome: p.nome, tag: WNJ.tagDaFonte(p.fonte), efeitoHTML: html, auto: true, rank: p.rank, estrela: p.estrela, custo: p.custo, custoTipo: p.custoTipo });
                 novos++;
             }
         }
@@ -521,22 +521,25 @@
         return p.tag === filtroPoder;
     }
 
+    const CUSTO_CURTO = { 'Magículas': 'Mgc' };
     function renderPoderes() {
         const lista = char.poderes.filter(poderVisivel);
+        const sk = WNJ.skinMagia(char.magia);
+        const corMagia = sk ? sk.cor : WNJ.paletaMagia(char.magia).acentos[0];
         $('board-poderes').innerHTML = lista.length ? lista.map((p) => {
             const idx = char.poderes.indexOf(p);
             const tag = TAGS[p.tag] || TAGS.extra;
-            const rankSelo = p.rank ? '<span class="escala" style="margin-left:6px">R' + p.rank + (p.estrela > 1 ? '★' + p.estrela : '') + '</span>' : '';
+            const rankSelo = p.rank ? '<span class="rk"' + (p.auto ? ' style="--rk:' + corMagia + '"' : '') + '>R' + p.rank + (p.estrela > 1 ? '★' + p.estrela : '') + '</span>' : '';
             return '<div class="tcard' + (p.oculto ? ' ocultado' : '') + '" style="--tag:' + tag.cor + '">' +
                 '<div class="acoes-card">' +
                 '<button class="olho" data-ocultar="' + idx + '" title="' + (p.oculto ? 'Mostrar poder' : 'Ocultar poder') + '">' + (p.oculto ? '🙈' : '👁') + '</button>' +
-                (p.auto ? '<span class="auto-selo">' + (p.editado ? 'EDITADO' : 'AUTO') + '</span>' +
-                    (p.editado ? '<button data-restaurar="' + idx + '" title="Voltar ao texto original">↺</button>' : '') +
+                (p.auto ? (p.editado ? '<button data-restaurar="' + idx + '" title="Voltar ao texto original">↺</button>' : '') +
                     '<button data-editar="' + idx + '" title="Editar só nesta ficha">✏️</button>' :
                     '<button data-editar="' + idx + '" title="Editar">✏️</button><button data-remover="' + idx + '" title="Remover">🗑️</button>') +
                 '</div>' +
                 '<span class="tag">' + tag.nome + '</span>' + rankSelo +
                 '<h4>' + esc(p.nome) + '</h4>' +
+                (p.custo ? '<div class="custo">' + esc(p.custo) + ' ' + esc(CUSTO_CURTO[p.custoTipo] || p.custoTipo || '') + '</div>' : '') +
                 '<div class="efeito">' + (p.efeitoHTML || '') + '</div>' +
                 '</div>';
         }).join('') : '<p class="aviso-inline">' + (filtroPoder === 'ocultos'
@@ -688,13 +691,22 @@
         $('poder-tag').innerHTML = cfg.tags_poder.map(t => '<option value="' + t.id + '">' + t.nome + '</option>').join('');
         $('poder-tag').value = p ? p.tag : 'extra';
         $('poder-efeito').innerHTML = p ? (p.efeitoHTML || '') : '';
+        const tipo = p && p.custo ? (p.custoTipo || '') : 'Magículas';
+        const fixo = ['Magículas', 'Accels', 'Vida'].includes(tipo);
+        $('poder-custo').value = p ? (p.custo || '') : '';
+        $('poder-custo-tipo').value = fixo ? tipo : '';
+        $('poder-custo-livre').value = fixo ? '' : tipo;
+        $('poder-custo-livre').hidden = fixo;
         abrirOverlay('ov-poder');
     }
+    $('poder-custo-tipo').onchange = () => { $('poder-custo-livre').hidden = $('poder-custo-tipo').value !== ''; };
     $('btn-novo-poder').onclick = () => abrirModalPoder(null);
     $('poder-salvar').onclick = () => {
         const nome = $('poder-nome').value.trim();
         if (!nome) { alert('Dê um nome ao poder.'); return; }
-        const dados = { nome, tag: $('poder-tag').value, efeitoHTML: $('poder-efeito').innerHTML, auto: false };
+        const custo = $('poder-custo').value.trim();
+        const dados = { nome, tag: $('poder-tag').value, efeitoHTML: $('poder-efeito').innerHTML, auto: false,
+            custo, custoTipo: custo ? ($('poder-custo-tipo').value || $('poder-custo-livre').value.trim()) : '' };
         const alvo = poderEditando != null ? char.poderes[poderEditando] : null;
         // poder automático continua automático: a edição vale só nesta ficha
         if (alvo && alvo.auto) { delete dados.auto; dados.editado = true; }

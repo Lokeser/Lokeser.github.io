@@ -114,7 +114,7 @@ Escolha **apenas um**:
 
 <!--#fim-->
 
-<!--#poder id="ca_atirador_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Tiro Duplo"-->
+<!--#poder id="ca_atirador_instintivo_r6e1_2" fonte="classe_avancada" rank="6" estrela="1" nome="3 Estrelas — Tiro Duplo" custo="4"-->
 ### 3 Estrelas — Tiro Duplo
 
 * Como **ação bônus**, você pode acoplar uma segunda flecha.
@@ -165,7 +165,7 @@ Escolha **apenas um**:
 
 <!--#fim-->
 
-<!--#poder id="ca_atirador_instintivo_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrelas — Rolamento"-->
+<!--#poder id="ca_atirador_instintivo_r5e1_2" fonte="classe_avancada" rank="5" estrela="1" nome="2 Estrelas — Rolamento" custo="1"-->
 ### 2 Estrelas — Rolamento
 
 * Sempre que se mover **4m ou mais**:
@@ -192,7 +192,7 @@ Escolha **apenas um**:
 
 ## Rank 4 — Mestre Instintivo
 
-<!--#poder id="ca_atirador_instintivo_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Mestre Instintivo"-->
+<!--#poder id="ca_atirador_instintivo_r4e1_1" fonte="classe_avancada" rank="4" estrela="1" nome="1 Estrela — Mestre Instintivo" custo="2"-->
 ### 1 Estrela — Mestre Instintivo
 
 * Sempre que for alvo de um ataque:

@@ -47,7 +47,7 @@ Seu núcleo de mana se torna anômalo e sua magia vira uma **Anomalia**. Além d
 
 ### Rank 9 — O Compilador
 
-<!--#poder id="rc_arkhumano_r9_1" fonte="raca" rank="9" estrela="1" nome="Protocolo de Adaptação"-->
+<!--#poder id="rc_arkhumano_r9_1" fonte="raca" rank="9" estrela="1" nome="Protocolo de Adaptação" custo="2"-->
 ### Protocolo de Adaptação
 
 Ao receber dano de um tipo específico (elemental ou físico), use a reação para ganhar **Resistência** àquele dano até o fim do combate (ou 1 hora). Apenas um tipo ativo por vez — adaptar-se a outro perde o anterior.
@@ -87,7 +87,7 @@ Mantém concentração em **duas magias sustentadas** ao mesmo tempo. Faça um t
 
 ### Rank 5 — O Nulificador
 
-<!--#poder id="rc_arkhumano_r5_1" fonte="raca" rank="5" estrela="1" nome="Zona de Nulidade"-->
+<!--#poder id="rc_arkhumano_r5_1" fonte="raca" rank="5" estrela="1" nome="Zona de Nulidade" custo="6"-->
 ### Zona de Nulidade
 
 Como ação, crie uma aura de **9 + Mana** metros. Dentro dela, todo custo de Mana de outras criaturas dobra e criaturas mágicas têm desvantagem em ataques. Dura **1 + ER** minutos.

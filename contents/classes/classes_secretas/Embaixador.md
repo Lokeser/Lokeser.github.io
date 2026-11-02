@@ -36,7 +36,7 @@ Ao descumprir deliberadamente uma missão, a entidade pode suspender este benef�
 
 ## Rank 9 — Voz Reconhecida
 
-<!--#poder id="ci_emb_r9e1" fonte="classe_inicial" rank="9" estrela="1" nome="Arma Comum Masterizada"-->
+<!--#poder id="ci_emb_r9e1" fonte="classe_inicial" rank="9" estrela="1" nome="Arma Comum Masterizada" custo="2"-->
 ### Arma Comum Masterizada
 
 Enquanto empunhar a Arma de Pacto, recebe **+1DR** no primeiro ataque feito com ela a cada turno. Ao acertar esse ataque, pode gastar **2 Magículas** para ativar o Aspecto da Entidade uma segunda vez no turno, caso o efeito escolhido permita.
@@ -70,7 +70,7 @@ A entidade passa a compartilhar conhecimentos, manias ou sinais do mundo invisí
 
 ## Rank 7 — Diálogo de Ação
 
-<!--#poder id="ci_emb_r7e1" fonte="classe_inicial" rank="7" estrela="1" nome="Arma Despertada Masterizada"-->
+<!--#poder id="ci_emb_r7e1" fonte="classe_inicial" rank="7" estrela="1" nome="Arma Despertada Masterizada" custo="3"-->
 ### Arma Despertada Masterizada
 
 A Arma Despertada agora dura **Arcana** turnos. Quando esse tempo acaba, você pode mantê-la gastando **3 Magículas por turno adicional**. Se não puder ou não quiser pagar, ela retorna à forma comum no fim do turno.
@@ -108,7 +108,7 @@ Sua Passiva Universal evolui: em cada cena, você pode usar **Vínculo de Repres
 
 ## Rank 5 — Presença no Mundo
 
-<!--#poder id="ci_emb_r5e1" fonte="classe_inicial" rank="5" estrela="1" nome="Arma Ascendida Masterizada"-->
+<!--#poder id="ci_emb_r5e1" fonte="classe_inicial" rank="5" estrela="1" nome="Arma Ascendida Masterizada" custo="5"-->
 ### Arma Ascendida Masterizada
 
 A Arma Ascendida dura **Arcana** turnos. Após isso, pode permanecer ao custo de **5 Magículas por turno adicional**. A Arma Despertada passa a poder permanecer **até o fim da cena** sem custo, desde que você não manifeste a forma Ascendida.

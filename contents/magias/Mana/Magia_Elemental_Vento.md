@@ -66,7 +66,7 @@ O coração da Magia de Vento: **todo movimento vira força**.
 | **Colisão** | 2 Ímpeto | Se a criatura que você empurrou bater em outra criatura ou em um obstáculo, **as duas** sofrem dano igual à sua **Mana** e fazem um **Teste de Corpo** contra sua **CD Mágica**. **Falha:** ficam **Caídas**. |
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
+<!--#poder id="mg_magia_elemental_vento_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre" custo="1"-->
 ### Manipulação Livre
 Você se torna capaz de externar sua Mana em vento puro, moldando correntes, impulsos e pressões conforme sua vontade.
 
@@ -122,7 +122,7 @@ A Arte da Magia é a escolha do **seu jeito de mover o mundo**. Cada Arte é uma
 → [Ver as Artes do Vento](viewer.html?file=contents/magias/Mana/Arte_Vento.md)
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r9e2_favor" fonte="magia" rank="9" estrela="2" nome="Vento a Favor"-->
+<!--#poder id="mg_magia_elemental_vento_r9e2_favor" fonte="magia" rank="9" estrela="2" nome="Vento a Favor" custo="5"-->
 ### ★★ Vento a Favor
 **Custo:** 5 Magículas  
 **Ação:** Ação
@@ -132,7 +132,7 @@ A Arte da Magia é a escolha do **seu jeito de mover o mundo**. Cada Arte é uma
 - Você ganha **1 Ímpeto** por aliado afetado.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r9e4_1" fonte="magia" rank="9" estrela="4" nome="Manipulação Livre II — Mover Alvos"-->
+<!--#poder id="mg_magia_elemental_vento_r9e4_1" fonte="magia" rank="9" estrela="4" nome="Manipulação Livre II — Mover Alvos" custo="2"-->
 ### ★★★★ Manipulação Livre II — Mover Alvos
 - **Ação:** Ação
 - **Custo:** 2 Magículas
@@ -152,7 +152,7 @@ Erga e mova uma criatura com peso até **2x o seu Peso Mágico**, em até **Mana
 Aprenda **mais uma técnica** da sua Arte do Vento.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r8e1_corrente" fonte="magia" rank="8" estrela="1" nome="Foco Elemental — Corrente"-->
+<!--#poder id="mg_magia_elemental_vento_r8e1_corrente" fonte="magia" rank="8" estrela="1" nome="Foco Elemental — Corrente" custo="5"-->
 ### ★ Foco Elemental — Corrente
 No Vento, o Foco de Mana é uma **Corrente**: uma faixa de vento constante que corta o campo.
 
@@ -167,7 +167,7 @@ No Vento, o Foco de Mana é uma **Corrente**: uma faixa de vento constante que c
 - Toda criatura levada pela Corrente conta como **movida pela sua magia** (gera Ímpeto).
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r8e5_1" fonte="magia" rank="8" estrela="5" nome="Explosão de Corrente"-->
+<!--#poder id="mg_magia_elemental_vento_r8e5_1" fonte="magia" rank="8" estrela="5" nome="Explosão de Corrente" custo="10"-->
 ### ★★★★★ Explosão de Corrente
 **Custo:** 10 Magículas  
 **Ação:** Bônus
@@ -188,7 +188,7 @@ Exploda uma Corrente sua dentro do alcance da Manipulação Livre. Ela se desfaz
 Aprenda **mais uma técnica** da sua Arte do Vento.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_vento_r7e3_turbilhao" fonte="magia" rank="7" estrela="3" nome="Turbilhão"-->
+<!--#poder id="mg_magia_elemental_vento_r7e3_turbilhao" fonte="magia" rank="7" estrela="3" nome="Turbilhão" custo="6"-->
 ### ★★★ Turbilhão
 **Custo:** 6 Magículas  
 **Ação:** Ação

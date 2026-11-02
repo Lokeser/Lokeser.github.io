@@ -12,7 +12,7 @@ A mais pura técnica. O caminho do celestial consiste em treinar sua mente para 
 
 ## Aprendiz – R9
 
-<!--#poder id="mg_arte_celestial_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Celestial"-->
+<!--#poder id="mg_arte_celestial_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Celestial" custo="2" custo_tipo="Accels"-->
 ### Aceleração Celestial
 
 Ao acelerar deste modo, você utiliza sua Aceleração normal, porém misturada com sua Arte, gerando a **Aceleração Celestial**.
@@ -26,7 +26,7 @@ Ao acelerar deste modo, você utiliza sua Aceleração normal, porém misturada 
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r9e1_2" fonte="magia" rank="9" estrela="1" nome="Contra-Fluxo"-->
+<!--#poder id="mg_arte_celestial_r9e1_2" fonte="magia" rank="9" estrela="1" nome="Contra-Fluxo" custo="1" custo_tipo="Accels"-->
 ### Contra-Fluxo
 
 Sempre que você se esquivar de um ataque, pode gastar **1 Accel** para contra-atacar o inimigo.
@@ -40,7 +40,7 @@ Sempre que você se esquivar de um ataque, pode gastar **1 Accel** para contra-a
 
 ## Adepto do Celeste – R8
 
-<!--#poder id="mg_arte_celestial_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Filosofia Celestial"-->
+<!--#poder id="mg_arte_celestial_r8e1_1" fonte="magia" rank="8" estrela="1" nome="Filosofia Celestial" custo="1" custo_tipo="Accels"-->
 ### Filosofia Celestial
 
 Sempre que sofrer uma condição adversativa de **Mente não evoluída**, pode gastar **1 ação + 1 Accel** para remover o efeito.
@@ -57,7 +57,7 @@ A Aceleração Celestial evolui:
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r8e1_3" fonte="magia" rank="8" estrela="1" nome="Venvoar"-->
+<!--#poder id="mg_arte_celestial_r8e1_3" fonte="magia" rank="8" estrela="1" nome="Venvoar" custo="1" custo_tipo="Accels"-->
 ### Venvoar
 
 Sempre que um inimigo errar um ataque, pode gastar **1 Accel** para se mover uma distância igual à sua **Eficiência de Rank** em metros (sem contra-ataque).
@@ -83,7 +83,7 @@ Sempre que um inimigo errar um ataque, pode gastar **1 Accel** para se mover uma
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r7e1_2" fonte="magia" rank="7" estrela="1" nome="Refletir"-->
+<!--#poder id="mg_arte_celestial_r7e1_2" fonte="magia" rank="7" estrela="1" nome="Refletir" custo="1" custo_tipo="Accels"-->
 ### Refletir
 
 Quando for alvejado por um projétil ou magia que **erre**, pode consumir **1 Accel** para realizar um Ataque de Ki contra a CA do inimigo.
@@ -104,7 +104,7 @@ Quando for alvejado por um projétil ou magia que **erre**, pode consumir **1 Ac
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r6e1_2" fonte="magia" rank="6" estrela="1" nome="Algema Celestial"-->
+<!--#poder id="mg_arte_celestial_r6e1_2" fonte="magia" rank="6" estrela="1" nome="Algema Celestial" custo="2" custo_tipo="Accels"-->
 ### Algema Celestial
 
 Quando um inimigo dentro do alcance da sua **Eficiência de Rank** errar um ataque:
@@ -127,14 +127,14 @@ Quando um inimigo dentro do alcance da sua **Eficiência de Rank** errar um ataq
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r5e1_2" fonte="magia" rank="5" estrela="1" nome="Contra-Fluxo III"-->
+<!--#poder id="mg_arte_celestial_r5e1_2" fonte="magia" rank="5" estrela="1" nome="Contra-Fluxo III" custo="3" custo_tipo="Accels"-->
 ### Contra-Fluxo III
 
 Após aplicar Contra-Fluxo, pode gastar **+3 Accels** para forçar um **acerto crítico**.
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_celestial_r5e1_3" fonte="magia" rank="5" estrela="1" nome="Condition Counter"-->
+<!--#poder id="mg_arte_celestial_r5e1_3" fonte="magia" rank="5" estrela="1" nome="Condition Counter" custo="3" custo_tipo="Accels"-->
 ### Condition Counter
 
 1 vez por Retiro, ao sofrer uma condição adversa **evoluída**:

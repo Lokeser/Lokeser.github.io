@@ -17,14 +17,6 @@
       "id": "pmvyrhby1qhh29"
     },
     {
-      "t": "c",
-      "id": "pmvysnr8d5166v"
-    },
-    {
-      "t": "c",
-      "id": "pmvyssoezfo8t8"
-    },
-    {
       "t": "g",
       "id": "gmtmsqrx6",
       "nome": "Terrastela",
@@ -101,7 +93,15 @@
       "id": "gmvytcwhm",
       "nome": "ABISMO",
       "cor": "#B9B1A0"
+    },
+    {
+      "t": "c",
+      "id": "pmvyssoezfo8t8"
+    },
+    {
+      "t": "c",
+      "id": "pmvysnr8d5166v"
     }
   ],
-  "atualizado": "2026-11-02T05:23:43.354Z"
+  "atualizado": "2026-11-02T05:23:50.541Z"
 }

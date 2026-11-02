@@ -63,6 +63,8 @@ const WNJ = (() => {
                 rank: attrs.rank ? parseInt(attrs.rank, 10) : null,
                 estrela: attrs.estrela ? parseInt(attrs.estrela, 10) : 1,
                 nome: attrs.nome || attrs.id,
+                custo: attrs.custo || '',
+                custoTipo: attrs.custo ? (attrs.custo_tipo || 'Magículas') : '',
                 efeitoMD: corpo
             });
         }

@@ -26,7 +26,7 @@ Recebe **+6 em Erudição ou Arcanismo**, escolhido ao despertar a arma. Uma vez
 Você pode manter até **ER** marcas simultâneas. Quando uma magia atinge duas ou mais marcas no mesmo turno, recupere **1 Magícula por marca atingida** (máximo Arcana por turno).
 <!--#fim-->
 
-<!--#poder id="ci_emb_mana_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Intermutação Soberana"-->
+<!--#poder id="ci_emb_mana_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Intermutação Soberana" custo="10"-->
 ### Poder Terciário — Intermutação Soberana
 
 Com a Arma Ascendida ativa, gaste **10 Magículas** como Ação Bônus para redesenhar uma magia sua no momento de usá-la: escolha aumentar o alcance em um estágio, trocar seu tipo de dano pela assinatura da arma ou permitir que ela ignore Resistência II. Uma mesma magia só pode receber um desses efeitos por conjuração.

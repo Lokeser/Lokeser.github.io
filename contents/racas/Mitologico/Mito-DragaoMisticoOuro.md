@@ -175,7 +175,7 @@ Receba **uma** habilidade baseada no seu maior atributo:
 Você aprofunda relações com mais facilidade. Pessoas já favoráveis a você tornam-se mais confortáveis e abertas em sua presença.
 <!--#fim-->
 
-<!--#poder id="rc_mito_dragaoouro_r8_3" fonte="raca" rank="8" estrela="1" nome="Garganta de Ouro"-->
+<!--#poder id="rc_mito_dragaoouro_r8_3" fonte="raca" rank="8" estrela="1" nome="Garganta de Ouro" custo="9"-->
 ### Garganta de Ouro
 
 Seu ataque principal na Forma Dracônica é o **Jato de Ouro Derretido** — um cone de ouro líquido incandescente que emerge da sua garganta.

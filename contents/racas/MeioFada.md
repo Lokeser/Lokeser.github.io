@@ -68,7 +68,7 @@ Você ganha **asas de energia** etéreas, que não podem ser danificadas. Pode a
 
 <!--#fim-->
 
-<!--#poder id="rc_meiofada_r8_1" fonte="raca" rank="8" estrela="1" nome="Asas Despertas"-->
+<!--#poder id="rc_meiofada_r8_1" fonte="raca" rank="8" estrela="1" nome="Asas Despertas" custo="1"-->
 ### Rank 8 — Asas Despertas
 
 *O Meio-Fada abraça a sua natureza. As asas se solidificam, físicas e pulsantes. São frágeis, mas poderosas, e cada escolha deixa nelas uma marca, como se a Fada estivesse pintando a sua história.*
@@ -164,7 +164,7 @@ Escolha **um** novo poder para as asas:
 
 <!--#fim-->
 
-<!--#poder id="rc_meiofada_r4_2" fonte="raca" rank="4" estrela="1" nome="Fenda Estelar"-->
+<!--#poder id="rc_meiofada_r4_2" fonte="raca" rank="4" estrela="1" nome="Fenda Estelar" custo="5"-->
 #### Fenda Estelar
 
 Como **Ação** e por **5 Magículas**, abre por 1 turno uma fenda para o Plano Astral num raio de 5m (teste de **Mana**, CD 16 + Mana). Os alvos na área sofrem **ERd12 + Mana** de dano mágico, e você pode se teleportar com até **4 aliados** para um ponto a até 15m. Pode ser usada **1 vez por Retiro**; cada uso extra deixa você **Fatigado** (ou **Exausto**, se já estiver Fatigado). *(As asas crescem.)*

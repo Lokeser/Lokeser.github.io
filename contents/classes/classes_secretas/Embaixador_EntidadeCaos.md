@@ -8,7 +8,7 @@ Uma Entidade de Caos não ordena o mundo: ela expõe suas possibilidades. Seu Em
 No início de cada cena, escolha uma expressão para a Arma de Pacto: **corte, impacto ou perfuração**. O primeiro acerto seu com ela em cada turno pode trocar seu tipo de dano para essa expressão. Ao conseguir um crítico, você pode mudar a expressão imediatamente e recebe **+1** na margem de ameaça do próximo ataque com a arma.
 <!--#fim-->
 
-<!--#poder id="ci_emb_caos_r9e3" fonte="classe_inicial" rank="9" estrela="3" nome="Poder Secundário — Ruptura Probabilística"-->
+<!--#poder id="ci_emb_caos_r9e3" fonte="classe_inicial" rank="9" estrela="3" nome="Poder Secundário — Ruptura Probabilística" custo="3"-->
 ### Poder Secundário — Ruptura Probabilística
 
 Uma vez por turno, após falhar em um ataque com a Arma de Pacto ou em um teste de magia, gaste **3 Magículas** e escolha um: avance ou recue 3m sem provocar reações; imponha **-ER** ao próximo ataque do alvo; ou receba VT igual a **Arcana**. O Mestre pode trocar o efeito por uma consequência caótica equivalente, anunciada antes da rolagem.
@@ -26,7 +26,7 @@ Recebe **+6 em Furtividade, Lábia ou Intuição**, escolhido ao despertar a arm
 Quando usar Ruptura Probabilística, pode escolher **dois efeitos diferentes**. Se ativá-la depois de um crítico, a primeira ativação da cena não custa Magículas.
 <!--#fim-->
 
-<!--#poder id="ci_emb_caos_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Teatro das Possibilidades"-->
+<!--#poder id="ci_emb_caos_r6e3" fonte="classe_inicial" rank="6" estrela="3" nome="Poder Terciário — Teatro das Possibilidades" custo="12"-->
 ### Poder Terciário — Teatro das Possibilidades
 
 Com a Arma Ascendida ativa, gaste **12 Magículas** como Ação Padrão para criar uma zona instável de **Arcana** metros por **ER** turnos. Na primeira vez por turno que uma criatura na zona obtiver crítico ou falhar um teste, escolha para ela: deslocar-se 3m, receber VT igual a ER, ou ficar Desprevenida até o início do próximo turno. Uma criatura só pode sofrer a opção adversa uma vez por turno.

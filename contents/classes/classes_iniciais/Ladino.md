@@ -7,7 +7,7 @@
 
 ## Rank 10 — Iniciante
 
-<!--#poder id="ci_ladino_r10e1_1" fonte="classe_inicial" rank="10" estrela="1" nome="Furtivista"-->
+<!--#poder id="ci_ladino_r10e1_1" fonte="classe_inicial" rank="10" estrela="1" nome="Furtivista" custo="1"-->
 ### Furtivista
 
 * Pode realizar **Teste de Furtividade + Disparada** como **Ação Bônus**.

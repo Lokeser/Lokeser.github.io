@@ -12,7 +12,7 @@ A destruição de modo frio e calculista. O Caminho do Demônio foca em destruir
 
 ## Aprendiz – R9
 
-<!--#poder id="mg_arte_diabo_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Diabólica"-->
+<!--#poder id="mg_arte_diabo_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Diabólica" custo="2" custo_tipo="Accels"-->
 ### Aceleração Diabólica
 
 Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Diabólica**.
@@ -27,7 +27,7 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Diabólic
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_diabo_r9e1_2" fonte="magia" rank="9" estrela="1" nome="Ki Corrompido"-->
+<!--#poder id="mg_arte_diabo_r9e1_2" fonte="magia" rank="9" estrela="1" nome="Ki Corrompido" custo="1" custo_tipo="Accels"-->
 ### Ki Corrompido
 
 Escolha **2 efeitos** (não pode trocar):
@@ -67,7 +67,7 @@ Sempre que causar **Dano de Ki**, pode gastar **1 Accel**:
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_diabo_r8e1_3" fonte="magia" rank="8" estrela="1" nome="Filosofia Diabólica"-->
+<!--#poder id="mg_arte_diabo_r8e1_3" fonte="magia" rank="8" estrela="1" nome="Filosofia Diabólica" custo="1" custo_tipo="Accels"-->
 ### Filosofia Diabólica
 
 Como uma ação + **1 Accel**:
@@ -91,7 +91,7 @@ Como uma ação + **1 Accel**:
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_diabo_r7e1_2" fonte="magia" rank="7" estrela="1" nome="Ki Corrompido III"-->
+<!--#poder id="mg_arte_diabo_r7e1_2" fonte="magia" rank="7" estrela="1" nome="Ki Corrompido III" custo="2" custo_tipo="Accels"-->
 ### Ki Corrompido III
 
 Quando um inimigo testar contra Ki Corrompido:
@@ -134,7 +134,7 @@ Sempre que um inimigo sofrer Ki Corrompido:
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_diabo_r5e1_2" fonte="magia" rank="5" estrela="1" nome="Maldição Diabólica"-->
+<!--#poder id="mg_arte_diabo_r5e1_2" fonte="magia" rank="5" estrela="1" nome="Maldição Diabólica" custo="5" custo_tipo="Accels"-->
 ### Maldição Diabólica
 
 Ao acertar um ataque:

@@ -151,7 +151,7 @@ Recebe **+1 Mana imediatamente** e **+1 Mana adicional ao alcançar o Rank 4**.
 
 <!--#fim-->
 
-<!--#poder id="rc_elfo_r5_2" fonte="raca" rank="5" estrela="1" nome="Comando Imperial (Elfo)"-->
+<!--#poder id="rc_elfo_r5_2" fonte="raca" rank="5" estrela="1" nome="Comando Imperial (Elfo)" custo="15"-->
 ### Rank 5 — Comando Imperial (Elfo)
 
 Um número de vezes por Retiro igual à sua **ER**, consumindo **15 magículas**, você pode, como uma ação, exalar uma voz imbuída de autoridade arcana.

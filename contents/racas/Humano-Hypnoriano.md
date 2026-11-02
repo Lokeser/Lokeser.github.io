@@ -84,7 +84,7 @@ Recebe a habilidade **Visitar Mundo Interior**.
 
 <!--#fim-->
 
-<!--#poder id="rc_humano_hypnoriano_r8_2" fonte="raca" rank="8" estrela="1" nome="Sonho Mágico"-->
+<!--#poder id="rc_humano_hypnoriano_r8_2" fonte="raca" rank="8" estrela="1" nome="Sonho Mágico" custo="2"-->
 ### Rank 8 — Sonho Mágico
 
 Vezes por Retiro iguais à sua **Eficiência de Rank (ER)**:

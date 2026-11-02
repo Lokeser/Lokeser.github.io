@@ -12,7 +12,7 @@ Técnica? Tudo que manda é o poder. O Caminho da Besta aprimora o corpo sem se 
 
 ## Aprendiz – R9
 
-<!--#poder id="mg_arte_besta_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Bestial"-->
+<!--#poder id="mg_arte_besta_r9e1_1" fonte="magia" rank="9" estrela="1" nome="Aceleração Bestial" custo="2" custo_tipo="Accels"-->
 ### Aceleração Bestial
 
 Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**.
@@ -45,7 +45,7 @@ Mistura sua Aceleração normal com sua Arte, criando a **Aceleração Bestial**
 
 <!--#fim-->
 
-<!--#poder id="mg_arte_besta_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Filosofia Bestial"-->
+<!--#poder id="mg_arte_besta_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Filosofia Bestial" custo="1" custo_tipo="Accels"-->
 ### Filosofia Bestial
 
 Sempre que sofrer uma condição adversativa de **Corpo não evoluída**:

@@ -15,7 +15,7 @@ Você canaliza sua **Mana** para criar uma **rede tática** no campo de batalha.
 
 ## Rank 8
 
-<!--#poder id="ca_comandante_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Fundamentos do Comando"-->
+<!--#poder id="ca_comandante_r8e1_1" fonte="classe_avancada" rank="8" estrela="1" nome="⭐ 1 Estrela — Fundamentos do Comando" custo="5"-->
 ### ⭐ 1 Estrela — Fundamentos do Comando
 
 #### Aliados

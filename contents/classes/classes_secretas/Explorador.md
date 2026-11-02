@@ -8,7 +8,7 @@ Reconhecido pela Relíquia, portador da **Marca do Explorador**. Junta artefatos
 
 ## Rank 8 — Marca Vermelha
 
-<!--#poder id="cs_explorador_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="DASH"-->
+<!--#poder id="cs_explorador_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="DASH" custo="1"-->
 ### DASH
 
 Técnica secreta de mobilidade: mova-se metade do Deslocamento Base como **Ação Bônus**, sem sofrer contra-ataques por sair de área, ganhando CA e Deslocamento até o fim do próximo turno. +1DR para Escalar e ignora Terreno Difícil.

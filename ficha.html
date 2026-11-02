@@ -205,7 +205,11 @@
         .tcard .acoes-card { position: absolute; top: 8px; right: 10px; display: flex; gap: 7px; }
         .tcard .acoes-card button { background: none; border: none; cursor: pointer; font-size: .85rem; opacity: .65; }
         .tcard .acoes-card button:hover { opacity: 1; }
-        .tcard .auto-selo { font-size: .62rem; color: #7fd08a; letter-spacing: 1px; }
+        /* Rank do poder: branco = criado pelo jogador, cor da magia = veio da raça/classe/magia */
+        .tcard .rk { font-size: .62rem; font-weight: 700; margin-left: 6px; color: var(--rk, #fff); opacity: .9; }
+        .tcard .custo { font-size: .7rem; color: var(--text-2, #8fa3b5); margin: -4px 0 6px; }
+        .custo-campo { display: flex; gap: 8px; }
+        .custo-campo #poder-custo { width: 80px; flex: none; }
         .filtros { display: flex; gap: 7px; flex-wrap: wrap; }
         .filtro {
             border: 1px solid var(--c3); background: transparent; color: var(--text-2);
@@ -549,6 +553,12 @@
             <input id="poder-nome" placeholder="Ex: Golpe Flamejante">
             <label>Tag</label>
             <select id="poder-tag"></select>
+            <label>Custo</label>
+            <div class="custo-campo">
+                <input id="poder-custo" inputmode="numeric" placeholder="10">
+                <select id="poder-custo-tipo"><option>Magículas</option><option>Accels</option><option>Vida</option><option value="">Custom…</option></select>
+                <input id="poder-custo-livre" placeholder="Ex: Cargas" hidden>
+            </div>
             <label>Efeito</label>
             <div class="rt-bar">
                 <button type="button" data-cmd="bold"><b>B</b></button>

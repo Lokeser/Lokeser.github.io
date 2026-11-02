@@ -53,7 +53,7 @@ O coração da Magia de Raio: primeiro você conecta, depois você descarrega.
 - Redirecionar Magia para um Condutor **não custa Magículas**.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre de Raio"-->
+<!--#poder id="mg_magia_elemental_raio_r10_ml" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre de Raio" custo="2"-->
 ### Manipulação Livre de Raio
 Você se torna capaz de expelir sua Mana em forma de eletricidade pura. A Manipulação Livre de Raio tem **três modos**.
 
@@ -111,7 +111,7 @@ A Arte da Magia é a escolha do **seu jeito de comandar a tempestade**. Cada Art
 → [Ver as Artes do Raio](viewer.html?file=contents/magias/Mana/Arte_Raio.md)
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r9e3_sobrecarga" fonte="magia" rank="9" estrela="3" nome="Sobrecarga Neural"-->
+<!--#poder id="mg_magia_elemental_raio_r9e3_sobrecarga" fonte="magia" rank="9" estrela="3" nome="Sobrecarga Neural" custo="4"-->
 ### ★★★ Sobrecarga Neural
 Você joga eletricidade nos nervos de um aliado — ou nos seus.
 
@@ -134,7 +134,7 @@ Até o fim do próximo turno do alvo:
 Aprenda **mais uma técnica** da sua Arte do Raio.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
+<!--#poder id="mg_magia_elemental_raio_r8e1_2" fonte="magia" rank="8" estrela="1" nome="Foco Elemental" custo="5"-->
 ### ★ Foco Elemental
 Você aprende a criar **Focos de Mana de Raio**.
 
@@ -159,7 +159,7 @@ Você aprende a criar **Focos de Mana de Raio**.
 Aprenda **mais uma técnica** da sua Arte do Raio.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r7e2_1" fonte="magia" rank="7" estrela="2" nome="Raio Descendente"-->
+<!--#poder id="mg_magia_elemental_raio_r7e2_1" fonte="magia" rank="7" estrela="2" nome="Raio Descendente" custo="6"-->
 ### ★★ Raio Descendente
 Você invoca um raio descendente do céu — um quarto modo da Manipulação Livre.
 
@@ -182,7 +182,7 @@ Você invoca um raio descendente do céu — um quarto modo da Manipulação Liv
 Aprenda **mais uma técnica** da sua Arte do Raio.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r6e3_sobrecarregar" fonte="magia" rank="6" estrela="3" nome="Sobrecarga Voluntária"-->
+<!--#poder id="mg_magia_elemental_raio_r6e3_sobrecarregar" fonte="magia" rank="6" estrela="3" nome="Sobrecarga Voluntária" custo="2"-->
 ### ★★★ Sobrecarga Voluntária
 Você aprende a deixar o próprio núcleo transbordar.
 
@@ -199,7 +199,7 @@ Você aprende a deixar o próprio núcleo transbordar.
 Aprenda **mais uma técnica** da sua Arte do Raio.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_raio_r5e3_1" fonte="magia" rank="5" estrela="3" nome="Reanimação"-->
+<!--#poder id="mg_magia_elemental_raio_r5e3_1" fonte="magia" rank="5" estrela="3" nome="Reanimação" custo="30"-->
 ### ★★★ Reanimação
 **Uso:** 1 vez por Recesso
 

@@ -8,7 +8,7 @@ Um artista que transforma música em magia, tocando **Notas Mágicas** que aplic
 
 ## Rank 8 — Especialista
 
-<!--#poder id="cs_musicista_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Notas Mágicas"-->
+<!--#poder id="cs_musicista_r8e1" fonte="classe_avancada" rank="8" estrela="1" nome="Notas Mágicas" custo="2"-->
 ### Notas Mágicas
 
 Como Ação Bônus, toque uma das 7 Notas (ver tabela abaixo). Faça um **Teste de Música Mágica** (DR + Atributo da Nota); a **CD Musical** é 10 + 1 per rank + Bônus Musical. O resultado no DR define o **Bônus Musical** (ver tabela). No crítico, +1D no efeito além do bônus.

@@ -267,6 +267,7 @@ dialog:has(.diario-pop) { width: min(780px, calc(100vw - 24px)); }
 .cartao-topo { display: flex; align-items: flex-start; gap: 8px; }
 .cartao h3 { font-family: var(--titulo); font-size: 1.08rem; margin: 0; line-height: 1.2; flex: 1; min-width: 0; }
 .etiqueta { display: inline-block; font-size: .72rem; font-weight: 800; color: #0b0b0d; background: var(--cor, var(--ac)); border-radius: 4px; padding: 1px 7px; margin-bottom: 6px; }
+.custo { font-size: .72rem; color: var(--tinta-2); margin-top: 2px; }
 .rk { font-size: .72rem; color: var(--tinta-2); border: 1px solid rgba(255,255,255,.15); border-radius: 4px; padding: 0 6px; margin-left: 4px; }
 .cartao .ferr { display: flex; gap: 2px; opacity: .55; transition: opacity .15s; }
 .cartao:hover .ferr, .cartao:focus-within .ferr { opacity: 1; }
@@ -859,7 +860,7 @@ function renderPoderes() {
         return '<article class="cartao" data-poder="' + i + '" style="--cor:' + t.cor + '"><div class="cartao-topo">' +
             '<button class="bt ic alca" data-alca="' + i + '" title="Arrastar para reordenar" aria-label="Mover ' + esc(p.nome) + ' (setas para reordenar)" style="border:0;background:none;width:28px;height:28px">' + ic('alca') + '</button>' +
             '<div style="flex:1;min-width:0"><span class="etiqueta">' + esc(t.nome) + '</span>' + (p.rank ? '<span class="rk">R' + esc(p.rank) + (p.estrela > 1 ? ' ★' + esc(p.estrela) : '') + '</span>' : '') +
-            '<h3>' + esc(p.nome) + '</h3></div>' + ferramentas('poder', i, false) + '</div>' + efeito(p.efeitoHTML) + '</article>';
+            '<h3>' + esc(p.nome) + '</h3>' + (p.custo ? '<div class="custo">' + esc(p.custo) + ' ' + esc(p.custoTipo === 'Magículas' ? 'Mgc' : (p.custoTipo || '')) + '</div>' : '') + '</div>' + ferramentas('poder', i, false) + '</div>' + efeito(p.efeitoHTML) + '</article>';
     }).join('') || '<p class="vazio">Nenhum poder.</p>';
     encolherLongos('#poderes');
 }

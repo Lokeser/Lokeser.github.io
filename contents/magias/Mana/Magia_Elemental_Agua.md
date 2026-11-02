@@ -47,7 +47,7 @@ Ao nascer com este núcleo, você manifesta características mágicas naturais d
 - Outros efeitos menores podem surgir, definidos pelo Mestre, variando conforme **Mana** e **Sabedoria**.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_agua_r10e1_2" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre"-->
+<!--#poder id="mg_magia_elemental_agua_r10e1_2" fonte="magia" rank="10" estrela="1" nome="Manipulação Livre" custo="1"-->
 ### Manipulação Livre
 Utiliza o Núcleo para criar correntes de Magícula que viajam até sua mão, permitindo ataques mágicos.
 
@@ -127,7 +127,7 @@ A Arte da Magia é a escolha do **seu jeito de conduzir a maré**. Cada Arte é 
 Aprenda **mais uma técnica** da sua Arte da Água.
 <!--#fim-->
 
-<!--#poder id="mg_magia_elemental_agua_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental"-->
+<!--#poder id="mg_magia_elemental_agua_r8e1_foco" fonte="magia" rank="8" estrela="1" nome="Foco Elemental" custo="5"-->
 ### ★ Foco Elemental
 Você aprende a criar **Focos de Mana de Água**.
 

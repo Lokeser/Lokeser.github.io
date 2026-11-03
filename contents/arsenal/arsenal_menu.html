@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal — Luxsandoria</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/arsenal.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); }
+        .ars { max-width: 1120px; margin: 0 auto; padding: var(--sp-7) clamp(14px, 4vw, 32px) var(--sp-8); }
+
+        .ars-topo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--sp-6); align-items: end; padding-bottom: var(--sp-6); border-bottom: 1px solid var(--border); }
+        .ars-topo h1 { font-family: var(--font-display); color: var(--gold); font-size: var(--step-4); margin: 0 0 var(--sp-3); line-height: 1.05; }
+        .ars-topo p { color: var(--text-2); font-family: var(--font-text); font-size: var(--step-0); line-height: 1.6; margin: 0; max-width: 56ch; }
+        .ars-topo blockquote { margin: 0; padding: var(--sp-4) var(--sp-5); border-left: 2px solid var(--gold); font-family: var(--font-text); font-style: italic; color: var(--text); line-height: 1.6; background: var(--surface); border-radius: 0 var(--r) var(--r) 0; }
+
+        .bloco { margin-top: var(--sp-7); }
+        .bloco-cab { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-4); flex-wrap: wrap; }
+        .bloco-cab h2 { font-family: var(--font-display); font-size: var(--step-2); margin: 0; color: var(--text); }
+        .bloco-cab span { color: var(--text-2); font-size: var(--step--1); }
+
+        .tomo { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: var(--sp-5); align-items: center; padding: var(--sp-5) var(--sp-6);
+                background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-lg); text-decoration: none; color: var(--text);
+                transition: border-color var(--t) var(--ease), translate var(--t) var(--ease); }
+        .tomo:hover { border-color: var(--gold); translate: 0 -2px; color: var(--text); }
+        .tomo svg { width: 96px; height: 96px; color: var(--gold); }
+        .tomo h3 { font-family: var(--font-display); font-size: var(--step-2); margin: 0 0 6px; }
+        .tomo p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.55; }
+        .tomo .ir { color: var(--gold); font-weight: 700; font-size: var(--step--1); white-space: nowrap; }
+        .comuns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
+        .comuns a { padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); color: var(--text); text-decoration: none; }
+        .comuns a:hover { border-color: var(--gold); color: var(--text); }
+        .comuns b { font-family: var(--font-display); display: block; margin-bottom: 2px; }
+        .comuns small { color: var(--text-2); }
+
+        .escada-ler { pointer-events: none; }
+        .escada-ler .ar-placa { cursor: default; }
+
+        .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: var(--sp-4); }
+        .peca { --rar: var(--gold); position: relative; display: flex; flex-direction: column; gap: 8px; padding: var(--sp-5); border-radius: var(--r-lg);
+                border: 1px solid color-mix(in srgb, var(--rar) 35%, var(--border)); border-top: 3px solid var(--rar);
+                background: var(--surface); text-decoration: none; color: var(--text); transition: border-color var(--t) var(--ease); }
+        .peca:hover { border-color: var(--rar); color: var(--text); }
+        .peca .r { font-family: var(--font-display); font-size: .86rem; color: color-mix(in srgb, var(--rar) 62%, var(--text)); }
+        .peca h3 { font-family: var(--font-display); font-size: var(--step-1); margin: 0; }
+        .peca p { margin: 0; color: var(--text-2); font-size: var(--step--1); line-height: 1.5; }
+        .peca .capa { aspect-ratio: 16 / 9; margin: calc(var(--sp-5) * -1) calc(var(--sp-5) * -1) 4px; border-radius: var(--r-lg) var(--r-lg) 0 0; overflow: hidden; background: var(--surface-2); }
+        .peca .capa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .marcas { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+        .marca { font-size: .74rem; font-weight: 700; border-radius: 6px; padding: 2px 8px; border: 1px solid var(--border-strong); color: var(--text-2); }
+        .marca.privada { border-style: dashed; }
+        .filtros { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+        .filtros input, .filtros select { background: var(--surface-inset); border: 1px solid var(--border); color: var(--text); border-radius: var(--r); padding: 8px 10px; font: 500 .88rem var(--font-ui); min-width: 0; }
+        .filtros input { flex: 1 1 220px; }
+        .cat-vazio { grid-column: 1 / -1; color: var(--text-2); padding: var(--sp-5); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); text-align: center; }
+
+        @media (max-width: 760px) {
+            .ars-topo, .comuns { grid-template-columns: minmax(0, 1fr); }
+            .tomo { grid-template-columns: minmax(0, 1fr); }
+            .tomo svg { width: 56px; height: 56px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="ars">
+        <header class="ars-topo">
+            <div>
+                <h1>Arsenal</h1>
+                <p>Os artefatos de Luxsandoria: armas, focos e relíquias que guardam mana própria. Forje um, escolha a raridade e veja na hora se ele cabe no orçamento de poder.</p>
+            </div>
+            <blockquote>"Uma arma comum depende de quem a empunha. Um artefato lembra de todos que o empunharam."</blockquote>
+        </header>
+
+        <section class="bloco" aria-labelledby="t-regras">
+            <div class="bloco-cab"><h2 id="t-regras">Comece por aqui</h2><span>Raridades, conectividade e estrelas</span></div>
+            <a class="tomo" href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md">
+                <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M48 8l10 22 24 3-18 16 5 24-21-12-21 12 5-24-18-16 24-3z" opacity=".55"/>
+                    <path d="M48 26v52M40 70h16M44 78h8"/>
+                    <path d="M48 26l-5 9h10z"/>
+                    <circle cx="48" cy="50" r="4"/>
+                </svg>
+                <div>
+                    <h3>Artefatos</h3>
+                    <p>As seis raridades e o que cada uma comporta, Conectivo e Inconectivo, o limite de Conectivos pela ER, trocas equivalentes e a evolução por estrelas dos Lendários e Míticos.</p>
+                </div>
+                <span class="ir">Ler as regras</span>
+            </a>
+            <div class="comuns">
+                <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armas.md"><b>Armas comuns</b><small>Pequenas, médias, grandes e à distância</small></a>
+                <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Exotico.md"><b>Armas exóticas</b><small>Forjas regionais e de tribos</small></a>
+                <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md"><b>Armaduras</b><small>Leve, média e pesada por qualidade</small></a>
+            </div>
+        </section>
+
+        <section class="bloco" aria-labelledby="t-rar">
+            <div class="bloco-cab"><h2 id="t-rar">Raridades</h2><span>Do mais comum ao divino</span></div>
+            <div class="ar-escada escada-ler" id="escada" aria-hidden="true"></div>
+        </section>
+
+        <section class="bloco" aria-labelledby="t-catalogo">
+            <div class="bloco-cab"><h2 id="t-catalogo">Catálogo</h2><span id="cat-conta">Carregando…</span>
+                <a class="btn btn--special" href="../../criador-artefato.html" style="margin-left:auto">+ Forjar artefato</a></div>
+            <div class="filtros" role="search">
+                <input type="search" id="f-busca" placeholder="Buscar por nome ou arma" aria-label="Buscar artefato">
+                <select id="f-rar" aria-label="Filtrar por raridade"><option value="">Todas as raridades</option></select>
+                <select id="f-con" aria-label="Filtrar por conectividade"><option value="">Conectivos e Inconectivos</option><option value="conectivo">Só Conectivos</option><option value="inconectivo">Só Inconectivos</option></select>
+                <select id="f-vis" aria-label="Filtrar por visibilidade"><option value="">Públicos e privados</option><option value="publica">Só públicos</option><option value="privada">Só os meus privados</option></select>
+            </div>
+            <div class="catalogo" id="catalogo"></div>
+        </section>
+    </main>
+
+    <script src="../../js/menu.js"></script>
+    <script src="../../js/sistema.js"></script>
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/bestiario.js"></script>
+    <script src="../../js/arsenal.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s);
+        const A = WNJArsenal, B = WNJBest, esc = B.esc;
+        const ORDEM = Object.fromEntries(A.RARIDADES.map((r, i) => [r.id, i]));
+        $('#escada').innerHTML = A.RARIDADES.map((r, i) => '<div class="ar-placa" style="--c:' + r.cor + ';--n:' + i + '"><b>' + r.nome + '</b><small>' + esc(r.resumo) + '</small></div>').join('');
+        $('#f-rar').innerHTML += A.RARIDADES.map(r => '<option value="' + r.id + '">' + r.nome + '</option>').join('');
+        let lista = [];
+        async function carregar() {
+            await WNJ.pronto();
+            const [cat, priv] = await Promise.all([A.catalogo(), A.privados()]);
+            lista = cat.artefatos.map(x => Object.assign({ fonte: 'publica' }, x))
+                .concat(priv.map(x => Object.assign({ fonte: 'privada', resumo: String(x.lore || '').split('\n')[0].slice(0, 160) }, x)));
+            render();
+        }
+        function render() {
+            const q = $('#f-busca').value.trim().toLowerCase(), rar = $('#f-rar').value, con = $('#f-con').value, vis = $('#f-vis').value;
+            const vis_ = lista.filter(x => (!q || (x.nome + ' ' + (x.base || '')).toLowerCase().includes(q)) && (!rar || x.raridade === rar) && (!con || x.conectividade === con) && (!vis || x.fonte === vis))
+                .sort((a, b) => (ORDEM[b.raridade] - ORDEM[a.raridade]) || String(a.nome).localeCompare(String(b.nome), 'pt-BR'));
+            const nPriv = lista.filter(x => x.fonte === 'privada').length;
+            $('#cat-conta').textContent = lista.length + (lista.length === 1 ? ' artefato' : ' artefatos') + (nPriv ? ', ' + nPriv + ' privado(s) neste navegador' : '');
+            $('#catalogo').innerHTML = vis_.map(x => {
+                const r = A.RAR[x.raridade] || A.RAR.raro;
+                return '<a class="peca" style="--rar:' + r.cor + '" href="../../artefato.html?id=' + encodeURIComponent(x.id) + '&fonte=' + x.fonte + '">' +
+                    (x.img ? '<div class="capa"><img src="' + esc(B.imgSrc(x)) + '" alt="" loading="lazy"></div>' : '') +
+                    '<span class="r">' + r.nome + '</span><h3>' + esc(x.nome) + '</h3><p>' + esc(x.resumo || '') + '</p><div class="marcas">' +
+                    '<span class="marca">' + (x.conectividade === 'conectivo' ? 'Conectivo' : 'Inconectivo') + '</span>' +
+                    (x.base ? '<span class="marca">' + esc(x.base) + '</span>' : '') + (x.fonte === 'privada' ? '<span class="marca privada">Privado</span>' : '') +
+                    '</div></a>';
+            }).join('') ||
+                '<p class="cat-vazio">' + (lista.length ? 'Nenhum artefato com esses filtros.' : 'O Arsenal está vazio. Forje o primeiro artefato.') + '</p>';
+        }
+        ['f-busca', 'f-rar', 'f-con', 'f-vis'].forEach(id => $('#' + id).addEventListener('input', render));
+        document.addEventListener('wnj-auth', carregar);
+        carregar();
+    })();
+    </script>
+</body>
+</html>

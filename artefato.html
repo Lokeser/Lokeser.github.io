@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artefato — Arsenal de Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/arsenal.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); font-family: var(--font-ui); }
+        [hidden] { display: none !important; }
+        .pg { max-width: 880px; margin: 0 auto; padding: var(--sp-6) clamp(12px, 3vw, 28px) var(--sp-8); }
+        .pg-barra { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin-bottom: var(--sp-5); }
+        .pg-barra .trilha { margin-right: auto; font-size: .88rem; color: var(--text-2); }
+        .pg-barra .trilha a { color: var(--text-2); }
+        .vazio { text-align: center; padding: var(--sp-8) var(--sp-4); color: var(--text-2); }
+        .levar { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin-top: var(--sp-6); padding: var(--sp-4);
+                 border: 1px solid var(--border-strong); border-radius: var(--r-lg); background: var(--surface); }
+        .levar select { background: var(--surface-inset); border: 1px solid var(--border); color: var(--text); border-radius: var(--r); padding: 8px 10px; font: 500 .9rem var(--font-ui); min-width: 0; flex: 1 1 200px; }
+        .levar span { font-size: .86rem; color: var(--text-2); }
+        .levar .ok { color: var(--success); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <main class="pg">
+        <div class="pg-barra">
+            <span class="trilha"><a href="contents/arsenal/arsenal_menu.html">Arsenal</a> / <span id="trilha-nome">Artefato</span></span>
+            <a class="btn btn--secondary" id="bt-editar" hidden>Editar</a>
+            <button class="btn btn--ghost" id="bt-excluir" hidden>Excluir</button>
+        </div>
+        <div id="conteudo"><p class="vazio">Carregando…</p></div>
+        <div class="levar" id="levar" hidden>
+            <label for="levar-char" class="sr-only">Personagem</label>
+            <select id="levar-char"></select>
+            <button class="btn btn--special" id="bt-levar">Levar para a ficha</button>
+            <span id="levar-estado" role="status">Entra no inventário como Artefato.</span>
+        </div>
+    </main>
+
+    <script src="js/menu.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bestiario.js"></script>
+    <script src="js/arsenal.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s);
+        const A = WNJArsenal, esc = WNJBest.esc;
+        const params = new URLSearchParams(location.search);
+        const id = params.get('id'), fonte = params.get('fonte') === 'privada' ? 'privada' : 'publica';
+        await WNJ.pronto();
+        let a = null;
+        try { a = id ? await A.ler(id, fonte) : null; } catch (e) { console.error(e); }
+        if (!a) {
+            $('#conteudo').innerHTML = '<p class="vazio">Não encontrei este artefato' + (fonte === 'privada' ? ' neste navegador. Artefatos privados ficam só no navegador onde foram forjados.' : '. Se ele acabou de ser publicado, o site pode levar um minuto para atualizar.') + '</p>';
+            return;
+        }
+        A.normalizar(a);
+        document.title = a.nome + ' — Arsenal de Luxsandoria';
+        $('#trilha-nome').textContent = a.nome;
+        $('#conteudo').innerHTML = A.ficha(a, { marcarPrivado: fonte === 'privada' });
+
+        // Editar: privados sempre; públicos, só editores (ou como cópia privada)
+        function botoes() {
+            const pode = fonte === 'privada' || A.podePublicar();
+            const ed = $('#bt-editar');
+            ed.hidden = false;
+            ed.href = 'criador-artefato.html?id=' + encodeURIComponent(a.id) + '&fonte=' + fonte;
+            ed.textContent = pode ? 'Editar' : 'Criar cópia privada';
+            $('#bt-excluir').hidden = !pode;
+        }
+        botoes();
+        document.addEventListener('wnj-auth', botoes);
+        $('#bt-excluir').onclick = async () => {
+            if (!confirm('Excluir "' + a.nome + '"' + (fonte === 'publica' ? ' do Arsenal público' : '') + '?')) return;
+            try { await A.excluir(a, fonte); location.href = 'contents/arsenal/arsenal_menu.html'; }
+            catch (e) { alert('Não consegui excluir: ' + e.message); }
+        };
+
+        // Levar para a ficha: vira um item de inventário com a tag Artefato
+        const chars = WNJ.listar();
+        if (chars.length) {
+            $('#levar').hidden = false;
+            $('#levar-char').innerHTML = chars.map(c => '<option value="' + esc(c.id) + '">' + esc([c.nome, c.sobrenome].filter(Boolean).join(' ') || 'Sem nome') + '</option>').join('');
+            $('#bt-levar').onclick = async () => {
+                const c = WNJ.obter($('#levar-char').value);
+                if (!c) return;
+                c.inventario = c.inventario || [];
+                c.inventario.push({ nome: a.nome, tag: 'artefato', qtd: 1, descHTML: A.descricaoInventario(a), equipado: false });
+                if (await WNJ.salvar(c) === false) { $('#levar-estado').textContent = 'Não consegui gravar a ficha neste navegador.'; return; }
+                const e = $('#levar-estado'); e.className = 'ok';
+                e.innerHTML = 'Adicionado ao inventário de ' + esc(c.nome || 'personagem') + '. <a href="ficha.html?id=' + encodeURIComponent(c.id) + '">Abrir ficha</a>';
+            };
+        }
+    })();
+    </script>
+</body>
+</html>

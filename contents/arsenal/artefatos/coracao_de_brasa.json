@@ -1,0 +1,100 @@
+{
+  "id": "coracao_de_brasa",
+  "nome": "Coração de Brasa",
+  "img": null,
+  "raridade": "lendario",
+  "conectividade": "conectivo",
+  "base": "Katana",
+  "tipoDano": "Cortante / Perfurante",
+  "atributo": "corpo",
+  "dado": 11,
+  "lore": "Forjada para o primogênito da Casa Ardenne no inverno em que o vulcão de Soryn acordou. O ferreiro temperou a lâmina na própria lava e morreu dizendo que ela ainda estava quente.\n\nPassou por sete herdeiros. Nenhum deles conseguiu embainhá-la fria.",
+  "linhaConexao": "A chama da lâmina bebe do núcleo do portador: quanto mais ele luta, mais fundo ela queima.",
+  "troca": "",
+  "condicao": "",
+  "requisitos": {
+    "rank": "",
+    "atributos": [
+      {
+        "atr": "corpo",
+        "min": 3
+      }
+    ],
+    "raca": "",
+    "classe": "",
+    "magia": "",
+    "outro": "Coragem: quem estiver Apavorado não consegue empunhá-la"
+  },
+  "efeitos": [
+    {
+      "tipo": "base",
+      "tamanho": "pequeno",
+      "nome": "Fogo Vivo",
+      "custo": "",
+      "texto": "Todos os ataques com a katana causam **+1d6 de dano de Fogo**.",
+      "nucleo": false
+    },
+    {
+      "tipo": "atributo",
+      "tamanho": "pequeno",
+      "nome": "Sangue Quente",
+      "custo": "",
+      "texto": "**+2 Técnica** e **+1 Mana** enquanto estiver sintonizada.",
+      "nucleo": true
+    },
+    {
+      "tipo": "caracteristica",
+      "tamanho": "pequeno",
+      "nome": "Bainha que Não Esfria",
+      "custo": "",
+      "texto": "A bainha nunca esfria. O portador recebe resistência a ser Apavorado enquanto a empunha.",
+      "nucleo": false
+    }
+  ],
+  "ataques": [
+    {
+      "nome": "Corte Flamejante",
+      "atr": "corpo",
+      "dado": 11,
+      "custo": "",
+      "efeito": "Crítico aplica Sangramento e **+1d6 de Fogo** extra."
+    },
+    {
+      "nome": "Estocada de Brasa",
+      "atr": "tecnica",
+      "dado": 11,
+      "custo": "1 Magícula",
+      "efeito": "Atravessa o alvo e acerta quem estiver logo atrás dele com metade do dano."
+    }
+  ],
+  "estrelas": [
+    {
+      "tipo": 1,
+      "texto": "**+1 de acerto** em todos os ataques com a katana.",
+      "rank": ""
+    },
+    {
+      "tipo": 4,
+      "texto": "**Explosão de Brasa** — 3 Magículas, ação bônus: o próximo acerto explode num cone de 3m, causando metade do dano aos outros alvos.",
+      "rank": ""
+    },
+    {
+      "tipo": 2,
+      "texto": "O Fogo Vivo sobe para **+1d8**.",
+      "rank": ""
+    },
+    {
+      "tipo": 6,
+      "texto": "**+2 Corpo** ou **+2 Mana**, escolhido quando a estrela é alcançada.",
+      "rank": ""
+    },
+    {
+      "tipo": 4,
+      "texto": "**Inferno Pessoal** — 8 Magículas, ação completa, 1 vez por Retiro: o portador vira chama por ER rodadas. Todo ataque dele aplica Queimadura e ataques corpo a corpo contra ele sofrem ERd6 de Fogo.",
+      "rank": ""
+    }
+  ],
+  "publica": true,
+  "autor": "Lokeser",
+  "atualizado": "2026-11-02T12:00:00.000Z"
+}

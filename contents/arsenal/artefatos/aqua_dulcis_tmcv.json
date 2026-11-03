@@ -1,0 +1,72 @@
+{
+  "id": "aqua_dulcis_tmcv",
+  "nome": "Aqua Dulcis",
+  "img": "contents/arsenal/artefatos/img/aqua_dulcis_tmcv.png",
+  "raridade": "raro",
+  "conectividade": "inconectivo",
+  "base": "Cabaça",
+  "tipoDano": "Nenhum",
+  "atributo": "mana",
+  "dado": 0,
+  "lore": "Feito com a madeira da Grande Árvore, Aqua Dulcis é uma cabaça que infunde a mana diretamente no líquido armazenado por ela. Sua madeira é capaz de fazer com que, quem beber do líquido deste artefato receba os poderes da Grande Árvore temporariamente.",
+  "linhaConexao": "",
+  "troca": "",
+  "condicao": "",
+  "requisitos": {
+    "rank": "10",
+    "atributos": [],
+    "raca": "",
+    "classe": "",
+    "magia": "",
+    "outro": ""
+  },
+  "efeitos": [
+    {
+      "tipo": "condicional",
+      "tamanho": "pequeno",
+      "nome": "Armazenar Líquido",
+      "custo": "2 Magícula",
+      "texto": "Pode armazenar até 500ml de Líquido. Este Líquido mantém suas propriedades no momento em que foi armazenado. Todo 3R, o usuário pode consumir o custo desta habilidade para manter o líquido com suas características. Alternativamente, durante o 3R, pode consumir o dobro de magículas padrão para resfriar ou esquentar o líquido em 10°C.",
+      "nucleo": false
+    },
+    {
+      "tipo": "condicional",
+      "tamanho": "pequeno",
+      "nome": "Bebida da Grande Árvore",
+      "custo": "",
+      "texto": "Consumir o líquido presente no objeto concede ao portador os efeitos originais do líquido no momento em que foi armazenado. Além disso, ao consumir 250ml do líquido, você recebe a Condição Especial: Frescor da Grande Árvore até o próximo 3R.\nFrescor da Grande Árvore: Recebe Resistência I contra Dano de Vento, Fogo e Terra.",
+      "nucleo": false
+    }
+  ],
+  "ataques": [],
+  "estrelas": [
+    {
+      "tipo": 3,
+      "texto": "",
+      "rank": ""
+    },
+    {
+      "tipo": 2,
+      "texto": "",
+      "rank": ""
+    },
+    {
+      "tipo": 6,
+      "texto": "",
+      "rank": ""
+    },
+    {
+      "tipo": 4,
+      "texto": "",
+      "rank": ""
+    },
+    {
+      "tipo": 5,
+      "texto": "",
+      "rank": ""
+    }
+  ],
+  "publica": true,
+  "atualizado": "2026-11-03T02:34:10.295Z",
+  "autor": "Lokeser"
+}

@@ -10,6 +10,17 @@
       "resumo": "Forjada para o primogênito da Casa Ardenne no inverno em que o vulcão de Soryn acordou. O ferreiro temperou a lâmina na própria lava e morreu dizendo que ela ai",
       "autor": "Lokeser",
       "atualizado": "2026-11-02T12:00:00.000Z"
+    },
+    {
+      "id": "aqua_dulcis_tmcv",
+      "nome": "Aqua Dulcis",
+      "raridade": "raro",
+      "conectividade": "inconectivo",
+      "base": "Cabaça",
+      "img": "contents/arsenal/artefatos/img/aqua_dulcis_tmcv.png",
+      "resumo": "Feito com a madeira da Grande Árvore, Aqua Dulcis é uma cabaça que infunde a mana diretamente no líquido armazenado por ela. Sua madeira é capaz de fazer com qu",
+      "autor": "Lokeser",
+      "atualizado": "2026-11-03T02:34:10.295Z"
     }
   ]
 }

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forjar artefato — Luxsandoria</title>
+    <script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/),v=m?decodeURIComponent(m[1]):'';if(v==='blue')v='light';if(v==='dark'||v==='light')document.documentElement.setAttribute('data-theme',v);})();</script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bestiario.css">
+    <link rel="stylesheet" href="css/arsenal.css">
+    <style>
+        body { background: var(--bg); background-image: var(--veil); color: var(--text); font-family: var(--font-ui); }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="cc ar" id="ar">
+        <div class="cc-topo">
+            <h1 id="titulo">Forjar artefato</h1>
+            <a class="btn btn--ghost" href="viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md">Regras de artefatos</a>
+            <a class="btn btn--secondary" href="contents/arsenal/arsenal_menu.html">Voltar ao Arsenal</a>
+        </div>
+
+        <div class="cc-corpo">
+            <form class="cc-form" id="form" novalidate>
+                <!-- RARIDADE -->
+                <section class="cc-sec">
+                    <h2>Raridade</h2>
+                    <p class="ajuda">A raridade define quanto poder o artefato carrega. Lendário, Mítico e Fábula são sempre Conectivos.</p>
+                    <div class="ar-escada" id="escada" role="group" aria-label="Raridade"></div>
+                </section>
+
+                <!-- IDENTIDADE -->
+                <section class="cc-sec">
+                    <h2>Identidade</h2>
+                    <label>Nome<input type="text" data-c="nome" maxlength="80" required placeholder="Ex.: Coração de Brasa"></label>
+                    <div class="campo">Imagem
+                        <div class="cc-img"><img id="img-previa" alt="" hidden>
+                            <input type="file" id="img-arquivo" accept="image/*" aria-label="Escolher imagem">
+                            <button type="button" class="btn btn--ghost" id="img-remover" hidden>Remover</button></div>
+                    </div>
+                    <div class="cc-linha">
+                        <label>Arma-base<select id="base"></select></label>
+                        <label id="base-outra-rot" hidden>Qual?<input type="text" id="base-outra" maxlength="40" placeholder="Ex.: Leque de guerra"></label>
+                    </div>
+                    <div class="cc-linha">
+                        <label>Tipo de dano<input type="text" data-c="tipoDano" maxlength="40" placeholder="Cortante"></label>
+                        <label>Atributo<select data-c="atributo" id="atributo"></select></label>
+                        <label>Dado da arma<select data-c="dado" data-num id="dado"></select></label>
+                    </div>
+                    <label>Lore<textarea data-c="lore" placeholder="Quem forjou, a quem pertenceu, por que importa. A primeira linha vira o resumo no Arsenal."></textarea></label>
+                </section>
+
+                <!-- CONECTIVIDADE -->
+                <section class="cc-sec">
+                    <h2>Conectividade</h2>
+                    <div class="cc-opcoes" role="radiogroup" aria-label="Conectividade">
+                        <label id="rot-conectivo"><input type="radio" name="conectividade" value="conectivo" data-c="conectividade"> Conectivo</label>
+                        <label id="rot-inconectivo"><input type="radio" name="conectividade" value="inconectivo" data-c="conectividade"> Inconectivo</label>
+                    </div>
+                    <p class="ajuda" id="ajuda-con"></p>
+                    <label>Como ele se liga (ou não) ao portador<input type="text" data-c="linhaConexao" maxlength="220" placeholder="Ex.: A lâmina vibra no ritmo do núcleo e guarda a energia de cada corte."></label>
+                </section>
+
+                <!-- REQUISITOS -->
+                <section class="cc-sec">
+                    <h2>Requisitos para usar</h2>
+                    <p class="ajuda">Deixe em branco o que não restringe.</p>
+                    <div class="cc-linha">
+                        <label>Rank mínimo<select data-q="rank" id="req-rank"></select></label>
+                        <label>Raça<select data-q="raca" id="req-raca"></select></label>
+                        <label>Classe<select data-q="classe" id="req-classe"></select></label>
+                        <label>Magia<select data-q="magia" id="req-magia"></select></label>
+                    </div>
+                    <div id="lista-reqatr" class="cc-form"></div>
+                    <div class="cc-acoes"><button type="button" class="btn btn--secondary" data-add="reqatr">+ Atributo mínimo</button></div>
+                    <label>Outro requisito<input type="text" data-q="outro" maxlength="160" placeholder="Ex.: sangue da Casa Valmont, ter derrotado um dragão"></label>
+                </section>
+
+                <!-- EFEITOS -->
+                <section class="cc-sec">
+                    <h2 id="t-efeitos">Efeitos</h2>
+                    <p class="ajuda" id="ajuda-efeitos"></p>
+                    <div class="cc-acoes" id="add-efeitos"></div>
+                    <div id="lista-efeitos" class="cc-form"></div>
+                    <label id="rot-troca">Troca equivalente<textarea data-c="troca" placeholder="Passou do orçamento? Diga o que foi trocado. Ex.: troquei +1 de acerto por +1d4 de fogo, que pesa o mesmo."></textarea></label>
+                    <label id="rot-condicao" hidden>Condição de uso<textarea data-c="condicao" placeholder="Ex.: só responde enquanto o portador acredita na própria missão."></textarea></label>
+                </section>
+
+                <!-- ESTRELAS -->
+                <section class="cc-sec" id="sec-estrelas" hidden>
+                    <h2>Evolução por estrelas</h2>
+                    <p class="ajuda" id="ajuda-estrelas"></p>
+                    <div id="lista-estrelas" class="cc-form"></div>
+                    <div class="cc-acoes" id="add-estrela"><button type="button" class="btn btn--secondary" data-add="estrelas">+ Estrela</button></div>
+                </section>
+
+                <!-- ATAQUES -->
+                <section class="cc-sec">
+                    <h2>Ataques</h2>
+                    <p class="ajuda">Acerto DR + Atributo; dano ERdX + Atributo, como nas armas comuns.</p>
+                    <div id="lista-ataques" class="cc-form"></div>
+                    <div class="cc-acoes"><button type="button" class="btn btn--secondary" data-add="ataques">+ Ataque</button></div>
+                </section>
+
+                <div class="cc-salvar">
+                    <div class="cc-opcoes" role="radiogroup" aria-label="Visibilidade">
+                        <label><input type="radio" name="vis" value="privada" checked> Privado</label>
+                        <label id="vis-publica-rot"><input type="radio" name="vis" value="publica"> Público</label>
+                    </div>
+                    <button type="submit" class="btn btn--special" id="bt-salvar">Salvar artefato</button>
+                    <span class="estado" id="estado" role="status"></span>
+                </div>
+            </form>
+
+            <aside class="cc-previa" aria-label="Orçamento e prévia">
+                <div class="ar-orc" id="orc" aria-live="polite"></div>
+                <p class="rot" style="margin-top:var(--sp-4)">Prévia</p>
+                <div id="previa"></div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="js/menu.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/bestiario.js"></script>
+    <script src="js/arsenal.js"></script>
+    <script>
+    (async function () {
+        const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+        const A = WNJArsenal, B = WNJBest, esc = B.esc;
+        await WNJ.pronto();
+
+        const params = new URLSearchParams(location.search);
+        const fonteOriginal = params.get('fonte') || 'privada';
+        let sujo = false;
+        let a = A.novo();
+        if (params.get('id')) {
+            const lido = await A.ler(params.get('id'), fonteOriginal);
+            if (lido) { a = Object.assign(A.novo(), lido); $('#titulo').textContent = 'Editar artefato'; document.title = 'Editar ' + a.nome + ' — Luxsandoria'; }
+            else $('#estado').textContent = 'Artefato não encontrado. Começando um novo.';
+        }
+        A.normalizar(a);
+
+        // ---------- opções fixas ----------
+        $('#escada').innerHTML = A.RARIDADES.map((r, i) =>
+            '<button type="button" class="ar-placa" data-r="' + r.id + '" style="--c:' + r.cor + ';--n:' + i + '" aria-pressed="false">' +
+            '<b>' + r.nome + '</b><small>' + esc(r.resumo) + '</small></button>').join('');
+        $('#atributo').innerHTML = B.ATRS.map(x => '<option value="' + x.id + '">' + x.nome + '</option>').join('');
+        const DADOS = [0, 4, 6, 7, 8, 10, 11, 12, 14];
+        $('#dado').innerHTML = DADOS.map(n => '<option value="' + n + '">' + (n ? 'd' + n : 'Sem dado') + '</option>').join('');
+        $('#req-rank').innerHTML = '<option value="">Qualquer</option>' + Object.keys(B.RANKS).map(Number).sort((x, y) => y - x)
+            .map(r => '<option value="' + r + '">Rank ' + r + ' ' + B.RANKS[r] + '</option>').join('');
+        const cfg = await WNJ.config();
+        const opcoes = (lista) => '<option value="">Qualquer</option>' + [...new Set(lista.map(x => x.nome))].map(n => '<option>' + esc(n) + '</option>').join('');
+        $('#req-raca').innerHTML = opcoes(cfg.racas || []);
+        $('#req-classe').innerHTML = opcoes([].concat(cfg.classes_iniciais || [], cfg.classes_avancadas || [], cfg.classes_absolutas || []));
+        $('#req-magia').innerHTML = opcoes(cfg.magias || []);
+
+        function montarBases() {
+            const fab = a.raridade === 'fabula';
+            const grupos = fab ? [{ grupo: 'Formas divinas', itens: A.BASES_FABULA }] : A.BASES;
+            const conhecida = grupos.some(g => g.itens.some(b => b[0] === a.base));
+            $('#base').innerHTML = grupos.map(g => '<optgroup label="' + esc(g.grupo) + '">' +
+                g.itens.map(b => '<option' + (b[0] === a.base ? ' selected' : '') + '>' + esc(b[0]) + '</option>').join('') + '</optgroup>').join('') +
+                (fab ? '' : '<option value="__outra"' + (conhecida ? '' : ' selected') + '>Outra…</option>');
+            $('#base-outra-rot').hidden = fab || conhecida;
+            if (!conhecida && !fab) $('#base-outra').value = a.base || '';
+        }
+
+        function preencher() {
+            $$('[data-c]').forEach(el => {
+                const v = a[el.dataset.c];
+                if (el.type === 'radio') el.checked = String(v) === el.value;
+                else el.value = v == null ? '' : v;
+            });
+            $$('[data-q]').forEach(el => { el.value = a.requisitos[el.dataset.q] || ''; });
+        }
+
+        // ---------- listas ----------
+        const lista = (nome) => nome === 'reqatr' ? a.requisitos.atributos : a[nome];
+        const ATR_OPTS = (sel) => B.ATRS.map(x => '<option value="' + x.id + '"' + (x.id === sel ? ' selected' : '') + '>' + x.nome + '</option>').join('');
+        const campo = (l, i, k, v, extra) => 'data-l="' + l + '" data-i="' + i + '" data-k="' + k + '"' + (extra || '') + ' value="' + esc(v == null ? '' : v) + '"';
+        const x = (l, i, rot) => '<button type="button" class="cc-x" data-rm="' + l + '" data-i="' + i + '" aria-label="Remover ' + rot + '" title="Remover">✕</button>';
+
+        function renderListas() {
+            const r = A.RAR[a.raridade];
+            const permitidos = A.EFEITOS_POR_RARIDADE[a.raridade].filter(t => t !== 'modulo' || a.conectividade === 'conectivo');
+            $('#add-efeitos').innerHTML = permitidos.map(t => '<button type="button" class="btn btn--secondary" data-add-ef="' + t + '" title="' + esc(A.EFEITOS[t].ajuda) + '">+ ' + A.EFEITOS[t].nome + '</button>').join('');
+            $('#lista-efeitos').innerHTML = a.efeitos.map((e, i) => {
+                const d = A.EFEITOS[e.tipo] || {};
+                const tipos = A.EFEITOS_POR_RARIDADE[a.raridade].concat(permitidos.includes(e.tipo) ? [] : [e.tipo]);
+                return '<div class="cc-item"><div class="cc-item-topo">' +
+                    '<label>Tipo<select data-l="efeitos" data-i="' + i + '" data-k="tipo">' + [...new Set(tipos)].map(t => '<option value="' + t + '"' + (t === e.tipo ? ' selected' : '') + '>' + (A.EFEITOS[t] || { nome: t }).nome + '</option>').join('') + '</select></label>' +
+                    '<label>Nome<input type="text" ' + campo('efeitos', i, 'nome', e.nome) + ' placeholder="Opcional"></label>' + x('efeitos', i, 'efeito') + '</div>' +
+                    '<p class="ar-ajuda-ef">' + esc(d.ajuda || '') + '</p>' +
+                    '<div class="cc-linha">' +
+                    (d.peso != null && !d.fixo ? '<label>Tamanho<select data-l="efeitos" data-i="' + i + '" data-k="tamanho"><option value="pequeno"' + (e.tamanho !== 'medio' ? ' selected' : '') + '>Pequeno (1 ponto)</option><option value="medio"' + (e.tamanho === 'medio' ? ' selected' : '') + '>Médio (2 pontos)</option></select></label>' : '') +
+                    '<label>Custo ou usos<input type="text" ' + campo('efeitos', i, 'custo', e.custo) + ' placeholder="Ex.: 2 Magículas, 1×/encontro"></label></div>' +
+                    '<label>Efeito<textarea data-l="efeitos" data-i="' + i + '" data-k="texto">' + esc(e.texto || '') + '</textarea></label>' +
+                    (d.nucleo ? '' : '<label class="ar-check"><input type="checkbox" data-l="efeitos" data-i="' + i + '" data-k="nucleo"' + (e.nucleo ? ' checked' : '') + '> Usa o núcleo do portador (atributos dele, cargas ou efeito nele)</label>') +
+                    '</div>';
+            }).join('') || '<p class="ajuda">Nenhum efeito ainda. Use os botões acima.</p>';
+
+            $('#lista-ataques').innerHTML = a.ataques.map((t, i) =>
+                '<div class="cc-item"><div class="cc-item-topo"><label>Nome<input type="text" ' + campo('ataques', i, 'nome', t.nome) + '></label>' + x('ataques', i, 'ataque') + '</div>' +
+                '<div class="cc-linha"><label>Atributo<select data-l="ataques" data-i="' + i + '" data-k="atr">' + ATR_OPTS(t.atr) + '</select></label>' +
+                '<label>Dado<select data-l="ataques" data-i="' + i + '" data-k="dado" data-num>' + DADOS.map(n => '<option value="' + n + '"' + (n === +t.dado ? ' selected' : '') + '>' + (n ? 'd' + n : 'Sem dano') + '</option>').join('') + '</select></label>' +
+                '<label>Custo<input type="text" ' + campo('ataques', i, 'custo', t.custo) + ' placeholder="Ex.: 1 Magícula"></label></div>' +
+                '<label>Efeito<textarea data-l="ataques" data-i="' + i + '" data-k="efeito">' + esc(t.efeito || '') + '</textarea></label></div>').join('');
+
+            $('#lista-reqatr').innerHTML = a.requisitos.atributos.map((q, i) =>
+                '<div class="cc-item-topo"><label>Atributo<select data-l="reqatr" data-i="' + i + '" data-k="atr">' + ATR_OPTS(q.atr) + '</select></label>' +
+                '<label>Mínimo<input type="number" min="-3" max="20" ' + campo('reqatr', i, 'min', q.min, ' data-num inputmode="numeric"') + '></label>' + x('reqatr', i, 'requisito') + '</div>').join('');
+
+            $('#sec-estrelas').hidden = !r.estrelas;
+            $('#add-estrela').hidden = !r.alem;
+            $('#ajuda-estrelas').textContent = r.alem
+                ? 'Cada estrela soma cerca de 50% ao que o artefato já tem. Depois da 5ª, cada uma exige um Rank mínimo do portador.'
+                : 'Cada estrela soma cerca de 50% ao que o artefato já tem. A 5ª é o ápice do conceito.';
+            $('#lista-estrelas').innerHTML = a.estrelas.map((s, i) =>
+                '<div class="cc-item' + (i === 4 ? ' apice' : '') + '"><div class="cc-item-topo"><span class="ar-est-num">' + '★'.repeat(i + 1) + (i === 4 ? ' ápice' : '') + '</span>' +
+                (i >= 5 ? x('estrelas', i, 'estrela') : '') + '</div>' +
+                '<div class="cc-linha"><label>Aumento<select data-l="estrelas" data-i="' + i + '" data-k="tipo" data-num>' + A.TIPOS_ESTRELA.map(([n, t]) => '<option value="' + n + '"' + (n === +s.tipo ? ' selected' : '') + '>' + t + '</option>').join('') + '</select></label>' +
+                (i >= 5 ? '<label>Rank mínimo<select data-l="estrelas" data-i="' + i + '" data-k="rank" data-num>' + [6, 5, 4, 3].map(n => '<option value="' + n + '"' + (n === +s.rank ? ' selected' : '') + '>Rank ' + n + '</option>').join('') + '</select></label>' : '') + '</div>' +
+                '<label>Efeito<textarea data-l="estrelas" data-i="' + i + '" data-k="texto">' + esc(s.texto || '') + '</textarea></label></div>').join('');
+        }
+
+        // ---------- cálculo ao vivo ----------
+        function atualizar() {
+            const r = A.RAR[a.raridade];
+            document.getElementById('ar').style.setProperty('--rar', r.cor);
+            $$('.ar-placa').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.r === a.raridade)));
+            const fixo = A.sempreConectivo(a.raridade);
+            const inc = document.querySelector('input[name="conectividade"][value="inconectivo"]');
+            inc.disabled = fixo;
+            $$('input[name="conectividade"]').forEach(el => { el.checked = el.value === a.conectividade; });
+            $('#ajuda-con').textContent = fixo
+                ? r.nome + ' é sempre Conectivo: liga-se ao núcleo do portador e ocupa 1 dos seus slots (limite = ER).'
+                : a.conectividade === 'conectivo'
+                    ? 'Liga-se ao núcleo do portador e ocupa 1 slot (limite = ER). Pode usar os atributos dele, ter cargas e afetá-lo. Ganha um Módulo conectivo pequeno.'
+                    : 'Funciona sozinho: converte qualquer mana em mana pura, e qualquer pessoa usa. Sem limite de quantos carregar.';
+            $('#t-efeitos').textContent = r.divino ? 'Poderes' : r.estrelas ? 'Estado inicial' : 'Efeitos';
+            $('#ajuda-efeitos').textContent = r.divino ? 'Um Poder divino, de 2 a 3 Poderes secundários e uma condição de uso. Fábulas não evoluem por estrelas.'
+                : r.estrelas ? 'O estado inicial é cerca de metade do artefato: um Poder base, um Bônus de atributo (+1 a +3) e um Traço único.'
+                : 'Orçamento: ' + r.resumo + '. Modificador pequeno vale 1 ponto, médio vale 2, Mudança de jogo vale 2.';
+            $('#rot-troca').hidden = !r.pontos;
+            $('#rot-condicao').hidden = !r.divino;
+
+            const o = A.orcamento(a);
+            $('#orc').innerHTML = '<div class="ar-engastes">' + o.slots.map(s =>
+                '<span class="ar-gema' + (s.cheio ? ' cheio' : '') + (s.base ? ' base' : '') + (s.modulo ? ' modulo' : '') + (s.excesso ? ' excesso' : '') + (s.estrela ? ' estrela' : '') + '">' +
+                '<i aria-hidden="true">' + (s.estrela ? '★' : '') + '</i>' + esc(s.rot) + '</span>').join('') + '</div>' +
+                '<ul class="ar-checks">' + o.checks.map(c => '<li class="' + c.nivel + '">' + esc(c.txt) + '</li>').join('') + '</ul>';
+            $('#previa').innerHTML = A.ficha(a);
+        }
+
+        // ---------- eventos ----------
+        const form = $('#form');
+        const num = (v) => v === '' ? '' : +v;
+        form.addEventListener('input', (e) => {
+            const el = e.target;
+            if (el.type === 'radio' || el.type === 'checkbox' || el.tagName === 'SELECT') return;   // tratados no change
+            if (el.dataset.c) a[el.dataset.c] = el.dataset.num != null ? num(el.value) : el.value;
+            else if (el.dataset.q) a.requisitos[el.dataset.q] = el.value;
+            else if (el.dataset.l) lista(el.dataset.l)[+el.dataset.i][el.dataset.k] = el.dataset.num != null ? num(el.value) : el.value;
+            else if (el.id === 'base-outra') a.base = el.value.trim();
+            else return;
+            sujo = true; atualizar();
+        });
+        form.addEventListener('change', (e) => {
+            const el = e.target;
+            let reListar = false;
+            if (el.id === 'base') {
+                const outra = el.value === '__outra';
+                $('#base-outra-rot').hidden = !outra;
+                if (outra) { a.base = $('#base-outra').value.trim(); $('#base-outra').focus(); }
+                else {
+                    a.base = el.value;
+                    const d = A.dadosBase(a.base);
+                    if (d) { Object.assign(a, d); preencher(); }
+                }
+            }
+            else if (el.dataset.c && (el.type === 'radio' || el.tagName === 'SELECT')) { a[el.dataset.c] = el.dataset.num != null ? num(el.value) : el.value; reListar = el.dataset.c === 'conectividade'; }
+            else if (el.dataset.q) a.requisitos[el.dataset.q] = el.dataset.num != null ? num(el.value) : el.value;
+            else if (el.dataset.l) {
+                const item = lista(el.dataset.l)[+el.dataset.i];
+                item[el.dataset.k] = el.type === 'checkbox' ? el.checked : el.dataset.num != null ? num(el.value) : el.value;
+                reListar = el.dataset.k === 'tipo' && el.dataset.l === 'efeitos';
+            }
+            else return;
+            sujo = true;
+            if (reListar) renderListas();
+            atualizar();
+        });
+        form.addEventListener('click', (e) => {
+            const b = e.target.closest('button'); if (!b) return;
+            if (b.classList.contains('ar-placa')) {
+                a.raridade = b.dataset.r;
+                if (a.raridade === 'fabula' && !A.BASES_FABULA.some(x => x[0] === a.base)) { a.base = A.BASES_FABULA[0][0]; Object.assign(a, A.dadosBase(a.base)); }
+                A.normalizar(a); montarBases(); preencher();
+            }
+            else if (b.dataset.addEf) a.efeitos.push({ tipo: b.dataset.addEf, tamanho: 'pequeno', nome: '', custo: '', texto: '', nucleo: false });
+            else if (b.dataset.add === 'ataques') a.ataques.push({ nome: 'Ataque', atr: a.atributo, dado: a.dado, custo: '', efeito: '' });
+            else if (b.dataset.add === 'reqatr') a.requisitos.atributos.push({ atr: a.atributo, min: 3 });
+            else if (b.dataset.add === 'estrelas') a.estrelas.push({ tipo: 4, texto: '', rank: A.rankSugerido(a.estrelas.length + 1) });
+            else if (b.dataset.rm) lista(b.dataset.rm).splice(+b.dataset.i, 1);
+            else return;
+            sujo = true; renderListas(); atualizar();
+        });
+
+        // ---------- imagem (mesma regra do Bestiário) ----------
+        function mostrarImg() {
+            const i = $('#img-previa');
+            i.hidden = !a.img; $('#img-remover').hidden = !a.img;
+            if (a.img) i.src = B.imgSrc(a);
+        }
+        $('#img-arquivo').onchange = (e) => {
+            const file = e.target.files[0]; if (!file) return;
+            const img = new Image();
+            img.onload = () => {
+                const MAX = 1600;
+                if (Math.max(img.width, img.height) <= MAX && file.size <= 2 * 1024 * 1024) {
+                    const fr = new FileReader(); fr.onload = () => { a.img = fr.result; sujo = true; mostrarImg(); atualizar(); }; fr.readAsDataURL(file); return;
+                }
+                const k = MAX / Math.max(img.width, img.height), cv = document.createElement('canvas');
+                cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k);
+                const cx = cv.getContext('2d'); cx.imageSmoothingQuality = 'high'; cx.drawImage(img, 0, 0, cv.width, cv.height);
+                const w = cv.toDataURL('image/webp', 0.92);
+                a.img = w.startsWith('data:image/webp') ? w : cv.toDataURL('image/jpeg', 0.92);
+                sujo = true; mostrarImg(); atualizar();
+            };
+            img.src = URL.createObjectURL(file);
+        };
+        $('#img-remover').onclick = () => { a.img = null; $('#img-arquivo').value = ''; sujo = true; mostrarImg(); atualizar(); };
+
+        // ---------- visibilidade e salvar ----------
+        function atualizarPublicar() {
+            const pode = A.podePublicar();
+            const r = document.querySelector('input[name="vis"][value="publica"]');
+            r.disabled = !pode;
+            $('#vis-publica-rot').title = pode ? 'Publica no Arsenal para todos' : 'Entre com o GitHub (com permissão de edição) para publicar';
+            if (!pode && r.checked) document.querySelector('input[name="vis"][value="privada"]').checked = true;
+            if (!pode && !$('#estado').textContent) $('#estado').textContent = 'Para publicar no Arsenal, entre com o GitHub como editor.';
+        }
+        atualizarPublicar();
+        document.addEventListener('wnj-auth', atualizarPublicar);
+        if (a.publica) { const r = document.querySelector('input[name="vis"][value="publica"]'); if (!r.disabled) r.checked = true; }
+
+        window.addEventListener('beforeunload', (e) => { if (sujo) { e.preventDefault(); e.returnValue = ''; } });
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!String(a.nome || '').trim()) { $('#estado').className = 'estado erro'; $('#estado').textContent = 'Dê um nome ao artefato.'; $('[data-c="nome"]').focus(); return; }
+            const o = A.orcamento(a);
+            if (o.erros && !confirm('O orçamento tem ' + o.erros + ' problema(s) apontado(s) ao lado. Salvar mesmo assim?')) return;
+            const vis = document.querySelector('input[name="vis"]:checked').value;
+            const bt = $('#bt-salvar'); bt.disabled = true;
+            $('#estado').className = 'estado'; $('#estado').textContent = vis === 'publica' ? 'Publicando no Arsenal…' : 'Salvando…';
+            try {
+                let salvo;
+                if (vis === 'publica') salvo = await A.publicar(a);
+                else {
+                    if (fonteOriginal === 'publica') a = Object.assign({}, a, { id: '' });   // cópia privada de um artefato público
+                    salvo = await A.salvarPrivado(a);
+                }
+                sujo = false;
+                location.href = 'artefato.html?id=' + encodeURIComponent(salvo.id) + '&fonte=' + vis;
+            } catch (err) {
+                $('#estado').className = 'estado erro'; $('#estado').textContent = 'Não salvei: ' + err.message;
+                bt.disabled = false;
+            }
+        });
+
+        montarBases(); preencher(); mostrarImg(); renderListas(); atualizar();
+    })();
+    </script>
+</body>
+</html>

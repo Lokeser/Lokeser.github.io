@@ -1,0 +1,46 @@
+{
+  "id": "fluvio_capila_wqtw",
+  "nome": "Fluvio Capila",
+  "img": "contents/arsenal/artefatos/img/fluvio_capila_wqtw.png",
+  "raridade": "raro",
+  "conectividade": "inconectivo",
+  "base": "Pente",
+  "tipoDano": "Nenhum",
+  "atributo": "tecnica",
+  "dado": 0,
+  "lore": "Um dos artefatos do abismo",
+  "linhaConexao": "",
+  "troca": "",
+  "condicao": "",
+  "requisitos": {
+    "rank": "10",
+    "atributos": [],
+    "raca": "",
+    "classe": "",
+    "magia": "",
+    "outro": ""
+  },
+  "efeitos": [
+    {
+      "tipo": "condicional",
+      "tamanho": "pequeno",
+      "nome": "Capilaria Fluvial",
+      "custo": "1 Magícula",
+      "texto": "Como uma ação, pode pentear o cabelo/pelo/pelugem de uma pessoa com este pente, se o fizer, seus pelos se tornam sedosos e macios, como se tivessem recebido tratamento completo ",
+      "nucleo": false
+    },
+    {
+      "tipo": "condicional",
+      "tamanho": "pequeno",
+      "nome": "Capilaria Coloria",
+      "custo": "2 Magículas, 1/Recanto",
+      "texto": "Pode alizar suavemente o cabelo de uma pessoa e assim, mudar sua cor para qualquer cor, este efeito dura permanentemente até você trocar sua cor novamente.",
+      "nucleo": false
+    }
+  ],
+  "ataques": [],
+  "estrelas": [],
+  "publica": true,
+  "atualizado": "2026-11-07T02:30:12.531Z",
+  "autor": "Lokeser"
+}

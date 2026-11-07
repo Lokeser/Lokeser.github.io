@@ -21,6 +21,17 @@
       "resumo": "Feito com a madeira da Grande Árvore, Aqua Dulcis é uma cabaça que infunde a mana diretamente no líquido armazenado por ela. Sua madeira é capaz de fazer com qu",
       "autor": "Lokeser",
       "atualizado": "2026-11-03T02:35:14.341Z"
+    },
+    {
+      "id": "fluvio_capila_wqtw",
+      "nome": "Fluvio Capila",
+      "raridade": "raro",
+      "conectividade": "inconectivo",
+      "base": "Pente",
+      "img": "contents/arsenal/artefatos/img/fluvio_capila_wqtw.png",
+      "resumo": "Um dos artefatos do abismo",
+      "autor": "Lokeser",
+      "atualizado": "2026-11-07T02:30:12.531Z"
     }
   ]
 }

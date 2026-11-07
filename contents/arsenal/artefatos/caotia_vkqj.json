@@ -4,8 +4,8 @@
   "img": "contents/arsenal/artefatos/img/caotia_vkqj.png",
   "raridade": "mitico",
   "conectividade": "conectivo",
-  "base": "Espada Longa",
-  "tipoDano": "Anômalo",
+  "base": "Orbe",
+  "tipoDano": "Mágico",
   "atributo": "mana",
   "dado": 6,
   "lore": "Um misterioso artefato anão capaz de sentir o fluxo do caos e interpreta-lo, e através disso ele realiza pequen&#@fnh*(#h(&f$@hg*)j@)$#rj@#*)hrf*(hjf*(#@hf(h#H93H493G",
@@ -75,6 +75,6 @@
     }
   ],
   "publica": true,
-  "atualizado": "2026-11-07T02:53:05.177Z",
+  "atualizado": "2026-11-07T02:53:32.123Z",
   "autor": "Lokeser"
 }
